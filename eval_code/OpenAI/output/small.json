@@ -1,0 +1,22 @@
+[
+    {
+        "ground_truth": "\n                vprint(f\"{prefix}      {lineno}: {action_name} Constrain Mouse: {'yes' if constraint > 0 else ('no' if constraint == 0 else 'check stack')}\")\n            <DED>elif opcode == AP2Action.ADD_NUM_REGISTER:\n",
+        "top_predictions": [
+            {
+                "fixed_snippet": "elif opcode == AP2Action.ADD_NUM_REGISTER:\n    action_name = 'Add Num Register'\n    register_name = get_register_name(action.register)\n    value = action.value\n    vprint(f\"{prefix}      {lineno}: {action_name} {register_name} = {value}\")\n    constraint = action.constraint\n    constrained = action.constrained\n    vprint(f\"{prefix}      {lineno}: {action_name} Constrain Mouse: {'yes' if constraint > 0 else ('no' if constrained == 0 else 'check stack')}\")",
+                "fixed": "False"
+            }
+            
+            
+        ]
+    },
+    {
+        "ground_truth": "    # Run some test predictions\n    _, X_test, _, y_test = load_diabetes_dataset()\n    results = mean_squared_error(y_test, model.predict(X_test))\n",
+        "top_predictions": [
+            {
+                "fixed_snippet": "# Run some test predictions\ny_test = ... # Define y_test\nresults = mean_squared_error(y_test, model.predict(X_test))",
+                "fixed": "False"
+	}
+        ]
+        }]
+    },
