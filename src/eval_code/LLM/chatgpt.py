@@ -7,7 +7,7 @@ import random
 import datetime
 
 # Set up OpenAI API credentials
-#openai.api_key = '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'
+#openai.api_key = ''
 model = 'gpt-4'
 
 # Path to the directory containing JSON files
