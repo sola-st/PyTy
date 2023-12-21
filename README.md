@@ -32,7 +32,7 @@ Setup of Docker from the root of the repository:
       docker build -t icse2024 .
   ```
 
-- FAST MODE:
+- FAST MODE (less than 30 minutes):
 
   - Evaluation:
     - RQ1: look at the file `./src/eval_code/CSV/RQ1.csv`, there is the manual labels of the two annotators before their discussion, in the paper Section 6.1.2.
@@ -47,7 +47,7 @@ Setup of Docker from the root of the repository:
     - run from the root: `sudo docker run -v $(pwd)/src/preliminary_study_dataset:/src/preliminary_study_dataset icse2024 python src/PRELIMINARYSTUDY_reproduce.py`
 
 
-- SLOW MODE:
+- SLOW MODE (Several hours depending on hardware):
   - Python Type Fixes Dataset: `unzip Input.zip`.
   - TFix models: Download `data_and_models` from [TFix](https://github.com/eth-sri/TFix).
 
