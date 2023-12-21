@@ -18,4 +18,4 @@ print("\n\n===========================\n\n")
 subprocess.run(["python3", "plot2.py"], cwd='./src/preliminary_study_dataset')
 
 print("\n\n===========================\n\n")
-print("\n\nYou can find all the generated plots and the data collected in ./src/preliminary_study_dataset\n\n")
+print("\n\nYou can find all the generated plots and the data collected in ./src/preliminary_study_dataset. They could have different colours, but same numbers.\n\n")

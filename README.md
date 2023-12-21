@@ -15,7 +15,7 @@ Submission for ICSE 2024 Artifact:
 We also include the dataset we collected, named PyTyDefects. It is available in the folder: src/Input.
 
 ## Setup
-- Hardware: To run the script in "FAST MODE", a normal computer suffices. For "SLOW MODE", we used (and recommend) a 48-core server with 64GB of RAM.
+- Hardware: To run the script in "FAST MODE", a normal computer suffices. For "SLOW MODE", we used (and recommend) a server with 250 GB RAM, 48 Intel Xeon CPU cores with 2.2Ghz and 1 NVIDIA Telta V100 GPU.
 - Software: 
   - Ubuntu OS 
   - Docker
