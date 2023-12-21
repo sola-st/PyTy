@@ -1,0 +1,51 @@
+[
+  {
+    "project": "dahlia/wikidata",
+    "commit": "28b517e561baa39eeda76ebdf9e23d7d65a88b5f",
+    "filename": "wikidata/entity.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dahlia-wikidata/wikidata/entity.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wikidata/entity.py:35:12 Incompatible return type [7]: Expected `Union[typing.Type[typing.Any], MultilingualText]` but got `multilingual_attribute`.",
+    "message": " Expected `Union[typing.Type[typing.Any], MultilingualText]` but got `multilingual_attribute`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 35,
+    "warning_line": "            return self",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import pprint\nfrom typing import (TYPE_CHECKING, Iterator, Mapping, NewType,\n                    Optional, Sequence, Tuple, Union,\n                    cast)\n\n",
+        "source_code_len": 158,
+        "target_code": "import pprint\nfrom typing import (\n    TYPE_CHECKING,\n    Iterator,\n    Mapping,\n    NewType,\n    Optional,\n    Sequence,\n    Tuple,\n    Type,\n    cast,\n    overload,\n)\n\n",
+        "target_code_len": 170,
+        "diff_format": "@@ -8,5 +8,14 @@\n import pprint\n-from typing import (TYPE_CHECKING, Iterator, Mapping, NewType,\n-                    Optional, Sequence, Tuple, Union,\n-                    cast)\n+from typing import (\n+    TYPE_CHECKING,\n+    Iterator,\n+    Mapping,\n+    NewType,\n+    Optional,\n+    Sequence,\n+    Tuple,\n+    Type,\n+    cast,\n+    overload,\n+)\n \n",
+        "source_code_with_indent": "import pprint\nfrom typing import (TYPE_CHECKING, Iterator, Mapping, NewType,\n                    Optional, Sequence, Tuple, Union,\n                    cast)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import pprint\nfrom typing import (\n    TYPE_CHECKING,\n    Iterator,\n    Mapping,\n    NewType,\n    Optional,\n    Sequence,\n    Tuple,\n    Type,\n    cast,\n    overload,\n)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __get__(self,\n                obj: 'Entity',\n                cls=None) -> Union[MultilingualText, type]:\n        if obj is None:\n            return self\n",
+        "source_code_len": 162,
+        "target_code": "\n    @overload\n    def __get__(\n        self,\n        obj: None,\n        cls: Type['Entity'] = ...\n    ) -> 'multilingual_attribute':\n        ...\n\n    @overload\n    def __get__(\n        self,\n        obj: 'Entity',\n        cls: Type['Entity'] = ...\n    ) -> MultilingualText:\n        ...\n\n    def __get__(self, obj, cls=None):\n        if obj is None or isinstance(obj, type):\n            return self\n",
+        "target_code_len": 400,
+        "diff_format": "@@ -30,6 +39,20 @@\n \n-    def __get__(self,\n-                obj: 'Entity',\n-                cls=None) -> Union[MultilingualText, type]:\n-        if obj is None:\n+    @overload\n+    def __get__(\n+        self,\n+        obj: None,\n+        cls: Type['Entity'] = ...\n+    ) -> 'multilingual_attribute':\n+        ...\n+\n+    @overload\n+    def __get__(\n+        self,\n+        obj: 'Entity',\n+        cls: Type['Entity'] = ...\n+    ) -> MultilingualText:\n+        ...\n+\n+    def __get__(self, obj, cls=None):\n+        if obj is None or isinstance(obj, type):\n             return self\n",
+        "source_code_with_indent": "\n    <DED>def __get__(self,\n                obj: 'Entity',\n                cls=None) -> Union[MultilingualText, type]:\n        <IND>if obj is None:\n            <IND>return self\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@overload\n    def __get__(\n        self,\n        obj: None,\n        cls: Type['Entity'] = ...\n    ) -> 'multilingual_attribute':\n        <IND>...\n\n    <DED>@overload\n    def __get__(\n        self,\n        obj: 'Entity',\n        cls: Type['Entity'] = ...\n    ) -> MultilingualText:\n        <IND>...\n\n    <DED>def __get__(self, obj, cls=None):\n        <IND>if obj is None or isinstance(obj, type):\n            <IND>return self\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

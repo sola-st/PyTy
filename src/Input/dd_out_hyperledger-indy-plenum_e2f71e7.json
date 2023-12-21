@@ -1,0 +1,70 @@
+[
+  {
+    "project": "hyperledger/indy-plenum",
+    "commit": "e2f71e7e19c06d4e2bcff309d451a9e9c4fc51e8",
+    "filename": "plenum/client/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hyperledger-indy-plenum/plenum/client/client.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plenum/client/client.py:315:8 Incompatible return type [7]: Expected `List[Request]` but got `Tuple[List[typing.Any], List[typing.Any]]`.",
+    "message": " Expected `List[Request]` but got `Tuple[List[typing.Any], List[typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 315,
+    "warning_line": "        return requests, errs",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def submitReqs(self, *reqs: Request) -> List[Request]:\n        requests = []\n",
+        "source_code_len": 82,
+        "target_code": "\n    def submitReqs(self, *reqs: Request) -> Tuple[List[Request], List[str]]:\n        requests = []\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -282,3 +287,3 @@\n \n-    def submitReqs(self, *reqs: Request) -> List[Request]:\n+    def submitReqs(self, *reqs: Request) -> Tuple[List[Request], List[str]]:\n         requests = []\n",
+        "source_code_with_indent": "\n    <DED>def submitReqs(self, *reqs: Request) -> List[Request]:\n        <IND>requests = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def submitReqs(self, *reqs: Request) -> Tuple[List[Request], List[str]]:\n        <IND>requests = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "hyperledger/indy-plenum",
+    "commit": "e2f71e7e19c06d4e2bcff309d451a9e9c4fc51e8",
+    "filename": "plenum/common/ledger_manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hyperledger-indy-plenum/plenum/common/ledger_manager.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plenum/common/ledger_manager.py:870:16 Call error [29]: `Optional[typing.Callable[..., typing.Any]]` is not a function.",
+    "message": " `Optional[typing.Callable[..., typing.Any]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 870,
+    "warning_line": "                self.postAllLedgersCaughtUp()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if ledgerId not in self.ledgerRegistry:\n            logger.error(\"{}{} called catchup completed for ledger {}\".\n                         format(CATCH_UP_PREFIX, self, ledgerId))\n            return\n\n        ledgerInfo = self.getLedgerInfoByType(ledgerId)\n        ledgerInfo.done_syncing()\n",
+        "source_code_len": 297,
+        "target_code": "\n        self.mark_ledger_synced(ledgerId)\n\n    def mark_ledger_synced(self, ledger_id):\n        ledgerInfo = self.getLedgerInfoByType(ledger_id)\n        ledgerInfo.done_syncing()\n",
+        "target_code_len": 180,
+        "diff_format": "@@ -853,8 +861,6 @@\n \n-        if ledgerId not in self.ledgerRegistry:\n-            logger.error(\"{}{} called catchup completed for ledger {}\".\n-                         format(CATCH_UP_PREFIX, self, ledgerId))\n-            return\n-\n-        ledgerInfo = self.getLedgerInfoByType(ledgerId)\n+        self.mark_ledger_synced(ledgerId)\n+\n+    def mark_ledger_synced(self, ledger_id):\n+        ledgerInfo = self.getLedgerInfoByType(ledger_id)\n         ledgerInfo.done_syncing()\n",
+        "source_code_with_indent": "\n        <DED>if ledgerId not in self.ledgerRegistry:\n            <IND>logger.error(\"{}{} called catchup completed for ledger {}\".\n                         format(CATCH_UP_PREFIX, self, ledgerId))\n            return\n\n        <DED>ledgerInfo = self.getLedgerInfoByType(ledgerId)\n        ledgerInfo.done_syncing()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>self.mark_ledger_synced(ledgerId)\n\n    <DED>def mark_ledger_synced(self, ledger_id):\n        <IND>ledgerInfo = self.getLedgerInfoByType(ledger_id)\n        ledgerInfo.done_syncing()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

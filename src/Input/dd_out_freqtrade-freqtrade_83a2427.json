@@ -1,0 +1,36 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "83a2427a61b7025d58e74c49100dc3b65d4c1088",
+    "filename": "scripts/plot_profit.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/scripts/plot_profit.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/plot_profit.py:54:53 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `define_index` but got `int`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `define_index` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 54,
+    "warning_line": "        ix = define_index(min_date, trade_sell_time, interval)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def make_profit_array(data: List, px: int, min_date: int,\n                      interval: int,\n                      filter_pairs: Optional[List] = None) -> np.ndarray:\n",
+        "source_code_len": 169,
+        "target_code": "def make_profit_array(data: List, px: int, min_date: int,\n                      interval: str,\n                      filter_pairs: Optional[List] = None) -> np.ndarray:\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -39,3 +39,3 @@\n def make_profit_array(data: List, px: int, min_date: int,\n-                      interval: int,\n+                      interval: str,\n                       filter_pairs: Optional[List] = None) -> np.ndarray:\n",
+        "source_code_with_indent": "def make_profit_array(data: List, px: int, min_date: int,\n                      interval: int,\n                      filter_pairs: Optional[List] = None) -> np.ndarray:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def make_profit_array(data: List, px: int, min_date: int,\n                      interval: str,\n                      filter_pairs: Optional[List] = None) -> np.ndarray:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

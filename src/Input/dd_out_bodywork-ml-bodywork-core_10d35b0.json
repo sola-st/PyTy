@@ -1,0 +1,36 @@
+[
+  {
+    "project": "bodywork-ml/bodywork-core",
+    "commit": "10d35b0eb22b0555e5c9c5da980a69483fbcd482",
+    "filename": "src/bodywork/k8s/workflow_jobs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bodywork-ml-bodywork-core/src/bodywork/k8s/workflow_jobs.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/bodywork/k8s/workflow_jobs.py:44:4 Incompatible variable type [9]: job_name is declared to have type `str` but is used as type `None`.",
+    "message": " job_name is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 44,
+    "warning_line": "    job_name: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    image: str = BODYWORK_DOCKER_IMAGE,\n    job_name: str = None,\n) -> k8s.V1Job:\n",
+        "source_code_len": 82,
+        "target_code": "    image: str = BODYWORK_DOCKER_IMAGE,\n    job_name: Optional[str] = None,\n) -> k8s.V1Job:\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -43,3 +43,3 @@\n     image: str = BODYWORK_DOCKER_IMAGE,\n-    job_name: str = None,\n+    job_name: Optional[str] = None,\n ) -> k8s.V1Job:\n",
+        "source_code_with_indent": "    image: str = BODYWORK_DOCKER_IMAGE,\n    job_name: str = None,\n) -> k8s.V1Job:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    image: str = BODYWORK_DOCKER_IMAGE,\n    job_name: Optional[str] = None,\n) -> k8s.V1Job:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jonrau1/ElectricEye",
+    "commit": "d1aef27493d0202aebb0a0ec85cf1de9afb9f625",
+    "filename": "eeauditor/auditors/aws/Shodan_Auditor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jonrau1-ElectricEye/eeauditor/auditors/aws/Shodan_Auditor.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eeauditor/auditors/aws/Shodan_Auditor.py:1280:30 Unbound name [10]: Name `cfId` is used but not defined in the current scope.",
+    "message": " Name `cfId` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 1280,
+    "warning_line": "                            + cfId",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                            \"Severity\": {\"Label\": \"INFORMATIONAL\"},\n                            \"Title\": \"[Shodan.CloudFront.1] CloudFront Distributions should be monitored for being indexed by Shodan\",\n                            \"Description\": \"CloudFront Distribution \"\n                            + cfId\n                            + \" has not been indexed by Shodan.\",\n",
+        "source_code_len": 374,
+        "target_code": "                            \"Severity\": {\"Label\": \"INFORMATIONAL\"},\n                            \"Title\": \"[Shodan.GlobalAccelerator.1] Accelerators should be monitored for being indexed by Shodan\",\n                            \"Description\": \"Accelerator \"\n                            + gaxName\n                            + \" has not been indexed by Shodan.\",\n",
+        "target_code_len": 360,
+        "diff_format": "@@ -1277,5 +1286,5 @@\n                             \"Severity\": {\"Label\": \"INFORMATIONAL\"},\n-                            \"Title\": \"[Shodan.CloudFront.1] CloudFront Distributions should be monitored for being indexed by Shodan\",\n-                            \"Description\": \"CloudFront Distribution \"\n-                            + cfId\n+                            \"Title\": \"[Shodan.GlobalAccelerator.1] Accelerators should be monitored for being indexed by Shodan\",\n+                            \"Description\": \"Accelerator \"\n+                            + gaxName\n                             + \" has not been indexed by Shodan.\",\n",
+        "source_code_with_indent": "                            \"Severity\": {\"Label\": \"INFORMATIONAL\"},\n                            \"Title\": \"[Shodan.CloudFront.1] CloudFront Distributions should be monitored for being indexed by Shodan\",\n                            \"Description\": \"CloudFront Distribution \"\n                            + cfId\n                            + \" has not been indexed by Shodan.\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                            \"Severity\": {\"Label\": \"INFORMATIONAL\"},\n                            \"Title\": \"[Shodan.GlobalAccelerator.1] Accelerators should be monitored for being indexed by Shodan\",\n                            \"Description\": \"Accelerator \"\n                            + gaxName\n                            + \" has not been indexed by Shodan.\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

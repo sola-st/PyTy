@@ -1,0 +1,36 @@
+[
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "99983c91ca26e8cf592699dd320e0d58140cfe41",
+    "filename": "data_structures/heap/skew_heap.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/data_structures/heap/skew_heap.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "data_structures/heap/skew_heap.py:37:11 Unsupported operand [58]: `>` is not supported for operand types `Variable[T]` and `Variable[T]`.",
+    "message": " `>` is not supported for operand types `Variable[T]` and `Variable[T]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 37,
+    "warning_line": "        if root1.value > root2.value:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Generic, Iterable, Iterator, TypeVar\n\nT = TypeVar(\"T\")\n\n",
+        "source_code_len": 76,
+        "target_code": "\nfrom typing import Any, Generic, Iterable, Iterator, TypeVar\n\nT = TypeVar(\"T\", bound=bool)\n\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -4,5 +4,5 @@\n \n-from typing import Generic, Iterable, Iterator, TypeVar\n+from typing import Any, Generic, Iterable, Iterator, TypeVar\n \n-T = TypeVar(\"T\")\n+T = TypeVar(\"T\", bound=bool)\n \n",
+        "source_code_with_indent": "\nfrom typing import Generic, Iterable, Iterator, TypeVar\n\nT = TypeVar(\"T\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Any, Generic, Iterable, Iterator, TypeVar\n\nT = TypeVar(\"T\", bound=bool)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

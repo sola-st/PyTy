@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "8088569f64331910cdfe6a754131fbb851372795",
+    "filename": "UM/PluginRegistry.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/PluginRegistry.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/PluginRegistry.py:257:12 Incompatible return type [7]: Expected `None` but got `bool`.",
+    "message": " Expected `None` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 257,
+    "warning_line": "            return False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def addPluginLocation(self, location: str) -> None:\n        abs_path = os.path.abspath(location)\n        if not os.path.isdir(abs_path):\n            Logger.warning(\"Plugin location {0} must be a folder.\".format(abs_path))\n            return False\n\n",
+        "source_code_len": 252,
+        "target_code": "    def addPluginLocation(self, location: str) -> None:\n        if not os.path.isdir(location):\n            Logger.warning(\"Plugin location {0} must be a folder.\".format(location))\n            return\n\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -253,6 +253,5 @@\n     def addPluginLocation(self, location: str) -> None:\n-        abs_path = os.path.abspath(location)\n-        if not os.path.isdir(abs_path):\n-            Logger.warning(\"Plugin location {0} must be a folder.\".format(abs_path))\n-            return False\n+        if not os.path.isdir(location):\n+            Logger.warning(\"Plugin location {0} must be a folder.\".format(location))\n+            return\n \n",
+        "source_code_with_indent": "    <DED>def addPluginLocation(self, location: str) -> None:\n        <IND>abs_path = os.path.abspath(location)\n        if not os.path.isdir(abs_path):\n            <IND>Logger.warning(\"Plugin location {0} must be a folder.\".format(abs_path))\n            return False\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def addPluginLocation(self, location: str) -> None:\n        <IND>if not os.path.isdir(location):\n            <IND>Logger.warning(\"Plugin location {0} must be a folder.\".format(location))\n            return\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

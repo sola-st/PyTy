@@ -1,0 +1,70 @@
+[
+  {
+    "project": "aiortc/aiortc",
+    "commit": "c95147e318b8bef085fe92687d89f1ce3b781aaa",
+    "filename": "aiortc/codecs/g711.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aiortc-aiortc/aiortc/codecs/g711.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiortc/codecs/g711.py:50:16 Incompatible parameter type [6]: Expected `Optional[Tuple[int, typing.Tuple[Tuple[int, int], ...]]]` for 6th positional only parameter to call `audioop.ratecv` but got `Optional[typing.Tuple[typing.Any, ...]]`.",
+    "message": " Expected `Optional[Tuple[int, typing.Tuple[Tuple[int, int], ...]]]` for 6th positional only parameter to call `audioop.ratecv` but got `Optional[typing.Tuple[typing.Any, ...]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 50,
+    "warning_line": "                self.rate_state,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self) -> None:\n        self.rate_state = None  # type: Optional[Tuple]\n\n",
+        "source_code_len": 89,
+        "target_code": "    def __init__(self) -> None:\n        self.rate_state = (\n            None\n        )  # type: Optional[Tuple[int, Tuple[Tuple[int, int], ...]]]\n\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -28,3 +28,5 @@\n     def __init__(self) -> None:\n-        self.rate_state = None  # type: Optional[Tuple]\n+        self.rate_state = (\n+            None\n+        )  # type: Optional[Tuple[int, Tuple[Tuple[int, int], ...]]]\n \n",
+        "source_code_with_indent": "    <IND>def __init__(self) -> None:\n        <IND>self.rate_state = None  # type: Optional[Tuple]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>def __init__(self) -> None:\n        <IND>self.rate_state = (\n            None\n        )  # type: Optional[Tuple[int, Tuple[Tuple[int, int], ...]]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "aiortc/aiortc",
+    "commit": "c95147e318b8bef085fe92687d89f1ce3b781aaa",
+    "filename": "aiortc/codecs/opus.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aiortc-aiortc/aiortc/codecs/opus.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiortc/codecs/opus.py:82:16 Incompatible parameter type [6]: Expected `Optional[Tuple[int, typing.Tuple[Tuple[int, int], ...]]]` for 6th positional only parameter to call `audioop.ratecv` but got `Optional[typing.Tuple[typing.Any, ...]]`.",
+    "message": " Expected `Optional[Tuple[int, typing.Tuple[Tuple[int, int], ...]]]` for 6th positional only parameter to call `audioop.ratecv` but got `Optional[typing.Tuple[typing.Any, ...]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 82,
+    "warning_line": "                self.rate_state,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.buffer = ffi.buffer(self.cdata)\n        self.rate_state = None  # type: Optional[Tuple]\n\n",
+        "source_code_len": 102,
+        "target_code": "        self.buffer = ffi.buffer(self.cdata)\n        self.rate_state = (\n            None\n        )  # type: Optional[Tuple[int, Tuple[Tuple[int, int], ...]]]\n\n",
+        "target_code_len": 160,
+        "diff_format": "@@ -57,3 +57,5 @@\n         self.buffer = ffi.buffer(self.cdata)\n-        self.rate_state = None  # type: Optional[Tuple]\n+        self.rate_state = (\n+            None\n+        )  # type: Optional[Tuple[int, Tuple[Tuple[int, int], ...]]]\n \n",
+        "source_code_with_indent": "        self.buffer = ffi.buffer(self.cdata)\n        self.rate_state = None  # type: Optional[Tuple]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.buffer = ffi.buffer(self.cdata)\n        self.rate_state = (\n            None\n        )  # type: Optional[Tuple[int, Tuple[Tuple[int, int], ...]]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

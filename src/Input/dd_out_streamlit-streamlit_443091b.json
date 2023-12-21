@@ -1,0 +1,36 @@
+[
+  {
+    "project": "streamlit/streamlit",
+    "commit": "443091b7b3c7aa0b7c6b628a0cb41a79d6febd15",
+    "filename": "examples/run_on_save.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/streamlit-streamlit/examples/run_on_save.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/run_on_save.py:68:10 Unbound name [10]: Name `Error` is used but not defined in the current scope.",
+    "message": " Name `Error` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 68,
+    "warning_line": "    raise Error(\"Windows not supported\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "elif platform_system == \"Windows\":\n    raise Error(\"Windows not supported\")\n\nelse:\n    raise Error(\"Unknown platform\")\n\n",
+        "source_code_len": 120,
+        "target_code": "elif platform_system == \"Windows\":\n    raise NotImplementedError(\"Windows not supported\")\n\nelse:\n    raise Exception(\"Unknown platform\")\n\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -67,6 +67,6 @@\n elif platform_system == \"Windows\":\n-    raise Error(\"Windows not supported\")\n+    raise NotImplementedError(\"Windows not supported\")\n \n else:\n-    raise Error(\"Unknown platform\")\n+    raise Exception(\"Unknown platform\")\n \n",
+        "source_code_with_indent": "<DED>elif platform_system == \"Windows\":\n    <IND>raise Error(\"Windows not supported\")\n\n<DED>else:\n    <IND>raise Error(\"Unknown platform\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>elif platform_system == \"Windows\":\n    <IND>raise NotImplementedError(\"Windows not supported\")\n\n<DED>else:\n    <IND>raise Exception(\"Unknown platform\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

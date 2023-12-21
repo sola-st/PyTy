@@ -1,0 +1,36 @@
+[
+  {
+    "project": "forseti-security/forseti-security",
+    "commit": "52924aaeeca1dc61bf4dc256a310a6584e7e9762",
+    "filename": "google/cloud/security/inventory/inventory_loader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/forseti-security-forseti-security/google/cloud/security/inventory/inventory_loader.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "google/cloud/security/inventory/inventory_loader.py:100:45 Incompatible parameter type [6]: Expected `typing.Optional[str]` for 2nd positional only parameter to call `flags.DEFINE_string` but got `int`.",
+    "message": " Expected `typing.Optional[str]` for 2nd positional only parameter to call `flags.DEFINE_string` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 100,
+    "warning_line": "flags.DEFINE_string('max_results_admin_api', 500,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "}\nflags.DEFINE_enum('loglevel', 'info', LOGLEVELS.keys(), 'Loglevel.')\n\nflags.DEFINE_boolean('list_resources', False,\n                     'List valid resources for --config_path.')\n\n# These flags are for the admin.py module.\nflags.DEFINE_string('config_path', None,\n                    'Path to the inventory config file.')\n\nflags.DEFINE_string('domain_super_admin_email', None,\n                    'An email address of a super-admin in the GSuite domain. '\n                    'REQUIRED: if inventory_groups is enabled.')\nflags.DEFINE_string('groups_service_account_key_file', None,\n                    'The key file with credentials for the service account. '\n                    'REQUIRED: If inventory_groups is enabled and '\n                    'runnning locally.')\nflags.DEFINE_integer('max_admin_api_calls_per_day', 150000,\n                     'Admin SDK queries per day.')\nflags.DEFINE_string('max_results_admin_api', 500,\n                    'maxResult param for the Admin SDK list() method')\n\n",
+        "source_code_len": 1005,
+        "target_code": "}\n\nflags.DEFINE_boolean('list_resources', False,\n                     'List valid resources for inventory.')\n\n# Hack to make the test pass due to duplicate flag error here\n# and scanner, enforcer.\n# TODO: Find a way to remove this try/except, possibly dividing the tests\n# into different test suites.\ntry:\n    flags.DEFINE_string(\n        'forseti_config',\n        '/home/ubuntu/forseti-security/configs/forseti_conf.yaml',\n        'Fully qualified path and filename of the Forseti config file.')\nexcept flags.DuplicateFlagError:\n    pass\n\n",
+        "target_code_len": 540,
+        "diff_format": "@@ -81,22 +70,17 @@\n }\n-flags.DEFINE_enum('loglevel', 'info', LOGLEVELS.keys(), 'Loglevel.')\n \n flags.DEFINE_boolean('list_resources', False,\n-                     'List valid resources for --config_path.')\n-\n-# These flags are for the admin.py module.\n-flags.DEFINE_string('config_path', None,\n-                    'Path to the inventory config file.')\n-\n-flags.DEFINE_string('domain_super_admin_email', None,\n-                    'An email address of a super-admin in the GSuite domain. '\n-                    'REQUIRED: if inventory_groups is enabled.')\n-flags.DEFINE_string('groups_service_account_key_file', None,\n-                    'The key file with credentials for the service account. '\n-                    'REQUIRED: If inventory_groups is enabled and '\n-                    'runnning locally.')\n-flags.DEFINE_integer('max_admin_api_calls_per_day', 150000,\n-                     'Admin SDK queries per day.')\n-flags.DEFINE_string('max_results_admin_api', 500,\n-                    'maxResult param for the Admin SDK list() method')\n+                     'List valid resources for inventory.')\n+\n+# Hack to make the test pass due to duplicate flag error here\n+# and scanner, enforcer.\n+# TODO: Find a way to remove this try/except, possibly dividing the tests\n+# into different test suites.\n+try:\n+    flags.DEFINE_string(\n+        'forseti_config',\n+        '/home/ubuntu/forseti-security/configs/forseti_conf.yaml',\n+        'Fully qualified path and filename of the Forseti config file.')\n+except flags.DuplicateFlagError:\n+    pass\n \n",
+        "source_code_with_indent": "}\nflags.DEFINE_enum('loglevel', 'info', LOGLEVELS.keys(), 'Loglevel.')\n\nflags.DEFINE_boolean('list_resources', False,\n                     'List valid resources for --config_path.')\n\n# These flags are for the admin.py module.\nflags.DEFINE_string('config_path', None,\n                    'Path to the inventory config file.')\n\nflags.DEFINE_string('domain_super_admin_email', None,\n                    'An email address of a super-admin in the GSuite domain. '\n                    'REQUIRED: if inventory_groups is enabled.')\nflags.DEFINE_string('groups_service_account_key_file', None,\n                    'The key file with credentials for the service account. '\n                    'REQUIRED: If inventory_groups is enabled and '\n                    'runnning locally.')\nflags.DEFINE_integer('max_admin_api_calls_per_day', 150000,\n                     'Admin SDK queries per day.')\nflags.DEFINE_string('max_results_admin_api', 500,\n                    'maxResult param for the Admin SDK list() method')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "}\n\nflags.DEFINE_boolean('list_resources', False,\n                     'List valid resources for inventory.')\n\n# Hack to make the test pass due to duplicate flag error here\n# and scanner, enforcer.\n# TODO: Find a way to remove this try/except, possibly dividing the tests\n# into different test suites.\ntry:\n    <IND>flags.DEFINE_string(\n        'forseti_config',\n        '/home/ubuntu/forseti-security/configs/forseti_conf.yaml',\n        'Fully qualified path and filename of the Forseti config file.')\n<DED>except flags.DuplicateFlagError:\n    <IND>pass\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

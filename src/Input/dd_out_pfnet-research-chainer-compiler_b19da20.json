@@ -1,0 +1,119 @@
+[
+  {
+    "project": "pfnet-research/chainer-compiler",
+    "commit": "b19da20d7069f15085737813b3d3c395c32b2203",
+    "filename": "ch2o/chainer2onnx/funcs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pfnet-research-chainer-compiler/ch2o/chainer2onnx/funcs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ch2o/chainer2onnx/funcs.py:29:23 Invalid type [31]: Expression `[int]` is not a valid type.",
+    "message": " Expression `[int]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 29,
+    "warning_line": "def _pair(v: Value) -> [int]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import gast\n\n",
+        "source_code_len": 13,
+        "target_code": "import gast\n\nfrom typing import List, Mapping\n\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -17,2 +17,4 @@\n import gast\n+\n+from typing import List, Mapping\n \n",
+        "source_code_with_indent": "import gast\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import gast\n\nfrom typing import List, Mapping\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _pair(v: Value) -> [int]:\n    if not v.is_py:\n",
+        "source_code_len": 51,
+        "target_code": "\ndef _pair(v: Value) -> List[int]:\n    if not v.is_py:\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -28,3 +30,3 @@\n \n-def _pair(v: Value) -> [int]:\n+def _pair(v: Value) -> List[int]:\n     if not v.is_py:\n",
+        "source_code_with_indent": "\n<DED><DED>def _pair(v: Value) -> [int]:\n    <IND>if not v.is_py:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def _pair(v: Value) -> List[int]:\n    <IND>if not v.is_py:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pfnet-research/chainer-compiler",
+    "commit": "b19da20d7069f15085737813b3d3c395c32b2203",
+    "filename": "ch2o/chainer2onnx/value.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pfnet-research-chainer-compiler/ch2o/chainer2onnx/value.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ch2o/chainer2onnx/value.py:66:8 Incompatible return type [7]: Expected `bool` but got `int`.",
+    "message": " Expected `bool` but got `int`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 66,
+    "warning_line": "        return int(self.value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            raise TypeError('Expected a bool scalar: %s' % self.value)\n        return int(self.value)\n\n    def to_int_list(self) -> [int]:\n        if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "source_code_len": 218,
+        "target_code": "            raise TypeError('Expected a bool scalar: %s' % self.value)\n        return bool(self.value)\n\n    def to_int_list(self) -> List[int]:\n        if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "target_code_len": 223,
+        "diff_format": "@@ -65,5 +65,5 @@\n             raise TypeError('Expected a bool scalar: %s' % self.value)\n-        return int(self.value)\n+        return bool(self.value)\n \n-    def to_int_list(self) -> [int]:\n+    def to_int_list(self) -> List[int]:\n         if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "source_code_with_indent": "            <IND>raise TypeError('Expected a bool scalar: %s' % self.value)\n        <DED>return int(self.value)\n\n    <DED>def to_int_list(self) -> [int]:\n        <IND>if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>raise TypeError('Expected a bool scalar: %s' % self.value)\n        <DED>return bool(self.value)\n\n    <DED>def to_int_list(self) -> List[int]:\n        <IND>if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pfnet-research/chainer-compiler",
+    "commit": "b19da20d7069f15085737813b3d3c395c32b2203",
+    "filename": "ch2o/chainer2onnx/value.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pfnet-research-chainer-compiler/ch2o/chainer2onnx/value.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ch2o/chainer2onnx/value.py:68:29 Invalid type [31]: Expression `[int]` is not a valid type.",
+    "message": " Expression `[int]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 68,
+    "warning_line": "    def to_int_list(self) -> [int]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            raise TypeError('Expected a bool scalar: %s' % self.value)\n        return int(self.value)\n\n    def to_int_list(self) -> [int]:\n        if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "source_code_len": 218,
+        "target_code": "            raise TypeError('Expected a bool scalar: %s' % self.value)\n        return bool(self.value)\n\n    def to_int_list(self) -> List[int]:\n        if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "target_code_len": 223,
+        "diff_format": "@@ -65,5 +65,5 @@\n             raise TypeError('Expected a bool scalar: %s' % self.value)\n-        return int(self.value)\n+        return bool(self.value)\n \n-    def to_int_list(self) -> [int]:\n+    def to_int_list(self) -> List[int]:\n         if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "source_code_with_indent": "            <IND>raise TypeError('Expected a bool scalar: %s' % self.value)\n        <DED>return int(self.value)\n\n    <DED>def to_int_list(self) -> [int]:\n        <IND>if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>raise TypeError('Expected a bool scalar: %s' % self.value)\n        <DED>return bool(self.value)\n\n    <DED>def to_int_list(self) -> List[int]:\n        <IND>if not self.is_py or not isinstance(self.value, collections.Iterable):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

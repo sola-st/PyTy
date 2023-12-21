@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "a1d65aafe9a789c29d9efc263d8fd62940fa8cd1",
+    "filename": "qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1520A.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1520A.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1520A.py:143:8 Incompatible attribute type [8]: Attribute `_sweep_auto_abort` declared in class `CVSweep` has type `bool` but is used as type `Union[bool, constants.Abort]`.",
+    "message": " Attribute `_sweep_auto_abort` declared in class `CVSweep` has type `bool` but is used as type `Union[bool, constants.Abort]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 143,
+    "warning_line": "        self._sweep_auto_abort = val",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self._sweep_auto_abort = True\n        self._post_sweep_voltage_cond = constants.WMDCV.Post.START\n\n",
+        "source_code_len": 107,
+        "target_code": "\n        self._sweep_auto_abort: Union[bool, constants.Abort] = True\n        self._post_sweep_voltage_cond: Union[constants.WMDCV.Post, int] \\\n            = constants.WMDCV.Post.START\n\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -27,4 +27,5 @@\n \n-        self._sweep_auto_abort = True\n-        self._post_sweep_voltage_cond = constants.WMDCV.Post.START\n+        self._sweep_auto_abort: Union[bool, constants.Abort] = True\n+        self._post_sweep_voltage_cond: Union[constants.WMDCV.Post, int] \\\n+            = constants.WMDCV.Post.START\n \n",
+        "source_code_with_indent": "\n        self._sweep_auto_abort = True\n        self._post_sweep_voltage_cond = constants.WMDCV.Post.START\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n        self._sweep_auto_abort: Union[bool, constants.Abort] = True\n        self._post_sweep_voltage_cond: Union[constants.WMDCV.Post, int]            = constants.WMDCV.Post.START\n\n"
+      }
+    ]
+  }
+]

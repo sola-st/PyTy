@@ -1,0 +1,36 @@
+[
+  {
+    "project": "snorkel-team/snorkel",
+    "commit": "af2ee519098f3e3288cb88b6baa6dd180b3a71a9",
+    "filename": "snorkel/synthetic/synthetic_data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snorkel-team-snorkel/snorkel/synthetic/synthetic_data.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snorkel/synthetic/synthetic_data.py:87:4 Incompatible return type [7]: Expected `List[BaseTransformationFunction]` but got `List[LambdaTransformationFunction]`.",
+    "message": " Expected `List[BaseTransformationFunction]` but got `List[LambdaTransformationFunction]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 87,
+    "warning_line": "    return [LambdaTransformationFunction(partial(tf_template, i=i)) for i in dims]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    dims: Union[int, List[int]]\n) -> List[BaseTransformationFunction]:\n    if isinstance(dims, int):\n",
+        "source_code_len": 101,
+        "target_code": "    dims: Union[int, List[int]]\n) -> List[LambdaTransformationFunction]:\n    if isinstance(dims, int):\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -83,3 +80,3 @@\n     dims: Union[int, List[int]]\n-) -> List[BaseTransformationFunction]:\n+) -> List[LambdaTransformationFunction]:\n     if isinstance(dims, int):\n",
+        "source_code_with_indent": "    dims: Union[int, List[int]]\n) -> List[BaseTransformationFunction]:\n    <IND>if isinstance(dims, int):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    dims: Union[int, List[int]]\n) -> List[LambdaTransformationFunction]:\n    <IND>if isinstance(dims, int):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

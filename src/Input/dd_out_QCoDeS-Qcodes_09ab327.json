@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "09ab3270b985c25a287dadaa644df0528d0d0282",
+    "filename": "qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1517A.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1517A.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1517A.py:539:8 Incompatible return type [7]: Expected `List[Tuple[ChNr, constants.IMeasRange]]` but got `List[Tuple[str, str]]`.",
+    "message": " Expected `List[Tuple[ChNr, constants.IMeasRange]]` but got `List[Tuple[str, str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 539,
+    "warning_line": "        return response_list",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        match = re.findall(r'RI (.+?),(.+?)($|;)', response)\n        response_list = [(constants.ChNr(int(i)).name,\n                          constants.IMeasRange(int(j)).name)\n                         for i, j, _ in match]\n",
+        "source_code_len": 224,
+        "target_code": "        match = re.findall(r'RI (.+?),(.+?)($|;)', response)\n        response_list = [(constants.ChNr(int(i)),\n                          constants.IMeasRange(int(j)))\n                         for i, j, _ in match]\n",
+        "target_code_len": 214,
+        "diff_format": "@@ -535,4 +535,4 @@\n         match = re.findall(r'RI (.+?),(.+?)($|;)', response)\n-        response_list = [(constants.ChNr(int(i)).name,\n-                          constants.IMeasRange(int(j)).name)\n+        response_list = [(constants.ChNr(int(i)),\n+                          constants.IMeasRange(int(j)))\n                          for i, j, _ in match]\n",
+        "source_code_with_indent": "        match = re.findall(r'RI (.+?),(.+?)($|;)', response)\n        response_list = [(constants.ChNr(int(i)).name,\n                          constants.IMeasRange(int(j)).name)\n                         for i, j, _ in match]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        match = re.findall(r'RI (.+?),(.+?)($|;)', response)\n        response_list = [(constants.ChNr(int(i)),\n                          constants.IMeasRange(int(j)))\n                         for i, j, _ in match]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "project": "janpipek/physt",
+    "commit": "7cd9407c8dab34f8790c388f48321db5d45e4c18",
+    "filename": "physt/plotting/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/janpipek-physt/physt/plotting/__init__.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "physt/plotting/__init__.py:157:17 Incompatible variable type [9]: name is declared to have type `str` but is used as type `None`.",
+    "message": " name is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 157,
+    "warning_line": "def _get_backend(name: str = None) -> Tuple[str, Any]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_backend(name: str = None) -> Tuple[str, Any]:\n    \"\"\"Get a plotting backend.\n",
+        "source_code_len": 87,
+        "target_code": "\ndef get_default_backend() -> Optional[str]:\n    \"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n    return _default_backend\n\n\ndef _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n    \"\"\"Get a plotting backend.\n",
+        "target_code_len": 248,
+        "diff_format": "@@ -156,3 +156,8 @@\n \n-def _get_backend(name: str = None) -> Tuple[str, Any]:\n+def get_default_backend() -> Optional[str]:\n+    \"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n+    return _default_backend\n+\n+\n+def _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n     \"\"\"Get a plotting backend.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def _get_backend(name: str = None) -> Tuple[str, Any]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def get_default_backend() -> Optional[str]:\n    <IND>\"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n    return _default_backend\n\n\n<DED>def _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "janpipek/physt",
+    "commit": "7cd9407c8dab34f8790c388f48321db5d45e4c18",
+    "filename": "physt/plotting/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/janpipek-physt/physt/plotting/__init__.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "physt/plotting/__init__.py:167:8 Incompatible variable type [9]: name is declared to have type `str` but is used as type `Optional[str]`.",
+    "message": " name is declared to have type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 167,
+    "warning_line": "        name = _default_backend",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_backend(name: str = None) -> Tuple[str, Any]:\n    \"\"\"Get a plotting backend.\n",
+        "source_code_len": 87,
+        "target_code": "\ndef get_default_backend() -> Optional[str]:\n    \"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n    return _default_backend\n\n\ndef _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n    \"\"\"Get a plotting backend.\n",
+        "target_code_len": 248,
+        "diff_format": "@@ -156,3 +156,8 @@\n \n-def _get_backend(name: str = None) -> Tuple[str, Any]:\n+def get_default_backend() -> Optional[str]:\n+    \"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n+    return _default_backend\n+\n+\n+def _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n     \"\"\"Get a plotting backend.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def _get_backend(name: str = None) -> Tuple[str, Any]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def get_default_backend() -> Optional[str]:\n    <IND>\"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n    return _default_backend\n\n\n<DED>def _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "janpipek/physt",
+    "commit": "7cd9407c8dab34f8790c388f48321db5d45e4c18",
+    "filename": "physt/plotting/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/janpipek-physt/physt/plotting/__init__.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "physt/plotting/__init__.py:198:46 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `_get_backend` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `_get_backend` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 198,
+    "warning_line": "    backend_name, backend_impl = _get_backend(backend)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_backend(name: str = None) -> Tuple[str, Any]:\n    \"\"\"Get a plotting backend.\n",
+        "source_code_len": 87,
+        "target_code": "\ndef get_default_backend() -> Optional[str]:\n    \"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n    return _default_backend\n\n\ndef _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n    \"\"\"Get a plotting backend.\n",
+        "target_code_len": 248,
+        "diff_format": "@@ -156,3 +156,8 @@\n \n-def _get_backend(name: str = None) -> Tuple[str, Any]:\n+def get_default_backend() -> Optional[str]:\n+    \"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n+    return _default_backend\n+\n+\n+def _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n     \"\"\"Get a plotting backend.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def _get_backend(name: str = None) -> Tuple[str, Any]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def get_default_backend() -> Optional[str]:\n    <IND>\"\"\"The backend that will be used by default with the `plot` function.\"\"\"\n    return _default_backend\n\n\n<DED>def _get_backend(name: Optional[str] = None) -> Tuple[str, Any]:\n    <IND>"
+      }
+    ]
+  }
+]

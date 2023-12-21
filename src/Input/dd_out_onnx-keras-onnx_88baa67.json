@@ -1,0 +1,36 @@
+[
+  {
+    "project": "onnx/keras-onnx",
+    "commit": "88baa675aa88d230b6f635925f88eaaccfbb216d",
+    "filename": "keras2onnx/ktf2onnx/tests/test_backend.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/onnx-keras-onnx/keras2onnx/ktf2onnx/tests/test_backend.py",
+    "file_hunks_size": 32,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "keras2onnx/ktf2onnx/tests/test_backend.py:1669:5 Unbound name [10]: Name `check_onnxruntime_min_version` is used but not defined in the current scope.",
+    "message": " Name `check_onnxruntime_min_version` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 1669,
+    "warning_line": "    @check_onnxruntime_min_version(\"0.4.0\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        _ = tf.identity(x_, name=_TFOUTPUT)\n        self._run_test_case([_OUTPUT], {_INPUT: x_val}, process_args=process_args)\n\n    @check_opset_min_version(8, \"Scan\")\n    @skip_opset(9, \"ReverseSequence\")\n    def test_reverse_sequence_batch_major(self):\n        self._test_reverse_sequence_batch_major()\n\n    @check_opset_min_version(8, \"Scan\")\n    @skip_opset(9, \"ReverseSequence\")\n    def test_reverse_sequence_time_major(self):\n        self._test_reverse_sequence_time_major()\n\n    # only support onnxruntime with version larger than 0.4.0\n    @test_ms_domain()\n    @check_onnxruntime_min_version(\"0.4.0\")\n    def test_ms_reverse_sequence_batch_major(self, extra_opset):\n        self._test_reverse_sequence_batch_major(extra_opset)\n\n    @test_ms_domain()\n    @check_onnxruntime_min_version(\"0.4.0\")\n    def test_ms_reverse_sequence_time_major(self, extra_opset):\n        self._test_reverse_sequence_time_major(extra_opset)\n\n",
+        "source_code_len": 928,
+        "target_code": "        _ = tf.identity(x_, name=_TFOUTPUT)\n        self._run_test_case([_OUTPUT], {_INPUT: x_val})\n\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -1654,24 +1739,3 @@\n         _ = tf.identity(x_, name=_TFOUTPUT)\n-        self._run_test_case([_OUTPUT], {_INPUT: x_val}, process_args=process_args)\n-\n-    @check_opset_min_version(8, \"Scan\")\n-    @skip_opset(9, \"ReverseSequence\")\n-    def test_reverse_sequence_batch_major(self):\n-        self._test_reverse_sequence_batch_major()\n-\n-    @check_opset_min_version(8, \"Scan\")\n-    @skip_opset(9, \"ReverseSequence\")\n-    def test_reverse_sequence_time_major(self):\n-        self._test_reverse_sequence_time_major()\n-\n-    # only support onnxruntime with version larger than 0.4.0\n-    @test_ms_domain()\n-    @check_onnxruntime_min_version(\"0.4.0\")\n-    def test_ms_reverse_sequence_batch_major(self, extra_opset):\n-        self._test_reverse_sequence_batch_major(extra_opset)\n-\n-    @test_ms_domain()\n-    @check_onnxruntime_min_version(\"0.4.0\")\n-    def test_ms_reverse_sequence_time_major(self, extra_opset):\n-        self._test_reverse_sequence_time_major(extra_opset)\n+        self._run_test_case([_OUTPUT], {_INPUT: x_val})\n \n",
+        "source_code_with_indent": "        _ = tf.identity(x_, name=_TFOUTPUT)\n        self._run_test_case([_OUTPUT], {_INPUT: x_val}, process_args=process_args)\n\n    <DED>@check_opset_min_version(8, \"Scan\")\n    @skip_opset(9, \"ReverseSequence\")\n    def test_reverse_sequence_batch_major(self):\n        <IND>self._test_reverse_sequence_batch_major()\n\n    <DED>@check_opset_min_version(8, \"Scan\")\n    @skip_opset(9, \"ReverseSequence\")\n    def test_reverse_sequence_time_major(self):\n        <IND>self._test_reverse_sequence_time_major()\n\n    # only support onnxruntime with version larger than 0.4.0\n    <DED>@test_ms_domain()\n    @check_onnxruntime_min_version(\"0.4.0\")\n    def test_ms_reverse_sequence_batch_major(self, extra_opset):\n        <IND>self._test_reverse_sequence_batch_major(extra_opset)\n\n    <DED>@test_ms_domain()\n    @check_onnxruntime_min_version(\"0.4.0\")\n    def test_ms_reverse_sequence_time_major(self, extra_opset):\n        <IND>self._test_reverse_sequence_time_major(extra_opset)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        _ = tf.identity(x_, name=_TFOUTPUT)\n        self._run_test_case([_OUTPUT], {_INPUT: x_val})\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

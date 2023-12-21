@@ -1,0 +1,70 @@
+[
+  {
+    "project": "jina-ai/jina",
+    "commit": "a151006980b3a6f0065b3e197062f6654c77a74e",
+    "filename": "jina/drivers/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jina-ai-jina/jina/drivers/__init__.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jina/drivers/__init__.py:333:37 Incompatible parameter type [6]: Expected `Document` for 2nd positional only parameter to call `RecursiveMixin._apply_all` but got `None`.",
+    "message": " Expected `Document` for 2nd positional only parameter to call `RecursiveMixin._apply_all` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 333,
+    "warning_line": "        return self._apply_all(docs, None, field, *args, **kwargs)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        docs: 'DocumentSet',\n        context_doc: 'Document',\n        field: str,\n        *args,\n",
+        "source_code_len": 97,
+        "target_code": "        docs: 'DocumentSet',\n        *args,\n",
+        "target_code_len": 44,
+        "diff_format": "@@ -339,4 +384,2 @@\n         docs: 'DocumentSet',\n-        context_doc: 'Document',\n-        field: str,\n         *args,\n",
+        "source_code_with_indent": "        docs: 'DocumentSet',\n        context_doc: 'Document',\n        field: str,\n        *args,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        docs: 'DocumentSet',\n        *args,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jina-ai/jina",
+    "commit": "a151006980b3a6f0065b3e197062f6654c77a74e",
+    "filename": "jina/drivers/evaluate.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jina-ai-jina/jina/drivers/evaluate.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jina/drivers/evaluate.py:50:4 Inconsistent override [14]: `jina.drivers.evaluate.BaseEvaluateDriver._apply_all` overrides method defined in `RecursiveMixin` inconsistently. Parameter of type `Iterator[DocGroundtruthPair]` is not a supertype of the overridden parameter `jina.types.sets.document.DocumentSet`.",
+    "message": " `jina.drivers.evaluate.BaseEvaluateDriver._apply_all` overrides method defined in `RecursiveMixin` inconsistently. Parameter of type `Iterator[DocGroundtruthPair]` is not a supertype of the overridden parameter `jina.types.sets.document.DocumentSet`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 50,
+    "warning_line": "    def _apply_all("
+  },
+  {
+    "project": "jina-ai/jina",
+    "commit": "a151006980b3a6f0065b3e197062f6654c77a74e",
+    "filename": "jina/drivers/reduce.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jina-ai-jina/jina/drivers/reduce.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jina/drivers/reduce.py:33:8 Incompatible variable type [9]: docs is declared to have type `jina.types.sets.document.DocumentSet` but is used as type `typing.List[Variable[_T]]`.",
+    "message": " docs is declared to have type `jina.types.sets.document.DocumentSet` but is used as type `typing.List[Variable[_T]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 33,
+    "warning_line": "        docs = []"
+  }
+]

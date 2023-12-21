@@ -1,0 +1,104 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "c6d73a67ab7414f51a78bb38204f7482a06c87a2",
+    "filename": "tests/integration_tests/test_catalyst.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/integration_tests/test_catalyst.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/integration_tests/test_catalyst.py:46:8 Incompatible return type [7]: Expected `None` but got `float`.",
+    "message": " Expected `None` but got `float`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 46,
+    "warning_line": "        return 1.0",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> None\n        model = torch.nn.Linear(4, 1)\n",
+        "source_code_len": 109,
+        "target_code": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> float\n        model = torch.nn.Linear(4, 1)\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -26,3 +28,3 @@\n     def objective(trial):\n-        # type: (optuna.trial.Trial) -> None\n+        # type: (optuna.trial.Trial) -> float\n         model = torch.nn.Linear(4, 1)\n",
+        "source_code_with_indent": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> None\n        <IND>model = torch.nn.Linear(4, 1)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> float\n        <IND>model = torch.nn.Linear(4, 1)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "optuna/optuna",
+    "commit": "c6d73a67ab7414f51a78bb38204f7482a06c87a2",
+    "filename": "tests/integration_tests/test_catalyst.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/integration_tests/test_catalyst.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/integration_tests/test_catalyst.py:49:19 Incompatible parameter type [6]: Expected `typing.Callable[[optuna.trial.Trial], float]` for 1st positional only parameter to call `optuna.study.Study.optimize` but got `typing.Callable[[Named(trial, optuna.trial.Trial)], None]`.",
+    "message": " Expected `typing.Callable[[optuna.trial.Trial], float]` for 1st positional only parameter to call `optuna.study.Study.optimize` but got `typing.Callable[[Named(trial, optuna.trial.Trial)], None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 49,
+    "warning_line": "    study.optimize(objective, n_trials=1)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> None\n        model = torch.nn.Linear(4, 1)\n",
+        "source_code_len": 109,
+        "target_code": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> float\n        model = torch.nn.Linear(4, 1)\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -26,3 +28,3 @@\n     def objective(trial):\n-        # type: (optuna.trial.Trial) -> None\n+        # type: (optuna.trial.Trial) -> float\n         model = torch.nn.Linear(4, 1)\n",
+        "source_code_with_indent": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> None\n        <IND>model = torch.nn.Linear(4, 1)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> float\n        <IND>model = torch.nn.Linear(4, 1)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "optuna/optuna",
+    "commit": "c6d73a67ab7414f51a78bb38204f7482a06c87a2",
+    "filename": "tests/integration_tests/test_catalyst.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/integration_tests/test_catalyst.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/integration_tests/test_catalyst.py:53:19 Incompatible parameter type [6]: Expected `typing.Callable[[optuna.trial.Trial], float]` for 1st positional only parameter to call `optuna.study.Study.optimize` but got `typing.Callable[[Named(trial, optuna.trial.Trial)], None]`.",
+    "message": " Expected `typing.Callable[[optuna.trial.Trial], float]` for 1st positional only parameter to call `optuna.study.Study.optimize` but got `typing.Callable[[Named(trial, optuna.trial.Trial)], None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 53,
+    "warning_line": "    study.optimize(objective, n_trials=1)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> None\n        model = torch.nn.Linear(4, 1)\n",
+        "source_code_len": 109,
+        "target_code": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> float\n        model = torch.nn.Linear(4, 1)\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -26,3 +28,3 @@\n     def objective(trial):\n-        # type: (optuna.trial.Trial) -> None\n+        # type: (optuna.trial.Trial) -> float\n         model = torch.nn.Linear(4, 1)\n",
+        "source_code_with_indent": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> None\n        <IND>model = torch.nn.Linear(4, 1)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def objective(trial):\n        # type: (optuna.trial.Trial) -> float\n        <IND>model = torch.nn.Linear(4, 1)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

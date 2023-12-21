@@ -1,0 +1,66 @@
+[
+  {
+    "project": "jstrieb/github-stats",
+    "commit": "9bcdc13d1a6809b129e050270c8563a809b2842d",
+    "filename": "generate_images.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jstrieb-github-stats/generate_images.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "generate_images.py:122:12 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `Stats.__init__` but got `typing.Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `Stats.__init__` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 122,
+    "warning_line": "            user,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    user = os.getenv(\"GITHUB_ACTOR\")\n    exclude_repos = os.getenv(\"EXCLUDED\")\n    exclude_repos = (\n        {x.strip() for x in exclude_repos.split(\",\")} if exclude_repos else None\n",
+        "source_code_len": 182,
+        "target_code": "    user = os.getenv(\"GITHUB_ACTOR\")\n    if user is None:\n        raise RuntimeError(\"Environment variable GITHUB_ACTOR must be set.\")\n    exclude_repos = os.getenv(\"EXCLUDED\")\n    excluded_repos = (\n        {x.strip() for x in exclude_repos.split(\",\")} if exclude_repos else None\n",
+        "target_code_len": 281,
+        "diff_format": "@@ -106,4 +106,6 @@\n     user = os.getenv(\"GITHUB_ACTOR\")\n+    if user is None:\n+        raise RuntimeError(\"Environment variable GITHUB_ACTOR must be set.\")\n     exclude_repos = os.getenv(\"EXCLUDED\")\n-    exclude_repos = (\n+    excluded_repos = (\n         {x.strip() for x in exclude_repos.split(\",\")} if exclude_repos else None\n",
+        "source_code_with_indent": "    <DED>user = os.getenv(\"GITHUB_ACTOR\")\n    exclude_repos = os.getenv(\"EXCLUDED\")\n    exclude_repos = (\n        {x.strip() for x in exclude_repos.split(\",\")} if exclude_repos else None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>user = os.getenv(\"GITHUB_ACTOR\")\n    if user is None:\n        <IND>raise RuntimeError(\"Environment variable GITHUB_ACTOR must be set.\")\n    <DED>exclude_repos = os.getenv(\"EXCLUDED\")\n    excluded_repos = (\n        {x.strip() for x in exclude_repos.split(\",\")} if exclude_repos else None\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    exclude_langs = os.getenv(\"EXCLUDED_LANGS\")\n    exclude_langs = (\n        {x.strip() for x in exclude_langs.split(\",\")} if exclude_langs else None\n",
+        "source_code_len": 151,
+        "target_code": "    exclude_langs = os.getenv(\"EXCLUDED_LANGS\")\n    excluded_langs = (\n        {x.strip() for x in exclude_langs.split(\",\")} if exclude_langs else None\n",
+        "target_code_len": 152,
+        "diff_format": "@@ -111,3 +113,3 @@\n     exclude_langs = os.getenv(\"EXCLUDED_LANGS\")\n-    exclude_langs = (\n+    excluded_langs = (\n         {x.strip() for x in exclude_langs.split(\",\")} if exclude_langs else None\n",
+        "source_code_with_indent": "    exclude_langs = os.getenv(\"EXCLUDED_LANGS\")\n    exclude_langs = (\n        {x.strip() for x in exclude_langs.split(\",\")} if exclude_langs else None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    exclude_langs = os.getenv(\"EXCLUDED_LANGS\")\n    excluded_langs = (\n        {x.strip() for x in exclude_langs.split(\",\")} if exclude_langs else None\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            session,\n            exclude_repos=exclude_repos,\n            exclude_langs=exclude_langs,\n            ignore_forked_repos=ignore_forked_repos,\n",
+        "source_code_len": 156,
+        "target_code": "            session,\n            exclude_repos=excluded_repos,\n            exclude_langs=excluded_langs,\n            ignore_forked_repos=ignore_forked_repos,\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -124,4 +127,4 @@\n             session,\n-            exclude_repos=exclude_repos,\n-            exclude_langs=exclude_langs,\n+            exclude_repos=excluded_repos,\n+            exclude_langs=excluded_langs,\n             ignore_forked_repos=ignore_forked_repos,\n",
+        "source_code_with_indent": "            session,\n            exclude_repos=exclude_repos,\n            exclude_langs=exclude_langs,\n            ignore_forked_repos=ignore_forked_repos,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            session,\n            exclude_repos=excluded_repos,\n            exclude_langs=excluded_langs,\n            ignore_forked_repos=ignore_forked_repos,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

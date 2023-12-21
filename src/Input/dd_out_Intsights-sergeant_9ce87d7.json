@@ -1,0 +1,53 @@
+[
+  {
+    "project": "Intsights/sergeant",
+    "commit": "9ce87d7ef3a3e8a2fe8690797efd8ec257fc35e2",
+    "filename": "sergeant/connector/redis.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Intsights-sergeant/sergeant/connector/redis.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sergeant/connector/redis.py:56:8 Incompatible return type [7]: Expected `None` but got `bool`.",
+    "message": " Expected `None` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 56,
+    "warning_line": "        return old_value is None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        value: bytes,\n    ) -> None:\n        key_server_location = binascii.crc32(key.encode()) % self.number_of_connections\n",
+        "source_code_len": 125,
+        "target_code": "        value: bytes,\n    ) -> bool:\n        key_server_location = binascii.crc32(key.encode()) % self.number_of_connections\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -47,3 +48,3 @@\n         value: bytes,\n-    ) -> None:\n+    ) -> bool:\n         key_server_location = binascii.crc32(key.encode()) % self.number_of_connections\n",
+        "source_code_with_indent": "        value: bytes,\n    ) -> None:\n        <IND>key_server_location = binascii.crc32(key.encode()) % self.number_of_connections\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        value: bytes,\n    ) -> bool:\n        <IND>key_server_location = binascii.crc32(key.encode()) % self.number_of_connections\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Intsights/sergeant",
+    "commit": "9ce87d7ef3a3e8a2fe8690797efd8ec257fc35e2",
+    "filename": "sergeant/executor/threaded.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Intsights-sergeant/sergeant/executor/threaded.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sergeant/executor/threaded.py:179:20 Incompatible parameter type [6]: Expected `Exception` for 3rd parameter `exception` to call `killer.thread.Killer.__init__` but got `typing.Type[worker.WorkerSoftTimedout]`.",
+    "message": " Expected `Exception` for 3rd parameter `exception` to call `killer.thread.Killer.__init__` but got `typing.Type[worker.WorkerSoftTimedout]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 179,
+    "warning_line": "                    exception=worker.WorkerSoftTimedout,"
+  }
+]

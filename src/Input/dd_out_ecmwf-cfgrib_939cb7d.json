@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "939cb7db0383ede18a2627d73608a8bd9330862a",
+    "filename": "cf2cdm/cfunits.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cf2cdm/cfunits.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cf2cdm/cfunits.py:63:79 Incompatible parameter type [6]: Expected `T.Dict[typing.Tuple[typing.Any, ...], float]` for 3rd positional only parameter to call `simple_conversion_factor` but got `T.Union[T.Dict[T.Tuple[str, str, str], float], T.Dict[typing.Tuple[typing.Any, ...], float]]`.",
+    "message": " Expected `T.Dict[typing.Tuple[typing.Any, ...], float]` for 3rd positional only parameter to call `simple_conversion_factor` but got `T.Union[T.Dict[T.Tuple[str, str, str], float], T.Dict[typing.Tuple[typing.Any, ...], float]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 63,
+    "warning_line": "            return data * simple_conversion_factor(target_units, source_units, rules)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    (\"km\", \"kilometer\", \"kilometers\"): 1000.0,\n}\n\n",
+        "source_code_len": 50,
+        "target_code": "    (\"km\", \"kilometer\", \"kilometers\"): 1000.0,\n}  # type: T.Dict[T.Tuple[str, ...], float]\n\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -33,3 +33,3 @@\n     (\"km\", \"kilometer\", \"kilometers\"): 1000.0,\n-}\n+}  # type: T.Dict[T.Tuple[str, ...], float]\n \n",
+        "source_code_with_indent": "    (\"km\", \"kilometer\", \"kilometers\"): 1000.0,\n}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    (\"km\", \"kilometer\", \"kilometers\"): 1000.0,\n}  # type: T.Dict[T.Tuple[str, ...], float]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

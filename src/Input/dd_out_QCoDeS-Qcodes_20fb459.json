@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "20fb459260b62f84879c46542e8e2190f87ae95a",
+    "filename": "qcodes/station.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/station.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/station.py:520:52 Incompatible parameter type [6]: Expected `Parameter` for 1st positional only parameter to call `list.append` but got `_BaseParameter`.",
+    "message": " Expected `Parameter` for 1st positional only parameter to call `list.append` but got `_BaseParameter`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 520,
+    "warning_line": "                    self._monitor_parameters.append(parameter)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._added_methods: List[str] = []\n        self._monitor_parameters: List[Parameter] = []\n\n",
+        "source_code_len": 100,
+        "target_code": "        self._added_methods: List[str] = []\n        self._monitor_parameters: List[_BaseParameter] = []\n\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -108,3 +108,3 @@\n         self._added_methods: List[str] = []\n-        self._monitor_parameters: List[Parameter] = []\n+        self._monitor_parameters: List[_BaseParameter] = []\n \n",
+        "source_code_with_indent": "        self._added_methods: List[str] = []\n        self._monitor_parameters: List[Parameter] = []\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._added_methods: List[str] = []\n        self._monitor_parameters: List[_BaseParameter] = []\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

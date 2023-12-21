@@ -1,0 +1,81 @@
+[
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "12b26512fc511518d3b37d37eb78b406991e08d2",
+    "filename": "qutebrowser/misc/sessions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/qutebrowser/misc/sessions.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qutebrowser/misc/sessions.py:507:27 Incompatible variable type [9]: name is declared to have type `str` but is used as type `object`.",
+    "message": " name is declared to have type `str` but is used as type `object`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 507,
+    "warning_line": "    def session_save(self, name: str = default, current=False, quiet=False,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import urllib\n\n",
+        "source_code_len": 15,
+        "target_code": "import urllib\nimport typing\n\n",
+        "target_code_len": 29,
+        "diff_format": "@@ -25,2 +25,3 @@\n import urllib\n+import typing\n \n",
+        "source_code_with_indent": "import urllib\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import urllib\nimport typing\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndefault = object()  # Sentinel value\n\n",
+        "source_code_len": 39,
+        "target_code": "\nclass Sentinel:\n\n    pass\n\n\ndefault = Sentinel()\n\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -39,3 +40,8 @@\n \n-default = object()  # Sentinel value\n+class Sentinel:\n+\n+    pass\n+\n+\n+default = Sentinel()\n \n",
+        "source_code_with_indent": "\ndefault = object()  # Sentinel value\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nclass Sentinel:\n\n    <IND>pass\n\n\n<DED>default = Sentinel()\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @cmdutils.argument('with_private', flag='p')\n    def session_save(self, name: str = default, current=False, quiet=False,\n                     force=False, only_active_window=False, with_private=False,\n                     win_id=None):\n",
+        "source_code_len": 240,
+        "target_code": "    @cmdutils.argument('with_private', flag='p')\n    def session_save(self, name: typing.Union[str, Sentinel] = default,\n                     current=False, quiet=False, force=False,\n                     only_active_window=False, with_private=False,\n                     win_id=None):\n",
+        "target_code_len": 285,
+        "diff_format": "@@ -506,4 +512,5 @@\n     @cmdutils.argument('with_private', flag='p')\n-    def session_save(self, name: str = default, current=False, quiet=False,\n-                     force=False, only_active_window=False, with_private=False,\n+    def session_save(self, name: typing.Union[str, Sentinel] = default,\n+                     current=False, quiet=False, force=False,\n+                     only_active_window=False, with_private=False,\n                      win_id=None):\n",
+        "source_code_with_indent": "    @cmdutils.argument('with_private', flag='p')\n    def session_save(self, name: str = default, current=False, quiet=False,\n                     force=False, only_active_window=False, with_private=False,\n                     win_id=None):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @cmdutils.argument('with_private', flag='p')\n    def session_save(self, name: typing.Union[str, Sentinel] = default,\n                     current=False, quiet=False, force=False,\n                     only_active_window=False, with_private=False,\n                     win_id=None):\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        if name is not default and name.startswith('_') and not force:\n            raise cmdexc.CommandError(\"{} is an internal session, use --force \"\n",
+        "source_code_len": 163,
+        "target_code": "        \"\"\"\n        if (not isinstance(name, Sentinel) and\n                name.startswith('_') and\n                not force):\n            raise cmdexc.CommandError(\"{} is an internal session, use --force \"\n",
+        "target_code_len": 208,
+        "diff_format": "@@ -520,3 +527,5 @@\n         \"\"\"\n-        if name is not default and name.startswith('_') and not force:\n+        if (not isinstance(name, Sentinel) and\n+                name.startswith('_') and\n+                not force):\n             raise cmdexc.CommandError(\"{} is an internal session, use --force \"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        if name is not default and name.startswith('_') and not force:\n            <IND>raise cmdexc.CommandError(\"{} is an internal session, use --force \"\n",
+        "target_code_with_indent": "\n        if (not isinstance(name, Sentinel) and\n                name.startswith('_') and\n                not force):\n            <IND>raise cmdexc.CommandError(\"{} is an internal session, use --force \"\n"
+      }
+    ]
+  }
+]

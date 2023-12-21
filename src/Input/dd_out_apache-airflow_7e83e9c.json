@@ -1,0 +1,70 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "7e83e9cd1100b5c5e13a0285fb17abe6d60dfb88",
+    "filename": "docs/exts/docs_build/lint_checks.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/docs/exts/docs_build/lint_checks.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "docs/exts/docs_build/lint_checks.py:139:15 Unsupported operand [58]: `in` is not supported for right operand type `Optional[str]`.",
+    "message": " `in` is not supported for right operand type `Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 139,
+    "warning_line": "            if \"This class is deprecated.\" in docstring:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            docstring = ast.get_docstring(class_def)\n            if \"This class is deprecated.\" in docstring:\n                continue\n\n            if f\":ref:`howto/operator:{existing_operator}`\" in ast.get_docstring(class_def):\n                continue\n\n",
+        "source_code_len": 255,
+        "target_code": "            docstring = ast.get_docstring(class_def)\n            if docstring:\n                if \"This class is deprecated.\" in docstring:\n                    continue\n\n                if f\":ref:`howto/operator:{existing_operator}`\" in docstring:\n                    continue\n\n",
+        "target_code_len": 278,
+        "diff_format": "@@ -138,7 +138,8 @@\n             docstring = ast.get_docstring(class_def)\n-            if \"This class is deprecated.\" in docstring:\n-                continue\n-\n-            if f\":ref:`howto/operator:{existing_operator}`\" in ast.get_docstring(class_def):\n-                continue\n+            if docstring:\n+                if \"This class is deprecated.\" in docstring:\n+                    continue\n+\n+                if f\":ref:`howto/operator:{existing_operator}`\" in docstring:\n+                    continue\n \n",
+        "source_code_with_indent": "            <DED>docstring = ast.get_docstring(class_def)\n            if \"This class is deprecated.\" in docstring:\n                <IND>continue\n\n            <DED>if f\":ref:`howto/operator:{existing_operator}`\" in ast.get_docstring(class_def):\n                <IND>continue\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>docstring = ast.get_docstring(class_def)\n            if docstring:\n                <IND>if \"This class is deprecated.\" in docstring:\n                    <IND>continue\n\n                <DED>if f\":ref:`howto/operator:{existing_operator}`\" in docstring:\n                    <IND>continue\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "7e83e9cd1100b5c5e13a0285fb17abe6d60dfb88",
+    "filename": "docs/exts/docs_build/lint_checks.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/docs/exts/docs_build/lint_checks.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "docs/exts/docs_build/lint_checks.py:142:15 Unsupported operand [58]: `in` is not supported for right operand type `Optional[str]`.",
+    "message": " `in` is not supported for right operand type `Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 142,
+    "warning_line": "            if f\":ref:`howto/operator:{existing_operator}`\" in ast.get_docstring(class_def):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            docstring = ast.get_docstring(class_def)\n            if \"This class is deprecated.\" in docstring:\n                continue\n\n            if f\":ref:`howto/operator:{existing_operator}`\" in ast.get_docstring(class_def):\n                continue\n\n",
+        "source_code_len": 255,
+        "target_code": "            docstring = ast.get_docstring(class_def)\n            if docstring:\n                if \"This class is deprecated.\" in docstring:\n                    continue\n\n                if f\":ref:`howto/operator:{existing_operator}`\" in docstring:\n                    continue\n\n",
+        "target_code_len": 278,
+        "diff_format": "@@ -138,7 +138,8 @@\n             docstring = ast.get_docstring(class_def)\n-            if \"This class is deprecated.\" in docstring:\n-                continue\n-\n-            if f\":ref:`howto/operator:{existing_operator}`\" in ast.get_docstring(class_def):\n-                continue\n+            if docstring:\n+                if \"This class is deprecated.\" in docstring:\n+                    continue\n+\n+                if f\":ref:`howto/operator:{existing_operator}`\" in docstring:\n+                    continue\n \n",
+        "source_code_with_indent": "            <DED>docstring = ast.get_docstring(class_def)\n            if \"This class is deprecated.\" in docstring:\n                <IND>continue\n\n            <DED>if f\":ref:`howto/operator:{existing_operator}`\" in ast.get_docstring(class_def):\n                <IND>continue\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>docstring = ast.get_docstring(class_def)\n            if docstring:\n                <IND>if \"This class is deprecated.\" in docstring:\n                    <IND>continue\n\n                <DED>if f\":ref:`howto/operator:{existing_operator}`\" in docstring:\n                    <IND>continue\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

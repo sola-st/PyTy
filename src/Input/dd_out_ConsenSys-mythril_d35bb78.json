@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "d35bb7892f2ebde220103b105d49bf6ec8a5d5e6",
+    "filename": "mythril/support/signatures.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/support/signatures.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/support/signatures.py:229:12 Incompatible attribute type [8]: Attribute `online_lookup_timeout` declared in class `SignatureDB` has type `int` but is used as type `float`.",
+    "message": " Attribute `online_lookup_timeout` declared in class `SignatureDB` has type `int` but is used as type `float`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 229,
+    "warning_line": "            self.online_lookup_timeout = time.time() + 2 * 60",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            # wait at least 2 mins to try again\n            self.online_lookup_timeout = time.time() + 2 * 60\n            log.warning(\"Online lookup failed, not retrying for 2min: %s\", fbdole)\n",
+        "source_code_len": 193,
+        "target_code": "            # wait at least 2 mins to try again\n            self.online_lookup_timeout = int(time.time()) + 2 * 60\n            log.warning(\"Online lookup failed, not retrying for 2min: %s\", fbdole)\n",
+        "target_code_len": 198,
+        "diff_format": "@@ -228,3 +228,3 @@\n             # wait at least 2 mins to try again\n-            self.online_lookup_timeout = time.time() + 2 * 60\n+            self.online_lookup_timeout = int(time.time()) + 2 * 60\n             log.warning(\"Online lookup failed, not retrying for 2min: %s\", fbdole)\n",
+        "source_code_with_indent": "            # wait at least 2 mins to try again\n            <IND>self.online_lookup_timeout = time.time() + 2 * 60\n            log.warning(\"Online lookup failed, not retrying for 2min: %s\", fbdole)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            # wait at least 2 mins to try again\n            <IND>self.online_lookup_timeout = int(time.time()) + 2 * 60\n            log.warning(\"Online lookup failed, not retrying for 2min: %s\", fbdole)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

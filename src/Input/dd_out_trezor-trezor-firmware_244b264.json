@@ -1,0 +1,36 @@
+[
+  {
+    "project": "trezor/trezor-firmware",
+    "commit": "244b264b478b7c6cc21e50d28b10a28bf0fbe7c0",
+    "filename": "core/src/apps/common/signverify.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trezor-trezor-firmware/core/src/apps/common/signverify.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/src/apps/common/signverify.py:47:4 Incompatible variable type [9]: message is declared to have type `bytes` but is used as type `List[str]`.",
+    "message": " message is declared to have type `bytes` but is used as type `List[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 47,
+    "warning_line": "    message = split_message(message)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    header = \"Sign {} message\".format(coin)\n    message = split_message(message)\n    text = Text(header, new_lines=False)\n    text.normal(*message)\n    await require_confirm(ctx, text)\n",
+        "source_code_len": 185,
+        "target_code": "    header = \"Sign {} message\".format(coin)\n    message_lines = split_message(message)\n    text = Text(header, new_lines=False)\n    text.normal(*message_lines)\n    await require_confirm(ctx, text)\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -46,5 +46,5 @@\n     header = \"Sign {} message\".format(coin)\n-    message = split_message(message)\n+    message_lines = split_message(message)\n     text = Text(header, new_lines=False)\n-    text.normal(*message)\n+    text.normal(*message_lines)\n     await require_confirm(ctx, text)\n",
+        "source_code_with_indent": "    <IND>header = \"Sign {} message\".format(coin)\n    message = split_message(message)\n    text = Text(header, new_lines=False)\n    text.normal(*message)\n    await require_confirm(ctx, text)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>header = \"Sign {} message\".format(coin)\n    message_lines = split_message(message)\n    text = Text(header, new_lines=False)\n    text.normal(*message_lines)\n    await require_confirm(ctx, text)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "lbryio/lbry-sdk",
+    "commit": "e154c83ffeefa991e562163690596e97443fae28",
+    "filename": "torba/baseaccount.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lbryio-lbry-sdk/torba/baseaccount.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torba/baseaccount.py:88:4 Inconsistent override [14]: `torba.baseaccount.HierarchicalDeterministic.to_dict` overrides method defined in `AddressManager` inconsistently. Parameter of type `HierarchicalDeterministic` is not a supertype of the overridden parameter `AddressManager`.",
+    "message": " `torba.baseaccount.HierarchicalDeterministic.to_dict` overrides method defined in `AddressManager` inconsistently. Parameter of type `HierarchicalDeterministic` is not a supertype of the overridden parameter `AddressManager`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 88,
+    "warning_line": "    def to_dict(cls, receiving: 'HierarchicalDeterministic', change: 'HierarchicalDeterministic') -> dict:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        )\n\n    @classmethod\n    def to_dict(cls, receiving: 'HierarchicalDeterministic', change: 'HierarchicalDeterministic') -> dict:\n        d = super().to_dict(receiving, change)\n        d['receiving'] = receiving.to_dict_instance()\n        d['change'] = change.to_dict_instance()\n        return d\n\n",
+        "source_code_len": 302,
+        "target_code": "        )\n\n",
+        "target_code_len": 11,
+        "diff_format": "@@ -85,9 +95,2 @@\n         )\n-\n-    @classmethod\n-    def to_dict(cls, receiving: 'HierarchicalDeterministic', change: 'HierarchicalDeterministic') -> dict:\n-        d = super().to_dict(receiving, change)\n-        d['receiving'] = receiving.to_dict_instance()\n-        d['change'] = change.to_dict_instance()\n-        return d\n \n",
+        "source_code_with_indent": "        )\n\n    <DED>@classmethod\n    def to_dict(cls, receiving: 'HierarchicalDeterministic', change: 'HierarchicalDeterministic') -> dict:\n        <IND>d = super().to_dict(receiving, change)\n        d['receiving'] = receiving.to_dict_instance()\n        d['change'] = change.to_dict_instance()\n        return d\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lbryio/lbry-sdk",
+    "commit": "e154c83ffeefa991e562163690596e97443fae28",
+    "filename": "torba/baseaccount.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lbryio-lbry-sdk/torba/baseaccount.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torba/baseaccount.py:144:19 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `AddressManager._query_addresses` but got `typing.Optional[int]`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `AddressManager._query_addresses` but got `typing.Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 144,
+    "warning_line": "            limit, self.maximum_uses_per_address if only_usable else None,"
+  },
+  {
+    "project": "lbryio/lbry-sdk",
+    "commit": "e154c83ffeefa991e562163690596e97443fae28",
+    "filename": "torba/baseaccount.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lbryio-lbry-sdk/torba/baseaccount.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torba/baseaccount.py:208:70 Incompatible variable type [9]: address_generator is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "message": " address_generator is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 208,
+    "warning_line": "    def generate(cls, ledger: 'baseledger.BaseLedger', password: str, address_generator: dict = None):"
+  }
+]

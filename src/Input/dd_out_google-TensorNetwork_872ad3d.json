@@ -1,0 +1,36 @@
+[
+  {
+    "project": "google/TensorNetwork",
+    "commit": "872ad3d9d5431878fdb216afa9011fdc0f859431",
+    "filename": "tensornetwork/network.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-TensorNetwork/tensornetwork/network.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensornetwork/network.py:293:4 Incompatible variable type [9]: edges is declared to have type `List[network_components.Edge]` but is used as type `typing.Set[network_components.Edge]`.",
+    "message": " edges is declared to have type `List[network_components.Edge]` but is used as type `typing.Set[network_components.Edge]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 293,
+    "warning_line": "    edges = set(edges)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    edges = set(edges)\n    nodes_set = set([node1, node2])\n",
+        "source_code_len": 60,
+        "target_code": "\n    nodes_set = set([node1, node2])\n",
+        "target_code_len": 37,
+        "diff_format": "@@ -292,3 +292,2 @@\n \n-    edges = set(edges)\n     nodes_set = set([node1, node2])\n",
+        "source_code_with_indent": "\n    edges = set(edges)\n    nodes_set = set([node1, node2])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    nodes_set = set([node1, node2])\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ipython/ipython",
+    "commit": "c1c2b60fce9716d4904d253b30edcb6699e3d13c",
+    "filename": "IPython/core/tests/test_async_helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ipython-ipython/IPython/core/tests/test_async_helpers.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "IPython/core/tests/test_async_helpers.py:13:17 Unbound name [10]: Name `ip` is used but not defined in the current scope.",
+    "message": " Name `ip` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 13,
+    "warning_line": "iprc = lambda x: ip.run_cell(dedent(x)).raise_error()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import sys\n\n",
+        "source_code_len": 12,
+        "target_code": "import sys\nfrom typing import TYPE_CHECKING\n\nif TYPE_CHECKING:\n    from IPython import get_ipython\n    ip = get_ipython()\n\n\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -11,2 +11,8 @@\n import sys\n+from typing import TYPE_CHECKING\n+\n+if TYPE_CHECKING:\n+    from IPython import get_ipython\n+    ip = get_ipython()\n+\n \n",
+        "source_code_with_indent": "import sys\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import sys\nfrom typing import TYPE_CHECKING\n\nif TYPE_CHECKING:\n    <IND>from IPython import get_ipython\n    ip = get_ipython()\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

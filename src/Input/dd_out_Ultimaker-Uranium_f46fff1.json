@@ -1,0 +1,87 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "f46fff10cb6ba4f525ca555ec9bf58fe851a9770",
+    "filename": "UM/Settings/ContainerRegistry.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/ContainerRegistry.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/ContainerRegistry.py:446:23 Unsupported operand [58]: `>` is not supported for operand types `Optional[float]` and `float`.",
+    "message": " `>` is not supported for operand types `Optional[float]` and `float`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 446,
+    "warning_line": "                    if modified_time > db_last_modified_time:"
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "f46fff10cb6ba4f525ca555ec9bf58fe851a9770",
+    "filename": "UM/Settings/ContainerRegistry.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/ContainerRegistry.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/ContainerRegistry.py:455:94 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `ContainerRegistry._getMetadataFromDatabase` but got `Optional[str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `ContainerRegistry._getMetadataFromDatabase` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 455,
+    "warning_line": "                    self.metadata[container_id] = self._getMetadataFromDatabase(container_id, container_type, cursor)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n                    container_type = self._getProfileType(container_id, cursor)\n                    self.metadata[container_id] = self._getMetadataFromDatabase(container_id, container_type, cursor)\n",
+        "source_code_len": 199,
+        "target_code": "\n                    # Since we know that the container exists, we also know that it will never be None.\n                    container_type = cast(str, self._getProfileType(container_id, cursor))\n                    self.metadata[container_id] = self._getMetadataFromDatabase(container_id, container_type, cursor)\n",
+        "target_code_len": 314,
+        "diff_format": "@@ -453,3 +453,4 @@\n \n-                    container_type = self._getProfileType(container_id, cursor)\n+                    # Since we know that the container exists, we also know that it will never be None.\n+                    container_type = cast(str, self._getProfileType(container_id, cursor))\n                     self.metadata[container_id] = self._getMetadataFromDatabase(container_id, container_type, cursor)\n",
+        "source_code_with_indent": "\n                    <DED>container_type = self._getProfileType(container_id, cursor)\n                    self.metadata[container_id] = self._getMetadataFromDatabase(container_id, container_type, cursor)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n                    # Since we know that the container exists, we also know that it will never be None.\n                    <DED>container_type = cast(str, self._getProfileType(container_id, cursor))\n                    self.metadata[container_id] = self._getMetadataFromDatabase(container_id, container_type, cursor)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "f46fff10cb6ba4f525ca555ec9bf58fe851a9770",
+    "filename": "UM/Settings/ContainerRegistry.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/ContainerRegistry.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/ContainerRegistry.py:686:8 Incompatible return type [7]: Expected `Optional[str]` but got `Optional[Type[ContainerInterface]]`.",
+    "message": " Expected `Optional[str]` but got `Optional[Type[ContainerInterface]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 686,
+    "warning_line": "        return cls.mime_type_map.get(mime_type.name, None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def getContainerForMimeType(cls, mime_type: MimeType) -> Optional[str]:\n        \"\"\"Get the container type corresponding to a certain mime type.\n",
+        "source_code_len": 165,
+        "target_code": "    @classmethod\n    def getContainerForMimeType(cls, mime_type: MimeType) -> Optional[Type[ContainerInterface]]:\n        \"\"\"Get the container type corresponding to a certain mime type.\n",
+        "target_code_len": 186,
+        "diff_format": "@@ -677,3 +678,3 @@\n     @classmethod\n-    def getContainerForMimeType(cls, mime_type: MimeType) -> Optional[str]:\n+    def getContainerForMimeType(cls, mime_type: MimeType) -> Optional[Type[ContainerInterface]]:\n         \"\"\"Get the container type corresponding to a certain mime type.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@classmethod\n    def getContainerForMimeType(cls, mime_type: MimeType) -> Optional[str]:\n        <IND>",
+        "target_code_with_indent": "    <DED>@classmethod\n    def getContainerForMimeType(cls, mime_type: MimeType) -> Optional[Type[ContainerInterface]]:\n        <IND>"
+      }
+    ]
+  }
+]

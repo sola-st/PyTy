@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "6d5a7461a21a57455f50a44758d8d107832869ae",
+    "filename": "cfgrib/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/dataset.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/dataset.py:268:4 Incompatible return type [7]: Expected `T.Tuple[T.Tuple[str], T.Tuple[int], T.Dict[typing.Any, typing.Any]]` but got `T.Tuple[T.Union[T.Tuple[str], T.Tuple[str, str]], T.Union[T.Tuple[typing.Any], T.Tuple[typing.Any, typing.Any]], collections.OrderedDict[typing.Any, typing.Any]]`.",
+    "message": " Expected `T.Tuple[T.Tuple[str], T.Tuple[int], T.Dict[typing.Any, typing.Any]]` but got `T.Tuple[T.Union[T.Tuple[str], T.Tuple[str, str]], T.Union[T.Tuple[typing.Any], T.Tuple[typing.Any, typing.Any]], collections.OrderedDict[typing.Any, typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 268,
+    "warning_line": "    return geo_dims, geo_shape, geo_coord_vars",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def build_geography_coordinates(index, encode_geography, log=LOG):\n    # type: (messages.FileIndex, bool, logging.Logger) -> T.Tuple[T.Tuple[str], T.Tuple[int], dict]\n    first = index.first()\n    geo_coord_vars = collections.OrderedDict()\n    grid_type = index.getone('gridType')\n    if encode_geography and grid_type in GRID_TYPES_COORD_VAR:\n        geo_dims = ('latitude', 'longitude')\n        geo_shape = (index.getone('Nj'), index.getone('Ni'))\n        geo_coord_vars['latitude'] = Variable(\n",
+        "source_code_len": 497,
+        "target_code": "def build_geography_coordinates(index, encode_geography, log=LOG):\n    # type: (messages.FileIndex, bool, logging.Logger) -> T.Tuple[T.Tuple[str, ...], T.Tuple[int, ...], dict]\n    first = index.first()\n    geo_coord_vars = collections.OrderedDict()  # type: T.Dict[str, Variable]\n    grid_type = index.getone('gridType')\n    if encode_geography and grid_type in GRID_TYPES_COORD_VAR:\n        geo_dims = ('latitude', 'longitude')  # type: T.Tuple[str, ...]\n        geo_shape = (index.getone('Nj'), index.getone('Ni'))  # type: T.Tuple[int, ...]\n        geo_coord_vars['latitude'] = Variable(\n",
+        "target_code_len": 592,
+        "diff_format": "@@ -224,9 +224,9 @@\n def build_geography_coordinates(index, encode_geography, log=LOG):\n-    # type: (messages.FileIndex, bool, logging.Logger) -> T.Tuple[T.Tuple[str], T.Tuple[int], dict]\n+    # type: (messages.FileIndex, bool, logging.Logger) -> T.Tuple[T.Tuple[str, ...], T.Tuple[int, ...], dict]\n     first = index.first()\n-    geo_coord_vars = collections.OrderedDict()\n+    geo_coord_vars = collections.OrderedDict()  # type: T.Dict[str, Variable]\n     grid_type = index.getone('gridType')\n     if encode_geography and grid_type in GRID_TYPES_COORD_VAR:\n-        geo_dims = ('latitude', 'longitude')\n-        geo_shape = (index.getone('Nj'), index.getone('Ni'))\n+        geo_dims = ('latitude', 'longitude')  # type: T.Tuple[str, ...]\n+        geo_shape = (index.getone('Nj'), index.getone('Ni'))  # type: T.Tuple[int, ...]\n         geo_coord_vars['latitude'] = Variable(\n",
+        "source_code_with_indent": "def build_geography_coordinates(index, encode_geography, log=LOG):\n    # type: (messages.FileIndex, bool, logging.Logger) -> T.Tuple[T.Tuple[str], T.Tuple[int], dict]\n    <IND>first = index.first()\n    geo_coord_vars = collections.OrderedDict()\n    grid_type = index.getone('gridType')\n    if encode_geography and grid_type in GRID_TYPES_COORD_VAR:\n        <IND>geo_dims = ('latitude', 'longitude')\n        geo_shape = (index.getone('Nj'), index.getone('Ni'))\n        geo_coord_vars['latitude'] = Variable(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def build_geography_coordinates(index, encode_geography, log=LOG):\n    # type: (messages.FileIndex, bool, logging.Logger) -> T.Tuple[T.Tuple[str, ...], T.Tuple[int, ...], dict]\n    <IND>first = index.first()\n    geo_coord_vars = collections.OrderedDict()  # type: T.Dict[str, Variable]\n    grid_type = index.getone('gridType')\n    if encode_geography and grid_type in GRID_TYPES_COORD_VAR:\n        <IND>geo_dims = ('latitude', 'longitude')  # type: T.Tuple[str, ...]\n        geo_shape = (index.getone('Nj'), index.getone('Ni'))  # type: T.Tuple[int, ...]\n        geo_coord_vars['latitude'] = Variable(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

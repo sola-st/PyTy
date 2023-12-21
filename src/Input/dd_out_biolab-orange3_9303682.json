@@ -1,0 +1,36 @@
+[
+  {
+    "project": "biolab/orange3",
+    "commit": "93036825bae2e056304e50a452448efe2898bd24",
+    "filename": "Orange/widgets/data/owcsvimport.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/biolab-orange3/Orange/widgets/data/owcsvimport.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "Orange/widgets/data/owcsvimport.py:1105:32 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `zipfile.ZipFile.getinfo` but got `zipfile.ZipInfo`.",
+    "message": " Expected `str` for 1st positional only parameter to call `zipfile.ZipFile.getinfo` but got `zipfile.ZipInfo`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1105,
+    "warning_line": "            zinfo = arh.getinfo(filename)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if len(filelist) == 1:\n            filename = filelist[0]\n            zinfo = arh.getinfo(filename)\n            f = arh.open(zinfo.filename, 'r')\n            if 't' in mode:\n",
+        "source_code_len": 182,
+        "target_code": "        if len(filelist) == 1:\n            f = arh.open(filelist[0], 'r')\n            if 't' in mode:\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -1103,5 +1103,3 @@\n         if len(filelist) == 1:\n-            filename = filelist[0]\n-            zinfo = arh.getinfo(filename)\n-            f = arh.open(zinfo.filename, 'r')\n+            f = arh.open(filelist[0], 'r')\n             if 't' in mode:\n",
+        "source_code_with_indent": "        if len(filelist) == 1:\n            <IND>filename = filelist[0]\n            zinfo = arh.getinfo(filename)\n            f = arh.open(zinfo.filename, 'r')\n            if 't' in mode:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if len(filelist) == 1:\n            <IND>f = arh.open(filelist[0], 'r')\n            if 't' in mode:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

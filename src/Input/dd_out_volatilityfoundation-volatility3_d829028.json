@@ -1,0 +1,87 @@
+[
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "d829028a36ab12b83cfa29256586ced2092a23c3",
+    "filename": "volatility/framework/automagic/linux.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility/framework/automagic/linux.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility/framework/automagic/linux.py:37:8 Incompatible attribute type [8]: Attribute `_requirements` declared in class `LinuxSymbolFinder` has type `typing.List[typing.Tuple[str, str, interfaces.configuration.ConstructableRequirementInterface]]` but is used as type `typing.List[typing.Tuple[str, typing.Union[requirements.SymbolRequirement, requirements.TranslationLayerRequirement]]]`.",
+    "message": " Attribute `_requirements` declared in class `LinuxSymbolFinder` has type `typing.List[typing.Tuple[str, str, interfaces.configuration.ConstructableRequirementInterface]]` but is used as type `typing.List[typing.Tuple[str, typing.Union[requirements.SymbolRequirement, requirements.TranslationLayerRequirement]]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 37,
+    "warning_line": "        self._requirements = self.find_requirements(context, config_path, requirement,"
+  },
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "d829028a36ab12b83cfa29256586ced2092a23c3",
+    "filename": "volatility/framework/symbols/windows/extensions/pe.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility/framework/symbols/windows/extensions/pe.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility/framework/symbols/windows/extensions/pe.py:111:8 Incompatible return type [7]: Expected `typing.Tuple[int, bytes]` but got `typing.Generator[typing.Tuple[int, bytes], None, None]`.",
+    "message": " Expected `typing.Tuple[int, bytes]` but got `typing.Generator[typing.Tuple[int, bytes], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 111,
+    "warning_line": "        yield 0, fixed_data",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def reconstruct(self) -> typing.Tuple[int, bytes]:\n        \"\"\"This method generates the content necessary to reconstruct a PE\n",
+        "source_code_len": 131,
+        "target_code": "\n    def reconstruct(self) -> typing.Generator[typing.Tuple[int, bytes], None, None]:\n        \"\"\"This method generates the content necessary to reconstruct a PE\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -79,3 +79,3 @@\n \n-    def reconstruct(self) -> typing.Tuple[int, bytes]:\n+    def reconstruct(self) -> typing.Generator[typing.Tuple[int, bytes], None, None]:\n         \"\"\"This method generates the content necessary to reconstruct a PE\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def reconstruct(self) -> typing.Tuple[int, bytes]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def reconstruct(self) -> typing.Generator[typing.Tuple[int, bytes], None, None]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "d829028a36ab12b83cfa29256586ced2092a23c3",
+    "filename": "volatility/framework/symbols/windows/extensions/pe.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility/framework/symbols/windows/extensions/pe.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility/framework/symbols/windows/extensions/pe.py:144:12 Incompatible return type [7]: Expected `typing.Tuple[int, bytes]` but got `typing.Generator[typing.Tuple[typing.Any, bytes], None, None]`.",
+    "message": " Expected `typing.Tuple[int, bytes]` but got `typing.Generator[typing.Tuple[typing.Any, bytes], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 144,
+    "warning_line": "            yield offset, sectheader",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def reconstruct(self) -> typing.Tuple[int, bytes]:\n        \"\"\"This method generates the content necessary to reconstruct a PE\n",
+        "source_code_len": 131,
+        "target_code": "\n    def reconstruct(self) -> typing.Generator[typing.Tuple[int, bytes], None, None]:\n        \"\"\"This method generates the content necessary to reconstruct a PE\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -79,3 +79,3 @@\n \n-    def reconstruct(self) -> typing.Tuple[int, bytes]:\n+    def reconstruct(self) -> typing.Generator[typing.Tuple[int, bytes], None, None]:\n         \"\"\"This method generates the content necessary to reconstruct a PE\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def reconstruct(self) -> typing.Tuple[int, bytes]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def reconstruct(self) -> typing.Generator[typing.Tuple[int, bytes], None, None]:\n        <IND>"
+      }
+    ]
+  }
+]

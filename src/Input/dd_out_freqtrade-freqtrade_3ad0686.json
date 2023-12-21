@@ -1,0 +1,36 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "3ad0686bc78018ccc6c19cfa6ffad72d47e62bed",
+    "filename": "freqtrade/exchange/exchange.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/exchange/exchange.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/exchange/exchange.py:208:12 Incompatible return type [7]: Expected `Dict[str, typing.Any]` but got implicit return value of `None`.",
+    "message": " Expected `Dict[str, typing.Any]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 208,
+    "warning_line": "            logger.warning('Unable to initialize markets. Reason: %s', e)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _load_markets(self, reload=False) -> Dict[str, Any]:\n        \"\"\" Initialize markets both sync and async \"\"\"\n",
+        "source_code_len": 117,
+        "target_code": "\n    def _load_markets(self, reload=False) -> None:\n        \"\"\" Initialize markets both sync and async \"\"\"\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -201,3 +201,3 @@\n \n-    def _load_markets(self, reload=False) -> Dict[str, Any]:\n+    def _load_markets(self, reload=False) -> None:\n         \"\"\" Initialize markets both sync and async \"\"\"\n",
+        "source_code_with_indent": "\n    <DED><DED>def _load_markets(self, reload=False) -> Dict[str, Any]:\n        <IND>\"\"\" Initialize markets both sync and async \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def _load_markets(self, reload=False) -> None:\n        <IND>\"\"\" Initialize markets both sync and async \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

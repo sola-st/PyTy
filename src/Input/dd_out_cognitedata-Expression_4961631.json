@@ -1,0 +1,70 @@
+[
+  {
+    "project": "cognitedata/Expression",
+    "commit": "49616315703ffd3e247004811916ceb332cb4390",
+    "filename": "tests/test_option_effect.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cognitedata-Expression/tests/test_option_effect.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_option_effect.py:14:16 Incompatible variable type [9]: z is declared to have type `str` but is used as type `Generator[Generator[str, str, str], None, None]`.",
+    "message": " z is declared to have type `str` but is used as type `Generator[Generator[str, str, str], None, None]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 14,
+    "warning_line": "                z = yield from Some(str(y))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @effect.option\n    def fn() -> Generator[str, str, str]:\n        z: str = \"Not found\"\n",
+        "source_code_len": 90,
+        "target_code": "    @effect.option\n    def fn():\n        z: str = \"Not found\"\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -9,3 +9,3 @@\n     @effect.option\n-    def fn() -> Generator[str, str, str]:\n+    def fn():\n         z: str = \"Not found\"\n",
+        "source_code_with_indent": "    <IND>@effect.option\n    def fn() -> Generator[str, str, str]:\n        <IND>z: str = \"Not found\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>@effect.option\n    def fn():\n        <IND>z: str = \"Not found\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "cognitedata/Expression",
+    "commit": "49616315703ffd3e247004811916ceb332cb4390",
+    "filename": "tests/test_option_effect.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cognitedata-Expression/tests/test_option_effect.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_option_effect.py:16:8 Incompatible return type [7]: Expected `Generator[str, str, str]` but got `str`.",
+    "message": " Expected `Generator[str, str, str]` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 16,
+    "warning_line": "        return z",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @effect.option\n    def fn() -> Generator[str, str, str]:\n        z: str = \"Not found\"\n",
+        "source_code_len": 90,
+        "target_code": "    @effect.option\n    def fn():\n        z: str = \"Not found\"\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -9,3 +9,3 @@\n     @effect.option\n-    def fn() -> Generator[str, str, str]:\n+    def fn():\n         z: str = \"Not found\"\n",
+        "source_code_with_indent": "    <IND>@effect.option\n    def fn() -> Generator[str, str, str]:\n        <IND>z: str = \"Not found\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>@effect.option\n    def fn():\n        <IND>z: str = \"Not found\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

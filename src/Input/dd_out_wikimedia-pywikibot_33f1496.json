@@ -1,0 +1,51 @@
+[
+  {
+    "project": "wikimedia/pywikibot",
+    "commit": "33f14964ab38ed0224db4b9bace0e92dd5028e01",
+    "filename": "pywikibot/tools/formatter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wikimedia-pywikibot/pywikibot/tools/formatter.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pywikibot/tools/formatter.py:107:4 Inconsistent override [14]: `pywikibot.tools.formatter._ColorFormatter.vformat` overrides method defined in `Formatter` inconsistently. Parameter of type `typing.Dict[typing.Any, typing.Any]` is not a supertype of the overridden parameter `typing.Mapping[str, typing.Any]`.",
+    "message": " `pywikibot.tools.formatter._ColorFormatter.vformat` overrides method defined in `Formatter` inconsistently. Parameter of type `typing.Dict[typing.Any, typing.Any]` is not a supertype of the overridden parameter `typing.Mapping[str, typing.Any]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 107,
+    "warning_line": "    def vformat(self, format_string: str, args: Sequence, kwargs: dict) -> str:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from string import Formatter\nfrom typing import Sequence\n\n",
+        "source_code_len": 58,
+        "target_code": "from string import Formatter\nfrom typing import Any, Mapping, Sequence\n\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -10,3 +10,3 @@\n from string import Formatter\n-from typing import Sequence\n+from typing import Any, Mapping, Sequence\n \n",
+        "source_code_with_indent": "from string import Formatter\nfrom typing import Sequence\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from string import Formatter\nfrom typing import Any, Mapping, Sequence\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def vformat(self, format_string: str, args: Sequence, kwargs: dict) -> str:\n        \"\"\"Return the format result but verify no colors are keywords.\n",
+        "source_code_len": 152,
+        "target_code": "\n    def vformat(self, format_string: str, args: Sequence,\n                kwargs: Mapping[str, Any]) -> str:\n        \"\"\"Return the format result but verify no colors are keywords.\n",
+        "target_code_len": 181,
+        "diff_format": "@@ -106,3 +106,4 @@\n \n-    def vformat(self, format_string: str, args: Sequence, kwargs: dict) -> str:\n+    def vformat(self, format_string: str, args: Sequence,\n+                kwargs: Mapping[str, Any]) -> str:\n         \"\"\"Return the format result but verify no colors are keywords.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def vformat(self, format_string: str, args: Sequence, kwargs: dict) -> str:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def vformat(self, format_string: str, args: Sequence,\n                kwargs: Mapping[str, Any]) -> str:\n        <IND>"
+      }
+    ]
+  }
+]

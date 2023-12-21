@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "9a92899e7c8416d43196d8bf424e7e2d86f27f0d",
+    "filename": "mypy/test/testgraph.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/test/testgraph.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/test/testgraph.py:42:12 Incompatible parameter type [6]: Expected `mypy.build.BuildSourceSet` for 8th parameter `source_set` to call `BuildManager.__init__` but got `None`.",
+    "message": " Expected `mypy.build.BuildSourceSet` for 8th parameter `source_set` to call `BuildManager.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 42,
+    "warning_line": "            source_set=None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def test_sorted_components(self) -> None:\n        manager = BuildManager(\n",
+        "source_code_len": 79,
+        "target_code": "\n    def _make_manager(self):\n        manager = BuildManager(\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -32,3 +32,3 @@\n \n-    def test_sorted_components(self) -> None:\n+    def _make_manager(self):\n         manager = BuildManager(\n",
+        "source_code_with_indent": "\n    <DED>def test_sorted_components(self) -> None:\n        <IND>manager = BuildManager(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _make_manager(self):\n        <IND>manager = BuildManager(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "9a92899e7c8416d43196d8bf424e7e2d86f27f0d",
+    "filename": "mypy/test/testgraph.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/test/testgraph.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/test/testgraph.py:43:12 Incompatible parameter type [6]: Expected `mypy.report.Reports` for 9th parameter `reports` to call `BuildManager.__init__` but got `None`.",
+    "message": " Expected `mypy.report.Reports` for 9th parameter `reports` to call `BuildManager.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 43,
+    "warning_line": "            reports=None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def test_sorted_components(self) -> None:\n        manager = BuildManager(\n",
+        "source_code_len": 79,
+        "target_code": "\n    def _make_manager(self):\n        manager = BuildManager(\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -32,3 +32,3 @@\n \n-    def test_sorted_components(self) -> None:\n+    def _make_manager(self):\n         manager = BuildManager(\n",
+        "source_code_with_indent": "\n    <DED>def test_sorted_components(self) -> None:\n        <IND>manager = BuildManager(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _make_manager(self):\n        <IND>manager = BuildManager(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

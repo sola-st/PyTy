@@ -1,0 +1,70 @@
+[
+  {
+    "project": "mindee/doctr",
+    "commit": "e8583f38a649dc76153b9cbf4f07c025c54cab57",
+    "filename": "doctr/io/elements.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mindee-doctr/doctr/io/elements.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "doctr/io/elements.py:188:63 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[None, Tuple[Tuple[float, float], Tuple[float, float]], Tuple[float, float, float, float, float]]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[None, Tuple[Tuple[float, float], Tuple[float, float]], Tuple[float, float, float, float, float]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 188,
+    "warning_line": "            box_resolution_fn = resolve_enclosing_rbbox if len(lines[0].geometry) == 5 else resolve_enclosing_bbox",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            artefact_boxes = [artefact.geometry for artefact in artefacts]\n            box_resolution_fn = resolve_enclosing_rbbox if len(lines[0].geometry) == 5 else resolve_enclosing_bbox\n            geometry = box_resolution_fn(line_boxes + artefact_boxes)  # type: ignore[operator, arg-type]\n",
+        "source_code_len": 296,
+        "target_code": "            artefact_boxes = [artefact.geometry for artefact in artefacts]\n            box_resolution_fn = resolve_enclosing_rbbox if isinstance(\n                lines[0].geometry, np.ndarray\n            ) else resolve_enclosing_bbox\n            geometry = box_resolution_fn(line_boxes + artefact_boxes)  # type: ignore[operator, arg-type]\n",
+        "target_code_len": 340,
+        "diff_format": "@@ -187,3 +189,5 @@\n             artefact_boxes = [artefact.geometry for artefact in artefacts]\n-            box_resolution_fn = resolve_enclosing_rbbox if len(lines[0].geometry) == 5 else resolve_enclosing_bbox\n+            box_resolution_fn = resolve_enclosing_rbbox if isinstance(\n+                lines[0].geometry, np.ndarray\n+            ) else resolve_enclosing_bbox\n             geometry = box_resolution_fn(line_boxes + artefact_boxes)  # type: ignore[operator, arg-type]\n",
+        "source_code_with_indent": "            artefact_boxes = [artefact.geometry for artefact in artefacts]\n            box_resolution_fn = resolve_enclosing_rbbox if len(lines[0].geometry) == 5 else resolve_enclosing_bbox\n            geometry = box_resolution_fn(line_boxes + artefact_boxes)  # type: ignore[operator, arg-type]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            artefact_boxes = [artefact.geometry for artefact in artefacts]\n            box_resolution_fn = resolve_enclosing_rbbox if isinstance(\n                lines[0].geometry, np.ndarray\n            ) else resolve_enclosing_bbox\n            geometry = box_resolution_fn(line_boxes + artefact_boxes)  # type: ignore[operator, arg-type]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mindee/doctr",
+    "commit": "e8583f38a649dc76153b9cbf4f07c025c54cab57",
+    "filename": "doctr/io/elements.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mindee-doctr/doctr/io/elements.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "doctr/io/elements.py:299:19 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[None, Tuple[Tuple[float, float], Tuple[float, float]], Tuple[float, float, float, float, float]]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[None, Tuple[Tuple[float, float], Tuple[float, float]], Tuple[float, float, float, float, float]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 299,
+    "warning_line": "            if len(block.geometry) != 2:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        artefacts: List[Artefact] = [],\n        geometry: Optional[Union[BoundingBox, RotatedBbox]] = None,\n    ) -> None:\n",
+        "source_code_len": 123,
+        "target_code": "        artefacts: List[Artefact] = [],\n        geometry: Optional[Union[BoundingBox, np.ndarray]] = None,\n    ) -> None:\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -181,3 +183,3 @@\n         artefacts: List[Artefact] = [],\n-        geometry: Optional[Union[BoundingBox, RotatedBbox]] = None,\n+        geometry: Optional[Union[BoundingBox, np.ndarray]] = None,\n     ) -> None:\n",
+        "source_code_with_indent": "        artefacts: List[Artefact] = [],\n        geometry: Optional[Union[BoundingBox, RotatedBbox]] = None,\n    ) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        artefacts: List[Artefact] = [],\n        geometry: Optional[Union[BoundingBox, np.ndarray]] = None,\n    ) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

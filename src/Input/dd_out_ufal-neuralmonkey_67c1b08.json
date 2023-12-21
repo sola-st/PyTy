@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ufal/neuralmonkey",
+    "commit": "67c1b0819bf158d2357431301ec6fbfbb7a16172",
+    "filename": "neuralmonkey/decoders/beam_search_decoder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ufal-neuralmonkey/neuralmonkey/decoders/beam_search_decoder.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "neuralmonkey/decoders/beam_search_decoder.py:230:12 Incompatible parameter type [6]: Expected `LoopState` for 3rd parameter `decoder_loop_state` to call `BeamSearchLoopState.__init__` but got `Optional[LoopState]`.",
+    "message": " Expected `LoopState` for 3rd parameter `decoder_loop_state` to call `BeamSearchLoopState.__init__` but got `Optional[LoopState]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 230,
+    "warning_line": "            decoder_loop_state=self._decoder_state)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._decoder_state = nest.map_structure(\n            lambda x: tf.placeholder_with_default(x, get_state_shape_invariants(x)),\n            self._decoder_state)\n        self._bs_output = nest.map_structure(\n            lambda x: tf.placeholder_with_default(x, get_state_shape_invariants(x)),\n            self._bs_output)\n\n",
+        "source_code_len": 329,
+        "target_code": "        self._decoder_state = nest.map_structure(\n            lambda x: tf.placeholder_with_default(\n                x, get_state_shape_invariants(x)),\n            self._decoder_state)\n\n        self._bs_output = nest.map_structure(\n            lambda x: tf.placeholder_with_default(\n                x, get_state_shape_invariants(x)),\n            self._bs_output)\n\n        assert self._decoder_state is not None\n        assert self._bs_output is not None\n\n",
+        "target_code_len": 455,
+        "diff_format": "@@ -220,7 +220,13 @@\n         self._decoder_state = nest.map_structure(\n-            lambda x: tf.placeholder_with_default(x, get_state_shape_invariants(x)),\n+            lambda x: tf.placeholder_with_default(\n+                x, get_state_shape_invariants(x)),\n             self._decoder_state)\n+\n         self._bs_output = nest.map_structure(\n-            lambda x: tf.placeholder_with_default(x, get_state_shape_invariants(x)),\n+            lambda x: tf.placeholder_with_default(\n+                x, get_state_shape_invariants(x)),\n             self._bs_output)\n+\n+        assert self._decoder_state is not None\n+        assert self._bs_output is not None\n \n",
+        "source_code_with_indent": "        self._decoder_state = nest.map_structure(\n            lambda x: tf.placeholder_with_default(x, get_state_shape_invariants(x)),\n            self._decoder_state)\n        self._bs_output = nest.map_structure(\n            lambda x: tf.placeholder_with_default(x, get_state_shape_invariants(x)),\n            self._bs_output)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._decoder_state = nest.map_structure(\n            lambda x: tf.placeholder_with_default(\n                x, get_state_shape_invariants(x)),\n            self._decoder_state)\n\n        self._bs_output = nest.map_structure(\n            lambda x: tf.placeholder_with_default(\n                x, get_state_shape_invariants(x)),\n            self._bs_output)\n\n        assert self._decoder_state is not None\n        assert self._bs_output is not None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

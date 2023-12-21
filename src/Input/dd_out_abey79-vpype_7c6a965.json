@@ -1,0 +1,36 @@
+[
+  {
+    "project": "abey79/vpype",
+    "commit": "7c6a965df3d94085794b1d3d4f09f059d502d5f7",
+    "filename": "vpype_cli/script.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abey79-vpype/vpype_cli/script.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vpype_cli/script.py:32:49 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 32,
+    "warning_line": "        module = importlib.util.module_from_spec(spec)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        spec = importlib.util.spec_from_file_location(\"<external>\", file)\n        module = importlib.util.module_from_spec(spec)\n",
+        "source_code_len": 129,
+        "target_code": "        spec = importlib.util.spec_from_file_location(\"<external>\", file)\n        if spec is None:\n            raise FileNotFoundError(f\"file {file} not found\")\n        module = importlib.util.module_from_spec(spec)\n",
+        "target_code_len": 216,
+        "diff_format": "@@ -31,2 +31,4 @@\n         spec = importlib.util.spec_from_file_location(\"<external>\", file)\n+        if spec is None:\n+            raise FileNotFoundError(f\"file {file} not found\")\n         module = importlib.util.module_from_spec(spec)\n",
+        "source_code_with_indent": "        <IND>spec = importlib.util.spec_from_file_location(\"<external>\", file)\n        module = importlib.util.module_from_spec(spec)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>spec = importlib.util.spec_from_file_location(\"<external>\", file)\n        if spec is None:\n            <IND>raise FileNotFoundError(f\"file {file} not found\")\n        <DED>module = importlib.util.module_from_spec(spec)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "bc9515da7607ddb9233bcfb7cc0e7630e2f838a0",
+    "filename": "deeppavlov/core/agent/agent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/core/agent/agent.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/core/agent/agent.py:148:55 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[List[typing.Any]]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[List[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 148,
+    "warning_line": "        states = states[0] if states else [None] * len(predicted)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n        self.skill = skill\n",
+        "source_code_len": 110,
+        "target_code": "    \"\"\"\n    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n        self.skill = skill\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -120,3 +120,3 @@\n     \"\"\"\n-    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n+    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n         self.skill = skill\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n        <IND>self.skill = skill\n",
+        "target_code_with_indent": "\n    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n        <IND>self.skill = skill\n"
+      }
+    ]
+  },
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "bc9515da7607ddb9233bcfb7cc0e7630e2f838a0",
+    "filename": "deeppavlov/core/agent/agent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/core/agent/agent.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/core/agent/agent.py:149:49 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T2]]` for 2nd positional only parameter to call `zip.__new__` but got `Optional[List[typing.Any]]`.",
+    "message": " Expected `typing.Iterable[Variable[_T2]]` for 2nd positional only parameter to call `zip.__new__` but got `Optional[List[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 149,
+    "warning_line": "        for utt_id, state in zip(utterances_ids, states):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n        self.skill = skill\n",
+        "source_code_len": 110,
+        "target_code": "    \"\"\"\n    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n        self.skill = skill\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -120,3 +120,3 @@\n     \"\"\"\n-    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n+    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n         self.skill = skill\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n        <IND>self.skill = skill\n",
+        "target_code_with_indent": "\n    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n        <IND>self.skill = skill\n"
+      }
+    ]
+  },
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "bc9515da7607ddb9233bcfb7cc0e7630e2f838a0",
+    "filename": "deeppavlov/core/agent/agent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/core/agent/agent.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/core/agent/agent.py:152:8 Incompatible return type [7]: Expected `Tuple[List[typing.Any], List[typing.Any]]` but got `Tuple[Optional[List[typing.Any]], Optional[List[typing.Any]]]`.",
+    "message": " Expected `Tuple[List[typing.Any], List[typing.Any]]` but got `Tuple[Optional[List[typing.Any]], Optional[List[typing.Any]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 152,
+    "warning_line": "        return predicted, confidence",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n        self.skill = skill\n",
+        "source_code_len": 110,
+        "target_code": "    \"\"\"\n    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n        self.skill = skill\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -120,3 +120,3 @@\n     \"\"\"\n-    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n+    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n         self.skill = skill\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def __init__(self, skill: Skill, skill_id: int, agent: Agent) -> None:\n        <IND>self.skill = skill\n",
+        "target_code_with_indent": "\n    def __init__(self, skill: Component, skill_id: int, agent: Agent) -> None:\n        <IND>self.skill = skill\n"
+      }
+    ]
+  }
+]

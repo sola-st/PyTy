@@ -1,0 +1,158 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/cmake/executor.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/cmake/executor.py:115:49 Incompatible parameter type [6]: Expected `Variable[T.AnyStr <: [str, bytes]]` for 2nd positional only parameter to call `re.split` but got `T.Tuple[T.Optional[str], T.Optional[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/compilers/compilers.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/compilers/compilers.py:928:36 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `split_args` but got `T.Tuple[T.Optional[str], T.Optional[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/compilers/compilers.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/compilers/compilers.py:944:40 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `split_args` but got `T.Tuple[T.Optional[str], T.Optional[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/dependencies/boost.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/dependencies/boost.py:443:27 Incompatible parameter type [6]: Expected `T.Union[os.PathLike[str], str]` for 1st positional only parameter to call `Path.__new__` but got `T.Tuple[T.Optional[str], T.Optional[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/dependencies/boost.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/dependencies/boost.py:444:27 Incompatible parameter type [6]: Expected `T.Union[os.PathLike[str], str]` for 1st positional only parameter to call `Path.__new__` but got `T.Tuple[T.Optional[str], T.Optional[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/envconfig.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/envconfig.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/envconfig.py:117:8 Incompatible return type [7]: Expected `T.Tuple[T.Optional[str], T.Optional[str]]` but got `None`.",
+    "message": " Expected `T.Tuple[T.Optional[str], T.Optional[str]]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 117,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                is_cross: bool,\n                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n    ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_len": 169,
+        "target_code": "                is_cross: bool,\n                var_name: str) -> T.Optional[str]:\n    ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -113,3 +113,3 @@\n                 is_cross: bool,\n-                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n+                var_name: str) -> T.Optional[str]:\n     ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_with_indent": "                is_cross: bool,\n                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n    <IND>ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                is_cross: bool,\n                var_name: str) -> T.Optional[str]:\n    <IND>ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/envconfig.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/envconfig.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/envconfig.py:120:8 Incompatible return type [7]: Expected `T.Tuple[T.Optional[str], T.Optional[str]]` but got `T.Optional[str]`.",
+    "message": " Expected `T.Tuple[T.Optional[str], T.Optional[str]]` but got `T.Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 120,
+    "warning_line": "        return value",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                is_cross: bool,\n                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n    ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_len": 169,
+        "target_code": "                is_cross: bool,\n                var_name: str) -> T.Optional[str]:\n    ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -113,3 +113,3 @@\n                 is_cross: bool,\n-                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n+                var_name: str) -> T.Optional[str]:\n     ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_with_indent": "                is_cross: bool,\n                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n    <IND>ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                is_cross: bool,\n                var_name: str) -> T.Optional[str]:\n    <IND>ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/envconfig.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/envconfig.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/envconfig.py:401:41 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `split_args` but got `T.Tuple[T.Optional[str], T.Optional[str]]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `split_args` but got `T.Tuple[T.Optional[str], T.Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 401,
+    "warning_line": "                    command = split_args(raw_command)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                is_cross: bool,\n                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n    ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_len": 169,
+        "target_code": "                is_cross: bool,\n                var_name: str) -> T.Optional[str]:\n    ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -113,3 +113,3 @@\n                 is_cross: bool,\n-                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n+                var_name: str) -> T.Optional[str]:\n     ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_with_indent": "                is_cross: bool,\n                var_name: str) -> T.Tuple[T.Optional[str], T.Optional[str]]:\n    <IND>ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                is_cross: bool,\n                var_name: str) -> T.Optional[str]:\n    <IND>ret = get_env_var_pair(for_machine, is_cross, var_name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "ca1878ffb5ba5f72dcb44ca567d48a3a0a048f1f",
+    "filename": "mesonbuild/linkers.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/linkers.py:301:39 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `mesonlib.split_args` but got `T.Tuple[T.Optional[str], T.Optional[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

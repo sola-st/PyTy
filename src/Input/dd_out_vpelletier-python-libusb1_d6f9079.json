@@ -1,0 +1,104 @@
+[
+  {
+    "project": "vpelletier/python-libusb1",
+    "commit": "d6f907934e96c07af8241cec7ef0ecfceae6cce6",
+    "filename": "libusb1.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vpelletier-python-libusb1/libusb1.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libusb1.py:13:16 Unbound name [10]: Name `c_ulong` is used but not defined in the current scope.",
+    "message": " Name `c_ulong` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 13,
+    "warning_line": "    elif sizeof(c_ulong) == sizeof(c_size_t):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "except ImportError:\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_uint) == sizeof(c_size_t):\n        c_ssize_t = c_int\n    elif sizeof(c_ulong) == sizeof(c_size_t):\n        c_ssize_t = c_long\n    elif sizeof(c_ulonglong) == sizeof(c_size_t):\n        c_ssize_t = c_longlong\n",
+        "source_code_len": 280,
+        "target_code": "except ImportError:\n    from ctypes import c_longlong\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_int) == sizeof(c_size_t):\n        c_ssize_t = c_int\n    elif sizeof(c_long) == sizeof(c_size_t):\n        c_ssize_t = c_long\n    elif sizeof(c_longlong) == sizeof(c_size_t):\n        c_ssize_t = c_longlong\n",
+        "target_code_len": 311,
+        "diff_format": "@@ -9,8 +9,9 @@\n except ImportError:\n+    from ctypes import c_longlong\n     # c_ssize_t is new in Python 2.7\n-    if sizeof(c_uint) == sizeof(c_size_t):\n+    if sizeof(c_int) == sizeof(c_size_t):\n         c_ssize_t = c_int\n-    elif sizeof(c_ulong) == sizeof(c_size_t):\n+    elif sizeof(c_long) == sizeof(c_size_t):\n         c_ssize_t = c_long\n-    elif sizeof(c_ulonglong) == sizeof(c_size_t):\n+    elif sizeof(c_longlong) == sizeof(c_size_t):\n         c_ssize_t = c_longlong\n",
+        "source_code_with_indent": "<DED>except ImportError:\n    # c_ssize_t is new in Python 2.7\n    <IND>if sizeof(c_uint) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_int\n    <DED>elif sizeof(c_ulong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_long\n    <DED>elif sizeof(c_ulonglong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_longlong\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>except ImportError:\n    <IND>from ctypes import c_longlong\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_int) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_int\n    <DED>elif sizeof(c_long) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_long\n    <DED>elif sizeof(c_longlong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_longlong\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "vpelletier/python-libusb1",
+    "commit": "d6f907934e96c07af8241cec7ef0ecfceae6cce6",
+    "filename": "libusb1.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vpelletier-python-libusb1/libusb1.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libusb1.py:15:16 Unbound name [10]: Name `c_ulonglong` is used but not defined in the current scope.",
+    "message": " Name `c_ulonglong` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 15,
+    "warning_line": "    elif sizeof(c_ulonglong) == sizeof(c_size_t):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "except ImportError:\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_uint) == sizeof(c_size_t):\n        c_ssize_t = c_int\n    elif sizeof(c_ulong) == sizeof(c_size_t):\n        c_ssize_t = c_long\n    elif sizeof(c_ulonglong) == sizeof(c_size_t):\n        c_ssize_t = c_longlong\n",
+        "source_code_len": 280,
+        "target_code": "except ImportError:\n    from ctypes import c_longlong\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_int) == sizeof(c_size_t):\n        c_ssize_t = c_int\n    elif sizeof(c_long) == sizeof(c_size_t):\n        c_ssize_t = c_long\n    elif sizeof(c_longlong) == sizeof(c_size_t):\n        c_ssize_t = c_longlong\n",
+        "target_code_len": 311,
+        "diff_format": "@@ -9,8 +9,9 @@\n except ImportError:\n+    from ctypes import c_longlong\n     # c_ssize_t is new in Python 2.7\n-    if sizeof(c_uint) == sizeof(c_size_t):\n+    if sizeof(c_int) == sizeof(c_size_t):\n         c_ssize_t = c_int\n-    elif sizeof(c_ulong) == sizeof(c_size_t):\n+    elif sizeof(c_long) == sizeof(c_size_t):\n         c_ssize_t = c_long\n-    elif sizeof(c_ulonglong) == sizeof(c_size_t):\n+    elif sizeof(c_longlong) == sizeof(c_size_t):\n         c_ssize_t = c_longlong\n",
+        "source_code_with_indent": "<DED>except ImportError:\n    # c_ssize_t is new in Python 2.7\n    <IND>if sizeof(c_uint) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_int\n    <DED>elif sizeof(c_ulong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_long\n    <DED>elif sizeof(c_ulonglong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_longlong\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>except ImportError:\n    <IND>from ctypes import c_longlong\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_int) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_int\n    <DED>elif sizeof(c_long) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_long\n    <DED>elif sizeof(c_longlong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_longlong\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "vpelletier/python-libusb1",
+    "commit": "d6f907934e96c07af8241cec7ef0ecfceae6cce6",
+    "filename": "libusb1.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vpelletier-python-libusb1/libusb1.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libusb1.py:16:20 Unbound name [10]: Name `c_longlong` is used but not defined in the current scope.",
+    "message": " Name `c_longlong` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 16,
+    "warning_line": "        c_ssize_t = c_longlong",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "except ImportError:\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_uint) == sizeof(c_size_t):\n        c_ssize_t = c_int\n    elif sizeof(c_ulong) == sizeof(c_size_t):\n        c_ssize_t = c_long\n    elif sizeof(c_ulonglong) == sizeof(c_size_t):\n        c_ssize_t = c_longlong\n",
+        "source_code_len": 280,
+        "target_code": "except ImportError:\n    from ctypes import c_longlong\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_int) == sizeof(c_size_t):\n        c_ssize_t = c_int\n    elif sizeof(c_long) == sizeof(c_size_t):\n        c_ssize_t = c_long\n    elif sizeof(c_longlong) == sizeof(c_size_t):\n        c_ssize_t = c_longlong\n",
+        "target_code_len": 311,
+        "diff_format": "@@ -9,8 +9,9 @@\n except ImportError:\n+    from ctypes import c_longlong\n     # c_ssize_t is new in Python 2.7\n-    if sizeof(c_uint) == sizeof(c_size_t):\n+    if sizeof(c_int) == sizeof(c_size_t):\n         c_ssize_t = c_int\n-    elif sizeof(c_ulong) == sizeof(c_size_t):\n+    elif sizeof(c_long) == sizeof(c_size_t):\n         c_ssize_t = c_long\n-    elif sizeof(c_ulonglong) == sizeof(c_size_t):\n+    elif sizeof(c_longlong) == sizeof(c_size_t):\n         c_ssize_t = c_longlong\n",
+        "source_code_with_indent": "<DED>except ImportError:\n    # c_ssize_t is new in Python 2.7\n    <IND>if sizeof(c_uint) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_int\n    <DED>elif sizeof(c_ulong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_long\n    <DED>elif sizeof(c_ulonglong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_longlong\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>except ImportError:\n    <IND>from ctypes import c_longlong\n    # c_ssize_t is new in Python 2.7\n    if sizeof(c_int) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_int\n    <DED>elif sizeof(c_long) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_long\n    <DED>elif sizeof(c_longlong) == sizeof(c_size_t):\n        <IND>c_ssize_t = c_longlong\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

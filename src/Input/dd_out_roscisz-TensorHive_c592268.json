@@ -1,0 +1,122 @@
+[
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "c592268665af82269865a1026e12372359adc407",
+    "filename": "tensorhive/core/monitors/GPUMonitoringBehaviour.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tensorhive/core/monitors/GPUMonitoringBehaviour.py:188:63 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `GPUMonitoringBehaviour._get_process_owner` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "c592268665af82269865a1026e12372359adc407",
+    "filename": "tensorhive/core/monitors/GPUMonitoringBehaviour.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tensorhive/core/monitors/GPUMonitoringBehaviour.py:188:71 Incompatible parameter type [6]: Expected `typing.Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "c592268665af82269865a1026e12372359adc407",
+    "filename": "tensorhive/core/services/ProtectionService.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/core/services/ProtectionService.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/core/services/ProtectionService.py:94:12 Incompatible return type [7]: Expected `Dict[str, str]` but got `None`.",
+    "message": " Expected `Dict[str, str]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 94,
+    "warning_line": "            return None"
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "c592268665af82269865a1026e12372359adc407",
+    "filename": "tensorhive/core/services/ProtectionService.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/core/services/ProtectionService.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/core/services/ProtectionService.py:104:8 Incompatible return type [7]: Expected `Dict[str, str]` but got `List[typing.Any]`.",
+    "message": " Expected `Dict[str, str]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 104,
+    "warning_line": "        return [as_dict(line) for line in stdout_lines]"
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "c592268665af82269865a1026e12372359adc407",
+    "filename": "tensorhive/core/utils/NvidiaSmiParser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/core/utils/NvidiaSmiParser.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/core/utils/NvidiaSmiParser.py:245:8 Incompatible return type [7]: Expected `Dict[str, Dict[typing.Any, typing.Any]]` but got `List[typing.Any]`.",
+    "message": " Expected `Dict[str, Dict[typing.Any, typing.Any]]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 245,
+    "warning_line": "        return processes",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def parse_pmon_stdout(cls, stdout: Generator) -> Dict[str, Dict]:\n        '''\n",
+        "source_code_len": 99,
+        "target_code": "    @classmethod\n    def parse_pmon_stdout(cls, stdout: Generator) -> List[Dict]:\n        '''\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -150,3 +150,3 @@\n     @classmethod\n-    def parse_pmon_stdout(cls, stdout: Generator) -> Dict[str, Dict]:\n+    def parse_pmon_stdout(cls, stdout: Generator) -> List[Dict]:\n         '''\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@classmethod\n    def parse_pmon_stdout(cls, stdout: Generator) -> Dict[str, Dict]:\n        <IND>",
+        "target_code_with_indent": "    <DED>@classmethod\n    def parse_pmon_stdout(cls, stdout: Generator) -> List[Dict]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "c592268665af82269865a1026e12372359adc407",
+    "filename": "tensorhive/core/violation_handlers/MessageSendingBehaviour.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/core/violation_handlers/MessageSendingBehaviour.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/core/violation_handlers/MessageSendingBehaviour.py:28:20 Incompatible parameter type [6]: Expected `typing.Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "message": " Expected `typing.Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 28,
+    "warning_line": "            tty=tty['TTY'])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _build_single_command(self, recipient: str, tty: str, msg: str) -> str:\n        '''Example: 'echo \"Example message\" | write example_username pts/1' '''\n",
+        "source_code_len": 161,
+        "target_code": "\n    def _build_single_command(self, recipient: str, tty, msg: str) -> str:\n        '''Example: 'echo \"Example message\" | write example_username pts/1' '''\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -22,3 +22,3 @@\n \n-    def _build_single_command(self, recipient: str, tty: str, msg: str) -> str:\n+    def _build_single_command(self, recipient: str, tty, msg: str) -> str:\n         '''Example: 'echo \"Example message\" | write example_username pts/1' '''\n",
+        "source_code_with_indent": "\n    <DED>def _build_single_command(self, recipient: str, tty: str, msg: str) -> str:\n        <IND>'''Example: 'echo \"Example message\" | write example_username pts/1' '''\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _build_single_command(self, recipient: str, tty, msg: str) -> str:\n        <IND>'''Example: 'echo \"Example message\" | write example_username pts/1' '''\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

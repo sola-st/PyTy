@@ -1,0 +1,36 @@
+[
+  {
+    "project": "MarioVilas/winappdbg",
+    "commit": "c93c9f715486495579ad042c4950940413db9fef",
+    "filename": "winappdbg/win32/ntdll.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/MarioVilas-winappdbg/winappdbg/win32/ntdll.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "winappdbg/win32/ntdll.py:964:44 Unbound name [10]: Name `NTSTATUS` is used but not defined in the current scope.",
+    "message": " Name `NTSTATUS` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 964,
+    "warning_line": "        (\"LastStatusValue\",                 NTSTATUS),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from defines import *\n\n",
+        "source_code_len": 23,
+        "target_code": "from defines import *\n\n#--- Types --------------------------------------------------------------------\n\nNTSTATUS                = DWORD\nSYSDBG_COMMAND          = DWORD\nPROCESSINFOCLASS        = DWORD\nTHREADINFOCLASS         = DWORD\nFILE_INFORMATION_CLASS  = DWORD\n\n",
+        "target_code_len": 265,
+        "diff_format": "@@ -36,2 +36,10 @@\n from defines import *\n+\n+#--- Types --------------------------------------------------------------------\n+\n+NTSTATUS                = DWORD\n+SYSDBG_COMMAND          = DWORD\n+PROCESSINFOCLASS        = DWORD\n+THREADINFOCLASS         = DWORD\n+FILE_INFORMATION_CLASS  = DWORD\n \n",
+        "source_code_with_indent": "from defines import *\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from defines import *\n\n#--- Types --------------------------------------------------------------------\n\nNTSTATUS                = DWORD\nSYSDBG_COMMAND          = DWORD\nPROCESSINFOCLASS        = DWORD\nTHREADINFOCLASS         = DWORD\nFILE_INFORMATION_CLASS  = DWORD\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

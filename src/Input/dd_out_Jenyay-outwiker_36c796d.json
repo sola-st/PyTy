@@ -1,0 +1,104 @@
+[
+  {
+    "project": "Jenyay/outwiker",
+    "commit": "36c796de2e410ca31a206ebbba379017d7fb3440",
+    "filename": "src/outwiker/core/appinfofactory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Jenyay-outwiker/src/outwiker/core/appinfofactory.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/outwiker/core/appinfofactory.py:37:25 Incompatible parameter type [6]: Expected `str` for 1st parameter `app_name` to call `AppInfo.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st parameter `app_name` to call `AppInfo.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 37,
+    "warning_line": "        result = AppInfo(app_name=app_name,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        app_name = xmlAppInfo.app_name.get(language, '')\n\n        website = xmlAppInfo.website.get(language, '')\n\n        description = xmlAppInfo.description.get(language, '')\n\n",
+        "source_code_len": 178,
+        "target_code": "        app_name = xmlAppInfo.app_name.get(language, '')\n        if app_name is None:\n            app_name = ''\n\n        website = xmlAppInfo.website.get(language, '')\n        if website is None:\n            website = ''\n\n        description = xmlAppInfo.description.get(language, '')\n        if description is None:\n            description = ''\n\n",
+        "target_code_len": 347,
+        "diff_format": "@@ -26,6 +26,12 @@\n         app_name = xmlAppInfo.app_name.get(language, '')\n+        if app_name is None:\n+            app_name = ''\n \n         website = xmlAppInfo.website.get(language, '')\n+        if website is None:\n+            website = ''\n \n         description = xmlAppInfo.description.get(language, '')\n+        if description is None:\n+            description = ''\n \n",
+        "source_code_with_indent": "        <IND>app_name = xmlAppInfo.app_name.get(language, '')\n\n        website = xmlAppInfo.website.get(language, '')\n\n        description = xmlAppInfo.description.get(language, '')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>app_name = xmlAppInfo.app_name.get(language, '')\n        if app_name is None:\n            <IND>app_name = ''\n\n        <DED>website = xmlAppInfo.website.get(language, '')\n        if website is None:\n            <IND>website = ''\n\n        <DED>description = xmlAppInfo.description.get(language, '')\n        if description is None:\n            <IND>description = ''\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Jenyay/outwiker",
+    "commit": "36c796de2e410ca31a206ebbba379017d7fb3440",
+    "filename": "src/outwiker/core/appinfofactory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Jenyay-outwiker/src/outwiker/core/appinfofactory.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/outwiker/core/appinfofactory.py:38:25 Incompatible parameter type [6]: Expected `str` for 2nd parameter `website` to call `AppInfo.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 2nd parameter `website` to call `AppInfo.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 38,
+    "warning_line": "                         website=website,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        app_name = xmlAppInfo.app_name.get(language, '')\n\n        website = xmlAppInfo.website.get(language, '')\n\n        description = xmlAppInfo.description.get(language, '')\n\n",
+        "source_code_len": 178,
+        "target_code": "        app_name = xmlAppInfo.app_name.get(language, '')\n        if app_name is None:\n            app_name = ''\n\n        website = xmlAppInfo.website.get(language, '')\n        if website is None:\n            website = ''\n\n        description = xmlAppInfo.description.get(language, '')\n        if description is None:\n            description = ''\n\n",
+        "target_code_len": 347,
+        "diff_format": "@@ -26,6 +26,12 @@\n         app_name = xmlAppInfo.app_name.get(language, '')\n+        if app_name is None:\n+            app_name = ''\n \n         website = xmlAppInfo.website.get(language, '')\n+        if website is None:\n+            website = ''\n \n         description = xmlAppInfo.description.get(language, '')\n+        if description is None:\n+            description = ''\n \n",
+        "source_code_with_indent": "        <IND>app_name = xmlAppInfo.app_name.get(language, '')\n\n        website = xmlAppInfo.website.get(language, '')\n\n        description = xmlAppInfo.description.get(language, '')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>app_name = xmlAppInfo.app_name.get(language, '')\n        if app_name is None:\n            <IND>app_name = ''\n\n        <DED>website = xmlAppInfo.website.get(language, '')\n        if website is None:\n            <IND>website = ''\n\n        <DED>description = xmlAppInfo.description.get(language, '')\n        if description is None:\n            <IND>description = ''\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Jenyay/outwiker",
+    "commit": "36c796de2e410ca31a206ebbba379017d7fb3440",
+    "filename": "src/outwiker/core/appinfofactory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Jenyay-outwiker/src/outwiker/core/appinfofactory.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/outwiker/core/appinfofactory.py:39:25 Incompatible parameter type [6]: Expected `str` for 3rd parameter `description` to call `AppInfo.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 3rd parameter `description` to call `AppInfo.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 39,
+    "warning_line": "                         description=description,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        app_name = xmlAppInfo.app_name.get(language, '')\n\n        website = xmlAppInfo.website.get(language, '')\n\n        description = xmlAppInfo.description.get(language, '')\n\n",
+        "source_code_len": 178,
+        "target_code": "        app_name = xmlAppInfo.app_name.get(language, '')\n        if app_name is None:\n            app_name = ''\n\n        website = xmlAppInfo.website.get(language, '')\n        if website is None:\n            website = ''\n\n        description = xmlAppInfo.description.get(language, '')\n        if description is None:\n            description = ''\n\n",
+        "target_code_len": 347,
+        "diff_format": "@@ -26,6 +26,12 @@\n         app_name = xmlAppInfo.app_name.get(language, '')\n+        if app_name is None:\n+            app_name = ''\n \n         website = xmlAppInfo.website.get(language, '')\n+        if website is None:\n+            website = ''\n \n         description = xmlAppInfo.description.get(language, '')\n+        if description is None:\n+            description = ''\n \n",
+        "source_code_with_indent": "        <IND>app_name = xmlAppInfo.app_name.get(language, '')\n\n        website = xmlAppInfo.website.get(language, '')\n\n        description = xmlAppInfo.description.get(language, '')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>app_name = xmlAppInfo.app_name.get(language, '')\n        if app_name is None:\n            <IND>app_name = ''\n\n        <DED>website = xmlAppInfo.website.get(language, '')\n        if website is None:\n            <IND>website = ''\n\n        <DED>description = xmlAppInfo.description.get(language, '')\n        if description is None:\n            <IND>description = ''\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "project": "HorizonRobotics/alf",
+    "commit": "ec8726ff1b12cc32ae759c59c060e281c4c55e83",
+    "filename": "alf/utils/common.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HorizonRobotics-alf/alf/utils/common.py",
+    "file_hunks_size": 7,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "alf/utils/common.py:287:40 Unbound name [10]: Name `tf` is used but not defined in the current scope.",
+    "message": " Name `tf` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 287,
+    "warning_line": "def cast_transformer(observation, dtype=tf.float32):"
+  },
+  {
+    "project": "HorizonRobotics/alf",
+    "commit": "ec8726ff1b12cc32ae759c59c060e281c4c55e83",
+    "filename": "alf/utils/common.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HorizonRobotics-alf/alf/utils/common.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "alf/utils/common.py:713:37 Unbound name [10]: Name `SquashToSpecNormal` is used but not defined in the current scope.",
+    "message": " Name `SquashToSpecNormal` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 713,
+    "warning_line": "SquashToSpecNormal__init__original = SquashToSpecNormal.__init__",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\nSquashToSpecNormal__init__original = SquashToSpecNormal.__init__\n\n\ndef SquashToSpecNormal__init__(self,\n                               distribution,\n                               spec,\n                               validate_args=False,\n                               name=\"SquashToSpecNormal\"):\n    SquashToSpecNormal__init__original(self, distribution, spec, validate_args,\n                                       name)\n    self.spec = spec\n\n\n# This is a hack to SquashToSpecNormal so that `spec` provided at __init__ can\n# be recovered by `common.extract_spec`. `SquashToSpecNormal.action_means`\n# and `SquashToSpecNormal.action_magnitudes` are tf.Tensor and cannot be used\n# to recover `spec` because `BoundedTensorSpec` cannot accept tf.Tensor for\n# `minimum` and `maximum`.\nSquashToSpecNormal.__init__ = SquashToSpecNormal__init__\n\n\ndef _build_squash_to_spec_normal(spec, *args, **kwargs):\n",
+        "source_code_len": 897,
+        "target_code": "\ndef _build_squash_to_spec_normal(spec, *args, **kwargs):\n",
+        "target_code_len": 58,
+        "diff_format": "@@ -712,23 +708,2 @@\n \n-SquashToSpecNormal__init__original = SquashToSpecNormal.__init__\n-\n-\n-def SquashToSpecNormal__init__(self,\n-                               distribution,\n-                               spec,\n-                               validate_args=False,\n-                               name=\"SquashToSpecNormal\"):\n-    SquashToSpecNormal__init__original(self, distribution, spec, validate_args,\n-                                       name)\n-    self.spec = spec\n-\n-\n-# This is a hack to SquashToSpecNormal so that `spec` provided at __init__ can\n-# be recovered by `common.extract_spec`. `SquashToSpecNormal.action_means`\n-# and `SquashToSpecNormal.action_magnitudes` are tf.Tensor and cannot be used\n-# to recover `spec` because `BoundedTensorSpec` cannot accept tf.Tensor for\n-# `minimum` and `maximum`.\n-SquashToSpecNormal.__init__ = SquashToSpecNormal__init__\n-\n-\n def _build_squash_to_spec_normal(spec, *args, **kwargs):\n",
+        "source_code_with_indent": "\n<DED><DED>SquashToSpecNormal__init__original = SquashToSpecNormal.__init__\n\n\ndef SquashToSpecNormal__init__(self,\n                               distribution,\n                               spec,\n                               validate_args=False,\n                               name=\"SquashToSpecNormal\"):\n    <IND>SquashToSpecNormal__init__original(self, distribution, spec, validate_args,\n                                       name)\n    self.spec = spec\n\n\n# This is a hack to SquashToSpecNormal so that `spec` provided at __init__ can\n# be recovered by `common.extract_spec`. `SquashToSpecNormal.action_means`\n# and `SquashToSpecNormal.action_magnitudes` are tf.Tensor and cannot be used\n# to recover `spec` because `BoundedTensorSpec` cannot accept tf.Tensor for\n# `minimum` and `maximum`.\n<DED>SquashToSpecNormal.__init__ = SquashToSpecNormal__init__\n\n\ndef _build_squash_to_spec_normal(spec, *args, **kwargs):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def _build_squash_to_spec_normal(spec, *args, **kwargs):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

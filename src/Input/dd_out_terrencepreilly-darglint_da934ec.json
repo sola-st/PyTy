@@ -1,0 +1,51 @@
+[
+  {
+    "project": "terrencepreilly/darglint",
+    "commit": "da934ec6d9aeaf9b825efe409690cbb68e02270c",
+    "filename": "darglint/peaker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/terrencepreilly-darglint/darglint/peaker.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "darglint/peaker.py:104:12 Incompatible return type [7]: Expected `Variable[T]` but got `None`.",
+    "message": " Expected `Variable[T]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 104,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Union,\n    Deque\n)\n",
+        "source_code_len": 23,
+        "target_code": "    Union,\n    Deque,\n    Optional,\n)\n",
+        "target_code_len": 38,
+        "diff_format": "@@ -10,3 +10,4 @@\n     Union,\n-    Deque\n+    Deque,\n+    Optional,\n )\n",
+        "source_code_with_indent": "    Union,\n    Deque\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Union,\n    Deque,\n    Optional,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def peak(self, lookahead=1):\n        # type: (int) -> T\n        \"\"\"Get the next letter in the stream, without moving it forward.\n",
+        "source_code_len": 133,
+        "target_code": "    def peak(self, lookahead=1):\n        # type: (int) -> Optional[T]\n        \"\"\"Get the next letter in the stream, without moving it forward.\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -85,3 +90,3 @@\n     def peak(self, lookahead=1):\n-        # type: (int) -> T\n+        # type: (int) -> Optional[T]\n         \"\"\"Get the next letter in the stream, without moving it forward.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>def peak(self, lookahead=1):\n        # type: (int) -> T\n        <IND>",
+        "target_code_with_indent": "    <DED>def peak(self, lookahead=1):\n        # type: (int) -> Optional[T]\n        <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "lebrice/Sequoia",
+    "commit": "97e11432390d548d91e7fa8449dc90a70be6a409",
+    "filename": "sequoia/common/gym_wrappers/convert_tensors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lebrice-Sequoia/sequoia/common/gym_wrappers/convert_tensors.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sequoia/common/gym_wrappers/convert_tensors.py:71:4 Incompatible return type [7]: Expected `bool` but got `None`.",
+    "message": " Expected `bool` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 71,
+    "warning_line": "    return setattr(space, \"__supports_tensors\", True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _mark_supports_tensors(space: S) -> bool:\n    return setattr(space, \"__supports_tensors\", True)\n\n",
+        "source_code_len": 102,
+        "target_code": "\ndef _mark_supports_tensors(space: S) -> None:\n    setattr(space, \"__supports_tensors\", True)\n\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -69,4 +69,4 @@\n \n-def _mark_supports_tensors(space: S) -> bool:\n-    return setattr(space, \"__supports_tensors\", True)\n+def _mark_supports_tensors(space: S) -> None:\n+    setattr(space, \"__supports_tensors\", True)\n \n",
+        "source_code_with_indent": "\n<DED>def _mark_supports_tensors(space: S) -> bool:\n    <IND>return setattr(space, \"__supports_tensors\", True)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _mark_supports_tensors(space: S) -> None:\n    <IND>setattr(space, \"__supports_tensors\", True)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lebrice/Sequoia",
+    "commit": "97e11432390d548d91e7fa8449dc90a70be6a409",
+    "filename": "sequoia/settings/passive/cl/class_incremental_setting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lebrice-Sequoia/sequoia/settings/passive/cl/class_incremental_setting.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sequoia/settings/passive/cl/class_incremental_setting.py:797:34 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `sequoia.common.metrics.classification.ClassificationMetrics`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `sequoia.common.metrics.classification.ClassificationMetrics`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 797,
+    "warning_line": "        n_metrics_per_task = [len(task_metrics) for task_metrics in self.metrics]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_results(self) -> ClassIncrementalResults:\n        rewards = self.get_episode_rewards()\n        lengths = self.get_episode_lengths()\n        total_steps = self.get_total_steps()\n        n_metrics_per_task = [len(task_metrics) for task_metrics in self.metrics]\n        return ClassIncrementalResults(\n",
+        "source_code_len": 311,
+        "target_code": "    def get_results(self) -> ClassIncrementalResults:\n        # rewards = self.get_episode_rewards()\n        # lengths = self.get_episode_lengths()\n        # total_steps = self.get_total_steps()\n        # n_metrics_per_task = [len(task_metrics) for task_metrics in self.metrics]\n        return ClassIncrementalResults(\n",
+        "target_code_len": 319,
+        "diff_format": "@@ -793,6 +820,6 @@\n     def get_results(self) -> ClassIncrementalResults:\n-        rewards = self.get_episode_rewards()\n-        lengths = self.get_episode_lengths()\n-        total_steps = self.get_total_steps()\n-        n_metrics_per_task = [len(task_metrics) for task_metrics in self.metrics]\n+        # rewards = self.get_episode_rewards()\n+        # lengths = self.get_episode_lengths()\n+        # total_steps = self.get_total_steps()\n+        # n_metrics_per_task = [len(task_metrics) for task_metrics in self.metrics]\n         return ClassIncrementalResults(\n",
+        "source_code_with_indent": "    <DED>def get_results(self) -> ClassIncrementalResults:\n        <IND>rewards = self.get_episode_rewards()\n        lengths = self.get_episode_lengths()\n        total_steps = self.get_total_steps()\n        n_metrics_per_task = [len(task_metrics) for task_metrics in self.metrics]\n        return ClassIncrementalResults(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def get_results(self) -> ClassIncrementalResults:\n        # rewards = self.get_episode_rewards()\n        # lengths = self.get_episode_lengths()\n        # total_steps = self.get_total_steps()\n        # n_metrics_per_task = [len(task_metrics) for task_metrics in self.metrics]\n        <IND>return ClassIncrementalResults(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

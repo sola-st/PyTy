@@ -1,0 +1,36 @@
+[
+  {
+    "project": "HIPS/autograd",
+    "commit": "8b0cd9eb1e0c1c60338b415257c54221b61ed75c",
+    "filename": "autograd/container_types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HIPS-autograd/autograd/container_types.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "autograd/container_types.py:47:0 Incompatible attribute type [8]: Attribute `gradmaker` declared in class `primitive` has type `BoundMethod[typing.Callable(primitive.gradmaker)[[Named(self, primitive), Named(argnum, unknown), Variable(unknown), Keywords(unknown)], typing.Any], primitive]` but is used as type `typing.Callable[[Named(argnum, typing.Any), Named(ans, typing.Any), Variable(typing.Any)], typing.Callable[[Named(g, typing.Any)], typing.Any]]`.",
+    "message": " Attribute `gradmaker` declared in class `primitive` has type `BoundMethod[typing.Callable(primitive.gradmaker)[[Named(self, primitive), Named(argnum, unknown), Variable(unknown), Keywords(unknown)], typing.Any], primitive]` but is used as type `typing.Callable[[Named(argnum, typing.Any), Named(ans, typing.Any), Variable(typing.Any)], typing.Callable[[Named(g, typing.Any)], typing.Any]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 47,
+    "warning_line": "arg_tuple.gradmaker = lambda argnum, ans, *args : lambda g : g[argnum]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "untake.defgrad_is_zero(argnums=(1, 2))\n\n@primitive\ndef arg_tuple(*args):\n    return tuple(args)\narg_tuple.gradmaker = lambda argnum, ans, *args : lambda g : g[argnum]\n",
+        "source_code_len": 167,
+        "target_code": "untake.defgrad_is_zero(argnums=(1, 2))\n",
+        "target_code_len": 39,
+        "diff_format": "@@ -42,6 +39,1 @@\n untake.defgrad_is_zero(argnums=(1, 2))\n-\n-@primitive\n-def arg_tuple(*args):\n-    return tuple(args)\n-arg_tuple.gradmaker = lambda argnum, ans, *args : lambda g : g[argnum]\n",
+        "source_code_with_indent": "untake.defgrad_is_zero(argnums=(1, 2))\n\n@primitive\ndef arg_tuple(*args):\n    <IND>return tuple(args)\n<DED>arg_tuple.gradmaker = lambda argnum, ans, *args : lambda g : g[argnum]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "untake.defgrad_is_zero(argnums=(1, 2))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

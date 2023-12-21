@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "84bcb252f85d3fa6f5a122df1b30f4877b4fa71c",
+    "filename": "mypyc/analysis.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypyc/analysis.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypyc/analysis.py:33:42 Incompatible parameter type [6]: Expected `Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]` for 1st positional only parameter to call `sorted` but got `Set[BasicBlock]`.",
+    "message": " Expected `Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]` for 1st positional only parameter to call `sorted` but got `Set[BasicBlock]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 33,
+    "warning_line": "        lines.append('exits: %s' % sorted(self.exits))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        lines = []\n        lines.append('exits: %s' % sorted(self.exits))\n        lines.append('succ: %s' % self.succ)\n",
+        "source_code_len": 119,
+        "target_code": "        lines = []\n        lines.append('exits: %s' % sorted(self.exits, key=lambda e: e.label))\n        lines.append('succ: %s' % self.succ)\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -32,3 +32,3 @@\n         lines = []\n-        lines.append('exits: %s' % sorted(self.exits))\n+        lines.append('exits: %s' % sorted(self.exits, key=lambda e: e.label))\n         lines.append('succ: %s' % self.succ)\n",
+        "source_code_with_indent": "        <IND>lines = []\n        lines.append('exits: %s' % sorted(self.exits))\n        lines.append('succ: %s' % self.succ)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>lines = []\n        lines.append('exits: %s' % sorted(self.exits, key=lambda e: e.label))\n        lines.append('succ: %s' % self.succ)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

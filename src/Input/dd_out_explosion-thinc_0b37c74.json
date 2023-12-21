@@ -1,0 +1,36 @@
+[
+  {
+    "project": "explosion/thinc",
+    "commit": "0b37c7493dd068bee645fca68a1a257deb1019ed",
+    "filename": "thinc/config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/explosion-thinc/thinc/config.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "thinc/config.py:40:30 Incompatible parameter type [6]: Expected `Union[Dict[str, typing.Any], Config]` for 1st positional only parameter to call `Config.interpret_config` but got `ConfigParser`.",
+    "message": " Expected `Union[Dict[str, typing.Any], Config]` for 1st positional only parameter to call `Config.interpret_config` but got `ConfigParser`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 40,
+    "warning_line": "        self.interpret_config(config)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def interpret_config(self, config: Union[Dict[str, Any], \"Config\"]):\n        \"\"\"Interpret a config, parse nested sections and parse the values\n",
+        "source_code_len": 148,
+        "target_code": "\n    def interpret_config(self, config: Union[Dict[str, Any], \"ConfigParser\"]):\n        \"\"\"Interpret a config, parse nested sections and parse the values\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -21,3 +21,3 @@\n \n-    def interpret_config(self, config: Union[Dict[str, Any], \"Config\"]):\n+    def interpret_config(self, config: Union[Dict[str, Any], \"ConfigParser\"]):\n         \"\"\"Interpret a config, parse nested sections and parse the values\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def interpret_config(self, config: Union[Dict[str, Any], \"Config\"]):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def interpret_config(self, config: Union[Dict[str, Any], \"ConfigParser\"]):\n        <IND>"
+      }
+    ]
+  }
+]

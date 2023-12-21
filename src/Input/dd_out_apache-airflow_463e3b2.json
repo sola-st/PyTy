@@ -1,0 +1,172 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "463e3b2b25ee5c116313160c64bb8e2644e1fef3",
+    "filename": "airflow/providers/amazon/aws/transfers/ftp_to_s3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/amazon/aws/transfers/ftp_to_s3.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/amazon/aws/transfers/ftp_to_s3.py:82:8 Incompatible variable type [9]: acl_policy is declared to have type `str` but is used as type `None`.",
+    "message": " acl_policy is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 82,
+    "warning_line": "        acl_policy: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        gzip: bool = False,\n        acl_policy: str = None,\n        **kwargs,\n",
+        "source_code_len": 78,
+        "target_code": "        gzip: bool = False,\n        acl_policy: Optional[str] = None,\n        **kwargs,\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -81,3 +81,3 @@\n         gzip: bool = False,\n-        acl_policy: str = None,\n+        acl_policy: Optional[str] = None,\n         **kwargs,\n",
+        "source_code_with_indent": "        gzip: bool = False,\n        acl_policy: str = None,\n        **kwargs,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        gzip: bool = False,\n        acl_policy: Optional[str] = None,\n        **kwargs,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "463e3b2b25ee5c116313160c64bb8e2644e1fef3",
+    "filename": "airflow/providers/amazon/aws/transfers/mongo_to_s3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/amazon/aws/transfers/mongo_to_s3.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/amazon/aws/transfers/mongo_to_s3.py:129:8 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 129,
+    "warning_line": "        s3_conn.load_string(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def execute(self, context) -> bool:\n        \"\"\"Is written to depend on transform method\"\"\"\n",
+        "source_code_len": 96,
+        "target_code": "\n    def execute(self, context):\n        \"\"\"Is written to depend on transform method\"\"\"\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -104,3 +104,3 @@\n \n-    def execute(self, context) -> bool:\n+    def execute(self, context):\n         \"\"\"Is written to depend on transform method\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def execute(self, context) -> bool:\n        <IND>\"\"\"Is written to depend on transform method\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def execute(self, context):\n        <IND>\"\"\"Is written to depend on transform method\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "463e3b2b25ee5c116313160c64bb8e2644e1fef3",
+    "filename": "airflow/providers/amazon/aws/transfers/redshift_to_s3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/amazon/aws/transfers/redshift_to_s3.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/amazon/aws/transfers/redshift_to_s3.py:86:8 Incompatible variable type [9]: schema is declared to have type `str` but is used as type `None`.",
+    "message": " schema is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 86,
+    "warning_line": "        schema: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        s3_key: str,\n        schema: str = None,\n        table: str = None,\n        select_query: str = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_len": 162,
+        "target_code": "        s3_key: str,\n        schema: Optional[str] = None,\n        table: Optional[str] = None,\n        select_query: Optional[str] = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "target_code_len": 192,
+        "diff_format": "@@ -85,5 +85,5 @@\n         s3_key: str,\n-        schema: str = None,\n-        table: str = None,\n-        select_query: str = None,\n+        schema: Optional[str] = None,\n+        table: Optional[str] = None,\n+        select_query: Optional[str] = None,\n         redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_with_indent": "        s3_key: str,\n        schema: str = None,\n        table: str = None,\n        select_query: str = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        s3_key: str,\n        schema: Optional[str] = None,\n        table: Optional[str] = None,\n        select_query: Optional[str] = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "463e3b2b25ee5c116313160c64bb8e2644e1fef3",
+    "filename": "airflow/providers/amazon/aws/transfers/redshift_to_s3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/amazon/aws/transfers/redshift_to_s3.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/amazon/aws/transfers/redshift_to_s3.py:87:8 Incompatible variable type [9]: table is declared to have type `str` but is used as type `None`.",
+    "message": " table is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 87,
+    "warning_line": "        table: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        s3_key: str,\n        schema: str = None,\n        table: str = None,\n        select_query: str = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_len": 162,
+        "target_code": "        s3_key: str,\n        schema: Optional[str] = None,\n        table: Optional[str] = None,\n        select_query: Optional[str] = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "target_code_len": 192,
+        "diff_format": "@@ -85,5 +85,5 @@\n         s3_key: str,\n-        schema: str = None,\n-        table: str = None,\n-        select_query: str = None,\n+        schema: Optional[str] = None,\n+        table: Optional[str] = None,\n+        select_query: Optional[str] = None,\n         redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_with_indent": "        s3_key: str,\n        schema: str = None,\n        table: str = None,\n        select_query: str = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        s3_key: str,\n        schema: Optional[str] = None,\n        table: Optional[str] = None,\n        select_query: Optional[str] = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "463e3b2b25ee5c116313160c64bb8e2644e1fef3",
+    "filename": "airflow/providers/amazon/aws/transfers/redshift_to_s3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/amazon/aws/transfers/redshift_to_s3.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/amazon/aws/transfers/redshift_to_s3.py:88:8 Incompatible variable type [9]: select_query is declared to have type `str` but is used as type `None`.",
+    "message": " select_query is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 88,
+    "warning_line": "        select_query: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        s3_key: str,\n        schema: str = None,\n        table: str = None,\n        select_query: str = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_len": 162,
+        "target_code": "        s3_key: str,\n        schema: Optional[str] = None,\n        table: Optional[str] = None,\n        select_query: Optional[str] = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "target_code_len": 192,
+        "diff_format": "@@ -85,5 +85,5 @@\n         s3_key: str,\n-        schema: str = None,\n-        table: str = None,\n-        select_query: str = None,\n+        schema: Optional[str] = None,\n+        table: Optional[str] = None,\n+        select_query: Optional[str] = None,\n         redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_with_indent": "        s3_key: str,\n        schema: str = None,\n        table: str = None,\n        select_query: str = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        s3_key: str,\n        schema: Optional[str] = None,\n        table: Optional[str] = None,\n        select_query: Optional[str] = None,\n        redshift_conn_id: str = 'redshift_default',\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

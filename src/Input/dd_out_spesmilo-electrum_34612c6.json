@@ -1,0 +1,36 @@
+[
+  {
+    "project": "spesmilo/electrum",
+    "commit": "34612c671e0c37418c0aab02dbeb90402b195193",
+    "filename": "electrum/lnworker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spesmilo-electrum/electrum/lnworker.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrum/lnworker.py:1148:12 Incompatible return type [7]: Expected `bytes` but got `PaymentInfo`.",
+    "message": " Expected `bytes` but got `PaymentInfo`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1148,
+    "warning_line": "            return PaymentInfo(payment_hash, amount, direction, status)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_payment_info(self, payment_hash: bytes) -> bytes:\n        key = payment_hash.hex()\n",
+        "source_code_len": 96,
+        "target_code": "\n    def get_payment_info(self, payment_hash: bytes) -> PaymentInfo:\n        key = payment_hash.hex()\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -1141,3 +1141,3 @@\n \n-    def get_payment_info(self, payment_hash: bytes) -> bytes:\n+    def get_payment_info(self, payment_hash: bytes) -> PaymentInfo:\n         key = payment_hash.hex()\n",
+        "source_code_with_indent": "\n    <DED>def get_payment_info(self, payment_hash: bytes) -> bytes:\n        <IND>key = payment_hash.hex()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_payment_info(self, payment_hash: bytes) -> PaymentInfo:\n        <IND>key = payment_hash.hex()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

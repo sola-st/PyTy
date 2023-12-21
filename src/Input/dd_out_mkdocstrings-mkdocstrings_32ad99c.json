@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mkdocstrings/mkdocstrings",
+    "commit": "32ad99c4e12ada9bc185b39f96e198e684b87c40",
+    "filename": "src/mkdocstrings/plugin.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mkdocstrings-mkdocstrings/src/mkdocstrings/plugin.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/mkdocstrings/plugin.py:211:38 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `Placeholder.replace_code_tags` but got `BeautifulSoup`.",
+    "message": " Expected `str` for 1st positional only parameter to call `Placeholder.replace_code_tags` but got `BeautifulSoup`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 211,
+    "warning_line": "        placeholder.replace_code_tags(soup)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def replace_code_tags(self, soup: str) -> None:\n        \"\"\"\n",
+        "source_code_len": 65,
+        "target_code": "\n    def replace_code_tags(self, soup: BeautifulSoup) -> None:\n        \"\"\"\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -339,3 +339,3 @@\n \n-    def replace_code_tags(self, soup: str) -> None:\n+    def replace_code_tags(self, soup: BeautifulSoup) -> None:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def replace_code_tags(self, soup: str) -> None:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def replace_code_tags(self, soup: BeautifulSoup) -> None:\n        <IND>"
+      }
+    ]
+  }
+]

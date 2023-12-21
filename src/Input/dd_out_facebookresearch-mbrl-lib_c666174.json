@@ -1,0 +1,36 @@
+[
+  {
+    "project": "facebookresearch/mbrl-lib",
+    "commit": "c666174f70c13404797672c0bc49165fcb94f009",
+    "filename": "mbrl/models/model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-mbrl-lib/mbrl/models/model.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mbrl/models/model.py:196:12 Incompatible return type [7]: Expected `Union[Tuple[float, Dict[str, typing.Any]], float]` but got `Tuple[typing.Any, Optional[Dict[str, typing.Any]]]`.",
+    "message": " Expected `Union[Tuple[float, Dict[str, typing.Any]], float]` but got `Tuple[typing.Any, Optional[Dict[str, typing.Any]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 196,
+    "warning_line": "            return loss.item(), meta",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            loss = cast(torch.Tensor, loss_and_maybe_meta[0])\n            meta = cast(Optional[Dict[str, Any]], loss_and_maybe_meta[1])\n            loss.backward()\n",
+        "source_code_len": 164,
+        "target_code": "            loss = cast(torch.Tensor, loss_and_maybe_meta[0])\n            meta = cast(Dict[str, Any], loss_and_maybe_meta[1])\n            loss.backward()\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -183,3 +183,3 @@\n             loss = cast(torch.Tensor, loss_and_maybe_meta[0])\n-            meta = cast(Optional[Dict[str, Any]], loss_and_maybe_meta[1])\n+            meta = cast(Dict[str, Any], loss_and_maybe_meta[1])\n             loss.backward()\n",
+        "source_code_with_indent": "            <IND>loss = cast(torch.Tensor, loss_and_maybe_meta[0])\n            meta = cast(Optional[Dict[str, Any]], loss_and_maybe_meta[1])\n            loss.backward()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>loss = cast(torch.Tensor, loss_and_maybe_meta[0])\n            meta = cast(Dict[str, Any], loss_and_maybe_meta[1])\n            loss.backward()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

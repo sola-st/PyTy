@@ -1,0 +1,70 @@
+[
+  {
+    "project": "facebookresearch/habitat-lab",
+    "commit": "7c4286653211bbfaca59d0807c28bfb3a6b962bf",
+    "filename": "habitat_baselines/common/obs_transformers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-habitat-lab/habitat_baselines/common/obs_transformers.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "habitat_baselines/common/obs_transformers.py:372:12 Incompatible attribute type [8]: Attribute `target_uuids` declared in class `CubeMap2Equirec` has type `List[str]` but is used as type `Optional[List[str]]`.",
+    "message": " Attribute `target_uuids` declared in class `CubeMap2Equirec` has type `List[str]` but is used as type `Optional[List[str]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 372,
+    "warning_line": "            self.target_uuids: List[str] = target_uuids",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.c2eq: nn.Module = Cube2Equirec(eq_shape[0], eq_shape[1])\n        if target_uuids == None:\n            self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "source_code_len": 169,
+        "target_code": "        self.c2eq: nn.Module = Cube2Equirec(eq_shape[0], eq_shape[1])\n        if target_uuids is None:\n            self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -368,3 +368,3 @@\n         self.c2eq: nn.Module = Cube2Equirec(eq_shape[0], eq_shape[1])\n-        if target_uuids == None:\n+        if target_uuids is None:\n             self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "source_code_with_indent": "        self.c2eq: nn.Module = Cube2Equirec(eq_shape[0], eq_shape[1])\n        if target_uuids == None:\n            <IND>self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.c2eq: nn.Module = Cube2Equirec(eq_shape[0], eq_shape[1])\n        if target_uuids is None:\n            <IND>self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/habitat-lab",
+    "commit": "7c4286653211bbfaca59d0807c28bfb3a6b962bf",
+    "filename": "habitat_baselines/common/obs_transformers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-habitat-lab/habitat_baselines/common/obs_transformers.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "habitat_baselines/common/obs_transformers.py:671:12 Incompatible attribute type [8]: Attribute `target_uuids` declared in class `CubeMap2Fisheye` has type `List[str]` but is used as type `Optional[List[str]]`.",
+    "message": " Attribute `target_uuids` declared in class `CubeMap2Fisheye` has type `List[str]` but is used as type `Optional[List[str]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 671,
+    "warning_line": "            self.target_uuids: List[str] = target_uuids",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if target_uuids == None:\n            self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "source_code_len": 100,
+        "target_code": "\n        if target_uuids is None:\n            self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -667,3 +667,3 @@\n \n-        if target_uuids == None:\n+        if target_uuids is None:\n             self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "source_code_with_indent": "\n        if target_uuids == None:\n            <IND>self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        if target_uuids is None:\n            <IND>self.target_uuids: List[str] = self.sensor_uuids[::6]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "bczsalba/pytermgui",
+    "commit": "f51ba24ddad1d4407c953c7683354c93c977f91f",
+    "filename": "pytermgui/widgets/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bczsalba-pytermgui/pytermgui/widgets/base.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytermgui/widgets/base.py:223:8 Incompatible attribute type [8]: Attribute `selected_index` declared in class `Widget` has type `Optional[int]` but is used as type `Union[typing.Tuple[int, int], int]`.",
+    "message": " Attribute `selected_index` declared in class `Widget` has type `Optional[int]` but is used as type `Union[typing.Tuple[int, int], int]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 223,
+    "warning_line": "        self.selected_index = index",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def select(self, index: Union[int, tuple[int, int]]) -> None:\n        \"\"\"Select part of self\"\"\"\n",
+        "source_code_len": 101,
+        "target_code": "\n    def select(self, index: int) -> None:\n        \"\"\"Select part of self\"\"\"\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -213,3 +221,3 @@\n \n-    def select(self, index: Union[int, tuple[int, int]]) -> None:\n+    def select(self, index: int) -> None:\n         \"\"\"Select part of self\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def select(self, index: Union[int, tuple[int, int]]) -> None:\n        <IND>\"\"\"Select part of self\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def select(self, index: int) -> None:\n        <IND>\"\"\"Select part of self\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bczsalba/pytermgui",
+    "commit": "f51ba24ddad1d4407c953c7683354c93c977f91f",
+    "filename": "pytermgui/widgets/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bczsalba-pytermgui/pytermgui/widgets/base.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytermgui/widgets/base.py:507:4 Inconsistent override [14]: `pytermgui.widgets.base.Container.select` overrides method defined in `Widget` inconsistently. Parameter of type `Optional[int]` is not a supertype of the overridden parameter `Union[typing.Tuple[int, int], int]`.",
+    "message": " `pytermgui.widgets.base.Container.select` overrides method defined in `Widget` inconsistently. Parameter of type `Optional[int]` is not a supertype of the overridden parameter `Union[typing.Tuple[int, int], int]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 507,
+    "warning_line": "    def select(self, index: Optional[int] = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def select(self, index: Union[int, tuple[int, int]]) -> None:\n        \"\"\"Select part of self\"\"\"\n",
+        "source_code_len": 101,
+        "target_code": "\n    def select(self, index: int) -> None:\n        \"\"\"Select part of self\"\"\"\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -213,3 +221,3 @@\n \n-    def select(self, index: Union[int, tuple[int, int]]) -> None:\n+    def select(self, index: int) -> None:\n         \"\"\"Select part of self\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def select(self, index: Union[int, tuple[int, int]]) -> None:\n        <IND>\"\"\"Select part of self\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def select(self, index: int) -> None:\n        <IND>\"\"\"Select part of self\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

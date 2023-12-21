@@ -1,0 +1,51 @@
+[
+  {
+    "project": "willmcgugan/rich",
+    "commit": "b38c757275d715c4d44e7161b15982a3f529179d",
+    "filename": "rich/box.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/box.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/box.py:348:8 Incompatible return type [7]: Expected `box.Box` but got `Optional[box.Box]`.",
+    "message": " Expected `box.Box` but got `Optional[box.Box]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 348,
+    "warning_line": "        return box",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import Iterable, List, Optional\nfrom typing_extensions import Literal\n",
+        "source_code_len": 82,
+        "target_code": "from typing import Iterable, List, Optional, overload\nfrom typing_extensions import Literal\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -1,2 +1,2 @@\n-from typing import Iterable, List, Optional\n+from typing import Iterable, List, Optional, overload\n from typing_extensions import Literal\n",
+        "source_code_with_indent": "from typing import Iterable, List, Optional\nfrom typing_extensions import Literal\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Iterable, List, Optional, overload\nfrom typing_extensions import Literal\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_safe_box(box: Optional[Box], legacy_windows: bool) -> Box:\n    \"\"\"Substitute Box constants that don't render on windows legacy.\"\"\"\n    if legacy_windows:\n        return LEGACY_WINDOWS_SUBSTITUTIONS.get(box, box) if box else None\n    else:\n",
+        "source_code_len": 248,
+        "target_code": "\n@overload\ndef get_safe_box(box: None, legacy_windows: bool) -> None:\n    ...\n\n\n@overload\ndef get_safe_box(box: Box, legacy_windows: bool) -> Box:\n    ...\n\n\ndef get_safe_box(box: Optional[Box], legacy_windows: bool) -> Optional[Box]:\n    \"\"\"Substitute Box constants that don't render on windows legacy.\"\"\"\n    if legacy_windows and box is not None:\n        return LEGACY_WINDOWS_SUBSTITUTIONS.get(box, box)\n    else:\n",
+        "target_code_len": 417,
+        "diff_format": "@@ -342,6 +342,16 @@\n \n-def get_safe_box(box: Optional[Box], legacy_windows: bool) -> Box:\n+@overload\n+def get_safe_box(box: None, legacy_windows: bool) -> None:\n+    ...\n+\n+\n+@overload\n+def get_safe_box(box: Box, legacy_windows: bool) -> Box:\n+    ...\n+\n+\n+def get_safe_box(box: Optional[Box], legacy_windows: bool) -> Optional[Box]:\n     \"\"\"Substitute Box constants that don't render on windows legacy.\"\"\"\n-    if legacy_windows:\n-        return LEGACY_WINDOWS_SUBSTITUTIONS.get(box, box) if box else None\n+    if legacy_windows and box is not None:\n+        return LEGACY_WINDOWS_SUBSTITUTIONS.get(box, box)\n     else:\n",
+        "source_code_with_indent": "\ndef get_safe_box(box: Optional[Box], legacy_windows: bool) -> Box:\n    <IND>\"\"\"Substitute Box constants that don't render on windows legacy.\"\"\"\n    if legacy_windows:\n        <IND>return LEGACY_WINDOWS_SUBSTITUTIONS.get(box, box) if box else None\n    <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n@overload\ndef get_safe_box(box: None, legacy_windows: bool) -> None:\n    <IND>...\n\n\n<DED>@overload\ndef get_safe_box(box: Box, legacy_windows: bool) -> Box:\n    <IND>...\n\n\n<DED>def get_safe_box(box: Optional[Box], legacy_windows: bool) -> Optional[Box]:\n    <IND>\"\"\"Substitute Box constants that don't render on windows legacy.\"\"\"\n    if legacy_windows and box is not None:\n        <IND>return LEGACY_WINDOWS_SUBSTITUTIONS.get(box, box)\n    <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

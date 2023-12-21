@@ -1,0 +1,102 @@
+[
+  {
+    "project": "laughingman7743/PyAthena",
+    "commit": "85dbfcd64d37dfc11525e2307e94d8e43b8eeda1",
+    "filename": "pyathena/result_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/laughingman7743-PyAthena/pyathena/result_set.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyathena/result_set.py:231:8 Incompatible attribute type [8]: Attribute `_meta_data` declared in class `AthenaResultSet` has type `Optional[Tuple[Dict[str, typing.Any]]]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+    "message": " Attribute `_meta_data` declared in class `AthenaResultSet` has type `Optional[Tuple[Dict[str, typing.Any]]]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 231,
+    "warning_line": "        self._meta_data = tuple(column_info)"
+  },
+  {
+    "project": "laughingman7743/PyAthena",
+    "commit": "85dbfcd64d37dfc11525e2307e94d8e43b8eeda1",
+    "filename": "pyathena/result_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/laughingman7743-PyAthena/pyathena/result_set.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyathena/result_set.py:253:45 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `Optional[Tuple[Dict[str, typing.Any]]]`.",
+    "message": " Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `Optional[Tuple[Dict[str, typing.Any]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 253,
+    "warning_line": "                        for meta, row in zip(self._meta_data, rows[i].get(\"Data\", []))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            )\n            processed_rows = [\n",
+        "source_code_len": 45,
+        "target_code": "            )\n            meta_data = cast(Tuple[Any, Any], self._meta_data)\n            processed_rows = [\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -246,2 +246,3 @@\n             )\n+            meta_data = cast(Tuple[Any, Any], self._meta_data)\n             processed_rows = [\n",
+        "source_code_with_indent": "            )\n            processed_rows = [\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            )\n            meta_data = cast(Tuple[Any, Any], self._meta_data)\n            processed_rows = [\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                        )\n                        for meta, row in zip(self._meta_data, rows[i].get(\"Data\", []))\n                    ]\n",
+        "source_code_len": 135,
+        "target_code": "                        )\n                        for meta, row in zip(meta_data, rows[i].get(\"Data\", []))\n                    ]\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -252,3 +253,3 @@\n                         )\n-                        for meta, row in zip(self._meta_data, rows[i].get(\"Data\", []))\n+                        for meta, row in zip(meta_data, rows[i].get(\"Data\", []))\n                     ]\n",
+        "source_code_with_indent": "                        )\n                        for meta, row in zip(self._meta_data, rows[i].get(\"Data\", []))\n                    ]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                        )\n                        for meta, row in zip(meta_data, rows[i].get(\"Data\", []))\n                    ]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "laughingman7743/PyAthena",
+    "commit": "85dbfcd64d37dfc11525e2307e94d8e43b8eeda1",
+    "filename": "pyathena/result_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/laughingman7743-PyAthena/pyathena/result_set.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyathena/result_set.py:263:30 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `Optional[Tuple[Dict[str, typing.Any]]]`.",
+    "message": " Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `Optional[Tuple[Dict[str, typing.Any]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 263,
+    "warning_line": "        for meta, data in zip(self._meta_data, first_row_data):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        first_row_data = rows[0].get(\"Data\", [])\n        for meta, data in zip(self._meta_data, first_row_data):\n            if meta.get(\"Name\", None) != data.get(\"VarCharValue\", None):\n",
+        "source_code_len": 186,
+        "target_code": "        first_row_data = rows[0].get(\"Data\", [])\n        meta_data = cast(Tuple[Any, Any], self._meta_data)\n        for meta, data in zip(meta_data, first_row_data):\n            if meta.get(\"Name\", None) != data.get(\"VarCharValue\", None):\n",
+        "target_code_len": 239,
+        "diff_format": "@@ -262,3 +263,4 @@\n         first_row_data = rows[0].get(\"Data\", [])\n-        for meta, data in zip(self._meta_data, first_row_data):\n+        meta_data = cast(Tuple[Any, Any], self._meta_data)\n+        for meta, data in zip(meta_data, first_row_data):\n             if meta.get(\"Name\", None) != data.get(\"VarCharValue\", None):\n",
+        "source_code_with_indent": "        <IND>first_row_data = rows[0].get(\"Data\", [])\n        for meta, data in zip(self._meta_data, first_row_data):\n            <IND>if meta.get(\"Name\", None) != data.get(\"VarCharValue\", None):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>first_row_data = rows[0].get(\"Data\", [])\n        meta_data = cast(Tuple[Any, Any], self._meta_data)\n        for meta, data in zip(meta_data, first_row_data):\n            <IND>if meta.get(\"Name\", None) != data.get(\"VarCharValue\", None):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

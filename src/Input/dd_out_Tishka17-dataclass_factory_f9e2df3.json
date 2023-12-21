@@ -1,0 +1,100 @@
+[
+  {
+    "project": "Tishka17/dataclass_factory",
+    "commit": "f9e2df3318b934b9c8f46a86b7032f00f74aa833",
+    "filename": "dataclass_factory/parsers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tishka17-dataclass_factory/dataclass_factory/parsers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dataclass_factory/parsers.py:127:12 Incompatible return type [7]: Expected `Tuple[Union[int, str], typing.Callable[[typing.Any], Variable[T]]]` but got `Tuple[Union[dataclass_factory.path_utils.EllipsisType, int, str], typing.Callable[[typing.Any], Variable[T]]]`.",
+    "message": " Expected `Tuple[Union[int, str], typing.Callable[[typing.Any], Variable[T]]]` but got `Tuple[Union[dataclass_factory.path_utils.EllipsisType, int, str], typing.Callable[[typing.Any], Variable[T]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 127,
+    "warning_line": "            return item[0], parser",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\nfrom .path_utils import Path\nfrom .schema import Schema\n",
+        "source_code_len": 148,
+        "target_code": "from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\nfrom .path_utils import Path, Key\nfrom .schema import Schema\n",
+        "target_code_len": 153,
+        "diff_format": "@@ -12,3 +12,3 @@\n from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\n-from .path_utils import Path\n+from .path_utils import Path, Key\n from .schema import Schema\n",
+        "source_code_with_indent": "from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\nfrom .path_utils import Path\nfrom .schema import Schema\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\nfrom .path_utils import Path, Key\nfrom .schema import Schema\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_field_parser(item: Union[str, int, Path], parser: Parser[T]) -> Tuple[Union[str, int], Parser[T]]:\n    if isinstance(item, tuple):\n",
+        "source_code_len": 140,
+        "target_code": "\ndef get_field_parser(item: Union[Key, Path], parser: Parser[T]) -> Tuple[Key, Parser[T]]:\n    if isinstance(item, tuple):\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -123,3 +123,3 @@\n \n-def get_field_parser(item: Union[str, int, Path], parser: Parser[T]) -> Tuple[Union[str, int], Parser[T]]:\n+def get_field_parser(item: Union[Key, Path], parser: Parser[T]) -> Tuple[Key, Parser[T]]:\n     if isinstance(item, tuple):\n",
+        "source_code_with_indent": "\n<DED>def get_field_parser(item: Union[str, int, Path], parser: Parser[T]) -> Tuple[Union[str, int], Parser[T]]:\n    <IND>if isinstance(item, tuple):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_field_parser(item: Union[Key, Path], parser: Parser[T]) -> Tuple[Key, Parser[T]]:\n    <IND>if isinstance(item, tuple):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Tishka17/dataclass_factory",
+    "commit": "f9e2df3318b934b9c8f46a86b7032f00f74aa833",
+    "filename": "dataclass_factory/parsers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tishka17-dataclass_factory/dataclass_factory/parsers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dataclass_factory/parsers.py:128:8 Incompatible return type [7]: Expected `Tuple[Union[int, str], typing.Callable[[typing.Any], Variable[T]]]` but got `Tuple[Union[dataclass_factory.path_utils.EllipsisType, int, str], typing.Callable[[typing.Any], Variable[T]]]`.",
+    "message": " Expected `Tuple[Union[int, str], typing.Callable[[typing.Any], Variable[T]]]` but got `Tuple[Union[dataclass_factory.path_utils.EllipsisType, int, str], typing.Callable[[typing.Any], Variable[T]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 128,
+    "warning_line": "        return item[0], get_path_parser(parser, item[1:])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\nfrom .path_utils import Path\nfrom .schema import Schema\n",
+        "source_code_len": 148,
+        "target_code": "from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\nfrom .path_utils import Path, Key\nfrom .schema import Schema\n",
+        "target_code_len": 153,
+        "diff_format": "@@ -12,3 +12,3 @@\n from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\n-from .path_utils import Path\n+from .path_utils import Path, Key\n from .schema import Schema\n",
+        "source_code_with_indent": "from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\nfrom .path_utils import Path\nfrom .schema import Schema\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from .fields import FieldInfo, get_dataclass_fields, get_typeddict_fields, get_class_fields\nfrom .path_utils import Path, Key\nfrom .schema import Schema\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_field_parser(item: Union[str, int, Path], parser: Parser[T]) -> Tuple[Union[str, int], Parser[T]]:\n    if isinstance(item, tuple):\n",
+        "source_code_len": 140,
+        "target_code": "\ndef get_field_parser(item: Union[Key, Path], parser: Parser[T]) -> Tuple[Key, Parser[T]]:\n    if isinstance(item, tuple):\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -123,3 +123,3 @@\n \n-def get_field_parser(item: Union[str, int, Path], parser: Parser[T]) -> Tuple[Union[str, int], Parser[T]]:\n+def get_field_parser(item: Union[Key, Path], parser: Parser[T]) -> Tuple[Key, Parser[T]]:\n     if isinstance(item, tuple):\n",
+        "source_code_with_indent": "\n<DED>def get_field_parser(item: Union[str, int, Path], parser: Parser[T]) -> Tuple[Union[str, int], Parser[T]]:\n    <IND>if isinstance(item, tuple):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_field_parser(item: Union[Key, Path], parser: Parser[T]) -> Tuple[Key, Parser[T]]:\n    <IND>if isinstance(item, tuple):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

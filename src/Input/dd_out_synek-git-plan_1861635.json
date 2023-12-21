@@ -1,0 +1,173 @@
+[
+  {
+    "project": "synek/git-plan",
+    "commit": "1861635f8013b5d622f253bb6d950a2b0a79eebc",
+    "filename": "git_plan/cli/commands/command.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/synek-git-plan/git_plan/cli/commands/command.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "git_plan/cli/commands/command.py:17:4 Incompatible attribute type [8]: Attribute `subcommand` declared in class `Command` has type `str` but is used as type `None`.",
+    "message": " Attribute `subcommand` declared in class `Command` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 17,
+    "warning_line": "    subcommand: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class Command(ABC):\n\n    subcommand: str = None\n\n    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n        assert project, \"Project missing.\"\n        assert ui_service, \"UI service missing\"\n        self._cli: Optional[CLI] = None\n",
+        "source_code_len": 276,
+        "target_code": "class Command(ABC):\n    \"\"\"Base for all Commands\"\"\"\n\n    subcommand: str\n\n    def __init__(self, project: Project, ui_service: UIService):\n        self._cli: Optional[CLI] = None\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -15,8 +17,7 @@\n class Command(ABC):\n+    \"\"\"Base for all Commands\"\"\"\n \n-    subcommand: str = None\n+    subcommand: str\n \n-    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n-        assert project, \"Project missing.\"\n-        assert ui_service, \"UI service missing\"\n+    def __init__(self, project: Project, ui_service: UIService):\n         self._cli: Optional[CLI] = None\n",
+        "source_code_with_indent": "<DED>class Command(ABC):\n\n    <IND>subcommand: str = None\n\n    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n        <IND>assert project, \"Project missing.\"\n        assert ui_service, \"UI service missing\"\n        self._cli: Optional[CLI] = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class Command(ABC):\n    <IND>\"\"\"Base for all Commands\"\"\"\n\n    subcommand: str\n\n    def __init__(self, project: Project, ui_service: UIService):\n        <IND>self._cli: Optional[CLI] = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "synek/git-plan",
+    "commit": "1861635f8013b5d622f253bb6d950a2b0a79eebc",
+    "filename": "git_plan/cli/commands/command.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/synek-git-plan/git_plan/cli/commands/command.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "git_plan/cli/commands/command.py:19:23 Incompatible variable type [9]: project is declared to have type `Project` but is used as type `None`.",
+    "message": " project is declared to have type `Project` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 19,
+    "warning_line": "    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class Command(ABC):\n\n    subcommand: str = None\n\n    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n        assert project, \"Project missing.\"\n        assert ui_service, \"UI service missing\"\n        self._cli: Optional[CLI] = None\n",
+        "source_code_len": 276,
+        "target_code": "class Command(ABC):\n    \"\"\"Base for all Commands\"\"\"\n\n    subcommand: str\n\n    def __init__(self, project: Project, ui_service: UIService):\n        self._cli: Optional[CLI] = None\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -15,8 +17,7 @@\n class Command(ABC):\n+    \"\"\"Base for all Commands\"\"\"\n \n-    subcommand: str = None\n+    subcommand: str\n \n-    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n-        assert project, \"Project missing.\"\n-        assert ui_service, \"UI service missing\"\n+    def __init__(self, project: Project, ui_service: UIService):\n         self._cli: Optional[CLI] = None\n",
+        "source_code_with_indent": "<DED>class Command(ABC):\n\n    <IND>subcommand: str = None\n\n    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n        <IND>assert project, \"Project missing.\"\n        assert ui_service, \"UI service missing\"\n        self._cli: Optional[CLI] = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class Command(ABC):\n    <IND>\"\"\"Base for all Commands\"\"\"\n\n    subcommand: str\n\n    def __init__(self, project: Project, ui_service: UIService):\n        <IND>self._cli: Optional[CLI] = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "synek/git-plan",
+    "commit": "1861635f8013b5d622f253bb6d950a2b0a79eebc",
+    "filename": "git_plan/cli/commands/command.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/synek-git-plan/git_plan/cli/commands/command.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "git_plan/cli/commands/command.py:19:48 Incompatible variable type [9]: ui_service is declared to have type `UIService` but is used as type `None`.",
+    "message": " ui_service is declared to have type `UIService` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 19,
+    "warning_line": "    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class Command(ABC):\n\n    subcommand: str = None\n\n    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n        assert project, \"Project missing.\"\n        assert ui_service, \"UI service missing\"\n        self._cli: Optional[CLI] = None\n",
+        "source_code_len": 276,
+        "target_code": "class Command(ABC):\n    \"\"\"Base for all Commands\"\"\"\n\n    subcommand: str\n\n    def __init__(self, project: Project, ui_service: UIService):\n        self._cli: Optional[CLI] = None\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -15,8 +17,7 @@\n class Command(ABC):\n+    \"\"\"Base for all Commands\"\"\"\n \n-    subcommand: str = None\n+    subcommand: str\n \n-    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n-        assert project, \"Project missing.\"\n-        assert ui_service, \"UI service missing\"\n+    def __init__(self, project: Project, ui_service: UIService):\n         self._cli: Optional[CLI] = None\n",
+        "source_code_with_indent": "<DED>class Command(ABC):\n\n    <IND>subcommand: str = None\n\n    def __init__(self, project: Project = None, ui_service: UIService = None, *args, **kwargs):\n        <IND>assert project, \"Project missing.\"\n        assert ui_service, \"UI service missing\"\n        self._cli: Optional[CLI] = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class Command(ABC):\n    <IND>\"\"\"Base for all Commands\"\"\"\n\n    subcommand: str\n\n    def __init__(self, project: Project, ui_service: UIService):\n        <IND>self._cli: Optional[CLI] = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "synek/git-plan",
+    "commit": "1861635f8013b5d622f253bb6d950a2b0a79eebc",
+    "filename": "git_plan/model/commit.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/synek-git-plan/git_plan/model/commit.py",
+    "file_hunks_size": 13,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "git_plan/model/commit.py:52:4 Incompatible attribute type [8]: Attribute `_message` declared in class `Commit` has type `CommitMessage` but is used as type `None`.",
+    "message": " Attribute `_message` declared in class `Commit` has type `CommitMessage` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 52,
+    "warning_line": "    _message: CommitMessage = field(init=False, default=None)"
+  },
+  {
+    "project": "synek/git-plan",
+    "commit": "1861635f8013b5d622f253bb6d950a2b0a79eebc",
+    "filename": "git_plan/service/plan.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/synek-git-plan/git_plan/service/plan.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "git_plan/service/plan.py:62:8 Incompatible return type [7]: Expected `bool` but got `typing.Union[List[str], bool]`.",
+    "message": " Expected `bool` but got `typing.Union[List[str], bool]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 62,
+    "warning_line": "        return plans and len(plans) > 0",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"Check if a plan already exists in the given directory\"\"\"\n        plans = os.listdir(project.plan_dir)\n\n        return plans and len(plans) > 0\n\n",
+        "source_code_len": 155,
+        "target_code": "        \"\"\"Check if a plan already exists in the given directory\"\"\"\n        return any(project.plan_dir.iterdir())  # False if it cannot iterate at least once\n\n",
+        "target_code_len": 160,
+        "diff_format": "@@ -59,5 +59,3 @@\n         \"\"\"Check if a plan already exists in the given directory\"\"\"\n-        plans = os.listdir(project.plan_dir)\n-\n-        return plans and len(plans) > 0\n+        return any(project.plan_dir.iterdir())  # False if it cannot iterate at least once\n \n",
+        "source_code_with_indent": "        <IND>\"\"\"Check if a plan already exists in the given directory\"\"\"\n        plans = os.listdir(project.plan_dir)\n\n        return plans and len(plans) > 0\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>\"\"\"Check if a plan already exists in the given directory\"\"\"\n        return any(project.plan_dir.iterdir())  # False if it cannot iterate at least once\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "synek/git-plan",
+    "commit": "1861635f8013b5d622f253bb6d950a2b0a79eebc",
+    "filename": "tests/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/utils.py:20:43 Incompatible variable type [9]: edit_template_file is declared to have type `str` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/synek-git-plan/tests/utils.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "synek/git-plan",
+    "commit": "1861635f8013b5d622f253bb6d950a2b0a79eebc",
+    "filename": "tests/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/utils.py:20:75 Incompatible variable type [9]: commit_template_file is declared to have type `str` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/synek-git-plan/tests/utils.py'",
+    "dd_fail": true
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "project": "life4/deal",
+    "commit": "519c7a8d62be4cbe665d52ad449b92562ec0f269",
+    "filename": "deal/_cli/_memtest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/life4-deal/deal/_cli/_memtest.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deal/_cli/_memtest.py:31:12 Incompatible parameter type [6]: Expected `Iterator[TestCase]` for 1st parameter `cases` to call `run_cases` but got `deal._testing.TestCases`.",
+    "message": " Expected `Iterator[TestCase]` for 1st parameter `cases` to call `run_cases` but got `deal._testing.TestCases`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 31,
+    "warning_line": "            cases=cases(func=func, count=count, check_types=False),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from pathlib import Path\nfrom typing import Dict, Iterator, Sequence, TextIO\n\n",
+        "source_code_len": 78,
+        "target_code": "from pathlib import Path\nfrom typing import Dict, Iterable, Sequence, TextIO\n\n",
+        "target_code_len": 78,
+        "diff_format": "@@ -6,3 +6,3 @@\n from pathlib import Path\n-from typing import Dict, Iterator, Sequence, TextIO\n+from typing import Dict, Iterable, Sequence, TextIO\n \n",
+        "source_code_with_indent": "from pathlib import Path\nfrom typing import Dict, Iterator, Sequence, TextIO\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from pathlib import Path\nfrom typing import Dict, Iterable, Sequence, TextIO\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def run_cases(\n    cases: Iterator[TestCase],\n    func_name: str,\n",
+        "source_code_len": 66,
+        "target_code": "def run_cases(\n    cases: Iterable[TestCase],\n    func_name: str,\n",
+        "target_code_len": 66,
+        "diff_format": "@@ -41,3 +41,3 @@\n def run_cases(\n-    cases: Iterator[TestCase],\n+    cases: Iterable[TestCase],\n     func_name: str,\n",
+        "source_code_with_indent": "<DED>def run_cases(\n    cases: Iterator[TestCase],\n    func_name: str,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def run_cases(\n    cases: Iterable[TestCase],\n    func_name: str,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "life4/deal",
+    "commit": "519c7a8d62be4cbe665d52ad449b92562ec0f269",
+    "filename": "deal/_testing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/life4-deal/deal/_testing.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "deal/_testing.py:120:8 Incompatible attribute type [8]: Attribute `count` declared in class `TestCases` has type `int` but is used as type `typing.Dict[str, typing.Any]`.",
+    "message": " Attribute `count` declared in class `TestCases` has type `int` but is used as type `typing.Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 120,
+    "warning_line": "        self.count = kwargs",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    ) -> None:\n        self.func = func\n        self.count = kwargs\n        self.count = count\n        self.kwargs = kwargs\n        self.check_types = check_types\n",
+        "source_code_len": 163,
+        "target_code": "    ) -> None:\n        self.func = func  # type: ignore\n        self.count = count\n        self.kwargs = kwargs or {}\n        self.check_types = check_types\n",
+        "target_code_len": 157,
+        "diff_format": "@@ -118,6 +118,5 @@\n     ) -> None:\n-        self.func = func\n-        self.count = kwargs\n+        self.func = func  # type: ignore\n         self.count = count\n-        self.kwargs = kwargs\n+        self.kwargs = kwargs or {}\n         self.check_types = check_types\n",
+        "source_code_with_indent": "    ) -> None:\n        <IND>self.func = func\n        self.count = kwargs\n        self.count = count\n        self.kwargs = kwargs\n        self.check_types = check_types\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> None:\n        <IND>self.func = func  # type: ignore\n        self.count = count\n        self.kwargs = kwargs or {}\n        self.check_types = check_types\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

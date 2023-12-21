@@ -1,0 +1,100 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "d5f10b2ce0d49e5603500aa231665c05e214183a",
+    "filename": "airflow/kubernetes/kubernetes_helper_functions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/kubernetes/kubernetes_helper_functions.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/kubernetes/kubernetes_helper_functions.py:87:44 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `TaskInstanceKey.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `TaskInstanceKey.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 87,
+    "warning_line": "    return TaskInstanceKey(dag_id, task_id, run_id, try_number)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    try_number = int(annotations['try_number'])\n    run_id = annotations.get('run_id')\n    if not run_id and 'execution_date' in annotations:\n        # Compat: Look up the run_id from the TI table!\n",
+        "source_code_len": 198,
+        "target_code": "    try_number = int(annotations['try_number'])\n    annotation_run_id = annotations.get('run_id')\n\n    if not annotation_run_id and 'execution_date' in annotations:\n        # Compat: Look up the run_id from the TI table!\n",
+        "target_code_len": 221,
+        "diff_format": "@@ -64,4 +64,5 @@\n     try_number = int(annotations['try_number'])\n-    run_id = annotations.get('run_id')\n-    if not run_id and 'execution_date' in annotations:\n+    annotation_run_id = annotations.get('run_id')\n+\n+    if not annotation_run_id and 'execution_date' in annotations:\n         # Compat: Look up the run_id from the TI table!\n",
+        "source_code_with_indent": "    try_number = int(annotations['try_number'])\n    run_id = annotations.get('run_id')\n    if not run_id and 'execution_date' in annotations:\n        # Compat: Look up the run_id from the TI table!\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    try_number = int(annotations['try_number'])\n    annotation_run_id = annotations.get('run_id')\n\n    if not annotation_run_id and 'execution_date' in annotations:\n        # Compat: Look up the run_id from the TI table!\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        run_id: str = (\n            session.query(TaskInstance.run_id)\n",
+        "source_code_len": 72,
+        "target_code": "\n        task_instance_run_id = (\n            session.query(TaskInstance.run_id)\n",
+        "target_code_len": 81,
+        "diff_format": "@@ -75,3 +76,3 @@\n \n-        run_id: str = (\n+        task_instance_run_id = (\n             session.query(TaskInstance.run_id)\n",
+        "source_code_with_indent": "\n        run_id: str = (\n            session.query(TaskInstance.run_id)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        task_instance_run_id = (\n            session.query(TaskInstance.run_id)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        )\n\n    return TaskInstanceKey(dag_id, task_id, run_id, try_number)\n",
+        "source_code_len": 75,
+        "target_code": "        )\n    else:\n        task_instance_run_id = annotation_run_id\n\n    return TaskInstanceKey(dag_id, task_id, task_instance_run_id, try_number)\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -85,3 +86,5 @@\n         )\n+    else:\n+        task_instance_run_id = annotation_run_id\n \n-    return TaskInstanceKey(dag_id, task_id, run_id, try_number)\n+    return TaskInstanceKey(dag_id, task_id, task_instance_run_id, try_number)\n",
+        "source_code_with_indent": "        )\n\n    <DED>return TaskInstanceKey(dag_id, task_id, run_id, try_number)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n    <DED>else:\n        <IND>task_instance_run_id = annotation_run_id\n\n    <DED>return TaskInstanceKey(dag_id, task_id, task_instance_run_id, try_number)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "d5f10b2ce0d49e5603500aa231665c05e214183a",
+    "filename": "airflow/kubernetes/pod_generator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/kubernetes/pod_generator.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/kubernetes/pod_generator.py:459:12 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 459,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def make_unique_pod_id(pod_id: str) -> str:\n        r\"\"\"\n",
+        "source_code_len": 79,
+        "target_code": "    @staticmethod\n    def make_unique_pod_id(pod_id: str) -> Optional[str]:\n        r\"\"\"\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -442,3 +442,3 @@\n     @staticmethod\n-    def make_unique_pod_id(pod_id: str) -> str:\n+    def make_unique_pod_id(pod_id: str) -> Optional[str]:\n         r\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@staticmethod\n    def make_unique_pod_id(pod_id: str) -> str:\n        <IND>",
+        "target_code_with_indent": "    <DED>@staticmethod\n    def make_unique_pod_id(pod_id: str) -> Optional[str]:\n        <IND>"
+      }
+    ]
+  }
+]

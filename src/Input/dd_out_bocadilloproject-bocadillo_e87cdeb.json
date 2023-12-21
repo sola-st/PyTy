@@ -1,0 +1,36 @@
+[
+  {
+    "project": "bocadilloproject/bocadillo",
+    "commit": "e87cdeb953d8588f94b4384467a76212124aaa7a",
+    "filename": "bocadillo/exceptions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bocadilloproject-bocadillo/bocadillo/exceptions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bocadillo/exceptions.py:28:8 Incompatible return type [7]: Expected `HTTPStatus` but got `Union[HTTPStatus, int]`.",
+    "message": " Expected `HTTPStatus` but got `Union[HTTPStatus, int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 28,
+    "warning_line": "        return self._status",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    @property\n    def http_status(self) -> HTTPStatus:\n        return self._status\n\n    @property\n    def status_code(self) -> int:\n",
+        "source_code_len": 132,
+        "target_code": "    @property\n    def status_code(self) -> int:\n",
+        "target_code_len": 48,
+        "diff_format": "@@ -26,6 +26,2 @@\n     @property\n-    def http_status(self) -> HTTPStatus:\n-        return self._status\n-\n-    @property\n     def status_code(self) -> int:\n",
+        "source_code_with_indent": "    <DED>@property\n    def http_status(self) -> HTTPStatus:\n        <IND>return self._status\n\n    <DED>@property\n    def status_code(self) -> int:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def status_code(self) -> int:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

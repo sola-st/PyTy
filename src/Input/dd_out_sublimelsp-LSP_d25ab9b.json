@@ -1,0 +1,51 @@
+[
+  {
+    "project": "sublimelsp/LSP",
+    "commit": "d25ab9baea5e0880e458590579c4722bb5568119",
+    "filename": "main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sublimelsp-LSP/main.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "main.py:1235:35 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `filename_to_uri` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `filename_to_uri` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1235,
+    "warning_line": "        \"rootUri\": filename_to_uri(project_path),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    project_path = get_project_path(window)\n    if show_status_messages:\n        window.status_message(\"Starting \" + config.name + \"...\")\n    debug(\"starting in\", project_path)\n    client = start_server(config.binary_args, project_path)\n    if not client:\n        window.status_message(\"Could not start\" + config.name + \", disabling\")\n        debug(\"Could not start\", config.binary_args, \", disabling\")\n        return\n\n    initializeParams = {\n        \"processId\": client.process.pid,\n        \"rootUri\": filename_to_uri(project_path),\n        \"rootPath\": project_path,\n        \"capabilities\": {\n            \"textDocument\": {\n                \"completion\": {\n                    \"completionItem\": {\n                        \"snippetSupport\": True\n                    }\n",
+        "source_code_len": 766,
+        "target_code": "    project_path = get_project_path(window)\n    if project_path:\n        if show_status_messages:\n            window.status_message(\"Starting \" + config.name + \"...\")\n        debug(\"starting in\", project_path)\n        client = start_server(config.binary_args, project_path)\n        if not client:\n            window.status_message(\"Could not start\" + config.name + \", disabling\")\n            debug(\"Could not start\", config.binary_args, \", disabling\")\n            return\n\n        initializeParams = {\n            \"processId\": client.process.pid,\n            \"rootUri\": filename_to_uri(project_path),\n            \"rootPath\": project_path,\n            \"capabilities\": {\n                \"textDocument\": {\n                    \"completion\": {\n                        \"completionItem\": {\n                            \"snippetSupport\": True\n                        }\n                    }\n",
+        "target_code_len": 881,
+        "diff_format": "@@ -1223,20 +1224,22 @@\n     project_path = get_project_path(window)\n-    if show_status_messages:\n-        window.status_message(\"Starting \" + config.name + \"...\")\n-    debug(\"starting in\", project_path)\n-    client = start_server(config.binary_args, project_path)\n-    if not client:\n-        window.status_message(\"Could not start\" + config.name + \", disabling\")\n-        debug(\"Could not start\", config.binary_args, \", disabling\")\n-        return\n-\n-    initializeParams = {\n-        \"processId\": client.process.pid,\n-        \"rootUri\": filename_to_uri(project_path),\n-        \"rootPath\": project_path,\n-        \"capabilities\": {\n-            \"textDocument\": {\n-                \"completion\": {\n-                    \"completionItem\": {\n-                        \"snippetSupport\": True\n+    if project_path:\n+        if show_status_messages:\n+            window.status_message(\"Starting \" + config.name + \"...\")\n+        debug(\"starting in\", project_path)\n+        client = start_server(config.binary_args, project_path)\n+        if not client:\n+            window.status_message(\"Could not start\" + config.name + \", disabling\")\n+            debug(\"Could not start\", config.binary_args, \", disabling\")\n+            return\n+\n+        initializeParams = {\n+            \"processId\": client.process.pid,\n+            \"rootUri\": filename_to_uri(project_path),\n+            \"rootPath\": project_path,\n+            \"capabilities\": {\n+                \"textDocument\": {\n+                    \"completion\": {\n+                        \"completionItem\": {\n+                            \"snippetSupport\": True\n+                        }\n                     }\n",
+        "source_code_with_indent": "    <IND>project_path = get_project_path(window)\n    if show_status_messages:\n        <IND>window.status_message(\"Starting \" + config.name + \"...\")\n    <DED>debug(\"starting in\", project_path)\n    client = start_server(config.binary_args, project_path)\n    if not client:\n        <IND>window.status_message(\"Could not start\" + config.name + \", disabling\")\n        debug(\"Could not start\", config.binary_args, \", disabling\")\n        return\n\n    <DED>initializeParams = {\n        \"processId\": client.process.pid,\n        \"rootUri\": filename_to_uri(project_path),\n        \"rootPath\": project_path,\n        \"capabilities\": {\n            \"textDocument\": {\n                \"completion\": {\n                    \"completionItem\": {\n                        \"snippetSupport\": True\n                    }\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>project_path = get_project_path(window)\n    if project_path:\n        <IND>if show_status_messages:\n            <IND>window.status_message(\"Starting \" + config.name + \"...\")\n        <DED>debug(\"starting in\", project_path)\n        client = start_server(config.binary_args, project_path)\n        if not client:\n            <IND>window.status_message(\"Could not start\" + config.name + \", disabling\")\n            debug(\"Could not start\", config.binary_args, \", disabling\")\n            return\n\n        <DED>initializeParams = {\n            \"processId\": client.process.pid,\n            \"rootUri\": filename_to_uri(project_path),\n            \"rootPath\": project_path,\n            \"capabilities\": {\n                \"textDocument\": {\n                    \"completion\": {\n                        \"completionItem\": {\n                            \"snippetSupport\": True\n                        }\n                    }\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        }\n    }\n    client.send_request(\n        Request.initialize(initializeParams),\n        lambda result: handle_initialize_result(result, client, window, config))\n    return client\n\n",
+        "source_code_len": 187,
+        "target_code": "        }\n        client.send_request(\n            Request.initialize(initializeParams),\n            lambda result: handle_initialize_result(result, client, window, config))\n        return client\n\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -1245,7 +1248,6 @@\n         }\n-    }\n-    client.send_request(\n-        Request.initialize(initializeParams),\n-        lambda result: handle_initialize_result(result, client, window, config))\n-    return client\n+        client.send_request(\n+            Request.initialize(initializeParams),\n+            lambda result: handle_initialize_result(result, client, window, config))\n+        return client\n \n",
+        "source_code_with_indent": "        }\n    }\n    client.send_request(\n        Request.initialize(initializeParams),\n        lambda result: handle_initialize_result(result, client, window, config))\n    return client\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        }\n        client.send_request(\n            Request.initialize(initializeParams),\n            lambda result: handle_initialize_result(result, client, window, config))\n        return client\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

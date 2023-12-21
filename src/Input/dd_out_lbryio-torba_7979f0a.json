@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lbryio/torba",
+    "commit": "7979f0a68372ef4fed30ae083e88dea7e351e5e8",
+    "filename": "torba/client/hash.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lbryio-torba/torba/client/hash.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torba/client/hash.py:134:4 Incompatible return type [7]: Expected `typing.Tuple[str, bytes]` but got `str`.",
+    "message": " Expected `typing.Tuple[str, bytes]` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 134,
+    "warning_line": "    return base64.b64encode(init_vector + encrypted_data).decode()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef aes_encrypt(secret: str, value: str, init_vector: bytes = None) -> typing.Tuple[str, bytes]:\n    if init_vector is not None:\n",
+        "source_code_len": 130,
+        "target_code": "\ndef aes_encrypt(secret: str, value: str, init_vector: bytes = None) -> str:\n    if init_vector is not None:\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -123,3 +123,3 @@\n \n-def aes_encrypt(secret: str, value: str, init_vector: bytes = None) -> typing.Tuple[str, bytes]:\n+def aes_encrypt(secret: str, value: str, init_vector: bytes = None) -> str:\n     if init_vector is not None:\n",
+        "source_code_with_indent": "\n<DED>def aes_encrypt(secret: str, value: str, init_vector: bytes = None) -> typing.Tuple[str, bytes]:\n    <IND>if init_vector is not None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def aes_encrypt(secret: str, value: str, init_vector: bytes = None) -> str:\n    <IND>if init_vector is not None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

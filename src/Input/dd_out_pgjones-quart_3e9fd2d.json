@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pgjones/quart",
+    "commit": "3e9fd2d0a0ff1acbba8552b7321f56f1f7d68478",
+    "filename": "src/quart/wrappers/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pgjones-quart/src/quart/wrappers/base.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/quart/wrappers/base.py:371:8 Incompatible return type [7]: Expected `Range` but got `Optional[Range]`.",
+    "message": " Expected `Range` but got `Optional[Range]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 371,
+    "warning_line": "        return parse_range_header(self.headers.get(\"Range\"))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def range(self) -> Range:\n        return parse_range_header(self.headers.get(\"Range\"))\n",
+        "source_code_len": 105,
+        "target_code": "    @property\n    def range(self) -> Optional[Range]:\n        return parse_range_header(self.headers.get(\"Range\"))\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -369,3 +369,3 @@\n     @property\n-    def range(self) -> Range:\n+    def range(self) -> Optional[Range]:\n         return parse_range_header(self.headers.get(\"Range\"))\n",
+        "source_code_with_indent": "    <DED>@property\n    def range(self) -> Range:\n        <IND>return parse_range_header(self.headers.get(\"Range\"))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def range(self) -> Optional[Range]:\n        <IND>return parse_range_header(self.headers.get(\"Range\"))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

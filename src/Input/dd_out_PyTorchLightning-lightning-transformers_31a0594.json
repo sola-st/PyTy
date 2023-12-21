@@ -1,0 +1,70 @@
+[
+  {
+    "project": "PyTorchLightning/lightning-transformers",
+    "commit": "31a05944e1982e44a42f40a9d81aee15d2193e42",
+    "filename": "examples/custom_language_modeling/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-lightning-transformers/examples/custom_language_modeling/dataset.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/custom_language_modeling/dataset.py:15:8 Incompatible variable type [9]: text_column_name is declared to have type `str` but is used as type `None`.",
+    "message": " text_column_name is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 15,
+    "warning_line": "        text_column_name: str = None,"
+  },
+  {
+    "project": "PyTorchLightning/lightning-transformers",
+    "commit": "31a05944e1982e44a42f40a9d81aee15d2193e42",
+    "filename": "examples/custom_language_modeling/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-lightning-transformers/examples/custom_language_modeling/dataset.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/custom_language_modeling/dataset.py:24:38 Incompatible variable type [9]: block_size is declared to have type `int` but is used as type `None`.",
+    "message": " block_size is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 24,
+    "warning_line": "    def convert_to_features(examples, block_size: int = None):"
+  },
+  {
+    "project": "PyTorchLightning/lightning-transformers",
+    "commit": "31a05944e1982e44a42f40a9d81aee15d2193e42",
+    "filename": "lightning_transformers/task/nlp/language_modeling/data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-lightning-transformers/lightning_transformers/task/nlp/language_modeling/data.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lightning_transformers/task/nlp/language_modeling/data.py:73:38 Incompatible variable type [9]: block_size is declared to have type `int` but is used as type `None`.",
+    "message": " block_size is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 73,
+    "warning_line": "    def convert_to_features(examples, block_size: int = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def convert_to_features(examples, block_size: int = None):\n        # Concatenate all texts.\n",
+        "source_code_len": 114,
+        "target_code": "    @staticmethod\n    def convert_to_features(examples, block_size: int, **kwargs):\n        # Concatenate all texts.\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -72,3 +72,3 @@\n     @staticmethod\n-    def convert_to_features(examples, block_size: int = None):\n+    def convert_to_features(examples, block_size: int, **kwargs):\n         # Concatenate all texts.\n",
+        "source_code_with_indent": "    <DED>@staticmethod\n    def convert_to_features(examples, block_size: int = None):\n        # Concatenate all texts.\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@staticmethod\n    def convert_to_features(examples, block_size: int, **kwargs):\n        # Concatenate all texts.\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

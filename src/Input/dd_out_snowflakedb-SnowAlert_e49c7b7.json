@@ -1,0 +1,36 @@
+[
+  {
+    "project": "snowflakedb/SnowAlert",
+    "commit": "e49c7b77ce9d7fbd1ce4bf185d5b3af7a92a378b",
+    "filename": "src/runners/helpers/auth.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snowflakedb-SnowAlert/src/runners/helpers/auth.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/runners/helpers/auth.py:25:34 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `decrypt_if_encrypted` but got `bytes`.",
+    "message": " Expected `str` for 1st positional only parameter to call `decrypt_if_encrypted` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 25,
+    "warning_line": "    ptpass = decrypt_if_encrypted(passphrase).encode() if passphrase else None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef load_pkb(p8_private_key: bytes, passphrase: Optional[bytes]) -> bytes:\n    \"\"\"Loads private key bytes out of p8-encoded private key, using password\n",
+        "source_code_len": 153,
+        "target_code": "\ndef load_pkb(p8_private_key: bytes, passphrase: Optional[str]) -> bytes:\n    \"\"\"Loads private key bytes out of p8-encoded private key, using password\n",
+        "target_code_len": 151,
+        "diff_format": "@@ -13,3 +13,3 @@\n \n-def load_pkb(p8_private_key: bytes, passphrase: Optional[bytes]) -> bytes:\n+def load_pkb(p8_private_key: bytes, passphrase: Optional[str]) -> bytes:\n     \"\"\"Loads private key bytes out of p8-encoded private key, using password\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef load_pkb(p8_private_key: bytes, passphrase: Optional[bytes]) -> bytes:\n    <IND>",
+        "target_code_with_indent": "\ndef load_pkb(p8_private_key: bytes, passphrase: Optional[str]) -> bytes:\n    <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,230 @@
+[
+  {
+    "isolated_code_change": "-time_unit: str = None,\n+time_unit: Optional[str] = None,",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["Optional", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "Optional[str]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "pyre-fixme[9]: time_unit has type `str`; used as `None`.",
+    "url": "https://github.com/facebookresearch/Kats/commit/b8f0637",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  },  
+  {
+    "isolated_code_change": "-def _set_time_unit(self, data: TimeSeriesData, historical_data: TimeSeriesData): \n+def _set_time_unit( self, data: TimeSeriesData, historical_data: Optional[TimeSeriesData] ) -> None:",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["Optional", "TimeSeriesData"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "TimeSeriesData",
+      "to": "Optional[TimeSeriesData]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "pyre-fixme[6]: Expected `TimeSeriesData` for 2nd param but got `Optional[TimeSeriesData]`.",
+    "url": "https://github.com/facebookresearch/Kats/commit/b8f0637",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  },
+  {
+    "isolated_code_change": "-def _update_response(self, date: datetime): \n+def _update_response(self, date: pd.Timestamp) -> None:",
+    "type_error": "Inconsistent override [14]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["datetime.datetime", "pandas.Timestamp"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "datetime.datetime",
+      "to": "pandas.Timestamp"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "pyre-fixme[14]: `_update_response` overrides method defined in `StatSigDetectorModel` inconsistently.",
+    "url": "https://github.com/facebookresearch/Kats/commit/b8f0637",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OVERRIDEN_TYPE"
+  },
+  {
+    "isolated_code_change": "-def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Dict[str, Any]]):\n-changepoint = change_meta[\"changepoint\"]\n+def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Any]):\n+changepoint: int = change_meta[\"changepoint\"]",
+    "type_error": "Unsupported operand [58]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "Dict", 
+      "str", 
+      "Any",
+      "int"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Dict[str, Any]",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN_PARAM",
+    "full_warning_msg": "pyre-fixme[58]: `+` is not supported for operand types `Dict[str,  typing.Any]` and `int`.",
+    "url": "https://github.com/facebookresearch/Kats/commit/feed421",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "EXACT_MENTIONED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Dict[str, Any]]):\n-mu0 = change_meta[\"mu0\"]\n+def _get_llr(self, ts: np.ndarray, change_meta: Dict[str, Any]):\n+mu0: float = change_meta[\"mu0\"]",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "Dict", 
+      "str", 
+      "Any",
+      "float"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Dict[str, Any]",
+      "to": "float"
+    },
+    "location": "ENCLOSING_FUN_PARAM",
+    "full_warning_msg": "pyre-fixme[6]: Expected `float` for 4th param but got `Dict[str,  typing.Any]`.",
+    "url": "https://github.com/facebookresearch/Kats/commit/feed421",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None\n+def evaluate( self, model_params: Optional[Dict[str, float]] = None",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "Dict", 
+      "str", 
+      "float",
+      "Optional"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Dict[str, float]",
+      "to": "Optional[Dict[str, float]]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "pyre-fixme[9]: model_params has type `Dict[str, float]`; used as `None`.",
+    "url": "https://github.com/facebookresearch/Kats/commit/feed421",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  },
+  {
+    "isolated_code_change": "-data: pd.DataFrame = None\n+data: Optional[pd.DataFrame] = None",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "DataFrame",
+      "Optional"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "DataFrame",
+      "to": "Optional[DataFrame]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "pyre-fixme[6]: Expected `DataFrame` for 1st param but got `None`.",
+    "url": "https://github.com/facebookresearch/Kats/commit/feed421",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  },
+  {
+    "isolated_code_change": "-def evaluate(self, model_params: Dict[str, float] = None\n+def evaluate( self, model_params: Optional[Dict[str, float]] = None",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "Dict", 
+      "str", 
+      "float",
+      "Optional"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Dict[str, float]",
+      "to": "Optional[Dict[str, float]]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "pyre-fixme[6]: Expected `Dict[str, float]` for 2nd param but got `None`.",
+    "url": "https://github.com/facebookresearch/Kats/commit/feed421",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  },
+  {
+    "isolated_code_change": "-def update(self, time: datetime, score: np.array, ci_upper: np.array, ci_lower: np.array, pred: np.array, anom_mag: np.array, stat_sig: np.array): \n+def update(self, time: datetime, score: ArrayLike, ci_upper: ArrayLike, ci_lower: ArrayLike, pred: ArrayLike, anom_mag: ArrayLike, stat_sig: ArrayLike) -> None:",
+    "type_error": "Undefined Type [11]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "np.array", 
+      "ArrayLike"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "np.array",
+      "to": "ArrayLike"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "pyre-fixme[11]: Annotation `array` is not defined as a type.",
+    "url": "https://github.com/facebookresearch/Kats/commit/4884647",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def _if_normal(self, cur_mean: float, change_directions: str) -> None:\n+def _if_normal(self, cur_mean: float, change_directions: List[str]) -> bool:",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "str", 
+      "List"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "List[str]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "pyre-fixme[6]: Expected `str` for 2nd param but got `List[str]`.",
+    "url": "https://github.com/facebookresearch/Kats/commit/2c955ab",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-other = cast(TimeSeriesData, other)",
+    "type_error": "Redundant Cast [22]",
+    "code_transform": "REMOVE",
+    "involved_types": [],
+    "type_change": {
+      "kind": "NONE",
+      "from": "",
+      "to": ""
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "pyre-fixme[22]: The cast is redundant.",
+    "url": "https://github.com/facebookresearch/Kats/commit/4de2b05",
+    "repo": "https://github.com/facebookresearch/Kats",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "REDUNDANT_HINT"
+  }
+
+]

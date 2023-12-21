@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Trinkle23897/tuixue.online-visa",
+    "commit": "6f8d758f04585cf9a6c9d9c752f3f33cf61f4d5c",
+    "filename": "backend/tuixue_mongodb.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Trinkle23897-tuixue.online-visa/backend/tuixue_mongodb.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backend/tuixue_mongodb.py:890:12 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got implicit return value of `None`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 890,
+    "warning_line": "            return {'email': email, 'subscription': []}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def get_subscriptions_by_email(cls, email: str) -> dict:\n        \"\"\" Get all subscription of a given email\"\"\"\n",
+        "source_code_len": 131,
+        "target_code": "    @classmethod\n    def get_subscriptions_by_email(cls, email: str) -> list:\n        \"\"\" Get all subscription of a given email\"\"\"\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -870,3 +870,3 @@\n     @classmethod\n-    def get_subscriptions_by_email(cls, email: str) -> dict:\n+    def get_subscriptions_by_email(cls, email: str) -> list:\n         \"\"\" Get all subscription of a given email\"\"\"\n",
+        "source_code_with_indent": "    @classmethod\n    def get_subscriptions_by_email(cls, email: str) -> dict:\n        <IND>\"\"\" Get all subscription of a given email\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @classmethod\n    def get_subscriptions_by_email(cls, email: str) -> list:\n        <IND>\"\"\" Get all subscription of a given email\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            {'$set': {'subscription.expired': {'$lt': ['$subscription.till', datetime.now()]}}},\n            {\n                '$group': {\n                    '_id': None,\n                    'email': {'$first': '$email'},\n                    'subscription': {'$push': '$subscription'},\n                },\n            },\n            {'$project': {'_id': False}},\n        ])\n\n        for result in cursor:\n            return result\n        else:\n            return {'email': email, 'subscription': []}\n\n",
+        "source_code_len": 502,
+        "target_code": "            {'$set': {'subscription.expired': {'$lt': ['$subscription.till', datetime.now()]}}},\n            {'$replaceRoot': {'newRoot': '$subscription'}},\n        ])\n\n        return list(cursor)\n\n",
+        "target_code_len": 198,
+        "diff_format": "@@ -876,16 +876,6 @@\n             {'$set': {'subscription.expired': {'$lt': ['$subscription.till', datetime.now()]}}},\n-            {\n-                '$group': {\n-                    '_id': None,\n-                    'email': {'$first': '$email'},\n-                    'subscription': {'$push': '$subscription'},\n-                },\n-            },\n-            {'$project': {'_id': False}},\n+            {'$replaceRoot': {'newRoot': '$subscription'}},\n         ])\n \n-        for result in cursor:\n-            return result\n-        else:\n-            return {'email': email, 'subscription': []}\n+        return list(cursor)\n \n",
+        "source_code_with_indent": "            {'$set': {'subscription.expired': {'$lt': ['$subscription.till', datetime.now()]}}},\n            {\n                '$group': {\n                    '_id': None,\n                    'email': {'$first': '$email'},\n                    'subscription': {'$push': '$subscription'},\n                },\n            },\n            {'$project': {'_id': False}},\n        ])\n\n        for result in cursor:\n            <IND>return result\n        <DED>else:\n            <IND>return {'email': email, 'subscription': []}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            {'$set': {'subscription.expired': {'$lt': ['$subscription.till', datetime.now()]}}},\n            {'$replaceRoot': {'newRoot': '$subscription'}},\n        ])\n\n        return list(cursor)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

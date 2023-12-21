@@ -1,0 +1,81 @@
+[
+  {
+    "project": "dcs-liberation/dcs_liberation",
+    "commit": "7d7a334418bea9eeb26986ea6583705e48095625",
+    "filename": "gen/flights/ai_flight_planner.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dcs-liberation-dcs_liberation/gen/flights/ai_flight_planner.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gen/flights/ai_flight_planner.py:350:12 Incompatible return type [7]: Expected `Iterator[theater.theatergroundobject.TheaterGroundObject]` but got `typing.Generator[theater.missiontarget.MissionTarget, None, None]`.",
+    "message": " Expected `Iterator[theater.theatergroundobject.TheaterGroundObject]` but got `typing.Generator[theater.missiontarget.MissionTarget, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 350,
+    "warning_line": "            yield target",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def threatening_sams(self) -> Iterator[TheaterGroundObject]:\n        \"\"\"Iterates over enemy SAMs in threat range of friendly control points.\n",
+        "source_code_len": 146,
+        "target_code": "\n    def threatening_sams(self) -> Iterator[MissionTarget]:\n        \"\"\"Iterates over enemy SAMs in threat range of friendly control points.\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -290,3 +290,3 @@\n \n-    def threatening_sams(self) -> Iterator[TheaterGroundObject]:\n+    def threatening_sams(self) -> Iterator[MissionTarget]:\n         \"\"\"Iterates over enemy SAMs in threat range of friendly control points.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED><DED>def threatening_sams(self) -> Iterator[TheaterGroundObject]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED><DED>def threatening_sams(self) -> Iterator[MissionTarget]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def threatening_vehicle_groups(self) -> Iterator[TheaterGroundObject]:\n        \"\"\"Iterates over enemy vehicle groups near friendly control points.\n",
+        "source_code_len": 152,
+        "target_code": "\n    def threatening_vehicle_groups(self) -> Iterator[MissionTarget]:\n        \"\"\"Iterates over enemy vehicle groups near friendly control points.\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -310,3 +310,3 @@\n \n-    def threatening_vehicle_groups(self) -> Iterator[TheaterGroundObject]:\n+    def threatening_vehicle_groups(self) -> Iterator[MissionTarget]:\n         \"\"\"Iterates over enemy vehicle groups near friendly control points.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED><DED>def threatening_vehicle_groups(self) -> Iterator[TheaterGroundObject]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED><DED>def threatening_vehicle_groups(self) -> Iterator[MissionTarget]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def threatening_ships(self) -> Iterator[TheaterGroundObject]:\n        \"\"\"Iterates over enemy ships near friendly control points.\n",
+        "source_code_len": 134,
+        "target_code": "\n    def threatening_ships(self) -> Iterator[MissionTarget]:\n        \"\"\"Iterates over enemy ships near friendly control points.\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -329,3 +329,3 @@\n \n-    def threatening_ships(self) -> Iterator[TheaterGroundObject]:\n+    def threatening_ships(self) -> Iterator[MissionTarget]:\n         \"\"\"Iterates over enemy ships near friendly control points.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED><DED>def threatening_ships(self) -> Iterator[TheaterGroundObject]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED><DED>def threatening_ships(self) -> Iterator[MissionTarget]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self,\n            targets: Iterable[MissionTarget]) -> Iterator[TheaterGroundObject]:\n        target_ranges: List[Tuple[MissionTarget, int]] = []\n",
+        "source_code_len": 158,
+        "target_code": "            self,\n            targets: Iterable[MissionTarget]) -> Iterator[MissionTarget]:\n        target_ranges: List[Tuple[MissionTarget, int]] = []\n",
+        "target_code_len": 152,
+        "diff_format": "@@ -339,3 +339,3 @@\n             self,\n-            targets: Iterable[MissionTarget]) -> Iterator[TheaterGroundObject]:\n+            targets: Iterable[MissionTarget]) -> Iterator[MissionTarget]:\n         target_ranges: List[Tuple[MissionTarget, int]] = []\n",
+        "source_code_with_indent": "            self,\n            targets: Iterable[MissionTarget]) -> Iterator[TheaterGroundObject]:\n        <IND>target_ranges: List[Tuple[MissionTarget, int]] = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self,\n            targets: Iterable[MissionTarget]) -> Iterator[MissionTarget]:\n        <IND>target_ranges: List[Tuple[MissionTarget, int]] = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

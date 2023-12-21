@@ -1,0 +1,36 @@
+[
+  {
+    "project": "morganstanley/treadmill",
+    "commit": "76fa1d03c1e35fdbcc06d284e3c62f7551961c48",
+    "filename": "lib/python/treadmill/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/morganstanley-treadmill/lib/python/treadmill/utils.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lib/python/treadmill/utils.py:147:21 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 147,
+    "warning_line": "yaml.add_representer(unicode, _repr_unicode)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    os._exit(code)\n\n\ndef _repr_unicode(dumper, data):\n    \"\"\"Fix yaml str representation.\"\"\"\n    ascii_data = data.encode('ascii', 'ignore')\n    if '\\n' in data:\n        return dumper.represent_scalar(u'tag:yaml.org,2002:str', ascii_data,\n                                       style='|')\n    else:\n        return dumper.represent_scalar(u'tag:yaml.org,2002:str', ascii_data)\n\n\ndef _repr_tuple(dumper, data):\n    \"\"\"Fix yaml tuple representation (use list).\"\"\"\n    return dumper.represent_list(list(data))\n\n\ndef _repr_none(dumper, data_unused):\n    \"\"\"Fix yaml None representation (use ~).\"\"\"\n    return dumper.represent_scalar(u'tag:yaml.org,2002:null', '~')\n\n\n# This will be invoked on module import once.\nyaml.add_representer(unicode, _repr_unicode)\nyaml.add_representer(str, _repr_unicode)\nyaml.add_representer(tuple, _repr_tuple)\nyaml.add_representer(type(None), _repr_none)\n\n\ndef dump_yaml(obj):\n    \"\"\"Returns yaml representation of the object.\"\"\"\n    return yaml.dump(obj,\n                     default_flow_style=False,\n                     explicit_start=True,\n                     explicit_end=True)\n\n\ndef print_yaml(obj):\n    \"\"\"Print yaml wih correct options.\"\"\"\n    print(dump_yaml(obj))\n\n",
+        "source_code_len": 1202,
+        "target_code": "    os._exit(code)\n\n",
+        "target_code_len": 20,
+        "diff_format": "@@ -123,42 +146,2 @@\n     os._exit(code)\n-\n-\n-def _repr_unicode(dumper, data):\n-    \"\"\"Fix yaml str representation.\"\"\"\n-    ascii_data = data.encode('ascii', 'ignore')\n-    if '\\n' in data:\n-        return dumper.represent_scalar(u'tag:yaml.org,2002:str', ascii_data,\n-                                       style='|')\n-    else:\n-        return dumper.represent_scalar(u'tag:yaml.org,2002:str', ascii_data)\n-\n-\n-def _repr_tuple(dumper, data):\n-    \"\"\"Fix yaml tuple representation (use list).\"\"\"\n-    return dumper.represent_list(list(data))\n-\n-\n-def _repr_none(dumper, data_unused):\n-    \"\"\"Fix yaml None representation (use ~).\"\"\"\n-    return dumper.represent_scalar(u'tag:yaml.org,2002:null', '~')\n-\n-\n-# This will be invoked on module import once.\n-yaml.add_representer(unicode, _repr_unicode)\n-yaml.add_representer(str, _repr_unicode)\n-yaml.add_representer(tuple, _repr_tuple)\n-yaml.add_representer(type(None), _repr_none)\n-\n-\n-def dump_yaml(obj):\n-    \"\"\"Returns yaml representation of the object.\"\"\"\n-    return yaml.dump(obj,\n-                     default_flow_style=False,\n-                     explicit_start=True,\n-                     explicit_end=True)\n-\n-\n-def print_yaml(obj):\n-    \"\"\"Print yaml wih correct options.\"\"\"\n-    print(dump_yaml(obj))\n \n",
+        "source_code_with_indent": "    os._exit(code)\n\n\n<DED>def _repr_unicode(dumper, data):\n    <IND>\"\"\"Fix yaml str representation.\"\"\"\n    ascii_data = data.encode('ascii', 'ignore')\n    if '\\n' in data:\n        <IND>return dumper.represent_scalar(u'tag:yaml.org,2002:str', ascii_data,\n                                       style='|')\n    <DED>else:\n        <IND>return dumper.represent_scalar(u'tag:yaml.org,2002:str', ascii_data)\n\n\n<DED><DED>def _repr_tuple(dumper, data):\n    <IND>\"\"\"Fix yaml tuple representation (use list).\"\"\"\n    return dumper.represent_list(list(data))\n\n\n<DED>def _repr_none(dumper, data_unused):\n    <IND>\"\"\"Fix yaml None representation (use ~).\"\"\"\n    return dumper.represent_scalar(u'tag:yaml.org,2002:null', '~')\n\n\n# This will be invoked on module import once.\n<DED>yaml.add_representer(unicode, _repr_unicode)\nyaml.add_representer(str, _repr_unicode)\nyaml.add_representer(tuple, _repr_tuple)\nyaml.add_representer(type(None), _repr_none)\n\n\ndef dump_yaml(obj):\n    <IND>\"\"\"Returns yaml representation of the object.\"\"\"\n    return yaml.dump(obj,\n                     default_flow_style=False,\n                     explicit_start=True,\n                     explicit_end=True)\n\n\n<DED>def print_yaml(obj):\n    <IND>\"\"\"Print yaml wih correct options.\"\"\"\n    print(dump_yaml(obj))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    os._exit(code)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

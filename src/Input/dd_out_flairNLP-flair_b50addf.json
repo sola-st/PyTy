@@ -1,0 +1,138 @@
+[
+  {
+    "project": "flairNLP/flair",
+    "commit": "b50addfe392dc9cd2f12f64e0edf9f05b224d39d",
+    "filename": "flair/visual/training_curves.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/visual/training_curves.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/visual/training_curves.py:48:15 Unsupported operand [58]: `not in` is not supported for right operand type `typing.Optional[List[str]]`.",
+    "message": " `not in` is not supported for right operand type `typing.Optional[List[str]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 48,
+    "warning_line": "            if f\"TEST_{score}\" not in row:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        with open(file_name, \"r\") as tsvin:\n            tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin, None)\n\n",
+        "source_code_len": 238,
+        "target_code": "\n        with open(file_name, \"r\") as f:\n            tsvin = csv.reader(f, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin)\n\n",
+        "target_code_len": 224,
+        "diff_format": "@@ -39,7 +38,7 @@\n \n-        with open(file_name, \"r\") as tsvin:\n-            tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n+        with open(file_name, \"r\") as f:\n+            tsvin = csv.reader(f, delimiter=\"\\t\")\n \n             # determine the column index of loss, f-score and accuracy for train, dev and test split\n-            row = next(tsvin, None)\n+            row = next(tsvin)\n \n",
+        "source_code_with_indent": "\n        with open(file_name, \"r\") as tsvin:\n            <IND>tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin, None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        with open(file_name, \"r\") as f:\n            <IND>tsvin = csv.reader(f, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "flairNLP/flair",
+    "commit": "b50addfe392dc9cd2f12f64e0edf9f05b224d39d",
+    "filename": "flair/visual/training_curves.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/visual/training_curves.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/visual/training_curves.py:57:47 Unsupported operand [58]: `in` is not supported for right operand type `typing.Optional[List[str]]`.",
+    "message": " `in` is not supported for right operand type `typing.Optional[List[str]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 57,
+    "warning_line": "                row.index(f\"TRAIN_{score}\") if f\"TRAIN_{score}\" in row else None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        with open(file_name, \"r\") as tsvin:\n            tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin, None)\n\n",
+        "source_code_len": 238,
+        "target_code": "\n        with open(file_name, \"r\") as f:\n            tsvin = csv.reader(f, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin)\n\n",
+        "target_code_len": 224,
+        "diff_format": "@@ -39,7 +38,7 @@\n \n-        with open(file_name, \"r\") as tsvin:\n-            tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n+        with open(file_name, \"r\") as f:\n+            tsvin = csv.reader(f, delimiter=\"\\t\")\n \n             # determine the column index of loss, f-score and accuracy for train, dev and test split\n-            row = next(tsvin, None)\n+            row = next(tsvin)\n \n",
+        "source_code_with_indent": "\n        with open(file_name, \"r\") as tsvin:\n            <IND>tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin, None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        with open(file_name, \"r\") as f:\n            <IND>tsvin = csv.reader(f, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "flairNLP/flair",
+    "commit": "b50addfe392dc9cd2f12f64e0edf9f05b224d39d",
+    "filename": "flair/visual/training_curves.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/visual/training_curves.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/visual/training_curves.py:59:53 Unsupported operand [58]: `in` is not supported for right operand type `typing.Optional[List[str]]`.",
+    "message": " `in` is not supported for right operand type `typing.Optional[List[str]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 59,
+    "warning_line": "            DEV_SCORE = row.index(f\"DEV_{score}\") if f\"DEV_{score}\" in row else None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        with open(file_name, \"r\") as tsvin:\n            tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin, None)\n\n",
+        "source_code_len": 238,
+        "target_code": "\n        with open(file_name, \"r\") as f:\n            tsvin = csv.reader(f, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin)\n\n",
+        "target_code_len": 224,
+        "diff_format": "@@ -39,7 +38,7 @@\n \n-        with open(file_name, \"r\") as tsvin:\n-            tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n+        with open(file_name, \"r\") as f:\n+            tsvin = csv.reader(f, delimiter=\"\\t\")\n \n             # determine the column index of loss, f-score and accuracy for train, dev and test split\n-            row = next(tsvin, None)\n+            row = next(tsvin)\n \n",
+        "source_code_with_indent": "\n        with open(file_name, \"r\") as tsvin:\n            <IND>tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin, None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        with open(file_name, \"r\") as f:\n            <IND>tsvin = csv.reader(f, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "flairNLP/flair",
+    "commit": "b50addfe392dc9cd2f12f64e0edf9f05b224d39d",
+    "filename": "flair/visual/training_curves.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/visual/training_curves.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/visual/training_curves.py:60:55 Unsupported operand [58]: `in` is not supported for right operand type `typing.Optional[List[str]]`.",
+    "message": " `in` is not supported for right operand type `typing.Optional[List[str]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 60,
+    "warning_line": "            TEST_SCORE = row.index(f\"TEST_{score}\") if f\"TEST_{score}\" in row else None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        with open(file_name, \"r\") as tsvin:\n            tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin, None)\n\n",
+        "source_code_len": 238,
+        "target_code": "\n        with open(file_name, \"r\") as f:\n            tsvin = csv.reader(f, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin)\n\n",
+        "target_code_len": 224,
+        "diff_format": "@@ -39,7 +38,7 @@\n \n-        with open(file_name, \"r\") as tsvin:\n-            tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n+        with open(file_name, \"r\") as f:\n+            tsvin = csv.reader(f, delimiter=\"\\t\")\n \n             # determine the column index of loss, f-score and accuracy for train, dev and test split\n-            row = next(tsvin, None)\n+            row = next(tsvin)\n \n",
+        "source_code_with_indent": "\n        with open(file_name, \"r\") as tsvin:\n            <IND>tsvin = csv.reader(tsvin, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin, None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        with open(file_name, \"r\") as f:\n            <IND>tsvin = csv.reader(f, delimiter=\"\\t\")\n\n            # determine the column index of loss, f-score and accuracy for train, dev and test split\n            row = next(tsvin)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "project": "ucb-bar/hammer",
+    "commit": "340b43285269602cfa6bfddcb2e1799297af6bfd",
+    "filename": "src/hammer-vlsi/hammer_vlsi/hammer_tool.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ucb-bar-hammer/src/hammer-vlsi/hammer_vlsi/hammer_tool.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/hammer-vlsi/hammer_vlsi/hammer_tool.py:353:37 Incompatible parameter type [6]: Expected `HammerToolStep` for 2nd positional only parameter to call `list.__setitem__` but got `Optional[HammerToolStep]`.",
+    "message": " Expected `HammerToolStep` for 2nd positional only parameter to call `list.__setitem__` but got `Optional[HammerToolStep]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 353,
+    "warning_line": "                new_steps[step_id] = action.step",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if action.location == HookLocation.ReplaceStep:\n                assert action.target_name == action.step.name, \"Replacement step should have the same name\"\n",
+        "source_code_len": 168,
+        "target_code": "            if action.location == HookLocation.ReplaceStep:\n                assert action.step is not None, \"ReplaceStep requires a step\"\n                assert action.target_name == action.step.name, \"Replacement step should have the same name\"\n",
+        "target_code_len": 246,
+        "diff_format": "@@ -351,2 +351,3 @@\n             if action.location == HookLocation.ReplaceStep:\n+                assert action.step is not None, \"ReplaceStep requires a step\"\n                 assert action.target_name == action.step.name, \"Replacement step should have the same name\"\n",
+        "source_code_with_indent": "            if action.location == HookLocation.ReplaceStep:\n                <IND>assert action.target_name == action.step.name, \"Replacement step should have the same name\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            if action.location == HookLocation.ReplaceStep:\n                <IND>assert action.step is not None, \"ReplaceStep requires a step\"\n                assert action.target_name == action.step.name, \"Replacement step should have the same name\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ucb-bar/hammer",
+    "commit": "340b43285269602cfa6bfddcb2e1799297af6bfd",
+    "filename": "src/hammer-vlsi/hammer_vlsi/hammer_tool.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ucb-bar-hammer/src/hammer-vlsi/hammer_vlsi/hammer_tool.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/hammer-vlsi/hammer_vlsi/hammer_tool.py:358:42 Incompatible parameter type [6]: Expected `HammerToolStep` for 2nd positional only parameter to call `list.insert` but got `Optional[HammerToolStep]`.",
+    "message": " Expected `HammerToolStep` for 2nd positional only parameter to call `list.insert` but got `Optional[HammerToolStep]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 358,
+    "warning_line": "                new_steps.insert(step_id, action.step)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            elif action.location == HookLocation.InsertPreStep:\n                if has_step(action.step.name):\n",
+        "source_code_len": 111,
+        "target_code": "            elif action.location == HookLocation.InsertPreStep:\n                assert action.step is not None, \"InsertPreStep requires a step\"\n                if has_step(action.step.name):\n",
+        "target_code_len": 191,
+        "diff_format": "@@ -354,2 +355,3 @@\n             elif action.location == HookLocation.InsertPreStep:\n+                assert action.step is not None, \"InsertPreStep requires a step\"\n                 if has_step(action.step.name):\n",
+        "source_code_with_indent": "            <DED>elif action.location == HookLocation.InsertPreStep:\n                <IND>if has_step(action.step.name):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>elif action.location == HookLocation.InsertPreStep:\n                <IND>assert action.step is not None, \"InsertPreStep requires a step\"\n                if has_step(action.step.name):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ucb-bar/hammer",
+    "commit": "340b43285269602cfa6bfddcb2e1799297af6bfd",
+    "filename": "src/hammer-vlsi/hammer_vlsi/hammer_tool.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ucb-bar-hammer/src/hammer-vlsi/hammer_vlsi/hammer_tool.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/hammer-vlsi/hammer_vlsi/hammer_tool.py:364:46 Incompatible parameter type [6]: Expected `HammerToolStep` for 2nd positional only parameter to call `list.insert` but got `Optional[HammerToolStep]`.",
+    "message": " Expected `HammerToolStep` for 2nd positional only parameter to call `list.insert` but got `Optional[HammerToolStep]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 364,
+    "warning_line": "                new_steps.insert(step_id + 1, action.step)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            elif action.location == HookLocation.InsertPostStep:\n                if has_step(action.step.name):\n",
+        "source_code_len": 112,
+        "target_code": "            elif action.location == HookLocation.InsertPostStep:\n                assert action.step is not None, \"InsertPostStep requires a step\"\n                if has_step(action.step.name):\n",
+        "target_code_len": 193,
+        "diff_format": "@@ -360,2 +362,3 @@\n             elif action.location == HookLocation.InsertPostStep:\n+                assert action.step is not None, \"InsertPostStep requires a step\"\n                 if has_step(action.step.name):\n",
+        "source_code_with_indent": "            <DED>elif action.location == HookLocation.InsertPostStep:\n                <IND>if has_step(action.step.name):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>elif action.location == HookLocation.InsertPostStep:\n                <IND>assert action.step is not None, \"InsertPostStep requires a step\"\n                if has_step(action.step.name):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ucb-bar/hammer",
+    "commit": "340b43285269602cfa6bfddcb2e1799297af6bfd",
+    "filename": "src/hammer-vlsi/hammer_vlsi/hammer_tool.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ucb-bar-hammer/src/hammer-vlsi/hammer_vlsi/hammer_tool.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/hammer-vlsi/hammer_vlsi/hammer_tool.py:385:34 Invalid type [31]: Expression `src.hammer.__sub__(vlsi.hammer_vlsi.hooks.HammerToolStep)` is not a valid type.",
+    "message": " Expression `src.hammer.__sub__(vlsi.hammer_vlsi.hooks.HammerToolStep)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 385,
+    "warning_line": "        prev_step = None  # type: HammerToolStep"
+  }
+]

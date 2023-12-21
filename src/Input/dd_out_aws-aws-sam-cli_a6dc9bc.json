@@ -1,0 +1,70 @@
+[
+  {
+    "project": "aws/aws-sam-cli",
+    "commit": "a6dc9bceb74008e5dac046d586438a63611e9292",
+    "filename": "samcli/lib/iac/plugins_interfaces.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aws-aws-sam-cli/samcli/lib/iac/plugins_interfaces.py",
+    "file_hunks_size": 24,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "samcli/lib/iac/plugins_interfaces.py:453:50 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 453,
+    "warning_line": "            item_class = section_item_classes.get(self._section_name, DictSectionItem)"
+  },
+  {
+    "project": "aws/aws-sam-cli",
+    "commit": "a6dc9bceb74008e5dac046d586438a63611e9292",
+    "filename": "samcli/lib/iac/plugins_interfaces.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aws-aws-sam-cli/samcli/lib/iac/plugins_interfaces.py",
+    "file_hunks_size": 24,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "samcli/lib/iac/plugins_interfaces.py:454:19 Call error [29]: `typing.Union[typing.Type[typing.Union[Parameter, Resource]], typing.Type[DictSectionItem]]` is not a function.",
+    "message": " `typing.Union[typing.Type[typing.Union[Parameter, Resource]], typing.Type[DictSectionItem]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 454,
+    "warning_line": "            item = item_class(key=k, body=v)"
+  },
+  {
+    "project": "aws/aws-sam-cli",
+    "commit": "a6dc9bceb74008e5dac046d586438a63611e9292",
+    "filename": "samcli/lib/iac/plugins_interfaces.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aws-aws-sam-cli/samcli/lib/iac/plugins_interfaces.py",
+    "file_hunks_size": 24,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "samcli/lib/iac/plugins_interfaces.py:525:8 Incompatible return type [7]: Expected `Resource` but got `Parameter`.",
+    "message": " Expected `Resource` but got `Parameter`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 525,
+    "warning_line": "        return deepcopy(self)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def copy(self) -> \"Resource\":\n        return deepcopy(self)\n",
+        "source_code_len": 65,
+        "target_code": "\n    def copy(self) -> \"Parameter\":\n        return deepcopy(self)\n",
+        "target_code_len": 66,
+        "diff_format": "@@ -523,3 +524,3 @@\n \n-    def copy(self) -> \"Resource\":\n+    def copy(self) -> \"Parameter\":\n         return deepcopy(self)\n",
+        "source_code_with_indent": "\n    <DED>def copy(self) -> \"Resource\":\n        <IND>return deepcopy(self)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def copy(self) -> \"Parameter\":\n        <IND>return deepcopy(self)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

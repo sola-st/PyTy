@@ -1,0 +1,36 @@
+[
+  {
+    "project": "great-expectations/great_expectations",
+    "commit": "10f7421a06801cea416d38d5afc73d2848d7b7a7",
+    "filename": "great_expectations/datasource/data_connector/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/great-expectations-great_expectations/great_expectations/datasource/data_connector/util.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "great_expectations/datasource/data_connector/util.py:228:8 Incompatible return type [7]: Expected `str` but got `Path`.",
+    "message": " Expected `str` but got `Path`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 228,
+    "warning_line": "        return Path(root_directory_path).joinpath(dir_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    else:\n        return Path(root_directory_path).joinpath(dir_path)\n\n",
+        "source_code_len": 71,
+        "target_code": "    else:\n        return str(Path(root_directory_path).joinpath(dir_path))\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -227,3 +227,3 @@\n     else:\n-        return Path(root_directory_path).joinpath(dir_path)\n+        return str(Path(root_directory_path).joinpath(dir_path))\n \n",
+        "source_code_with_indent": "    <DED>else:\n        <IND>return Path(root_directory_path).joinpath(dir_path)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>else:\n        <IND>return str(Path(root_directory_path).joinpath(dir_path))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

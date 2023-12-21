@@ -1,0 +1,36 @@
+[
+  {
+    "project": "algolia/algoliasearch-client-python",
+    "commit": "40dbe2aa631ed691fe057fad10c0e2faf64639aa",
+    "filename": "algoliasearch/search_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/algolia-algoliasearch-client-python/algoliasearch/search_client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "algoliasearch/search_client.py:309:46 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `SearchIndex.wait_task` but got `str`.",
+    "message": " Expected `int` for 1st positional only parameter to call `SearchIndex.wait_task` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 309,
+    "warning_line": "        self.init_index(index_name).wait_task(task_id, request_options)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def wait_task(self, index_name, task_id, request_options=None):\n        # type: (str, str, Optional[Union[dict, RequestOptions]]) -> None\n\n",
+        "source_code_len": 143,
+        "target_code": "    def wait_task(self, index_name, task_id, request_options=None):\n        # type: (str, int, Optional[Union[dict, RequestOptions]]) -> None\n\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -306,3 +306,3 @@\n     def wait_task(self, index_name, task_id, request_options=None):\n-        # type: (str, str, Optional[Union[dict, RequestOptions]]) -> None\n+        # type: (str, int, Optional[Union[dict, RequestOptions]]) -> None\n \n",
+        "source_code_with_indent": "    <DED>def wait_task(self, index_name, task_id, request_options=None):\n        # type: (str, str, Optional[Union[dict, RequestOptions]]) -> None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def wait_task(self, index_name, task_id, request_options=None):\n        # type: (str, int, Optional[Union[dict, RequestOptions]]) -> None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "borzunov/bit-torrent",
+    "commit": "4c8a5ed5bb3df120abd75aa31d25e8d985ae1d97",
+    "filename": "torrent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/borzunov-bit-torrent/torrent.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torrent.py:378:8 Incompatible return type [7]: Expected `Optional[Tuple[MessageType, bytes]]` but got `Tuple[MessageType, memoryview]`.",
+    "message": " Expected `Optional[Tuple[MessageType, bytes]]` but got `Tuple[MessageType, memoryview]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 378,
+    "warning_line": "        return message_id, payload",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def _receive_message(self) -> Optional[Tuple[MessageType, bytes]]:\n        data = await self._reader.readexactly(4)\n",
+        "source_code_len": 127,
+        "target_code": "\n    async def _receive_message(self) -> Optional[Tuple[MessageType, memoryview]]:\n        data = await self._reader.readexactly(4)\n",
+        "target_code_len": 132,
+        "diff_format": "@@ -364,3 +366,3 @@\n \n-    async def _receive_message(self) -> Optional[Tuple[MessageType, bytes]]:\n+    async def _receive_message(self) -> Optional[Tuple[MessageType, memoryview]]:\n         data = await self._reader.readexactly(4)\n",
+        "source_code_with_indent": "\n    <DED>async def _receive_message(self) -> Optional[Tuple[MessageType, bytes]]:\n        <IND>data = await self._reader.readexactly(4)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>async def _receive_message(self) -> Optional[Tuple[MessageType, memoryview]]:\n        <IND>data = await self._reader.readexactly(4)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

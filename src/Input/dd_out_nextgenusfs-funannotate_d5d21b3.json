@@ -1,0 +1,36 @@
+[
+  {
+    "project": "nextgenusfs/funannotate",
+    "commit": "d5d21b340b3fc9bc008455246d500207778d7b01",
+    "filename": "funannotate/aux_scripts/augustus_parallel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nextgenusfs-funannotate/funannotate/aux_scripts/augustus_parallel.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "funannotate/aux_scripts/augustus_parallel.py:125:30 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 2nd positional only parameter to call `range.__init__` but got `float`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 2nd positional only parameter to call `range.__init__` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 125,
+    "warning_line": "            for i in range(0, num_parts):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            chunks = contiglength / num_parts\n            for i in range(0, num_parts):\n                name = str(record.id)+'_part'+str(i+1)\n",
+        "source_code_len": 143,
+        "target_code": "            chunks = contiglength / num_parts\n            for i in range(0, int(num_parts)):\n                name = str(record.id)+'_part'+str(i+1)\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -124,3 +125,3 @@\n             chunks = contiglength / num_parts\n-            for i in range(0, num_parts):\n+            for i in range(0, int(num_parts)):\n                 name = str(record.id)+'_part'+str(i+1)\n",
+        "source_code_with_indent": "            chunks = contiglength / num_parts\n            for i in range(0, num_parts):\n                <IND>name = str(record.id)+'_part'+str(i+1)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            chunks = contiglength / num_parts\n            for i in range(0, int(num_parts)):\n                <IND>name = str(record.id)+'_part'+str(i+1)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "jesopo/bitbot",
+    "commit": "58c09f73424ce76035a934a6c8a8ab429e051fec",
+    "filename": "src/ModuleManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jesopo-bitbot/src/ModuleManager.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ModuleManager.py:330:27 Unsupported operand [58]: `in` is not supported for right operand type `Variable[_VT]`.",
+    "message": " `in` is not supported for right operand type `Variable[_VT]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 330,
+    "warning_line": "                        if name in definition_dependencies[dep_name]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _dependency_sort(self, definitions: typing.Dict[str, ModuleDefinition]\n            ) -> typing.List[ModuleDefinition]:\n",
+        "source_code_len": 128,
+        "target_code": "\n    def _dependency_sort(self, definitions: typing.List[ModuleDefinition]\n            ) -> typing.List[ModuleDefinition]:\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -291,3 +291,3 @@\n \n-    def _dependency_sort(self, definitions: typing.Dict[str, ModuleDefinition]\n+    def _dependency_sort(self, definitions: typing.List[ModuleDefinition]\n             ) -> typing.List[ModuleDefinition]:\n",
+        "source_code_with_indent": "\n    <DED>def _dependency_sort(self, definitions: typing.Dict[str, ModuleDefinition]\n            ) -> typing.List[ModuleDefinition]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _dependency_sort(self, definitions: typing.List[ModuleDefinition]\n            ) -> typing.List[ModuleDefinition]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jesopo/bitbot",
+    "commit": "58c09f73424ce76035a934a6c8a8ab429e051fec",
+    "filename": "src/ModuleManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jesopo-bitbot/src/ModuleManager.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ModuleManager.py:446:38 Incompatible parameter type [6]: Expected `typing.Dict[str, ModuleDefinition]` for 1st positional only parameter to call `ModuleManager._dependency_sort` but got `typing.List[typing.Any]`.",
+    "message": " Expected `typing.Dict[str, ModuleDefinition]` for 1st positional only parameter to call `ModuleManager._dependency_sort` but got `typing.List[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 446,
+    "warning_line": "        return (self._dependency_sort(loadable_definitions),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _dependency_sort(self, definitions: typing.Dict[str, ModuleDefinition]\n            ) -> typing.List[ModuleDefinition]:\n",
+        "source_code_len": 128,
+        "target_code": "\n    def _dependency_sort(self, definitions: typing.List[ModuleDefinition]\n            ) -> typing.List[ModuleDefinition]:\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -291,3 +291,3 @@\n \n-    def _dependency_sort(self, definitions: typing.Dict[str, ModuleDefinition]\n+    def _dependency_sort(self, definitions: typing.List[ModuleDefinition]\n             ) -> typing.List[ModuleDefinition]:\n",
+        "source_code_with_indent": "\n    <DED>def _dependency_sort(self, definitions: typing.Dict[str, ModuleDefinition]\n            ) -> typing.List[ModuleDefinition]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _dependency_sort(self, definitions: typing.List[ModuleDefinition]\n            ) -> typing.List[ModuleDefinition]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

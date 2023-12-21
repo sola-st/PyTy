@@ -1,0 +1,36 @@
+[
+  {
+    "project": "aliparlakci/bulk-downloader-for-reddit",
+    "commit": "95876b340045f3cc2dc2e2f3f4e1719882a42860",
+    "filename": "bulkredditdownloader/oauth2.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aliparlakci-bulk-downloader-for-reddit/bulkredditdownloader/oauth2.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bulkredditdownloader/oauth2.py:21:27 Incompatible parameter type [6]: Expected `typing.Set[str]` for 1st positional only parameter to call `OAuth2Authenticator._check_scopes` but got `typing.List[str]`.",
+    "message": " Expected `typing.Set[str]` for 1st positional only parameter to call `OAuth2Authenticator._check_scopes` but got `typing.List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 21,
+    "warning_line": "        self._check_scopes(wanted_scopes)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, wanted_scopes: list[str]):\n        self._check_scopes(wanted_scopes)\n",
+        "source_code_len": 93,
+        "target_code": "\n    def __init__(self, wanted_scopes: set[str]):\n        self._check_scopes(wanted_scopes)\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -19,3 +19,3 @@\n \n-    def __init__(self, wanted_scopes: list[str]):\n+    def __init__(self, wanted_scopes: set[str]):\n         self._check_scopes(wanted_scopes)\n",
+        "source_code_with_indent": "\n    <IND>def __init__(self, wanted_scopes: list[str]):\n        <IND>self._check_scopes(wanted_scopes)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <IND>def __init__(self, wanted_scopes: set[str]):\n        <IND>self._check_scopes(wanted_scopes)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "bocadilloproject/bocadillo",
+    "commit": "20906960d2a6500193d77bef1425c6fe30097efb",
+    "filename": "scripts/changelog_bump.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bocadilloproject-bocadillo/scripts/changelog_bump.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/changelog_bump.py:46:8 Incompatible parameter type [6]: Expected `Match[typing.Any]` for 2nd parameter `match` to call `update` but got `typing.Optional[Match[str]]`.",
+    "message": " Expected `Match[typing.Any]` for 2nd parameter `match` to call `update` but got `typing.Optional[Match[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 46,
+    "warning_line": "        match=re.search(r\"## \\[Unreleased\\]\", content),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from datetime import datetime\nfrom typing import Match\n\n\n",
+        "source_code_len": 57,
+        "target_code": "from datetime import datetime\nfrom typing import Callable, Match, Optional\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -4,4 +4,3 @@\n from datetime import datetime\n-from typing import Match\n-\n+from typing import Callable, Match, Optional\n \n",
+        "source_code_with_indent": "from datetime import datetime\nfrom typing import Match\n\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from datetime import datetime\nfrom typing import Callable, Match, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    content,\n    match: Match,\n    first_line: callable,\n    second_line: callable,\n    sep: str = \"\\n\",\n",
+        "source_code_len": 105,
+        "target_code": "    content,\n    match: Optional[Match],\n    first_line: Callable,\n    second_line: Callable,\n    sep: str = \"\\n\",\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -12,5 +11,5 @@\n     content,\n-    match: Match,\n-    first_line: callable,\n-    second_line: callable,\n+    match: Optional[Match],\n+    first_line: Callable,\n+    second_line: Callable,\n     sep: str = \"\\n\",\n",
+        "source_code_with_indent": "    content,\n    match: Match,\n    first_line: callable,\n    second_line: callable,\n    sep: str = \"\\n\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    content,\n    match: Optional[Match],\n    first_line: Callable,\n    second_line: Callable,\n    sep: str = \"\\n\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

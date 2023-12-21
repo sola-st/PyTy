@@ -1,0 +1,36 @@
+[
+  {
+    "project": "instadeepai/Mava",
+    "commit": "0806e84e0d549f0437978af205e1b1f62ee514c3",
+    "filename": "mava/wrappers/loops/statistics.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/wrappers/loops/statistics.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/wrappers/loops/statistics.py:140:29 Unbound name [10]: Name `rewards` is used but not defined in the current scope.",
+    "message": " Name `rewards` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 140,
+    "warning_line": "        for agent, reward in rewards.items():",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _compute_episode_statistics(self, ep_return: Dict[str, float]) -> None:\n        for agent, reward in rewards.items():\n            self._agents_stats[agent][\"reward\"].push(reward)\n            mean_reward = self._agents_stats[agent][\"return\"].mean()\n            max_reward = self._agents_stats[agent][\"return\"].max()\n            min_reward = self._agents_stats[agent][\"return\"].min()\n            var_reward = self._agents_stats[agent][\"return\"].variance()\n            std_reward = self._agents_stats[agent][\"return\"].standard_deviation()\n            self._running_statistics.update(\n                {\n                    f\"{agent}_mean_return\": 0.0,\n                    f\"{agent}_max_return\": 0.0,\n                    f\"{agent}_min_return\": 0.0,\n                    f\"{agent}_var_return\": 0.0,\n                    f\"{agent}_std_return\": 0.0,\n                }\n            )\n\n",
+        "source_code_len": 882,
+        "target_code": "\n    # def _compute_episode_statistics(self, ep_return: Dict[str, float]) -> None:\n    #     for agent, reward in rewards.items():\n    #         self._agents_stats[agent][\"reward\"].push(reward)\n    #         mean_reward = self._agents_stats[agent][\"return\"].mean()\n    #         max_reward = self._agents_stats[agent][\"return\"].max()\n    #         min_reward = self._agents_stats[agent][\"return\"].min()\n    #         var_reward = self._agents_stats[agent][\"return\"].variance()\n    #         std_reward = self._agents_stats[agent][\"return\"].standard_deviation()\n    #         self._running_statistics.update(\n    #             {\n    #                 f\"{agent}_mean_return\": 0.0,\n    #                 f\"{agent}_max_return\": 0.0,\n    #                 f\"{agent}_min_return\": 0.0,\n    #                 f\"{agent}_var_return\": 0.0,\n    #                 f\"{agent}_std_return\": 0.0,\n    #             }\n    #         )\n\n",
+        "target_code_len": 916,
+        "diff_format": "@@ -138,19 +138,19 @@\n \n-    def _compute_episode_statistics(self, ep_return: Dict[str, float]) -> None:\n-        for agent, reward in rewards.items():\n-            self._agents_stats[agent][\"reward\"].push(reward)\n-            mean_reward = self._agents_stats[agent][\"return\"].mean()\n-            max_reward = self._agents_stats[agent][\"return\"].max()\n-            min_reward = self._agents_stats[agent][\"return\"].min()\n-            var_reward = self._agents_stats[agent][\"return\"].variance()\n-            std_reward = self._agents_stats[agent][\"return\"].standard_deviation()\n-            self._running_statistics.update(\n-                {\n-                    f\"{agent}_mean_return\": 0.0,\n-                    f\"{agent}_max_return\": 0.0,\n-                    f\"{agent}_min_return\": 0.0,\n-                    f\"{agent}_var_return\": 0.0,\n-                    f\"{agent}_std_return\": 0.0,\n-                }\n-            )\n+    # def _compute_episode_statistics(self, ep_return: Dict[str, float]) -> None:\n+    #     for agent, reward in rewards.items():\n+    #         self._agents_stats[agent][\"reward\"].push(reward)\n+    #         mean_reward = self._agents_stats[agent][\"return\"].mean()\n+    #         max_reward = self._agents_stats[agent][\"return\"].max()\n+    #         min_reward = self._agents_stats[agent][\"return\"].min()\n+    #         var_reward = self._agents_stats[agent][\"return\"].variance()\n+    #         std_reward = self._agents_stats[agent][\"return\"].standard_deviation()\n+    #         self._running_statistics.update(\n+    #             {\n+    #                 f\"{agent}_mean_return\": 0.0,\n+    #                 f\"{agent}_max_return\": 0.0,\n+    #                 f\"{agent}_min_return\": 0.0,\n+    #                 f\"{agent}_var_return\": 0.0,\n+    #                 f\"{agent}_std_return\": 0.0,\n+    #             }\n+    #         )\n \n",
+        "source_code_with_indent": "\n    <DED><DED>def _compute_episode_statistics(self, ep_return: Dict[str, float]) -> None:\n        <IND>for agent, reward in rewards.items():\n            <IND>self._agents_stats[agent][\"reward\"].push(reward)\n            mean_reward = self._agents_stats[agent][\"return\"].mean()\n            max_reward = self._agents_stats[agent][\"return\"].max()\n            min_reward = self._agents_stats[agent][\"return\"].min()\n            var_reward = self._agents_stats[agent][\"return\"].variance()\n            std_reward = self._agents_stats[agent][\"return\"].standard_deviation()\n            self._running_statistics.update(\n                {\n                    f\"{agent}_mean_return\": 0.0,\n                    f\"{agent}_max_return\": 0.0,\n                    f\"{agent}_min_return\": 0.0,\n                    f\"{agent}_var_return\": 0.0,\n                    f\"{agent}_std_return\": 0.0,\n                }\n            )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    # def _compute_episode_statistics(self, ep_return: Dict[str, float]) -> None:\n    #     for agent, reward in rewards.items():\n    #         self._agents_stats[agent][\"reward\"].push(reward)\n    #         mean_reward = self._agents_stats[agent][\"return\"].mean()\n    #         max_reward = self._agents_stats[agent][\"return\"].max()\n    #         min_reward = self._agents_stats[agent][\"return\"].min()\n    #         var_reward = self._agents_stats[agent][\"return\"].variance()\n    #         std_reward = self._agents_stats[agent][\"return\"].standard_deviation()\n    #         self._running_statistics.update(\n    #             {\n    #                 f\"{agent}_mean_return\": 0.0,\n    #                 f\"{agent}_max_return\": 0.0,\n    #                 f\"{agent}_min_return\": 0.0,\n    #                 f\"{agent}_var_return\": 0.0,\n    #                 f\"{agent}_std_return\": 0.0,\n    #             }\n    #         )\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

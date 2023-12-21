@@ -1,0 +1,118 @@
+[
+  {
+    "project": "CadQuery/cadquery",
+    "commit": "5b9038553963b3e6de87d73f3c879a549f25adec",
+    "filename": "cadquery/cq.py",
+    "min_patch_found": false,
+    "full_warning_msg": "cadquery/cq.py:3103:32 Incompatible parameter type [6]: Expected `List[Union[Edge, Face]]` for 1st positional only parameter to call `cadquery.selectors.BaseDirSelector.filter` but got `List[Face]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "CadQuery/cadquery",
+    "commit": "5b9038553963b3e6de87d73f3c879a549f25adec",
+    "filename": "cadquery/selectors.py",
+    "min_patch_found": false,
+    "full_warning_msg": "cadquery/selectors.py:451:4 Inconsistent override [15]: `cadquery.selectors.DirectionNthSelector.filter` overrides method defined in `BaseDirSelector` inconsistently. See https://pyre-check.org/docs/errors#covariance-and-contravariance for mutable container errors.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "CadQuery/cadquery",
+    "commit": "5b9038553963b3e6de87d73f3c879a549f25adec",
+    "filename": "cadquery/selectors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/CadQuery-cadquery/cadquery/selectors.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cadquery/selectors.py:452:8 Incompatible variable type [9]: objectlist is declared to have type `List[Shape]` but is used as type `List[Union[Edge, Face]]`.",
+    "message": " objectlist is declared to have type `List[Shape]` but is used as type `List[Union[Edge, Face]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 452,
+    "warning_line": "        objectlist = ParallelDirSelector.filter(self, objectlist)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from functools import reduce\nfrom typing import List, Union\n\n",
+        "source_code_len": 61,
+        "target_code": "from functools import reduce\nfrom typing import List, Union, Sequence\n\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -39,3 +39,3 @@\n from functools import reduce\n-from typing import List, Union\n+from typing import List, Union, Sequence\n \n",
+        "source_code_with_indent": "from functools import reduce\nfrom typing import List, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from functools import reduce\nfrom typing import List, Union, Sequence\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def filter(self, objectList: List[Union[Face, Edge]]) -> List[Union[Face, Edge]]:\n        \"\"\"\n",
+        "source_code_len": 99,
+        "target_code": "\n    def filter(self, objectList: Sequence[Shape]) -> List[Shape]:\n        \"\"\"\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -167,3 +167,3 @@\n \n-    def filter(self, objectList: List[Union[Face, Edge]]) -> List[Union[Face, Edge]]:\n+    def filter(self, objectList: Sequence[Shape]) -> List[Shape]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def filter(self, objectList: List[Union[Face, Edge]]) -> List[Union[Face, Edge]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def filter(self, objectList: Sequence[Shape]) -> List[Shape]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "CadQuery/cadquery",
+    "commit": "5b9038553963b3e6de87d73f3c879a549f25adec",
+    "filename": "cadquery/selectors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/CadQuery-cadquery/cadquery/selectors.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cadquery/selectors.py:452:54 Incompatible parameter type [6]: Expected `List[Union[Edge, Face]]` for 2nd positional only parameter to call `BaseDirSelector.filter` but got `List[Shape]`.",
+    "message": " Expected `List[Union[Edge, Face]]` for 2nd positional only parameter to call `BaseDirSelector.filter` but got `List[Shape]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 452,
+    "warning_line": "        objectlist = ParallelDirSelector.filter(self, objectlist)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from functools import reduce\nfrom typing import List, Union\n\n",
+        "source_code_len": 61,
+        "target_code": "from functools import reduce\nfrom typing import List, Union, Sequence\n\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -39,3 +39,3 @@\n from functools import reduce\n-from typing import List, Union\n+from typing import List, Union, Sequence\n \n",
+        "source_code_with_indent": "from functools import reduce\nfrom typing import List, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from functools import reduce\nfrom typing import List, Union, Sequence\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def filter(self, objectList: List[Union[Face, Edge]]) -> List[Union[Face, Edge]]:\n        \"\"\"\n",
+        "source_code_len": 99,
+        "target_code": "\n    def filter(self, objectList: Sequence[Shape]) -> List[Shape]:\n        \"\"\"\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -167,3 +167,3 @@\n \n-    def filter(self, objectList: List[Union[Face, Edge]]) -> List[Union[Face, Edge]]:\n+    def filter(self, objectList: Sequence[Shape]) -> List[Shape]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def filter(self, objectList: List[Union[Face, Edge]]) -> List[Union[Face, Edge]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def filter(self, objectList: Sequence[Shape]) -> List[Shape]:\n        <IND>"
+      }
+    ]
+  }
+]

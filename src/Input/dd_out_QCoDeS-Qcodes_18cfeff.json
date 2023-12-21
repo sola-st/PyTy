@@ -1,0 +1,94 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "18cfeffccecce0591cb21421b0358c478a5de810",
+    "filename": "qcodes/dataset/experiment_container.py",
+    "min_patch_found": false,
+    "full_warning_msg": "qcodes/dataset/experiment_container.py:52:37 Incompatible parameter type [6]: Expected `ConnectionPlus` for 1st positional only parameter to call `get_experiments` but got `typing.Tuple[ConnectionPlus, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "18cfeffccecce0591cb21421b0358c478a5de810",
+    "filename": "qcodes/dataset/sqlite/database.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/dataset/sqlite/database.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/dataset/sqlite/database.py:253:23 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `connect` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `connect` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 253,
+    "warning_line": "        conn = connect(path_to_db, get_DB_debug())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                             path_to_db: Optional[str]) \\\n        -> Tuple[ConnectionPlus, str]:\n    \"\"\"\n",
+        "source_code_len": 105,
+        "target_code": "                             path_to_db: Optional[str]) \\\n        -> ConnectionPlus:\n    \"\"\"\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -231,3 +231,3 @@\n                              path_to_db: Optional[str]) \\\n-        -> Tuple[ConnectionPlus, str]:\n+        -> ConnectionPlus:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                             path_to_db: Optional[str])        -> Tuple[ConnectionPlus, str]:\n    <IND>",
+        "target_code_with_indent": "                             path_to_db: Optional[str])        -> ConnectionPlus:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        path_to_db = get_DB_location()\n    if conn is None:\n        conn = connect(path_to_db, get_DB_debug())\n    return conn\n",
+        "source_code_len": 127,
+        "target_code": "        path_to_db = get_DB_location()\n\n    if conn is None and path_to_db is not None:\n        conn = connect(path_to_db, get_DB_debug())\n    elif conn is not None:\n        conn = conn\n    else:\n        # this should be impossible but left here to keep mypy happy.\n        raise RuntimeError(\"Could not obtain a connection from\"\n                           \"supplied information.\")\n    return conn\n",
+        "target_code_len": 398,
+        "diff_format": "@@ -251,4 +251,11 @@\n         path_to_db = get_DB_location()\n-    if conn is None:\n+\n+    if conn is None and path_to_db is not None:\n         conn = connect(path_to_db, get_DB_debug())\n+    elif conn is not None:\n+        conn = conn\n+    else:\n+        # this should be impossible but left here to keep mypy happy.\n+        raise RuntimeError(\"Could not obtain a connection from\"\n+                           \"supplied information.\")\n     return conn\n",
+        "source_code_with_indent": "        <IND>path_to_db = get_DB_location()\n    <DED>if conn is None:\n        <IND>conn = connect(path_to_db, get_DB_debug())\n    <DED>return conn\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>path_to_db = get_DB_location()\n\n    <DED>if conn is None and path_to_db is not None:\n        <IND>conn = connect(path_to_db, get_DB_debug())\n    <DED>elif conn is not None:\n        <IND>conn = conn\n    <DED>else:\n        # this should be impossible but left here to keep mypy happy.\n        <IND>raise RuntimeError(\"Could not obtain a connection from\"\n                           \"supplied information.\")\n    <DED>return conn\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "18cfeffccecce0591cb21421b0358c478a5de810",
+    "filename": "qcodes/dataset/sqlite/database.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/dataset/sqlite/database.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/dataset/sqlite/database.py:254:4 Incompatible return type [7]: Expected `Tuple[ConnectionPlus, str]` but got `ConnectionPlus`.",
+    "message": " Expected `Tuple[ConnectionPlus, str]` but got `ConnectionPlus`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 254,
+    "warning_line": "    return conn",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                             path_to_db: Optional[str]) \\\n        -> Tuple[ConnectionPlus, str]:\n    \"\"\"\n",
+        "source_code_len": 105,
+        "target_code": "                             path_to_db: Optional[str]) \\\n        -> ConnectionPlus:\n    \"\"\"\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -231,3 +231,3 @@\n                              path_to_db: Optional[str]) \\\n-        -> Tuple[ConnectionPlus, str]:\n+        -> ConnectionPlus:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                             path_to_db: Optional[str])        -> Tuple[ConnectionPlus, str]:\n    <IND>",
+        "target_code_with_indent": "                             path_to_db: Optional[str])        -> ConnectionPlus:\n    <IND>"
+      }
+    ]
+  }
+]

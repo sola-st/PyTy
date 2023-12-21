@@ -1,0 +1,194 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/message_handler.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/message_handler.py:107:45 Incompatible parameter type [6]: Expected `StateChange` for 1st positional only parameter to call `RaidenService.handle_and_track_state_change` but got `ReceiveLockExpired`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/message_handler.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/message_handler.py:142:12 Incompatible variable type [9]: state_change is declared to have type `StateChange` but is used as type `ReceiveTransferRefundCancelRoute`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/message_handler.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/message_handler.py:146:12 Incompatible variable type [9]: state_change is declared to have type `StateChange` but is used as type `ReceiveTransferRefund`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/raiden_service.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/raiden_service.py:1133:43 Incompatible parameter type [6]: Expected `StateChange` for 1st positional only parameter to call `RaidenService.handle_and_track_state_change` but got `ActionInitMediator`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/raiden_service.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/raiden_service.py:1138:43 Incompatible parameter type [6]: Expected `StateChange` for 1st positional only parameter to call `RaidenService.handle_and_track_state_change` but got `ActionInitTarget`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/transfer/events.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/events.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/events.py:133:4 Incompatible attribute type [8]: Attribute `secret` declared in class `EventPaymentSentSuccess` has type `Secret` but is used as type `None`.",
+    "message": " Attribute `secret` declared in class `EventPaymentSentSuccess` has type `Secret` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 133,
+    "warning_line": "    secret: Secret = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    target: TargetAddress\n    secret: Secret = None\n\n",
+        "source_code_len": 53,
+        "target_code": "    target: TargetAddress\n    secret: Optional[Secret] = None\n\n",
+        "target_code_len": 63,
+        "diff_format": "@@ -132,3 +136,3 @@\n     target: TargetAddress\n-    secret: Secret = None\n+    secret: Optional[Secret] = None\n \n",
+        "source_code_with_indent": "    target: TargetAddress\n    secret: Secret = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    target: TargetAddress\n    secret: Optional[Secret] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/transfer/mediated_transfer/state.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/mediated_transfer/state.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/mediated_transfer/state.py:143:4 Incompatible attribute type [8]: Attribute `secret_hash` declared in class `TransferDescriptionWithSecretState` has type `SecretHash` but is used as type `None`.",
+    "message": " Attribute `secret_hash` declared in class `TransferDescriptionWithSecretState` has type `SecretHash` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 143,
+    "warning_line": "    secret_hash: SecretHash = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    secret: Secret = field(repr=False)\n    secret_hash: SecretHash = None\n\n    def __post_init__(self) -> None:\n        if self.secret_hash is None:\n            self.secret_hash = sha3(self.secret)\n\n",
+        "source_code_len": 199,
+        "target_code": "    secret: Secret = field(repr=False)\n    secrethash: SecretHash = field(init=False)\n\n    def __post_init__(self) -> None:\n        if self.secrethash is None:\n            self.secrethash = sha3(self.secret)\n\n",
+        "target_code_len": 209,
+        "diff_format": "@@ -142,7 +147,7 @@\n     secret: Secret = field(repr=False)\n-    secret_hash: SecretHash = None\n-\n-    def __post_init__(self) -> None:\n-        if self.secret_hash is None:\n-            self.secret_hash = sha3(self.secret)\n+    secrethash: SecretHash = field(init=False)\n+\n+    def __post_init__(self) -> None:\n+        if self.secrethash is None:\n+            self.secrethash = sha3(self.secret)\n \n",
+        "source_code_with_indent": "    secret: Secret = field(repr=False)\n    secret_hash: SecretHash = None\n\n    def __post_init__(self) -> None:\n        <IND>if self.secret_hash is None:\n            <IND>self.secret_hash = sha3(self.secret)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    secret: Secret = field(repr=False)\n    secrethash: SecretHash = field(init=False)\n\n    def __post_init__(self) -> None:\n        <IND>if self.secrethash is None:\n            <IND>self.secrethash = sha3(self.secret)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/transfer/mediated_transfer/state.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/mediated_transfer/state.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/mediated_transfer/state.py:284:4 Incompatible attribute type [8]: Attribute `secret` declared in class `TargetTransferState` has type `Secret` but is used as type `None`.",
+    "message": " Attribute `secret` declared in class `TargetTransferState` has type `Secret` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 284,
+    "warning_line": "    secret: Secret = field(repr=False, default=None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    transfer: LockedTransferSignedState\n    secret: Secret = field(repr=False, default=None)\n    state: str = field(init=False, default='secret_request')\n",
+        "source_code_len": 154,
+        "target_code": "    transfer: LockedTransferSignedState\n    secret: Optional[Secret] = field(repr=False, default=None)\n    state: str = field(init=False, default='secret_request')\n",
+        "target_code_len": 164,
+        "diff_format": "@@ -283,3 +288,3 @@\n     transfer: LockedTransferSignedState\n-    secret: Secret = field(repr=False, default=None)\n+    secret: Optional[Secret] = field(repr=False, default=None)\n     state: str = field(init=False, default='secret_request')\n",
+        "source_code_with_indent": "    transfer: LockedTransferSignedState\n    secret: Secret = field(repr=False, default=None)\n    state: str = field(init=False, default='secret_request')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    transfer: LockedTransferSignedState\n    secret: Optional[Secret] = field(repr=False, default=None)\n    state: str = field(init=False, default='secret_request')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/transfer/node.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/transfer/node.py:684:21 Incompatible parameter type [6]: Expected `StateChange` for 2nd positional only parameter to call `subdispatch_mediatortask` but got `ActionInitMediator`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/transfer/node.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/transfer/node.py:698:8 Incompatible parameter type [6]: Expected `StateChange` for 2nd positional only parameter to call `subdispatch_targettask` but got `ActionInitTarget`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/transfer/node.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/transfer/node.py:708:51 Incompatible parameter type [6]: Expected `StateChange` for 2nd positional only parameter to call `subdispatch_to_paymenttask` but got `ReceiveLockExpired`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/transfer/node.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/transfer/node.py:715:21 Incompatible parameter type [6]: Expected `StateChange` for 2nd positional only parameter to call `subdispatch_to_paymenttask` but got `ReceiveTransferRefund`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "56ebcdd8f39c9d0d7444a341efdff4fb80e20729",
+    "filename": "raiden/transfer/node.py",
+    "min_patch_found": false,
+    "full_warning_msg": "raiden/transfer/node.py:723:21 Incompatible parameter type [6]: Expected `StateChange` for 2nd positional only parameter to call `subdispatch_to_paymenttask` but got `ReceiveTransferRefundCancelRoute`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "theupdateframework/python-tuf",
+    "commit": "ad813a5d0d4489544110b3ec398b2d86bd98afb7",
+    "filename": "tests/repository_simulator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theupdateframework-python-tuf/tests/repository_simulator.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/repository_simulator.py:144:15 Unsupported operand [58]: `>` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `>` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 144,
+    "warning_line": "            if version > len(self.signed_roots):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            # return a version previously serialized in publish_root()\n            if version > len(self.signed_roots):\n                raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "source_code_len": 199,
+        "target_code": "            # return a version previously serialized in publish_root()\n            if version is None or version > len(self.signed_roots):\n                raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "target_code_len": 218,
+        "diff_format": "@@ -143,3 +144,3 @@\n             # return a version previously serialized in publish_root()\n-            if version > len(self.signed_roots):\n+            if version is None or version > len(self.signed_roots):\n                 raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "source_code_with_indent": "            # return a version previously serialized in publish_root()\n            <IND>if version > len(self.signed_roots):\n                <IND>raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            # return a version previously serialized in publish_root()\n            <IND>if version is None or version > len(self.signed_roots):\n                <IND>raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "theupdateframework/python-tuf",
+    "commit": "ad813a5d0d4489544110b3ec398b2d86bd98afb7",
+    "filename": "tests/repository_simulator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theupdateframework-python-tuf/tests/repository_simulator.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/repository_simulator.py:147:37 Unsupported operand [58]: `-` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `-` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 147,
+    "warning_line": "            return self.signed_roots[version - 1]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            # return a version previously serialized in publish_root()\n            if version > len(self.signed_roots):\n                raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "source_code_len": 199,
+        "target_code": "            # return a version previously serialized in publish_root()\n            if version is None or version > len(self.signed_roots):\n                raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "target_code_len": 218,
+        "diff_format": "@@ -143,3 +144,3 @@\n             # return a version previously serialized in publish_root()\n-            if version > len(self.signed_roots):\n+            if version is None or version > len(self.signed_roots):\n                 raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "source_code_with_indent": "            # return a version previously serialized in publish_root()\n            <IND>if version > len(self.signed_roots):\n                <IND>raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            # return a version previously serialized in publish_root()\n            <IND>if version is None or version > len(self.signed_roots):\n                <IND>raise FetcherHTTPError(f\"Unknown root version {version}\", 404)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

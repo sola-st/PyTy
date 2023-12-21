@@ -1,0 +1,85 @@
+[
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "31e0d57f63af1d1ef8145378fdd50b72edb0ebad",
+    "filename": "texar/torch/modules/encoders/xlnet_encoder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/torch/modules/encoders/xlnet_encoder.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "texar/torch/modules/encoders/xlnet_encoder.py:493:33 Call error [29]: `RelativeMultiheadAttention` is not a function.",
+    "message": " `RelativeMultiheadAttention` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 493,
+    "warning_line": "            states_h, states_g = attn_layer(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                    states_h, cur_memory, cache_len, reuse_len))\n            attn_layer: RelativeMultiheadAttention = self.attn_layers[idx]\n            states_h, states_g = attn_layer(\n",
+        "source_code_len": 185,
+        "target_code": "                    states_h, cur_memory, cache_len, reuse_len))\n            attn_layer: RelativeMultiheadAttention\n            attn_layer = self.attn_layers[idx]  # type: ignore\n            states_h, states_g = attn_layer(\n",
+        "target_code_len": 224,
+        "diff_format": "@@ -491,3 +489,4 @@\n                     states_h, cur_memory, cache_len, reuse_len))\n-            attn_layer: RelativeMultiheadAttention = self.attn_layers[idx]\n+            attn_layer: RelativeMultiheadAttention\n+            attn_layer = self.attn_layers[idx]  # type: ignore\n             states_h, states_g = attn_layer(\n",
+        "source_code_with_indent": "                    states_h, cur_memory, cache_len, reuse_len))\n            <DED>attn_layer: RelativeMultiheadAttention = self.attn_layers[idx]\n            states_h, states_g = attn_layer(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    states_h, cur_memory, cache_len, reuse_len))\n            <DED>attn_layer: RelativeMultiheadAttention\n            attn_layer = self.attn_layers[idx]  # type: ignore\n            states_h, states_g = attn_layer(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "31e0d57f63af1d1ef8145378fdd50b72edb0ebad",
+    "filename": "texar/torch/modules/pretrained/pretrained_gpt2.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/torch/modules/pretrained/pretrained_gpt2.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "texar/torch/modules/pretrained/pretrained_gpt2.py:287:4 Incompatible variable type [9]: name is declared to have type `str` but is used as type `typing.List[str]`.",
+    "message": " name is declared to have type `str` but is used as type `typing.List[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 287,
+    "warning_line": "    name = name.split(\".\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n                        output_pointer = name_to_variable(\n                            self, \"_output_layer.weight\")\n                        if not isinstance(output_pointer, nn.Identity):\n                            assert output_pointer.shape == array.shape\n                            output_pointer.data = torch.from_numpy(array)\n                elif name == \"model/wpe\":\n                    pointer = self.position_embedder.embedding\n                    assert pointer.shape == array.shape\n",
+        "source_code_len": 496,
+        "target_code": "\n                        output_pointer = self._name_to_variable(\n                            \"_output_layer.weight\")\n                        assert output_pointer.shape == array.shape\n                        output_pointer.data = torch.from_numpy(array)\n                elif name == \"model/wpe\":\n                    pointer = self._name_to_variable(\n                        \"position_embedder.embedding\")\n                    assert pointer.shape == array.shape\n",
+        "target_code_len": 462,
+        "diff_format": "@@ -206,9 +202,9 @@\n \n-                        output_pointer = name_to_variable(\n-                            self, \"_output_layer.weight\")\n-                        if not isinstance(output_pointer, nn.Identity):\n-                            assert output_pointer.shape == array.shape\n-                            output_pointer.data = torch.from_numpy(array)\n+                        output_pointer = self._name_to_variable(\n+                            \"_output_layer.weight\")\n+                        assert output_pointer.shape == array.shape\n+                        output_pointer.data = torch.from_numpy(array)\n                 elif name == \"model/wpe\":\n-                    pointer = self.position_embedder.embedding\n+                    pointer = self._name_to_variable(\n+                        \"position_embedder.embedding\")\n                     assert pointer.shape == array.shape\n",
+        "source_code_with_indent": "\n                        output_pointer = name_to_variable(\n                            self, \"_output_layer.weight\")\n                        if not isinstance(output_pointer, nn.Identity):\n                            <IND>assert output_pointer.shape == array.shape\n                            output_pointer.data = torch.from_numpy(array)\n                <DED><DED><DED>elif name == \"model/wpe\":\n                    <IND>pointer = self.position_embedder.embedding\n                    assert pointer.shape == array.shape\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n                        output_pointer = self._name_to_variable(\n                            \"_output_layer.weight\")\n                        assert output_pointer.shape == array.shape\n                        output_pointer.data = torch.from_numpy(array)\n                <DED><DED>elif name == \"model/wpe\":\n                    <IND>pointer = self._name_to_variable(\n                        \"position_embedder.embedding\")\n                    assert pointer.shape == array.shape\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "                    raise Exception\n\n\ndef name_to_variable(model: nn.Module, name: str) -> nn.Module:\n    r\"\"\"Find the corresponding variable given the specified name.\n    \"\"\"\n    pointer = model\n    name = name.split(\".\")\n    for m_name in name:\n        if m_name.isdigit():\n            num = int(m_name)\n            pointer = pointer[num]  # type: ignore\n        else:\n            if not isinstance(pointer, nn.Identity):\n                pointer = getattr(pointer, m_name)\n    return pointer\n",
+        "source_code_len": 494,
+        "target_code": "                    raise Exception\n",
+        "target_code_len": 36,
+        "diff_format": "@@ -280,16 +276,1 @@\n                     raise Exception\n-\n-\n-def name_to_variable(model: nn.Module, name: str) -> nn.Module:\n-    r\"\"\"Find the corresponding variable given the specified name.\n-    \"\"\"\n-    pointer = model\n-    name = name.split(\".\")\n-    for m_name in name:\n-        if m_name.isdigit():\n-            num = int(m_name)\n-            pointer = pointer[num]  # type: ignore\n-        else:\n-            if not isinstance(pointer, nn.Identity):\n-                pointer = getattr(pointer, m_name)\n-    return pointer\n",
+        "source_code_with_indent": "                    raise Exception\n\n\n<DED><DED><DED><DED><DED>def name_to_variable(model: nn.Module, name: str) -> nn.Module:\n    <IND>r\"\"\"Find the corresponding variable given the specified name.\n    \"\"\"\n    pointer = model\n    name = name.split(\".\")\n    for m_name in name:\n        <IND>if m_name.isdigit():\n            <IND>num = int(m_name)\n            pointer = pointer[num]  # type: ignore\n        <DED>else:\n            <IND>if not isinstance(pointer, nn.Identity):\n                <IND>pointer = getattr(pointer, m_name)\n    <DED><DED><DED>return pointer\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    raise Exception\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

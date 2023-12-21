@@ -1,0 +1,70 @@
+[
+  {
+    "project": "activeloopai/Hub",
+    "commit": "bffb69abbf3fc84cbf751c99dbb01daf72e28058",
+    "filename": "hub/core/chunk_engine/write.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/core/chunk_engine/write.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/core/chunk_engine/write.py:37:12 Incompatible parameter type [6]: Expected `memoryview` for 1st positional only parameter to call `write_bytes` but got `bytes`.",
+    "message": " Expected `memoryview` for 1st positional only parameter to call `write_bytes` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 37,
+    "warning_line": "            sample.raw_bytes(),  # TODO: make it more obvious this returns compressed / uncompressed bytes",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        write_bytes(\n            sample.raw_bytes(),  # TODO: make it more obvious this returns compressed / uncompressed bytes\n            key,\n",
+        "source_code_len": 146,
+        "target_code": "\n        # TODO: make it more obvious this returns compressed / uncompressed bytes\n        buffer = sample.raw_bytes()\n\n        write_bytes(\n            memoryview(buffer),\n            key,\n",
+        "target_code_len": 190,
+        "diff_format": "@@ -35,4 +35,7 @@\n \n+        # TODO: make it more obvious this returns compressed / uncompressed bytes\n+        buffer = sample.raw_bytes()\n+\n         write_bytes(\n-            sample.raw_bytes(),  # TODO: make it more obvious this returns compressed / uncompressed bytes\n+            memoryview(buffer),\n             key,\n",
+        "source_code_with_indent": "\n        write_bytes(\n            sample.raw_bytes(),  # TODO: make it more obvious this returns compressed / uncompressed bytes\n            key,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        # TODO: make it more obvious this returns compressed / uncompressed bytes\n        buffer = sample.raw_bytes()\n\n        write_bytes(\n            memoryview(buffer),\n            key,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "activeloopai/Hub",
+    "commit": "bffb69abbf3fc84cbf751c99dbb01daf72e28058",
+    "filename": "hub/util/load.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/util/load.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/util/load.py:116:18 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `Sample.__init__` but got `Union[pathlib.Path, str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `Sample.__init__` but got `Union[pathlib.Path, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 116,
+    "warning_line": "    return Sample(path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef load(path: Union[str, pathlib.Path]) -> Sample:\n    # TODO: mention that you can do `.numpy()` on this output to make it extremely easy to use\n",
+        "source_code_len": 148,
+        "target_code": "\ndef load(path: str) -> Sample:\n    # TODO: mention that you can do `.numpy()` on this output to make it extremely easy to use\n",
+        "target_code_len": 127,
+        "diff_format": "@@ -113,3 +115,3 @@\n \n-def load(path: Union[str, pathlib.Path]) -> Sample:\n+def load(path: str) -> Sample:\n     # TODO: mention that you can do `.numpy()` on this output to make it extremely easy to use\n",
+        "source_code_with_indent": "\n<DED><DED>def load(path: Union[str, pathlib.Path]) -> Sample:\n    # TODO: mention that you can do `.numpy()` on this output to make it extremely easy to use\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def load(path: str) -> Sample:\n    # TODO: mention that you can do `.numpy()` on this output to make it extremely easy to use\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

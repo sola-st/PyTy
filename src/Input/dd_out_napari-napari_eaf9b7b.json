@@ -1,0 +1,51 @@
+[
+  {
+    "project": "napari/napari",
+    "commit": "eaf9b7ba4c73adc127679e2d0fe94c63ec0d62e0",
+    "filename": "napari/utils/_magicgui.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/napari-napari/napari/utils/_magicgui.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "napari/utils/_magicgui.py:81:20 Incompatible variable type [9]: layer_type is declared to have type `Type[napari.layers.base.base.Layer]` but is used as type `None`.",
+    "message": " layer_type is declared to have type `Type[napari.layers.base.base.Layer]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 81,
+    "warning_line": "def get_layers(gui, layer_type: Type[Layer] = None) -> Tuple[Layer, ...]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_layers(gui, layer_type: Type[Layer] = None) -> Tuple[Layer, ...]:\n    \"\"\"Retrieve layers of type `layer_type`, from the Viewer the gui is in.\n\n",
+        "source_code_len": 152,
+        "target_code": "\ndef get_layers(gui) -> Tuple[Layer, ...]:\n    \"\"\"Retrieve layers matching gui.annotation, from the Viewer the gui is in.\n\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -80,4 +80,4 @@\n \n-def get_layers(gui, layer_type: Type[Layer] = None) -> Tuple[Layer, ...]:\n-    \"\"\"Retrieve layers of type `layer_type`, from the Viewer the gui is in.\n+def get_layers(gui) -> Tuple[Layer, ...]:\n+    \"\"\"Retrieve layers matching gui.annotation, from the Viewer the gui is in.\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>def get_layers(gui, layer_type: Type[Layer] = None) -> Tuple[Layer, ...]:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def get_layers(gui) -> Tuple[Layer, ...]:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    # in magicgui v0.2.0 `gui` will be the magicgui parameter widget itself,\n    # which contains all of the necessary information.\n    # the layer type (which was just the annotation), is at gui.annotation\n    if layer_type is None:\n        gui, layer_type = gui.native, gui.annotation\n    # else:\n    #     import warnings\n    #     from magicgui import __version__ as magicgui_version\n    #\n    #     warnings.warn(\n    #         f\"A future version of napari will no longer support magicgui \"\n    #         f\"<0.2.0. (You have v{magicgui_version}). \"\n    #         \"Please use `pip install -U magicgui` to update to >=0.2.0\",\n    #         FutureWarning,\n    #     )\n\n    viewer = find_viewer_ancestor(gui)\n    if viewer:\n        return tuple(\n            layer for layer in viewer.layers if isinstance(layer, layer_type)\n        )\n    return ()\n\n",
+        "source_code_len": 858,
+        "target_code": "    \"\"\"\n    viewer = find_viewer_ancestor(gui.native)\n    if not viewer:\n        return ()\n    return tuple(x for x in viewer.layers if isinstance(x, gui.annotation))\n\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -108,24 +104,6 @@\n     \"\"\"\n-    # in magicgui v0.2.0 `gui` will be the magicgui parameter widget itself,\n-    # which contains all of the necessary information.\n-    # the layer type (which was just the annotation), is at gui.annotation\n-    if layer_type is None:\n-        gui, layer_type = gui.native, gui.annotation\n-    # else:\n-    #     import warnings\n-    #     from magicgui import __version__ as magicgui_version\n-    #\n-    #     warnings.warn(\n-    #         f\"A future version of napari will no longer support magicgui \"\n-    #         f\"<0.2.0. (You have v{magicgui_version}). \"\n-    #         \"Please use `pip install -U magicgui` to update to >=0.2.0\",\n-    #         FutureWarning,\n-    #     )\n-\n-    viewer = find_viewer_ancestor(gui)\n-    if viewer:\n-        return tuple(\n-            layer for layer in viewer.layers if isinstance(layer, layer_type)\n-        )\n-    return ()\n+    viewer = find_viewer_ancestor(gui.native)\n+    if not viewer:\n+        return ()\n+    return tuple(x for x in viewer.layers if isinstance(x, gui.annotation))\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    # in magicgui v0.2.0 `gui` will be the magicgui parameter widget itself,\n    # which contains all of the necessary information.\n    # the layer type (which was just the annotation), is at gui.annotation\n    if layer_type is None:\n        <IND>gui, layer_type = gui.native, gui.annotation\n    # else:\n    #     import warnings\n    #     from magicgui import __version__ as magicgui_version\n    #\n    #     warnings.warn(\n    #         f\"A future version of napari will no longer support magicgui \"\n    #         f\"<0.2.0. (You have v{magicgui_version}). \"\n    #         \"Please use `pip install -U magicgui` to update to >=0.2.0\",\n    #         FutureWarning,\n    #     )\n\n    <DED>viewer = find_viewer_ancestor(gui)\n    if viewer:\n        <IND>return tuple(\n            layer for layer in viewer.layers if isinstance(layer, layer_type)\n        )\n    <DED>return ()\n\n",
+        "target_code_with_indent": "\n    viewer = find_viewer_ancestor(gui.native)\n    if not viewer:\n        <IND>return ()\n    <DED>return tuple(x for x in viewer.layers if isinstance(x, gui.annotation))\n\n"
+      }
+    ]
+  }
+]

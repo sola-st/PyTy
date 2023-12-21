@@ -1,0 +1,104 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "021283f03639d185c3a0985684a94307c9fcc15b",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:1292:40 Invalid type [31]: Expression `\"[str]\"` is not a valid type.",
+    "message": " Expression `\"[str]\"` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 1292,
+    "warning_line": "                extra_info = [] # type: [str]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            else:\n                extra_info = [] # type: [str]\n                if subtype_label is not None:\n",
+        "source_code_len": 110,
+        "target_code": "            else:\n                extra_info = [] # type: List[str]\n                if subtype_label is not None:\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -1291,3 +1291,3 @@\n             else:\n-                extra_info = [] # type: [str]\n+                extra_info = [] # type: List[str]\n                 if subtype_label is not None:\n",
+        "source_code_with_indent": "            <DED>else:\n                <IND>extra_info = [] # type: [str]\n                if subtype_label is not None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>else:\n                <IND>extra_info = [] # type: List[str]\n                if subtype_label is not None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "021283f03639d185c3a0985684a94307c9fcc15b",
+    "filename": "mypy/parse.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/parse.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/parse.py:209:8 Incompatible return type [7]: Expected `List[Node]` but got `ImportBase`.",
+    "message": " Expected `List[Node]` but got `ImportBase`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 209,
+    "warning_line": "        return node",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \n    def parse_import_from(self) -> List[Node]:\n        from_tok = self.expect('from')\n",
+        "source_code_len": 91,
+        "target_code": "    \n    def parse_import_from(self) -> Node:\n        from_tok = self.expect('from')\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -164,3 +164,3 @@\n     \n-    def parse_import_from(self) -> List[Node]:\n+    def parse_import_from(self) -> Node:\n         from_tok = self.expect('from')\n",
+        "source_code_with_indent": "    \n    <DED>def parse_import_from(self) -> List[Node]:\n        <IND>from_tok = self.expect('from')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    \n    <DED>def parse_import_from(self) -> Node:\n        <IND>from_tok = self.expect('from')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "021283f03639d185c3a0985684a94307c9fcc15b",
+    "filename": "mypy/parse.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/parse.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/parse.py:656:12 Incompatible variable type [9]: stmt is declared to have type `Node` but is used as type `List[Node]`.",
+    "message": " stmt is declared to have type `Node` but is used as type `List[Node]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 656,
+    "warning_line": "            stmt = self.parse_import_from()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \n    def parse_import_from(self) -> List[Node]:\n        from_tok = self.expect('from')\n",
+        "source_code_len": 91,
+        "target_code": "    \n    def parse_import_from(self) -> Node:\n        from_tok = self.expect('from')\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -164,3 +164,3 @@\n     \n-    def parse_import_from(self) -> List[Node]:\n+    def parse_import_from(self) -> Node:\n         from_tok = self.expect('from')\n",
+        "source_code_with_indent": "    \n    <DED>def parse_import_from(self) -> List[Node]:\n        <IND>from_tok = self.expect('from')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    \n    <DED>def parse_import_from(self) -> Node:\n        <IND>from_tok = self.expect('from')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "96c6bb07790ab67c7c70be736035bfa2f88cb21a",
+    "filename": "airflow/serialization/serialized_objects.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/serialization/serialized_objects.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/serialization/serialized_objects.py:574:64 Incompatible parameter type [6]: Expected `ParamsDict` for 1st positional only parameter to call `BaseSerialization._serialize_params_dict` but got `Union[Dict[typing.Any, typing.Any], ParamsDict]`.",
+    "message": " Expected `ParamsDict` for 1st positional only parameter to call `BaseSerialization._serialize_params_dict` but got `Union[Dict[typing.Any, typing.Any], ParamsDict]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 574,
+    "warning_line": "            serialize_op['params'] = cls._serialize_params_dict(op.params)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def _serialize_params_dict(cls, params: ParamsDict):\n        \"\"\"Serialize Params dict for a DAG/Task\"\"\"\n",
+        "source_code_len": 125,
+        "target_code": "    @classmethod\n    def _serialize_params_dict(cls, params: Union[ParamsDict, dict]):\n        \"\"\"Serialize Params dict for a DAG/Task\"\"\"\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -441,3 +444,3 @@\n     @classmethod\n-    def _serialize_params_dict(cls, params: ParamsDict):\n+    def _serialize_params_dict(cls, params: Union[ParamsDict, dict]):\n         \"\"\"Serialize Params dict for a DAG/Task\"\"\"\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def _serialize_params_dict(cls, params: ParamsDict):\n        <IND>\"\"\"Serialize Params dict for a DAG/Task\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def _serialize_params_dict(cls, params: Union[ParamsDict, dict]):\n        <IND>\"\"\"Serialize Params dict for a DAG/Task\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

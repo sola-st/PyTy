@@ -1,0 +1,36 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "99fbd1b7b94ee98f764e021c04d967333467a6e6",
+    "filename": "raiden/raiden_service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/raiden_service.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/raiden_service.py:164:8 Incompatible parameter type [6]: Expected `PaymentAmount` for 5th parameter `amount` to call `routing.get_best_routes` but got `raiden.utils.typing.PaymentWithFeeAmount`.",
+    "message": " Expected `PaymentAmount` for 5th parameter `amount` to call `routing.get_best_routes` but got `raiden.utils.typing.PaymentWithFeeAmount`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 164,
+    "warning_line": "        amount=from_transfer.lock.amount,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        to_address=from_transfer.target,\n        amount=from_transfer.lock.amount,\n        previous_address=transfer.sender,\n",
+        "source_code_len": 125,
+        "target_code": "        to_address=from_transfer.target,\n        amount=PaymentAmount(from_transfer.lock.amount),  # FIXME: mypy; deprecated through #3863\n        previous_address=transfer.sender,\n",
+        "target_code_len": 181,
+        "diff_format": "@@ -163,3 +163,3 @@\n         to_address=from_transfer.target,\n-        amount=from_transfer.lock.amount,\n+        amount=PaymentAmount(from_transfer.lock.amount),  # FIXME: mypy; deprecated through #3863\n         previous_address=transfer.sender,\n",
+        "source_code_with_indent": "        to_address=from_transfer.target,\n        amount=from_transfer.lock.amount,\n        previous_address=transfer.sender,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        to_address=from_transfer.target,\n        amount=PaymentAmount(from_transfer.lock.amount),  # FIXME: mypy; deprecated through #3863\n        previous_address=transfer.sender,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

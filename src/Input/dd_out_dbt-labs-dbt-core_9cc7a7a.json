@@ -1,0 +1,87 @@
+[
+  {
+    "project": "dbt-labs/dbt-core",
+    "commit": "9cc7a7a87fcfdc2c558b91c9316efb22bf3fdb27",
+    "filename": "core/dbt/adapters/base/query_headers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbt-labs-dbt-core/core/dbt/adapters/base/query_headers.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/dbt/adapters/base/query_headers.py:59:11 Unsupported operand [58]: `in` is not supported for right operand type `Optional[str]`.",
+    "message": " `in` is not supported for right operand type `Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 59,
+    "warning_line": "        if '*/' in comment:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def set(self, comment: Optional[str]):\n        if '*/' in comment:\n            # tell the user \"no\" so they don't hurt themselves by writing\n",
+        "source_code_len": 145,
+        "target_code": "    def set(self, comment: Optional[str]):\n        if isinstance(comment, str) and '*/' in comment:\n            # tell the user \"no\" so they don't hurt themselves by writing\n",
+        "target_code_len": 174,
+        "diff_format": "@@ -58,3 +58,3 @@\n     def set(self, comment: Optional[str]):\n-        if '*/' in comment:\n+        if isinstance(comment, str) and '*/' in comment:\n             # tell the user \"no\" so they don't hurt themselves by writing\n",
+        "source_code_with_indent": "    <DED><DED>def set(self, comment: Optional[str]):\n        <IND>if '*/' in comment:\n            # tell the user \"no\" so they don't hurt themselves by writing\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>def set(self, comment: Optional[str]):\n        <IND>if isinstance(comment, str) and '*/' in comment:\n            # tell the user \"no\" so they don't hurt themselves by writing\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dbt-labs/dbt-core",
+    "commit": "9cc7a7a87fcfdc2c558b91c9316efb22bf3fdb27",
+    "filename": "core/dbt/adapters/base/query_headers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbt-labs-dbt-core/core/dbt/adapters/base/query_headers.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/dbt/adapters/base/query_headers.py:81:16 Incompatible parameter type [6]: Expected `typing.Iterable[str]` for 1st positional only parameter to call `str.join` but got `typing.Tuple[str, Optional[str], str]`.",
+    "message": " Expected `typing.Iterable[str]` for 1st positional only parameter to call `str.join` but got `typing.Tuple[str, Optional[str], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 81,
+    "warning_line": "                '{%- macro query_comment_macro(connection_name, node) -%}',",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if comment_macro:\n            macro = '\\n'.join((\n                '{%- macro query_comment_macro(connection_name, node) -%}',\n                self._get_comment_macro(),\n                '{% endmacro %}'\n",
+        "source_code_len": 210,
+        "target_code": "        if comment_macro:\n            assert isinstance(comment_macro, str)\n            macro = '\\n'.join((\n                '{%- macro query_comment_macro(connection_name, node) -%}',\n                comment_macro,\n                '{% endmacro %}'\n",
+        "target_code_len": 248,
+        "diff_format": "@@ -79,5 +79,6 @@\n         if comment_macro:\n+            assert isinstance(comment_macro, str)\n             macro = '\\n'.join((\n                 '{%- macro query_comment_macro(connection_name, node) -%}',\n-                self._get_comment_macro(),\n+                comment_macro,\n                 '{% endmacro %}'\n",
+        "source_code_with_indent": "        if comment_macro:\n            <IND>macro = '\\n'.join((\n                '{%- macro query_comment_macro(connection_name, node) -%}',\n                self._get_comment_macro(),\n                '{% endmacro %}'\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if comment_macro:\n            <IND>assert isinstance(comment_macro, str)\n            macro = '\\n'.join((\n                '{%- macro query_comment_macro(connection_name, node) -%}',\n                comment_macro,\n                '{% endmacro %}'\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dbt-labs/dbt-core",
+    "commit": "9cc7a7a87fcfdc2c558b91c9316efb22bf3fdb27",
+    "filename": "core/dbt/adapters/base/relation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbt-labs-dbt-core/core/dbt/adapters/base/relation.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/dbt/adapters/base/relation.py:482:15 Call error [29]: `Variable[Self (bound to BaseRelation)]` is not a function.",
+    "message": " `Variable[Self (bound to BaseRelation)]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 482,
+    "warning_line": "        return cls("
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "project": "easybuilders/easybuild-framework",
+    "commit": "f5a7af06f46e2e8752c08ad05a342b87a82ecad7",
+    "filename": "easybuild/framework/easyconfig/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/easybuilders-easybuild-framework/easybuild/framework/easyconfig/types.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "easybuild/framework/easyconfig/types.py:415:4 Unbound name [10]: Name `STRING_AND_LISTS` is used but not defined in the current scope.",
+    "message": " Name `STRING_AND_LISTS` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 415,
+    "warning_line": "    STRING_AND_LISTS: to_list_of_strings_and_tuples,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef to_list_of_strings_and_tuples(os_dep_specs):\n    os_dep_list = []\n    for os_dep in os_dep_specs:\n        if isinstance(os_dep, basestring):\n            os_dep_list.append(os_dep)\n        elif isinstance(os_dep, list):\n            os_dep_list.append(tuple(os_dep))\n        else:\n            raise EasyBuildError(\"Expected osdependency to be of type string or list, got %s (%s)\", os_dep, type(os_dep))\n\n    return os_dep_list\n\n",
+        "source_code_len": 431,
+        "target_code": "\ndef to_list_of_strings_and_tuples(list_string_spec):\n    \"\"\"\n    Convert a list of lists and strings to a list of tuples and strings\n    \"\"\"\n    str_tup_list = []\n    for elem in list_string_spec:\n        if isinstance(elem, basestring):\n            str_tup_list.append(elem)\n        elif isinstance(elem, list):\n            str_tup_list.append(tuple(elem))\n        elif isinstance(elem, tuple):\n            str_tup_list.append(elem)\n        else:\n            raise EasyBuildError(\"Expected elements to be of type string, tuple or list, got %s (%s)\", elem, type(elem))\n\n    return str_tup_list\n\n\ndef to_sanity_check_dict(sanity_check_spec):\n    \"\"\"\n    Convert a sanity_check_paths dict as received by yaml (a dict with list values that contain either lists or strings)\n\n    Example:\n        {'files': ['file1', ['file2a', 'file2b]], 'dirs': ['foo/bar']}\n        to\n        {'files':['file1', ('file2a', 'file2b')], 'dirs':['foo/bar']}\n    \"\"\"\n    sanity_check_dict = {}\n    for key in sanity_check_specs:\n        sanity_check_dict[key] = to_list_of_strings_and_tuples(key)\n    return sanity_check_dict\n\n\n",
+        "target_code_len": 1106,
+        "diff_format": "@@ -289,13 +289,34 @@\n \n-def to_list_of_strings_and_tuples(os_dep_specs):\n-    os_dep_list = []\n-    for os_dep in os_dep_specs:\n-        if isinstance(os_dep, basestring):\n-            os_dep_list.append(os_dep)\n-        elif isinstance(os_dep, list):\n-            os_dep_list.append(tuple(os_dep))\n-        else:\n-            raise EasyBuildError(\"Expected osdependency to be of type string or list, got %s (%s)\", os_dep, type(os_dep))\n-\n-    return os_dep_list\n+def to_list_of_strings_and_tuples(list_string_spec):\n+    \"\"\"\n+    Convert a list of lists and strings to a list of tuples and strings\n+    \"\"\"\n+    str_tup_list = []\n+    for elem in list_string_spec:\n+        if isinstance(elem, basestring):\n+            str_tup_list.append(elem)\n+        elif isinstance(elem, list):\n+            str_tup_list.append(tuple(elem))\n+        elif isinstance(elem, tuple):\n+            str_tup_list.append(elem)\n+        else:\n+            raise EasyBuildError(\"Expected elements to be of type string, tuple or list, got %s (%s)\", elem, type(elem))\n+\n+    return str_tup_list\n+\n+\n+def to_sanity_check_dict(sanity_check_spec):\n+    \"\"\"\n+    Convert a sanity_check_paths dict as received by yaml (a dict with list values that contain either lists or strings)\n+\n+    Example:\n+        {'files': ['file1', ['file2a', 'file2b]], 'dirs': ['foo/bar']}\n+        to\n+        {'files':['file1', ('file2a', 'file2b')], 'dirs':['foo/bar']}\n+    \"\"\"\n+    sanity_check_dict = {}\n+    for key in sanity_check_specs:\n+        sanity_check_dict[key] = to_list_of_strings_and_tuples(key)\n+    return sanity_check_dict\n+\n \n",
+        "source_code_with_indent": "\n<DED>def to_list_of_strings_and_tuples(os_dep_specs):\n    <IND>os_dep_list = []\n    for os_dep in os_dep_specs:\n        <IND>if isinstance(os_dep, basestring):\n            <IND>os_dep_list.append(os_dep)\n        <DED>elif isinstance(os_dep, list):\n            <IND>os_dep_list.append(tuple(os_dep))\n        <DED>else:\n            <IND>raise EasyBuildError(\"Expected osdependency to be of type string or list, got %s (%s)\", os_dep, type(os_dep))\n\n    <DED><DED>return os_dep_list\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def to_list_of_strings_and_tuples(list_string_spec):\n    <IND>\"\"\"\n    Convert a list of lists and strings to a list of tuples and strings\n    \"\"\"\n    str_tup_list = []\n    for elem in list_string_spec:\n        <IND>if isinstance(elem, basestring):\n            <IND>str_tup_list.append(elem)\n        <DED>elif isinstance(elem, list):\n            <IND>str_tup_list.append(tuple(elem))\n        <DED>elif isinstance(elem, tuple):\n            <IND>str_tup_list.append(elem)\n        <DED>else:\n            <IND>raise EasyBuildError(\"Expected elements to be of type string, tuple or list, got %s (%s)\", elem, type(elem))\n\n    <DED><DED>return str_tup_list\n\n\n<DED>def to_sanity_check_dict(sanity_check_spec):\n    <IND>\"\"\"\n    Convert a sanity_check_paths dict as received by yaml (a dict with list values that contain either lists or strings)\n\n    Example:\n        {'files': ['file1', ['file2a', 'file2b]], 'dirs': ['foo/bar']}\n        to\n        {'files':['file1', ('file2a', 'file2b')], 'dirs':['foo/bar']}\n    \"\"\"\n    sanity_check_dict = {}\n    for key in sanity_check_specs:\n        <IND>sanity_check_dict[key] = to_list_of_strings_and_tuples(key)\n    <DED>return sanity_check_dict\n\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "DEPENDENCIES = (list, as_hashable({'elem_types': [DEPENDENCY_DICT]}))\nCHECKABLE_TYPES = [DEPENDENCIES, DEPENDENCY_DICT, NAME_VERSION_DICT]\n\n",
+        "source_code_len": 140,
+        "target_code": "DEPENDENCIES = (list, as_hashable({'elem_types': [DEPENDENCY_DICT]}))\nSTRING_OR_TUPLE_LIST = (list, as_hashable({'elem_types': [str, tuple]}))\nSANITY_CHECK_DICT = (dict, as_hashable({\n    'req_keys': ['files', 'dirs'],\n    'elem_types': {\n        'files': STRING_OR_TUPLE_LIST,\n        'dirs': STRING_OR_TUPLE_LIST,\n    }\n}))\nCHECKABLE_TYPES = [DEPENDENCIES, DEPENDENCY_DICT, NAME_VERSION_DICT, SANITY_CHECK_DICT, STRING_OR_TUPLE_LIST]\n\n",
+        "target_code_len": 437,
+        "diff_format": "@@ -394,3 +415,11 @@\n DEPENDENCIES = (list, as_hashable({'elem_types': [DEPENDENCY_DICT]}))\n-CHECKABLE_TYPES = [DEPENDENCIES, DEPENDENCY_DICT, NAME_VERSION_DICT]\n+STRING_OR_TUPLE_LIST = (list, as_hashable({'elem_types': [str, tuple]}))\n+SANITY_CHECK_DICT = (dict, as_hashable({\n+    'req_keys': ['files', 'dirs'],\n+    'elem_types': {\n+        'files': STRING_OR_TUPLE_LIST,\n+        'dirs': STRING_OR_TUPLE_LIST,\n+    }\n+}))\n+CHECKABLE_TYPES = [DEPENDENCIES, DEPENDENCY_DICT, NAME_VERSION_DICT, SANITY_CHECK_DICT, STRING_OR_TUPLE_LIST]\n \n",
+        "source_code_with_indent": "DEPENDENCIES = (list, as_hashable({'elem_types': [DEPENDENCY_DICT]}))\nCHECKABLE_TYPES = [DEPENDENCIES, DEPENDENCY_DICT, NAME_VERSION_DICT]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "DEPENDENCIES = (list, as_hashable({'elem_types': [DEPENDENCY_DICT]}))\nSTRING_OR_TUPLE_LIST = (list, as_hashable({'elem_types': [str, tuple]}))\nSANITY_CHECK_DICT = (dict, as_hashable({\n    'req_keys': ['files', 'dirs'],\n    'elem_types': {\n        'files': STRING_OR_TUPLE_LIST,\n        'dirs': STRING_OR_TUPLE_LIST,\n    }\n}))\nCHECKABLE_TYPES = [DEPENDENCIES, DEPENDENCY_DICT, NAME_VERSION_DICT, SANITY_CHECK_DICT, STRING_OR_TUPLE_LIST]\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    NAME_VERSION_DICT: to_name_version_dict,\n    STRING_AND_LISTS: to_list_of_strings_and_tuples,\n}\n",
+        "source_code_len": 100,
+        "target_code": "    NAME_VERSION_DICT: to_name_version_dict,\n    SANITY_CHECK_DICT: to_sanity_check_dict,\n    STRING_OR_TUPLE_LIST: to_list_of_strings_and_tuples,\n}\n",
+        "target_code_len": 149,
+        "diff_format": "@@ -414,3 +445,4 @@\n     NAME_VERSION_DICT: to_name_version_dict,\n-    STRING_AND_LISTS: to_list_of_strings_and_tuples,\n+    SANITY_CHECK_DICT: to_sanity_check_dict,\n+    STRING_OR_TUPLE_LIST: to_list_of_strings_and_tuples,\n }\n",
+        "source_code_with_indent": "    NAME_VERSION_DICT: to_name_version_dict,\n    STRING_AND_LISTS: to_list_of_strings_and_tuples,\n}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    NAME_VERSION_DICT: to_name_version_dict,\n    SANITY_CHECK_DICT: to_sanity_check_dict,\n    STRING_OR_TUPLE_LIST: to_list_of_strings_and_tuples,\n}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

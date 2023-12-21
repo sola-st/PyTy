@@ -1,0 +1,79 @@
+[
+  {
+    "isolated_code_change": "-        style: Union[str, Style] = None,\n+        style: Union[str, Style] = \"none\",\n",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_VAL",
+    "involved_types": [
+      "Union",
+      "Style", 
+      "str",
+      "None"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Union[Style, str]",
+      "to": "str"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rich/text.py:92:8 Incompatible variable type [9]: style is declared to have type `Union[Style, str]` but is used as type `None`.",
+    "url": "https://github.com/willmcgugan/rich/commit/6fc2bbe",
+    "repo": "https://github.com/willmcgugan/rich",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_VALUE_OF_TYPE"
+  },
+  {
+    "isolated_code_change": "-    total: int = None,\n+    total: Optional[float] = None,\n",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["int", "Optional", "float"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "Optional[float]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rich/progress.py:86:4 Incompatible variable type [9]: total is declared to have type `int` but is used as type `None`.",
+    "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
+    "repo": "https://github.com/willmcgugan/rich",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  },
+  {
+    "isolated_code_change": "-        total: int = None,\n+        total: Optional[float] = None,\n",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["int", "Optional", "float"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "Optional[float]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rich/progress.py:653:8 Incompatible variable type [9]: total is declared to have type `int` but is used as type `None`.",
+    "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
+    "repo": "https://github.com/willmcgugan/rich",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  },
+  {
+    "isolated_code_change": "-        total: float = None,\n+        total: Optional[float] = None,\n",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["Optional", "float"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "float",
+      "to": "Optional[float]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rich/progress.py:732:8 Incompatible variable type [9]: total is declared to have type `float` but is used as type `None`.",
+    "url": "https://github.com/willmcgugan/rich/commit/8607fa3",
+    "repo": "https://github.com/willmcgugan/rich",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  }
+]

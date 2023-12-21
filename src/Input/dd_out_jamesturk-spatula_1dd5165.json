@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jamesturk/spatula",
+    "commit": "1dd5165ccf71a994e4a8f7e68641e2f1340ed4dc",
+    "filename": "src/spatula/workflow.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jamesturk-spatula/src/spatula/workflow.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/spatula/workflow.py:13:8 Incompatible return type [7]: Expected `typing.Optional[typing.Dict[typing.Any, typing.Any]]` but got `typing.Union[None, typing.Dict[typing.Any, typing.Any], str]`.",
+    "message": " Expected `typing.Optional[typing.Dict[typing.Any, typing.Any]]` but got `typing.Union[None, typing.Dict[typing.Any, typing.Any], str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 13,
+    "warning_line": "        return obj",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _to_dict(obj: typing.Any) -> typing.Optional[typing.Dict]:\n    if obj is None or isinstance(obj, (str, dict)):\n        return obj\n",
+        "source_code_len": 134,
+        "target_code": "def _to_dict(obj: typing.Any) -> typing.Optional[typing.Dict]:\n    if obj is None or isinstance(obj, dict):\n        return obj\n",
+        "target_code_len": 127,
+        "diff_format": "@@ -11,3 +11,3 @@\n def _to_dict(obj: typing.Any) -> typing.Optional[typing.Dict]:\n-    if obj is None or isinstance(obj, (str, dict)):\n+    if obj is None or isinstance(obj, dict):\n         return obj\n",
+        "source_code_with_indent": "def _to_dict(obj: typing.Any) -> typing.Optional[typing.Dict]:\n    <IND>if obj is None or isinstance(obj, (str, dict)):\n        <IND>return obj\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def _to_dict(obj: typing.Any) -> typing.Optional[typing.Dict]:\n    <IND>if obj is None or isinstance(obj, dict):\n        <IND>return obj\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

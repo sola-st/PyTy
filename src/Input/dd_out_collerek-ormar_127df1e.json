@@ -1,0 +1,70 @@
+[
+  {
+    "project": "collerek/ormar",
+    "commit": "127df1e9cb4aa6060842a39f459854d059ce18b0",
+    "filename": "ormar/models/newbasemodel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/collerek-ormar/ormar/models/newbasemodel.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ormar/models/newbasemodel.py:833:20 Incompatible parameter type [6]: Expected `ormar.models.model.Model` for 2nd parameter `child` to call `RelationsManager.add` but got `Variable[T (bound to NewBaseModel)]`.",
+    "message": " Expected `ormar.models.model.Model` for 2nd parameter `child` to call `RelationsManager.add` but got `Variable[T (bound to NewBaseModel)]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 833,
+    "warning_line": "                    child=model,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    parent=child,\n                    child=model,\n                    field=relation_field,\n                )\n",
+        "source_code_len": 127,
+        "target_code": "                    parent=child,\n                    child=cast(\"Model\", model),\n                    field=cast(\"ForeignKeyField\", relation_field),\n                )\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -832,4 +832,4 @@\n                     parent=child,\n-                    child=model,\n-                    field=relation_field,\n+                    child=cast(\"Model\", model),\n+                    field=cast(\"ForeignKeyField\", relation_field),\n                 )\n",
+        "source_code_with_indent": "                    parent=child,\n                    child=model,\n                    field=relation_field,\n                )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    parent=child,\n                    child=cast(\"Model\", model),\n                    field=cast(\"ForeignKeyField\", relation_field),\n                )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "collerek/ormar",
+    "commit": "127df1e9cb4aa6060842a39f459854d059ce18b0",
+    "filename": "ormar/models/newbasemodel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/collerek-ormar/ormar/models/newbasemodel.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ormar/models/newbasemodel.py:834:20 Incompatible parameter type [6]: Expected `ForeignKeyField` for 3rd parameter `field` to call `RelationsManager.add` but got `Union[ForeignKeyField, ormar.fields.base.BaseField, ormar.fields.many_to_many.ManyToManyField]`.",
+    "message": " Expected `ForeignKeyField` for 3rd parameter `field` to call `RelationsManager.add` but got `Union[ForeignKeyField, ormar.fields.base.BaseField, ormar.fields.many_to_many.ManyToManyField]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 834,
+    "warning_line": "                    field=relation_field,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    parent=child,\n                    child=model,\n                    field=relation_field,\n                )\n",
+        "source_code_len": 127,
+        "target_code": "                    parent=child,\n                    child=cast(\"Model\", model),\n                    field=cast(\"ForeignKeyField\", relation_field),\n                )\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -832,4 +832,4 @@\n                     parent=child,\n-                    child=model,\n-                    field=relation_field,\n+                    child=cast(\"Model\", model),\n+                    field=cast(\"ForeignKeyField\", relation_field),\n                 )\n",
+        "source_code_with_indent": "                    parent=child,\n                    child=model,\n                    field=relation_field,\n                )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    parent=child,\n                    child=cast(\"Model\", model),\n                    field=cast(\"ForeignKeyField\", relation_field),\n                )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

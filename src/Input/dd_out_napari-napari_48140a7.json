@@ -1,0 +1,36 @@
+[
+  {
+    "project": "napari/napari",
+    "commit": "48140a754e0cc54a685cf191d737644cbbe8484b",
+    "filename": "napari/layers/image/experimental/octree_intersection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/napari-napari/napari/layers/image/experimental/octree_intersection.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "napari/layers/image/experimental/octree_intersection.py:129:63 Incompatible parameter type [6]: Expected `Tuple[float, float]` for 3rd positional only parameter to call `ChunkData.__init__` but got `List[int]`.",
+    "message": " Expected `Tuple[float, float]` for 3rd positional only parameter to call `ChunkData.__init__` but got `List[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 129,
+    "warning_line": "                    chunks.append(ChunkData(level_index, data, pos, scale_vec))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                data = self.level.tiles[row][col]\n                pos = [x, y]\n\n",
+        "source_code_len": 80,
+        "target_code": "                data = self.level.tiles[row][col]\n                pos = np.array([x, y], dtype=np.float32)\n\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -122,3 +122,3 @@\n                 data = self.level.tiles[row][col]\n-                pos = [x, y]\n+                pos = np.array([x, y], dtype=np.float32)\n \n",
+        "source_code_with_indent": "                <IND>data = self.level.tiles[row][col]\n                pos = [x, y]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>data = self.level.tiles[row][col]\n                pos = np.array([x, y], dtype=np.float32)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

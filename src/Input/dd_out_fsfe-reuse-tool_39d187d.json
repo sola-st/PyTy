@@ -1,0 +1,70 @@
+[
+  {
+    "project": "fsfe/reuse-tool",
+    "commit": "39d187d4c49449d52379e80b9e502d3b75ca4f4d",
+    "filename": "src/reuse/_util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fsfe-reuse-tool/src/reuse/_util.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/reuse/_util.py:224:4 Incompatible return type [7]: Expected `None` but got `SpdxInfo`.",
+    "message": " Expected `None` but got `SpdxInfo`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 224,
+    "warning_line": "    return SpdxInfo(expressions, copyright_matches)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef extract_spdx_info(text: str) -> None:\n    \"\"\"Extract SPDX information from comments in a string.\n",
+        "source_code_len": 102,
+        "target_code": "\ndef extract_spdx_info(text: str) -> SpdxInfo:\n    \"\"\"Extract SPDX information from comments in a string.\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -201,3 +201,3 @@\n \n-def extract_spdx_info(text: str) -> None:\n+def extract_spdx_info(text: str) -> SpdxInfo:\n     \"\"\"Extract SPDX information from comments in a string.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def extract_spdx_info(text: str) -> None:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def extract_spdx_info(text: str) -> SpdxInfo:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "fsfe/reuse-tool",
+    "commit": "39d187d4c49449d52379e80b9e502d3b75ca4f4d",
+    "filename": "src/reuse/_util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fsfe-reuse-tool/src/reuse/_util.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/reuse/_util.py:230:19 Incompatible parameter type [6]: Expected `typing.Iterable[object]` for 1st positional only parameter to call `any` but got `None`.",
+    "message": " Expected `typing.Iterable[object]` for 1st positional only parameter to call `any` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 230,
+    "warning_line": "        return any(extract_spdx_info(text))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef extract_spdx_info(text: str) -> None:\n    \"\"\"Extract SPDX information from comments in a string.\n",
+        "source_code_len": 102,
+        "target_code": "\ndef extract_spdx_info(text: str) -> SpdxInfo:\n    \"\"\"Extract SPDX information from comments in a string.\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -201,3 +201,3 @@\n \n-def extract_spdx_info(text: str) -> None:\n+def extract_spdx_info(text: str) -> SpdxInfo:\n     \"\"\"Extract SPDX information from comments in a string.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def extract_spdx_info(text: str) -> None:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def extract_spdx_info(text: str) -> SpdxInfo:\n    <IND>"
+      }
+    ]
+  }
+]

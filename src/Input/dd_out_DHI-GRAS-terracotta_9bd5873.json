@@ -1,0 +1,36 @@
+[
+  {
+    "project": "DHI-GRAS/terracotta",
+    "commit": "9bd58730f551258353c81c6e792b010c008cfc23",
+    "filename": "terracotta/scripts/optimize_rasters.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DHI-GRAS-terracotta/terracotta/scripts/optimize_rasters.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "terracotta/scripts/optimize_rasters.py:154:21 Incompatible variable type [9]: in_memory is declared to have type `bool` but is used as type `None`.",
+    "message": " in_memory is declared to have type `bool` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 154,
+    "warning_line": "                     in_memory: bool = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                     reproject: bool = False,\n                     in_memory: bool = None,\n                     compression: str = 'auto',\n                     quiet: bool = False) -> None:\n",
+        "source_code_len": 190,
+        "target_code": "                     reproject: bool = False,\n                     in_memory: Union[bool, None] = None,\n                     compression: str = 'auto',\n                     nproc: int = 1,\n                     quiet: bool = False) -> None:\n",
+        "target_code_len": 240,
+        "diff_format": "@@ -153,4 +232,5 @@\n                      reproject: bool = False,\n-                     in_memory: bool = None,\n+                     in_memory: Union[bool, None] = None,\n                      compression: str = 'auto',\n+                     nproc: int = 1,\n                      quiet: bool = False) -> None:\n",
+        "source_code_with_indent": "                     reproject: bool = False,\n                     in_memory: bool = None,\n                     compression: str = 'auto',\n                     quiet: bool = False) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                     reproject: bool = False,\n                     in_memory: Union[bool, None] = None,\n                     compression: str = 'auto',\n                     nproc: int = 1,\n                     quiet: bool = False) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

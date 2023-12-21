@@ -1,0 +1,36 @@
+[
+  {
+    "project": "activeloopai/Hub",
+    "commit": "7a4ec00e5ea55bef74161573b768ad1a173db80b",
+    "filename": "hub/api/tensor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/api/tensor.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/api/tensor.py:29:45 Incompatible parameter type [6]: Expected `slice` for 2nd positional only parameter to call `merge_slices` but got `Union[int, slice]`.",
+    "message": " Expected `slice` for 2nd positional only parameter to call `merge_slices` but got `Union[int, slice]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 29,
+    "warning_line": "        new_slice = merge_slices(self.slice, tensor_slice)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __getitem__(self, tensor_slice: Union[int, slice]):\n        if isinstance(item, int):\n            item = slice(item, item + 1)\n        new_slice = merge_slices(self.slice, tensor_slice)\n        return Tensor(self.uuid, new_slice)\n\n",
+        "source_code_len": 240,
+        "target_code": "\n    def __getitem__(self, item: Union[int, slice]):\n        if isinstance(item, int):\n            item = slice(item, item + 1)\n\n        if isinstance(item, slice):\n            new_slice = merge_slices(self.slice, item)\n            return Tensor(self.uuid, new_slice)\n\n",
+        "target_code_len": 269,
+        "diff_format": "@@ -25,7 +25,9 @@\n \n-    def __getitem__(self, tensor_slice: Union[int, slice]):\n+    def __getitem__(self, item: Union[int, slice]):\n         if isinstance(item, int):\n             item = slice(item, item + 1)\n-        new_slice = merge_slices(self.slice, tensor_slice)\n-        return Tensor(self.uuid, new_slice)\n+\n+        if isinstance(item, slice):\n+            new_slice = merge_slices(self.slice, item)\n+            return Tensor(self.uuid, new_slice)\n \n",
+        "source_code_with_indent": "\n    <DED>def __getitem__(self, tensor_slice: Union[int, slice]):\n        <IND>if isinstance(item, int):\n            <IND>item = slice(item, item + 1)\n        <DED>new_slice = merge_slices(self.slice, tensor_slice)\n        return Tensor(self.uuid, new_slice)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __getitem__(self, item: Union[int, slice]):\n        <IND>if isinstance(item, int):\n            <IND>item = slice(item, item + 1)\n\n        <DED>if isinstance(item, slice):\n            <IND>new_slice = merge_slices(self.slice, item)\n            return Tensor(self.uuid, new_slice)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "goodboy/tractor",
+    "commit": "c58a6ea80f6a8af6ffc14d9d29e506dfa351547a",
+    "filename": "tractor/msg.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/msg.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/msg.py:30:27 Call error [29]: `typing.AsyncGenerator[typing.Any, typing.Any]` is not a function.",
+    "message": " `typing.AsyncGenerator[typing.Any, typing.Any]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 30,
+    "warning_line": "    async for published in pub_gen(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "async def fan_out_to_ctxs(\n    pub_gen: typing.AsyncGenerator,\n    topics2ctxs: Dict[str, Context],\n    topic_key: str = 'key',\n",
+        "source_code_len": 128,
+        "target_code": "async def fan_out_to_ctxs(\n    pub_gen: typing.Callable,  # it's an async gen ... gd mypy\n    topics2ctxs: Dict[str, set],\n    topic_key: str = 'key',\n",
+        "target_code_len": 151,
+        "diff_format": "@@ -20,4 +19,4 @@\n async def fan_out_to_ctxs(\n-    pub_gen: typing.AsyncGenerator,\n-    topics2ctxs: Dict[str, Context],\n+    pub_gen: typing.Callable,  # it's an async gen ... gd mypy\n+    topics2ctxs: Dict[str, set],\n     topic_key: str = 'key',\n",
+        "source_code_with_indent": "async def fan_out_to_ctxs(\n    pub_gen: typing.AsyncGenerator,\n    topics2ctxs: Dict[str, Context],\n    topic_key: str = 'key',\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "async def fan_out_to_ctxs(\n    pub_gen: typing.Callable,  # it's an async gen ... gd mypy\n    topics2ctxs: Dict[str, set],\n    topic_key: str = 'key',\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

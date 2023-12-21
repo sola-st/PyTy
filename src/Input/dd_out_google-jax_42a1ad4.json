@@ -1,0 +1,36 @@
+[
+  {
+    "project": "google/jax",
+    "commit": "42a1ad4307a0664ab514050cc8f58939d3766bdb",
+    "filename": "jax/numpy/lax_numpy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-jax/jax/numpy/lax_numpy.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jax/numpy/lax_numpy.py:162:40 Unbound name [10]: Name `long` is used but not defined in the current scope.",
+    "message": " Name `long` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 162,
+    "warning_line": "  _builtin_numeric_types = (int, float, long, complex)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            if _dtype(x) != to_dtype else x for x in args]\n\nif six.PY3:\n  _builtin_numeric_types = (int, float, complex)\nelse:\n  _builtin_numeric_types = (int, float, long, complex)\n\n",
+        "source_code_len": 183,
+        "target_code": "            if _dtype(x) != to_dtype else x for x in args]\n\n",
+        "target_code_len": 60,
+        "diff_format": "@@ -157,7 +156,2 @@\n             if _dtype(x) != to_dtype else x for x in args]\n-\n-if six.PY3:\n-  _builtin_numeric_types = (int, float, complex)\n-else:\n-  _builtin_numeric_types = (int, float, long, complex)\n \n",
+        "source_code_with_indent": "            if _dtype(x) != to_dtype else x for x in args]\n\n<DED><DED>if six.PY3:\n  <IND>_builtin_numeric_types = (int, float, complex)\n<DED>else:\n  <IND>_builtin_numeric_types = (int, float, long, complex)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            if _dtype(x) != to_dtype else x for x in args]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

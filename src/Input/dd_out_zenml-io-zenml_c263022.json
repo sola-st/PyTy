@@ -1,0 +1,36 @@
+[
+  {
+    "project": "zenml-io/zenml",
+    "commit": "c263022c4f5a454c51490de1dbc5b83eebc3bb54",
+    "filename": "src/zenml/cli/example.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/zenml-io-zenml/src/zenml/cli/example.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/zenml/cli/example.py:168:19 Incompatible variable type [9]: version is declared to have type `str` but is used as type `None`.",
+    "message": " version is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 168,
+    "warning_line": "    def pull(self, version: str = None, force: bool = False) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def pull(self, version: str = None, force: bool = False) -> None:\n        \"\"\"Pulls the examples from the main git examples repository.\"\"\"\n        if version is None:\n            version = self.examples_repo.latest_release\n",
+        "source_code_len": 227,
+        "target_code": "\n    def pull(self, version: str = \"\", force: bool = False) -> None:\n        \"\"\"Pulls the examples from the main git examples repository.\"\"\"\n        if version == \"\":\n            version = self.examples_repo.latest_release\n",
+        "target_code_len": 223,
+        "diff_format": "@@ -167,5 +169,5 @@\n \n-    def pull(self, version: str = None, force: bool = False) -> None:\n+    def pull(self, version: str = \"\", force: bool = False) -> None:\n         \"\"\"Pulls the examples from the main git examples repository.\"\"\"\n-        if version is None:\n+        if version == \"\":\n             version = self.examples_repo.latest_release\n",
+        "source_code_with_indent": "\n    <DED>def pull(self, version: str = None, force: bool = False) -> None:\n        <IND>\"\"\"Pulls the examples from the main git examples repository.\"\"\"\n        if version is None:\n            <IND>version = self.examples_repo.latest_release\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def pull(self, version: str = \"\", force: bool = False) -> None:\n        <IND>\"\"\"Pulls the examples from the main git examples repository.\"\"\"\n        if version == \"\":\n            <IND>version = self.examples_repo.latest_release\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

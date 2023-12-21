@@ -1,0 +1,79 @@
+[
+  {
+    "project": "matrix-org/synapse",
+    "commit": "0dda1a79687b8375dd5b23763ba1585e5dad030d",
+    "filename": "tests/rest/client/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-synapse/tests/rest/client/utils.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/rest/client/utils.py:109:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 109,
+    "warning_line": "            return channel.json_body[\"room_id\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        custom_headers: Optional[Iterable[Tuple[AnyStr, AnyStr]]] = None,\n    ) -> str:\n        \"\"\"\n",
+        "source_code_len": 100,
+        "target_code": "        custom_headers: Optional[Iterable[Tuple[AnyStr, AnyStr]]] = None,\n    ) -> Optional[str]:\n        \"\"\"\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -66,3 +93,3 @@\n         custom_headers: Optional[Iterable[Tuple[AnyStr, AnyStr]]] = None,\n-    ) -> str:\n+    ) -> Optional[str]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        custom_headers: Optional[Iterable[Tuple[AnyStr, AnyStr]]] = None,\n    ) -> str:\n        <IND>",
+        "target_code_with_indent": "        custom_headers: Optional[Iterable[Tuple[AnyStr, AnyStr]]] = None,\n    ) -> Optional[str]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "matrix-org/synapse",
+    "commit": "0dda1a79687b8375dd5b23763ba1585e5dad030d",
+    "filename": "tests/rest/client/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-synapse/tests/rest/client/utils.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/rest/client/utils.py:179:8 Incompatible variable type [9]: expect_errcode is declared to have type `str` but is used as type `None`.",
+    "message": " expect_errcode is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 179,
+    "warning_line": "        expect_errcode: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        expect_code: int = 200,\n        expect_errcode: str = None,\n    ) -> None:\n",
+        "source_code_len": 83,
+        "target_code": "        expect_code: int = 200,\n        expect_errcode: Optional[str] = None,\n    ) -> None:\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -178,3 +207,3 @@\n         expect_code: int = 200,\n-        expect_errcode: str = None,\n+        expect_errcode: Optional[str] = None,\n     ) -> None:\n",
+        "source_code_with_indent": "        expect_code: int = 200,\n        expect_errcode: str = None,\n    ) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        expect_code: int = 200,\n        expect_errcode: Optional[str] = None,\n    ) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "matrix-org/synapse",
+    "commit": "0dda1a79687b8375dd5b23763ba1585e5dad030d",
+    "filename": "tests/rest/client/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/rest/client/utils.py:280:12 Incompatible parameter type [6]: Expected `Optional[Iterable[Tuple[Variable[AnyStr <: [str, bytes]], Variable[AnyStr <: [str, bytes]]]]]` for 6th parameter `custom_headers` to call `make_request` but got `Optional[Iterable[Tuple[Union[bytes, str], Union[bytes, str]]]]`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  }
+]

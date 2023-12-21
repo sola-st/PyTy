@@ -1,0 +1,85 @@
+[
+  {
+    "project": "klen/pylama",
+    "commit": "8b410dd146a0348d7f91ed906583798dd5c28d39",
+    "filename": "pylama/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/klen-pylama/pylama/core.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pylama/core.py:29:25 Call error [29]: `typing.Optional[typing.Type[LinterV2]]` is not a function.",
+    "message": " `typing.Optional[typing.Type[LinterV2]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 29,
+    "warning_line": "                linter = LINTERS.get(lname)()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            for lname in ctx.linters or LINTERS:\n                linter = LINTERS.get(lname)()\n                LOGGER.info(\"Run [%s] %s\", lname, path)\n",
+        "source_code_len": 151,
+        "target_code": "            for lname in ctx.linters or LINTERS:\n                linter_cls = LINTERS.get(lname)\n                if not linter_cls:\n                    continue\n                linter = linter_cls()\n                LOGGER.info(\"Run [%s] %s\", lname, path)\n",
+        "target_code_len": 255,
+        "diff_format": "@@ -28,3 +32,6 @@\n             for lname in ctx.linters or LINTERS:\n-                linter = LINTERS.get(lname)()\n+                linter_cls = LINTERS.get(lname)\n+                if not linter_cls:\n+                    continue\n+                linter = linter_cls()\n                 LOGGER.info(\"Run [%s] %s\", lname, path)\n",
+        "source_code_with_indent": "            <IND>for lname in ctx.linters or LINTERS:\n                <IND>linter = LINTERS.get(lname)()\n                LOGGER.info(\"Run [%s] %s\", lname, path)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>for lname in ctx.linters or LINTERS:\n                <IND>linter_cls = LINTERS.get(lname)\n                if not linter_cls:\n                    <IND>continue\n                <DED>linter = linter_cls()\n                LOGGER.info(\"Run [%s] %s\", lname, path)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "klen/pylama",
+    "commit": "8b410dd146a0348d7f91ed906583798dd5c28d39",
+    "filename": "pylama/lint/pylama_fake.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/klen-pylama/pylama/lint/pylama_fake.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pylama/lint/pylama_fake.py:15:4 Inconsistent override [15]: `pylama.lint.pylama_fake.Linter.run` overrides method defined in `Abstract` inconsistently. Returned type `Iterator[Dict[str, typing.Any]]` is not a subtype of the overridden return `typing.List[Dict[str, typing.Any]]`.",
+    "message": " `pylama.lint.pylama_fake.Linter.run` overrides method defined in `Abstract` inconsistently. Returned type `Iterator[Dict[str, typing.Any]]` is not a subtype of the overridden return `typing.List[Dict[str, typing.Any]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 15,
+    "warning_line": "    def run(self, path: str, **_) -> Iterator[Dict[str, Any]]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Dict, Iterator, Any\n\n",
+        "source_code_len": 41,
+        "target_code": "\nfrom typing import Any, Dict, List\n\n",
+        "target_code_len": 37,
+        "diff_format": "@@ -2,3 +2,3 @@\n \n-from typing import Dict, Iterator, Any\n+from typing import Any, Dict, List\n \n",
+        "source_code_with_indent": "\nfrom typing import Dict, Iterator, Any\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Any, Dict, List\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def run(self, path: str, **_) -> Iterator[Dict[str, Any]]:\n        \"\"\"Run the unknown module.\"\"\"\n        return unknown_module.run(path)\n",
+        "source_code_len": 142,
+        "target_code": "\n    def run(self, _path: str, **_) -> List[Dict[str, Any]]:\n        \"\"\"Run the unknown module.\"\"\"\n        return unknown_module.run(_path)\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -14,4 +14,4 @@\n \n-    def run(self, path: str, **_) -> Iterator[Dict[str, Any]]:\n+    def run(self, _path: str, **_) -> List[Dict[str, Any]]:\n         \"\"\"Run the unknown module.\"\"\"\n-        return unknown_module.run(path)\n+        return unknown_module.run(_path)\n",
+        "source_code_with_indent": "\n    def run(self, path: str, **_) -> Iterator[Dict[str, Any]]:\n        <IND>\"\"\"Run the unknown module.\"\"\"\n        return unknown_module.run(path)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def run(self, _path: str, **_) -> List[Dict[str, Any]]:\n        <IND>\"\"\"Run the unknown module.\"\"\"\n        return unknown_module.run(_path)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

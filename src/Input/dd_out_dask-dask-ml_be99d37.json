@@ -1,0 +1,70 @@
+[
+  {
+    "project": "dask/dask-ml",
+    "commit": "be99d37bc363bcc0d26d21433bede2d2f95a3cb9",
+    "filename": "dask_ml/preprocessing/data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dask-dask-ml/dask_ml/preprocessing/data.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dask_ml/preprocessing/data.py:774:12 Incompatible variable type [9]: chunks is declared to have type `typing.Tuple[typing.Tuple[typing.Any, ...], typing.Any]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+    "message": " chunks is declared to have type `typing.Tuple[typing.Tuple[typing.Any, ...], typing.Any]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 774,
+    "warning_line": "            chunks = tuple(chunks[1:] - chunks[:-1])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                X = X.copy()\n                chunks: ArrayLike = (tuple(lengths), X.chunks[1])\n                X._chunks = chunks\n",
+        "source_code_len": 130,
+        "target_code": "                X = X.copy()\n                chunks: tuple = (tuple(lengths), X.chunks[1])\n                X._chunks = chunks\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -763,3 +764,3 @@\n                 X = X.copy()\n-                chunks: ArrayLike = (tuple(lengths), X.chunks[1])\n+                chunks: tuple = (tuple(lengths), X.chunks[1])\n                 X._chunks = chunks\n",
+        "source_code_with_indent": "                X = X.copy()\n                chunks: ArrayLike = (tuple(lengths), X.chunks[1])\n                X._chunks = chunks\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                X = X.copy()\n                chunks: tuple = (tuple(lengths), X.chunks[1])\n                X._chunks = chunks\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dask/dask-ml",
+    "commit": "be99d37bc363bcc0d26d21433bede2d2f95a3cb9",
+    "filename": "dask_ml/preprocessing/data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dask-dask-ml/dask_ml/preprocessing/data.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dask_ml/preprocessing/data.py:999:12 Incompatible variable type [9]: chunks is declared to have type `typing.Tuple[typing.Tuple[typing.Any, ...], typing.Any]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+    "message": " chunks is declared to have type `typing.Tuple[typing.Tuple[typing.Any, ...], typing.Any]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 999,
+    "warning_line": "            chunks = tuple(chunks[1:] - chunks[:-1])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                X = X.copy()\n                chunks: ArrayLike = (tuple(lengths), X.chunks[1])\n                X._chunks = chunks\n",
+        "source_code_len": 130,
+        "target_code": "                X = X.copy()\n                chunks: tuple = (tuple(lengths), X.chunks[1])\n                X._chunks = chunks\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -988,3 +989,3 @@\n                 X = X.copy()\n-                chunks: ArrayLike = (tuple(lengths), X.chunks[1])\n+                chunks: tuple = (tuple(lengths), X.chunks[1])\n                 X._chunks = chunks\n",
+        "source_code_with_indent": "                X = X.copy()\n                chunks: ArrayLike = (tuple(lengths), X.chunks[1])\n                X._chunks = chunks\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                X = X.copy()\n                chunks: tuple = (tuple(lengths), X.chunks[1])\n                X._chunks = chunks\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

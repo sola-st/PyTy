@@ -1,0 +1,36 @@
+[
+  {
+    "project": "explosion/sense2vec",
+    "commit": "ba85ecfec329e06871162b571a4a6942dc902950",
+    "filename": "scripts/05_export.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/explosion-sense2vec/scripts/05_export.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/05_export.py:61:52 Incompatible parameter type [6]: Expected `typing.List[str]` for 2nd parameter `senses` to call `sense2vec.sense2vec.Sense2Vec.__init__` but got `typing.Set[typing.Any]`.",
+    "message": " Expected `typing.List[str]` for 2nd parameter `senses` to call `sense2vec.sense2vec.Sense2Vec.__init__` but got `typing.Set[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 61,
+    "warning_line": "    s2v = Sense2Vec(shape=(n_vectors, vector_size), senses=all_senses)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    n_vectors = len(vectors) - len(discarded)\n    s2v = Sense2Vec(shape=(n_vectors, vector_size), senses=all_senses)\n    for key, vector in vectors.items():\n",
+        "source_code_len": 157,
+        "target_code": "    n_vectors = len(vectors) - len(discarded)\n    s2v = Sense2Vec(shape=(n_vectors, vector_size), senses=list(all_senses))\n    for key, vector in vectors.items():\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -60,3 +60,3 @@\n     n_vectors = len(vectors) - len(discarded)\n-    s2v = Sense2Vec(shape=(n_vectors, vector_size), senses=all_senses)\n+    s2v = Sense2Vec(shape=(n_vectors, vector_size), senses=list(all_senses))\n     for key, vector in vectors.items():\n",
+        "source_code_with_indent": "    n_vectors = len(vectors) - len(discarded)\n    s2v = Sense2Vec(shape=(n_vectors, vector_size), senses=all_senses)\n    for key, vector in vectors.items():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    n_vectors = len(vectors) - len(discarded)\n    s2v = Sense2Vec(shape=(n_vectors, vector_size), senses=list(all_senses))\n    for key, vector in vectors.items():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

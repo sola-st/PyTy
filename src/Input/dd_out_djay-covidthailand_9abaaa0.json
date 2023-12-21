@@ -1,0 +1,36 @@
+[
+  {
+    "project": "djay/covidthailand",
+    "commit": "9abaaa0feeb36255e2c1f3968ca02883745b2360",
+    "filename": "covidthailand.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/djay-covidthailand/covidthailand.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "covidthailand.py:2652:81 Invalid type [31]: Expression `collections.abc.Callable[(int, int)]` is not a valid type.",
+    "message": " Expression `collections.abc.Callable[(int, int)]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 2652,
+    "warning_line": "              reverse_cmap: bool = False, highlight_first: int = 0, y_formatter: Callable[int,int] = human_format,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "              unknown_name: str = 'Unknown', unknown_total: str = None, ma_days: int = None, cmap: str = 'tab20',\n              reverse_cmap: bool = False, highlight_first: int = 0, y_formatter: Callable[int,int] = human_format,\n              clean_end = True) -> None:\n",
+        "source_code_len": 270,
+        "target_code": "              unknown_name: str = 'Unknown', unknown_total: str = None, ma_days: int = None, cmap: str = 'tab20',\n              reverse_cmap: bool = False, highlight_first: int = 0, y_formatter: Callable[[int,int], str] = human_format,\n              clean_end = True) -> None:\n",
+        "target_code_len": 277,
+        "diff_format": "@@ -2651,3 +2651,3 @@\n               unknown_name: str = 'Unknown', unknown_total: str = None, ma_days: int = None, cmap: str = 'tab20',\n-              reverse_cmap: bool = False, highlight_first: int = 0, y_formatter: Callable[int,int] = human_format,\n+              reverse_cmap: bool = False, highlight_first: int = 0, y_formatter: Callable[[int,int], str] = human_format,\n               clean_end = True) -> None:\n",
+        "source_code_with_indent": "              unknown_name: str = 'Unknown', unknown_total: str = None, ma_days: int = None, cmap: str = 'tab20',\n              reverse_cmap: bool = False, highlight_first: int = 0, y_formatter: Callable[int,int] = human_format,\n              clean_end = True) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "              unknown_name: str = 'Unknown', unknown_total: str = None, ma_days: int = None, cmap: str = 'tab20',\n              reverse_cmap: bool = False, highlight_first: int = 0, y_formatter: Callable[[int,int], str] = human_format,\n              clean_end = True) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

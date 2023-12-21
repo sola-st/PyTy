@@ -1,0 +1,104 @@
+[
+  {
+    "project": "Lookyloo/lookyloo",
+    "commit": "339d0dd7e063e6a6cd02a37b49916b381dcbf9e7",
+    "filename": "lookyloo/lookyloo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Lookyloo-lookyloo/lookyloo/lookyloo.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lookyloo/lookyloo.py:736:54 Incompatible parameter type [6]: Expected `Tuple[str, str, str, str]` for 1st positional only parameter to call `list.append` but got `Tuple[str, str, typing.Any, typing.Any, str]`.",
+    "message": " Expected `Tuple[str, str, str, str]` for 1st positional only parameter to call `list.append` but got `Tuple[str, str, typing.Any, typing.Any, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 736,
+    "warning_line": "                    captures_list['same_url'].append((h_capture_uuid, url_uuid, cache['title'], cache['timestamp'], url_hostname))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_len": 347,
+        "target_code": "    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "target_code_len": 352,
+        "diff_format": "@@ -727,3 +727,3 @@\n     def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n-        captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n+        captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n         for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_with_indent": "    <DED>def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        <IND>captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        <IND>captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Lookyloo/lookyloo",
+    "commit": "339d0dd7e063e6a6cd02a37b49916b381dcbf9e7",
+    "filename": "lookyloo/lookyloo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Lookyloo-lookyloo/lookyloo/lookyloo.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lookyloo/lookyloo.py:738:59 Incompatible parameter type [6]: Expected `Tuple[str, str, str, str]` for 1st positional only parameter to call `list.append` but got `Tuple[str, str, typing.Any, typing.Any, str]`.",
+    "message": " Expected `Tuple[str, str, str, str]` for 1st positional only parameter to call `list.append` but got `Tuple[str, str, typing.Any, typing.Any, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 738,
+    "warning_line": "                    captures_list['different_url'].append((h_capture_uuid, url_uuid, cache['title'], cache['timestamp'], url_hostname))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_len": 347,
+        "target_code": "    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "target_code_len": 352,
+        "diff_format": "@@ -727,3 +727,3 @@\n     def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n-        captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n+        captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n         for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_with_indent": "    <DED>def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        <IND>captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        <IND>captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Lookyloo/lookyloo",
+    "commit": "339d0dd7e063e6a6cd02a37b49916b381dcbf9e7",
+    "filename": "lookyloo/lookyloo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Lookyloo-lookyloo/lookyloo/lookyloo.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lookyloo/lookyloo.py:739:8 Incompatible return type [7]: Expected `Dict[str, List[Tuple[str, str, str, str, str]]]` but got `Dict[str, List[Tuple[str, str, str, str]]]`.",
+    "message": " Expected `Dict[str, List[Tuple[str, str, str, str, str]]]` but got `Dict[str, List[Tuple[str, str, str, str]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 739,
+    "warning_line": "        return captures_list",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_len": 347,
+        "target_code": "    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "target_code_len": 352,
+        "diff_format": "@@ -727,3 +727,3 @@\n     def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n-        captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n+        captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n         for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_with_indent": "    <DED>def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        <IND>captures_list: Dict[str, List[Tuple[str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        <IND>captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n        for h_capture_uuid, url_uuid, url_hostname, same_url in self.indexing.get_body_hash_captures(blob_hash, url):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

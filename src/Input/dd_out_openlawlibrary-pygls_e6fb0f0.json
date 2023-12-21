@@ -1,0 +1,36 @@
+[
+  {
+    "project": "openlawlibrary/pygls",
+    "commit": "e6fb0f00d137b7ce754126e7a721315eef10423e",
+    "filename": "tests/lsp/test_document_symbol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openlawlibrary-pygls/tests/lsp/test_document_symbol.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "tests/lsp/test_document_symbol.py:67:12 Incompatible return type [7]: Expected `Union[List[pygls.lsp.types.language_features.document_symbol.DocumentSymbol], List[pygls.lsp.types.language_features.document_symbol.SymbolInformation]]` but got `Union[None, List[pygls.lsp.types.language_features.document_symbol.DocumentSymbol], List[pygls.lsp.types.language_features.document_symbol.SymbolInformation]]`.",
+    "message": " Expected `Union[List[pygls.lsp.types.language_features.document_symbol.DocumentSymbol], List[pygls.lsp.types.language_features.document_symbol.SymbolInformation]]` but got `Union[None, List[pygls.lsp.types.language_features.document_symbol.DocumentSymbol], List[pygls.lsp.types.language_features.document_symbol.SymbolInformation]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 67,
+    "warning_line": "            return {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n            return {\n                'file://return.symbol_information_list': [symbol_info],\n",
+        "source_code_len": 94,
+        "target_code": "\n            return {    # type: ignore\n                'file://return.symbol_information_list': [symbol_info],\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -66,3 +66,3 @@\n \n-            return {\n+            return {    # type: ignore\n                 'file://return.symbol_information_list': [symbol_info],\n",
+        "source_code_with_indent": "\n            return {\n                'file://return.symbol_information_list': [symbol_info],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            return {    # type: ignore\n                'file://return.symbol_information_list': [symbol_info],\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

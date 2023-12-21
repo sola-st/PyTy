@@ -1,0 +1,66 @@
+[
+  {
+    "project": "jstockwin/py-pdf-parser",
+    "commit": "916fb9a33ad625834ea3a012f20556b511d5f033",
+    "filename": "py_pdf_parser/visualise/sections.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jstockwin-py-pdf-parser/py_pdf_parser/visualise/sections.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "py_pdf_parser/visualise/sections.py:250:41 Incompatible parameter type [6]: Expected `List[PDFElement]` for 1st positional only parameter to call `SectionVisualiser._SectionVisualiser__get_element_boxes` but got `py_pdf_parser.filtering.ElementList`.",
+    "message": " Expected `List[PDFElement]` for 1st positional only parameter to call `SectionVisualiser._SectionVisualiser__get_element_boxes` but got `py_pdf_parser.filtering.ElementList`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 250,
+    "warning_line": "        boxes = self.__get_element_boxes(non_section_elements)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import TYPE_CHECKING, Optional, List, Tuple, Dict\n\n",
+        "source_code_len": 63,
+        "target_code": "from typing import TYPE_CHECKING, Optional, List, Tuple, Dict, Union\n\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -1,2 +1,2 @@\n-from typing import TYPE_CHECKING, Optional, List, Tuple, Dict\n+from typing import TYPE_CHECKING, Optional, List, Tuple, Dict, Union\n \n",
+        "source_code_with_indent": "from typing import TYPE_CHECKING, Optional, List, Tuple, Dict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import TYPE_CHECKING, Optional, List, Tuple, Dict, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "if TYPE_CHECKING:\n    from py_pdf_parser.components import PDFPage, PDFDocument, PDFElement\n    from py_pdf_parser.sectioning import Section\n",
+        "source_code_len": 141,
+        "target_code": "if TYPE_CHECKING:\n    from py_pdf_parser.components import PDFPage, PDFDocument, PDFElement, ElementList\n    from py_pdf_parser.sectioning import Section\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -7,3 +7,3 @@\n if TYPE_CHECKING:\n-    from py_pdf_parser.components import PDFPage, PDFDocument, PDFElement\n+    from py_pdf_parser.components import PDFPage, PDFDocument, PDFElement, ElementList\n     from py_pdf_parser.sectioning import Section\n",
+        "source_code_with_indent": "if TYPE_CHECKING:\n    <IND>from py_pdf_parser.components import PDFPage, PDFDocument, PDFElement\n    from py_pdf_parser.sectioning import Section\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "if TYPE_CHECKING:\n    <IND>from py_pdf_parser.components import PDFPage, PDFDocument, PDFElement, ElementList\n    from py_pdf_parser.sectioning import Section\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __get_element_boxes(self, elements: List[\"PDFElement\"]):\n        return [\n",
+        "source_code_len": 83,
+        "target_code": "\n    def __get_element_boxes(self, elements: Union[List[\"PDFElement\"], \"ElementList\"]):\n        return [\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -92,3 +92,3 @@\n \n-    def __get_element_boxes(self, elements: List[\"PDFElement\"]):\n+    def __get_element_boxes(self, elements: Union[List[\"PDFElement\"], \"ElementList\"]):\n         return [\n",
+        "source_code_with_indent": "\n    <DED>def __get_element_boxes(self, elements: List[\"PDFElement\"]):\n        <IND>return [\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __get_element_boxes(self, elements: Union[List[\"PDFElement\"], \"ElementList\"]):\n        <IND>return [\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

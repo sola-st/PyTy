@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "33ca6b9912914f04d12b23c9e97832e4240f4ae3",
+    "filename": "rasa/core/test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/core/test.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/core/test.py:443:7 Unbound name [10]: Name `predicted_intent` is used but not defined in the current scope.",
+    "message": " Name `predicted_intent` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 443,
+    "warning_line": "    if predicted_intent:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        user_uttered_eval_store.add_to_store(intent_targets=[intent_gold])\n    if predicted_intent:\n        user_uttered_eval_store.add_to_store(intent_predictions=[predicted_base_intent])\n",
+        "source_code_len": 189,
+        "target_code": "        user_uttered_eval_store.add_to_store(intent_targets=[intent_gold])\n    if predicted_base_intent:\n        user_uttered_eval_store.add_to_store(intent_predictions=[predicted_base_intent])\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -442,3 +442,3 @@\n         user_uttered_eval_store.add_to_store(intent_targets=[intent_gold])\n-    if predicted_intent:\n+    if predicted_base_intent:\n         user_uttered_eval_store.add_to_store(intent_predictions=[predicted_base_intent])\n",
+        "source_code_with_indent": "        <IND>user_uttered_eval_store.add_to_store(intent_targets=[intent_gold])\n    <DED>if predicted_intent:\n        <IND>user_uttered_eval_store.add_to_store(intent_predictions=[predicted_base_intent])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>user_uttered_eval_store.add_to_store(intent_targets=[intent_gold])\n    <DED>if predicted_base_intent:\n        <IND>user_uttered_eval_store.add_to_store(intent_predictions=[predicted_base_intent])\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

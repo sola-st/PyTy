@@ -1,0 +1,104 @@
+[
+  {
+    "project": "DragonMinded/bemaniutils",
+    "commit": "b1b8b67fe3585f9cde7a2c66f7ea52bb94db9974",
+    "filename": "bemani/data/mysql/machine.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DragonMinded-bemaniutils/bemani/data/mysql/machine.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bemani/data/mysql/machine.py:316:8 Incompatible return type [7]: Expected `Arcade` but got `Optional[Arcade]`.",
+    "message": " Expected `Arcade` but got `Optional[Arcade]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 316,
+    "warning_line": "        return self.get_arcade(arcadeid)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self.execute(sql, {'userid': owner, 'arcadeid': arcadeid})\n        return self.get_arcade(arcadeid)\n\n",
+        "source_code_len": 113,
+        "target_code": "            self.execute(sql, {'userid': owner, 'arcadeid': arcadeid})\n        new_arcade = self.get_arcade(arcadeid)\n        if new_arcade is None:\n            raise Exception(\"Failed to create an arcade!\")\n        return new_arcade\n\n",
+        "target_code_len": 235,
+        "diff_format": "@@ -315,3 +315,6 @@\n             self.execute(sql, {'userid': owner, 'arcadeid': arcadeid})\n-        return self.get_arcade(arcadeid)\n+        new_arcade = self.get_arcade(arcadeid)\n+        if new_arcade is None:\n+            raise Exception(\"Failed to create an arcade!\")\n+        return new_arcade\n \n",
+        "source_code_with_indent": "            self.execute(sql, {'userid': owner, 'arcadeid': arcadeid})\n        <DED>return self.get_arcade(arcadeid)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self.execute(sql, {'userid': owner, 'arcadeid': arcadeid})\n        <DED>new_arcade = self.get_arcade(arcadeid)\n        if new_arcade is None:\n            <IND>raise Exception(\"Failed to create an arcade!\")\n        <DED>return new_arcade\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "DragonMinded/bemaniutils",
+    "commit": "b1b8b67fe3585f9cde7a2c66f7ea52bb94db9974",
+    "filename": "bemani/protocol/binary.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DragonMinded-bemaniutils/bemani/protocol/binary.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bemani/protocol/binary.py:791:33 Incompatible variable type [9]: encoding is declared to have type `str` but is used as type `None`.",
+    "message": " encoding is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 791,
+    "warning_line": "    def encode(self, tree: Node, encoding: str=None) -> bytes:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def encode(self, tree: Node, encoding: str=None) -> bytes:\n        \"\"\"\n",
+        "source_code_len": 76,
+        "target_code": "\n    def encode(self, tree: Node, encoding: Optional[str]=None) -> bytes:\n        \"\"\"\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -790,3 +790,3 @@\n \n-    def encode(self, tree: Node, encoding: str=None) -> bytes:\n+    def encode(self, tree: Node, encoding: Optional[str]=None) -> bytes:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def encode(self, tree: Node, encoding: str=None) -> bytes:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def encode(self, tree: Node, encoding: Optional[str]=None) -> bytes:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "DragonMinded/bemaniutils",
+    "commit": "b1b8b67fe3585f9cde7a2c66f7ea52bb94db9974",
+    "filename": "bemani/protocol/binary.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DragonMinded-bemaniutils/bemani/protocol/binary.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bemani/protocol/binary.py:804:12 Incompatible variable type [9]: encoding is declared to have type `str` but is used as type `Optional[str]`.",
+    "message": " encoding is declared to have type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 804,
+    "warning_line": "            encoding = self.encoding",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def encode(self, tree: Node, encoding: str=None) -> bytes:\n        \"\"\"\n",
+        "source_code_len": 76,
+        "target_code": "\n    def encode(self, tree: Node, encoding: Optional[str]=None) -> bytes:\n        \"\"\"\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -790,3 +790,3 @@\n \n-    def encode(self, tree: Node, encoding: str=None) -> bytes:\n+    def encode(self, tree: Node, encoding: Optional[str]=None) -> bytes:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def encode(self, tree: Node, encoding: str=None) -> bytes:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def encode(self, tree: Node, encoding: Optional[str]=None) -> bytes:\n        <IND>"
+      }
+    ]
+  }
+]

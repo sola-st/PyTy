@@ -1,0 +1,36 @@
+[
+  {
+    "project": "karlicoss/promnesia",
+    "commit": "9507d4b4db5618ab13fd5379f1ba052cef465b1b",
+    "filename": "tests/server_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlicoss-promnesia/tests/server_test.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/server_test.py:54:8 Incompatible return type [7]: Expected `Helper` but got `typing.Generator[Helper, None, None]`.",
+    "message": " Expected `Helper` but got `typing.Generator[Helper, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 54,
+    "warning_line": "        yield Helper(port=port)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@contextmanager\ndef wserver(config: Path) -> Helper:\n    port = str(next_port())\n",
+        "source_code_len": 81,
+        "target_code": "@contextmanager\ndef wserver(config: Path): # TODO err not sure what type should it be... -> ContextManager[Helper]:\n    port = str(next_port())\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -39,3 +39,3 @@\n @contextmanager\n-def wserver(config: Path) -> Helper:\n+def wserver(config: Path): # TODO err not sure what type should it be... -> ContextManager[Helper]:\n     port = str(next_port())\n",
+        "source_code_with_indent": "<DED><DED><DED>@contextmanager\ndef wserver(config: Path) -> Helper:\n    <IND>port = str(next_port())\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED><DED>@contextmanager\ndef wserver(config: Path): # TODO err not sure what type should it be... -> ContextManager[Helper]:\n    <IND>port = str(next_port())\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

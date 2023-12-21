@@ -1,0 +1,172 @@
+[
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "29ad680456e0a4405fae8bcc881d2ddb98547f51",
+    "filename": "electrumsv/gui/qt/send_view.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/gui/qt/send_view.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/gui/qt/send_view.py:344:8 Incompatible attribute type [8]: Attribute `_require_fee_update` declared in class `SendView` has type `Optional[int]` but is used as type `float`.",
+    "message": " Attribute `_require_fee_update` declared in class `SendView` has type `Optional[int]` but is used as type `float`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 344,
+    "warning_line": "        self._require_fee_update = time.monotonic()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._not_enough_funds = False\n        self._require_fee_update: Optional[int] = None\n        self._payment_request: Optional[PaymentRequest] = None\n",
+        "source_code_len": 157,
+        "target_code": "        self._not_enough_funds = False\n        self._require_fee_update: Optional[float] = None\n        self._payment_request: Optional[PaymentRequest] = None\n",
+        "target_code_len": 159,
+        "diff_format": "@@ -92,3 +92,3 @@\n         self._not_enough_funds = False\n-        self._require_fee_update: Optional[int] = None\n+        self._require_fee_update: Optional[float] = None\n         self._payment_request: Optional[PaymentRequest] = None\n",
+        "source_code_with_indent": "        self._not_enough_funds = False\n        self._require_fee_update: Optional[int] = None\n        self._payment_request: Optional[PaymentRequest] = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._not_enough_funds = False\n        self._require_fee_update: Optional[float] = None\n        self._payment_request: Optional[PaymentRequest] = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "29ad680456e0a4405fae8bcc881d2ddb98547f51",
+    "filename": "electrumsv/gui/qt/send_view.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/gui/qt/send_view.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/gui/qt/send_view.py:470:12 Incompatible return type [7]: Expected `Tuple[List[XTxOutput], Optional[int], str, List[typing.Union[electrumsv.wallet_database.types.TransactionOutputSpendableRow, electrumsv.wallet_database.types.TransactionOutputSpendableRow2]]]` but got `None`.",
+    "message": " Expected `Tuple[List[XTxOutput], Optional[int], str, List[typing.Union[electrumsv.wallet_database.types.TransactionOutputSpendableRow, electrumsv.wallet_database.types.TransactionOutputSpendableRow2]]]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 470,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _read(self) \\\n            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n        if self._payment_request and self._payment_request.has_expired():\n            self._main_window.show_error(_('Payment request has expired'))\n            return\n        label = self._message_e.text()\n",
+        "source_code_len": 328,
+        "target_code": "\n    def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n            List[TransactionOutputSpendableTypes]]]:\n        if self._payment_request and self._payment_request.has_expired():\n            self._main_window.show_error(_('Payment request has expired'))\n            return None\n        label = self._message_e.text()\n",
+        "target_code_len": 341,
+        "diff_format": "@@ -465,7 +466,7 @@\n \n-    def _read(self) \\\n-            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n+    def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n+            List[TransactionOutputSpendableTypes]]]:\n         if self._payment_request and self._payment_request.has_expired():\n             self._main_window.show_error(_('Payment request has expired'))\n-            return\n+            return None\n         label = self._message_e.text()\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n    <DED><DED>def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n            List[TransactionOutputSpendableTypes]]]:\n        <IND>if self._payment_request and self._payment_request.has_expired():\n            <IND>self._main_window.show_error(_('Payment request has expired'))\n            return None\n        <DED>label = self._message_e.text()\n",
+        "target_code_with_indent_exact_match": true,
+        "source_code_with_indent": "\n    <DED><DED>def _read(self)            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n        <IND>if self._payment_request and self._payment_request.has_expired():\n            <IND>self._main_window.show_error(_('Payment request has expired'))\n            return\n        <DED>label = self._message_e.text()\n"
+      }
+    ]
+  },
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "29ad680456e0a4405fae8bcc881d2ddb98547f51",
+    "filename": "electrumsv/gui/qt/send_view.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/gui/qt/send_view.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/gui/qt/send_view.py:483:16 Incompatible return type [7]: Expected `Tuple[List[XTxOutput], Optional[int], str, List[typing.Union[electrumsv.wallet_database.types.TransactionOutputSpendableRow, electrumsv.wallet_database.types.TransactionOutputSpendableRow2]]]` but got `None`.",
+    "message": " Expected `Tuple[List[XTxOutput], Optional[int], str, List[typing.Union[electrumsv.wallet_database.types.TransactionOutputSpendableRow, electrumsv.wallet_database.types.TransactionOutputSpendableRow2]]]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 483,
+    "warning_line": "                return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _read(self) \\\n            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n        if self._payment_request and self._payment_request.has_expired():\n            self._main_window.show_error(_('Payment request has expired'))\n            return\n        label = self._message_e.text()\n",
+        "source_code_len": 328,
+        "target_code": "\n    def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n            List[TransactionOutputSpendableTypes]]]:\n        if self._payment_request and self._payment_request.has_expired():\n            self._main_window.show_error(_('Payment request has expired'))\n            return None\n        label = self._message_e.text()\n",
+        "target_code_len": 341,
+        "diff_format": "@@ -465,7 +466,7 @@\n \n-    def _read(self) \\\n-            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n+    def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n+            List[TransactionOutputSpendableTypes]]]:\n         if self._payment_request and self._payment_request.has_expired():\n             self._main_window.show_error(_('Payment request has expired'))\n-            return\n+            return None\n         label = self._message_e.text()\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n    <DED><DED>def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n            List[TransactionOutputSpendableTypes]]]:\n        <IND>if self._payment_request and self._payment_request.has_expired():\n            <IND>self._main_window.show_error(_('Payment request has expired'))\n            return None\n        <DED>label = self._message_e.text()\n",
+        "target_code_with_indent_exact_match": true,
+        "source_code_with_indent": "\n    <DED><DED>def _read(self)            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n        <IND>if self._payment_request and self._payment_request.has_expired():\n            <IND>self._main_window.show_error(_('Payment request has expired'))\n            return\n        <DED>label = self._message_e.text()\n"
+      }
+    ]
+  },
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "29ad680456e0a4405fae8bcc881d2ddb98547f51",
+    "filename": "electrumsv/gui/qt/send_view.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/gui/qt/send_view.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/gui/qt/send_view.py:488:12 Incompatible return type [7]: Expected `Tuple[List[XTxOutput], Optional[int], str, List[typing.Union[electrumsv.wallet_database.types.TransactionOutputSpendableRow, electrumsv.wallet_database.types.TransactionOutputSpendableRow2]]]` but got `None`.",
+    "message": " Expected `Tuple[List[XTxOutput], Optional[int], str, List[typing.Union[electrumsv.wallet_database.types.TransactionOutputSpendableRow, electrumsv.wallet_database.types.TransactionOutputSpendableRow2]]]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 488,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _read(self) \\\n            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n        if self._payment_request and self._payment_request.has_expired():\n            self._main_window.show_error(_('Payment request has expired'))\n            return\n        label = self._message_e.text()\n",
+        "source_code_len": 328,
+        "target_code": "\n    def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n            List[TransactionOutputSpendableTypes]]]:\n        if self._payment_request and self._payment_request.has_expired():\n            self._main_window.show_error(_('Payment request has expired'))\n            return None\n        label = self._message_e.text()\n",
+        "target_code_len": 341,
+        "diff_format": "@@ -465,7 +466,7 @@\n \n-    def _read(self) \\\n-            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n+    def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n+            List[TransactionOutputSpendableTypes]]]:\n         if self._payment_request and self._payment_request.has_expired():\n             self._main_window.show_error(_('Payment request has expired'))\n-            return\n+            return None\n         label = self._message_e.text()\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n    <DED><DED>def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n            List[TransactionOutputSpendableTypes]]]:\n        <IND>if self._payment_request and self._payment_request.has_expired():\n            <IND>self._main_window.show_error(_('Payment request has expired'))\n            return None\n        <DED>label = self._message_e.text()\n",
+        "target_code_with_indent_exact_match": true,
+        "source_code_with_indent": "\n    <DED><DED>def _read(self)            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n        <IND>if self._payment_request and self._payment_request.has_expired():\n            <IND>self._main_window.show_error(_('Payment request has expired'))\n            return\n        <DED>label = self._message_e.text()\n"
+      }
+    ]
+  },
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "29ad680456e0a4405fae8bcc881d2ddb98547f51",
+    "filename": "electrumsv/gui/qt/send_view.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/gui/qt/send_view.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/gui/qt/send_view.py:492:12 Incompatible return type [7]: Expected `Tuple[List[XTxOutput], Optional[int], str, List[typing.Union[electrumsv.wallet_database.types.TransactionOutputSpendableRow, electrumsv.wallet_database.types.TransactionOutputSpendableRow2]]]` but got `None`.",
+    "message": " Expected `Tuple[List[XTxOutput], Optional[int], str, List[typing.Union[electrumsv.wallet_database.types.TransactionOutputSpendableRow, electrumsv.wallet_database.types.TransactionOutputSpendableRow2]]]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 492,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _read(self) \\\n            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n        if self._payment_request and self._payment_request.has_expired():\n            self._main_window.show_error(_('Payment request has expired'))\n            return\n        label = self._message_e.text()\n",
+        "source_code_len": 328,
+        "target_code": "\n    def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n            List[TransactionOutputSpendableTypes]]]:\n        if self._payment_request and self._payment_request.has_expired():\n            self._main_window.show_error(_('Payment request has expired'))\n            return None\n        label = self._message_e.text()\n",
+        "target_code_len": 341,
+        "diff_format": "@@ -465,7 +466,7 @@\n \n-    def _read(self) \\\n-            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n+    def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n+            List[TransactionOutputSpendableTypes]]]:\n         if self._payment_request and self._payment_request.has_expired():\n             self._main_window.show_error(_('Payment request has expired'))\n-            return\n+            return None\n         label = self._message_e.text()\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n    <DED><DED>def _read(self) -> Optional[Tuple[List[XTxOutput], Optional[int], str,\n            List[TransactionOutputSpendableTypes]]]:\n        <IND>if self._payment_request and self._payment_request.has_expired():\n            <IND>self._main_window.show_error(_('Payment request has expired'))\n            return None\n        <DED>label = self._message_e.text()\n",
+        "target_code_with_indent_exact_match": true,
+        "source_code_with_indent": "\n    <DED><DED>def _read(self)            -> Tuple[List[XTxOutput], Optional[int], str, List[TransactionOutputSpendableTypes]]:\n        <IND>if self._payment_request and self._payment_request.has_expired():\n            <IND>self._main_window.show_error(_('Payment request has expired'))\n            return\n        <DED>label = self._message_e.text()\n"
+      }
+    ]
+  }
+]

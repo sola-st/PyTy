@@ -1,0 +1,100 @@
+[
+  {
+    "project": "Jenyay/outwiker",
+    "commit": "1b3b34f56b65fae1d9929494517f888108cb0882",
+    "filename": "src/outwiker/core/dataforlanguage.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Jenyay-outwiker/src/outwiker/core/dataforlanguage.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/outwiker/core/dataforlanguage.py:42:8 Incompatible return type [7]: Expected `Variable[T]` but got `Optional[Variable[T]]`.",
+    "message": " Expected `Variable[T]` but got `Optional[Variable[T]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 42,
+    "warning_line": "        return default",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get(self, language: str, default: Optional[T] = None) -> T:\n        DEFAULT_LANGUAGE = ''\n",
+        "source_code_len": 99,
+        "target_code": "\n    def get(self, language: str, default: Optional[T] = None) -> Optional[T]:\n        DEFAULT_LANGUAGE = ''\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -28,3 +28,3 @@\n \n-    def get(self, language: str, default: Optional[T] = None) -> T:\n+    def get(self, language: str, default: Optional[T] = None) -> Optional[T]:\n         DEFAULT_LANGUAGE = ''\n",
+        "source_code_with_indent": "\n    <DED>def get(self, language: str, default: Optional[T] = None) -> T:\n        <IND>DEFAULT_LANGUAGE = ''\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get(self, language: str, default: Optional[T] = None) -> Optional[T]:\n        <IND>DEFAULT_LANGUAGE = ''\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Jenyay/outwiker",
+    "commit": "1b3b34f56b65fae1d9929494517f888108cb0882",
+    "filename": "src/outwiker/core/packageversion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Jenyay-outwiker/src/outwiker/core/packageversion.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/outwiker/core/packageversion.py:31:35 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[Iterable[int]]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[Iterable[int]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 31,
+    "warning_line": "    if requiredlist is None or len(requiredlist) == 0:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Iterable\n\n",
+        "source_code_len": 30,
+        "target_code": "\nfrom typing import List\n\n",
+        "target_code_len": 26,
+        "diff_format": "@@ -2,3 +2,3 @@\n \n-from typing import Iterable\n+from typing import List\n \n",
+        "source_code_with_indent": "\nfrom typing import Iterable\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import List\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef checkSingleVersion(current_api_version: Iterable[int],\n                        required_version: Iterable[int]) -> int:\n    if current_api_version[0] > required_version[0]:\n",
+        "source_code_len": 178,
+        "target_code": "\ndef checkSingleVersion(current_api_version: List[int],\n                       required_version: List[int]) -> int:\n    if current_api_version[0] > required_version[0]:\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -10,4 +10,4 @@\n \n-def checkSingleVersion(current_api_version: Iterable[int],\n-                        required_version: Iterable[int]) -> int:\n+def checkSingleVersion(current_api_version: List[int],\n+                       required_version: List[int]) -> int:\n     if current_api_version[0] > required_version[0]:\n",
+        "source_code_with_indent": "\ndef checkSingleVersion(current_api_version: Iterable[int],\n                        required_version: Iterable[int]) -> int:\n    <IND>if current_api_version[0] > required_version[0]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef checkSingleVersion(current_api_version: List[int],\n                       required_version: List[int]) -> int:\n    <IND>if current_api_version[0] > required_version[0]:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef checkVersion(current_api_version: Iterable[int],\n                 requiredlist: Iterable[Iterable[int]]) -> int:\n    '''\n",
+        "source_code_len": 126,
+        "target_code": "\ndef checkVersion(current_api_version: List[int],\n                 requiredlist: List[List[int]]) -> int:\n    '''\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -24,4 +24,4 @@\n \n-def checkVersion(current_api_version: Iterable[int],\n-                 requiredlist: Iterable[Iterable[int]]) -> int:\n+def checkVersion(current_api_version: List[int],\n+                 requiredlist: List[List[int]]) -> int:\n     '''\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def checkVersion(current_api_version: Iterable[int],\n                 requiredlist: Iterable[Iterable[int]]) -> int:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def checkVersion(current_api_version: List[int],\n                 requiredlist: List[List[int]]) -> int:\n    <IND>"
+      }
+    ]
+  }
+]

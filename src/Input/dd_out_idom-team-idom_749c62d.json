@@ -1,0 +1,36 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "749c62d27829d7b44a659a83b404a71c0260e3df",
+    "filename": "src/idom/_option.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/idom/_option.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/idom/_option.py:77:17 Incompatible parameter type [6]: Expected `Variable[_O]` for 1st positional only parameter to call `Option.set` but got `typing.Union[object, str]`.",
+    "message": " Expected `Variable[_O]` for 1st positional only parameter to call `Option.set` but got `typing.Union[object, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 77,
+    "warning_line": "        self.set(os.environ.get(self._name, self._default))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"Get the current value of this option.\"\"\"\n        return getattr(self, \"_value\", self._default)\n\n    def set(self, new: _O) -> None:\n        \"\"\"Set the value of this option\n",
+        "source_code_len": 183,
+        "target_code": "        \"\"\"Get the current value of this option.\"\"\"\n        return cast(_O, getattr(self, \"_value\", self._default))\n\n    def set(self, new: Any) -> None:\n        \"\"\"Set the value of this option\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -50,5 +50,5 @@\n         \"\"\"Get the current value of this option.\"\"\"\n-        return getattr(self, \"_value\", self._default)\n+        return cast(_O, getattr(self, \"_value\", self._default))\n \n-    def set(self, new: _O) -> None:\n+    def set(self, new: Any) -> None:\n         \"\"\"Set the value of this option\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        <IND>\"\"\"Get the current value of this option.\"\"\"\n        return getattr(self, \"_value\", self._default)\n\n    <DED>def set(self, new: _O) -> None:\n        <IND>",
+        "target_code_with_indent": "        <IND>\"\"\"Get the current value of this option.\"\"\"\n        return cast(_O, getattr(self, \"_value\", self._default))\n\n    <DED>def set(self, new: Any) -> None:\n        <IND>"
+      }
+    ]
+  }
+]

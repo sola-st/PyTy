@@ -1,0 +1,36 @@
+[
+  {
+    "project": "nabla-c0d3/sslyze",
+    "commit": "00aa6c49c425428fdef0eabb7365295fb7f9a5e3",
+    "filename": "sslyze/plugins/session_resumption_plugin.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nabla-c0d3-sslyze/sslyze/plugins/session_resumption_plugin.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sslyze/plugins/session_resumption_plugin.py:70:4 Inconsistent override [14]: `sslyze.plugins.session_resumption_plugin.SessionResumptionPlugin.process_task` overrides method defined in `Plugin` inconsistently. Parameter of type `Union[SessionResumptionRateScanCommand, SessionResumptionSupportScanCommand]` is not a supertype of the overridden parameter `PluginScanCommand`.",
+    "message": " `sslyze.plugins.session_resumption_plugin.SessionResumptionPlugin.process_task` overrides method defined in `Plugin` inconsistently. Parameter of type `Union[SessionResumptionRateScanCommand, SessionResumptionSupportScanCommand]` is not a supertype of the overridden parameter `PluginScanCommand`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 70,
+    "warning_line": "    def process_task(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            server_info,    # type: ServerConnectivityInfo\n            scan_command    # type: Union[SessionResumptionRateScanCommand, SessionResumptionSupportScanCommand]\n    ):\n",
+        "source_code_len": 179,
+        "target_code": "            server_info,    # type: ServerConnectivityInfo\n            scan_command    # type: PluginScanCommand\n    ):\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -72,3 +72,3 @@\n             server_info,    # type: ServerConnectivityInfo\n-            scan_command    # type: Union[SessionResumptionRateScanCommand, SessionResumptionSupportScanCommand]\n+            scan_command    # type: PluginScanCommand\n     ):\n",
+        "source_code_with_indent": "            server_info,    # type: ServerConnectivityInfo\n            scan_command    # type: Union[SessionResumptionRateScanCommand, SessionResumptionSupportScanCommand]\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            server_info,    # type: ServerConnectivityInfo\n            scan_command    # type: PluginScanCommand\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

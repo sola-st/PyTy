@@ -1,0 +1,642 @@
+Commit,Number of type annotations,Percentage,Types where?,Single hunk,Hunk info,Runtime error (from test case),Dyn type error is in the same location,Pyre found,Cooment,,Stats,,
+https://github.com/Miserlou/Zappa/pull/1434,0,0.0%,,No,"zappa/cli.py:1828,1837",not able to run the test,-,,,,Commits partially annotated,16,17.2%
+https://github.com/Miserlou/Zappa/pull/388,0,0.0%,,Yes,zappa/wsgi.py:95,not able to run the test,-,,,,Single hunk,47,50.5%
+https://github.com/apache/airflow/pull/14513,0,0.0%,,Yes,airflow/kubernetes/pod_launcher.py:143,not able to run the test,-,,,,in pyty scope,8,8.6%
+https://github.com/apache/airflow/pull/14686,0,0.0%,,No,"airflow/providers/elasticsearch/log/es_task_handler.py
+:186,190","____________________________________________________________ ERROR collecting tests/providers/elasticsearch/log/test_es_task_handler.py ____________________________________________________________________
+tests/providers/elasticsearch/log/test_es_task_handler.py:30: in <module>
+    from airflow.configuration import conf
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/__init__.py:68: in <module>
+    settings.initialize()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:546: in initialize
+    configure_orm()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:242: in configure_orm
+    engine = create_engine(SQL_ALCHEMY_CONN, connect_args=connect_args, **engine_args, future=True)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/__init__.py:525: in create_engine
+    return strategy.create(*args, **kwargs)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/strategies.py:164: in create
+    raise TypeError(
+E   TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+------------------------------------------------------------------------------------------------- Captured stderr -------------------------------------------------------------------------------------------------
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:604 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:816 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'dag_default_view' setting in [webserver] has the old default value of 'tree'. This value has been changed to 'grid' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_filename_template' setting in [logging] has the old default value of '{{ ti.dag_id }}/{{ ti.task_id }}/{{ ts }}/{{ try_number }}.log'. This value has been changed to 'dag_id={{ ti.dag_id }}/run_id={{ ti.run_id }}/task_id={{ ti.task_id }}/{% if ti.map_index >= 0 %}map_index={{ ti.map_index }}/{% endif %}attempt={{ try_number }}.log' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:728 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'auth_backends' setting in [api] has the old default value of 'airflow.api.auth.backend.deny_all'. This value has been changed to 'airflow.api.auth.backend.session' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_id_template' setting in [elasticsearch] has the old default value of '{dag_id}-{task_id}-{execution_date}-{try_number}'. This value has been changed to '{dag_id}-{task_id}-{run_id}-{map_index}-{try_number}' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:742 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:303 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:366 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/gunicorn/util.py:12
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/gunicorn/util.py:12: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    import pkg_resources
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pkg_resources/__init__.py:2871
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pkg_resources/__init__.py:2871
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pkg_resources/__init__.py:2871
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google.logging')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pkg_resources/__init__.py:2350
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pkg_resources/__init__.py:2350: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(parent)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-14686/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-14686/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-14686/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR tests/providers/elasticsearch/log/test_es_task_handler.py - TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check tha...
+========================================================================================== 8 warnings, 1 error in 1.16s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/airflow/airflow-14686/tests/providers/elasticsearch/log/test_es_task_handler.py::TestElasticsearchTaskHandler::test_read_with_match_phrase_query
+(no name '/pyter/benchmark_info/airflow/airflow-14686/tests/providers/elasticsearch/log/test_es_task_handler.py::TestElasticsearchTaskHandler::test_read_with_match_phrase_query' in any of [<Module tests/providers/elasticsearch/log/test_es_task_handler.py>])",no,,,,,,
+https://github.com/apache/airflow/pull/3831,0,0.0%,,No,"airflow/contrib/operators/dataflow_operator.py:361,372",".../airflow/airflow-3831 sh test.sh 
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.9.1, pytest-7.0.1, pluggy-1.0.0
+rootdir: /pyter/benchmark_info/airflow/airflow-3831
+plugins: timeouts-1.2.1, anyio-4.0.0
+setup timeout: 0.0s, execution timeout: 0.0s, teardown timeout: 0.0s
+collected 0 items / 1 error                                                                                                                                                                                       
+
+===================================================================================================== ERRORS ======================================================================================================
+_______________________________________________________________________ ERROR collecting tests/contrib/operators/test_dataflow_operator.py ________________________________________________________________________
+tests/contrib/operators/test_dataflow_operator.py:23: in <module>
+    from airflow.contrib.operators.dataflow_operator import \
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/__init__.py:68: in <module>
+    settings.initialize()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:546: in initialize
+    configure_orm()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:242: in configure_orm
+    engine = create_engine(SQL_ALCHEMY_CONN, connect_args=connect_args, **engine_args, future=True)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/__init__.py:525: in create_engine
+    return strategy.create(*args, **kwargs)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/strategies.py:164: in create
+    raise TypeError(
+E   TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+------------------------------------------------------------------------------------------------- Captured stderr -------------------------------------------------------------------------------------------------
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:604 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:816 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'dag_default_view' setting in [webserver] has the old default value of 'tree'. This value has been changed to 'grid' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_filename_template' setting in [logging] has the old default value of '{{ ti.dag_id }}/{{ ti.task_id }}/{{ ts }}/{{ try_number }}.log'. This value has been changed to 'dag_id={{ ti.dag_id }}/run_id={{ ti.run_id }}/task_id={{ ti.task_id }}/{% if ti.map_index >= 0 %}map_index={{ ti.map_index }}/{% endif %}attempt={{ try_number }}.log' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:728 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'auth_backends' setting in [api] has the old default value of 'airflow.api.auth.backend.deny_all'. This value has been changed to 'airflow.api.auth.backend.session' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_id_template' setting in [elasticsearch] has the old default value of '{dag_id}-{task_id}-{execution_date}-{try_number}'. This value has been changed to '{dag_id}-{task_id}-{run_id}-{map_index}-{try_number}' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:742 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:303 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:366 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-3831/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-3831/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-3831/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR tests/contrib/operators/test_dataflow_operator.py - TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the ke...
+========================================================================================== 3 warnings, 1 error in 0.56s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/airflow/airflow-3831/tests/contrib/operators/test_dataflow_operator.py::GoogleCloudBucketHelperTest
+(no name '/pyter/benchmark_info/airflow/airflow-3831/tests/contrib/operators/test_dataflow_operator.py::GoogleCloudBucketHelperTest' in any of [<Module tests/contrib/operators/test_dataflow_operator.py>])",no,,,,not able to run tests,32,34.4%
+https://github.com/apache/airflow/pull/4674,0,0.0%,,No,airflow/configuration.py:263-283,not able to run the test,-,,,,dyn type same loc: yes,16,17.2%
+https://github.com/apache/airflow/pull/5686,0,0.0%,,No,"airflow/hooks/http_hook.py:62,67",not able to run the test,-,,,,dyn type same loc: not only,12,12.9%
+https://github.com/apache/airflow/pull/6036,1,50.0%,Return value ,Yes,already checked,"TypeError: string indices must be integers
+airflow/gcp/hooks/dataflow.py:138: TypeError. The wrong return value is a dict and not a list of dicts",no,no,,,dyn type same loc: no,32,34.4%
+https://github.com/apache/airflow/pull/8151,0,0.0%,,Yes,airflow/models/dag.py:1519,".../airflow/airflow-8151 sh test.sh 
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.9.1, pytest-7.0.1, pluggy-1.0.0
+rootdir: /pyter/benchmark_info/airflow/airflow-8151
+plugins: timeouts-1.2.1, anyio-4.0.0
+setup timeout: 0.0s, execution timeout: 0.0s, teardown timeout: 0.0s
+collected 0 items / 1 error                                                                                                                                                                                       
+
+===================================================================================================== ERRORS ======================================================================================================
+__________________________________________________________________________________ ERROR collecting tests/models/test_dagcode.py __________________________________________________________________________________
+tests/models/test_dagcode.py:22: in <module>
+    from airflow import AirflowException, example_dags as example_dags_module
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/__init__.py:68: in <module>
+    settings.initialize()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:546: in initialize
+    configure_orm()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:242: in configure_orm
+    engine = create_engine(SQL_ALCHEMY_CONN, connect_args=connect_args, **engine_args, future=True)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/__init__.py:525: in create_engine
+    return strategy.create(*args, **kwargs)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/strategies.py:164: in create
+    raise TypeError(
+E   TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+------------------------------------------------------------------------------------------------- Captured stderr -------------------------------------------------------------------------------------------------
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:604 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:816 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'dag_default_view' setting in [webserver] has the old default value of 'tree'. This value has been changed to 'grid' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_filename_template' setting in [logging] has the old default value of '{{ ti.dag_id }}/{{ ti.task_id }}/{{ ts }}/{{ try_number }}.log'. This value has been changed to 'dag_id={{ ti.dag_id }}/run_id={{ ti.run_id }}/task_id={{ ti.task_id }}/{% if ti.map_index >= 0 %}map_index={{ ti.map_index }}/{% endif %}attempt={{ try_number }}.log' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:728 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'auth_backends' setting in [api] has the old default value of 'airflow.api.auth.backend.deny_all'. This value has been changed to 'airflow.api.auth.backend.session' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_id_template' setting in [elasticsearch] has the old default value of '{dag_id}-{task_id}-{execution_date}-{try_number}'. This value has been changed to '{dag_id}-{task_id}-{run_id}-{map_index}-{try_number}' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:742 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:303 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:366 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR tests/models/test_dagcode.py - TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the keyword arguments are a...
+========================================================================================== 3 warnings, 1 error in 0.77s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/airflow/airflow-8151/tests/models/test_dagcode.py::TestDagCode::test_sync_to_db
+(no name '/pyter/benchmark_info/airflow/airflow-8151/tests/models/test_dagcode.py::TestDagCode::test_sync_to_db' in any of [<Module tests/models/test_dagcode.py>])
+
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.9.1, pytest-7.0.1, pluggy-1.0.0
+rootdir: /pyter/benchmark_info/airflow/airflow-8151
+plugins: timeouts-1.2.1, anyio-4.0.0
+setup timeout: 0.0s, execution timeout: 0.0s, teardown timeout: 0.0s
+collected 0 items / 1 error                                                                                                                                                                                       
+
+===================================================================================================== ERRORS ======================================================================================================
+__________________________________________________________________________________ ERROR collecting tests/models/test_dagcode.py __________________________________________________________________________________
+tests/models/test_dagcode.py:22: in <module>
+    from airflow import AirflowException, example_dags as example_dags_module
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/__init__.py:68: in <module>
+    settings.initialize()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:546: in initialize
+    configure_orm()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:242: in configure_orm
+    engine = create_engine(SQL_ALCHEMY_CONN, connect_args=connect_args, **engine_args, future=True)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/__init__.py:525: in create_engine
+    return strategy.create(*args, **kwargs)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/strategies.py:164: in create
+    raise TypeError(
+E   TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+------------------------------------------------------------------------------------------------- Captured stderr -------------------------------------------------------------------------------------------------
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:604 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:816 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'dag_default_view' setting in [webserver] has the old default value of 'tree'. This value has been changed to 'grid' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_filename_template' setting in [logging] has the old default value of '{{ ti.dag_id }}/{{ ti.task_id }}/{{ ts }}/{{ try_number }}.log'. This value has been changed to 'dag_id={{ ti.dag_id }}/run_id={{ ti.run_id }}/task_id={{ ti.task_id }}/{% if ti.map_index >= 0 %}map_index={{ ti.map_index }}/{% endif %}attempt={{ try_number }}.log' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:728 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'auth_backends' setting in [api] has the old default value of 'airflow.api.auth.backend.deny_all'. This value has been changed to 'airflow.api.auth.backend.session' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_id_template' setting in [elasticsearch] has the old default value of '{dag_id}-{task_id}-{execution_date}-{try_number}'. This value has been changed to '{dag_id}-{task_id}-{run_id}-{map_index}-{try_number}' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:742 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:303 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:366 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR tests/models/test_dagcode.py - TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the keyword arguments are a...
+========================================================================================== 3 warnings, 1 error in 0.69s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/airflow/airflow-8151/tests/models/test_dagcode.py::TestDagCode::test_bulk_sync_to_db
+(no name '/pyter/benchmark_info/airflow/airflow-8151/tests/models/test_dagcode.py::TestDagCode::test_bulk_sync_to_db' in any of [<Module tests/models/test_dagcode.py>])
+
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.9.1, pytest-7.0.1, pluggy-1.0.0
+rootdir: /pyter/benchmark_info/airflow/airflow-8151
+plugins: timeouts-1.2.1, anyio-4.0.0
+setup timeout: 0.0s, execution timeout: 0.0s, teardown timeout: 0.0s
+collected 0 items / 1 error                                                                                                                                                                                       
+
+===================================================================================================== ERRORS ======================================================================================================
+__________________________________________________________________________________ ERROR collecting tests/models/test_dagcode.py __________________________________________________________________________________
+tests/models/test_dagcode.py:22: in <module>
+    from airflow import AirflowException, example_dags as example_dags_module
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/__init__.py:68: in <module>
+    settings.initialize()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:546: in initialize
+    configure_orm()
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:242: in configure_orm
+    engine = create_engine(SQL_ALCHEMY_CONN, connect_args=connect_args, **engine_args, future=True)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/__init__.py:525: in create_engine
+    return strategy.create(*args, **kwargs)
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/sqlalchemy/engine/strategies.py:164: in create
+    raise TypeError(
+E   TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+------------------------------------------------------------------------------------------------- Captured stderr -------------------------------------------------------------------------------------------------
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:604 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The hide_sensitive_variable_fields option in [admin] has been moved to the hide_sensitive_var_conn_fields option in [core] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:816 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'dag_default_view' setting in [webserver] has the old default value of 'tree'. This value has been changed to 'grid' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_filename_template' setting in [logging] has the old default value of '{{ ti.dag_id }}/{{ ti.task_id }}/{{ ts }}/{{ try_number }}.log'. This value has been changed to 'dag_id={{ ti.dag_id }}/run_id={{ ti.run_id }}/task_id={{ ti.task_id }}/{% if ti.map_index >= 0 %}map_index={{ ti.map_index }}/{% endif %}attempt={{ try_number }}.log' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:728 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The auth_backend option in [api] has been renamed to auth_backends - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'auth_backends' setting in [api] has the old default value of 'airflow.api.auth.backend.deny_all'. This value has been changed to 'airflow.api.auth.backend.session' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:843 FutureWarning: The 'log_id_template' setting in [elasticsearch] has the old default value of '{dag_id}-{task_id}-{execution_date}-{try_number}'. This value has been changed to '{dag_id}-{task_id}-{run_id}-{map_index}-{try_number}' in the running config, but please update your config before Apache Airflow 3.0.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/configuration.py:742 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:303 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_alchemy_pool_enabled option in [core] has been moved to the sql_alchemy_pool_enabled option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/airflow/settings.py:366 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/configparser.py:408 DeprecationWarning: The sql_engine_encoding option in [core] has been moved to the sql_engine_encoding option in [database] - the old setting has been used, but please update your config.
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:433: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:387: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:52: PytestCacheWarning: could not create cache path /pyter/benchmark_info/airflow/airflow-8151/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR tests/models/test_dagcode.py - TypeError: Invalid argument(s) 'future' sent to create_engine(), using configuration SQLiteDialect_pysqlite/NullPool/Engine.  Please check that the keyword arguments are a...
+========================================================================================== 3 warnings, 1 error in 0.72s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/airflow/airflow-8151/tests/models/test_dagcode.py::TestDagCode::test_bulk_sync_to_db_half_files
+(no name '/pyter/benchmark_info/airflow/airflow-8151/tests/models/test_dagcode.py::TestDagCode::test_bulk_sync_to_db_half_files' in any of [<Module tests/models/test_dagcode.py>])",no,,,,,,
+https://github.com/beetbox/beets/pull/3360,0,0.0%,,Yes,beetsplug/thumbnails.py:227,,-,,,,,92,out of 93
+https://github.com/home-assistant/core/pull/1972,0,0.0%,,Yes,homeassistant/helpers/script.py:121,,yes,,,,,,
+https://github.com/home-assistant/core/pull/20233,0,0.0%,,Yes,homeassistant/helpers/template.py:168,,yes,,,,,,
+https://github.com/home-assistant/core/pull/21734,0,0.0%,,Yes,homeassistant/components/sensor/dsmr.py:354,,-,,,,,,
+https://github.com/home-assistant/core/pull/29829,0,0.0%,,No,"homeassistant/components/input_text/__init__.py:62,124",,no,,,,,,
+https://github.com/home-assistant/core/pull/32222,0,0.0%,,Yes,homeassistant/components/unifi/device_tracker.py:203,,yes,,,,,,
+https://github.com/home-assistant/core/pull/32318,0,0.0%,,No,homeassistant/components/alexa/capabilities.py:672,,-,,,,,,
+https://github.com/home-assistant/core/pull/38605,0,0.0%,,No,"homeassistant/components/homekit_controller/config_flow.py:244,274",,not only,,,,,,
+,,,,,,,,,,,,,
+https://github.com/home-assistant/core/pull/40034,2,100.0%,arg and return,No,"homeassistant/helpers/condition.py:652,659,677,687",,not only,"no, it finds only homeassistant/helpers/condition.py:652:50 Undefined or invalid type [11]: Annotation `set` is not defined as a type.",,,,,
+https://github.com/kivy/kivy/pull/6954,0,0.0%,,Yes,kivy/network/urlrequest.py:337,,-,,,,,,
+https://github.com/spotify/luigi/pull/1836,0,0.0%,,Yes,luigi/contrib/pig.py:148,,yes,,,,,,
+https://github.com/numpy/numpy/pull/10473,0,0.0%,,Yes,numpy/lib/polynomial.py:904,,-,,,,,,
+https://github.com/numpy/numpy/pull/19094,3,100.0%,args and return,Yes,already checked,"FILE OUTSIDE COMMIT: TypeError: Too few parameters for typing.Union[~T1, ~T2]; actual 1, expected 2, /home/wonseok/.pyenv/versions/3.7.9/lib/python3.7/typing.py:208: TypeError",no,No,,,,,
+https://github.com/numpy/numpy/pull/9999,0,0.0%,,Yes,numpy/lib/arraysetops.py:451,,-,,,,,,
+https://github.com/pandas-dev/pandas/pull/15941,0,0.0%,,No,pandas/types/common.py:147,,-,,,,,,
+https://github.com/pandas-dev/pandas/pull/17430,0,0.0%,,Yes,pandas/plotting/_core.py:345,,yes,,,,,,
+https://github.com/pandas-dev/pandas/pull/17609,0,0.0%,,Yes,pandas/util/_decorators.py:245,,yes,,,,,,
+https://github.com/pandas-dev/pandas/pull/18831,0,0.0%,,No,"pandas/core/ops.py:411,597",,-,,,,,,
+https://github.com/pandas-dev/pandas/pull/18849,0,0.0%,,No,"pandas/core/dtypes/common.py:15 pandas/core/indexes/datetimelike.py:16,665 pandas/core/ops.py:28,365,621",,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/19013,0,0.0%,,No,"pandas/core/indexes/datetimelike.py:681,711",,not only,,,,,,
+https://github.com/pandas-dev/pandas/pull/19276,0,0.0%,,Yes,pandas/core/indexes/datetimes.py:669,,-,,,,,,
+https://github.com/pandas-dev/pandas/pull/20938,0,0.0%,,No,"pandas/io/excel.py:319,492",,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/20968,0,0.0%,,No,"pandas/plotting/_core.py:2551,2601",".../pandas/pandas-20968 sh test.sh 
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.9.1, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
+rootdir: /pyter/benchmark_info/pandas/pandas-20968
+plugins: timeouts-1.2.1, timeout-1.0.0, cov-2.12.1, betamax-0.5.1, anyio-4.0.0
+setup timeout: 0.0s, execution timeout: 0.0s, teardown timeout: 0.0s
+collected 0 items / 1 error                                                                                                                                                                                       
+
+===================================================================================================== ERRORS ======================================================================================================
+______________________________________________________________________________ ERROR collecting pandas/tests/plotting/test_frame.py _______________________________________________________________________________
+ImportError while importing test module '/pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pandas/tests/plotting/test_frame.py:15: in <module>
+    from pandas.compat import range, lrange, lmap, lzip, u, zip, PY3
+E   ImportError: cannot import name 'range' from 'pandas.compat' (/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pandas/compat/__init__.py)
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:428
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:428: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:382
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:382: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:49
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:49: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR pandas/tests/plotting/test_frame.py
+========================================================================================== 3 warnings, 1 error in 0.98s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py::TestDataFramePlots::test_groupby_boxplot_sharey
+(no name '/pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py::TestDataFramePlots::test_groupby_boxplot_sharey' in any of [<Module pandas/tests/plotting/test_frame.py>])
+
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.9.1, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
+rootdir: /pyter/benchmark_info/pandas/pandas-20968
+plugins: timeouts-1.2.1, timeout-1.0.0, cov-2.12.1, betamax-0.5.1, anyio-4.0.0
+setup timeout: 0.0s, execution timeout: 0.0s, teardown timeout: 0.0s
+collected 0 items / 1 error                                                                                                                                                                                       
+
+===================================================================================================== ERRORS ======================================================================================================
+______________________________________________________________________________ ERROR collecting pandas/tests/plotting/test_frame.py _______________________________________________________________________________
+ImportError while importing test module '/pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pandas/tests/plotting/test_frame.py:15: in <module>
+    from pandas.compat import range, lrange, lmap, lzip, u, zip, PY3
+E   ImportError: cannot import name 'range' from 'pandas.compat' (/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pandas/compat/__init__.py)
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:428
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:428: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:382
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:382: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:49
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:49: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR pandas/tests/plotting/test_frame.py
+========================================================================================== 3 warnings, 1 error in 0.84s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py::TestDataFramePlots::test_groupby_boxplot_sharex
+(no name '/pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py::TestDataFramePlots::test_groupby_boxplot_sharex' in any of [<Module pandas/tests/plotting/test_frame.py>])","no
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.9.1, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
+rootdir: /pyter/benchmark_info/pandas/pandas-20968
+plugins: timeouts-1.2.1, timeout-1.0.0, cov-2.12.1, betamax-0.5.1, anyio-4.0.0
+setup timeout: 0.0s, execution timeout: 0.0s, teardown timeout: 0.0s
+collected 0 items / 1 error                                                                                                                                                                                       
+
+===================================================================================================== ERRORS ======================================================================================================
+______________________________________________________________________________ ERROR collecting pandas/tests/plotting/test_frame.py _______________________________________________________________________________
+ImportError while importing test module '/pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pandas/tests/plotting/test_frame.py:15: in <module>
+    from pandas.compat import range, lrange, lmap, lzip, u, zip, PY3
+E   ImportError: cannot import name 'range' from 'pandas.compat' (/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pandas/compat/__init__.py)
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:428
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:428: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:382
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:382: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:49
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:49: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR pandas/tests/plotting/test_frame.py
+========================================================================================== 3 warnings, 1 error in 0.98s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py::TestDataFramePlots::test_groupby_boxplot_sharey
+(no name '/pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py::TestDataFramePlots::test_groupby_boxplot_sharey' in any of [<Module pandas/tests/plotting/test_frame.py>])
+
+=============================================================================================== test session starts ===============================================================================================
+platform linux -- Python 3.9.1, pytest-6.2.5, py-1.10.0, pluggy-1.0.0
+rootdir: /pyter/benchmark_info/pandas/pandas-20968
+plugins: timeouts-1.2.1, timeout-1.0.0, cov-2.12.1, betamax-0.5.1, anyio-4.0.0
+setup timeout: 0.0s, execution timeout: 0.0s, teardown timeout: 0.0s
+collected 0 items / 1 error                                                                                                                                                                                       
+
+===================================================================================================== ERRORS ======================================================================================================
+______________________________________________________________________________ ERROR collecting pandas/tests/plotting/test_frame.py _______________________________________________________________________________
+ImportError while importing test module '/pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+pandas/tests/plotting/test_frame.py:15: in <module>
+    from pandas.compat import range, lrange, lmap, lzip, u, zip, PY3
+E   ImportError: cannot import name 'range' from 'pandas.compat' (/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pandas/compat/__init__.py)
+================================================================================================ warnings summary =================================================================================================
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:428
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:428: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/nodeids
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:382
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/cacheprovider.py:382: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/lastfailed
+    config.cache.set(""cache/lastfailed"", self.lastfailed)
+
+../../../../home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:49
+  /home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/stepwise.py:49: PytestCacheWarning: could not create cache path /pyter/benchmark_info/pandas/pandas-20968/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+============================================================================================= short test summary info =============================================================================================
+ERROR pandas/tests/plotting/test_frame.py
+========================================================================================== 3 warnings, 1 error in 0.84s ===========================================================================================
+ERROR: not found: /pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py::TestDataFramePlots::test_groupby_boxplot_sharex
+(no name '/pyter/benchmark_info/pandas/pandas-20968/pandas/tests/plotting/test_frame.py::TestDataFramePlots::test_groupby_boxplot_sharex' in any of [<Module pandas/tests/plotting/test_frame.py>])",,,,,,
+https://github.com/pandas-dev/pandas/pull/21540,0,0.0%,,Yes,pandas/io/json/normalize.py:262,,yes,,,,,,
+https://github.com/pandas-dev/pandas/pull/21590,0,0.0%,,No,"pandas/core/generic.py:1120,1131",,not only,,,,,,
+https://github.com/pandas-dev/pandas/pull/22072,0,0.0%,,Yes,pandas/core/arrays/categorical.py:2541,,not only,,,,,,
+https://github.com/pandas-dev/pandas/pull/22198,0,0.0%,,Yes,pandas/core/indexes/base.py:2466,,yes,,,,,,
+https://github.com/pandas-dev/pandas/pull/22378,0,0.0%,,Yes,pandas/core/ops.p:1231,,not only,,,,,,
+https://github.com/pandas-dev/pandas/pull/22804,0,0.0%,,No,"pandas/io/json/normalize.py:227,236",,yes,,,,,,
+https://github.com/pandas-dev/pandas/pull/24572,0,0.0%,,No,"pandas/io/formats/html.py:244,443",,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/25533,0,0.0%,,Yes,pandas/core/series.py:1232,,not only,,,,,,
+https://github.com/pandas-dev/pandas/pull/25759,0,0.0%,,Yes,pandas/core/indexing.py:2082,,-,,,,,,
+https://github.com/pandas-dev/pandas/pull/26324,0,0.0%,,No,"pandas/core/base.py:969-1066, pandas/core/indexes/range.py:325",,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/26765,0,0.0%,,Yes,pandas/core/arrays/categorical.p:184,,not only,,,,,,
+https://github.com/pandas-dev/pandas/pull/29103,1,25.0%,only one arg,No,pandas/core/dtypes/cast.py:205 pandas/core/groupby/generic.py:264,,-,multi file fix,,,,,
+https://github.com/pandas-dev/pandas/pull/31477,4,66.0%,most args and return,No,pandas/core/groupby/ops.py:570,,yes,"/pandas/pandas/core/groupby/ops.py', 'code': 21, 'name': 'Undefined import', 'description': 'Undefined import [21]: Could not find a name `lib` defined in module `pandas._libs`.', 'concise_description': 'Undefined import [21]: Could not find name `lib` in `pandas._libs`.', 'define': 'pandas.core.groupby.ops.$toplevel'}, {'line': 15, 'column': 0, 'stop_line': 15, 'stop_column': 41, 'path': '/home/luca/Pyter/pandas/pandas/core/groupby/ops.py', 'code': 21, 'name': 'Undefined import', 'description': 'Undefined import [21]: Could not
+/pandas/pandas/core/groupby/ops.py', 'code': 21, 'name': 'Undefined import', 'description': 'Undefined import [21]: Could not find a module corresponding to import `pandas._libs.reduction`.', 'concise_description': 'Undefined import [21]: Could not find module `pandas._libs.reduction`.', 'define': 'pandas.core.groupby.ops.$toplevel'}, {'line': 274, 'column': 32, 'stop_line': 274, 'stop_column': 53, 'path': '/home/luca/Pyter/pandas/pandas/core/groupby/ops.py', 'code': 6, 'name': 'Incompatible parameter type', 'description': 'Inco
+/pandas/pandas/core/groupby/ops.py', 'code': 61, 'name': 'Uninitialized local', 'description': 'Uninitialized local [61]: Local variable `result` is undefined, or not always defined.', 'concise_description': 'Uninitialized local [61]: `result` is undefined, or not always defined.', 'define': 'pandas.core.groupby.ops.BaseGrouper._cython_operation'}, {'line': 542, 'column': 19, 'stop_line': 542, 'stop_column': 25, 'path': '/home/luca/Pyter/pandas/pandas/core/groupby/ops.py', 'code': 61, 'name': 'Uninitialized local', 'description'
+/pandas/pandas/core/groupby/ops.py', 'code': 61, 'name': 'Uninitialized local', 'description': 'Uninitialized local [61]: Local variable `counts` is undefined, or not always defined.', 'concise_description': 'Uninitialized local [61]: `counts` is undefined, or not always defined.', 'define': 'pandas.core.groupby.ops.BaseGrouper._cython_operation'}, {'line': 564, 'column': 15, 'stop_line': 564, 'stop_column': 21, 'path': '/home/luca/Pyter/pandas/pandas/core/groupby/ops.py', 'code': 61, 'name': 'Uninitialized local', 'description'
+/pandas/pandas/core/groupby/ops.py', 'code': 34, 'name': 'Invalid type variable', 'description': ""Invalid type variable [34]: The type variable `Variable[FrameOrSeries (bound to pandas.core.generic.NDFrame)]` isn't present in the function's parameters."", 'concise_description': ""Invalid type variable [34]: `Variable[FrameOrSeries (bound to pandas.core.generic.NDFrame)]` isn't present in the function's parameters."", 'define': 'pandas.core.groupby.ops.DataSplitter._get_sorted_data'}, {'line': 4, 'column': 0, 'stop_line': 4, 'stop_c
+/pandas/pandas/core/groupby/ops.py', 'code': 21, 'name': 'Undefined import', 'description': 'Undefined import [21]: Could not find a name `lib` defined in module `pandas._libs`.', 'concise_description': 'Undefined import [21]: Could not find name `lib` in `pandas._libs`.', 'define': 'pandas.core.groupby.ops.$toplevel'}, {'line': 15, 'column': 0, 'stop_line': 15, 'stop_column': 41, 'path': '/home/luca/Pyter/pandas/pandas/core/groupby/ops.py', 'code': 21, 'name': 'Undefined import', 'description': 'Undefined import [21]: Could not
+/pandas/pandas/core/groupby/ops.py', 'code': 21, 'name': 'Undefined import', 'description': 'Undefined import [21]: Could not find a module corresponding to import `pandas._libs.reduction`.', 'concise_description': 'Undefined import [21]: Could not find module `pandas._libs.reduction`.', 'define': 'pandas.core.groupby.ops.$toplevel'}, {'line': 274, 'column': 32, 'stop_line': 274, 'stop_column': 53, 'path': '/home/luca/Pyter/pandas/pandas/core/groupby/ops.py', 'code': 6, 'name': 'Incompatible parameter type', 'description': 'Inco
+/pandas/pandas/core/groupby/ops.py', 'code': 61, 'name': 'Uninitialized local', 'description': 'Uninitialized local [61]: Local variable `result` is undefined, or not always defined.', 'concise_description': 'Uninitialized local [61]: `result` is undefined, or not always defined.', 'define': 'pandas.core.groupby.ops.BaseGrouper._cython_operation'}, {'line': 542, 'column': 19, 'stop_line': 542, 'stop_column': 25, 'path': '/home/luca/Pyter/pandas/pandas/core/groupby/ops.py', 'code': 61, 'name': 'Uninitialized local', 'description'
+/pandas/pandas/core/groupby/ops.py', 'code': 61, 'name': 'Uninitialized local', 'description': 'Uninitialized local [61]: Local variable `counts` is undefined, or not always defined.', 'concise_description': 'Uninitialized local [61]: `counts` is undefined, or not always defined.', 'define': 'pandas.core.groupby.ops.BaseGrouper._cython_operation'}, {'line': 564, 'column': 15, 'stop_line': 564, 'stop_column': 21, 'path': '/home/luca/Pyter/pandas/pandas/core/groupby/ops.py', 'code': 61, 'name': 'Uninitialized local', 'description'
+/pandas/pandas/core/groupby/ops.py', 'code': 34, 'name': 'Invalid type variable', 'description': ""Invalid type variable [34]: The type variable `Variable[FrameOrSeries (bound to pandas.core.generic.NDFrame)]` isn't present in the function's parameters."", 'concise_description': ""Invalid type variable [34]: `Variable[FrameOrSeries (bound to pandas.core.generic.NDFrame)]` isn't present in the function's parameters."", 'define': 'pandas.core.groupby.ops.DataSplitter._get_sorted_data'}, {'line': 4, 'column': 0, 'stop_line': 4, 'stop_c",,,,,
+https://github.com/pandas-dev/pandas/pull/31905,1,25.0%,only one arg,No,pandas/core/indexes/base.py:3141 pandas/core/series.py:1002,,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/32953,4,36.0%,many args,Yes,already checked,"(TEST NOT RUNNING) ImportError while loading conftest '/pyter/benchmark/pandas-32953/pandas/conftest.py'.
+pandas/__init__.py:40: in <module>
+    ) from e
+ImportError: C extension: No module named 'pandas._libs.tslibs.conversion' not built. If you want to import pandas from the source directory, you may need to run 'python setup.py build_ext --inplace --force' to build the C extensions first.",-,to be run locally,,,,,
+https://github.com/pandas-dev/pandas/pull/33373,0,0.0%,,Yes,pandas/io/json/_json.py:985,,-,,,,,,
+https://github.com/pandas-dev/pandas/pull/33663,4,80.0%,one arg missing,No,pandas/core/array_algos/transforms.py:13 pandas/core/arrays/categorical.py:1244 ,,not only,"pandas/pandas/core/array_algos/transforms.py', 'code': 6, 'name': 'Incompatible parameter type', 'description': 'Incompatible parameter type [6]: In call `np.core.fromnumeric.prod`, for 1st positional argument, expected `Union[_SupportsArray[dtype[bool_]], _NestedSequence[_SupportsArray[dtype[bool_]]], _NestedSequence[bool], bool]` but got `typing.Tuple[int, ...]`.', 'concise_description': 'Incompatible parameter type [6]: For 1st argument expected `Union[_SupportsArray[dtype[bool_]], _NestedSequence[_SupportsArray[dtype[bool_]]], _Nested
+pandas/pandas/core/array_algos/transforms.py', 'code': 6, 'name': 'Incompatible parameter type', 'description': 'Incompatible parameter type [6]: In call `np.core.fromnumeric.prod`, for 1st positional argument, expected `Union[_SupportsArray[dtype[bool_]], _NestedSequence[_SupportsArray[dtype[bool_]]], _NestedSequence[bool], bool]` but got `typing.Tuple[int, ...]`.', 'concise_description': 'Incompatible parameter type [6]: For 1st argument expected `Union[_SupportsArray[dtype[bool_]], _NestedSequence[_SupportsArray[dtype[bool_]]], _Nested",,,,,
+https://github.com/pandas-dev/pandas/pull/34220,0,0.0%,,No,pandas/core/arrays/sparse/array.py:1223 pandas/core/dtypes/missing.py:523,,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/36950,0,0.0%,,Yes,pandas/core/frame.py:7409,,yes,,,,,,
+https://github.com/pandas-dev/pandas/pull/37096,0,0.0%,,No,pandas/core/algorithms.py:2059,,yes,,,,,,
+https://github.com/pandas-dev/pandas/pull/37547,0,0.0%,,No,pandas/core/reshape/merge.py:1203,,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/37736,16,100.0%,all,No,pandas/io/html.py:1084,".../pandas/pandas-37736 sh test.sh 
+Traceback (most recent call last):
+  File ""/home/wonseok/.pyenv/versions/3.9.1/bin/pytest"", line 8, in <module>
+    sys.exit(console_main())
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/config/__init__.py"", line 185, in console_main
+    code = main()
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/config/__init__.py"", line 143, in main
+    config = _prepareconfig(args, plugins)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/config/__init__.py"", line 318, in _prepareconfig
+    config = pluginmanager.hook.pytest_cmdline_parse(
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pluggy/hooks.py"", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pluggy/manager.py"", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pluggy/manager.py"", line 84, in <lambda>
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pluggy/callers.py"", line 203, in _multicall
+    gen.send(outcome)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/helpconfig.py"", line 100, in pytest_cmdline_parse
+    config: Config = outcome.get_result()
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pluggy/callers.py"", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pluggy/callers.py"", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/config/__init__.py"", line 1003, in pytest_cmdline_parse
+    self.parse(args)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/config/__init__.py"", line 1283, in parse
+    self._preparse(args, addopts=addopts)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/config/__init__.py"", line 1172, in _preparse
+    self.pluginmanager.load_setuptools_entrypoints(""pytest11"")
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/pluggy/manager.py"", line 299, in load_setuptools_entrypoints
+    plugin = ep.load()
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/importlib/metadata.py"", line 77, in load
+    module = import_module(match.group('module'))
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/importlib/__init__.py"", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File ""<frozen importlib._bootstrap>"", line 1030, in _gcd_import
+  File ""<frozen importlib._bootstrap>"", line 1007, in _find_and_load
+  File ""<frozen importlib._bootstrap>"", line 972, in _find_and_load_unlocked
+  File ""<frozen importlib._bootstrap>"", line 228, in _call_with_frames_removed
+  File ""<frozen importlib._bootstrap>"", line 1030, in _gcd_import
+  File ""<frozen importlib._bootstrap>"", line 1007, in _find_and_load
+  File ""<frozen importlib._bootstrap>"", line 972, in _find_and_load_unlocked
+  File ""<frozen importlib._bootstrap>"", line 228, in _call_with_frames_removed
+  File ""<frozen importlib._bootstrap>"", line 1030, in _gcd_import
+  File ""<frozen importlib._bootstrap>"", line 1007, in _find_and_load
+  File ""<frozen importlib._bootstrap>"", line 986, in _find_and_load_unlocked
+  File ""<frozen importlib._bootstrap>"", line 680, in _load_unlocked
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/assertion/rewrite.py"", line 170, in exec_module
+    exec(co, module.__dict__)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/hypothesis/__init__.py"", line 30, in <module>
+    from hypothesis.core import given, find, example, seed, reproduce_failure, \
+  File ""<frozen importlib._bootstrap>"", line 1007, in _find_and_load
+  File ""<frozen importlib._bootstrap>"", line 986, in _find_and_load_unlocked
+  File ""<frozen importlib._bootstrap>"", line 680, in _load_unlocked
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/assertion/rewrite.py"", line 170, in exec_module
+    exec(co, module.__dict__)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/hypothesis/core.py"", line 38, in <module>
+    import hypothesis.strategies as st
+  File ""<frozen importlib._bootstrap>"", line 1007, in _find_and_load
+  File ""<frozen importlib._bootstrap>"", line 986, in _find_and_load_unlocked
+  File ""<frozen importlib._bootstrap>"", line 680, in _load_unlocked
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/_pytest/assertion/rewrite.py"", line 170, in exec_module
+    exec(co, module.__dict__)
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/hypothesis/strategies.py"", line 236, in <module>
+    def nothing():
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/hypothesis/strategies.py"", line 156, in cacheable
+    def cached_strategy(*args, **kwargs):
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/hypothesis/internal/reflection.py"", line 553, in accept
+    return impersonate(target)(wraps(target)(define_function_signature(
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/hypothesis/internal/reflection.py"", line 540, in accept
+    f.__code__ = update_code_location(
+  File ""/home/wonseok/.pyenv/versions/3.9.1/lib/python3.9/site-packages/hypothesis/internal/compat.py"", line 387, in update_code_location
+    return type(code)(*unpacked)
+TypeError: an integer is required (got type bytes)",no,,,,,,
+https://github.com/pandas-dev/pandas/pull/38220,3,50.0%,some args missing,No,pandas/core/generic.py:4177,,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/38431,0,0.0%,,Yes,pandas/io/parsers.py:1434,,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/39028,4,100.0%,,Yes,already checked,"< NOT FOUND IN THE FILE TypeError: '<' not supported between instances of 'str' and 'int'
+pandas/core/aggregation.py:485 (also 741): TypeError",no,no,,,,,
+https://github.com/pandas-dev/pandas/pull/39028,4,100.0%,,Yes,already checked,"< NOT FOUND IN THE FILE TypeError: '<' not supported between instances of 'str' and 'int'
+pandas/core/aggregation.py:485 (also 741): TypeError",no,no,,,,,
+https://github.com/pandas-dev/pandas/pull/39095,3,60.0%,,Yes,already checked,"FILE OUTSIDE COMMIT TypeError: DatetimeArray subtraction must have the same timezones or no timezones
+pandas/core/arrays/datetimes.py:667: TypeError",no,no,,,,,
+https://github.com/pandas-dev/pandas/pull/40180,0,0.0%,,No,pandas/core/indexes/base.py:6000,,no,,,,,,
+https://github.com/pandas-dev/pandas/pull/41155,3,100.0%,,Yes,already checked,"FILE OUTSIDE COMMIT TypeError: a bytes-like object is required, not 'RangeIndex'
+stringsource:350: TypeError",no,no,,,,,
+https://github.com/pandas-dev/pandas/pull/41406,1,33.0%,,Yes,already checked,"TypeError: Argument 'arg' has incorrect type (expected str, got mystring)
+pandas/core/indexes/datetimes.py:774: TypeError",no,no,,,,,
+https://github.com/pandas-dev/pandas/pull/41915,0,0.0%,,No,pandas/core/indexes/base.py:3094 pandas/core/indexes/multi.py:3600,,-,,,,,,
+https://github.com/RasaHQ/rasa/pull/8704,2,100.0%,,No,"rasa/nlu/model.py:45, 60",,-,,,,,,
+https://github.com/psf/requests/pull/3179,0,0.0%,,Yes,requests/models.py:795,,yes,,,,,,
+https://github.com/psf/requests/pull/3368,0,0.0%,,Yes,requests/models.py:688,,-,,,,,,
+https://github.com/psf/requests/pull/3390,0,0.0%,,Yes,"requests/utils.py:742, 753",,-,,,,,,
+https://github.com/psf/requests/pull/4723,0,0.0%,,Yes,requests/utils.p:709,,not only,,,,,,
+https://github.com/willmcgugan/rich/pull/919,3,100.0%,,No,"_inspect.py:88,145",,yes,,,,,,
+https://github.com/saltstack/salt/pull/33908,0,0.0%,,No,salt/modules/boto_lambda.py:480 salt/states/boto_lambda.py:187,,-,,,,,,
+https://github.com/saltstack/salt/pull/38947,0,0.0%,,Yes,salt/client/ssh/shell.py:82,,no,,,,,,
+https://github.com/saltstack/salt/pull/50958,0,0.0%,,Yes,salt/modules/twilio_notify.py:28,,yes,,,,,,
+https://github.com/saltstack/salt/pull/52624,0,0.0%,,Yes,salt/cli/batch.py:88,,-,,,,,,
+https://github.com/saltstack/salt/pull/53394,0,0.0%,,No,"salt/utils/http.py:107,125",,yes,,,,,,
+https://github.com/saltstack/salt/pull/54240,0,0.0%,,No,salt/cloud/clouds/ec2.py:1229,,no,,,,,,
+https://github.com/saltstack/salt/pull/54785,0,0.0%,,Yes,salt/modules/state.py:1637,,-,,,,,,
+https://github.com/saltstack/salt/pull/56094,0,0.0%,,Yes,salt/__init__.py:15,,no,,,,,,
+https://github.com/saltstack/salt/pull/56381,0,0.0%,,Yes,salt/state.py:2077,,not only,,,,,,
+https://github.com/sanic-org/sanic/pull/1334,0,0.0%,,No,sanic/blueprints.py:58,,not only,,,,,,
+https://github.com/sanic-org/sanic/pull/2008,0,0.0%,,No,sanic/static.py:115,,no,,,,,,
+https://github.com/sanic-org/sanic/pull/2008,0,0.0%,,No,sanic/static.py:115,,no,,,,,,
+https://github.com/scikit-learn/scikit-learn/pull/12603,0,0.0%,,Yes,sklearn/gaussian_process/kernels.py:1445,,no,,,,,,
+https://github.com/scikit-learn/scikit-learn/pull/17233,0,0.0%,,No,sklearn/multiclass.py:805,,no,,,,,,
+https://github.com/scikit-learn/scikit-learn/pull/7064,0,0.0%,,Yes,sklearn/svm/base.py:235,,-,,,,,,
+https://github.com/scikit-learn/scikit-learn/pull/7259,0,0.0%,,No,sklearn/gaussian_process/kernels.py:38,,no,,,,,,
+https://github.com/scikit-learn/scikit-learn/pull/8973,0,0.0%,,Yes,sklearn/linear_model/coordinate_descent.py:1153,,no,,,,,,
+https://github.com/tornadoweb/tornado/pull/1689,0,0.0%,,Yes,tornado/web.py:1268,,no,,,,,,

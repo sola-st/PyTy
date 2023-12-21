@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "efda39a780c7c2b48648eb33056f3de3c50eb6d3",
+    "filename": "UM/Trust.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Trust.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "UM/Trust.py:113:16 Incompatible variable type [9]: encrypt_method is declared to have type `serialization.NoEncryption` but is used as type `serialization.BestAvailableEncryption`.",
+    "message": " encrypt_method is declared to have type `serialization.NoEncryption` but is used as type `serialization.BestAvailableEncryption`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 113,
+    "warning_line": "                encrypt_method = serialization.BestAvailableEncryption(optional_password.encode())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        try:\n            encrypt_method = serialization.NoEncryption()  # type: KeySerializationEncryption\n            if optional_password is not None:\n",
+        "source_code_len": 153,
+        "target_code": "        try:\n            encrypt_method = serialization.NoEncryption()  # type: ignore\n            if optional_password is not None:\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -110,3 +110,3 @@\n         try:\n-            encrypt_method = serialization.NoEncryption()  # type: KeySerializationEncryption\n+            encrypt_method = serialization.NoEncryption()  # type: ignore\n             if optional_password is not None:\n",
+        "source_code_with_indent": "        <IND>try:\n            <IND>encrypt_method = serialization.NoEncryption()  # type: KeySerializationEncryption\n            if optional_password is not None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>try:\n            <IND>encrypt_method = serialization.NoEncryption()  # type: ignore\n            if optional_password is not None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

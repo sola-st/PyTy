@@ -1,0 +1,81 @@
+[
+  {
+    "project": "MarshalX/tgcalls",
+    "commit": "a3af12b761b0fadca6d9ecc9b68da44ef64f6b55",
+    "filename": "pytgcalls/pytgcalls/dispatcher.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/MarshalX-tgcalls/pytgcalls/pytgcalls/dispatcher.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytgcalls/pytgcalls/dispatcher.py:88:34 Call error [29]: `typing.Coroutine[typing.Any, typing.Any, typing.Any]` is not a function.",
+    "message": " `typing.Coroutine[typing.Any, typing.Any, typing.Any]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 88,
+    "warning_line": "            asyncio.ensure_future(handler(instance, *args, **kwargs), loop=instance.client.loop)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import logging\nfrom collections import Coroutine\nfrom typing import List\n\n",
+        "source_code_len": 74,
+        "target_code": "import logging\nfrom typing import Callable, List\n\n",
+        "target_code_len": 50,
+        "diff_format": "@@ -21,4 +21,3 @@\n import logging\n-from collections import Coroutine\n-from typing import List\n+from typing import Callable, List\n \n",
+        "source_code_with_indent": "import logging\nfrom collections import Coroutine\nfrom typing import List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\nfrom typing import Callable, List\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def add_handler(self, callback: Coroutine, action: str) -> Coroutine:\n        logger.debug(f'Add handler to {action} action..')\n",
+        "source_code_len": 133,
+        "target_code": "\n    def add_handler(self, callback: Callable, action: str) -> Callable:\n        logger.debug(f'Add handler to {action} action..')\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -41,3 +40,3 @@\n \n-    def add_handler(self, callback: Coroutine, action: str) -> Coroutine:\n+    def add_handler(self, callback: Callable, action: str) -> Callable:\n         logger.debug(f'Add handler to {action} action..')\n",
+        "source_code_with_indent": "\n    <DED>def add_handler(self, callback: Coroutine, action: str) -> Coroutine:\n        <IND>logger.debug(f'Add handler to {action} action..')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def add_handler(self, callback: Callable, action: str) -> Callable:\n        <IND>logger.debug(f'Add handler to {action} action..')\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def remove_handler(self, callback: Coroutine, action: str) -> bool:\n        logger.debug(f'Remove handler of {action} action..')\n",
+        "source_code_len": 134,
+        "target_code": "\n    def remove_handler(self, callback: Callable, action: str) -> bool:\n        logger.debug(f'Remove handler of {action} action..')\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -59,3 +58,3 @@\n \n-    def remove_handler(self, callback: Coroutine, action: str) -> bool:\n+    def remove_handler(self, callback: Callable, action: str) -> bool:\n         logger.debug(f'Remove handler of {action} action..')\n",
+        "source_code_with_indent": "\n    <DED>def remove_handler(self, callback: Coroutine, action: str) -> bool:\n        <IND>logger.debug(f'Remove handler of {action} action..')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def remove_handler(self, callback: Callable, action: str) -> bool:\n        <IND>logger.debug(f'Remove handler of {action} action..')\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_handlers(self, action: str) -> List[Coroutine]:\n        try:\n",
+        "source_code_len": 74,
+        "target_code": "\n    def get_handlers(self, action: str) -> List[Callable]:\n        try:\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -75,3 +74,3 @@\n \n-    def get_handlers(self, action: str) -> List[Coroutine]:\n+    def get_handlers(self, action: str) -> List[Callable]:\n         try:\n",
+        "source_code_with_indent": "\n    <DED>def get_handlers(self, action: str) -> List[Coroutine]:\n        <IND>try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_handlers(self, action: str) -> List[Callable]:\n        <IND>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

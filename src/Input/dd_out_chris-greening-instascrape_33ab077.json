@@ -1,0 +1,51 @@
+[
+  {
+    "project": "chris-greening/instascrape",
+    "commit": "33ab0777f61dce33dbd36e413481ce8c789120f6",
+    "filename": "instascrape/scrapers/static_scraper.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/chris-greening-instascrape/instascrape/scrapers/static_scraper.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "instascrape/scrapers/static_scraper.py:54:8 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got `typing.List[typing.Tuple[str, typing.Any]]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got `typing.List[typing.Tuple[str, typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 54,
+    "warning_line": "        return [",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import datetime\nfrom typing import Dict\nfrom abc import ABC, abstractmethod\n",
+        "source_code_len": 76,
+        "target_code": "import datetime\nfrom typing import Dict, List\nfrom abc import ABC, abstractmethod\n",
+        "target_code_len": 82,
+        "diff_format": "@@ -4,3 +4,3 @@\n import datetime\n-from typing import Dict\n+from typing import Dict, List\n from abc import ABC, abstractmethod\n",
+        "source_code_with_indent": "import datetime\nfrom typing import Dict\nfrom abc import ABC, abstractmethod\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import datetime\nfrom typing import Dict, List\nfrom abc import ABC, abstractmethod\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def to_list(self) -> dict:\n        return [\n",
+        "source_code_len": 49,
+        "target_code": "\n    def to_list(self) -> List:\n        return [\n",
+        "target_code_len": 49,
+        "diff_format": "@@ -52,3 +52,3 @@\n \n-    def to_list(self) -> dict:\n+    def to_list(self) -> List:\n         return [\n",
+        "source_code_with_indent": "\n    <DED>def to_list(self) -> dict:\n        <IND>return [\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def to_list(self) -> List:\n        <IND>return [\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

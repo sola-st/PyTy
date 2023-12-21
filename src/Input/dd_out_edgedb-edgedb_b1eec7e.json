@@ -1,0 +1,70 @@
+[
+  {
+    "project": "edgedb/edgedb",
+    "commit": "b1eec7ed6a649a16127f66447b9df8026854e9b4",
+    "filename": "edb/edgeql/compiler/viewgen.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/edgeql/compiler/viewgen.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/edgeql/compiler/viewgen.py:1156:23 Incompatible parameter type [6]: Expected `typing.Union[s_pointers.Pointer, s_pointers.PseudoPointer, s_types.Type]` for 1st positional only parameter to call `list.append` but got `typing.Union[None, s_pointers.Pointer, s_pointers.PseudoPointer]`.",
+    "message": " Expected `typing.Union[s_pointers.Pointer, s_pointers.PseudoPointer, s_types.Type]` for 1st positional only parameter to call `list.append` but got `typing.Union[None, s_pointers.Pointer, s_pointers.PseudoPointer]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1156,
+    "warning_line": "        sources.append(rptrcls)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if link_view:\n        sources.append(rptrcls)\n",
+        "source_code_len": 50,
+        "target_code": "    if link_view:\n        assert rptrcls is not None\n        sources.append(rptrcls)\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -1155,2 +1152,3 @@\n     if link_view:\n+        assert rptrcls is not None\n         sources.append(rptrcls)\n",
+        "source_code_with_indent": "    <DED>if link_view:\n        <IND>sources.append(rptrcls)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>if link_view:\n        <IND>assert rptrcls is not None\n        sources.append(rptrcls)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "b1eec7ed6a649a16127f66447b9df8026854e9b4",
+    "filename": "edb/ir/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/ir/utils.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/ir/utils.py:282:12 Incompatible variable type [9]: ir_set is declared to have type `irast.Set` but is used as type `None`.",
+    "message": " ir_set is declared to have type `irast.Set` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 282,
+    "warning_line": "            ir_set = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    while ir_set is not None:\n        if isinstance(ir_set.expr, irast.MutatingStmt):\n            return ir_set.expr\n        elif isinstance(ir_set.expr, irast.SelectStmt):\n            ir_set = ir_set.expr.result\n        elif ir_set.rptr is not None:\n            ir_set = ir_set.rptr.source\n        else:\n            ir_set = None\n\n",
+        "source_code_len": 340,
+        "target_code": "    \"\"\"\n    cur_set: Optional[irast.Set] = ir_set\n    while cur_set is not None:\n        if isinstance(cur_set.expr, irast.MutatingStmt):\n            return cur_set.expr\n        elif isinstance(cur_set.expr, irast.SelectStmt):\n            cur_set = cur_set.expr.result\n        elif cur_set.rptr is not None:\n            cur_set = cur_set.rptr.source\n        else:\n            cur_set = None\n    return None\n\n",
+        "target_code_len": 408,
+        "diff_format": "@@ -273,11 +277,13 @@\n     \"\"\"\n-    while ir_set is not None:\n-        if isinstance(ir_set.expr, irast.MutatingStmt):\n-            return ir_set.expr\n-        elif isinstance(ir_set.expr, irast.SelectStmt):\n-            ir_set = ir_set.expr.result\n-        elif ir_set.rptr is not None:\n-            ir_set = ir_set.rptr.source\n+    cur_set: Optional[irast.Set] = ir_set\n+    while cur_set is not None:\n+        if isinstance(cur_set.expr, irast.MutatingStmt):\n+            return cur_set.expr\n+        elif isinstance(cur_set.expr, irast.SelectStmt):\n+            cur_set = cur_set.expr.result\n+        elif cur_set.rptr is not None:\n+            cur_set = cur_set.rptr.source\n         else:\n-            ir_set = None\n+            cur_set = None\n+    return None\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    while ir_set is not None:\n        <IND>if isinstance(ir_set.expr, irast.MutatingStmt):\n            <IND>return ir_set.expr\n        <DED>elif isinstance(ir_set.expr, irast.SelectStmt):\n            <IND>ir_set = ir_set.expr.result\n        <DED>elif ir_set.rptr is not None:\n            <IND>ir_set = ir_set.rptr.source\n        <DED>else:\n            <IND>ir_set = None\n\n",
+        "target_code_with_indent": "\n    cur_set: Optional[irast.Set] = ir_set\n    while cur_set is not None:\n        <IND>if isinstance(cur_set.expr, irast.MutatingStmt):\n            <IND>return cur_set.expr\n        <DED>elif isinstance(cur_set.expr, irast.SelectStmt):\n            <IND>cur_set = cur_set.expr.result\n        <DED>elif cur_set.rptr is not None:\n            <IND>cur_set = cur_set.rptr.source\n        <DED>else:\n            <IND>cur_set = None\n    <DED><DED>return None\n\n"
+      }
+    ]
+  }
+]

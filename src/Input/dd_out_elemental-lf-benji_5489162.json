@@ -1,0 +1,36 @@
+[
+  {
+    "project": "elemental-lf/benji",
+    "commit": "54891624a9390f01f80d031f30c4ee3dccc735e6",
+    "filename": "src/benji/database.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/elemental-lf-benji/src/benji/database.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/benji/database.py:555:8 Incompatible return type [7]: Expected `Iterator[VersionStatistic]` but got `List[typing.Any]`.",
+    "message": " Expected `Iterator[VersionStatistic]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 555,
+    "warning_line": "        return list(reversed(stats_result))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_stats_with_filter(self, filter_expression: str = None, limit: int = None) -> Iterator[VersionStatistic]:\n        builder = _QueryBuilder(self._session, VersionStatistic)\n",
+        "source_code_len": 183,
+        "target_code": "\n    def get_stats_with_filter(self, filter_expression: str = None, limit: int = None) -> List[VersionStatistic]:\n        builder = _QueryBuilder(self._session, VersionStatistic)\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -543,3 +543,3 @@\n \n-    def get_stats_with_filter(self, filter_expression: str = None, limit: int = None) -> Iterator[VersionStatistic]:\n+    def get_stats_with_filter(self, filter_expression: str = None, limit: int = None) -> List[VersionStatistic]:\n         builder = _QueryBuilder(self._session, VersionStatistic)\n",
+        "source_code_with_indent": "\n    <DED><DED>def get_stats_with_filter(self, filter_expression: str = None, limit: int = None) -> Iterator[VersionStatistic]:\n        <IND>builder = _QueryBuilder(self._session, VersionStatistic)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def get_stats_with_filter(self, filter_expression: str = None, limit: int = None) -> List[VersionStatistic]:\n        <IND>builder = _QueryBuilder(self._session, VersionStatistic)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

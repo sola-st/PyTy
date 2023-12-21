@@ -1,0 +1,51 @@
+[
+  {
+    "project": "instadeepai/Mava",
+    "commit": "8477753a5dfe73330d008135d665739f8c29b7e6",
+    "filename": "tests/conftest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/tests/conftest.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/conftest.py:84:8 Incompatible return type [7]: Expected `None` but got `bool`.",
+    "message": " Expected `None` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 84,
+    "warning_line": "        return (dictA == dictB) and (typesA == typesB)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from enum import Enum\nfrom typing import Tuple, Union\n\n",
+        "source_code_len": 55,
+        "target_code": "from enum import Enum\nfrom typing import Dict, Tuple, Union\n\n",
+        "target_code_len": 61,
+        "diff_format": "@@ -3,3 +3,3 @@\n from enum import Enum\n-from typing import Tuple, Union\n+from typing import Dict, Tuple, Union\n \n",
+        "source_code_with_indent": "from enum import Enum\nfrom typing import Tuple, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from enum import Enum\nfrom typing import Dict, Tuple, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def compare_dicts(dictA: dict, dictB: dict) -> None:\n        typesA = [type(k) for k in dictA.values()]\n",
+        "source_code_len": 126,
+        "target_code": "    @staticmethod\n    def compare_dicts(dictA: Dict, dictB: Dict) -> bool:\n        typesA = [type(k) for k in dictA.values()]\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -79,3 +81,3 @@\n     @staticmethod\n-    def compare_dicts(dictA: dict, dictB: dict) -> None:\n+    def compare_dicts(dictA: Dict, dictB: Dict) -> bool:\n         typesA = [type(k) for k in dictA.values()]\n",
+        "source_code_with_indent": "    <DED>@staticmethod\n    def compare_dicts(dictA: dict, dictB: dict) -> None:\n        <IND>typesA = [type(k) for k in dictA.values()]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@staticmethod\n    def compare_dicts(dictA: Dict, dictB: Dict) -> bool:\n        <IND>typesA = [type(k) for k in dictA.values()]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

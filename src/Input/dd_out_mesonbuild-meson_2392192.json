@@ -1,0 +1,70 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "239219220e2711ae2e6f79e952103f767c384673",
+    "filename": "docs/refman/generatorbase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/docs/refman/generatorbase.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "docs/refman/generatorbase.py:44:56 Incompatible parameter type [6]: Expected `typing.Callable[[Variable[_T]], _typeshed.SupportsLessThan]` for 2nd parameter `key` to call `sorted` but got `typing.Callable[[Named(fn, Function)], str]`.",
+    "message": " Expected `typing.Callable[[Variable[_T]], _typeshed.SupportsLessThan]` for 2nd parameter `key` to call `sorted` but got `typing.Callable[[Named(fn, Function)], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 44,
+    "warning_line": "        return sorted([x for x in raw if not x.hidden], key=key_fn)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def sorted_and_filtered(raw: T.List[_N]) -> T.List[_N]:\n        def key_fn(fn: Function) -> str:\n            if isinstance(fn, Method):\n",
+        "source_code_len": 140,
+        "target_code": "    def sorted_and_filtered(raw: T.List[_N]) -> T.List[_N]:\n        def key_fn(fn: NamedObject) -> str:\n            if isinstance(fn, Method):\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -39,3 +39,3 @@\n     def sorted_and_filtered(raw: T.List[_N]) -> T.List[_N]:\n-        def key_fn(fn: Function) -> str:\n+        def key_fn(fn: NamedObject) -> str:\n             if isinstance(fn, Method):\n",
+        "source_code_with_indent": "    def sorted_and_filtered(raw: T.List[_N]) -> T.List[_N]:\n        <IND>def key_fn(fn: Function) -> str:\n            <IND>if isinstance(fn, Method):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def sorted_and_filtered(raw: T.List[_N]) -> T.List[_N]:\n        <IND>def key_fn(fn: NamedObject) -> str:\n            <IND>if isinstance(fn, Method):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "239219220e2711ae2e6f79e952103f767c384673",
+    "filename": "docs/refman/generatormd.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/docs/refman/generatormd.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "docs/refman/generatormd.py:248:8 Incompatible variable type [9]: data is declared to have type `T.Dict[str, T.Union[None, T.Dict[str, T.Dict[str, T.Union[None, bool, str]]], T.Dict[str, T.List[T.Dict[str, T.Union[None, bool, str]]]], T.Dict[str, T.Union[None, bool, str]], T.List[T.Dict[str, T.Union[None, bool, str]]], bool, str]]` but is used as type `T.Dict[str, T.Union[None, T.Dict[str, T.List[T.Dict[str, T.Union[None, bool, str]]]], T.Dict[str, T.Union[None, bool, str]], T.List[str], bool, str]]`.",
+    "message": " data is declared to have type `T.Dict[str, T.Union[None, T.Dict[str, T.Dict[str, T.Union[None, bool, str]]], T.Dict[str, T.List[T.Dict[str, T.Union[None, bool, str]]]], T.Dict[str, T.Union[None, bool, str]], T.List[T.Dict[str, T.Union[None, bool, str]]], bool, str]]` but is used as type `T.Dict[str, T.Union[None, T.Dict[str, T.List[T.Dict[str, T.Union[None, bool, str]]]], T.Dict[str, T.Union[None, bool, str]], T.List[str], bool, str]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 248,
+    "warning_line": "        data: FunctionDictType = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        T.List[T.Dict[str, PlaceholderTypes]],\n    ]\n",
+        "source_code_len": 53,
+        "target_code": "        T.List[T.Dict[str, PlaceholderTypes]],\n        T.List[str],\n    ]\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -47,2 +47,3 @@\n         T.List[T.Dict[str, PlaceholderTypes]],\n+        T.List[str],\n     ]\n",
+        "source_code_with_indent": "        T.List[T.Dict[str, PlaceholderTypes]],\n    ]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        T.List[T.Dict[str, PlaceholderTypes]],\n        T.List[str],\n    ]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

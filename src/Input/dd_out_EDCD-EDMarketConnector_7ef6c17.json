@@ -1,0 +1,66 @@
+[
+  {
+    "project": "EDCD/EDMarketConnector",
+    "commit": "7ef6c17fa18eb6cc0c7aba96e2f495330847ed0a",
+    "filename": "plugins/inara.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/EDCD-EDMarketConnector/plugins/inara.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/inara.py:772:16 Incompatible attribute type [8]: Attribute `fleet` declared in class `This` has type `Optional[List[OrderedDict[str, typing.Any]]]` but is used as type `List[Dict[str, typing.Any]]`.",
+    "message": " Attribute `fleet` declared in class `This` has type `Optional[List[OrderedDict[str, typing.Any]]]` but is used as type `List[Dict[str, typing.Any]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 772,
+    "warning_line": "                this.fleet = fleet",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if event_name == 'StoredShips':\n            fleet = sorted(\n                [{\n                    'shipType': x['ShipType'],\n",
+        "source_code_len": 134,
+        "target_code": "        if event_name == 'StoredShips':\n            fleet: List[OrderedDictT[str, Any]] = sorted(\n                [OrderedDict({\n                    'shipType': x['ShipType'],\n",
+        "target_code_len": 176,
+        "diff_format": "@@ -749,4 +749,4 @@\n         if event_name == 'StoredShips':\n-            fleet = sorted(\n-                [{\n+            fleet: List[OrderedDictT[str, Any]] = sorted(\n+                [OrderedDict({\n                     'shipType': x['ShipType'],\n",
+        "source_code_with_indent": "        <DED>if event_name == 'StoredShips':\n            <IND>fleet = sorted(\n                [{\n                    'shipType': x['ShipType'],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>if event_name == 'StoredShips':\n            <IND>fleet: List[OrderedDictT[str, Any]] = sorted(\n                [OrderedDict({\n                    'shipType': x['ShipType'],\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    'marketID': entry['MarketID'],\n                } for x in entry['ShipsHere']] +\n                [{\n                    'shipType': x['ShipType'],\n",
+        "source_code_len": 166,
+        "target_code": "                    'marketID': entry['MarketID'],\n                }) for x in entry['ShipsHere']] +\n                [OrderedDict({\n                    'shipType': x['ShipType'],\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -758,4 +758,4 @@\n                     'marketID': entry['MarketID'],\n-                } for x in entry['ShipsHere']] +\n-                [{\n+                }) for x in entry['ShipsHere']] +\n+                [OrderedDict({\n                     'shipType': x['ShipType'],\n",
+        "source_code_with_indent": "                    'marketID': entry['MarketID'],\n                } for x in entry['ShipsHere']] +\n                [{\n                    'shipType': x['ShipType'],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    'marketID': entry['MarketID'],\n                }) for x in entry['ShipsHere']] +\n                [OrderedDict({\n                    'shipType': x['ShipType'],\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    'marketID': x.get('ShipMarketID'),  # \"\n                } for x in entry['ShipsRemote']],\n                key=itemgetter('shipGameID')\n",
+        "source_code_len": 155,
+        "target_code": "                    'marketID': x.get('ShipMarketID'),  # \"\n                }) for x in entry['ShipsRemote']],\n                key=itemgetter('shipGameID')\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -766,3 +766,3 @@\n                     'marketID': x.get('ShipMarketID'),  # \"\n-                } for x in entry['ShipsRemote']],\n+                }) for x in entry['ShipsRemote']],\n                 key=itemgetter('shipGameID')\n",
+        "source_code_with_indent": "                    'marketID': x.get('ShipMarketID'),  # \"\n                } for x in entry['ShipsRemote']],\n                key=itemgetter('shipGameID')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    'marketID': x.get('ShipMarketID'),  # \"\n                }) for x in entry['ShipsRemote']],\n                key=itemgetter('shipGameID')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

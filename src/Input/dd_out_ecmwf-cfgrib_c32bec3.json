@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "c32bec383bff23e5329ccd6da59f459fcb1d43ae",
+    "filename": "cfgrib/bindings.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/bindings.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/bindings.py:312:49 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `codes_get_string_length` but got `bytes`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `codes_get_string_length` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 312,
+    "warning_line": "        length = codes_get_string_length(handle, key)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def codes_get_string_array(handle, key, size, length=None):\n    # type: (cffi.FFI.CData, bytes, int, int) -> T.List[bytes]\n    \"\"\"\n",
+        "source_code_len": 131,
+        "target_code": "def codes_get_string_array(handle, key, size, length=None):\n    # type: (cffi.FFI.CData, str, int, int) -> T.List[bytes]\n    \"\"\"\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -302,3 +302,3 @@\n def codes_get_string_array(handle, key, size, length=None):\n-    # type: (cffi.FFI.CData, bytes, int, int) -> T.List[bytes]\n+    # type: (cffi.FFI.CData, str, int, int) -> T.List[bytes]\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "def codes_get_string_array(handle, key, size, length=None):\n    # type: (cffi.FFI.CData, bytes, int, int) -> T.List[bytes]\n    <IND>",
+        "target_code_with_indent": "def codes_get_string_array(handle, key, size, length=None):\n    # type: (cffi.FFI.CData, str, int, int) -> T.List[bytes]\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "c32bec383bff23e5329ccd6da59f459fcb1d43ae",
+    "filename": "cfgrib/bindings.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/bindings.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/bindings.py:380:46 Incompatible parameter type [6]: Expected `bytes` for 2nd positional only parameter to call `codes_get_string_array` but got `str`.",
+    "message": " Expected `bytes` for 2nd positional only parameter to call `codes_get_string_array` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 380,
+    "warning_line": "        return codes_get_string_array(handle, key, size, length=length)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def codes_get_string_array(handle, key, size, length=None):\n    # type: (cffi.FFI.CData, bytes, int, int) -> T.List[bytes]\n    \"\"\"\n",
+        "source_code_len": 131,
+        "target_code": "def codes_get_string_array(handle, key, size, length=None):\n    # type: (cffi.FFI.CData, str, int, int) -> T.List[bytes]\n    \"\"\"\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -302,3 +302,3 @@\n def codes_get_string_array(handle, key, size, length=None):\n-    # type: (cffi.FFI.CData, bytes, int, int) -> T.List[bytes]\n+    # type: (cffi.FFI.CData, str, int, int) -> T.List[bytes]\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "def codes_get_string_array(handle, key, size, length=None):\n    # type: (cffi.FFI.CData, bytes, int, int) -> T.List[bytes]\n    <IND>",
+        "target_code_with_indent": "def codes_get_string_array(handle, key, size, length=None):\n    # type: (cffi.FFI.CData, str, int, int) -> T.List[bytes]\n    <IND>"
+      }
+    ]
+  }
+]

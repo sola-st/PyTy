@@ -1,0 +1,36 @@
+[
+  {
+    "project": "EmuKit/emukit",
+    "commit": "b43757e9a9422d3df3794e70dc0a89f56da518fb",
+    "filename": "emukit/core/discrete_parameter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/EmuKit-emukit/emukit/core/discrete_parameter.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "emukit/core/discrete_parameter.py:33:19 Incompatible parameter type [6]: Expected `Iterable[Variable[_T]]` for 1st positional only parameter to call `set.__init__` but got `Union[Iterable[typing.Any], float]`.",
+    "message": " Expected `Iterable[Variable[_T]]` for 1st positional only parameter to call `set.__init__` but got `Union[Iterable[typing.Any], float]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 33,
+    "warning_line": "        return set(x).issubset(set(self.domain))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def check_in_domain(self, x: Union[Iterable, float]) -> bool:\n        \"\"\"\n",
+        "source_code_len": 79,
+        "target_code": "\n    def check_in_domain(self, x: Union[np.ndarray, Iterable, float]) -> bool:\n        \"\"\"\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -23,3 +23,3 @@\n \n-    def check_in_domain(self, x: Union[Iterable, float]) -> bool:\n+    def check_in_domain(self, x: Union[np.ndarray, Iterable, float]) -> bool:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def check_in_domain(self, x: Union[Iterable, float]) -> bool:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def check_in_domain(self, x: Union[np.ndarray, Iterable, float]) -> bool:\n        <IND>"
+      }
+    ]
+  }
+]

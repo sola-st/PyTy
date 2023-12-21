@@ -1,0 +1,70 @@
+[
+  {
+    "project": "alecthomas/injector",
+    "commit": "23cd45935bcac56f47fe7947cfc8b3fcf99ea981",
+    "filename": "injector/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/alecthomas-injector/injector/__init__.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "injector/__init__.py:1067:17 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `typing.MutableMapping.pop` but got `typing.Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `typing.MutableMapping.pop` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1067,
+    "warning_line": "    bindings.pop(spec.varargs, None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # in the future if someone has a good idea how to utilize them)\n    bindings.pop(spec.varargs, None)\n    bindings.pop(spec.varkw, None)\n\n",
+        "source_code_len": 141,
+        "target_code": "    # in the future if someone has a good idea how to utilize them)\n    if spec.varargs:\n        bindings.pop(spec.varargs, None)\n    if spec.varkw:\n        bindings.pop(spec.varkw, None)\n\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -1066,4 +1074,6 @@\n     # in the future if someone has a good idea how to utilize them)\n-    bindings.pop(spec.varargs, None)\n-    bindings.pop(spec.varkw, None)\n+    if spec.varargs:\n+        bindings.pop(spec.varargs, None)\n+    if spec.varkw:\n+        bindings.pop(spec.varkw, None)\n \n",
+        "source_code_with_indent": "    # in the future if someone has a good idea how to utilize them)\n    <DED>bindings.pop(spec.varargs, None)\n    bindings.pop(spec.varkw, None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # in the future if someone has a good idea how to utilize them)\n    <DED>if spec.varargs:\n        <IND>bindings.pop(spec.varargs, None)\n    <DED>if spec.varkw:\n        <IND>bindings.pop(spec.varkw, None)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "alecthomas/injector",
+    "commit": "23cd45935bcac56f47fe7947cfc8b3fcf99ea981",
+    "filename": "injector/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/alecthomas-injector/injector/__init__.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "injector/__init__.py:1068:17 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `typing.MutableMapping.pop` but got `typing.Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `typing.MutableMapping.pop` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1068,
+    "warning_line": "    bindings.pop(spec.varkw, None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # in the future if someone has a good idea how to utilize them)\n    bindings.pop(spec.varargs, None)\n    bindings.pop(spec.varkw, None)\n\n",
+        "source_code_len": 141,
+        "target_code": "    # in the future if someone has a good idea how to utilize them)\n    if spec.varargs:\n        bindings.pop(spec.varargs, None)\n    if spec.varkw:\n        bindings.pop(spec.varkw, None)\n\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -1066,4 +1074,6 @@\n     # in the future if someone has a good idea how to utilize them)\n-    bindings.pop(spec.varargs, None)\n-    bindings.pop(spec.varkw, None)\n+    if spec.varargs:\n+        bindings.pop(spec.varargs, None)\n+    if spec.varkw:\n+        bindings.pop(spec.varkw, None)\n \n",
+        "source_code_with_indent": "    # in the future if someone has a good idea how to utilize them)\n    <DED>bindings.pop(spec.varargs, None)\n    bindings.pop(spec.varkw, None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # in the future if someone has a good idea how to utilize them)\n    <DED>if spec.varargs:\n        <IND>bindings.pop(spec.varargs, None)\n    <DED>if spec.varkw:\n        <IND>bindings.pop(spec.varkw, None)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "GoogleCloudPlatform/PerfKitBenchmarker",
+    "commit": "d56793e050437587b211db86abd614fa7dc378e6",
+    "filename": "perfkitbenchmarker/beam_benchmark_helper.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GoogleCloudPlatform-PerfKitBenchmarker/perfkitbenchmarker/beam_benchmark_helper.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "perfkitbenchmarker/beam_benchmark_helper.py:38:39 Incompatible parameter type [6]: Expected `typing.Optional[str]` for 2nd positional only parameter to call `gflags.DEFINE_string` but got `int`.",
+    "message": " Expected `typing.Optional[str]` for 2nd positional only parameter to call `gflags.DEFINE_string` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 38,
+    "warning_line": "flags.DEFINE_string('beam_it_timeout', 600, 'Integration Test Timeout.')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    'Profile to activate integration test.')\nflags.DEFINE_string('beam_it_timeout', 600, 'Integration Test Timeout.')\nflags.DEFINE_string('git_binary', 'git', 'Path to git binary.')\n",
+        "source_code_len": 198,
+        "target_code": "                    'Profile to activate integration test.')\nflags.DEFINE_integer('beam_it_timeout', 600, 'Integration Test Timeout.')\nflags.DEFINE_string('git_binary', 'git', 'Path to git binary.')\n",
+        "target_code_len": 199,
+        "diff_format": "@@ -37,3 +37,3 @@\n                     'Profile to activate integration test.')\n-flags.DEFINE_string('beam_it_timeout', 600, 'Integration Test Timeout.')\n+flags.DEFINE_integer('beam_it_timeout', 600, 'Integration Test Timeout.')\n flags.DEFINE_string('git_binary', 'git', 'Path to git binary.')\n",
+        "source_code_with_indent": "                    'Profile to activate integration test.')\nflags.DEFINE_string('beam_it_timeout', 600, 'Integration Test Timeout.')\nflags.DEFINE_string('git_binary', 'git', 'Path to git binary.')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    'Profile to activate integration test.')\nflags.DEFINE_integer('beam_it_timeout', 600, 'Integration Test Timeout.')\nflags.DEFINE_string('git_binary', 'git', 'Path to git binary.')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

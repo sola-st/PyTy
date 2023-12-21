@@ -1,0 +1,66 @@
+[
+  {
+    "project": "enlite-ai/maze",
+    "commit": "52e64fad08e55283f827f6a57a0b51d382b25a21",
+    "filename": "maze/train/parallelization/vector_env/sequential_vector_env.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/enlite-ai-maze/maze/train/parallelization/vector_env/sequential_vector_env.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maze/train/parallelization/vector_env/sequential_vector_env.py:85:19 Incompatible variable type [9]: seed is declared to have type `int` but is used as type `None`.",
+    "message": " seed is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 85,
+    "warning_line": "    def seed(self, seed: int = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom maze.core.env.action_conversion import ActionType\n",
+        "source_code_len": 56,
+        "target_code": "\nfrom maze.core.annotations import override\nfrom maze.core.env.action_conversion import ActionType\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -5,2 +5,3 @@\n \n+from maze.core.annotations import override\n from maze.core.env.action_conversion import ActionType\n",
+        "source_code_with_indent": "\nfrom maze.core.env.action_conversion import ActionType\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom maze.core.annotations import override\nfrom maze.core.env.action_conversion import ActionType\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from maze.train.parallelization.vector_env.structured_vector_env import StructuredVectorEnv\nfrom maze.train.utils.train_utils import stack_numpy_dict_list, unstack_numpy_list_dict\n",
+        "source_code_len": 180,
+        "target_code": "from maze.train.parallelization.vector_env.structured_vector_env import StructuredVectorEnv\nfrom maze.train.parallelization.vector_env.vector_env import VectorEnv\nfrom maze.train.utils.train_utils import stack_numpy_dict_list, unstack_numpy_list_dict\n",
+        "target_code_len": 251,
+        "diff_format": "@@ -11,2 +12,3 @@\n from maze.train.parallelization.vector_env.structured_vector_env import StructuredVectorEnv\n+from maze.train.parallelization.vector_env.vector_env import VectorEnv\n from maze.train.utils.train_utils import stack_numpy_dict_list, unstack_numpy_list_dict\n",
+        "source_code_with_indent": "from maze.train.parallelization.vector_env.structured_vector_env import StructuredVectorEnv\nfrom maze.train.utils.train_utils import stack_numpy_dict_list, unstack_numpy_list_dict\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from maze.train.parallelization.vector_env.structured_vector_env import StructuredVectorEnv\nfrom maze.train.parallelization.vector_env.vector_env import VectorEnv\nfrom maze.train.utils.train_utils import stack_numpy_dict_list, unstack_numpy_list_dict\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def seed(self, seed: int = None) -> None:\n        \"\"\"VectorEnv implementation\"\"\"\n        for env in self.envs:\n            env.seed(seed)\n            seed += 1\n\n",
+        "source_code_len": 166,
+        "target_code": "\n    @override(VectorEnv)\n    def seed(self, seeds: List[Any]) -> None:\n        \"\"\"VectorEnv implementation\"\"\"\n        assert len(seeds) == len(self.envs)\n        for env, seed in zip(self.envs, seeds):\n            env.seed(seed)\n\n",
+        "target_code_len": 231,
+        "diff_format": "@@ -84,7 +86,8 @@\n \n-    def seed(self, seed: int = None) -> None:\n+    @override(VectorEnv)\n+    def seed(self, seeds: List[Any]) -> None:\n         \"\"\"VectorEnv implementation\"\"\"\n-        for env in self.envs:\n+        assert len(seeds) == len(self.envs)\n+        for env, seed in zip(self.envs, seeds):\n             env.seed(seed)\n-            seed += 1\n \n",
+        "source_code_with_indent": "\n    <DED>def seed(self, seed: int = None) -> None:\n        <IND>\"\"\"VectorEnv implementation\"\"\"\n        for env in self.envs:\n            <IND>env.seed(seed)\n            seed += 1\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@override(VectorEnv)\n    def seed(self, seeds: List[Any]) -> None:\n        <IND>\"\"\"VectorEnv implementation\"\"\"\n        assert len(seeds) == len(self.envs)\n        for env, seed in zip(self.envs, seeds):\n            <IND>env.seed(seed)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

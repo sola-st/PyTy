@@ -1,0 +1,60 @@
+[
+  {
+    "project": "ethereum/py-evm",
+    "commit": "e293f698b798eed6580e7161cd96bdf4cee86cbe",
+    "filename": "eth/beacon/state_machines/forks/serenity/operations.py",
+    "min_patch_found": false,
+    "full_warning_msg": "eth/beacon/state_machines/forks/serenity/operations.py:25:12 Incompatible parameter type [6]: Expected `typing.Type[BeaconState]` for 1st positional only parameter to call `validate_serenity_attestation` but got `BeaconState`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ethereum/py-evm",
+    "commit": "e293f698b798eed6580e7161cd96bdf4cee86cbe",
+    "filename": "eth/beacon/state_machines/forks/serenity/validation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-py-evm/eth/beacon/state_machines/forks/serenity/validation.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eth/beacon/state_machines/forks/serenity/validation.py:100:12 Incompatible parameter type [6]: Expected `BeaconState` for 1st parameter `state` to call `get_block_root` but got `Type[BeaconState]`.",
+    "message": " Expected `BeaconState` for 1st parameter `state` to call `get_block_root` but got `Type[BeaconState]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 100,
+    "warning_line": "            state=state,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#\ndef validate_serenity_attestation(state: Type[BeaconState],\n                                  attestation: Attestation,\n",
+        "source_code_len": 122,
+        "target_code": "#\ndef validate_serenity_attestation(state: BeaconState,\n                                  attestation: Attestation,\n",
+        "target_code_len": 116,
+        "diff_format": "@@ -71,3 +70,3 @@\n #\n-def validate_serenity_attestation(state: Type[BeaconState],\n+def validate_serenity_attestation(state: BeaconState,\n                                   attestation: Attestation,\n",
+        "source_code_with_indent": "#\n<DED><DED>def validate_serenity_attestation(state: Type[BeaconState],\n                                  attestation: Attestation,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#\n<DED><DED>def validate_serenity_attestation(state: BeaconState,\n                                  attestation: Attestation,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef validate_serenity_attestation_aggregate_signature(state: Type[BeaconState],\n                                                      attestation: Attestation,\n",
+        "source_code_len": 161,
+        "target_code": "\ndef validate_serenity_attestation_aggregate_signature(state: BeaconState,\n                                                      attestation: Attestation,\n",
+        "target_code_len": 155,
+        "diff_format": "@@ -240,3 +239,3 @@\n \n-def validate_serenity_attestation_aggregate_signature(state: Type[BeaconState],\n+def validate_serenity_attestation_aggregate_signature(state: BeaconState,\n                                                       attestation: Attestation,\n",
+        "source_code_with_indent": "\n<DED><DED>def validate_serenity_attestation_aggregate_signature(state: Type[BeaconState],\n                                                      attestation: Attestation,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def validate_serenity_attestation_aggregate_signature(state: BeaconState,\n                                                      attestation: Attestation,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

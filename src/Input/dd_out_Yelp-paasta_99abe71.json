@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Yelp/paasta",
+    "commit": "99abe71fc4074f1c6b8b192b90aa523c2365bc4a",
+    "filename": "paasta_tools/api/views/instance.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/api/views/instance.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/api/views/instance.py:63:4 Incompatible return type [7]: Expected `str` but got `Dict[str, typing.Any]`.",
+    "message": " Expected `str` but got `Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 63,
+    "warning_line": "    return {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    verbose: int,\n) -> str:\n    chronos_config = chronos_tools.load_chronos_config()\n",
+        "source_code_len": 85,
+        "target_code": "    verbose: int,\n) -> Dict[str, Any]:\n    chronos_config = chronos_tools.load_chronos_config()\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -59,3 +59,3 @@\n     verbose: int,\n-) -> str:\n+) -> Dict[str, Any]:\n     chronos_config = chronos_tools.load_chronos_config()\n",
+        "source_code_with_indent": "    verbose: int,\n) -> str:\n    <IND>chronos_config = chronos_tools.load_chronos_config()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    verbose: int,\n) -> Dict[str, Any]:\n    <IND>chronos_config = chronos_tools.load_chronos_config()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

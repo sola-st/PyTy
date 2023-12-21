@@ -1,0 +1,36 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "e8b1120f26d49df1a174d89d51d24c6e7551bfdf",
+    "filename": "tests/models/test_taskinstance.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/tests/models/test_taskinstance.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/models/test_taskinstance.py:975:19 Unsupported operand [58]: `+` is not supported for operand types `Optional[datetime.datetime]` and `datetime.timedelta`.",
+    "message": " `+` is not supported for operand types `Optional[datetime.datetime]` and `datetime.timedelta`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 975,
+    "warning_line": "        run_date = task.start_date + datetime.timedelta(days=5)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                task.set_downstream(downstream)\n        run_date = task.start_date + datetime.timedelta(days=5)\n\n",
+        "source_code_len": 113,
+        "target_code": "                task.set_downstream(downstream)\n            assert task.start_date is not None\n            run_date = task.start_date + datetime.timedelta(days=5)\n\n",
+        "target_code_len": 164,
+        "diff_format": "@@ -974,3 +974,4 @@\n                 task.set_downstream(downstream)\n-        run_date = task.start_date + datetime.timedelta(days=5)\n+            assert task.start_date is not None\n+            run_date = task.start_date + datetime.timedelta(days=5)\n \n",
+        "source_code_with_indent": "                task.set_downstream(downstream)\n        <DED><DED>run_date = task.start_date + datetime.timedelta(days=5)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                task.set_downstream(downstream)\n            <DED>assert task.start_date is not None\n            run_date = task.start_date + datetime.timedelta(days=5)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

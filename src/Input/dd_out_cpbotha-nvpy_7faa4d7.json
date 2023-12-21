@@ -1,0 +1,104 @@
+[
+  {
+    "project": "cpbotha/nvpy",
+    "commit": "7faa4d77535c8fec2e2296617ebe2a1a81c8b56a",
+    "filename": "nvpy/notes_db.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cpbotha-nvpy/nvpy/notes_db.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nvpy/notes_db.py:243:16 Incompatible parameter type [6]: Expected `AlphaNumSorter.Nullable[]` for 1st parameter `digits` to call `AlphaNumSorter.Element.__init__` but got `AlphaNumSorter.Nullable`.",
+    "message": " Expected `AlphaNumSorter.Nullable[]` for 1st parameter `digits` to call `AlphaNumSorter.Element.__init__` but got `AlphaNumSorter.Nullable`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 243,
+    "warning_line": "                digits=AlphaNumSorter.Nullable(digits),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass AlphaNumSorter(Sorter):\n    \"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable:\n        \"\"\" Null-safe comparable object for any types.\n",
+        "source_code_len": 160,
+        "target_code": "\nT = typing.TypeVar('T')\n\n\nclass AlphaNumSorter(Sorter):\n    \"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable(typing.Generic[T]):\n        \"\"\" Null-safe comparable object for any types.\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -164,5 +164,8 @@\n \n+T = typing.TypeVar('T')\n+\n+\n class AlphaNumSorter(Sorter):\n     \"\"\" Sort in alphanumeric order on note title. \"\"\"\n-    class Nullable:\n+    class Nullable(typing.Generic[T]):\n         \"\"\" Null-safe comparable object for any types.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>class AlphaNumSorter(Sorter):\n    <IND>\"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable:\n        <IND>",
+        "target_code_with_indent": "\n<DED><DED>T = typing.TypeVar('T')\n\n\nclass AlphaNumSorter(Sorter):\n    <IND>\"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable(typing.Generic[T]):\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "cpbotha/nvpy",
+    "commit": "7faa4d77535c8fec2e2296617ebe2a1a81c8b56a",
+    "filename": "nvpy/notes_db.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cpbotha-nvpy/nvpy/notes_db.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nvpy/notes_db.py:244:16 Incompatible parameter type [6]: Expected `AlphaNumSorter.Nullable[]` for 2nd parameter `letters` to call `AlphaNumSorter.Element.__init__` but got `AlphaNumSorter.Nullable`.",
+    "message": " Expected `AlphaNumSorter.Nullable[]` for 2nd parameter `letters` to call `AlphaNumSorter.Element.__init__` but got `AlphaNumSorter.Nullable`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 244,
+    "warning_line": "                letters=AlphaNumSorter.Nullable(letters),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass AlphaNumSorter(Sorter):\n    \"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable:\n        \"\"\" Null-safe comparable object for any types.\n",
+        "source_code_len": 160,
+        "target_code": "\nT = typing.TypeVar('T')\n\n\nclass AlphaNumSorter(Sorter):\n    \"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable(typing.Generic[T]):\n        \"\"\" Null-safe comparable object for any types.\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -164,5 +164,8 @@\n \n+T = typing.TypeVar('T')\n+\n+\n class AlphaNumSorter(Sorter):\n     \"\"\" Sort in alphanumeric order on note title. \"\"\"\n-    class Nullable:\n+    class Nullable(typing.Generic[T]):\n         \"\"\" Null-safe comparable object for any types.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>class AlphaNumSorter(Sorter):\n    <IND>\"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable:\n        <IND>",
+        "target_code_with_indent": "\n<DED><DED>T = typing.TypeVar('T')\n\n\nclass AlphaNumSorter(Sorter):\n    <IND>\"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable(typing.Generic[T]):\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "cpbotha/nvpy",
+    "commit": "7faa4d77535c8fec2e2296617ebe2a1a81c8b56a",
+    "filename": "nvpy/notes_db.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cpbotha-nvpy/nvpy/notes_db.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nvpy/notes_db.py:245:16 Incompatible parameter type [6]: Expected `AlphaNumSorter.Nullable[]` for 3rd parameter `other` to call `AlphaNumSorter.Element.__init__` but got `AlphaNumSorter.Nullable`.",
+    "message": " Expected `AlphaNumSorter.Nullable[]` for 3rd parameter `other` to call `AlphaNumSorter.Element.__init__` but got `AlphaNumSorter.Nullable`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 245,
+    "warning_line": "                other=AlphaNumSorter.Nullable(others),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass AlphaNumSorter(Sorter):\n    \"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable:\n        \"\"\" Null-safe comparable object for any types.\n",
+        "source_code_len": 160,
+        "target_code": "\nT = typing.TypeVar('T')\n\n\nclass AlphaNumSorter(Sorter):\n    \"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable(typing.Generic[T]):\n        \"\"\" Null-safe comparable object for any types.\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -164,5 +164,8 @@\n \n+T = typing.TypeVar('T')\n+\n+\n class AlphaNumSorter(Sorter):\n     \"\"\" Sort in alphanumeric order on note title. \"\"\"\n-    class Nullable:\n+    class Nullable(typing.Generic[T]):\n         \"\"\" Null-safe comparable object for any types.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>class AlphaNumSorter(Sorter):\n    <IND>\"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable:\n        <IND>",
+        "target_code_with_indent": "\n<DED><DED>T = typing.TypeVar('T')\n\n\nclass AlphaNumSorter(Sorter):\n    <IND>\"\"\" Sort in alphanumeric order on note title. \"\"\"\n    class Nullable(typing.Generic[T]):\n        <IND>"
+      }
+    ]
+  }
+]

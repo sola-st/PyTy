@@ -1,0 +1,45 @@
+[
+  {
+    "project": "SickChill/SickChill",
+    "commit": "b0cdd5788e894c90ecc31089947eaf225b447037",
+    "filename": "lib/concurrent/futures/_compat.py",
+    "min_patch_found": false,
+    "full_warning_msg": "lib/concurrent/futures/_compat.py:104:3 Unsupported operand [58]: `<` is not supported for operand types `typing.Union[int, str]` and `int`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/SickChill-SickChill/lib/concurrent/futures/_compat.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "SickChill/SickChill",
+    "commit": "b0cdd5788e894c90ecc31089947eaf225b447037",
+    "filename": "sickrage/show/ComingEpisodes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/SickChill-SickChill/sickrage/show/ComingEpisodes.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sickrage/show/ComingEpisodes.py:40:30 Unbound name [10]: Name `cmp` is used but not defined in the current scope.",
+    "message": " Name `cmp` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 40,
+    "warning_line": "        'date': (lambda a, b: cmp(a['localtime'], b['localtime'])),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    sorts = {\n        'date': (lambda a, b: cmp(a['localtime'], b['localtime'])),\n        'network': (lambda a, b: cmp((a['network'], a['localtime']), (b['network'], b['localtime']))),\n        'show': (lambda a, b: cmp((a['show_name'], a['localtime']), (b['show_name'], b['localtime']))),\n    }\n",
+        "source_code_len": 295,
+        "target_code": "    sorts = {\n        'date': (lambda a, b: a['localtime'] < b['localtime']),\n        'network': (lambda a, b: (a['network'], a['localtime']) < (b['network'], b['localtime'])),\n        'show': (lambda a, b: (a['show_name'], a['localtime']) < (b['show_name'], b['localtime'])),\n    }\n",
+        "target_code_len": 283,
+        "diff_format": "@@ -39,5 +39,5 @@\n     sorts = {\n-        'date': (lambda a, b: cmp(a['localtime'], b['localtime'])),\n-        'network': (lambda a, b: cmp((a['network'], a['localtime']), (b['network'], b['localtime']))),\n-        'show': (lambda a, b: cmp((a['show_name'], a['localtime']), (b['show_name'], b['localtime']))),\n+        'date': (lambda a, b: a['localtime'] < b['localtime']),\n+        'network': (lambda a, b: (a['network'], a['localtime']) < (b['network'], b['localtime'])),\n+        'show': (lambda a, b: (a['show_name'], a['localtime']) < (b['show_name'], b['localtime'])),\n     }\n",
+        "source_code_with_indent": "    sorts = {\n        'date': (lambda a, b: cmp(a['localtime'], b['localtime'])),\n        'network': (lambda a, b: cmp((a['network'], a['localtime']), (b['network'], b['localtime']))),\n        'show': (lambda a, b: cmp((a['show_name'], a['localtime']), (b['show_name'], b['localtime']))),\n    }\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    sorts = {\n        'date': (lambda a, b: a['localtime'] < b['localtime']),\n        'network': (lambda a, b: (a['network'], a['localtime']) < (b['network'], b['localtime'])),\n        'show': (lambda a, b: (a['show_name'], a['localtime']) < (b['show_name'], b['localtime'])),\n    }\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

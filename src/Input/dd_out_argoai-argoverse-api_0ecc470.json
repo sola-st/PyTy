@@ -1,0 +1,70 @@
+[
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "0ecc4709d5b97048f8ff2c352fa4a0443af268f7",
+    "filename": "argoverse/evaluation/eval_forecasting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/argoverse/evaluation/eval_forecasting.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "argoverse/evaluation/eval_forecasting.py:130:4 Incompatible return type [7]: Expected `Tuple[float, float, float]` but got `Dict[str, float]`.",
+    "message": " Expected `Tuple[float, float, float]` but got `Dict[str, float]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 130,
+    "warning_line": "    return metric_results",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n) -> Tuple[float, float, float]:\n    \"\"\"Compute min fde and ade for each sample.\n",
+        "source_code_len": 152,
+        "target_code": "    forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n) -> Dict[str, float]:\n    \"\"\"Compute min fde and ade for each sample.\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -65,3 +65,3 @@\n     forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n-) -> Tuple[float, float, float]:\n+) -> Dict[str, float]:\n     \"\"\"Compute min fde and ade for each sample.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n) -> Tuple[float, float, float]:\n    <IND>",
+        "target_code_with_indent": "    forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n) -> Dict[str, float]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "0ecc4709d5b97048f8ff2c352fa4a0443af268f7",
+    "filename": "argoverse/evaluation/eval_forecasting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/argoverse/evaluation/eval_forecasting.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "argoverse/evaluation/eval_forecasting.py:202:4 Incompatible return type [7]: Expected `Dict[str, float]` but got `Tuple[float, float, float]`.",
+    "message": " Expected `Dict[str, float]` but got `Tuple[float, float, float]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 202,
+    "warning_line": "    return metric_results",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n) -> Tuple[float, float, float]:\n    \"\"\"Compute min fde and ade for each sample.\n",
+        "source_code_len": 152,
+        "target_code": "    forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n) -> Dict[str, float]:\n    \"\"\"Compute min fde and ade for each sample.\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -65,3 +65,3 @@\n     forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n-) -> Tuple[float, float, float]:\n+) -> Dict[str, float]:\n     \"\"\"Compute min fde and ade for each sample.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n) -> Tuple[float, float, float]:\n    <IND>",
+        "target_code_with_indent": "    forecasted_probabilities: Optional[Dict[int, List[float]]] = None,\n) -> Dict[str, float]:\n    <IND>"
+      }
+    ]
+  }
+]

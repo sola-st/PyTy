@@ -1,0 +1,83 @@
+[
+  {
+    "project": "bokeh/bokeh",
+    "commit": "0b45558db912a6e9a73e6116aeaa6c0ae4d2ae65",
+    "filename": "bokeh/document/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/document/util.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/document/util.py:101:45 Incompatible parameter type [6]: Expected `typing.Optional[Dict[ID, HasProps]]` for 2nd parameter `models` to call `HasProps.update_from_json` but got `Dict[ID, bokeh.model.model.Model]`.",
+    "message": " Expected `typing.Optional[Dict[ID, HasProps]]` for 2nd parameter `models` to call `HasProps.update_from_json` but got `Dict[ID, bokeh.model.model.Model]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 101,
+    "warning_line": "        instance.update_from_json(obj_attrs, models=references, setter=setter)"
+  },
+  {
+    "project": "bokeh/bokeh",
+    "commit": "0b45558db912a6e9a73e6116aeaa6c0ae4d2ae65",
+    "filename": "bokeh/util/tornado.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/util/tornado.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/util/tornado.py:241:41 Incompatible parameter type [6]: Expected `ID` for 1st positional only parameter to call `_CallbackGroup.remove_timeout_callback` but got `typing.Optional[ID]`.",
+    "message": " Expected `ID` for 1st positional only parameter to call `_CallbackGroup.remove_timeout_callback` but got `typing.Optional[ID]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 241,
+    "warning_line": "            self.remove_timeout_callback(callback_id)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Any,\n    Callable,\n    Dict,\n    Set,\n)\n",
+        "source_code_len": 44,
+        "target_code": "    Any,\n    Awaitable,\n    Callable,\n    Dict,\n    List,\n    Set,\n    Union,\n)\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -29,5 +29,8 @@\n     Any,\n+    Awaitable,\n     Callable,\n     Dict,\n+    List,\n     Set,\n+    Union,\n )\n",
+        "source_code_with_indent": "    Any,\n    Callable,\n    Dict,\n    Set,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Any,\n    Awaitable,\n    Callable,\n    Dict,\n    List,\n    Set,\n    Union,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nCallback = Callable[[], None]\n\n",
+        "source_code_len": 32,
+        "target_code": "\nCallbackSync = Callable[[], None]\nCallbackAsync = Callable[[], Awaitable[None]]\nCallback = Union[CallbackSync, CallbackAsync]\n\nInvokeResult = Union[Awaitable[None], Awaitable[List[Any]], Awaitable[Dict[Any, Any]]]\n\n",
+        "target_code_len": 216,
+        "diff_format": "@@ -69,3 +71,7 @@\n \n-Callback = Callable[[], None]\n+CallbackSync = Callable[[], None]\n+CallbackAsync = Callable[[], Awaitable[None]]\n+Callback = Union[CallbackSync, CallbackAsync]\n+\n+InvokeResult = Union[Awaitable[None], Awaitable[List[Any]], Awaitable[Dict[Any, Any]]]\n \n",
+        "source_code_with_indent": "\n<DED><DED><DED>Callback = Callable[[], None]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>CallbackSync = Callable[[], None]\nCallbackAsync = Callable[[], Awaitable[None]]\nCallback = Union[CallbackSync, CallbackAsync]\n\nInvokeResult = Union[Awaitable[None], Awaitable[List[Any]], Awaitable[Dict[Any, Any]]]\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def remove_next_tick_callback(self, callback_id: ID) -> None:\n        \"\"\" Removes a callback added with add_next_tick_callback.\"\"\"\n        self._execute_remover(callback_id, self._next_tick_callback_removers)\n\n    def add_timeout_callback(self, callback: Callback, timeout_milliseconds: int, callback_id: ID | None = None) -> ID:\n        \"\"\" Adds a callback to be run once after timeout_milliseconds.\n        Returns an ID that can be used with remove_timeout_callback.\"\"\"\n        def wrapper(*args: Any, **kwargs: Any) -> Any:\n            self.remove_timeout_callback(callback_id)\n            return callback(*args, **kwargs)\n\n",
+        "source_code_len": 632,
+        "target_code": "    def remove_next_tick_callback(self, callback_id: ID) -> None:\n        ''' Removes a callback added with add_next_tick_callback.\n\n        '''\n        self._execute_remover(callback_id, self._next_tick_callback_removers)\n\n    def add_timeout_callback(self, callback: CallbackSync, timeout_milliseconds: int, callback_id: ID) -> ID:\n        ''' Adds a callback to be run once after timeout_milliseconds.\n\n        The passed-in ID can be used with remove_timeout_callback.\n\n        '''\n        def wrapper() -> None:\n            self.remove_timeout_callback(callback_id)\n            return callback()\n\n",
+        "target_code_len": 602,
+        "diff_format": "@@ -233,11 +245,16 @@\n     def remove_next_tick_callback(self, callback_id: ID) -> None:\n-        \"\"\" Removes a callback added with add_next_tick_callback.\"\"\"\n+        ''' Removes a callback added with add_next_tick_callback.\n+\n+        '''\n         self._execute_remover(callback_id, self._next_tick_callback_removers)\n \n-    def add_timeout_callback(self, callback: Callback, timeout_milliseconds: int, callback_id: ID | None = None) -> ID:\n-        \"\"\" Adds a callback to be run once after timeout_milliseconds.\n-        Returns an ID that can be used with remove_timeout_callback.\"\"\"\n-        def wrapper(*args: Any, **kwargs: Any) -> Any:\n+    def add_timeout_callback(self, callback: CallbackSync, timeout_milliseconds: int, callback_id: ID) -> ID:\n+        ''' Adds a callback to be run once after timeout_milliseconds.\n+\n+        The passed-in ID can be used with remove_timeout_callback.\n+\n+        '''\n+        def wrapper() -> None:\n             self.remove_timeout_callback(callback_id)\n-            return callback(*args, **kwargs)\n+            return callback()\n \n",
+        "source_code_with_indent": "    <DED>def remove_next_tick_callback(self, callback_id: ID) -> None:\n        <IND>\"\"\" Removes a callback added with add_next_tick_callback.\"\"\"\n        self._execute_remover(callback_id, self._next_tick_callback_removers)\n\n    <DED>def add_timeout_callback(self, callback: Callback, timeout_milliseconds: int, callback_id: ID | None = None) -> ID:\n        <IND>\"\"\" Adds a callback to be run once after timeout_milliseconds.\n        Returns an ID that can be used with remove_timeout_callback.\"\"\"\n        def wrapper(*args: Any, **kwargs: Any) -> Any:\n            <IND>self.remove_timeout_callback(callback_id)\n            return callback(*args, **kwargs)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def remove_next_tick_callback(self, callback_id: ID) -> None:\n        <IND>''' Removes a callback added with add_next_tick_callback.\n\n        '''\n        self._execute_remover(callback_id, self._next_tick_callback_removers)\n\n    <DED>def add_timeout_callback(self, callback: CallbackSync, timeout_milliseconds: int, callback_id: ID) -> ID:\n        <IND>''' Adds a callback to be run once after timeout_milliseconds.\n\n        The passed-in ID can be used with remove_timeout_callback.\n\n        '''\n        def wrapper() -> None:\n            <IND>self.remove_timeout_callback(callback_id)\n            return callback()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

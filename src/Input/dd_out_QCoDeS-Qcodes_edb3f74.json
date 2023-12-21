@@ -1,0 +1,70 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "edb3f74c7f6308812052d982e891a50af95d8e8e",
+    "filename": "qcodes/instrument_drivers/Galil/dmc_41x3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Galil/dmc_41x3.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Galil/dmc_41x3.py:925:19 Unsupported operand [58]: `-` is not supported for operand types `int` and `Optional[int]`.",
+    "message": " `-` is not supported for operand types `int` and `Optional[int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 925,
+    "warning_line": "        d = (num - self.current_row) * self.inter_row_dis",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        sign = 1\n        d = (num - self.current_row) * self.inter_row_dis\n",
+        "source_code_len": 75,
+        "target_code": "        sign = 1\n        assert self.current_row is not None\n        d = (num - self.current_row) * self.inter_row_dis\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -924,2 +924,3 @@\n         sign = 1\n+        assert self.current_row is not None\n         d = (num - self.current_row) * self.inter_row_dis\n",
+        "source_code_with_indent": "        <DED>sign = 1\n        d = (num - self.current_row) * self.inter_row_dis\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>sign = 1\n        assert self.current_row is not None\n        d = (num - self.current_row) * self.inter_row_dis\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "edb3f74c7f6308812052d982e891a50af95d8e8e",
+    "filename": "qcodes/instrument_drivers/Galil/dmc_41x3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Galil/dmc_41x3.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Galil/dmc_41x3.py:953:19 Unsupported operand [58]: `-` is not supported for operand types `int` and `Optional[int]`.",
+    "message": " `-` is not supported for operand types `int` and `Optional[int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 953,
+    "warning_line": "        d = (num - self.current_pad) * self.inter_pad_dis",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        sign = 1\n        d = (num - self.current_pad) * self.inter_pad_dis\n",
+        "source_code_len": 75,
+        "target_code": "        sign = 1\n        assert self.current_pad is not None\n        d = (num - self.current_pad) * self.inter_pad_dis\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -952,2 +953,3 @@\n         sign = 1\n+        assert self.current_pad is not None\n         d = (num - self.current_pad) * self.inter_pad_dis\n",
+        "source_code_with_indent": "        <DED>sign = 1\n        d = (num - self.current_pad) * self.inter_pad_dis\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>sign = 1\n        assert self.current_pad is not None\n        d = (num - self.current_pad) * self.inter_pad_dis\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

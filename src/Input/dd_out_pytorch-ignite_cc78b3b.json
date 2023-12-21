@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pytorch/ignite",
+    "commit": "cc78b3bbd764da9ae7dee0df21676b2b8a50fba8",
+    "filename": "ignite/handlers/checkpoint.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/handlers/checkpoint.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ignite/handlers/checkpoint.py:189:12 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 189,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def last_checkpoint(self) -> str:\n        if len(self._saved) < 1:\n",
+        "source_code_len": 85,
+        "target_code": "    @property\n    def last_checkpoint(self) -> Optional[str]:\n        if len(self._saved) < 1:\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -186,3 +211,3 @@\n     @property\n-    def last_checkpoint(self) -> str:\n+    def last_checkpoint(self) -> Optional[str]:\n         if len(self._saved) < 1:\n",
+        "source_code_with_indent": "    <DED>@property\n    def last_checkpoint(self) -> str:\n        <IND>if len(self._saved) < 1:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def last_checkpoint(self) -> Optional[str]:\n        <IND>if len(self._saved) < 1:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

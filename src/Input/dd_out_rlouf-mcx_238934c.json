@@ -1,0 +1,36 @@
+[
+  {
+    "project": "rlouf/mcx",
+    "commit": "238934c7a05ad3982e400c9c1a2e1e387afe5910",
+    "filename": "mcx/core/compiler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rlouf-mcx/mcx/core/compiler.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mcx/core/compiler.py:104:4 Incompatible return type [7]: Expected `Tuple[FunctionType, List[str], str]` but got `Artifact`.",
+    "message": " Expected `Tuple[FunctionType, List[str], str]` but got `Artifact`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 104,
+    "warning_line": "    return Artifact(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    graph: GraphicalModel, namespace: Dict, jit: bool = False, grad: bool = False\n) -> Tuple[FunctionType, List[str], str]:\n    \"\"\"Compile a graphical model into a log-probability density function.\n",
+        "source_code_len": 198,
+        "target_code": "    graph: GraphicalModel, namespace: Dict, jit: bool = False, grad: bool = False\n) -> Artifact:\n    \"\"\"Compile a graphical model into a log-probability density function.\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -22,3 +22,3 @@\n     graph: GraphicalModel, namespace: Dict, jit: bool = False, grad: bool = False\n-) -> Tuple[FunctionType, List[str], str]:\n+) -> Artifact:\n     \"\"\"Compile a graphical model into a log-probability density function.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    graph: GraphicalModel, namespace: Dict, jit: bool = False, grad: bool = False\n) -> Tuple[FunctionType, List[str], str]:\n    <IND>",
+        "target_code_with_indent": "    graph: GraphicalModel, namespace: Dict, jit: bool = False, grad: bool = False\n) -> Artifact:\n    <IND>"
+      }
+    ]
+  }
+]

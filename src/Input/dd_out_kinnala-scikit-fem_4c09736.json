@@ -1,0 +1,51 @@
+[
+  {
+    "project": "kinnala/scikit-fem",
+    "commit": "4c097369fa7da26616fff49c55aa7e563d25af6b",
+    "filename": "skfem/element/element.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kinnala-scikit-fem/skfem/element/element.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "skfem/element/element.py:46:4 Incompatible attribute type [8]: Attribute `mesh_type` declared in class `Element` has type `Type[typing.Any]` but is used as type `None`.",
+    "message": " Attribute `mesh_type` declared in class `Element` has type `Type[typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 46,
+    "warning_line": "    mesh_type: Type = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom .discrete_field import DiscreteField\n",
+        "source_code_len": 43,
+        "target_code": "\nfrom skfem.mesh import Mesh\nfrom .discrete_field import DiscreteField\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -5,2 +5,3 @@\n \n+from skfem.mesh import Mesh\n from .discrete_field import DiscreteField\n",
+        "source_code_with_indent": "\nfrom .discrete_field import DiscreteField\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom skfem.mesh import Mesh\nfrom .discrete_field import DiscreteField\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    dofnames: List[str] = []\n    mesh_type: Type = None\n\n",
+        "source_code_len": 57,
+        "target_code": "    dofnames: List[str] = []\n    mesh_type: Type = Mesh\n\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -45,3 +46,3 @@\n     dofnames: List[str] = []\n-    mesh_type: Type = None\n+    mesh_type: Type = Mesh\n \n",
+        "source_code_with_indent": "    dofnames: List[str] = []\n    mesh_type: Type = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    dofnames: List[str] = []\n    mesh_type: Type = Mesh\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

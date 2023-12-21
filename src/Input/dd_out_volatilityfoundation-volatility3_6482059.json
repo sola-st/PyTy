@@ -1,0 +1,36 @@
+[
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "64820595211d559bce14f489c666457dcae6c83e",
+    "filename": "volatility/framework/objects/utility.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility/framework/objects/utility.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility/framework/objects/utility.py:48:8 Incompatible return type [7]: Expected `datetime.datetime` but got `renderers.NotApplicableValue`.",
+    "message": " Expected `datetime.datetime` but got `renderers.NotApplicableValue`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 48,
+    "warning_line": "        return renderers.NotApplicableValue()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef wintime_to_datetime(wintime: objects.Struct) -> datetime.datetime:\n    unix_time = wintime.QuadPart // 10000000\n",
+        "source_code_len": 117,
+        "target_code": "\ndef wintime_to_datetime(wintime: objects.Struct) -> typing.Union[renderers.NotApplicableValue, datetime.datetime]:\n    unix_time = wintime.QuadPart // 10000000\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -44,3 +44,3 @@\n \n-def wintime_to_datetime(wintime: objects.Struct) -> datetime.datetime:\n+def wintime_to_datetime(wintime: objects.Struct) -> typing.Union[renderers.NotApplicableValue, datetime.datetime]:\n     unix_time = wintime.QuadPart // 10000000\n",
+        "source_code_with_indent": "\n<DED>def wintime_to_datetime(wintime: objects.Struct) -> datetime.datetime:\n    <IND>unix_time = wintime.QuadPart // 10000000\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def wintime_to_datetime(wintime: objects.Struct) -> typing.Union[renderers.NotApplicableValue, datetime.datetime]:\n    <IND>unix_time = wintime.QuadPart // 10000000\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

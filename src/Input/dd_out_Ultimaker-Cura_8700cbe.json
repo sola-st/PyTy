@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "8700cbe4e85ee130430baeba62c254cf1d07353b",
+    "filename": "plugins/UM3NetworkPrinting/src/Cloud/CloudOutputDevice.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/UM3NetworkPrinting/src/Cloud/CloudOutputDevice.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/UM3NetworkPrinting/src/Cloud/CloudOutputDevice.py:155:28 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `str.find` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `str.find` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 155,
+    "warning_line": "        if network_key.find(self.clusterData.host_internal_ip):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # network key, so check for that as well\n        if network_key.find(self.clusterData.host_internal_ip):\n            return True\n",
+        "source_code_len": 137,
+        "target_code": "        # network key, so check for that as well\n        if self.clusterData.host_internal_ip is not None and network_key.find(self.clusterData.host_internal_ip):\n            return True\n",
+        "target_code_len": 187,
+        "diff_format": "@@ -154,3 +154,3 @@\n         # network key, so check for that as well\n-        if network_key.find(self.clusterData.host_internal_ip):\n+        if self.clusterData.host_internal_ip is not None and network_key.find(self.clusterData.host_internal_ip):\n             return True\n",
+        "source_code_with_indent": "        # network key, so check for that as well\n        <DED>if network_key.find(self.clusterData.host_internal_ip):\n            <IND>return True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # network key, so check for that as well\n        <DED>if self.clusterData.host_internal_ip is not None and network_key.find(self.clusterData.host_internal_ip):\n            <IND>return True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

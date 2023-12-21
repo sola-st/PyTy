@@ -1,0 +1,36 @@
+[
+  {
+    "project": "rpy2/rpy2",
+    "commit": "73210dd190b53e216c5a78a538a7bb0e76e7c131",
+    "filename": "rpy2/robjects/conversion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rpy2-rpy2/rpy2/robjects/conversion.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rpy2/robjects/conversion.py:242:8 Incompatible attribute type [8]: Attribute `_rpy2py_nc_map` declared in class `Converter` has type `typing.Dict[typing.Type[_rinterface_capi.SupportsSEXP], NameClassMap]` but is used as type `NameClassMap`.",
+    "message": " Attribute `_rpy2py_nc_map` declared in class `Converter` has type `typing.Dict[typing.Type[_rinterface_capi.SupportsSEXP], NameClassMap]` but is used as type `NameClassMap`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 242,
+    "warning_line": "        self._rpy2py_nc_map = NameClassMap()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._rpy2py = rpy2py\n        self._rpy2py_nc_map = NameClassMap()\n\n        if template is None:\n",
+        "source_code_len": 105,
+        "target_code": "        self._rpy2py = rpy2py\n        self._rpy2py_nc_map = {}\n        lineage: typing.Tuple[str, ...]\n        if template is None:\n",
+        "target_code_len": 132,
+        "diff_format": "@@ -241,4 +260,4 @@\n         self._rpy2py = rpy2py\n-        self._rpy2py_nc_map = NameClassMap()\n-\n+        self._rpy2py_nc_map = {}\n+        lineage: typing.Tuple[str, ...]\n         if template is None:\n",
+        "source_code_with_indent": "        self._rpy2py = rpy2py\n        self._rpy2py_nc_map = NameClassMap()\n\n        if template is None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._rpy2py = rpy2py\n        self._rpy2py_nc_map = {}\n        lineage: typing.Tuple[str, ...]\n        if template is None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

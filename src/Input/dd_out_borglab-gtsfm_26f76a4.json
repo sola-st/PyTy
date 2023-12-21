@@ -1,0 +1,36 @@
+[
+  {
+    "project": "borglab/gtsfm",
+    "commit": "26f76a40e21bd082123f275404efca964faa59b9",
+    "filename": "gtsfm/averaging/rotation/cycle_consistency.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/borglab-gtsfm/gtsfm/averaging/rotation/cycle_consistency.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gtsfm/averaging/rotation/cycle_consistency.py:201:24 Incompatible parameter type [6]: Expected `Tuple[int, int, int]` for 2nd positional only parameter to call `compute_cycle_error` but got `List[int]`.",
+    "message": " Expected `Tuple[int, int, int]` for 2nd positional only parameter to call `compute_cycle_error` but got `List[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 201,
+    "warning_line": "            i2Ri1_dict, [i0, i1, i2], two_view_reports_dict",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        cycle_error, max_rot_error, max_trans_error = compute_cycle_error(\n            i2Ri1_dict, [i0, i1, i2], two_view_reports_dict\n        )\n",
+        "source_code_len": 145,
+        "target_code": "        cycle_error, max_rot_error, max_trans_error = compute_cycle_error(\n            i2Ri1_dict, (i0, i1, i2), two_view_reports_dict\n        )\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -200,3 +219,3 @@\n         cycle_error, max_rot_error, max_trans_error = compute_cycle_error(\n-            i2Ri1_dict, [i0, i1, i2], two_view_reports_dict\n+            i2Ri1_dict, (i0, i1, i2), two_view_reports_dict\n         )\n",
+        "source_code_with_indent": "        <IND>cycle_error, max_rot_error, max_trans_error = compute_cycle_error(\n            i2Ri1_dict, [i0, i1, i2], two_view_reports_dict\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>cycle_error, max_rot_error, max_trans_error = compute_cycle_error(\n            i2Ri1_dict, (i0, i1, i2), two_view_reports_dict\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

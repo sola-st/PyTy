@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "72c2e0ab358aa6409ea16bb303439e2b1d3a9ff5",
+    "filename": "src/ezdxf/render/forms.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/render/forms.py",
+    "file_hunks_size": 50,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/render/forms.py:362:48 Invalid type [31]: Expression `0.000000` is not a valid type.",
+    "message": " Expression `0.000000` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 362,
+    "warning_line": "def rotate(vertices: Iterable['Vertex'], angle: 0., deg: bool = True) -> \\",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef rotate(vertices: Iterable['Vertex'], angle: 0., deg: bool = True) -> \\\n        Iterable[Vec3]:\n    \"\"\" Rotate `vertices` about to z-axis at to origin (0, 0), faster than a\n    Matrix44 transformation.\n",
+        "source_code_len": 206,
+        "target_code": "\ndef rotate(\n    vertices: Iterable[\"Vertex\"], angle: float = 0.0, deg: bool = True\n) -> Iterable[Vec3]:\n    \"\"\"Rotate `vertices` about to z-axis at to origin (0, 0), faster than a\n    Matrix44 transformation.\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -361,5 +425,6 @@\n \n-def rotate(vertices: Iterable['Vertex'], angle: 0., deg: bool = True) -> \\\n-        Iterable[Vec3]:\n-    \"\"\" Rotate `vertices` about to z-axis at to origin (0, 0), faster than a\n+def rotate(\n+    vertices: Iterable[\"Vertex\"], angle: float = 0.0, deg: bool = True\n+) -> Iterable[Vec3]:\n+    \"\"\"Rotate `vertices` about to z-axis at to origin (0, 0), faster than a\n     Matrix44 transformation.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>def rotate(vertices: Iterable['Vertex'], angle: 0., deg: bool = True) ->        Iterable[Vec3]:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def rotate(\n    vertices: Iterable[\"Vertex\"], angle: float = 0.0, deg: bool = True\n) -> Iterable[Vec3]:\n    <IND>"
+      }
+    ]
+  }
+]

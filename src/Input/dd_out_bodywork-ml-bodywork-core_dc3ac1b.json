@@ -1,0 +1,36 @@
+[
+  {
+    "project": "bodywork-ml/bodywork-core",
+    "commit": "dc3ac1b6eb950bc25b478aadac14dbd6f8008f78",
+    "filename": "src/bodywork/workflow_execution.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bodywork-ml-bodywork-core/src/bodywork/workflow_execution.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/bodywork/workflow_execution.py:162:20 Incompatible parameter type [6]: Expected `BodyworkConfig` for 1st positional only parameter to call `_run_failure_stage` but got `Optional[BodyworkConfig]`.",
+    "message": " Expected `BodyworkConfig` for 1st positional only parameter to call `_run_failure_stage` but got `Optional[BodyworkConfig]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 162,
+    "warning_line": "                    config, e, namespace, repo_url, repo_branch, docker_image",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        try:\n            if type(e) not in [\n                BodyworkNamespaceError,\n                BodyworkDockerImageError,\n                BodyworkGitError,\n                BodyworkConfigError,\n            ] and config.project.run_on_failure:\n                _run_failure_stage(\n",
+        "source_code_len": 283,
+        "target_code": "        try:\n            if (\n                config is not None\n                and config.project.run_on_failure\n                and type(e)\n                not in [\n                    BodyworkNamespaceError,\n                    BodyworkDockerImageError,\n                    BodyworkGitError,\n                    BodyworkConfigError,\n                ]\n            ):\n                _run_failure_stage(\n",
+        "target_code_len": 406,
+        "diff_format": "@@ -154,8 +154,13 @@\n         try:\n-            if type(e) not in [\n-                BodyworkNamespaceError,\n-                BodyworkDockerImageError,\n-                BodyworkGitError,\n-                BodyworkConfigError,\n-            ] and config.project.run_on_failure:\n+            if (\n+                config is not None\n+                and config.project.run_on_failure\n+                and type(e)\n+                not in [\n+                    BodyworkNamespaceError,\n+                    BodyworkDockerImageError,\n+                    BodyworkGitError,\n+                    BodyworkConfigError,\n+                ]\n+            ):\n                 _run_failure_stage(\n",
+        "source_code_with_indent": "        try:\n            <IND>if type(e) not in [\n                BodyworkNamespaceError,\n                BodyworkDockerImageError,\n                BodyworkGitError,\n                BodyworkConfigError,\n            ] and config.project.run_on_failure:\n                <IND>_run_failure_stage(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        try:\n            <IND>if (\n                config is not None\n                and config.project.run_on_failure\n                and type(e)\n                not in [\n                    BodyworkNamespaceError,\n                    BodyworkDockerImageError,\n                    BodyworkGitError,\n                    BodyworkConfigError,\n                ]\n            ):\n                <IND>_run_failure_stage(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

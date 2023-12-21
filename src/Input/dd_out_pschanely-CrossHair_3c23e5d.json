@@ -1,0 +1,70 @@
+[
+  {
+    "project": "pschanely/CrossHair",
+    "commit": "3c23e5dcd601b60138a29294fa37043ab813b9fa",
+    "filename": "crosshair/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pschanely-CrossHair/crosshair/core.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "crosshair/core.py:1708:39 Incompatible parameter type [6]: Expected `typing.Union[bytes, str, types.CodeType]` for 1st positional only parameter to call `eval` but got `typing.Optional[types.CodeType]`.",
+    "message": " Expected `typing.Union[bytes, str, types.CodeType]` for 1st positional only parameter to call `eval` but got `typing.Optional[types.CodeType]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1708,
+    "warning_line": "                precondition_ok = eval(precondition.expr, eval_vars)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            with short_circuit:\n                precondition_ok = eval(precondition.expr, eval_vars)\n",
+        "source_code_len": 101,
+        "target_code": "            with short_circuit:\n                assert precondition.expr is not None\n                precondition_ok = eval(precondition.expr, eval_vars)\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -1707,2 +1705,3 @@\n             with short_circuit:\n+                assert precondition.expr is not None\n                 precondition_ok = eval(precondition.expr, eval_vars)\n",
+        "source_code_with_indent": "            with short_circuit:\n                <IND>precondition_ok = eval(precondition.expr, eval_vars)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            with short_circuit:\n                <IND>assert precondition.expr is not None\n                precondition_ok = eval(precondition.expr, eval_vars)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pschanely/CrossHair",
+    "commit": "3c23e5dcd601b60138a29294fa37043ab813b9fa",
+    "filename": "crosshair/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pschanely-CrossHair/crosshair/core.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "crosshair/core.py:1757:24 Incompatible parameter type [6]: Expected `typing.Union[bytes, str, types.CodeType]` for 1st positional only parameter to call `eval` but got `typing.Optional[types.CodeType]`.",
+    "message": " Expected `typing.Union[bytes, str, types.CodeType]` for 1st positional only parameter to call `eval` but got `typing.Optional[types.CodeType]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1757,
+    "warning_line": "            isok = eval(post_condition.expr, eval_vars)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        with short_circuit:\n            isok = eval(post_condition.expr, eval_vars)\n    except IgnoreAttempt:\n        return CallAnalysis()\n    except PostconditionFailed as e:\n",
+        "source_code_len": 177,
+        "target_code": "        with short_circuit:\n            assert post_condition.expr is not None\n            isok = eval(post_condition.expr, eval_vars)\n    except PostconditionFailed as e:\n",
+        "target_code_len": 172,
+        "diff_format": "@@ -1756,5 +1757,4 @@\n         with short_circuit:\n+            assert post_condition.expr is not None\n             isok = eval(post_condition.expr, eval_vars)\n-    except IgnoreAttempt:\n-        return CallAnalysis()\n     except PostconditionFailed as e:\n",
+        "source_code_with_indent": "        with short_circuit:\n            <IND>isok = eval(post_condition.expr, eval_vars)\n    <DED><DED>except IgnoreAttempt:\n        <IND>return CallAnalysis()\n    <DED>except PostconditionFailed as e:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        with short_circuit:\n            <IND>assert post_condition.expr is not None\n            isok = eval(post_condition.expr, eval_vars)\n    <DED><DED>except PostconditionFailed as e:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

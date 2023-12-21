@@ -1,0 +1,36 @@
+[
+  {
+    "project": "thu-coai/cotk",
+    "commit": "b843a7b950c48b751de089a1d256b5d906b04a5b",
+    "filename": "cotk/dataloader/field.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/thu-coai-cotk/cotk/dataloader/field.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cotk/dataloader/field.py:866:48 Invalid type [31]: Expression `typing.Tuple[(typing.Union[(str, type(None))], int)]` is not a valid type.",
+    "message": " Expression `typing.Tuple[(typing.Union[(str, type(None))], int)]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 866,
+    "warning_line": "\tdef _get_next(self, dataset: Iterator[str]) -> Tuple[Union[str, type(None)], int]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\tdef _get_next(self, dataset: Iterator[str]) -> Tuple[Union[str, type(None)], int]:\n\t\tlabel = next(dataset).rstrip()\n",
+        "source_code_len": 118,
+        "target_code": "\n\tdef _get_next(self, dataset: Iterator[str]) -> Tuple[Union[str, None], int]:\n\t\tlabel = next(dataset).rstrip()\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -865,3 +865,3 @@\n \n-\tdef _get_next(self, dataset: Iterator[str]) -> Tuple[Union[str, type(None)], int]:\n+\tdef _get_next(self, dataset: Iterator[str]) -> Tuple[Union[str, None], int]:\n \t\tlabel = next(dataset).rstrip()\n",
+        "source_code_with_indent": "\n <DED>def _get_next(self, dataset: Iterator[str]) -> Tuple[Union[str, type(None)], int]:\n\t\t<IND>label = next(dataset).rstrip()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n <DED>def _get_next(self, dataset: Iterator[str]) -> Tuple[Union[str, None], int]:\n\t\t<IND>label = next(dataset).rstrip()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

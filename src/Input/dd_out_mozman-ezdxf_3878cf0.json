@@ -1,0 +1,70 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "3878cf093d392e90c6ba802bb33beacef00118ad",
+    "filename": "src/ezdxf/addons/drawing/matplotlib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/drawing/matplotlib.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/drawing/matplotlib.py:524:4 Inconsistent override [14]: `src.ezdxf.addons.drawing.matplotlib.EzdxfLineRenderer.draw_line` overrides method defined in `AbstractLineRenderer` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `float`.",
+    "message": " `src.ezdxf.addons.drawing.matplotlib.EzdxfLineRenderer.draw_line` overrides method defined in `AbstractLineRenderer` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `float`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 524,
+    "warning_line": "    def draw_line(self, start: Vec3, end: Vec3, properties: Properties, z: int):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def draw_line(self, start: Vec3, end: Vec3, properties: Properties, z: int):\n        pattern = self.pattern(properties)\n",
+        "source_code_len": 125,
+        "target_code": "\n    def draw_line(\n        self, start: Vec3, end: Vec3, properties: Properties, z: float\n    ):\n        pattern = self.pattern(properties)\n",
+        "target_code_len": 141,
+        "diff_format": "@@ -523,3 +537,5 @@\n \n-    def draw_line(self, start: Vec3, end: Vec3, properties: Properties, z: int):\n+    def draw_line(\n+        self, start: Vec3, end: Vec3, properties: Properties, z: float\n+    ):\n         pattern = self.pattern(properties)\n",
+        "source_code_with_indent": "\n    def draw_line(self, start: Vec3, end: Vec3, properties: Properties, z: int):\n        <IND>pattern = self.pattern(properties)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def draw_line(\n        self, start: Vec3, end: Vec3, properties: Properties, z: float\n    ):\n        <IND>pattern = self.pattern(properties)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "3878cf093d392e90c6ba802bb33beacef00118ad",
+    "filename": "src/ezdxf/addons/drawing/matplotlib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/drawing/matplotlib.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/drawing/matplotlib.py:553:4 Inconsistent override [14]: `src.ezdxf.addons.drawing.matplotlib.EzdxfLineRenderer.draw_path` overrides method defined in `AbstractLineRenderer` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `float`.",
+    "message": " `src.ezdxf.addons.drawing.matplotlib.EzdxfLineRenderer.draw_path` overrides method defined in `AbstractLineRenderer` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `float`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 553,
+    "warning_line": "    def draw_path(self, path, properties: Properties, z: int):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def draw_path(self, path, properties: Properties, z: int):\n        pattern = self.pattern(properties)\n",
+        "source_code_len": 107,
+        "target_code": "\n    def draw_path(self, path, properties: Properties, z: float):\n        pattern = self.pattern(properties)\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -552,3 +568,3 @@\n \n-    def draw_path(self, path, properties: Properties, z: int):\n+    def draw_path(self, path, properties: Properties, z: float):\n         pattern = self.pattern(properties)\n",
+        "source_code_with_indent": "\n    <DED><DED>def draw_path(self, path, properties: Properties, z: int):\n        <IND>pattern = self.pattern(properties)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def draw_path(self, path, properties: Properties, z: float):\n        <IND>pattern = self.pattern(properties)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

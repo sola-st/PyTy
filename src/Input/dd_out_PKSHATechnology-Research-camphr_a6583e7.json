@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PKSHATechnology-Research/camphr",
+    "commit": "a6583e766e00b55bd2cef1519b579ae3e2c5ce73",
+    "filename": "bedoner/pipelines/trf_model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PKSHATechnology-Research-camphr/bedoner/pipelines/trf_model.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bedoner/pipelines/trf_model.py:146:66 Unbound name [10]: Name `PyttBertModel` is used but not defined in the current scope.",
+    "message": " Name `PyttBertModel` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 146,
+    "warning_line": "    def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> PyttBertModel:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> PyttBertModel:\n        with (path / \"cfg.pkl\").open(\"rb\") as f:\n",
+        "source_code_len": 131,
+        "target_code": "\n    def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> BertModel:\n        with (path / \"cfg.pkl\").open(\"rb\") as f:\n",
+        "target_code_len": 127,
+        "diff_format": "@@ -145,3 +146,3 @@\n \n-    def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> PyttBertModel:\n+    def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> BertModel:\n         with (path / \"cfg.pkl\").open(\"rb\") as f:\n",
+        "source_code_with_indent": "\n    <DED><DED>def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> PyttBertModel:\n        <IND>with (path / \"cfg.pkl\").open(\"rb\") as f:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> BertModel:\n        <IND>with (path / \"cfg.pkl\").open(\"rb\") as f:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

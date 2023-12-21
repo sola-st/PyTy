@@ -1,0 +1,51 @@
+[
+  {
+    "project": "algoo/preview-generator",
+    "commit": "d78ca2905d8b74e5855496d9a721cc4861bb2d07",
+    "filename": "tests/test_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/algoo-preview-generator/tests/test_utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_utils.py:110:44 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `list.__init__` but got `typing.Union[None, typing.List[str], typing.Tuple[str, str], bool, str]`.",
+    "message": " Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `list.__init__` but got `typing.Union[None, typing.List[str], typing.Tuple[str, str], bool, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 110,
+    "warning_line": "        assert executable_is_available(list(_exec.get(\"test\"))) == _exec.get(\"result\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# -*- coding: utf-8 -*-\n\n",
+        "source_code_len": 25,
+        "target_code": "# -*- coding: utf-8 -*-\n\nimport typing\n\n",
+        "target_code_len": 40,
+        "diff_format": "@@ -1,2 +1,4 @@\n # -*- coding: utf-8 -*-\n+\n+import typing\n \n",
+        "source_code_with_indent": "# -*- coding: utf-8 -*-\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# -*- coding: utf-8 -*-\n\nimport typing\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef test_executable_is_available() -> None:\n    for _exec in EXECS:\n        assert executable_is_available(list(_exec.get(\"test\"))) == _exec.get(\"result\")\n",
+        "source_code_len": 156,
+        "target_code": "\n@pytest.mark.parametrize(\"exec\", EXECS)\ndef test_executable_is_available(exec: typing.Dict[str, typing.Any]) -> None:\n    executable_list = exec.get(\"test\")  # type: typing.Any\n    assert executable_is_available(executable_list) == exec.get(\"result\")\n",
+        "target_code_len": 252,
+        "diff_format": "@@ -107,4 +109,5 @@\n \n-def test_executable_is_available() -> None:\n-    for _exec in EXECS:\n-        assert executable_is_available(list(_exec.get(\"test\"))) == _exec.get(\"result\")\n+@pytest.mark.parametrize(\"exec\", EXECS)\n+def test_executable_is_available(exec: typing.Dict[str, typing.Any]) -> None:\n+    executable_list = exec.get(\"test\")  # type: typing.Any\n+    assert executable_is_available(executable_list) == exec.get(\"result\")\n",
+        "source_code_with_indent": "\ndef test_executable_is_available() -> None:\n    <IND>for _exec in EXECS:\n        <IND>assert executable_is_available(list(_exec.get(\"test\"))) == _exec.get(\"result\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n@pytest.mark.parametrize(\"exec\", EXECS)\ndef test_executable_is_available(exec: typing.Dict[str, typing.Any]) -> None:\n    <IND>executable_list = exec.get(\"test\")  # type: typing.Any\n    assert executable_is_available(executable_list) == exec.get(\"result\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

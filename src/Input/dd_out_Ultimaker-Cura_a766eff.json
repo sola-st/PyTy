@@ -1,0 +1,85 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "a766effce8917337624b3d030400797fa73c2adb",
+    "filename": "cura/NetworkClient.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/NetworkClient.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/NetworkClient.py:206:17 Incompatible variable type [9]: on_progress is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " on_progress is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 206,
+    "warning_line": "                 on_progress: Callable = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 on_finished: Optional[Callable[[QNetworkReply], None]],\n                 on_progress: Callable = None) -> None:\n        post_part = QHttpPart()\n",
+        "source_code_len": 161,
+        "target_code": "                 on_finished: Optional[Callable[[QNetworkReply], None]],\n                 on_progress: Optional[Callable[[int, int], None]] = None) -> None:\n        post_part = QHttpPart()\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -205,3 +205,3 @@\n                  on_finished: Optional[Callable[[QNetworkReply], None]],\n-                 on_progress: Callable = None) -> None:\n+                 on_progress: Optional[Callable[[int, int], None]] = None) -> None:\n         post_part = QHttpPart()\n",
+        "source_code_with_indent": "                 on_finished: Optional[Callable[[QNetworkReply], None]],\n                 on_progress: Callable = None) -> None:\n        <IND>post_part = QHttpPart()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 on_finished: Optional[Callable[[QNetworkReply], None]],\n                 on_progress: Optional[Callable[[int, int], None]] = None) -> None:\n        <IND>post_part = QHttpPart()\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                          on_finished: Optional[Callable[[QNetworkReply], None]],\n                          on_progress: Callable = None) -> Optional[QNetworkReply]:\n        self._validateManager()\n",
+        "source_code_len": 198,
+        "target_code": "                          on_finished: Optional[Callable[[QNetworkReply], None]],\n                          on_progress: Optional[Callable[[int, int], None]] = None) -> Optional[QNetworkReply]:\n        self._validateManager()\n",
+        "target_code_len": 226,
+        "diff_format": "@@ -214,3 +214,3 @@\n                           on_finished: Optional[Callable[[QNetworkReply], None]],\n-                          on_progress: Callable = None) -> Optional[QNetworkReply]:\n+                          on_progress: Optional[Callable[[int, int], None]] = None) -> Optional[QNetworkReply]:\n         self._validateManager()\n",
+        "source_code_with_indent": "                          on_finished: Optional[Callable[[QNetworkReply], None]],\n                          on_progress: Callable = None) -> Optional[QNetworkReply]:\n        <IND>self._validateManager()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                          on_finished: Optional[Callable[[QNetworkReply], None]],\n                          on_progress: Optional[Callable[[int, int], None]] = None) -> Optional[QNetworkReply]:\n        <IND>self._validateManager()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "a766effce8917337624b3d030400797fa73c2adb",
+    "filename": "cura/NetworkClient.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/NetworkClient.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/NetworkClient.py:215:26 Incompatible variable type [9]: on_progress is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " on_progress is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 215,
+    "warning_line": "                          on_progress: Callable = None) -> Optional[QNetworkReply]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                          on_finished: Optional[Callable[[QNetworkReply], None]],\n                          on_progress: Callable = None) -> Optional[QNetworkReply]:\n        self._validateManager()\n",
+        "source_code_len": 198,
+        "target_code": "                          on_finished: Optional[Callable[[QNetworkReply], None]],\n                          on_progress: Optional[Callable[[int, int], None]] = None) -> Optional[QNetworkReply]:\n        self._validateManager()\n",
+        "target_code_len": 226,
+        "diff_format": "@@ -214,3 +214,3 @@\n                           on_finished: Optional[Callable[[QNetworkReply], None]],\n-                          on_progress: Callable = None) -> Optional[QNetworkReply]:\n+                          on_progress: Optional[Callable[[int, int], None]] = None) -> Optional[QNetworkReply]:\n         self._validateManager()\n",
+        "source_code_with_indent": "                          on_finished: Optional[Callable[[QNetworkReply], None]],\n                          on_progress: Callable = None) -> Optional[QNetworkReply]:\n        <IND>self._validateManager()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                          on_finished: Optional[Callable[[QNetworkReply], None]],\n                          on_progress: Optional[Callable[[int, int], None]] = None) -> Optional[QNetworkReply]:\n        <IND>self._validateManager()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

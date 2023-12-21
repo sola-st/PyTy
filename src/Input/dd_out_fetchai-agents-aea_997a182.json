@@ -1,0 +1,36 @@
+[
+  {
+    "project": "fetchai/agents-aea",
+    "commit": "997a182159a8cf67556bdee0580d9d828556b17c",
+    "filename": "scripts/check_imports_and_dependencies.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fetchai-agents-aea/scripts/check_imports_and_dependencies.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/check_imports_and_dependencies.py:68:8 Incompatible return type [7]: Expected `List[str]` but got `List[Path]`.",
+    "message": " Expected `List[str]` but got `List[Path]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 68,
+    "warning_line": "        return [Path(location) / i for i in files]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        location = packages_info[0][\"location\"]\n        return [Path(location) / i for i in files]\n\n",
+        "source_code_len": 100,
+        "target_code": "        location = packages_info[0][\"location\"]\n        return [str(Path(location) / i) for i in files]\n\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -67,3 +67,3 @@\n         location = packages_info[0][\"location\"]\n-        return [Path(location) / i for i in files]\n+        return [str(Path(location) / i) for i in files]\n \n",
+        "source_code_with_indent": "        location = packages_info[0][\"location\"]\n        return [Path(location) / i for i in files]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        location = packages_info[0][\"location\"]\n        return [str(Path(location) / i) for i in files]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

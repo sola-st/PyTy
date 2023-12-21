@@ -1,0 +1,70 @@
+[
+  {
+    "project": "pythonarcade/arcade",
+    "commit": "69d8051d7f4e0ccbdf5f151780cbd92ef7acc79b",
+    "filename": "arcade/draw_commands.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pythonarcade-arcade/arcade/draw_commands.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arcade/draw_commands.py:1015:4 Incompatible return type [7]: Expected `Tuple[int]` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `Tuple[int]` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1015,
+    "warning_line": "    return tuple(a[:components])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_pixel(x: int, y: int, components: int = 3) -> Tuple[int]:\n    \"\"\"\n",
+        "source_code_len": 75,
+        "target_code": "\ndef get_pixel(x: int, y: int, components: int = 3) -> Tuple[int, ...]:\n    \"\"\"\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -992,3 +992,3 @@\n \n-def get_pixel(x: int, y: int, components: int = 3) -> Tuple[int]:\n+def get_pixel(x: int, y: int, components: int = 3) -> Tuple[int, ...]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def get_pixel(x: int, y: int, components: int = 3) -> Tuple[int]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def get_pixel(x: int, y: int, components: int = 3) -> Tuple[int, ...]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "pythonarcade/arcade",
+    "commit": "69d8051d7f4e0ccbdf5f151780cbd92ef7acc79b",
+    "filename": "arcade/texture_atlas.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pythonarcade-arcade/arcade/texture_atlas.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arcade/texture_atlas.py:183:28 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `TextureAtlas.has_texture` but got `arcade.texture.Texture`.",
+    "message": " Expected `str` for 1st positional only parameter to call `TextureAtlas.has_texture` but got `arcade.texture.Texture`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 183,
+    "warning_line": "        if self.has_texture(texture):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return self._mutable\n\n    def has_texture(self, name: str) -> bool:\n        \"\"\"Checks if a texture name is in the atlas\"\"\"\n        return name in self._atlas_regions\n\n",
+        "source_code_len": 175,
+        "target_code": "        return self._mutable\n\n",
+        "target_code_len": 30,
+        "diff_format": "@@ -175,6 +175,2 @@\n         return self._mutable\n-\n-    def has_texture(self, name: str) -> bool:\n-        \"\"\"Checks if a texture name is in the atlas\"\"\"\n-        return name in self._atlas_regions\n \n",
+        "source_code_with_indent": "        return self._mutable\n\n    <DED>def has_texture(self, name: str) -> bool:\n        <IND>\"\"\"Checks if a texture name is in the atlas\"\"\"\n        return name in self._atlas_regions\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        return self._mutable\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

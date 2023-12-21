@@ -1,0 +1,70 @@
+[
+  {
+    "project": "google/TensorNetwork",
+    "commit": "b66151f0d76b8f614d51e41887fa715f40e98ac0",
+    "filename": "tensornetwork/network_components.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-TensorNetwork/tensornetwork/network_components.py",
+    "file_hunks_size": 19,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensornetwork/network_components.py:1230:11 Unsupported operand [58]: `<` is not supported for operand types `Optional[int]` and `Optional[int]`.",
+    "message": " `<` is not supported for operand types `Optional[int]` and `Optional[int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 1230,
+    "warning_line": "    return self.signature < other.signature",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    return connect(self, other, self.name)\n\n  def __lt__(self, other) -> bool:\n    if not isinstance(other, Edge):\n      raise TypeError(\"Cannot compare 'Edge' with type {}\".format(type(Edge)))\n    return self.signature < other.signature\n\n",
+        "source_code_len": 239,
+        "target_code": "    return connect(self, other, self.name)\n\n",
+        "target_code_len": 44,
+        "diff_format": "@@ -1225,7 +1171,2 @@\n     return connect(self, other, self.name)\n-\n-  def __lt__(self, other) -> bool:\n-    if not isinstance(other, Edge):\n-      raise TypeError(\"Cannot compare 'Edge' with type {}\".format(type(Edge)))\n-    return self.signature < other.signature\n \n",
+        "source_code_with_indent": "    <IND>return connect(self, other, self.name)\n\n  <DED>def __lt__(self, other) -> bool:\n    <IND>if not isinstance(other, Edge):\n      <IND>raise TypeError(\"Cannot compare 'Edge' with type {}\".format(type(Edge)))\n    <DED>return self.signature < other.signature\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>return connect(self, other, self.name)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "google/TensorNetwork",
+    "commit": "b66151f0d76b8f614d51e41887fa715f40e98ac0",
+    "filename": "tensornetwork/network_operations.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-TensorNetwork/tensornetwork/network_operations.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensornetwork/network_operations.py:158:27 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `Edge.set_signature` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `Edge.set_signature` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 158,
+    "warning_line": "    new_edge.set_signature(edge.signature)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    new_edge = Edge(node_dict[node1], axis1, edge.name, node_dict[node2], axis2)\n    new_edge.set_signature(edge.signature)\n    node_dict[node2].add_edge(new_edge, axis2)\n",
+        "source_code_len": 171,
+        "target_code": "    new_edge = Edge(node_dict[node1], axis1, edge.name, node_dict[node2], axis2)\n    node_dict[node2].add_edge(new_edge, axis2)\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -157,3 +157,2 @@\n     new_edge = Edge(node_dict[node1], axis1, edge.name, node_dict[node2], axis2)\n-    new_edge.set_signature(edge.signature)\n     node_dict[node2].add_edge(new_edge, axis2)\n",
+        "source_code_with_indent": "    <DED>new_edge = Edge(node_dict[node1], axis1, edge.name, node_dict[node2], axis2)\n    new_edge.set_signature(edge.signature)\n    node_dict[node2].add_edge(new_edge, axis2)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>new_edge = Edge(node_dict[node1], axis1, edge.name, node_dict[node2], axis2)\n    node_dict[node2].add_edge(new_edge, axis2)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

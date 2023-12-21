@@ -1,0 +1,70 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "4ec7eeb906b53eff5063a3e370b34a8449f7e3e9",
+    "filename": "examples/NER/conditional_random_field.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/models/ner/conditional_random_field.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/NER/conditional_random_field.py:203:8 Incompatible variable type [9]: constraints is declared to have type `List[Tuple[int, int]]` but is used as type `None`.",
+    "message": " constraints is declared to have type `List[Tuple[int, int]]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 203,
+    "warning_line": "        constraints: List[Tuple[int, int]] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(\n        self,\n        num_tags: int,\n        constraints: List[Tuple[int, int]] = None,\n        include_start_end_transitions: bool = True,\n    ) -> None:\n        super().__init__()\n",
+        "source_code_len": 201,
+        "target_code": "\n    def __init__(self, num_tags: int,\n                 constraints: Optional[List[Tuple[int, int]]] = None,\n                 include_start_end_transitions: bool = True) -> None:\n        super().__init__()\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -199,8 +191,5 @@\n \n-    def __init__(\n-        self,\n-        num_tags: int,\n-        constraints: List[Tuple[int, int]] = None,\n-        include_start_end_transitions: bool = True,\n-    ) -> None:\n+    def __init__(self, num_tags: int,\n+                 constraints: Optional[List[Tuple[int, int]]] = None,\n+                 include_start_end_transitions: bool = True) -> None:\n         super().__init__()\n",
+        "source_code_with_indent": "\n    def __init__(\n        self,\n        num_tags: int,\n        constraints: List[Tuple[int, int]] = None,\n        include_start_end_transitions: bool = True,\n    ) -> None:\n        <IND>super().__init__()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, num_tags: int,\n                 constraints: Optional[List[Tuple[int, int]]] = None,\n                 include_start_end_transitions: bool = True) -> None:\n        <IND>super().__init__()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "4ec7eeb906b53eff5063a3e370b34a8449f7e3e9",
+    "filename": "examples/NER/model_factory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/models/ner/model_factory.py",
+    "file_hunks_size": 12,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/NER/model_factory.py:62:12 Incompatible parameter type [6]: Expected `typing.List[Tuple[int, int]]` for 2nd parameter `constraints` to call `ConditionalRandomField.__init__` but got `None`.",
+    "message": " Expected `typing.List[Tuple[int, int]]` for 2nd parameter `constraints` to call `ConditionalRandomField.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 62,
+    "warning_line": "            constraints=None,"
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "4ec7eeb906b53eff5063a3e370b34a8449f7e3e9",
+    "filename": "examples/NER/ner_vocab_processor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/examples/ner/ner_vocab_processor.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/NER/ner_vocab_processor.py:77:4 Inconsistent override [14]: `examples.NER.ner_vocab_processor.CoNLL03VocabularyProcessor._process` overrides method defined in `forte.processors.base.base_processor.BaseProcessor` inconsistently. Could not find parameter `input_pack` in overriding signature.",
+    "message": " `examples.NER.ner_vocab_processor.CoNLL03VocabularyProcessor._process` overrides method defined in `forte.processors.base.base_processor.BaseProcessor` inconsistently. Could not find parameter `input_pack` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 77,
+    "warning_line": "    def _process(self, data_pack: DataPack):"
+  }
+]

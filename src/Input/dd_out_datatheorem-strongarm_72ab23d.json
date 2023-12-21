@@ -1,0 +1,70 @@
+[
+  {
+    "project": "datatheorem/strongarm",
+    "commit": "72ab23d73cbfe454b802f4a5371502dec2f1fb36",
+    "filename": "tests/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/datatheorem-strongarm/tests/utils.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/utils.py:115:42 Incompatible parameter type [6]: Expected `strongarm.macho.macho_binary.MachoBinary` for 1st positional only parameter to call `strongarm.macho.macho_analyzer.MachoAnalyzer.get_analyzer` but got `typing.Optional[strongarm.macho.macho_binary.MachoBinary]`.",
+    "message": " Expected `strongarm.macho.macho_binary.MachoBinary` for 1st positional only parameter to call `strongarm.macho.macho_analyzer.MachoAnalyzer.get_analyzer` but got `typing.Optional[strongarm.macho.macho_binary.MachoBinary]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 115,
+    "warning_line": "    analyzer = MachoAnalyzer.get_analyzer(binary)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n    analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "source_code_len": 117,
+        "target_code": "    binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n    assert binary is not None\n    analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -114,2 +114,3 @@\n     binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n+    assert binary is not None\n     analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "source_code_with_indent": "    <DED><DED>binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n    analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n    assert binary is not None\n    analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "datatheorem/strongarm",
+    "commit": "72ab23d73cbfe454b802f4a5371502dec2f1fb36",
+    "filename": "tests/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/datatheorem-strongarm/tests/utils.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/utils.py:116:4 Incompatible return type [7]: Expected `Generator[Tuple[strongarm.macho.macho_binary.MachoBinary, strongarm.macho.macho_analyzer.MachoAnalyzer], None, None]` but got `Generator[Tuple[typing.Optional[strongarm.macho.macho_binary.MachoBinary], strongarm.macho.macho_analyzer.MachoAnalyzer], None, None]`.",
+    "message": " Expected `Generator[Tuple[strongarm.macho.macho_binary.MachoBinary, strongarm.macho.macho_analyzer.MachoAnalyzer], None, None]` but got `Generator[Tuple[typing.Optional[strongarm.macho.macho_binary.MachoBinary], strongarm.macho.macho_analyzer.MachoAnalyzer], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 116,
+    "warning_line": "    yield binary, analyzer",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n    analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "source_code_len": 117,
+        "target_code": "    binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n    assert binary is not None\n    analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -114,2 +114,3 @@\n     binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n+    assert binary is not None\n     analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "source_code_with_indent": "    <DED><DED>binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n    analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>binary = MachoParser(compiled_code_bin_path).get_arm64_slice()\n    assert binary is not None\n    analyzer = MachoAnalyzer.get_analyzer(binary)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

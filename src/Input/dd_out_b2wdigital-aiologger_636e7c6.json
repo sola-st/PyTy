@@ -1,0 +1,70 @@
+[
+  {
+    "project": "b2wdigital/aiologger",
+    "commit": "636e7c624583643a58f8a52659824da705093846",
+    "filename": "aiologger/filters.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/b2wdigital-aiologger/aiologger/filters.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiologger/filters.py:92:25 Call error [29]: `Union[typing.Callable[[LogRecord], bool], Filter]` is not a function.",
+    "message": " `Union[typing.Callable[[LogRecord], bool], Filter]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 92,
+    "warning_line": "                result = f(record)  # assume callable - will raise if not",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        for f in self.filters:\n            if hasattr(f, \"filter\"):\n                result = f.filter(record)\n",
+        "source_code_len": 110,
+        "target_code": "        for f in self.filters:\n            if isinstance(f, Filter):\n                result = f.filter(record)\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -88,3 +88,3 @@\n         for f in self.filters:\n-            if hasattr(f, \"filter\"):\n+            if isinstance(f, Filter):\n                 result = f.filter(record)\n",
+        "source_code_with_indent": "        for f in self.filters:\n            <IND>if hasattr(f, \"filter\"):\n                <IND>result = f.filter(record)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        for f in self.filters:\n            <IND>if isinstance(f, Filter):\n                <IND>result = f.filter(record)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "b2wdigital/aiologger",
+    "commit": "636e7c624583643a58f8a52659824da705093846",
+    "filename": "aiologger/formatters/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/b2wdigital-aiologger/aiologger/formatters/base.py",
+    "file_hunks_size": 8,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiologger/formatters/base.py:111:52 Incompatible variable type [9]: style is declared to have type `FormatStyles` but is used as type `str`.",
+    "message": " style is declared to have type `FormatStyles` but is used as type `str`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 111,
+    "warning_line": "        self, fmt: str = None, datefmt: str = None, style: FormatStyles = \"%\""
+  },
+  {
+    "project": "b2wdigital/aiologger",
+    "commit": "636e7c624583643a58f8a52659824da705093846",
+    "filename": "aiologger/loggers/json.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/b2wdigital-aiologger/aiologger/loggers/json.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiologger/loggers/json.py:61:12 Incompatible parameter type [6]: Expected `Optional[aiologger.formatters.base.Formatter]` for 7th parameter `formatter` to call `aiologger.logger.Logger.with_default_handlers` but got `logging.Formatter`.",
+    "message": " Expected `Optional[aiologger.formatters.base.Formatter]` for 7th parameter `formatter` to call `aiologger.logger.Logger.with_default_handlers` but got `logging.Formatter`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 61,
+    "warning_line": "            formatter=formatter,"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "sdnewhop/grinder",
+    "commit": "96636217c9739a9a163a601d1f81b312eeaa1811",
+    "filename": "grinder/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sdnewhop-grinder/grinder/core.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "grinder/core.py:252:8 Incompatible return type [7]: Expected `typing.Dict[typing.Any, typing.Any]` but got `List[typing.Any]`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 252,
+    "warning_line": "        return full_cve_list",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def count_vulnerabilities(self, max_vulnerabilities=10) -> dict:\n        \"\"\"\n",
+        "source_code_len": 82,
+        "target_code": "\n    def count_vulnerabilities(self, max_vulnerabilities=10) -> List[str]:\n        \"\"\"\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -207,3 +207,3 @@\n \n-    def count_vulnerabilities(self, max_vulnerabilities=10) -> dict:\n+    def count_vulnerabilities(self, max_vulnerabilities=10) -> List[str]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def count_vulnerabilities(self, max_vulnerabilities=10) -> dict:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def count_vulnerabilities(self, max_vulnerabilities=10) -> List[str]:\n        <IND>"
+      }
+    ]
+  }
+]

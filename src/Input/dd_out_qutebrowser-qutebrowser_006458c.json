@@ -1,0 +1,36 @@
+[
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "006458c94ec69b33abcf518b96506d9c016496d4",
+    "filename": "qutebrowser/components/braveadblock.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/qutebrowser/components/braveadblock.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qutebrowser/components/braveadblock.py:286:7 Unbound name [10]: Name `_ad_blocker` is used but not defined in the current scope.",
+    "message": " Name `_ad_blocker` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 286,
+    "warning_line": "    if _ad_blocker is not None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "logger = logging.getLogger(\"misc\")\n_host_blocker = typing.cast(\"HostBlocker\", None)\n\n",
+        "source_code_len": 85,
+        "target_code": "logger = logging.getLogger(\"misc\")\n_ad_blocker = typing.cast(typing.Optional['BraveAdBlocker'], None)\n\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -44,3 +44,3 @@\n logger = logging.getLogger(\"misc\")\n-_host_blocker = typing.cast(\"HostBlocker\", None)\n+_ad_blocker = typing.cast(typing.Optional['BraveAdBlocker'], None)\n \n",
+        "source_code_with_indent": "logger = logging.getLogger(\"misc\")\n_host_blocker = typing.cast(\"HostBlocker\", None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "logger = logging.getLogger(\"misc\")\n_ad_blocker = typing.cast(typing.Optional['BraveAdBlocker'], None)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

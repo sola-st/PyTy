@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ebellocchia/bip_utils",
+    "commit": "8f59cd51b1e0682e6ec7b6f2ffd1d3f24a5fe8ed",
+    "filename": "bip_utils/addr/substrate_addr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ebellocchia-bip_utils/bip_utils/addr/substrate_addr.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bip_utils/addr/substrate_addr.py:49:77 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `bip_utils.ss58.ss58.SS58Encoder.Encode` but got `bytes`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `bip_utils.ss58.ss58.SS58Encoder.Encode` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 49,
+    "warning_line": "        return SS58Encoder.Encode(pub_key_obj.RawCompressed().ToBytes()[1:], version)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def EncodeKey(pub_key: Union[bytes, Ed25519PublicKey],\n                  version: bytes) -> str:\n        \"\"\" Get address in Substrate format.\n",
+        "source_code_len": 146,
+        "target_code": "    def EncodeKey(pub_key: Union[bytes, Ed25519PublicKey],\n                  ss58_format: int) -> str:\n        \"\"\" Get address in Substrate format.\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -33,3 +33,3 @@\n     def EncodeKey(pub_key: Union[bytes, Ed25519PublicKey],\n-                  version: bytes) -> str:\n+                  ss58_format: int) -> str:\n         \"\"\" Get address in Substrate format.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    def EncodeKey(pub_key: Union[bytes, Ed25519PublicKey],\n                  version: bytes) -> str:\n        <IND>",
+        "target_code_with_indent": "    def EncodeKey(pub_key: Union[bytes, Ed25519PublicKey],\n                  ss58_format: int) -> str:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        return SS58Encoder.Encode(pub_key_obj.RawCompressed().ToBytes()[1:], version)\n",
+        "source_code_len": 87,
+        "target_code": "\n        return SS58Encoder.Encode(pub_key_obj.RawCompressed().ToBytes()[1:], ss58_format)\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -48,2 +48,2 @@\n \n-        return SS58Encoder.Encode(pub_key_obj.RawCompressed().ToBytes()[1:], version)\n+        return SS58Encoder.Encode(pub_key_obj.RawCompressed().ToBytes()[1:], ss58_format)\n",
+        "source_code_with_indent": "\n        return SS58Encoder.Encode(pub_key_obj.RawCompressed().ToBytes()[1:], version)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        return SS58Encoder.Encode(pub_key_obj.RawCompressed().ToBytes()[1:], ss58_format)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "3338745ae794a42ea1e3764a11088f762f093a46",
+    "filename": "forte/processors/base/data_augment_processor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/processors/base/data_augment_processor.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/processors/base/data_augment_processor.py:191:60 Incompatible parameter type [6]: Expected `Entry[typing.Any]` for 1st positional only parameter to call `TextReplacementOp.replace` but got `str`.",
+    "message": " Expected `Entry[typing.Any]` for 1st positional only parameter to call `TextReplacementOp.replace` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 191,
+    "warning_line": "        is_inserted, inserted_text = replacement_op.replace(\"\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self,\n            replacement_op: TextReplacementOp,\n            data_pack: DataPack,\n",
+        "source_code_len": 98,
+        "target_code": "            self,\n            inserted_text: str,\n            data_pack: DataPack,\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -165,3 +165,3 @@\n             self,\n-            replacement_op: TextReplacementOp,\n+            inserted_text: str,\n             data_pack: DataPack,\n",
+        "source_code_with_indent": "            self,\n            replacement_op: TextReplacementOp,\n            data_pack: DataPack,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self,\n            inserted_text: str,\n            data_pack: DataPack,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        pid: int = data_pack.meta.pack_idx\n        if self._is_span_overlap(pid, pos, pos):\n            return False\n        inserted_text: str\n        is_inserted: bool\n        is_inserted, inserted_text = replacement_op.replace(\"\")\n        if is_inserted and pos not in self.inserted_annos[pid]:\n            self.replaced_annos[pid].append((Span(pos, pos), inserted_text))\n",
+        "source_code_len": 387,
+        "target_code": "        \"\"\"\n        pid: int = data_pack.meta.pack_id\n        if self._is_span_overlap(pid, pos, pos):\n            return False\n\n        if pos not in self.inserted_annos[pid]:\n            self.replaced_annos[pid].append((Span(pos, pos), inserted_text))\n",
+        "target_code_len": 254,
+        "diff_format": "@@ -185,9 +185,7 @@\n         \"\"\"\n-        pid: int = data_pack.meta.pack_idx\n+        pid: int = data_pack.meta.pack_id\n         if self._is_span_overlap(pid, pos, pos):\n             return False\n-        inserted_text: str\n-        is_inserted: bool\n-        is_inserted, inserted_text = replacement_op.replace(\"\")\n-        if is_inserted and pos not in self.inserted_annos[pid]:\n+\n+        if pos not in self.inserted_annos[pid]:\n             self.replaced_annos[pid].append((Span(pos, pos), inserted_text))\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        pid: int = data_pack.meta.pack_idx\n        if self._is_span_overlap(pid, pos, pos):\n            <IND>return False\n        <DED>inserted_text: str\n        is_inserted: bool\n        is_inserted, inserted_text = replacement_op.replace(\"\")\n        if is_inserted and pos not in self.inserted_annos[pid]:\n            <IND>self.replaced_annos[pid].append((Span(pos, pos), inserted_text))\n",
+        "target_code_with_indent": "\n        pid: int = data_pack.meta.pack_id\n        if self._is_span_overlap(pid, pos, pos):\n            <IND>return False\n\n        <DED>if pos not in self.inserted_annos[pid]:\n            <IND>self.replaced_annos[pid].append((Span(pos, pos), inserted_text))\n"
+      }
+    ]
+  }
+]

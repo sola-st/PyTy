@@ -1,0 +1,36 @@
+[
+  {
+    "project": "DataBiosphere/toil",
+    "commit": "58bef957c82e1a6b8919d7177ef1a234d3f31e7a",
+    "filename": "src/toil/lib/conversions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DataBiosphere-toil/src/toil/lib/conversions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/toil/lib/conversions.py:47:59 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `bytes_in_unit` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `bytes_in_unit` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 47,
+    "warning_line": "    return (num * bytes_in_unit(src_unit)) / bytes_in_unit(dst_unit)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                  src_unit: str,\n                  dst_unit: Optional[str] = 'B') -> float:\n    \"\"\"Returns a float representing the converted input in dst_units.\"\"\"\n",
+        "source_code_len": 165,
+        "target_code": "                  src_unit: str,\n                  dst_unit: str = 'B') -> float:\n    \"\"\"Returns a float representing the converted input in dst_units.\"\"\"\n",
+        "target_code_len": 155,
+        "diff_format": "@@ -42,3 +42,3 @@\n                   src_unit: str,\n-                  dst_unit: Optional[str] = 'B') -> float:\n+                  dst_unit: str = 'B') -> float:\n     \"\"\"Returns a float representing the converted input in dst_units.\"\"\"\n",
+        "source_code_with_indent": "                  src_unit: str,\n                  dst_unit: Optional[str] = 'B') -> float:\n    <IND>\"\"\"Returns a float representing the converted input in dst_units.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                  src_unit: str,\n                  dst_unit: str = 'B') -> float:\n    <IND>\"\"\"Returns a float representing the converted input in dst_units.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

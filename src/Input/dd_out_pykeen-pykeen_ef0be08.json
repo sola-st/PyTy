@@ -1,0 +1,70 @@
+[
+  {
+    "project": "pykeen/pykeen",
+    "commit": "ef0be081e00e15d299b1199513aba3702819dd63",
+    "filename": "src/pykeen/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykeen-pykeen/src/pykeen/utils.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/pykeen/utils.py:350:4 Incompatible variable type [9]: initializer_ is declared to have type `Optional[typing.Any]` but is used as type `None`.",
+    "message": " initializer_ is declared to have type `Optional[typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 350,
+    "warning_line": "    initializer_: Optional = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\ndef get_embedding(\n    num_embeddings: int,\n    embedding_dim: int,\n    device: torch.device,\n    initializer_: Optional = None,\n    initializer_kwargs: Optional[Mapping[str, Any]] = None,\n) -> nn.Embedding:\n    \"\"\"Create an embedding object on a device.\n\n    This method is a hotfix for not being able to pass a device during initialization of nn.Embedding. Instead the\n    weight is always initialized on CPU and has to be moved to GPU afterwards.\n\n    :param num_embeddings: >0\n        The number of embeddings.\n    :param embedding_dim: >0\n        The embedding dimensionality.\n    :param device:\n        The device.\n    :param initializer_:\n        An optional initializer, which takes a (num_embeddings, embedding_dim) tensor as input, and modifies the weights\n        in-place.\n    :param initializer_kwargs:\n        Additional keyword arguments passed to the initializer\n\n    :return:\n        The embedding.\n    \"\"\"\n    # Allocate weight on device\n    weight = torch.empty(num_embeddings, embedding_dim, device=device)\n\n    # Initialize if initializer is provided\n    if initializer_ is not None:\n        if initializer_kwargs is None:\n            initializer_kwargs = {}\n        initializer_(weight, **initializer_kwargs)\n\n    # Wrap embedding around it.\n    return nn.Embedding(num_embeddings=num_embeddings, embedding_dim=embedding_dim, _weight=weight)\n\n\ndef split_complex(\n",
+        "source_code_len": 1386,
+        "target_code": "\ndef split_complex(\n",
+        "target_code_len": 20,
+        "diff_format": "@@ -345,42 +360,2 @@\n \n-def get_embedding(\n-    num_embeddings: int,\n-    embedding_dim: int,\n-    device: torch.device,\n-    initializer_: Optional = None,\n-    initializer_kwargs: Optional[Mapping[str, Any]] = None,\n-) -> nn.Embedding:\n-    \"\"\"Create an embedding object on a device.\n-\n-    This method is a hotfix for not being able to pass a device during initialization of nn.Embedding. Instead the\n-    weight is always initialized on CPU and has to be moved to GPU afterwards.\n-\n-    :param num_embeddings: >0\n-        The number of embeddings.\n-    :param embedding_dim: >0\n-        The embedding dimensionality.\n-    :param device:\n-        The device.\n-    :param initializer_:\n-        An optional initializer, which takes a (num_embeddings, embedding_dim) tensor as input, and modifies the weights\n-        in-place.\n-    :param initializer_kwargs:\n-        Additional keyword arguments passed to the initializer\n-\n-    :return:\n-        The embedding.\n-    \"\"\"\n-    # Allocate weight on device\n-    weight = torch.empty(num_embeddings, embedding_dim, device=device)\n-\n-    # Initialize if initializer is provided\n-    if initializer_ is not None:\n-        if initializer_kwargs is None:\n-            initializer_kwargs = {}\n-        initializer_(weight, **initializer_kwargs)\n-\n-    # Wrap embedding around it.\n-    return nn.Embedding(num_embeddings=num_embeddings, embedding_dim=embedding_dim, _weight=weight)\n-\n-\n def split_complex(\n",
+        "source_code_with_indent": "\n<DED><DED>def get_embedding(\n    num_embeddings: int,\n    embedding_dim: int,\n    device: torch.device,\n    initializer_: Optional = None,\n    initializer_kwargs: Optional[Mapping[str, Any]] = None,\n) -> nn.Embedding:\n    <IND>\"\"\"Create an embedding object on a device.\n\n    This method is a hotfix for not being able to pass a device during initialization of nn.Embedding. Instead the\n    weight is always initialized on CPU and has to be moved to GPU afterwards.\n\n    :param num_embeddings: >0\n        The number of embeddings.\n    :param embedding_dim: >0\n        The embedding dimensionality.\n    :param device:\n        The device.\n    :param initializer_:\n        An optional initializer, which takes a (num_embeddings, embedding_dim) tensor as input, and modifies the weights\n        in-place.\n    :param initializer_kwargs:\n        Additional keyword arguments passed to the initializer\n\n    :return:\n        The embedding.\n    \"\"\"\n    # Allocate weight on device\n    weight = torch.empty(num_embeddings, embedding_dim, device=device)\n\n    # Initialize if initializer is provided\n    if initializer_ is not None:\n        <IND>if initializer_kwargs is None:\n            <IND>initializer_kwargs = {}\n        <DED>initializer_(weight, **initializer_kwargs)\n\n    # Wrap embedding around it.\n    <DED>return nn.Embedding(num_embeddings=num_embeddings, embedding_dim=embedding_dim, _weight=weight)\n\n\n<DED>def split_complex(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def split_complex(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pykeen/pykeen",
+    "commit": "ef0be081e00e15d299b1199513aba3702819dd63",
+    "filename": "src/pykeen/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykeen-pykeen/src/pykeen/utils.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/pykeen/utils.py:380:8 Call error [29]: `Optional[typing.Any]` is not a function.",
+    "message": " `Optional[typing.Any]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 380,
+    "warning_line": "        initializer_(weight, **initializer_kwargs)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\ndef get_embedding(\n    num_embeddings: int,\n    embedding_dim: int,\n    device: torch.device,\n    initializer_: Optional = None,\n    initializer_kwargs: Optional[Mapping[str, Any]] = None,\n) -> nn.Embedding:\n    \"\"\"Create an embedding object on a device.\n\n    This method is a hotfix for not being able to pass a device during initialization of nn.Embedding. Instead the\n    weight is always initialized on CPU and has to be moved to GPU afterwards.\n\n    :param num_embeddings: >0\n        The number of embeddings.\n    :param embedding_dim: >0\n        The embedding dimensionality.\n    :param device:\n        The device.\n    :param initializer_:\n        An optional initializer, which takes a (num_embeddings, embedding_dim) tensor as input, and modifies the weights\n        in-place.\n    :param initializer_kwargs:\n        Additional keyword arguments passed to the initializer\n\n    :return:\n        The embedding.\n    \"\"\"\n    # Allocate weight on device\n    weight = torch.empty(num_embeddings, embedding_dim, device=device)\n\n    # Initialize if initializer is provided\n    if initializer_ is not None:\n        if initializer_kwargs is None:\n            initializer_kwargs = {}\n        initializer_(weight, **initializer_kwargs)\n\n    # Wrap embedding around it.\n    return nn.Embedding(num_embeddings=num_embeddings, embedding_dim=embedding_dim, _weight=weight)\n\n\ndef split_complex(\n",
+        "source_code_len": 1386,
+        "target_code": "\ndef split_complex(\n",
+        "target_code_len": 20,
+        "diff_format": "@@ -345,42 +360,2 @@\n \n-def get_embedding(\n-    num_embeddings: int,\n-    embedding_dim: int,\n-    device: torch.device,\n-    initializer_: Optional = None,\n-    initializer_kwargs: Optional[Mapping[str, Any]] = None,\n-) -> nn.Embedding:\n-    \"\"\"Create an embedding object on a device.\n-\n-    This method is a hotfix for not being able to pass a device during initialization of nn.Embedding. Instead the\n-    weight is always initialized on CPU and has to be moved to GPU afterwards.\n-\n-    :param num_embeddings: >0\n-        The number of embeddings.\n-    :param embedding_dim: >0\n-        The embedding dimensionality.\n-    :param device:\n-        The device.\n-    :param initializer_:\n-        An optional initializer, which takes a (num_embeddings, embedding_dim) tensor as input, and modifies the weights\n-        in-place.\n-    :param initializer_kwargs:\n-        Additional keyword arguments passed to the initializer\n-\n-    :return:\n-        The embedding.\n-    \"\"\"\n-    # Allocate weight on device\n-    weight = torch.empty(num_embeddings, embedding_dim, device=device)\n-\n-    # Initialize if initializer is provided\n-    if initializer_ is not None:\n-        if initializer_kwargs is None:\n-            initializer_kwargs = {}\n-        initializer_(weight, **initializer_kwargs)\n-\n-    # Wrap embedding around it.\n-    return nn.Embedding(num_embeddings=num_embeddings, embedding_dim=embedding_dim, _weight=weight)\n-\n-\n def split_complex(\n",
+        "source_code_with_indent": "\n<DED><DED>def get_embedding(\n    num_embeddings: int,\n    embedding_dim: int,\n    device: torch.device,\n    initializer_: Optional = None,\n    initializer_kwargs: Optional[Mapping[str, Any]] = None,\n) -> nn.Embedding:\n    <IND>\"\"\"Create an embedding object on a device.\n\n    This method is a hotfix for not being able to pass a device during initialization of nn.Embedding. Instead the\n    weight is always initialized on CPU and has to be moved to GPU afterwards.\n\n    :param num_embeddings: >0\n        The number of embeddings.\n    :param embedding_dim: >0\n        The embedding dimensionality.\n    :param device:\n        The device.\n    :param initializer_:\n        An optional initializer, which takes a (num_embeddings, embedding_dim) tensor as input, and modifies the weights\n        in-place.\n    :param initializer_kwargs:\n        Additional keyword arguments passed to the initializer\n\n    :return:\n        The embedding.\n    \"\"\"\n    # Allocate weight on device\n    weight = torch.empty(num_embeddings, embedding_dim, device=device)\n\n    # Initialize if initializer is provided\n    if initializer_ is not None:\n        <IND>if initializer_kwargs is None:\n            <IND>initializer_kwargs = {}\n        <DED>initializer_(weight, **initializer_kwargs)\n\n    # Wrap embedding around it.\n    <DED>return nn.Embedding(num_embeddings=num_embeddings, embedding_dim=embedding_dim, _weight=weight)\n\n\n<DED>def split_complex(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def split_complex(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

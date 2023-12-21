@@ -1,0 +1,70 @@
+[
+  {
+    "project": "rotki/rotki",
+    "commit": "34e36835ace331bed3e1209176121333165b0ae4",
+    "filename": "rotkehlchen/blockchain.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/blockchain.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/blockchain.py:269:36 Incompatible parameter type [6]: Expected `typing.BTCAddress` for 1st positional only parameter to call `Blockchain.modify_btc_account` but got `Union[typing.BTCAddress, typing.EthAddress]`.",
+    "message": " Expected `typing.BTCAddress` for 1st positional only parameter to call `Blockchain.modify_btc_account` but got `Union[typing.BTCAddress, typing.EthAddress]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 269,
+    "warning_line": "            self.modify_btc_account(account, append_or_remove, add_or_sub)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                raise InputError('Tried to remove a non existing BTC account')\n            self.modify_btc_account(account, append_or_remove, add_or_sub)\n\n",
+        "source_code_len": 155,
+        "target_code": "                raise InputError('Tried to remove a non existing BTC account')\n\n            # above we check that account is a BTC account\n            self.modify_btc_account(\n                typing.BTCAddress(account),\n                append_or_remove,\n                add_or_sub,\n            )\n\n",
+        "target_code_len": 297,
+        "diff_format": "@@ -268,3 +268,9 @@\n                 raise InputError('Tried to remove a non existing BTC account')\n-            self.modify_btc_account(account, append_or_remove, add_or_sub)\n+\n+            # above we check that account is a BTC account\n+            self.modify_btc_account(\n+                typing.BTCAddress(account),\n+                append_or_remove,\n+                add_or_sub,\n+            )\n \n",
+        "source_code_with_indent": "                <IND>raise InputError('Tried to remove a non existing BTC account')\n            <DED>self.modify_btc_account(account, append_or_remove, add_or_sub)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>raise InputError('Tried to remove a non existing BTC account')\n\n            # above we check that account is a BTC account\n            <DED>self.modify_btc_account(\n                typing.BTCAddress(account),\n                append_or_remove,\n                add_or_sub,\n            )\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rotki/rotki",
+    "commit": "34e36835ace331bed3e1209176121333165b0ae4",
+    "filename": "rotkehlchen/blockchain.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/blockchain.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/blockchain.py:275:40 Incompatible parameter type [6]: Expected `typing.EthAddress` for 1st positional only parameter to call `Blockchain.modify_eth_account` but got `Union[typing.BTCAddress, typing.EthAddress]`.",
+    "message": " Expected `typing.EthAddress` for 1st positional only parameter to call `Blockchain.modify_eth_account` but got `Union[typing.BTCAddress, typing.EthAddress]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 275,
+    "warning_line": "                self.modify_eth_account(account, append_or_remove, add_or_sub)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            try:\n                self.modify_eth_account(account, append_or_remove, add_or_sub)\n            except BadFunctionCallOutput as e:\n",
+        "source_code_len": 143,
+        "target_code": "            try:\n                # above we check that account is an ETH account\n                self.modify_eth_account(typing.EthAddress(account), append_or_remove, add_or_sub)\n            except BadFunctionCallOutput as e:\n",
+        "target_code_len": 226,
+        "diff_format": "@@ -274,3 +280,4 @@\n             try:\n-                self.modify_eth_account(account, append_or_remove, add_or_sub)\n+                # above we check that account is an ETH account\n+                self.modify_eth_account(typing.EthAddress(account), append_or_remove, add_or_sub)\n             except BadFunctionCallOutput as e:\n",
+        "source_code_with_indent": "            <DED>try:\n                <IND>self.modify_eth_account(account, append_or_remove, add_or_sub)\n            <DED>except BadFunctionCallOutput as e:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>try:\n                # above we check that account is an ETH account\n                <IND>self.modify_eth_account(typing.EthAddress(account), append_or_remove, add_or_sub)\n            <DED>except BadFunctionCallOutput as e:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

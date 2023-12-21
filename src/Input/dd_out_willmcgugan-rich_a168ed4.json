@@ -1,0 +1,70 @@
+[
+  {
+    "project": "willmcgugan/rich",
+    "commit": "a168ed4129dc1b122477146cbd3d2f93b82adc06",
+    "filename": "rich/text.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/text.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/text.py:167:8 Incompatible variable type [9]: text is declared to have type `str` but is used as type `Text`.",
+    "message": " text is declared to have type `str` but is used as type `Text`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 167,
+    "warning_line": "        text = render(text, style, emoji=emoji)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        text = render(text, style, emoji=emoji)\n        text.justify = justify\n        return text\n\n",
+        "source_code_len": 101,
+        "target_code": "\n        rendered_text = render(text, style, emoji=emoji)\n        rendered_text.justify = justify\n        return rendered_text\n\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -166,5 +166,5 @@\n \n-        text = render(text, style, emoji=emoji)\n-        text.justify = justify\n-        return text\n+        rendered_text = render(text, style, emoji=emoji)\n+        rendered_text.justify = justify\n+        return rendered_text\n \n",
+        "source_code_with_indent": "\n        text = render(text, style, emoji=emoji)\n        text.justify = justify\n        return text\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        rendered_text = render(text, style, emoji=emoji)\n        rendered_text.justify = justify\n        return rendered_text\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "willmcgugan/rich",
+    "commit": "a168ed4129dc1b122477146cbd3d2f93b82adc06",
+    "filename": "rich/text.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/text.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/text.py:169:8 Incompatible return type [7]: Expected `Text` but got `str`.",
+    "message": " Expected `Text` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 169,
+    "warning_line": "        return text",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        text = render(text, style, emoji=emoji)\n        text.justify = justify\n        return text\n\n",
+        "source_code_len": 101,
+        "target_code": "\n        rendered_text = render(text, style, emoji=emoji)\n        rendered_text.justify = justify\n        return rendered_text\n\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -166,5 +166,5 @@\n \n-        text = render(text, style, emoji=emoji)\n-        text.justify = justify\n-        return text\n+        rendered_text = render(text, style, emoji=emoji)\n+        rendered_text.justify = justify\n+        return rendered_text\n \n",
+        "source_code_with_indent": "\n        text = render(text, style, emoji=emoji)\n        text.justify = justify\n        return text\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        rendered_text = render(text, style, emoji=emoji)\n        rendered_text.justify = justify\n        return rendered_text\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

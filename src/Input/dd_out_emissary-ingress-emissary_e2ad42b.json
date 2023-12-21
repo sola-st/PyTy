@@ -1,0 +1,53 @@
+[
+  {
+    "project": "emissary-ingress/emissary",
+    "commit": "e2ad42b359a57d2975feeca829238d7d738e44f5",
+    "filename": "ambassador/ambassador/config/config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/emissary-ingress-emissary/ambassador/ambassador/config/config.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ambassador/ambassador/config/config.py:138:33 Incompatible parameter type [6]: Expected `List[str]` for 2nd positional only parameter to call `dict.__setitem__` but got `Dict[str, typing.Any]`.",
+    "message": " Expected `List[str]` for 2nd positional only parameter to call `dict.__setitem__` but got `Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 138,
+    "warning_line": "                od[kind][rkey] = config.as_dict()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def as_dict(self) -> Dict[str, Any]:\n        od = {\n            '_errors': self.errors,\n",
+        "source_code_len": 92,
+        "target_code": "    def as_dict(self) -> Dict[str, Any]:\n        od: Dict[str, Any] = {\n            '_errors': self.errors,\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -128,3 +128,3 @@\n     def as_dict(self) -> Dict[str, Any]:\n-        od = {\n+        od: Dict[str, Any] = {\n             '_errors': self.errors,\n",
+        "source_code_with_indent": "    <DED>def as_dict(self) -> Dict[str, Any]:\n        <IND>od = {\n            '_errors': self.errors,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def as_dict(self) -> Dict[str, Any]:\n        <IND>od: Dict[str, Any] = {\n            '_errors': self.errors,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "emissary-ingress/emissary",
+    "commit": "e2ad42b359a57d2975feeca829238d7d738e44f5",
+    "filename": "ambassador/ambassador/diagnostics/diagnostics.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/emissary-ingress-emissary/ambassador/ambassador/diagnostics/diagnostics.py",
+    "file_hunks_size": 13,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ambassador/ambassador/diagnostics/diagnostics.py:404:12 Incompatible variable type [9]: raw_errors is declared to have type `List[Dict[str, str]]` but is used as type `List[str]`.",
+    "message": " raw_errors is declared to have type `List[Dict[str, str]]` but is used as type `List[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 404,
+    "warning_line": "            raw_errors: List[Dict[str, str]] = self.ir.aconf.errors.get(fqkey, [])"
+  }
+]

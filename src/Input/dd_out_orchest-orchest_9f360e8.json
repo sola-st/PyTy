@@ -1,0 +1,85 @@
+[
+  {
+    "project": "orchest/orchest",
+    "commit": "9f360e8ac8a0486e5b73c9f32985611f6abd717d",
+    "filename": "orchest-sdk/python/orchest/transfer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/orchest-orchest/orchest-sdk/python/orchest/transfer.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "orchest-sdk/python/orchest/transfer.py:327:39 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[bytes]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[bytes]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 327,
+    "warning_line": "    total_size = obj.total_bytes + len(metadata)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # over what objects get evicted.\n    total_size = obj.total_bytes + len(metadata)\n\n",
+        "source_code_len": 87,
+        "target_code": "    # over what objects get evicted.\n    total_size = obj.total_bytes\n    if metadata is not None:\n        total_size += len(metadata)\n\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -326,3 +327,5 @@\n     # over what objects get evicted.\n-    total_size = obj.total_bytes + len(metadata)\n+    total_size = obj.total_bytes\n+    if metadata is not None:\n+        total_size += len(metadata)\n \n",
+        "source_code_with_indent": "    # over what objects get evicted.\n    total_size = obj.total_bytes + len(metadata)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # over what objects get evicted.\n    total_size = obj.total_bytes\n    if metadata is not None:\n        <IND>total_size += len(metadata)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "orchest/orchest",
+    "commit": "9f360e8ac8a0486e5b73c9f32985611f6abd717d",
+    "filename": "orchest-sdk/python/orchest/transfer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/orchest-orchest/orchest-sdk/python/orchest/transfer.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "orchest-sdk/python/orchest/transfer.py:655:4 Incompatible return type [7]: Expected `Tuple[typing.Any]` but got `Tuple[typing.Any, typing.Any, typing.Any]`.",
+    "message": " Expected `Tuple[typing.Any]` but got `Tuple[typing.Any, typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 655,
+    "warning_line": "    return (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import pickle\nfrom typing import Any, Dict, List, Optional, Tuple\n\n",
+        "source_code_len": 67,
+        "target_code": "import pickle\nfrom typing import Any, Callable, Dict, List, Optional, Sequence, Tuple\n\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -5,3 +5,3 @@\n import pickle\n-from typing import Any, Dict, List, Optional, Tuple\n+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple\n \n",
+        "source_code_with_indent": "import pickle\nfrom typing import Any, Dict, List, Optional, Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import pickle\nfrom typing import Any, Callable, Dict, List, Optional, Sequence, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef resolve(step_uuid: str, consumer: str = None) -> Tuple[Any]:\n    \"\"\"Resolves the most recently used tranfer method of the given step.\n",
+        "source_code_len": 139,
+        "target_code": "\ndef resolve(\n    step_uuid: str, consumer: str = None\n) -> Tuple[Callable, Sequence[Any], Dict[str, Any]]:\n    \"\"\"Resolves the most recently used tranfer method of the given step.\n",
+        "target_code_len": 181,
+        "diff_format": "@@ -592,3 +595,5 @@\n \n-def resolve(step_uuid: str, consumer: str = None) -> Tuple[Any]:\n+def resolve(\n+    step_uuid: str, consumer: str = None\n+) -> Tuple[Callable, Sequence[Any], Dict[str, Any]]:\n     \"\"\"Resolves the most recently used tranfer method of the given step.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def resolve(step_uuid: str, consumer: str = None) -> Tuple[Any]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def resolve(\n    step_uuid: str, consumer: str = None\n) -> Tuple[Callable, Sequence[Any], Dict[str, Any]]:\n    <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "ef14d9cccc254806bdda94e39417f46505b724ef",
+    "filename": "qcodes/instrument_drivers/tektronix/AWG70000A.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/tektronix/AWG70000A.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/tektronix/AWG70000A.py:831:61 Unsupported operand [58]: `-` is not supported for operand types `Union[int, str]` and `int`.",
+    "message": " `-` is not supported for operand types `Union[int, str]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 831,
+    "warning_line": "                                                  amplitudes[awgchan-1])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if channel_mapping is None:\n            channel_mapping = {ch: ch for ch in chan_list}\n\n",
+        "source_code_len": 96,
+        "target_code": "        if channel_mapping is None:\n            channel_mapping = {ch: ch_ind+1\n                               for ch_ind, ch in enumerate(chan_list)}\n\n",
+        "target_code_len": 152,
+        "diff_format": "@@ -794,3 +794,4 @@\n         if channel_mapping is None:\n-            channel_mapping = {ch: ch for ch in chan_list}\n+            channel_mapping = {ch: ch_ind+1\n+                               for ch_ind, ch in enumerate(chan_list)}\n \n",
+        "source_code_with_indent": "        <DED><DED><DED><DED>if channel_mapping is None:\n            <IND>channel_mapping = {ch: ch for ch in chan_list}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED><DED><DED><DED>if channel_mapping is None:\n            <IND>channel_mapping = {ch: ch_ind+1\n                               for ch_ind, ch in enumerate(chan_list)}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "ef14d9cccc254806bdda94e39417f46505b724ef",
+    "filename": "qcodes/instrument_drivers/tektronix/AWG70000A.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/tektronix/AWG70000A.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/tektronix/AWG70000A.py:897:40 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `list.append` but got `str`.",
+    "message": " Expected `int` for 1st positional only parameter to call `list.append` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 897,
+    "warning_line": "                subseq_positions.append(pos1)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def make_SEQX_from_forged_sequence(\n            seq: Dict[str, Dict],\n            amplitudes: List[float],\n",
+        "source_code_len": 111,
+        "target_code": "    def make_SEQX_from_forged_sequence(\n            seq: Dict[int, Dict],\n            amplitudes: List[float],\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -757,3 +757,3 @@\n     def make_SEQX_from_forged_sequence(\n-            seq: Dict[str, Dict],\n+            seq: Dict[int, Dict],\n             amplitudes: List[float],\n",
+        "source_code_with_indent": "    def make_SEQX_from_forged_sequence(\n            seq: Dict[str, Dict],\n            amplitudes: List[float],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def make_SEQX_from_forged_sequence(\n            seq: Dict[int, Dict],\n            amplitudes: List[float],\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

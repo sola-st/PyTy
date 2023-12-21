@@ -1,0 +1,36 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "e5d87b0e153fe5b3684d6ee14b3e9e0f9265f28d",
+    "filename": "forte/data/ontology/top.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/data/ontology/top.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/data/ontology/top.py:247:4 Inconsistent override [15]: `MemberType` overrides attribute defined in `BaseGroup` inconsistently. Type `Type[Entry[typing.Any]]` is not a subtype of the overridden attribute `Type[Variable[forte.data.ontology.core.EntryType (bound to Entry[typing.Any])]]`.",
+    "message": " `MemberType` overrides attribute defined in `BaseGroup` inconsistently. Type `Type[Entry[typing.Any]]` is not a subtype of the overridden attribute `Type[Variable[forte.data.ontology.core.EntryType (bound to Entry[typing.Any])]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 247,
+    "warning_line": "    MemberType: Type[Entry] = Entry",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    MemberType: Type[Entry] = Entry\n\n",
+        "source_code_len": 45,
+        "target_code": "    \"\"\"\n    MemberType: Any = Entry\n\n",
+        "target_code_len": 37,
+        "diff_format": "@@ -246,3 +246,3 @@\n     \"\"\"\n-    MemberType: Type[Entry] = Entry\n+    MemberType: Any = Entry\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    MemberType: Type[Entry] = Entry\n\n",
+        "target_code_with_indent": "\n    MemberType: Any = Entry\n\n"
+      }
+    ]
+  }
+]

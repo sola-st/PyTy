@@ -1,0 +1,70 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "e681235e5fe3ee0a40dd6a3f5922c2c4b0cf98b4",
+    "filename": "mesonbuild/dependencies/boost.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/dependencies/boost.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/dependencies/boost.py:349:8 Incompatible attribute type [8]: Attribute `boost_root` declared in class `BoostDependency` has type `Path` but is used as type `None`.",
+    "message": " Attribute `boost_root` declared in class `BoostDependency` has type `Path` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 349,
+    "warning_line": "        self.boost_root = None  # type: Path",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self.boost_root = None  # type: Path\n        self.explicit_static = 'static' in kwargs\n",
+        "source_code_len": 96,
+        "target_code": "\n        self.boost_root = None  # type: T.Optional[Path]\n        self.explicit_static = 'static' in kwargs\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -348,3 +348,3 @@\n \n-        self.boost_root = None  # type: Path\n+        self.boost_root = None  # type: T.Optional[Path]\n         self.explicit_static = 'static' in kwargs\n",
+        "source_code_with_indent": "\n        self.boost_root = None  # type: Path\n        self.explicit_static = 'static' in kwargs\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        self.boost_root = None  # type: T.Optional[Path]\n        self.explicit_static = 'static' in kwargs\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "e681235e5fe3ee0a40dd6a3f5922c2c4b0cf98b4",
+    "filename": "mesonbuild/wrap/wrap.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/wrap/wrap.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/wrap/wrap.py:110:8 Incompatible attribute type [8]: Attribute `type` declared in class `PackageDefinition` has type `str` but is used as type `None`.",
+    "message": " Attribute `type` declared in class `PackageDefinition` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 110,
+    "warning_line": "        self.type = None  # type: str",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.filename = fname\n        self.type = None  # type: str\n        self.values = {} # type: T.Dict[str, str]\n",
+        "source_code_len": 118,
+        "target_code": "        self.filename = fname\n        self.type = None  # type: T.Optional[str]\n        self.values = {} # type: T.Dict[str, str]\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -109,3 +109,3 @@\n         self.filename = fname\n-        self.type = None  # type: str\n+        self.type = None  # type: T.Optional[str]\n         self.values = {} # type: T.Dict[str, str]\n",
+        "source_code_with_indent": "        <IND>self.filename = fname\n        self.type = None  # type: str\n        self.values = {} # type: T.Dict[str, str]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>self.filename = fname\n        self.type = None  # type: T.Optional[str]\n        self.values = {} # type: T.Dict[str, str]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "e4a4e4520c4384847241c3c50e64d5c9bc19acbf",
+    "filename": "cmd2/decorators.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/cmd2/decorators.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cmd2/decorators.py:145:34 Incompatible parameter type [6]: Expected `Union[List[typing.Any], Tuple[typing.Any]]` for 1st positional only parameter to call `_arg_swap` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `Union[List[typing.Any], Tuple[typing.Any]]` for 1st positional only parameter to call `_arg_swap` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 145,
+    "warning_line": "            args_list = _arg_swap(args, statement, parsed_arglist)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Tuple,\n    Union,\n)\n",
+        "source_code_len": 24,
+        "target_code": "    Tuple,\n    Union, Sequence, runtime_checkable, Protocol,\n)\n",
+        "target_code_len": 63,
+        "diff_format": "@@ -11,3 +11,3 @@\n     Tuple,\n-    Union,\n+    Union, Sequence, runtime_checkable, Protocol,\n )\n",
+        "source_code_with_indent": "    Tuple,\n    Union,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Tuple,\n    Union, Sequence, runtime_checkable, Protocol,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _arg_swap(args: Union[Tuple[Any], List[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n    \"\"\"\n    Helper function for cmd2 decorators to swap the Statement parameter with one or more decorator-specific parameters\n    :param args: The original positional arguments\n",
+        "source_code_len": 279,
+        "target_code": "\ndef _arg_swap(args: Union[Sequence[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n    \"\"\"\n    Helper function for cmd2 decorators to swap the Statement parameter with one or more decorator-specific parameters\n\n    :param args: The original positional arguments\n",
+        "target_code_len": 272,
+        "diff_format": "@@ -94,5 +94,6 @@\n \n-def _arg_swap(args: Union[Tuple[Any], List[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n+def _arg_swap(args: Union[Sequence[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n     \"\"\"\n     Helper function for cmd2 decorators to swap the Statement parameter with one or more decorator-specific parameters\n+\n     :param args: The original positional arguments\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def _arg_swap(args: Union[Tuple[Any], List[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def _arg_swap(args: Union[Sequence[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "e4a4e4520c4384847241c3c50e64d5c9bc19acbf",
+    "filename": "cmd2/decorators.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/cmd2/decorators.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cmd2/decorators.py:323:38 Incompatible parameter type [6]: Expected `Union[List[typing.Any], Tuple[typing.Any]]` for 1st positional only parameter to call `_arg_swap` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `Union[List[typing.Any], Tuple[typing.Any]]` for 1st positional only parameter to call `_arg_swap` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 323,
+    "warning_line": "                args_list = _arg_swap(args, statement_arg, *new_args)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Tuple,\n    Union,\n)\n",
+        "source_code_len": 24,
+        "target_code": "    Tuple,\n    Union, Sequence, runtime_checkable, Protocol,\n)\n",
+        "target_code_len": 63,
+        "diff_format": "@@ -11,3 +11,3 @@\n     Tuple,\n-    Union,\n+    Union, Sequence, runtime_checkable, Protocol,\n )\n",
+        "source_code_with_indent": "    Tuple,\n    Union,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Tuple,\n    Union, Sequence, runtime_checkable, Protocol,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _arg_swap(args: Union[Tuple[Any], List[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n    \"\"\"\n    Helper function for cmd2 decorators to swap the Statement parameter with one or more decorator-specific parameters\n    :param args: The original positional arguments\n",
+        "source_code_len": 279,
+        "target_code": "\ndef _arg_swap(args: Union[Sequence[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n    \"\"\"\n    Helper function for cmd2 decorators to swap the Statement parameter with one or more decorator-specific parameters\n\n    :param args: The original positional arguments\n",
+        "target_code_len": 272,
+        "diff_format": "@@ -94,5 +94,6 @@\n \n-def _arg_swap(args: Union[Tuple[Any], List[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n+def _arg_swap(args: Union[Sequence[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n     \"\"\"\n     Helper function for cmd2 decorators to swap the Statement parameter with one or more decorator-specific parameters\n+\n     :param args: The original positional arguments\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def _arg_swap(args: Union[Tuple[Any], List[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def _arg_swap(args: Union[Sequence[Any]], search_arg: Any, *replace_arg: Any) -> List[Any]:\n    <IND>"
+      }
+    ]
+  }
+]

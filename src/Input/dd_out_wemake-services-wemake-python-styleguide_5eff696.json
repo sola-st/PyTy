@@ -1,0 +1,36 @@
+[
+  {
+    "project": "wemake-services/wemake-python-styleguide",
+    "commit": "5eff6965cb33502c4aa38841ae8db3f45d7ee6f9",
+    "filename": "wemake_python_styleguide/helpers/variables.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wemake-services-wemake-python-styleguide/wemake_python_styleguide/helpers/variables.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wemake_python_styleguide/helpers/variables.py:38:46 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[str]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 38,
+    "warning_line": "    return bool(name) and name != '_' and len(name) < min_length",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    return bool(name) and name != '_' and len(name) < min_length\n",
+        "source_code_len": 73,
+        "target_code": "    \"\"\"\n    return name is not None and name != '_' and len(name) < min_length\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -37,2 +37,2 @@\n     \"\"\"\n-    return bool(name) and name != '_' and len(name) < min_length\n+    return name is not None and name != '_' and len(name) < min_length\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    return bool(name) and name != '_' and len(name) < min_length\n",
+        "target_code_with_indent": "\n    return name is not None and name != '_' and len(name) < min_length\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "zhiqwang/yolov5-rt-stack",
+    "commit": "5105b37f98a22954484ba1e994a0d60c60b8f93e",
+    "filename": "yolort/runtime/trt_helper.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/zhiqwang-yolov5-rt-stack/yolort/runtime/trt_helper.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "yolort/runtime/trt_helper.py:64:8 Incompatible variable type [9]: onnx_path is declared to have type `str` but is used as type `Path`.",
+    "message": " onnx_path is declared to have type `str` but is used as type `Path`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 64,
+    "warning_line": "        onnx_path = Path(onnx_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        self.trt_logger = trt.Logger(trt.Logger.INFO)\n        if verbose:\n            self.trt_logger.min_severity = trt.Logger.Severity.VERBOSE\n\n        trt.init_libnvinfer_plugins(self.trt_logger, namespace=\"\")\n\n        self.builder = trt.Builder(self.trt_logger)\n        self.config = self.builder.create_builder_config()\n        self.config.max_workspace_size = workspace * (2 ** 30)\n\n",
+        "source_code_len": 401,
+        "target_code": "        \"\"\"\n        self.logger = trt.Logger(trt.Logger.INFO)\n        if verbose:\n            self.logger.min_severity = trt.Logger.Severity.VERBOSE\n\n        trt.init_libnvinfer_plugins(self.logger, namespace=\"\")\n\n        self.builder = trt.Builder(self.logger)\n        self.config = self.builder.create_builder_config()\n        self.config.max_workspace_size = workspace * 1 << 30\n\n",
+        "target_code_len": 383,
+        "diff_format": "@@ -37,11 +37,11 @@\n         \"\"\"\n-        self.trt_logger = trt.Logger(trt.Logger.INFO)\n+        self.logger = trt.Logger(trt.Logger.INFO)\n         if verbose:\n-            self.trt_logger.min_severity = trt.Logger.Severity.VERBOSE\n+            self.logger.min_severity = trt.Logger.Severity.VERBOSE\n \n-        trt.init_libnvinfer_plugins(self.trt_logger, namespace=\"\")\n+        trt.init_libnvinfer_plugins(self.logger, namespace=\"\")\n \n-        self.builder = trt.Builder(self.trt_logger)\n+        self.builder = trt.Builder(self.logger)\n         self.config = self.builder.create_builder_config()\n-        self.config.max_workspace_size = workspace * (2 ** 30)\n+        self.config.max_workspace_size = workspace * 1 << 30\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        self.trt_logger = trt.Logger(trt.Logger.INFO)\n        if verbose:\n            <IND>self.trt_logger.min_severity = trt.Logger.Severity.VERBOSE\n\n        <DED>trt.init_libnvinfer_plugins(self.trt_logger, namespace=\"\")\n\n        self.builder = trt.Builder(self.trt_logger)\n        self.config = self.builder.create_builder_config()\n        self.config.max_workspace_size = workspace * (2 ** 30)\n\n",
+        "target_code_with_indent": "\n        self.logger = trt.Logger(trt.Logger.INFO)\n        if verbose:\n            <IND>self.logger.min_severity = trt.Logger.Severity.VERBOSE\n\n        <DED>trt.init_libnvinfer_plugins(self.logger, namespace=\"\")\n\n        self.builder = trt.Builder(self.logger)\n        self.config = self.builder.create_builder_config()\n        self.config.max_workspace_size = workspace * 1 << 30\n\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        network_flags = 1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)\n\n        self.network = self.builder.create_network(network_flags)\n        self.parser = trt.OnnxParser(self.network, self.trt_logger)\n\n        onnx_path = Path(onnx_path)\n        with open(onnx_path, \"rb\") as f:\n            if not self.parser.parse(f.read()):\n                err_message = f\"Failed to load ONNX file: {onnx_path}\"\n                log.error(err_message)\n                for error in range(self.parser.num_errors):\n                    log.error(self.parser.get_error(error))\n                raise OSError(err_message)\n\n",
+        "source_code_len": 630,
+        "target_code": "        \"\"\"\n\n        flag = 1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)\n        self.network = self.builder.create_network(flag)\n        self.parser = trt.OnnxParser(self.network, self.logger)\n        if not self.parser.parse_from_file(onnx_path):\n            raise RuntimeError(f\"Failed to load ONNX file: {onnx_path}\")\n\n",
+        "target_code_len": 337,
+        "diff_format": "@@ -58,15 +58,8 @@\n         \"\"\"\n-        network_flags = 1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)\n \n-        self.network = self.builder.create_network(network_flags)\n-        self.parser = trt.OnnxParser(self.network, self.trt_logger)\n-\n-        onnx_path = Path(onnx_path)\n-        with open(onnx_path, \"rb\") as f:\n-            if not self.parser.parse(f.read()):\n-                err_message = f\"Failed to load ONNX file: {onnx_path}\"\n-                log.error(err_message)\n-                for error in range(self.parser.num_errors):\n-                    log.error(self.parser.get_error(error))\n-                raise OSError(err_message)\n+        flag = 1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)\n+        self.network = self.builder.create_network(flag)\n+        self.parser = trt.OnnxParser(self.network, self.logger)\n+        if not self.parser.parse_from_file(onnx_path):\n+            raise RuntimeError(f\"Failed to load ONNX file: {onnx_path}\")\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        network_flags = 1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)\n\n        self.network = self.builder.create_network(network_flags)\n        self.parser = trt.OnnxParser(self.network, self.trt_logger)\n\n        onnx_path = Path(onnx_path)\n        with open(onnx_path, \"rb\") as f:\n            <IND>if not self.parser.parse(f.read()):\n                <IND>err_message = f\"Failed to load ONNX file: {onnx_path}\"\n                log.error(err_message)\n                for error in range(self.parser.num_errors):\n                    <IND>log.error(self.parser.get_error(error))\n                <DED>raise OSError(err_message)\n\n",
+        "target_code_with_indent": "\n\n        flag = 1 << int(trt.NetworkDefinitionCreationFlag.EXPLICIT_BATCH)\n        self.network = self.builder.create_network(flag)\n        self.parser = trt.OnnxParser(self.network, self.logger)\n        if not self.parser.parse_from_file(onnx_path):\n            <IND>raise RuntimeError(f\"Failed to load ONNX file: {onnx_path}\")\n\n"
+      }
+    ]
+  }
+]

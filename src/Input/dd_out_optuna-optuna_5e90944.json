@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "5e90944a70c4e9ce6ab85a6072c4fef9d080fb14",
+    "filename": "optuna/pruners/successive_halving.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/pruners/successive_halving.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/pruners/successive_halving.py:162:29 Unsupported operand [58]: `//` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `//` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 162,
+    "warning_line": "        self._min_resource = complete_trial.last_step // 100",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        complete_trial = complete_trials[0]  # type: FrozenTrial\n        self._min_resource = complete_trial.last_step // 100\n\n",
+        "source_code_len": 127,
+        "target_code": "        complete_trial = complete_trials[0]  # type: FrozenTrial\n        last_step = complete_trial.last_step\n        if last_step is not None:\n            self._min_resource = last_step // 100\n\n",
+        "target_code_len": 195,
+        "diff_format": "@@ -161,3 +161,5 @@\n         complete_trial = complete_trials[0]  # type: FrozenTrial\n-        self._min_resource = complete_trial.last_step // 100\n+        last_step = complete_trial.last_step\n+        if last_step is not None:\n+            self._min_resource = last_step // 100\n \n",
+        "source_code_with_indent": "        <DED>complete_trial = complete_trials[0]  # type: FrozenTrial\n        self._min_resource = complete_trial.last_step // 100\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>complete_trial = complete_trials[0]  # type: FrozenTrial\n        last_step = complete_trial.last_step\n        if last_step is not None:\n            <IND>self._min_resource = last_step // 100\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "7d7c9cfcb200722f256f67337a6a6a827e7b4540",
+    "filename": "deeppavlov/utils/socket/socket.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/utils/socket/socket.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/utils/socket/socket.py:79:26 Incompatible parameter type [6]: Expected `Union[os.PathLike[bytes], os.PathLike[str], bytes, str]` for 1st positional only parameter to call `os.remove` but got `Union[str, typing.Tuple[typing.Any, ...]]`.",
+    "message": " Expected `Union[os.PathLike[bytes], os.PathLike[str], bytes, str]` for 1st positional only parameter to call `os.remove` but got `Union[str, typing.Tuple[typing.Any, ...]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 79,
+    "warning_line": "                os.remove(self._bind_address)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self._address_family = socket.AF_UNIX\n            self._bind_address = socket_file or self._params['unix_socket_file']\n            if os.path.exists(self._bind_address):\n                os.remove(self._bind_address)\n            self._launch_msg = f'{self._params[\"binding_message\"]} {self._bind_address}'\n\n",
+        "source_code_len": 318,
+        "target_code": "            self._address_family = socket.AF_UNIX\n            bind_address = socket_file or self._params['unix_socket_file']\n            bind_address = Path(bind_address).resolve()\n            if bind_address.exists():\n                bind_address.unlink()\n            self._bind_address = str(bind_address)\n            self._launch_msg = f'{self._params[\"binding_message\"]} {self._bind_address}'\n        else:\n            raise ValueError(f'socket type \"{self._socket_type}\" is not supported')\n\n",
+        "target_code_len": 496,
+        "diff_format": "@@ -76,6 +95,10 @@\n             self._address_family = socket.AF_UNIX\n-            self._bind_address = socket_file or self._params['unix_socket_file']\n-            if os.path.exists(self._bind_address):\n-                os.remove(self._bind_address)\n+            bind_address = socket_file or self._params['unix_socket_file']\n+            bind_address = Path(bind_address).resolve()\n+            if bind_address.exists():\n+                bind_address.unlink()\n+            self._bind_address = str(bind_address)\n             self._launch_msg = f'{self._params[\"binding_message\"]} {self._bind_address}'\n+        else:\n+            raise ValueError(f'socket type \"{self._socket_type}\" is not supported')\n \n",
+        "source_code_with_indent": "            <IND>self._address_family = socket.AF_UNIX\n            self._bind_address = socket_file or self._params['unix_socket_file']\n            if os.path.exists(self._bind_address):\n                <IND>os.remove(self._bind_address)\n            <DED>self._launch_msg = f'{self._params[\"binding_message\"]} {self._bind_address}'\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>self._address_family = socket.AF_UNIX\n            bind_address = socket_file or self._params['unix_socket_file']\n            bind_address = Path(bind_address).resolve()\n            if bind_address.exists():\n                <IND>bind_address.unlink()\n            <DED>self._bind_address = str(bind_address)\n            self._launch_msg = f'{self._params[\"binding_message\"]} {self._bind_address}'\n        <DED>else:\n            <IND>raise ValueError(f'socket type \"{self._socket_type}\" is not supported')\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

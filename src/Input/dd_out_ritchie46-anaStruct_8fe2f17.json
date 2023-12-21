@@ -1,0 +1,87 @@
+[
+  {
+    "project": "ritchie46/anaStruct",
+    "commit": "8fe2f17706888164354b242e575e94d22abd92ca",
+    "filename": "anastruct/fem/elements.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ritchie46-anaStruct/anastruct/fem/elements.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "anastruct/fem/elements.py:107:8 Incompatible return type [7]: Expected `float` but got `List[typing.Any]`.",
+    "message": " Expected `float` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 107,
+    "warning_line": "        return [i + self.dead_load * cos(self.angle) for i in q]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def all_q_load(self) -> float:\n        if self.q_load is None:\n",
+        "source_code_len": 81,
+        "target_code": "    @property\n    def all_q_load(self) -> List[float]:\n        if self.q_load is None:\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -89,3 +89,3 @@\n     @property\n-    def all_q_load(self) -> float:\n+    def all_q_load(self) -> List[float]:\n         if self.q_load is None:\n",
+        "source_code_with_indent": "    <DED>@property\n    def all_q_load(self) -> float:\n        <IND>if self.q_load is None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def all_q_load(self) -> List[float]:\n        <IND>if self.q_load is None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ritchie46/anaStruct",
+    "commit": "8fe2f17706888164354b242e575e94d22abd92ca",
+    "filename": "anastruct/fem/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ritchie46-anaStruct/anastruct/fem/system.py",
+    "file_hunks_size": 7,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "anastruct/fem/system.py:928:12 Incompatible attribute type [8]: Attribute `q_load` declared in class `Element` has type `typing.Tuple[typing.Any, ...]` but is used as type `List[typing.Any]`.",
+    "message": " Attribute `q_load` declared in class `Element` has type `typing.Tuple[typing.Any, ...]` but is used as type `List[typing.Any]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 928,
+    "warning_line": "            el.q_load = [i * self.orientation_cs * self.load_factor for i in q[i]]"
+  },
+  {
+    "project": "ritchie46/anaStruct",
+    "commit": "8fe2f17706888164354b242e575e94d22abd92ca",
+    "filename": "anastruct/fem/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ritchie46-anaStruct/anastruct/fem/system.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "anastruct/fem/system.py:1523:12 Incompatible attribute type [8]: Attribute `q_load` declared in class `Element` has type `typing.Tuple[typing.Any, ...]` but is used as type `int`.",
+    "message": " Attribute `q_load` declared in class `Element` has type `typing.Tuple[typing.Any, ...]` but is used as type `int`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 1523,
+    "warning_line": "            self.element_map[k].q_load = 0",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        for k in self.element_map:\n            self.element_map[k].q_load = 0\n            if dead_load:\n",
+        "source_code_len": 104,
+        "target_code": "        for k in self.element_map:\n            self.element_map[k].q_load = (0.0, 0.0)\n            if dead_load:\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -1522,3 +1527,3 @@\n         for k in self.element_map:\n-            self.element_map[k].q_load = 0\n+            self.element_map[k].q_load = (0.0, 0.0)\n             if dead_load:\n",
+        "source_code_with_indent": "        for k in self.element_map:\n            <IND>self.element_map[k].q_load = 0\n            if dead_load:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        for k in self.element_map:\n            <IND>self.element_map[k].q_load = (0.0, 0.0)\n            if dead_load:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

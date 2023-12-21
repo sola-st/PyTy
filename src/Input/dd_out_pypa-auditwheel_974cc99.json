@@ -1,0 +1,51 @@
+[
+  {
+    "project": "pypa/auditwheel",
+    "commit": "974cc99396e959064acc45812f84d495b62a4dc8",
+    "filename": "deloc8/policy/external_references.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pypa-auditwheel/deloc8/policy/external_references.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deloc8/policy/external_references.py:56:16 Unbound name [10]: Name `log` is used but not defined in the current scope.",
+    "message": " Name `log` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 56,
+    "warning_line": "                log.debug('RPATH FTW: %s', lib)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import json\nfrom functools import reduce\nfrom typing import Tuple, Dict, List, Set\n\n",
+        "source_code_len": 84,
+        "target_code": "import json\nimport logging\nfrom functools import reduce\nfrom typing import Tuple, Dict, List, Set, Any\n\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -3,4 +3,5 @@\n import json\n+import logging\n from functools import reduce\n-from typing import Tuple, Dict, List, Set\n+from typing import Tuple, Dict, List, Set, Any\n \n",
+        "source_code_with_indent": "import json\nfrom functools import reduce\nfrom typing import Tuple, Dict, List, Set\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import json\nimport logging\nfrom functools import reduce\nfrom typing import Tuple, Dict, List, Set, Any\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from ..lddtree import parse_elf\n\n",
+        "source_code_len": 33,
+        "target_code": "from ..lddtree import parse_elf\n\nlog = logging.getLogger(__name__)\n\n",
+        "target_code_len": 68,
+        "diff_format": "@@ -10,2 +11,4 @@\n from ..lddtree import parse_elf\n+\n+log = logging.getLogger(__name__)\n \n",
+        "source_code_with_indent": "from ..lddtree import parse_elf\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from ..lddtree import parse_elf\n\nlog = logging.getLogger(__name__)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

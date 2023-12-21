@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "3e243a37475ba5fd9135171bd0cfc1ab4deedab7",
+    "filename": "rasa/core/agent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/core/agent.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/core/agent.py:533:25 Incompatible parameter type [6]: Expected `Union[Dict[str, str], List[Dict[str, typing.Any]]]` for 2nd positional only parameter to call `MessageProcessor.trigger_external_user_uttered` but got `List[str]`.",
+    "message": " Expected `Union[Dict[str, str], List[Dict[str, typing.Any]]]` for 2nd positional only parameter to call `MessageProcessor.trigger_external_user_uttered` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 533,
+    "warning_line": "            intent_name, entities, tracker, output_channel,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        intent_name: Text,\n        entities: List[Text],\n        output_channel: OutputChannel,\n",
+        "source_code_len": 96,
+        "target_code": "        intent_name: Text,\n        entities: List[Dict[Text, Any]],\n        output_channel: OutputChannel,\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -524,3 +524,3 @@\n         intent_name: Text,\n-        entities: List[Text],\n+        entities: List[Dict[Text, Any]],\n         output_channel: OutputChannel,\n",
+        "source_code_with_indent": "        intent_name: Text,\n        entities: List[Text],\n        output_channel: OutputChannel,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        intent_name: Text,\n        entities: List[Dict[Text, Any]],\n        output_channel: OutputChannel,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

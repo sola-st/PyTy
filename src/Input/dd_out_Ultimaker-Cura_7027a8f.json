@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "7027a8f904311251f0d20e1a02061d226986f72a",
+    "filename": "plugins/DigitalLibrary/src/DigitalFactoryApiClient.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/DigitalLibrary/src/DigitalFactoryApiClient.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/DigitalLibrary/src/DigitalFactoryApiClient.py:95:45 Unsupported operand [58]: `<` is not supported for operand types `int` and `Optional[int]`.",
+    "message": " `<` is not supported for operand types `int` and `Optional[int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 95,
+    "warning_line": "                    callback(len(response) < self._library_max_private_projects)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                elif isinstance(response, list) and all(isinstance(r, DigitalFactoryProjectResponse) for r in response):\n                    callback(len(response) < self._library_max_private_projects)\n                else:\n",
+        "source_code_len": 224,
+        "target_code": "                elif isinstance(response, list) and all(isinstance(r, DigitalFactoryProjectResponse) for r in response):\n                    callback(len(response) < cast(int, self._library_max_private_projects))\n                else:\n",
+        "target_code_len": 235,
+        "diff_format": "@@ -94,3 +94,3 @@\n                 elif isinstance(response, list) and all(isinstance(r, DigitalFactoryProjectResponse) for r in response):\n-                    callback(len(response) < self._library_max_private_projects)\n+                    callback(len(response) < cast(int, self._library_max_private_projects))\n                 else:\n",
+        "source_code_with_indent": "                <DED>elif isinstance(response, list) and all(isinstance(r, DigitalFactoryProjectResponse) for r in response):\n                    <IND>callback(len(response) < self._library_max_private_projects)\n                <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <DED>elif isinstance(response, list) and all(isinstance(r, DigitalFactoryProjectResponse) for r in response):\n                    <IND>callback(len(response) < cast(int, self._library_max_private_projects))\n                <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

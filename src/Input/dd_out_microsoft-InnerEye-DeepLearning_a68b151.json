@@ -1,0 +1,81 @@
+[
+  {
+    "project": "microsoft/InnerEye-DeepLearning",
+    "commit": "a68b1512429e6774148420f2d7e718007fea1f65",
+    "filename": "InnerEye/ML/dataset/full_image_dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/microsoft-InnerEye-DeepLearning/InnerEye/ML/dataset/full_image_dataset.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "InnerEye/ML/dataset/full_image_dataset.py:245:8 Incompatible attribute type [8]: Attribute `dataset_sources` declared in class `FullImageDataset` has type `Dict[Union[int, str], PatientDatasetSource]` but is used as type `Dict[int, PatientDatasetSource]`.",
+    "message": " Attribute `dataset_sources` declared in class `FullImageDataset` has type `Dict[Union[int, str], PatientDatasetSource]` but is used as type `Dict[int, PatientDatasetSource]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 245,
+    "warning_line": "        self.dataset_sources: Union[Dict[IntOrString, PatientDatasetSource]] = dataloader()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # cache all of the available dataset sources\n        self._get_file_extension()\n        if self._is_nifti_dataset():\n            dataloader: Callable[[], Any] = self._load_dataset_sources\n        else:\n            raise Exception(\"Files should be Nifti, but found {0}\".format(self.file_extension))\n        self.dataset_sources: Union[Dict[IntOrString, PatientDatasetSource]] = dataloader()\n        self.dataset_indices = sorted(self.dataset_sources.keys())\n\n",
+        "source_code_len": 466,
+        "target_code": "        # cache all of the available dataset sources\n        dataloader: Callable[[], Any] = self._load_dataset_sources\n\n        self.dataset_sources: Dict[str, PatientDatasetSource] = dataloader()\n        self.dataset_indices: List[str] = sorted(self.dataset_sources.keys())\n\n",
+        "target_code_len": 277,
+        "diff_format": "@@ -239,9 +237,6 @@\n         # cache all of the available dataset sources\n-        self._get_file_extension()\n-        if self._is_nifti_dataset():\n-            dataloader: Callable[[], Any] = self._load_dataset_sources\n-        else:\n-            raise Exception(\"Files should be Nifti, but found {0}\".format(self.file_extension))\n-        self.dataset_sources: Union[Dict[IntOrString, PatientDatasetSource]] = dataloader()\n-        self.dataset_indices = sorted(self.dataset_sources.keys())\n+        dataloader: Callable[[], Any] = self._load_dataset_sources\n+\n+        self.dataset_sources: Dict[str, PatientDatasetSource] = dataloader()\n+        self.dataset_indices: List[str] = sorted(self.dataset_sources.keys())\n \n",
+        "source_code_with_indent": "        # cache all of the available dataset sources\n        <DED>self._get_file_extension()\n        if self._is_nifti_dataset():\n            <IND>dataloader: Callable[[], Any] = self._load_dataset_sources\n        <DED>else:\n            <IND>raise Exception(\"Files should be Nifti, but found {0}\".format(self.file_extension))\n        <DED>self.dataset_sources: Union[Dict[IntOrString, PatientDatasetSource]] = dataloader()\n        self.dataset_indices = sorted(self.dataset_sources.keys())\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # cache all of the available dataset sources\n        <DED>dataloader: Callable[[], Any] = self._load_dataset_sources\n\n        self.dataset_sources: Dict[str, PatientDatasetSource] = dataloader()\n        self.dataset_indices: List[str] = sorted(self.dataset_sources.keys())\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def _is_nifti_dataset(self) -> bool:\n        return is_nifti_file_path(self.file_extension)\n\n    def _get_file_extension(self) -> None:\n        file_extension = self._extension_from_df_file_paths(self.data_frame[CSV_PATH_HEADER].values)  # type: ignore\n        self.file_extension = file_extension\n        if not (self._is_nifti_dataset()):\n            raise Exception(\"Wrong file type provided. Must be Nifti.\")\n\n    def extract_spacing(self, patient_id: IntOrString) -> TupleFloat3:\n        \"\"\"\n        extract spacing for that particular image using the first image channel\n        :param patient_id:\n        :return:\n        \"\"\"\n        return io_util.load_nifti_image(self.dataset_sources[patient_id].image_channels[0]).header.spacing\n\n    def get_samples_at_index(self, index: int) -> List[Sample]:\n        # load the channels into memory\n        if not self._is_nifti_dataset():\n            raise ValueError(\"Unknown file extension. Files should be Nifti or HDF5 format but found \"\n                             + self.file_extension)\n        ds = self.dataset_sources[self.dataset_indices[index]]\n",
+        "source_code_len": 1109,
+        "target_code": "\n    def get_samples_at_index(self, index: int) -> List[Sample]:\n        # load the channels into memory\n        ds = self.dataset_sources[self.dataset_indices[index]]\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -265,24 +260,4 @@\n \n-    def _is_nifti_dataset(self) -> bool:\n-        return is_nifti_file_path(self.file_extension)\n-\n-    def _get_file_extension(self) -> None:\n-        file_extension = self._extension_from_df_file_paths(self.data_frame[CSV_PATH_HEADER].values)  # type: ignore\n-        self.file_extension = file_extension\n-        if not (self._is_nifti_dataset()):\n-            raise Exception(\"Wrong file type provided. Must be Nifti.\")\n-\n-    def extract_spacing(self, patient_id: IntOrString) -> TupleFloat3:\n-        \"\"\"\n-        extract spacing for that particular image using the first image channel\n-        :param patient_id:\n-        :return:\n-        \"\"\"\n-        return io_util.load_nifti_image(self.dataset_sources[patient_id].image_channels[0]).header.spacing\n-\n     def get_samples_at_index(self, index: int) -> List[Sample]:\n         # load the channels into memory\n-        if not self._is_nifti_dataset():\n-            raise ValueError(\"Unknown file extension. Files should be Nifti or HDF5 format but found \"\n-                             + self.file_extension)\n         ds = self.dataset_sources[self.dataset_indices[index]]\n",
+        "source_code_with_indent": "\n    <DED>def _is_nifti_dataset(self) -> bool:\n        <IND>return is_nifti_file_path(self.file_extension)\n\n    <DED>def _get_file_extension(self) -> None:\n        <IND>file_extension = self._extension_from_df_file_paths(self.data_frame[CSV_PATH_HEADER].values)  # type: ignore\n        self.file_extension = file_extension\n        if not (self._is_nifti_dataset()):\n            <IND>raise Exception(\"Wrong file type provided. Must be Nifti.\")\n\n    <DED><DED>def extract_spacing(self, patient_id: IntOrString) -> TupleFloat3:\n        <IND>\"\"\"\n        extract spacing for that particular image using the first image channel\n        :param patient_id:\n        :return:\n        \"\"\"\n        return io_util.load_nifti_image(self.dataset_sources[patient_id].image_channels[0]).header.spacing\n\n    <DED>def get_samples_at_index(self, index: int) -> List[Sample]:\n        # load the channels into memory\n        <IND>if not self._is_nifti_dataset():\n            <IND>raise ValueError(\"Unknown file extension. Files should be Nifti or HDF5 format but found \"\n                             + self.file_extension)\n        <DED>ds = self.dataset_sources[self.dataset_indices[index]]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_samples_at_index(self, index: int) -> List[Sample]:\n        # load the channels into memory\n        <IND>ds = self.dataset_sources[self.dataset_indices[index]]\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _load_dataset_sources(self) -> Dict[int, PatientDatasetSource]:\n        assert self.args.local_dataset is not None\n",
+        "source_code_len": 124,
+        "target_code": "\n    def _load_dataset_sources(self) -> Dict[str, PatientDatasetSource]:\n        assert self.args.local_dataset is not None\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -291,3 +266,3 @@\n \n-    def _load_dataset_sources(self) -> Dict[int, PatientDatasetSource]:\n+    def _load_dataset_sources(self) -> Dict[str, PatientDatasetSource]:\n         assert self.args.local_dataset is not None\n",
+        "source_code_with_indent": "\n    <DED>def _load_dataset_sources(self) -> Dict[int, PatientDatasetSource]:\n        <IND>assert self.args.local_dataset is not None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _load_dataset_sources(self) -> Dict[str, PatientDatasetSource]:\n        <IND>assert self.args.local_dataset is not None\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                         ground_truth_channels: List[str],\n                         mask_channel: Optional[str]) -> Dict[int, PatientDatasetSource]:\n    \"\"\"\n",
+        "source_code_len": 157,
+        "target_code": "                         ground_truth_channels: List[str],\n                         mask_channel: Optional[str]) -> Dict[str, PatientDatasetSource]:\n    \"\"\"\n",
+        "target_code_len": 157,
+        "diff_format": "@@ -305,3 +280,3 @@\n                          ground_truth_channels: List[str],\n-                         mask_channel: Optional[str]) -> Dict[int, PatientDatasetSource]:\n+                         mask_channel: Optional[str]) -> Dict[str, PatientDatasetSource]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                         ground_truth_channels: List[str],\n                         mask_channel: Optional[str]) -> Dict[int, PatientDatasetSource]:\n    <IND>",
+        "target_code_with_indent": "                         ground_truth_channels: List[str],\n                         mask_channel: Optional[str]) -> Dict[str, PatientDatasetSource]:\n    <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "project": "MISP/PyMISP",
+    "commit": "9f7282e8f4631a00fa8b8c1482c0565baeae377c",
+    "filename": "pymisp/api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/MISP-PyMISP/pymisp/api.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pymisp/api.py:1354:12 Incompatible return type [7]: Expected `Union[List[Dict[typing.Any, typing.Any]], List[MISPGalaxyCluster]]` but got `Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `Union[List[Dict[typing.Any, typing.Any]], List[MISPGalaxyCluster]]` but got `Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1354,
+    "warning_line": "            return clusters_j",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def search_galaxy_clusters(self, galaxy: Union[MISPGalaxy, int, str, UUID], context: str = \"all\", searchall: str = None, pythonify: bool = False) -> Union[List[Dict], List[MISPGalaxyCluster]]:\n        \"\"\"Searches the galaxy clusters within a specific galaxy\n",
+        "source_code_len": 263,
+        "target_code": "\n    def search_galaxy_clusters(self, galaxy: Union[MISPGalaxy, int, str, UUID], context: str = \"all\", searchall: str = None, pythonify: bool = False) -> Union[Dict, List[MISPGalaxyCluster]]:\n        \"\"\"Searches the galaxy clusters within a specific galaxy\n",
+        "target_code_len": 257,
+        "diff_format": "@@ -1334,3 +1334,3 @@\n \n-    def search_galaxy_clusters(self, galaxy: Union[MISPGalaxy, int, str, UUID], context: str = \"all\", searchall: str = None, pythonify: bool = False) -> Union[List[Dict], List[MISPGalaxyCluster]]:\n+    def search_galaxy_clusters(self, galaxy: Union[MISPGalaxy, int, str, UUID], context: str = \"all\", searchall: str = None, pythonify: bool = False) -> Union[Dict, List[MISPGalaxyCluster]]:\n         \"\"\"Searches the galaxy clusters within a specific galaxy\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def search_galaxy_clusters(self, galaxy: Union[MISPGalaxy, int, str, UUID], context: str = \"all\", searchall: str = None, pythonify: bool = False) -> Union[List[Dict], List[MISPGalaxyCluster]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def search_galaxy_clusters(self, galaxy: Union[MISPGalaxy, int, str, UUID], context: str = \"all\", searchall: str = None, pythonify: bool = False) -> Union[Dict, List[MISPGalaxyCluster]]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "MISP/PyMISP",
+    "commit": "9f7282e8f4631a00fa8b8c1482c0565baeae377c",
+    "filename": "pymisp/api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/MISP-PyMISP/pymisp/api.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pymisp/api.py:1451:100 Incompatible parameter type [6]: Expected `Union[Iterable[typing.Any], Mapping[typing.Any, typing.Any], AbstractMISP, str]` for 3rd parameter `data` to call `PyMISP._prepare_request` but got `Union[MISPGalaxyClusterRelation, UUID, int, str]`.",
+    "message": " Expected `Union[Iterable[typing.Any], Mapping[typing.Any, typing.Any], AbstractMISP, str]` for 3rd parameter `data` to call `PyMISP._prepare_request` but got `Union[MISPGalaxyClusterRelation, UUID, int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1451,
+    "warning_line": "        r = self._prepare_request('POST', f'galaxy_clusters/add/{galaxy_id}/forkUUID:{cluster_id}', data=galaxy_cluster)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def fork_galaxy_cluster(self, galaxy: Union[MISPGalaxy, int, str, UUID], galaxy_cluster: Union[MISPGalaxyClusterRelation, int, str, UUID], pythonify: bool = False) -> Union[Dict, MISPGalaxyCluster]:\n        \"\"\"Forks an existing galaxy cluster, creating a new one with matching attributes\n",
+        "source_code_len": 293,
+        "target_code": "\n    def fork_galaxy_cluster(self, galaxy: Union[MISPGalaxy, int, str, UUID], galaxy_cluster: MISPGalaxyCluster, pythonify: bool = False) -> Union[Dict, MISPGalaxyCluster]:\n        \"\"\"Forks an existing galaxy cluster, creating a new one with matching attributes\n",
+        "target_code_len": 262,
+        "diff_format": "@@ -1434,3 +1434,3 @@\n \n-    def fork_galaxy_cluster(self, galaxy: Union[MISPGalaxy, int, str, UUID], galaxy_cluster: Union[MISPGalaxyClusterRelation, int, str, UUID], pythonify: bool = False) -> Union[Dict, MISPGalaxyCluster]:\n+    def fork_galaxy_cluster(self, galaxy: Union[MISPGalaxy, int, str, UUID], galaxy_cluster: MISPGalaxyCluster, pythonify: bool = False) -> Union[Dict, MISPGalaxyCluster]:\n         \"\"\"Forks an existing galaxy cluster, creating a new one with matching attributes\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def fork_galaxy_cluster(self, galaxy: Union[MISPGalaxy, int, str, UUID], galaxy_cluster: Union[MISPGalaxyClusterRelation, int, str, UUID], pythonify: bool = False) -> Union[Dict, MISPGalaxyCluster]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def fork_galaxy_cluster(self, galaxy: Union[MISPGalaxy, int, str, UUID], galaxy_cluster: MISPGalaxyCluster, pythonify: bool = False) -> Union[Dict, MISPGalaxyCluster]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "MISP/PyMISP",
+    "commit": "9f7282e8f4631a00fa8b8c1482c0565baeae377c",
+    "filename": "pymisp/mispevent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/MISP-PyMISP/pymisp/mispevent.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pymisp/mispevent.py:1164:8 Incompatible return type [7]: Expected `List[MISPTag]` but got `MISPTag`.",
+    "message": " Expected `List[MISPTag]` but got `MISPTag`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1164,
+    "warning_line": "        return self.Tag",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.referenced_galaxy_cluster_type: str\n        self.Tag: MISPTag = []\n\n",
+        "source_code_len": 81,
+        "target_code": "        self.referenced_galaxy_cluster_type: str\n        self.Tag: List[MISPTag] = []\n\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -1119,3 +1122,3 @@\n         self.referenced_galaxy_cluster_type: str\n-        self.Tag: MISPTag = []\n+        self.Tag: List[MISPTag] = []\n \n",
+        "source_code_with_indent": "        self.referenced_galaxy_cluster_type: str\n        self.Tag: MISPTag = []\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.referenced_galaxy_cluster_type: str\n        self.Tag: List[MISPTag] = []\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "MISP/PyMISP",
+    "commit": "9f7282e8f4631a00fa8b8c1482c0565baeae377c",
+    "filename": "pymisp/mispevent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/MISP-PyMISP/pymisp/mispevent.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pymisp/mispevent.py:1216:8 Incompatible return type [7]: Expected `MISPGalaxyClusterRelation` but got `List[MISPGalaxyClusterRelation]`.",
+    "message": " Expected `MISPGalaxyClusterRelation` but got `List[MISPGalaxyClusterRelation]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1216,
+    "warning_line": "        return self.GalaxyClusterRelation",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def cluster_relations(self) -> MISPGalaxyClusterRelation:\n        return self.GalaxyClusterRelation\n",
+        "source_code_len": 118,
+        "target_code": "    @property\n    def cluster_relations(self) -> List[MISPGalaxyClusterRelation]:\n        return self.GalaxyClusterRelation\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -1214,3 +1217,3 @@\n     @property\n-    def cluster_relations(self) -> MISPGalaxyClusterRelation:\n+    def cluster_relations(self) -> List[MISPGalaxyClusterRelation]:\n         return self.GalaxyClusterRelation\n",
+        "source_code_with_indent": "    <DED>@property\n    def cluster_relations(self) -> MISPGalaxyClusterRelation:\n        <IND>return self.GalaxyClusterRelation\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def cluster_relations(self) -> List[MISPGalaxyClusterRelation]:\n        <IND>return self.GalaxyClusterRelation\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "getsentry/snuba",
+    "commit": "1b366ce37571d05aa5f98a90f6032e4f9189535f",
+    "filename": "snuba/writer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/snuba/writer.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snuba/writer.py:44:43 Unbound name [10]: Name `JSONRow` is used but not defined in the current scope.",
+    "message": " Name `JSONRow` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 44,
+    "warning_line": "    def __init__(self, writer: BatchWriter[JSONRow], buffer_size: int):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, writer: BatchWriter[JSONRow], buffer_size: int):\n        self.__writer = writer\n        self.__buffer_size = buffer_size\n        self.__buffer: List[JSONRow] = []\n\n",
+        "source_code_len": 188,
+        "target_code": "\n    def __init__(self, writer: BatchWriter[WriterTableRow], buffer_size: int):\n        self.__writer = writer\n        self.__buffer_size = buffer_size\n        self.__buffer: List[WriterTableRow] = []\n\n",
+        "target_code_len": 202,
+        "diff_format": "@@ -43,6 +43,6 @@\n \n-    def __init__(self, writer: BatchWriter[JSONRow], buffer_size: int):\n+    def __init__(self, writer: BatchWriter[WriterTableRow], buffer_size: int):\n         self.__writer = writer\n         self.__buffer_size = buffer_size\n-        self.__buffer: List[JSONRow] = []\n+        self.__buffer: List[WriterTableRow] = []\n \n",
+        "source_code_with_indent": "\n    def __init__(self, writer: BatchWriter[JSONRow], buffer_size: int):\n        <IND>self.__writer = writer\n        self.__buffer_size = buffer_size\n        self.__buffer: List[JSONRow] = []\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, writer: BatchWriter[WriterTableRow], buffer_size: int):\n        <IND>self.__writer = writer\n        self.__buffer_size = buffer_size\n        self.__buffer: List[WriterTableRow] = []\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

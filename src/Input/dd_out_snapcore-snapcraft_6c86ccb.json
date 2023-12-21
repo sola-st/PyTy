@@ -1,0 +1,122 @@
+[
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "6c86ccb791e984d6406cd4c86094a5218f22879c",
+    "filename": "snapcraft/internal/project_loader/grammar/_on.py",
+    "min_patch_found": false,
+    "full_warning_msg": "snapcraft/internal/project_loader/grammar/_on.py:72:25 Incompatible parameter type [6]: Expected `typing.List[typing.Union[typing.Dict[str, typing.Any], str]]` for 1st parameter `body` to call `Statement.__init__` but got `Optional[typing.List[typing.Union[typing.Dict[str, typing.Any], str]]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "6c86ccb791e984d6406cd4c86094a5218f22879c",
+    "filename": "snapcraft/internal/project_loader/grammar/_statement.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/project_loader/grammar/_statement.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/project_loader/grammar/_statement.py:60:32 Unbound name [10]: Name `Optional` is used but not defined in the current scope.",
+    "message": " Name `Optional` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 60,
+    "warning_line": "        self._else_bodies: List[Optional[typing.Grammar]] = []",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import re\nfrom typing import Iterable, List, Set, TYPE_CHECKING\n\n",
+        "source_code_len": 65,
+        "target_code": "import re\nfrom typing import Iterable, List, Optional, Set, TYPE_CHECKING\n\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -17,3 +17,3 @@\n import re\n-from typing import Iterable, List, Set, TYPE_CHECKING\n+from typing import Iterable, List, Optional, Set, TYPE_CHECKING\n \n",
+        "source_code_with_indent": "import re\nfrom typing import Iterable, List, Set, TYPE_CHECKING\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import re\nfrom typing import Iterable, List, Optional, Set, TYPE_CHECKING\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "6c86ccb791e984d6406cd4c86094a5218f22879c",
+    "filename": "snapcraft/internal/project_loader/grammar/_statement.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/project_loader/grammar/_statement.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/project_loader/grammar/_statement.py:62:8 Incompatible attribute type [8]: Attribute `_Statement__processed_body` declared in class `Statement` has type `Set[str]` but is used as type `None`.",
+    "message": " Attribute `_Statement__processed_body` declared in class `Statement` has type `Set[str]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 62,
+    "warning_line": "        self.__processed_body = None  # type: Set[str]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self.__processed_body = None  # type: Set[str]\n        self.__processed_else = None  # type: Set[str]\n\n",
+        "source_code_len": 112,
+        "target_code": "\n        self.__processed_body: Optional[Set[str]] = None\n        self.__processed_else: Optional[Set[str]] = None\n\n",
+        "target_code_len": 116,
+        "diff_format": "@@ -61,4 +61,4 @@\n \n-        self.__processed_body = None  # type: Set[str]\n-        self.__processed_else = None  # type: Set[str]\n+        self.__processed_body: Optional[Set[str]] = None\n+        self.__processed_else: Optional[Set[str]] = None\n \n",
+        "source_code_with_indent": "\n        self.__processed_body = None  # type: Set[str]\n        self.__processed_else = None  # type: Set[str]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        self.__processed_body: Optional[Set[str]] = None\n        self.__processed_else: Optional[Set[str]] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "6c86ccb791e984d6406cd4c86094a5218f22879c",
+    "filename": "snapcraft/internal/project_loader/grammar/_statement.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/project_loader/grammar/_statement.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/project_loader/grammar/_statement.py:63:8 Incompatible attribute type [8]: Attribute `_Statement__processed_else` declared in class `Statement` has type `Set[str]` but is used as type `None`.",
+    "message": " Attribute `_Statement__processed_else` declared in class `Statement` has type `Set[str]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 63,
+    "warning_line": "        self.__processed_else = None  # type: Set[str]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self.__processed_body = None  # type: Set[str]\n        self.__processed_else = None  # type: Set[str]\n\n",
+        "source_code_len": 112,
+        "target_code": "\n        self.__processed_body: Optional[Set[str]] = None\n        self.__processed_else: Optional[Set[str]] = None\n\n",
+        "target_code_len": 116,
+        "diff_format": "@@ -61,4 +61,4 @@\n \n-        self.__processed_body = None  # type: Set[str]\n-        self.__processed_else = None  # type: Set[str]\n+        self.__processed_body: Optional[Set[str]] = None\n+        self.__processed_else: Optional[Set[str]] = None\n \n",
+        "source_code_with_indent": "\n        self.__processed_body = None  # type: Set[str]\n        self.__processed_else = None  # type: Set[str]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        self.__processed_body: Optional[Set[str]] = None\n        self.__processed_else: Optional[Set[str]] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "6c86ccb791e984d6406cd4c86094a5218f22879c",
+    "filename": "snapcraft/internal/project_loader/grammar/_to.py",
+    "min_patch_found": false,
+    "full_warning_msg": "snapcraft/internal/project_loader/grammar/_to.py:65:25 Incompatible parameter type [6]: Expected `typing.List[typing.Union[typing.Dict[str, typing.Any], str]]` for 1st parameter `body` to call `Statement.__init__` but got `Optional[typing.List[typing.Union[typing.Dict[str, typing.Any], str]]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

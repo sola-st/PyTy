@@ -1,0 +1,36 @@
+[
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "b743e442599a5bf7e1cb14d9dc41bd17bde1504c",
+    "filename": "scripts/validate_solutions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/scripts/validate_solutions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "scripts/validate_solutions.py:24:45 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 24,
+    "warning_line": "    module = importlib.util.module_from_spec(spec)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    spec = importlib.util.spec_from_file_location(file_path.name, str(file_path))\n    module = importlib.util.module_from_spec(spec)\n    spec.loader.exec_module(module)  # type: ignore\n",
+        "source_code_len": 185,
+        "target_code": "    spec = importlib.util.spec_from_file_location(file_path.name, str(file_path))\n    module = importlib.util.module_from_spec(spec)  # type: ignore\n    spec.loader.exec_module(module)  # type: ignore\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -23,3 +23,3 @@\n     spec = importlib.util.spec_from_file_location(file_path.name, str(file_path))\n-    module = importlib.util.module_from_spec(spec)\n+    module = importlib.util.module_from_spec(spec)  # type: ignore\n     spec.loader.exec_module(module)  # type: ignore\n",
+        "source_code_with_indent": "    spec = importlib.util.spec_from_file_location(file_path.name, str(file_path))\n    module = importlib.util.module_from_spec(spec)\n    spec.loader.exec_module(module)  # type: ignore\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    spec = importlib.util.spec_from_file_location(file_path.name, str(file_path))\n    module = importlib.util.module_from_spec(spec)  # type: ignore\n    spec.loader.exec_module(module)  # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

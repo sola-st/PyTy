@@ -1,0 +1,36 @@
+[
+  {
+    "project": "flairNLP/flair",
+    "commit": "7fdf2159d6441c311ec5b74dfb1aac09a856364a",
+    "filename": "flair/models/regexp_tagger.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/models/regexp_tagger.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/models/regexp_tagger.py:99:12 Incompatible return type [7]: Expected `List[Sentence]` but got `Union[List[Sentence], Sentence]`.",
+    "message": " Expected `List[Sentence]` but got `Union[List[Sentence], Sentence]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 99,
+    "warning_line": "            return sentences",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        if not sentences:\n",
+        "source_code_len": 38,
+        "target_code": "        \"\"\"\n        if not isinstance(sentences, list):\n            sentences = [sentences]\n        if not sentences:\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -97,2 +97,4 @@\n         \"\"\"\n+        if not isinstance(sentences, list):\n+            sentences = [sentences]\n         if not sentences:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        if not sentences:\n",
+        "target_code_with_indent": "\n        if not isinstance(sentences, list):\n            <IND>sentences = [sentences]\n        <DED>if not sentences:\n"
+      }
+    ]
+  }
+]

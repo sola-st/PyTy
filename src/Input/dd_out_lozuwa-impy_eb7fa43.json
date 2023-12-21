@@ -1,0 +1,138 @@
+[
+  {
+    "project": "lozuwa/impy",
+    "commit": "eb7fa43ba86a2916ead5de602fdb3949c06749c8",
+    "filename": "BoundingBoxAugmenters.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/BoundingBoxAugmenters.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "BoundingBoxAugmenters.py:64:28 Invalid type [31]: Expression `interface.implements(BoundingBoxAugmentersMethods.BoundingBoxAugmentersMethods)` is not a valid type.",
+    "message": " Expression `interface.implements(BoundingBoxAugmentersMethods.BoundingBoxAugmentersMethods)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 64,
+    "warning_line": "class BoundingBoxAugmenters(implements(BoundingBoxAugmentersMethods)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# Other libraries\ntry:\n\tfrom .ImagePreprocess import *\nexcept:\n\tfrom ImagePreprocess import *\n# Interface\ntry:\n\tfrom .BoundingBoxAugmentersMethods import *\nexcept:\n\tfrom BoundingBoxAugmentersMethods import *\n\ntry:\n\tfrom .GeometricAugmenters import *\nexcept:\n\tfrom GeometricAugmenters import *\n\ntry:\n\tfrom .AssertDataTypes import *\nexcept:\n\tfrom AssertDataTypes import *\n\nclass BoundingBoxAugmenters(implements(BoundingBoxAugmentersMethods)):\n\t\"\"\"\n",
+        "source_code_len": 447,
+        "target_code": "# Other libraries\nfrom ImagePreprocess import *\n# Interface\nfrom BoundingBoxAugmentersMethods import *\nfrom GeometricAugmenters import *\nfrom AssertDataTypes import *\n\n# class BoundingBoxAugmenters(implements(BoundingBoxAugmentersMethods)):\nclass BoundingBoxAugmenters(object):\n\t\"\"\"\n",
+        "target_code_len": 283,
+        "diff_format": "@@ -43,23 +43,10 @@\n # Other libraries\n-try:\n-\tfrom .ImagePreprocess import *\n-except:\n-\tfrom ImagePreprocess import *\n+from ImagePreprocess import *\n # Interface\n-try:\n-\tfrom .BoundingBoxAugmentersMethods import *\n-except:\n-\tfrom BoundingBoxAugmentersMethods import *\n-\n-try:\n-\tfrom .GeometricAugmenters import *\n-except:\n-\tfrom GeometricAugmenters import *\n-\n-try:\n-\tfrom .AssertDataTypes import *\n-except:\n-\tfrom AssertDataTypes import *\n-\n-class BoundingBoxAugmenters(implements(BoundingBoxAugmentersMethods)):\n+from BoundingBoxAugmentersMethods import *\n+from GeometricAugmenters import *\n+from AssertDataTypes import *\n+\n+# class BoundingBoxAugmenters(implements(BoundingBoxAugmentersMethods)):\n+class BoundingBoxAugmenters(object):\n \t\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "# Other libraries\ntry:\n\t<IND>from .ImagePreprocess import *\n<DED>except:\n\t<IND>from ImagePreprocess import *\n# Interface\n<DED>try:\n\t<IND>from .BoundingBoxAugmentersMethods import *\n<DED>except:\n\t<IND>from BoundingBoxAugmentersMethods import *\n\n<DED>try:\n\t<IND>from .GeometricAugmenters import *\n<DED>except:\n\t<IND>from GeometricAugmenters import *\n\n<DED>try:\n\t<IND>from .AssertDataTypes import *\n<DED>except:\n\t<IND>from AssertDataTypes import *\n\n<DED>class BoundingBoxAugmenters(implements(BoundingBoxAugmentersMethods)):\n\t<IND>",
+        "target_code_with_indent": "# Other libraries\nfrom ImagePreprocess import *\n# Interface\nfrom BoundingBoxAugmentersMethods import *\nfrom GeometricAugmenters import *\nfrom AssertDataTypes import *\n\n# class BoundingBoxAugmenters(implements(BoundingBoxAugmentersMethods)):\nclass BoundingBoxAugmenters(object):\n\t<IND>"
+      }
+    ]
+  },
+  {
+    "project": "lozuwa/impy",
+    "commit": "eb7fa43ba86a2916ead5de602fdb3949c06749c8",
+    "filename": "ColorAugmenters.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/ColorAugmenters.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ColorAugmenters.py:60:22 Invalid type [31]: Expression `interface.implements(ColorAugmentersMethods.ColorAugmentersMethods)` is not a valid type.",
+    "message": " Expression `interface.implements(ColorAugmentersMethods.ColorAugmentersMethods)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 60,
+    "warning_line": "class ColorAugmenters(implements(ColorAugmentersMethods)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ntry:\n\tfrom .ColorAugmentersMethods import *\nexcept:\n\tfrom ColorAugmentersMethods import *\n\ntry:\n\tfrom .VectorOperations import *\nexcept:\n\tfrom VectorOperations import *\n\ntry:\n\tfrom .AssertDataTypes import *\nexcept:\n\tfrom AssertDataTypes import *\n\nclass ColorAugmenters(implements(ColorAugmentersMethods)):\n\t\"\"\"\n",
+        "source_code_len": 312,
+        "target_code": "\nfrom ColorAugmentersMethods import *\nfrom VectorOperations import *\nfrom AssertDataTypes import *\n\n# class ColorAugmenters(implements(ColorAugmentersMethods)):\nclass ColorAugmenters(object):\n\t\"\"\"\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -44,18 +44,8 @@\n \n-try:\n-\tfrom .ColorAugmentersMethods import *\n-except:\n-\tfrom ColorAugmentersMethods import *\n-\n-try:\n-\tfrom .VectorOperations import *\n-except:\n-\tfrom VectorOperations import *\n-\n-try:\n-\tfrom .AssertDataTypes import *\n-except:\n-\tfrom AssertDataTypes import *\n-\n-class ColorAugmenters(implements(ColorAugmentersMethods)):\n+from ColorAugmentersMethods import *\n+from VectorOperations import *\n+from AssertDataTypes import *\n+\n+# class ColorAugmenters(implements(ColorAugmentersMethods)):\n+class ColorAugmenters(object):\n \t\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ntry:\n\t<IND>from .ColorAugmentersMethods import *\n<DED>except:\n\t<IND>from ColorAugmentersMethods import *\n\n<DED>try:\n\t<IND>from .VectorOperations import *\n<DED>except:\n\t<IND>from VectorOperations import *\n\n<DED>try:\n\t<IND>from .AssertDataTypes import *\n<DED>except:\n\t<IND>from AssertDataTypes import *\n\n<DED>class ColorAugmenters(implements(ColorAugmentersMethods)):\n\t<IND>",
+        "target_code_with_indent": "\nfrom ColorAugmentersMethods import *\nfrom VectorOperations import *\nfrom AssertDataTypes import *\n\n# class ColorAugmenters(implements(ColorAugmentersMethods)):\nclass ColorAugmenters(object):\n\t<IND>"
+      }
+    ]
+  },
+  {
+    "project": "lozuwa/impy",
+    "commit": "eb7fa43ba86a2916ead5de602fdb3949c06749c8",
+    "filename": "GeometricAugmenters.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/GeometricAugmenters.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "GeometricAugmenters.py:54:26 Invalid type [31]: Expression `interface.implements(GeometricAugmentersMethods.GeometricAugmentersMethods)` is not a valid type.",
+    "message": " Expression `interface.implements(GeometricAugmentersMethods.GeometricAugmentersMethods)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 54,
+    "warning_line": "class GeometricAugmenters(implements(GeometricAugmentersMethods)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ntry:\n\tfrom .GeometricAugmentersMethods import *\nexcept:\n\tfrom GeometricAugmentersMethods import *\n\ntry:\n\tfrom .VectorOperations import *\nexcept:\n\tfrom VectorOperations import *\n\ntry:\n\tfrom .AssertDataTypes import *\nexcept:\n\tfrom AssertDataTypes import *\n\nclass GeometricAugmenters(implements(GeometricAugmentersMethods)):\n\t\"\"\"\n",
+        "source_code_len": 328,
+        "target_code": "\nfrom GeometricAugmentersMethods import *\nfrom VectorOperations import *\nfrom AssertDataTypes import *\n\n# class GeometricAugmenters(implements(GeometricAugmentersMethods)):\nclass GeometricAugmenters(object):\n\t\"\"\"\n",
+        "target_code_len": 213,
+        "diff_format": "@@ -38,18 +38,8 @@\n \n-try:\n-\tfrom .GeometricAugmentersMethods import *\n-except:\n-\tfrom GeometricAugmentersMethods import *\n-\n-try:\n-\tfrom .VectorOperations import *\n-except:\n-\tfrom VectorOperations import *\n-\n-try:\n-\tfrom .AssertDataTypes import *\n-except:\n-\tfrom AssertDataTypes import *\n-\n-class GeometricAugmenters(implements(GeometricAugmentersMethods)):\n+from GeometricAugmentersMethods import *\n+from VectorOperations import *\n+from AssertDataTypes import *\n+\n+# class GeometricAugmenters(implements(GeometricAugmentersMethods)):\n+class GeometricAugmenters(object):\n \t\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ntry:\n\t<IND>from .GeometricAugmentersMethods import *\n<DED>except:\n\t<IND>from GeometricAugmentersMethods import *\n\n<DED>try:\n\t<IND>from .VectorOperations import *\n<DED>except:\n\t<IND>from VectorOperations import *\n\n<DED>try:\n\t<IND>from .AssertDataTypes import *\n<DED>except:\n\t<IND>from AssertDataTypes import *\n\n<DED>class GeometricAugmenters(implements(GeometricAugmentersMethods)):\n\t<IND>",
+        "target_code_with_indent": "\nfrom GeometricAugmentersMethods import *\nfrom VectorOperations import *\nfrom AssertDataTypes import *\n\n# class GeometricAugmenters(implements(GeometricAugmentersMethods)):\nclass GeometricAugmenters(object):\n\t<IND>"
+      }
+    ]
+  },
+  {
+    "project": "lozuwa/impy",
+    "commit": "eb7fa43ba86a2916ead5de602fdb3949c06749c8",
+    "filename": "ObjectDetectionDataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/ObjectDetectionDataset.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ObjectDetectionDataset.py:62:29 Invalid type [31]: Expression `interface.implements(ObjectDetectionDatasetPreprocessMethods.ObjectDetectionDatasetPreprocessMethods, ObjectDetectionDatasetStatisticsMethods.ObjectDetectionDatasetStatisticsMethods)` is not a valid type.",
+    "message": " Expression `interface.implements(ObjectDetectionDatasetPreprocessMethods.ObjectDetectionDatasetPreprocessMethods, ObjectDetectionDatasetStatisticsMethods.ObjectDetectionDatasetStatisticsMethods)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 62,
+    "warning_line": "class ObjectDetectionDataset(implements(ObjectDetectionDatasetPreprocessMethods, \\",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass ObjectDetectionDataset(implements(ObjectDetectionDatasetPreprocessMethods, \\\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tObjectDetectionDatasetStatisticsMethods)):\n\n",
+        "source_code_len": 144,
+        "target_code": "\n# class ObjectDetectionDataset(implements(ObjectDetectionDatasetPreprocessMethods, \\\n# \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tObjectDetectionDatasetStatisticsMethods)):\nclass ObjectDetectionDataset(object):\n\n",
+        "target_code_len": 186,
+        "diff_format": "@@ -61,4 +26,5 @@\n \n-class ObjectDetectionDataset(implements(ObjectDetectionDatasetPreprocessMethods, \\\n-\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tObjectDetectionDatasetStatisticsMethods)):\n+# class ObjectDetectionDataset(implements(ObjectDetectionDatasetPreprocessMethods, \\\n+# \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tObjectDetectionDatasetStatisticsMethods)):\n+class ObjectDetectionDataset(object):\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n# class ObjectDetectionDataset(implements(ObjectDetectionDatasetPreprocessMethods, \\\n# \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tObjectDetectionDatasetStatisticsMethods)):\nclass ObjectDetectionDataset(object):\n\n",
+        "target_code_with_indent_exact_match": true,
+        "source_code_with_indent": "\nclass ObjectDetectionDataset(implements(ObjectDetectionDatasetPreprocessMethods,                ObjectDetectionDatasetStatisticsMethods)):\n\n"
+      }
+    ]
+  }
+]

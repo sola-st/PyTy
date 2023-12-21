@@ -1,0 +1,113 @@
+[
+  {
+    "project": "nextcord/nextcord",
+    "commit": "b8898c7788b7d0b5d2a129912b1e14df87aed0f0",
+    "filename": "discord/member.py",
+    "min_patch_found": false,
+    "full_warning_msg": "discord/member.py:401:20 Incompatible attribute type [8]: Attribute `_avatar` declared in class `BaseUser` has type `str` but is used as type `Optional[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "nextcord/nextcord",
+    "commit": "b8898c7788b7d0b5d2a129912b1e14df87aed0f0",
+    "filename": "discord/user.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nextcord-nextcord/discord/user.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/user.py:102:8 Incompatible attribute type [8]: Attribute `_avatar` declared in class `BaseUser` has type `str` but is used as type `Optional[str]`.",
+    "message": " Attribute `_avatar` declared in class `BaseUser` has type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 102,
+    "warning_line": "        self._avatar = data['avatar']",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        _state: ConnectionState\n        _avatar: str\n        _banner: Optional[str]\n",
+        "source_code_len": 84,
+        "target_code": "        _state: ConnectionState\n        _avatar: Optional[str]\n        _banner: Optional[str]\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -70,3 +80,3 @@\n         _state: ConnectionState\n-        _avatar: str\n+        _avatar: Optional[str]\n         _banner: Optional[str]\n",
+        "source_code_with_indent": "        _state: ConnectionState\n        _avatar: str\n        _banner: Optional[str]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        _state: ConnectionState\n        _avatar: Optional[str]\n        _banner: Optional[str]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "nextcord/nextcord",
+    "commit": "b8898c7788b7d0b5d2a129912b1e14df87aed0f0",
+    "filename": "discord/user.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nextcord-nextcord/discord/user.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/user.py:434:4 Inconsistent override [14]: `discord.user.User._copy` overrides method defined in `BaseUser` inconsistently. Parameter of type `Type[Variable[U (bound to User)]]` is not a supertype of the overridden parameter `Type[Variable[BU (bound to BaseUser)]]`.",
+    "message": " `discord.user.User._copy` overrides method defined in `BaseUser` inconsistently. Parameter of type `Type[Variable[U (bound to User)]]` is not a supertype of the overridden parameter `Type[Variable[BU (bound to BaseUser)]]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 434,
+    "warning_line": "    def _copy(cls: Type[U], user: U) -> U:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def _copy(cls: Type[U], user: U) -> U:\n        self = super()._copy(user)\n",
+        "source_code_len": 95,
+        "target_code": "    @classmethod\n    def _copy(cls, user: User):\n        self = super()._copy(user)\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -433,3 +443,3 @@\n     @classmethod\n-    def _copy(cls: Type[U], user: U) -> U:\n+    def _copy(cls, user: User):\n         self = super()._copy(user)\n",
+        "source_code_with_indent": "    <DED><DED>@classmethod\n    def _copy(cls: Type[U], user: U) -> U:\n        <IND>self = super()._copy(user)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@classmethod\n    def _copy(cls, user: User):\n        <IND>self = super()._copy(user)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "nextcord/nextcord",
+    "commit": "b8898c7788b7d0b5d2a129912b1e14df87aed0f0",
+    "filename": "discord/user.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nextcord-nextcord/discord/user.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/user.py:437:8 Incompatible return type [7]: Expected `Variable[U (bound to User)]` but got `typing.Union[BaseUser, Variable[U (bound to User)]]`.",
+    "message": " Expected `Variable[U (bound to User)]` but got `typing.Union[BaseUser, Variable[U (bound to User)]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 437,
+    "warning_line": "        return self",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def _copy(cls: Type[U], user: U) -> U:\n        self = super()._copy(user)\n",
+        "source_code_len": 95,
+        "target_code": "    @classmethod\n    def _copy(cls, user: User):\n        self = super()._copy(user)\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -433,3 +443,3 @@\n     @classmethod\n-    def _copy(cls: Type[U], user: U) -> U:\n+    def _copy(cls, user: User):\n         self = super()._copy(user)\n",
+        "source_code_with_indent": "    <DED><DED>@classmethod\n    def _copy(cls: Type[U], user: U) -> U:\n        <IND>self = super()._copy(user)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@classmethod\n    def _copy(cls, user: User):\n        <IND>self = super()._copy(user)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

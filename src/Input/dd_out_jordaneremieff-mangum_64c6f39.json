@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jordaneremieff/mangum",
+    "commit": "64c6f390f27f8df63acaa42e769d99aa744ebf34",
+    "filename": "mangum/protocols/websockets.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jordaneremieff-mangum/mangum/protocols/websockets.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mangum/protocols/websockets.py:146:8 Incompatible return type [7]: Expected `typing.Dict[str, typing.Any]` but got implicit return value of `None`.",
+    "message": " Expected `typing.Dict[str, typing.Any]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 146,
+    "warning_line": "        return make_response(\"OK\", status_code=200)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        return make_response(\"OK\", status_code=200)\n",
+        "source_code_len": 52,
+        "target_code": "        return make_response(\"OK\", status_code=200)\n\n    return make_response(\"Error\", status_code=500)\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -146,1 +148,3 @@\n         return make_response(\"OK\", status_code=200)\n+\n+    return make_response(\"Error\", status_code=500)\n",
+        "source_code_with_indent": "        <DED>return make_response(\"OK\", status_code=200)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>return make_response(\"OK\", status_code=200)\n\n    <DED>return make_response(\"Error\", status_code=500)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

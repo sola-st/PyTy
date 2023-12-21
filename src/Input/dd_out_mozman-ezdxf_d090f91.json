@@ -1,0 +1,88 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "d090f91a1632f9f534b4051c132f6042ee4736a2",
+    "filename": "src/ezdxf/entities/image.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/entities/image.py",
+    "file_hunks_size": 56,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/entities/image.py:50:4 Inconsistent override [14]: `src.ezdxf.entities.image.ImageBase._copy_data` overrides method defined in `src.ezdxf.entities.dxfentity.DXFEntity` inconsistently. Parameter of type `ImageBase` is not a supertype of the overridden parameter `src.ezdxf.entities.dxfentity.DXFEntity`.",
+    "message": " `src.ezdxf.entities.image.ImageBase._copy_data` overrides method defined in `src.ezdxf.entities.dxfentity.DXFEntity` inconsistently. Parameter of type `ImageBase` is not a supertype of the overridden parameter `src.ezdxf.entities.dxfentity.DXFEntity`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 50,
+    "warning_line": "    def _copy_data(self, entity: 'ImageBase') -> None:"
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "d090f91a1632f9f534b4051c132f6042ee4736a2",
+    "filename": "src/ezdxf/entities/image.py",
+    "min_patch_found": false,
+    "full_warning_msg": "src/ezdxf/entities/image.py:278:4 Inconsistent override [15]: `DEFAULT_ATTRIBS` overrides attribute defined in `DXFGraphic` inconsistently. See https://pyre-check.org/docs/errors#covariance-and-contravariance for mutable container errors.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "d090f91a1632f9f534b4051c132f6042ee4736a2",
+    "filename": "src/ezdxf/entities/image.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/entities/image.py",
+    "file_hunks_size": 56,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/entities/image.py:287:4 Inconsistent override [14]: `src.ezdxf.entities.image.Image.new` overrides method defined in `src.ezdxf.entities.dxfentity.DXFEntity` inconsistently. Parameter of type `Image` is not a supertype of the overridden parameter `typing.Type[Variable[src.ezdxf.entities.dxfentity.T (bound to src.ezdxf.entities.dxfentity.DXFEntity)]]`.",
+    "message": " `src.ezdxf.entities.image.Image.new` overrides method defined in `src.ezdxf.entities.dxfentity.DXFEntity` inconsistently. Parameter of type `Image` is not a supertype of the overridden parameter `typing.Type[Variable[src.ezdxf.entities.dxfentity.T (bound to src.ezdxf.entities.dxfentity.DXFEntity)]]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 287,
+    "warning_line": "    def new(cls: 'Image', handle: str = None, owner: str = None,"
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "d090f91a1632f9f534b4051c132f6042ee4736a2",
+    "filename": "src/ezdxf/entities/image.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/entities/image.py",
+    "file_hunks_size": 56,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/entities/image.py:365:8 Incompatible return type [7]: Expected `ImageDef` but got `Optional[ImageDef]`.",
+    "message": " Expected `ImageDef` but got `Optional[ImageDef]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 365,
+    "warning_line": "        return self._image_def",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def image_def(self) -> 'ImageDef':\n        \"\"\" Returns the associated IMAGEDEF entity, see :class:`ImageDef`.\"\"\"\n        return self._image_def\n",
+        "source_code_len": 162,
+        "target_code": "    @property\n    def image_def(self) -> Optional[\"ImageDef\"]:\n        \"\"\"Returns the associated IMAGEDEF entity, see :class:`ImageDef`.\"\"\"\n        return self._image_def\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -362,4 +405,4 @@\n     @property\n-    def image_def(self) -> 'ImageDef':\n-        \"\"\" Returns the associated IMAGEDEF entity, see :class:`ImageDef`.\"\"\"\n+    def image_def(self) -> Optional[\"ImageDef\"]:\n+        \"\"\"Returns the associated IMAGEDEF entity, see :class:`ImageDef`.\"\"\"\n         return self._image_def\n",
+        "source_code_with_indent": "    <DED>@property\n    def image_def(self) -> 'ImageDef':\n        <IND>\"\"\" Returns the associated IMAGEDEF entity, see :class:`ImageDef`.\"\"\"\n        return self._image_def\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def image_def(self) -> Optional[\"ImageDef\"]:\n        <IND>\"\"\"Returns the associated IMAGEDEF entity, see :class:`ImageDef`.\"\"\"\n        return self._image_def\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "d090f91a1632f9f534b4051c132f6042ee4736a2",
+    "filename": "src/ezdxf/entities/image.py",
+    "min_patch_found": false,
+    "full_warning_msg": "src/ezdxf/entities/image.py:402:4 Inconsistent override [15]: `DEFAULT_ATTRIBS` overrides attribute defined in `DXFGraphic` inconsistently. See https://pyre-check.org/docs/errors#covariance-and-contravariance for mutable container errors.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  }
+]

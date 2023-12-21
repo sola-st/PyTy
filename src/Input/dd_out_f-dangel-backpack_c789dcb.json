@@ -1,0 +1,106 @@
+[
+  {
+    "project": "f-dangel/backpack",
+    "commit": "c789dcbcd2719229334c7c40616b411806a57f8e",
+    "filename": "backpack/extensions/mat_to_mat_jac_base.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backpack/extensions/mat_to_mat_jac_base.py:24:4 Inconsistent override [14]: `backpack.extensions.mat_to_mat_jac_base.MatToJacMat.backpropagate` overrides method defined in `ModuleExtension` inconsistently. Could not find parameter `bpQuantities` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "f-dangel/backpack",
+    "commit": "c789dcbcd2719229334c7c40616b411806a57f8e",
+    "filename": "backpack/extensions/mat_to_mat_jac_base.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backpack/extensions/mat_to_mat_jac_base.py:24:4 Inconsistent override [14]: `backpack.extensions.mat_to_mat_jac_base.MatToJacMat.backpropagate` overrides method defined in `ModuleExtension` inconsistently. Could not find parameter `g_inp` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "f-dangel/backpack",
+    "commit": "c789dcbcd2719229334c7c40616b411806a57f8e",
+    "filename": "backpack/extensions/mat_to_mat_jac_base.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backpack/extensions/mat_to_mat_jac_base.py:24:4 Inconsistent override [14]: `backpack.extensions.mat_to_mat_jac_base.MatToJacMat.backpropagate` overrides method defined in `ModuleExtension` inconsistently. Could not find parameter `g_out` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "f-dangel/backpack",
+    "commit": "c789dcbcd2719229334c7c40616b411806a57f8e",
+    "filename": "backpack/extensions/secondorder/sqrt_ggn/flatten.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/f-dangel-backpack/backpack/extensions/secondorder/sqrt_ggn/flatten.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backpack/extensions/secondorder/sqrt_ggn/flatten.py:23:4 Inconsistent override [14]: `backpack.extensions.secondorder.sqrt_ggn.flatten.SqrtGGNFlatten.backpropagate` overrides method defined in `backpack.extensions.mat_to_mat_jac_base.MatToJacMat` inconsistently. Parameter of type `Union[SqrtGGNExact, SqrtGGNMC]` is not a supertype of the overridden parameter `backpack.extensions.module_extension.ModuleExtension`.",
+    "message": " `backpack.extensions.secondorder.sqrt_ggn.flatten.SqrtGGNFlatten.backpropagate` overrides method defined in `backpack.extensions.mat_to_mat_jac_base.MatToJacMat` inconsistently. Parameter of type `Union[SqrtGGNExact, SqrtGGNMC]` is not a supertype of the overridden parameter `backpack.extensions.module_extension.ModuleExtension`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 23,
+    "warning_line": "    def backpropagate(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        super().__init__(FlattenDerivatives())\n\n    def backpropagate(\n        self,\n        ext: Union[SqrtGGNExact, SqrtGGNMC],\n        module: Module,\n        grad_inp: Tuple[Tensor],\n        grad_out: Tuple[Tensor],\n        backproped: Tensor,\n    ) -> Tensor:\n        \"\"\"Backpropagate only if flatten created a node in the computation graph.\n\n        Otherwise, the backward hook will not be called at the right stage and\n        no action must be performed.\n\n        Args:\n            ext: BackPACK extension calling out to the module extension.\n            module: Module that performed the forward pass.\n            grad_inp: Gradients w.r.t. the module inputs.\n            grad_out: Gradients w.r.t. the module outputs.\n            backproped: Backpropagated symmetric factorization of the loss Hessian\n                from the child module.\n\n        Returns:\n            Symmetric loss Hessian factorization, backpropagated through the module.\n        \"\"\"\n        if self.derivatives.is_no_op(module):\n            return backproped\n        else:\n            return super().backpropagate(ext, module, grad_inp, grad_out, backproped)\n",
+        "source_code_len": 1142,
+        "target_code": "        super().__init__(FlattenDerivatives())\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -21,30 +11,1 @@\n         super().__init__(FlattenDerivatives())\n-\n-    def backpropagate(\n-        self,\n-        ext: Union[SqrtGGNExact, SqrtGGNMC],\n-        module: Module,\n-        grad_inp: Tuple[Tensor],\n-        grad_out: Tuple[Tensor],\n-        backproped: Tensor,\n-    ) -> Tensor:\n-        \"\"\"Backpropagate only if flatten created a node in the computation graph.\n-\n-        Otherwise, the backward hook will not be called at the right stage and\n-        no action must be performed.\n-\n-        Args:\n-            ext: BackPACK extension calling out to the module extension.\n-            module: Module that performed the forward pass.\n-            grad_inp: Gradients w.r.t. the module inputs.\n-            grad_out: Gradients w.r.t. the module outputs.\n-            backproped: Backpropagated symmetric factorization of the loss Hessian\n-                from the child module.\n-\n-        Returns:\n-            Symmetric loss Hessian factorization, backpropagated through the module.\n-        \"\"\"\n-        if self.derivatives.is_no_op(module):\n-            return backproped\n-        else:\n-            return super().backpropagate(ext, module, grad_inp, grad_out, backproped)\n",
+        "source_code_with_indent": "        super().__init__(FlattenDerivatives())\n\n    <DED>def backpropagate(\n        self,\n        ext: Union[SqrtGGNExact, SqrtGGNMC],\n        module: Module,\n        grad_inp: Tuple[Tensor],\n        grad_out: Tuple[Tensor],\n        backproped: Tensor,\n    ) -> Tensor:\n        <IND>\"\"\"Backpropagate only if flatten created a node in the computation graph.\n\n        Otherwise, the backward hook will not be called at the right stage and\n        no action must be performed.\n\n        Args:\n            ext: BackPACK extension calling out to the module extension.\n            module: Module that performed the forward pass.\n            grad_inp: Gradients w.r.t. the module inputs.\n            grad_out: Gradients w.r.t. the module outputs.\n            backproped: Backpropagated symmetric factorization of the loss Hessian\n                from the child module.\n\n        Returns:\n            Symmetric loss Hessian factorization, backpropagated through the module.\n        \"\"\"\n        if self.derivatives.is_no_op(module):\n            <IND>return backproped\n        <DED>else:\n            <IND>return super().backpropagate(ext, module, grad_inp, grad_out, backproped)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        super().__init__(FlattenDerivatives())\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "f-dangel/backpack",
+    "commit": "c789dcbcd2719229334c7c40616b411806a57f8e",
+    "filename": "backpack/extensions/secondorder/sqrt_ggn/flatten.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/f-dangel-backpack/backpack/extensions/secondorder/sqrt_ggn/flatten.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backpack/extensions/secondorder/sqrt_ggn/flatten.py:50:41 Incompatible parameter type [6]: Expected `backpack.extensions.module_extension.ModuleExtension` for 1st positional only parameter to call `backpack.extensions.mat_to_mat_jac_base.MatToJacMat.backpropagate` but got `Union[SqrtGGNExact, SqrtGGNMC]`.",
+    "message": " Expected `backpack.extensions.module_extension.ModuleExtension` for 1st positional only parameter to call `backpack.extensions.mat_to_mat_jac_base.MatToJacMat.backpropagate` but got `Union[SqrtGGNExact, SqrtGGNMC]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 50,
+    "warning_line": "            return super().backpropagate(ext, module, grad_inp, grad_out, backproped)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        super().__init__(FlattenDerivatives())\n\n    def backpropagate(\n        self,\n        ext: Union[SqrtGGNExact, SqrtGGNMC],\n        module: Module,\n        grad_inp: Tuple[Tensor],\n        grad_out: Tuple[Tensor],\n        backproped: Tensor,\n    ) -> Tensor:\n        \"\"\"Backpropagate only if flatten created a node in the computation graph.\n\n        Otherwise, the backward hook will not be called at the right stage and\n        no action must be performed.\n\n        Args:\n            ext: BackPACK extension calling out to the module extension.\n            module: Module that performed the forward pass.\n            grad_inp: Gradients w.r.t. the module inputs.\n            grad_out: Gradients w.r.t. the module outputs.\n            backproped: Backpropagated symmetric factorization of the loss Hessian\n                from the child module.\n\n        Returns:\n            Symmetric loss Hessian factorization, backpropagated through the module.\n        \"\"\"\n        if self.derivatives.is_no_op(module):\n            return backproped\n        else:\n            return super().backpropagate(ext, module, grad_inp, grad_out, backproped)\n",
+        "source_code_len": 1142,
+        "target_code": "        super().__init__(FlattenDerivatives())\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -21,30 +11,1 @@\n         super().__init__(FlattenDerivatives())\n-\n-    def backpropagate(\n-        self,\n-        ext: Union[SqrtGGNExact, SqrtGGNMC],\n-        module: Module,\n-        grad_inp: Tuple[Tensor],\n-        grad_out: Tuple[Tensor],\n-        backproped: Tensor,\n-    ) -> Tensor:\n-        \"\"\"Backpropagate only if flatten created a node in the computation graph.\n-\n-        Otherwise, the backward hook will not be called at the right stage and\n-        no action must be performed.\n-\n-        Args:\n-            ext: BackPACK extension calling out to the module extension.\n-            module: Module that performed the forward pass.\n-            grad_inp: Gradients w.r.t. the module inputs.\n-            grad_out: Gradients w.r.t. the module outputs.\n-            backproped: Backpropagated symmetric factorization of the loss Hessian\n-                from the child module.\n-\n-        Returns:\n-            Symmetric loss Hessian factorization, backpropagated through the module.\n-        \"\"\"\n-        if self.derivatives.is_no_op(module):\n-            return backproped\n-        else:\n-            return super().backpropagate(ext, module, grad_inp, grad_out, backproped)\n",
+        "source_code_with_indent": "        super().__init__(FlattenDerivatives())\n\n    <DED>def backpropagate(\n        self,\n        ext: Union[SqrtGGNExact, SqrtGGNMC],\n        module: Module,\n        grad_inp: Tuple[Tensor],\n        grad_out: Tuple[Tensor],\n        backproped: Tensor,\n    ) -> Tensor:\n        <IND>\"\"\"Backpropagate only if flatten created a node in the computation graph.\n\n        Otherwise, the backward hook will not be called at the right stage and\n        no action must be performed.\n\n        Args:\n            ext: BackPACK extension calling out to the module extension.\n            module: Module that performed the forward pass.\n            grad_inp: Gradients w.r.t. the module inputs.\n            grad_out: Gradients w.r.t. the module outputs.\n            backproped: Backpropagated symmetric factorization of the loss Hessian\n                from the child module.\n\n        Returns:\n            Symmetric loss Hessian factorization, backpropagated through the module.\n        \"\"\"\n        if self.derivatives.is_no_op(module):\n            <IND>return backproped\n        <DED>else:\n            <IND>return super().backpropagate(ext, module, grad_inp, grad_out, backproped)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        super().__init__(FlattenDerivatives())\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "f-dangel/backpack",
+    "commit": "c789dcbcd2719229334c7c40616b411806a57f8e",
+    "filename": "backpack/extensions/secondorder/sqrt_ggn/losses.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backpack/extensions/secondorder/sqrt_ggn/losses.py:21:4 Inconsistent override [14]: `backpack.extensions.secondorder.sqrt_ggn.losses.SqrtGGNBaseLossModule.backpropagate` overrides method defined in `backpack.extensions.mat_to_mat_jac_base.MatToJacMat` inconsistently. Parameter of type `Union[SqrtGGNExact, SqrtGGNMC]` is not a supertype of the overridden parameter `backpack.extensions.module_extension.ModuleExtension`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

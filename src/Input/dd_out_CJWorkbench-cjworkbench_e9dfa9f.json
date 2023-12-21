@@ -1,0 +1,36 @@
+[
+  {
+    "project": "CJWorkbench/cjworkbench",
+    "commit": "e9dfa9f3c4fc2f8d239b582a0d898c406fd49454",
+    "filename": "cjwkernel/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/CJWorkbench-cjworkbench/cjwkernel/types.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cjwkernel/types.py:566:12 Incompatible return type [7]: Expected `str` but got `Union[float, int, str]`.",
+    "message": " Expected `str` but got `Union[float, int, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 566,
+    "warning_line": "            return self.args[\"text\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def from_dict(cls, value: I18nMessageDict) -> I18nMessage:\n        return cls(value[\"id\"], value[\"arguments\"])\n\n    def to_dict(self) -> I18nMessageDict:\n        return {\"id\": self.id, \"arguments\": self.args}\n\n    def localize(self, locale_id: str) -> str:\n        if self.id == \"TODO_i18n\":\n            return self.args[\"text\"]\n        else:\n            raise RuntimeError(\"TODO translate i18n-ready messages\")\n\n",
+        "source_code_len": 434,
+        "target_code": "    @classmethod\n    def from_dict(cls, value: Dict[str, Any]) -> I18nMessage:\n        return cls(value[\"id\"], value[\"arguments\"])\n\n    def to_dict(self) -> Dict[str, Any]:\n        return {\"id\": self.id, \"arguments\": self.args}\n\n",
+        "target_code_len": 229,
+        "diff_format": "@@ -557,13 +549,7 @@\n     @classmethod\n-    def from_dict(cls, value: I18nMessageDict) -> I18nMessage:\n+    def from_dict(cls, value: Dict[str, Any]) -> I18nMessage:\n         return cls(value[\"id\"], value[\"arguments\"])\n \n-    def to_dict(self) -> I18nMessageDict:\n+    def to_dict(self) -> Dict[str, Any]:\n         return {\"id\": self.id, \"arguments\": self.args}\n-\n-    def localize(self, locale_id: str) -> str:\n-        if self.id == \"TODO_i18n\":\n-            return self.args[\"text\"]\n-        else:\n-            raise RuntimeError(\"TODO translate i18n-ready messages\")\n \n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def from_dict(cls, value: I18nMessageDict) -> I18nMessage:\n        <IND>return cls(value[\"id\"], value[\"arguments\"])\n\n    <DED>def to_dict(self) -> I18nMessageDict:\n        <IND>return {\"id\": self.id, \"arguments\": self.args}\n\n    <DED>def localize(self, locale_id: str) -> str:\n        <IND>if self.id == \"TODO_i18n\":\n            <IND>return self.args[\"text\"]\n        <DED>else:\n            <IND>raise RuntimeError(\"TODO translate i18n-ready messages\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def from_dict(cls, value: Dict[str, Any]) -> I18nMessage:\n        <IND>return cls(value[\"id\"], value[\"arguments\"])\n\n    <DED>def to_dict(self) -> Dict[str, Any]:\n        <IND>return {\"id\": self.id, \"arguments\": self.args}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

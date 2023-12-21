@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "76668567715223de527e824db2cfda09d7b12fe2",
+    "filename": "tests/samplers_tests/tpe_tests/test_sampler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/samplers_tests/tpe_tests/test_sampler.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/samplers_tests/tpe_tests/test_sampler.py:1020:12 Incompatible return type [7]: Expected `float` but got `Union[None, bool, float, int, str]`.",
+    "message": " Expected `float` but got `Union[None, bool, float, int, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1020,
+    "warning_line": "            return trial.suggest_categorical(\"c\", [0, 1, 2])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else:\n            return trial.suggest_categorical(\"c\", [0, 1, 2])\n\n",
+        "source_code_len": 76,
+        "target_code": "        else:\n            c = trial.suggest_categorical(\"c\", [0., 1., 2.])\n            assert isinstance(c, float)\n            return c\n\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -1019,3 +1019,5 @@\n         else:\n-            return trial.suggest_categorical(\"c\", [0, 1, 2])\n+            c = trial.suggest_categorical(\"c\", [0., 1., 2.])\n+            assert isinstance(c, float)\n+            return c\n \n",
+        "source_code_with_indent": "        <DED>else:\n            <IND>return trial.suggest_categorical(\"c\", [0, 1, 2])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>else:\n            <IND>c = trial.suggest_categorical(\"c\", [0., 1., 2.])\n            assert isinstance(c, float)\n            return c\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

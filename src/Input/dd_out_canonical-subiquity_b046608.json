@@ -1,0 +1,36 @@
+[
+  {
+    "project": "canonical/subiquity",
+    "commit": "b046608a78f2a5b1468c89c3f89313831e313d10",
+    "filename": "subiquitycore/models/network.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/canonical-subiquity/subiquitycore/models/network.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "subiquitycore/models/network.py:264:12 Incompatible parameter type [6]: Expected `Optional[WLANConfig]` for 7th parameter `wlan` to call `NetDevInfo.__init__` but got `Optional[WLANStatus]`.",
+    "message": " Expected `Optional[WLANConfig]` for 7th parameter `wlan` to call `NetDevInfo.__init__` but got `Optional[WLANStatus]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 264,
+    "warning_line": "            wlan=wlan,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    bond: Optional[BondConfig]\n    wlan: Optional[WLANConfig]\n\n",
+        "source_code_len": 63,
+        "target_code": "    bond: Optional[BondConfig]\n    wlan: Optional[WLANStatus]\n\n",
+        "target_code_len": 63,
+        "diff_format": "@@ -135,3 +135,3 @@\n     bond: Optional[BondConfig]\n-    wlan: Optional[WLANConfig]\n+    wlan: Optional[WLANStatus]\n \n",
+        "source_code_with_indent": "    bond: Optional[BondConfig]\n    wlan: Optional[WLANConfig]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    bond: Optional[BondConfig]\n    wlan: Optional[WLANStatus]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

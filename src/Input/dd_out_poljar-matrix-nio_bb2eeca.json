@@ -1,0 +1,201 @@
+[
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/client/async_client.py",
+    "min_patch_found": false,
+    "full_warning_msg": "nio/client/async_client.py:464:49 Incompatible parameter type [6]: Expected `nio.events.room_events.Event` for 1st positional only parameter to anonymous call but got `nio.events.to_device.ToDeviceEvent`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/client/base_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-matrix-nio/nio/client/base_client.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nio/client/base_client.py:149:8 Incompatible variable type [9]: store is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " store is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 149,
+    "warning_line": "        store: Callable = None"
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/client/base_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-matrix-nio/nio/client/base_client.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nio/client/base_client.py:626:24 Incompatible parameter type [6]: Expected `nio.events.room_events.Event` for 1st positional only parameter to anonymous call but got `nio.events.to_device.ToDeviceEvent`.",
+    "message": " Expected `nio.events.room_events.Event` for 1st positional only parameter to anonymous call but got `nio.events.to_device.ToDeviceEvent`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 626,
+    "warning_line": "                cb.func(event)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    func: Callable[[MatrixRoom, Event], None] = field()\n    filter: Union[Tuple[Type], Type, None] = None\n",
+        "source_code_len": 107,
+        "target_code": "\n    func: Callable = field()\n    filter: Union[Tuple[Type], Type, None] = None\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -119,3 +119,3 @@\n \n-    func: Callable[[MatrixRoom, Event], None] = field()\n+    func: Callable = field()\n     filter: Union[Tuple[Type], Type, None] = None\n",
+        "source_code_with_indent": "\n    func: Callable[[MatrixRoom, Event], None] = field()\n    filter: Union[Tuple[Type], Type, None] = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    func: Callable = field()\n    filter: Union[Tuple[Type], Type, None] = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/client/base_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-matrix-nio/nio/client/base_client.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nio/client/base_client.py:856:16 Incompatible attribute type [8]: Attribute `event` declared in class `RoomContextResponse` has type `nio.events.room_events.Event` but is used as type `Union[None, nio.events.misc.BadEvent, nio.events.room_events.Event]`.",
+    "message": " Attribute `event` declared in class `RoomContextResponse` has type `nio.events.room_events.Event` but is used as type `Union[None, nio.events.misc.BadEvent, nio.events.room_events.Event]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 856,
+    "warning_line": "                response.event = decrypted_event"
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/client/base_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-matrix-nio/nio/client/base_client.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nio/client/base_client.py:1181:28 Incompatible parameter type [6]: Expected `typing.Callable[[MatrixRoom, nio.events.room_events.Event], None]` for 1st positional only parameter to call `ClientCallback.__init__` but got `typing.Callable[[nio.events.to_device.ToDeviceEvent], None]`.",
+    "message": " Expected `typing.Callable[[MatrixRoom, nio.events.room_events.Event], None]` for 1st positional only parameter to call `ClientCallback.__init__` but got `typing.Callable[[nio.events.to_device.ToDeviceEvent], None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1181,
+    "warning_line": "        cb = ClientCallback(callback, filter)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    func: Callable[[MatrixRoom, Event], None] = field()\n    filter: Union[Tuple[Type], Type, None] = None\n",
+        "source_code_len": 107,
+        "target_code": "\n    func: Callable = field()\n    filter: Union[Tuple[Type], Type, None] = None\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -119,3 +119,3 @@\n \n-    func: Callable[[MatrixRoom, Event], None] = field()\n+    func: Callable = field()\n     filter: Union[Tuple[Type], Type, None] = None\n",
+        "source_code_with_indent": "\n    func: Callable[[MatrixRoom, Event], None] = field()\n    filter: Union[Tuple[Type], Type, None] = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    func: Callable = field()\n    filter: Union[Tuple[Type], Type, None] = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/client/http_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-matrix-nio/nio/client/http_client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nio/client/http_client.py:93:4 Incompatible attribute type [8]: Attribute `extra_data` declared in class `RequestInfo` has type `typing.Tuple[typing.Any, ...]` but is used as type `None`.",
+    "message": " Attribute `extra_data` declared in class `RequestInfo` has type `typing.Tuple[typing.Any, ...]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 93,
+    "warning_line": "    extra_data: Tuple = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    request_class: Type[Response] = field()\n    extra_data: Tuple = None\n\n",
+        "source_code_len": 74,
+        "target_code": "    request_class: Type[Response] = field()\n    extra_data: Tuple = ()\n\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -92,3 +92,3 @@\n     request_class: Type[Response] = field()\n-    extra_data: Tuple = None\n+    extra_data: Tuple = ()\n \n",
+        "source_code_with_indent": "    <IND>request_class: Type[Response] = field()\n    extra_data: Tuple = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>request_class: Type[Response] = field()\n    extra_data: Tuple = ()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/crypto/olm_machine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "nio/crypto/olm_machine.py:1622:30 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/crypto/olm_machine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "nio/crypto/olm_machine.py:1623:58 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/crypto/olm_machine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "nio/crypto/olm_machine.py:1624:32 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/crypto/olm_machine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "nio/crypto/olm_machine.py:1625:52 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/crypto/olm_machine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "nio/crypto/olm_machine.py:1628:35 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "bb2eeca8c4f591d828f657d466fd3ff1ef5842d8",
+    "filename": "nio/crypto/olm_machine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "nio/crypto/olm_machine.py:1631:46 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `Olm.decrypt` but got `Optional[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "c3nav/c3nav",
+    "commit": "7bab4e5064c21d0cc39c0b7c9bfd70a2b34f7840",
+    "filename": "src/c3nav/editor/models/changeset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/c3nav-c3nav/src/c3nav/editor/models/changeset.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/c3nav/editor/models/changeset.py:264:8 Incompatible return type [7]: Expected `typing.Dict[typing.Any, typing.Any]` but got `typing.Tuple[typing.Tuple[typing.Any, typing.Any], ...]`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` but got `typing.Tuple[typing.Tuple[typing.Any, typing.Any], ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 264,
+    "warning_line": "        return r",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    def get_changed_values(self, model: models.Model, name: str) -> dict:\n        \"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "    \"\"\"\n    def get_changed_values(self, model: models.Model, name: str) -> tuple:\n        \"\"\"\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -255,3 +255,3 @@\n     \"\"\"\n-    def get_changed_values(self, model: models.Model, name: str) -> dict:\n+    def get_changed_values(self, model: models.Model, name: str) -> tuple:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def get_changed_values(self, model: models.Model, name: str) -> dict:\n        <IND>",
+        "target_code_with_indent": "\n    def get_changed_values(self, model: models.Model, name: str) -> tuple:\n        <IND>"
+      }
+    ]
+  }
+]

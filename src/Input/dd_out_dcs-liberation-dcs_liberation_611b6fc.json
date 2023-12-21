@@ -1,0 +1,36 @@
+[
+  {
+    "project": "dcs-liberation/dcs_liberation",
+    "commit": "611b6fc2723cc7ac718f632342841c34451ab875",
+    "filename": "game/factions/faction_loader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dcs-liberation-dcs_liberation/game/factions/faction_loader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "game/factions/faction_loader.py:19:8 Incompatible return type [7]: Expected `Dict[str, Faction]` but got `Optional[Dict[str, Faction]]`.",
+    "message": " Expected `Dict[str, Faction]` but got `Optional[Dict[str, Faction]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 19,
+    "warning_line": "        return self._factions",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.initialize()\n        return self._factions\n",
+        "source_code_len": 56,
+        "target_code": "        self.initialize()\n        assert self._factions is not None\n        return self._factions\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -18,2 +18,3 @@\n         self.initialize()\n+        assert self._factions is not None\n         return self._factions\n",
+        "source_code_with_indent": "        <IND>self.initialize()\n        return self._factions\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>self.initialize()\n        assert self._factions is not None\n        return self._factions\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

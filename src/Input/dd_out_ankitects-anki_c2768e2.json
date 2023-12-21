@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ankitects/anki",
+    "commit": "c2768e218896c7c79bc446c1669546200204fbc2",
+    "filename": "qt/aqt/addcards.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ankitects-anki/qt/aqt/addcards.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qt/aqt/addcards.py:267:33 Unbound name [10]: Name `QKeyEvent` is used but not defined in the current scope.",
+    "message": " Name `QKeyEvent` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 267,
+    "warning_line": "    def keyPressEvent(self, evt: QKeyEvent) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def keyPressEvent(self, evt: QKeyEvent) -> None:\n        \"Show answer on RET or register answer.\"\n        if (\n            evt.key() in (Qt.Key.Key_Enter, Qt.Key.Key_Return)\n            and self.editor.tags.hasFocus()\n        ):\n            evt.accept()\n            return\n        return QDialog.keyPressEvent(self, evt)\n\n    def reject(self) -> None:\n",
+        "source_code_len": 357,
+        "target_code": "\n    def reject(self) -> None:\n",
+        "target_code_len": 31,
+        "diff_format": "@@ -266,12 +266,2 @@\n \n-    def keyPressEvent(self, evt: QKeyEvent) -> None:\n-        \"Show answer on RET or register answer.\"\n-        if (\n-            evt.key() in (Qt.Key.Key_Enter, Qt.Key.Key_Return)\n-            and self.editor.tags.hasFocus()\n-        ):\n-            evt.accept()\n-            return\n-        return QDialog.keyPressEvent(self, evt)\n-\n     def reject(self) -> None:\n",
+        "source_code_with_indent": "\n    <DED>def keyPressEvent(self, evt: QKeyEvent) -> None:\n        <IND>\"Show answer on RET or register answer.\"\n        if (\n            evt.key() in (Qt.Key.Key_Enter, Qt.Key.Key_Return)\n            and self.editor.tags.hasFocus()\n        ):\n            <IND>evt.accept()\n            return\n        <DED>return QDialog.keyPressEvent(self, evt)\n\n    <DED>def reject(self) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def reject(self) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

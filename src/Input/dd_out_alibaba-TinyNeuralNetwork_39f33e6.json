@@ -1,0 +1,36 @@
+[
+  {
+    "project": "alibaba/TinyNeuralNetwork",
+    "commit": "39f33e696c7d558fcac214ffdf58f436c10c1cd1",
+    "filename": "tinynn/converter/operators/tflite/transformable.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/alibaba-TinyNeuralNetwork/tinynn/converter/operators/tflite/transformable.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tinynn/converter/operators/tflite/transformable.py:78:98 Incompatible variable type [9]: quantization is declared to have type `QuantizationParameters` but is used as type `None`.",
+    "message": " quantization is declared to have type `QuantizationParameters` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 78,
+    "warning_line": "    def __init__(self, inputs: typing.List['Tensor'], outputs: typing.List['Tensor'], eps: float, quantization: typing.Union[QuantizationParameters] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, inputs: typing.List['Tensor'], outputs: typing.List['Tensor'], eps: float, quantization: typing.Union[QuantizationParameters] = None,\n                 fusedActivationFunction=tflite.ActivationFunctionType.NONE):\n",
+        "source_code_len": 236,
+        "target_code": "\n    def __init__(self, inputs: typing.List['Tensor'], outputs: typing.List['Tensor'], eps: float, quantization: typing.Optional[QuantizationParameters] = None,\n                 fusedActivationFunction=tflite.ActivationFunctionType.NONE):\n",
+        "target_code_len": 239,
+        "diff_format": "@@ -77,3 +77,3 @@\n \n-    def __init__(self, inputs: typing.List['Tensor'], outputs: typing.List['Tensor'], eps: float, quantization: typing.Union[QuantizationParameters] = None,\n+    def __init__(self, inputs: typing.List['Tensor'], outputs: typing.List['Tensor'], eps: float, quantization: typing.Optional[QuantizationParameters] = None,\n                  fusedActivationFunction=tflite.ActivationFunctionType.NONE):\n",
+        "source_code_with_indent": "\n    def __init__(self, inputs: typing.List['Tensor'], outputs: typing.List['Tensor'], eps: float, quantization: typing.Union[QuantizationParameters] = None,\n                 fusedActivationFunction=tflite.ActivationFunctionType.NONE):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, inputs: typing.List['Tensor'], outputs: typing.List['Tensor'], eps: float, quantization: typing.Optional[QuantizationParameters] = None,\n                 fusedActivationFunction=tflite.ActivationFunctionType.NONE):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

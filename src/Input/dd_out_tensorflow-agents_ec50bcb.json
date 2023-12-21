@@ -1,0 +1,53 @@
+[
+  {
+    "project": "tensorflow/agents",
+    "commit": "ec50bcbc5f618fdb669f5671b1d9b34b6447b09f",
+    "filename": "tf_agents/bandits/agents/greedy_multi_objective_neural_agent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-agents/tf_agents/bandits/agents/greedy_multi_objective_neural_agent.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tf_agents/bandits/agents/greedy_multi_objective_neural_agent.py:71:6 Incompatible variable type [9]: emit_policy_info is declared to have type `Tuple[str]` but is used as type `Tuple[]`.",
+    "message": " emit_policy_info is declared to have type `Tuple[str]` but is used as type `Tuple[]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 71,
+    "warning_line": "      emit_policy_info: Tuple[Text] = (),"
+  },
+  {
+    "project": "tensorflow/agents",
+    "commit": "ec50bcbc5f618fdb669f5671b1d9b34b6447b09f",
+    "filename": "tf_agents/bandits/policies/greedy_multi_objective_neural_policy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-agents/tf_agents/bandits/policies/greedy_multi_objective_neural_policy.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tf_agents/bandits/policies/greedy_multi_objective_neural_policy.py:86:6 Incompatible variable type [9]: emit_policy_info is declared to have type `Tuple[str]` but is used as type `Tuple[]`.",
+    "message": " emit_policy_info is declared to have type `Tuple[str]` but is used as type `Tuple[]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 86,
+    "warning_line": "      emit_policy_info: Tuple[Text] = (),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "      accepts_per_arm_features: bool = False,\n      emit_policy_info: Tuple[Text] = (),\n      name: Optional[Text] = None):\n",
+        "source_code_len": 124,
+        "target_code": "      accepts_per_arm_features: bool = False,\n      emit_policy_info: Tuple[Text, ...] = (),\n      name: Optional[Text] = None):\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -85,3 +85,3 @@\n       accepts_per_arm_features: bool = False,\n-      emit_policy_info: Tuple[Text] = (),\n+      emit_policy_info: Tuple[Text, ...] = (),\n       name: Optional[Text] = None):\n",
+        "source_code_with_indent": "      accepts_per_arm_features: bool = False,\n      emit_policy_info: Tuple[Text] = (),\n      name: Optional[Text] = None):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "      accepts_per_arm_features: bool = False,\n      emit_policy_info: Tuple[Text, ...] = (),\n      name: Optional[Text] = None):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

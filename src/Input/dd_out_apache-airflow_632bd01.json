@@ -1,0 +1,161 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "632bd0133e0920c036f1cd83d100f477726fcb41",
+    "filename": "airflow/providers/google/cloud/example_dags/example_bigquery_operations.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/google/cloud/example_dags/example_bigquery_operations.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/google/cloud/example_dags/example_bigquery_operations.py:196:8 Incompatible parameter type [6]: Expected `typing.Optional[typing.List[str]]` for 4th parameter `fields` to call `BigQueryUpdateTableOperator.__init__` but got `typing.List[typing.Dict[str, str]]`.",
+    "message": " Expected `typing.Optional[typing.List[str]]` for 4th parameter `fields` to call `BigQueryUpdateTableOperator.__init__` but got `typing.List[typing.Dict[str, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 196,
+    "warning_line": "        fields=[",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        table_id=\"test_table\",\n        fields=[\n            {\"name\": \"emp_name\", \"type\": \"STRING\", \"mode\": \"REQUIRED\"},\n            {\"name\": \"salary\", \"type\": \"INTEGER\", \"mode\": \"NULLABLE\"},\n        ],\n        table_resource={\n",
+        "source_code_len": 227,
+        "target_code": "        table_id=\"test_table\",\n        fields=[\"emp_name\", \"salary\"],\n        table_resource={\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -195,6 +195,3 @@\n         table_id=\"test_table\",\n-        fields=[\n-            {\"name\": \"emp_name\", \"type\": \"STRING\", \"mode\": \"REQUIRED\"},\n-            {\"name\": \"salary\", \"type\": \"INTEGER\", \"mode\": \"NULLABLE\"},\n-        ],\n+        fields=[\"emp_name\", \"salary\"],\n         table_resource={\n",
+        "source_code_with_indent": "        table_id=\"test_table\",\n        fields=[\n            {\"name\": \"emp_name\", \"type\": \"STRING\", \"mode\": \"REQUIRED\"},\n            {\"name\": \"salary\", \"type\": \"INTEGER\", \"mode\": \"NULLABLE\"},\n        ],\n        table_resource={\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        table_id=\"test_table\",\n        fields=[\"emp_name\", \"salary\"],\n        table_resource={\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "632bd0133e0920c036f1cd83d100f477726fcb41",
+    "filename": "airflow/providers/google/cloud/example_dags/example_cloud_build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/google/cloud/example_dags/example_cloud_build.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/google/cloud/example_dags/example_cloud_build.py:223:53 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `list.__getitem__` but got `str`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `list.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 223,
+    "warning_line": "        source=create_build_from_repo_body['source']['repo_source'],",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from pathlib import Path\n\n",
+        "source_code_len": 26,
+        "target_code": "from pathlib import Path\nfrom typing import Any, Dict\n\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -33,2 +33,3 @@\n from pathlib import Path\n+from typing import Any, Dict\n \n",
+        "source_code_with_indent": "from pathlib import Path\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from pathlib import Path\nfrom typing import Any, Dict\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# [START howto_operator_create_build_from_repo_body]\ncreate_build_from_repo_body = {\n    \"source\": {\"repo_source\": {\"repo_name\": GCP_SOURCE_REPOSITORY_NAME, \"branch_name\": \"main\"}},\n",
+        "source_code_len": 182,
+        "target_code": "# [START howto_operator_create_build_from_repo_body]\ncreate_build_from_repo_body: Dict[str, Any] = {\n    \"source\": {\"repo_source\": {\"repo_name\": GCP_SOURCE_REPOSITORY_NAME, \"branch_name\": \"main\"}},\n",
+        "target_code_len": 198,
+        "diff_format": "@@ -101,3 +102,3 @@\n # [START howto_operator_create_build_from_repo_body]\n-create_build_from_repo_body = {\n+create_build_from_repo_body: Dict[str, Any] = {\n     \"source\": {\"repo_source\": {\"repo_name\": GCP_SOURCE_REPOSITORY_NAME, \"branch_name\": \"main\"}},\n",
+        "source_code_with_indent": "# [START howto_operator_create_build_from_repo_body]\ncreate_build_from_repo_body = {\n    \"source\": {\"repo_source\": {\"repo_name\": GCP_SOURCE_REPOSITORY_NAME, \"branch_name\": \"main\"}},\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# [START howto_operator_create_build_from_repo_body]\ncreate_build_from_repo_body: Dict[str, Any] = {\n    \"source\": {\"repo_source\": {\"repo_name\": GCP_SOURCE_REPOSITORY_NAME, \"branch_name\": \"main\"}},\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "632bd0133e0920c036f1cd83d100f477726fcb41",
+    "filename": "airflow/providers/google/cloud/example_dags/example_datafusion.py",
+    "min_patch_found": false,
+    "full_warning_msg": "airflow/providers/google/cloud/example_dags/example_datafusion.py:231:8 Incompatible parameter type [6]: Expected `typing.Set[str]` for 4th parameter `expected_statuses` to call `CloudDataFusionPipelineStateSensor.__init__` but got `typing.List[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "632bd0133e0920c036f1cd83d100f477726fcb41",
+    "filename": "airflow/providers/google/cloud/example_dags/example_datafusion.py",
+    "min_patch_found": false,
+    "full_warning_msg": "airflow/providers/google/cloud/example_dags/example_datafusion.py:232:8 Incompatible parameter type [6]: Expected `typing.Optional[typing.Set[str]]` for 5th parameter `failure_statuses` to call `CloudDataFusionPipelineStateSensor.__init__` but got `typing.List[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "632bd0133e0920c036f1cd83d100f477726fcb41",
+    "filename": "airflow/providers/google/cloud/example_dags/example_functions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/google/cloud/example_dags/example_functions.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/google/cloud/example_dags/example_functions.py:85:31 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `str`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 85,
+    "warning_line": "    default_args['zip_path'] = GCF_ZIP_PATH",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from datetime import datetime\n\n",
+        "source_code_len": 31,
+        "target_code": "from datetime import datetime\nfrom typing import Any, Dict\n\n",
+        "target_code_len": 60,
+        "diff_format": "@@ -44,2 +44,3 @@\n from datetime import datetime\n+from typing import Any, Dict\n \n",
+        "source_code_with_indent": "from datetime import datetime\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from datetime import datetime\nfrom typing import Any, Dict\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# [START howto_operator_gcf_default_args]\ndefault_args = {'retries': 3}\n# [END howto_operator_gcf_default_args]\n",
+        "source_code_len": 112,
+        "target_code": "# [START howto_operator_gcf_default_args]\ndefault_args: Dict[str, Any] = {'retries': 3}\n# [END howto_operator_gcf_default_args]\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -74,3 +75,3 @@\n # [START howto_operator_gcf_default_args]\n-default_args = {'retries': 3}\n+default_args: Dict[str, Any] = {'retries': 3}\n # [END howto_operator_gcf_default_args]\n",
+        "source_code_with_indent": "# [START howto_operator_gcf_default_args]\ndefault_args = {'retries': 3}\n# [END howto_operator_gcf_default_args]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# [START howto_operator_gcf_default_args]\ndefault_args: Dict[str, Any] = {'retries': 3}\n# [END howto_operator_gcf_default_args]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "632bd0133e0920c036f1cd83d100f477726fcb41",
+    "filename": "airflow/providers/google/cloud/example_dags/example_workflows.py",
+    "min_patch_found": false,
+    "full_warning_msg": "airflow/providers/google/cloud/example_dags/example_workflows.py:105:8 Incompatible parameter type [6]: Expected `typing.Optional[google.protobuf.field_mask_pb2.FieldMask]` for 5th parameter `update_mask` to call `WorkflowsUpdateWorkflowOperator.__init__` but got `typing.Dict[str, typing.List[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

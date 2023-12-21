@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Tishka17/dataclass_factory",
+    "commit": "528d0711783902bcfddbeeb277702254c8338aaa",
+    "filename": "dataclass_factory/schema.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tishka17-dataclass_factory/dataclass_factory/schema.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dataclass_factory/schema.py:130:37 Incompatible parameter type [6]: Expected `Schema[typing.Any]` for 1st positional only parameter to call `SchemaProxy.__init__` but got `Optional[Schema[typing.Any]]`.",
+    "message": " Expected `Schema[typing.Any]` for 1st positional only parameter to call `SchemaProxy.__init__` but got `Optional[Schema[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 130,
+    "warning_line": "    return cast(Schema, SchemaProxy(*schemas))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def merge_schema(*schemas: Optional[Schema]) -> Schema:\n    return cast(Schema, SchemaProxy(*schemas))\n",
+        "source_code_len": 103,
+        "target_code": "def merge_schema(*schemas: Optional[Schema]) -> Schema:\n    return cast(Schema, SchemaProxy(*[s for s in schemas if s]))\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -129,2 +129,2 @@\n def merge_schema(*schemas: Optional[Schema]) -> Schema:\n-    return cast(Schema, SchemaProxy(*schemas))\n+    return cast(Schema, SchemaProxy(*[s for s in schemas if s]))\n",
+        "source_code_with_indent": "<DED><DED>def merge_schema(*schemas: Optional[Schema]) -> Schema:\n    <IND>return cast(Schema, SchemaProxy(*schemas))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>def merge_schema(*schemas: Optional[Schema]) -> Schema:\n    <IND>return cast(Schema, SchemaProxy(*[s for s in schemas if s]))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

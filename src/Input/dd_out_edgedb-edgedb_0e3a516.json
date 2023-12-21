@@ -1,0 +1,173 @@
+[
+  {
+    "project": "edgedb/edgedb",
+    "commit": "0e3a516b9429a4d5f83b75e6ff12346cdb5917f2",
+    "filename": "edb/common/parametric.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/common/parametric.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/common/parametric.py:77:32 Incompatible parameter type [6]: Expected `typing.Union[tuple[typing.Union[typing.Type[typing.Any], str]], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[typing.Type[typing.Any], str]`.",
+    "message": " Expected `typing.Union[tuple[typing.Union[typing.Type[typing.Any], str]], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[typing.Type[typing.Any], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 77,
+    "warning_line": "            type_dict[\"type\"] = params[0]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        bases = (cls,)\n        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_len": 145,
+        "target_code": "        bases = (cls,)\n        type_dict: Dict[str, Any] = {\n            \"types\": params,\n            \"__module__\": cls.__module__,\n        }\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -70,3 +70,6 @@\n         bases = (cls,)\n-        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n+        type_dict: Dict[str, Any] = {\n+            \"types\": params,\n+            \"__module__\": cls.__module__,\n+        }\n         forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_with_indent": "        bases = (cls,)\n        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        bases = (cls,)\n        type_dict: Dict[str, Any] = {\n            \"types\": params,\n            \"__module__\": cls.__module__,\n        }\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "0e3a516b9429a4d5f83b75e6ff12346cdb5917f2",
+    "filename": "edb/common/parametric.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/common/parametric.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/common/parametric.py:82:35 Incompatible parameter type [6]: Expected `typing.Union[tuple[typing.Union[typing.Type[typing.Any], str]], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[typing.Type[typing.Any], str]`.",
+    "message": " Expected `typing.Union[tuple[typing.Union[typing.Type[typing.Any], str]], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[typing.Type[typing.Any], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 82,
+    "warning_line": "            type_dict[\"keytype\"] = params[0]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        bases = (cls,)\n        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_len": 145,
+        "target_code": "        bases = (cls,)\n        type_dict: Dict[str, Any] = {\n            \"types\": params,\n            \"__module__\": cls.__module__,\n        }\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -70,3 +70,6 @@\n         bases = (cls,)\n-        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n+        type_dict: Dict[str, Any] = {\n+            \"types\": params,\n+            \"__module__\": cls.__module__,\n+        }\n         forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_with_indent": "        bases = (cls,)\n        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        bases = (cls,)\n        type_dict: Dict[str, Any] = {\n            \"types\": params,\n            \"__module__\": cls.__module__,\n        }\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "0e3a516b9429a4d5f83b75e6ff12346cdb5917f2",
+    "filename": "edb/common/parametric.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/common/parametric.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/common/parametric.py:84:37 Incompatible parameter type [6]: Expected `typing.Union[tuple[typing.Union[typing.Type[typing.Any], str]], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[typing.Type[typing.Any], str]`.",
+    "message": " Expected `typing.Union[tuple[typing.Union[typing.Type[typing.Any], str]], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[typing.Type[typing.Any], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 84,
+    "warning_line": "            type_dict[\"valuetype\"] = params[1]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        bases = (cls,)\n        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_len": 145,
+        "target_code": "        bases = (cls,)\n        type_dict: Dict[str, Any] = {\n            \"types\": params,\n            \"__module__\": cls.__module__,\n        }\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -70,3 +70,6 @@\n         bases = (cls,)\n-        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n+        type_dict: Dict[str, Any] = {\n+            \"types\": params,\n+            \"__module__\": cls.__module__,\n+        }\n         forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_with_indent": "        bases = (cls,)\n        type_dict = {\"types\": params, \"__module__\": cls.__module__}\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        bases = (cls,)\n        type_dict: Dict[str, Any] = {\n            \"types\": params,\n            \"__module__\": cls.__module__,\n        }\n        forward_refs: Dict[str, Tuple[int, str]] = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "0e3a516b9429a4d5f83b75e6ff12346cdb5917f2",
+    "filename": "edb/schema/constraints.py",
+    "min_patch_found": false,
+    "full_warning_msg": "edb/schema/constraints.py:242:12 Incompatible parameter type [6]: Expected `typing.Optional[typing.Mapping[Variable[ir_ast.AnchorsKeyType <: [str, typing.Type[qlast.SpecialAnchor]]], Variable[ir_ast.AnchorsValueType <: [so.Object, ir_ast.Base]]]]` for 4th parameter `anchors` to call `s_expr.Expression.compiled` but got `typing.Dict[typing.Type[qlast.Subject], so.Object]`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "0e3a516b9429a4d5f83b75e6ff12346cdb5917f2",
+    "filename": "edb/schema/delta.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/schema/delta.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/schema/delta.py:738:16 Incompatible return type [7]: Expected `typing.Optional[Variable[CommandContextToken_T (bound to CommandContextToken[Command])]]` but got `CommandContextToken[Command]`.",
+    "message": " Expected `typing.Optional[Variable[CommandContextToken_T (bound to CommandContextToken[Command])]]` but got `CommandContextToken[Command]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 738,
+    "warning_line": "                return item"
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "0e3a516b9429a4d5f83b75e6ff12346cdb5917f2",
+    "filename": "edb/schema/pointers.py",
+    "min_patch_found": false,
+    "full_warning_msg": "edb/schema/pointers.py:634:12 Incompatible parameter type [6]: Expected `typing.Optional[typing.Mapping[Variable[irast.AnchorsKeyType <: [str, typing.Type[qlast.SpecialAnchor]]], Variable[irast.AnchorsValueType <: [so.Object, irast.Base]]]]` for 4th parameter `anchors` to call `s_expr.Expression.compiled` but got `typing.Dict[typing.Type[qlast.Source], typing.Any]`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "0e3a516b9429a4d5f83b75e6ff12346cdb5917f2",
+    "filename": "edb/schema/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/schema/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/schema/utils.py:163:23 Incompatible parameter type [6]: Expected `typing.Dict[typing.Optional[str], str]` for 2nd parameter `modaliases` to call `ast_objref_to_objref` but got `typing.Mapping[typing.Optional[str], str]`.",
+    "message": " Expected `typing.Dict[typing.Optional[str], str]` for 2nd parameter `modaliases` to call `ast_objref_to_objref` but got `typing.Mapping[typing.Optional[str], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 163,
+    "warning_line": "        node.maintype, modaliases=modaliases,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        metaclass: Optional[so.ObjectMeta] = None,\n        modaliases: Dict[Optional[str], str],\n        schema: s_schema.Schema) -> so.Object:\n",
+        "source_code_len": 144,
+        "target_code": "        metaclass: Optional[so.ObjectMeta] = None,\n        modaliases: Mapping[Optional[str], str],\n        schema: s_schema.Schema) -> so.Object:\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -42,3 +42,3 @@\n         metaclass: Optional[so.ObjectMeta] = None,\n-        modaliases: Dict[Optional[str], str],\n+        modaliases: Mapping[Optional[str], str],\n         schema: s_schema.Schema) -> so.Object:\n",
+        "source_code_with_indent": "        metaclass: Optional[so.ObjectMeta] = None,\n        modaliases: Dict[Optional[str], str],\n        schema: s_schema.Schema) -> so.Object:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        metaclass: Optional[so.ObjectMeta] = None,\n        modaliases: Mapping[Optional[str], str],\n        schema: s_schema.Schema) -> so.Object:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

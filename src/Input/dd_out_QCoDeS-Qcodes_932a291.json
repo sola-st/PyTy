@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "932a291826eec563a393ed27dfa93226921718ba",
+    "filename": "qcodes/dataset/sqlite_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/dataset/sqlite_base.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/dataset/sqlite_base.py:657:46 Incompatible parameter type [6]: Expected `List[int]` for 2nd positional only parameter to call `_2to3_get_paramspecs` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `List[int]` for 2nd positional only parameter to call `_2to3_get_paramspecs` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 657,
+    "warning_line": "                                              layout_ids,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            result_table_name = result_tables[run_id]\n            layout_ids = tuple(layout_ids_all[run_id])\n            independents = tuple(indeps_all[run_id])\n",
+        "source_code_len": 162,
+        "target_code": "            result_table_name = result_tables[run_id]\n            layout_ids = list(layout_ids_all[run_id])\n            independents = tuple(indeps_all[run_id])\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -651,3 +651,3 @@\n             result_table_name = result_tables[run_id]\n-            layout_ids = tuple(layout_ids_all[run_id])\n+            layout_ids = list(layout_ids_all[run_id])\n             independents = tuple(indeps_all[run_id])\n",
+        "source_code_with_indent": "            <IND>result_table_name = result_tables[run_id]\n            layout_ids = tuple(layout_ids_all[run_id])\n            independents = tuple(indeps_all[run_id])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>result_table_name = result_tables[run_id]\n            layout_ids = list(layout_ids_all[run_id])\n            independents = tuple(indeps_all[run_id])\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "getsentry/snuba",
+    "commit": "b1e30628fed7ddce559821e151cfa949873de965",
+    "filename": "snuba/clusters/cluster.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/snuba/clusters/cluster.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snuba/clusters/cluster.py:267:115 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `escape_string` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `escape_string` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 267,
+    "warning_line": "                f\"select host_name, port, shard_num, replica_num from system.clusters where cluster={escape_string(cluster_name)}\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return [self.__query_node]\n        return self.__get_cluster_nodes(self.__cluster_name)\n",
+        "source_code_len": 100,
+        "target_code": "            return [self.__query_node]\n\n        assert self.__cluster_name is not None, \"cluster_name must be set\"\n        return self.__get_cluster_nodes(self.__cluster_name)\n",
+        "target_code_len": 176,
+        "diff_format": "@@ -251,2 +251,4 @@\n             return [self.__query_node]\n+\n+        assert self.__cluster_name is not None, \"cluster_name must be set\"\n         return self.__get_cluster_nodes(self.__cluster_name)\n",
+        "source_code_with_indent": "            <IND>return [self.__query_node]\n        <DED>return self.__get_cluster_nodes(self.__cluster_name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return [self.__query_node]\n\n        <DED>assert self.__cluster_name is not None, \"cluster_name must be set\"\n        return self.__get_cluster_nodes(self.__cluster_name)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return []\n        return self.__get_cluster_nodes(self.__distributed_cluster_name)\n\n    def __get_cluster_nodes(\n        self, cluster_name: Optional[str]\n    ) -> Sequence[ClickhouseNode]:\n        return [\n",
+        "source_code_len": 219,
+        "target_code": "            return []\n        assert (\n            self.__distributed_cluster_name is not None\n        ), \"distributed_cluster_name must be set\"\n        return self.__get_cluster_nodes(self.__distributed_cluster_name)\n\n    def __get_cluster_nodes(self, cluster_name: str) -> Sequence[ClickhouseNode]:\n        return [\n",
+        "target_code_len": 318,
+        "diff_format": "@@ -256,7 +258,8 @@\n             return []\n+        assert (\n+            self.__distributed_cluster_name is not None\n+        ), \"distributed_cluster_name must be set\"\n         return self.__get_cluster_nodes(self.__distributed_cluster_name)\n \n-    def __get_cluster_nodes(\n-        self, cluster_name: Optional[str]\n-    ) -> Sequence[ClickhouseNode]:\n+    def __get_cluster_nodes(self, cluster_name: str) -> Sequence[ClickhouseNode]:\n         return [\n",
+        "source_code_with_indent": "            <IND>return []\n        <DED>return self.__get_cluster_nodes(self.__distributed_cluster_name)\n\n    <DED>def __get_cluster_nodes(\n        self, cluster_name: Optional[str]\n    ) -> Sequence[ClickhouseNode]:\n        <IND>return [\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return []\n        <DED>assert (\n            self.__distributed_cluster_name is not None\n        ), \"distributed_cluster_name must be set\"\n        return self.__get_cluster_nodes(self.__distributed_cluster_name)\n\n    <DED>def __get_cluster_nodes(self, cluster_name: str) -> Sequence[ClickhouseNode]:\n        <IND>return [\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

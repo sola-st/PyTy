@@ -1,0 +1,36 @@
+[
+  {
+    "project": "godatadriven/evol",
+    "commit": "88f3b06d3eabb73167d51af5c94d8088b376c860",
+    "filename": "evol/population.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/godatadriven-evol/evol/population.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "evol/population.py:309:8 Incompatible return type [7]: Expected `List[Population]` but got `List[BasePopulation]`.",
+    "message": " Expected `List[Population]` but got `List[BasePopulation]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 309,
+    "warning_line": "        return result",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def group(self, grouping_function: Callable[..., List[List[int]]] = group_random, **kwargs) -> List['Population']:\n        \"\"\"\n",
+        "source_code_len": 132,
+        "target_code": "\n    def group(self, grouping_function: Callable[..., List[List[int]]] = group_random,\n              **kwargs) -> List['BasePopulation']:\n        \"\"\"\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -285,3 +285,4 @@\n \n-    def group(self, grouping_function: Callable[..., List[List[int]]] = group_random, **kwargs) -> List['Population']:\n+    def group(self, grouping_function: Callable[..., List[List[int]]] = group_random,\n+              **kwargs) -> List['BasePopulation']:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def group(self, grouping_function: Callable[..., List[List[int]]] = group_random, **kwargs) -> List['Population']:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def group(self, grouping_function: Callable[..., List[List[int]]] = group_random,\n              **kwargs) -> List['BasePopulation']:\n        <IND>"
+      }
+    ]
+  }
+]

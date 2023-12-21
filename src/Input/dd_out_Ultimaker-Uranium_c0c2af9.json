@@ -1,0 +1,100 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "c0c2af970850209fb72e899107933df105c29ca7",
+    "filename": "UM/Scene/SceneNode.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Scene/SceneNode.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Scene/SceneNode.py:310:8 Incompatible return type [7]: Expected `str` but got `int`.",
+    "message": " Expected `str` but got `int`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 310,
+    "warning_line": "        return self._id",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: int = -1) -> None:\n        \"\"\"Construct a scene node.\n",
+        "source_code_len": 163,
+        "target_code": "\n    def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: str = \"\") -> None:\n        \"\"\"Construct a scene node.\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -36,3 +36,3 @@\n \n-    def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: int = -1) -> None:\n+    def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: str = \"\") -> None:\n         \"\"\"Construct a scene node.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: int = -1) -> None:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: str = \"\") -> None:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._name = name  # type: str\n        self._id = node_id  # type: int\n        self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "source_code_len": 143,
+        "target_code": "        self._name = name  # type: str\n        self._id = node_id  # type: str\n        self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -83,3 +83,3 @@\n         self._name = name  # type: str\n-        self._id = node_id  # type: int\n+        self._id = node_id  # type: str\n         self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "source_code_with_indent": "        self._name = name  # type: str\n        self._id = node_id  # type: int\n        self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._name = name  # type: str\n        self._id = node_id  # type: str\n        self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "c0c2af970850209fb72e899107933df105c29ca7",
+    "filename": "UM/Scene/SceneNode.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Scene/SceneNode.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Scene/SceneNode.py:313:8 Incompatible attribute type [8]: Attribute `_id` declared in class `SceneNode` has type `int` but is used as type `str`.",
+    "message": " Attribute `_id` declared in class `SceneNode` has type `int` but is used as type `str`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 313,
+    "warning_line": "        self._id = node_id",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: int = -1) -> None:\n        \"\"\"Construct a scene node.\n",
+        "source_code_len": 163,
+        "target_code": "\n    def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: str = \"\") -> None:\n        \"\"\"Construct a scene node.\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -36,3 +36,3 @@\n \n-    def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: int = -1) -> None:\n+    def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: str = \"\") -> None:\n         \"\"\"Construct a scene node.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: int = -1) -> None:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def __init__(self, parent: Optional[\"SceneNode\"] = None, visible: bool = True, name: str = \"\", node_id: str = \"\") -> None:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._name = name  # type: str\n        self._id = node_id  # type: int\n        self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "source_code_len": 143,
+        "target_code": "        self._name = name  # type: str\n        self._id = node_id  # type: str\n        self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -83,3 +83,3 @@\n         self._name = name  # type: str\n-        self._id = node_id  # type: int\n+        self._id = node_id  # type: str\n         self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "source_code_with_indent": "        self._name = name  # type: str\n        self._id = node_id  # type: int\n        self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._name = name  # type: str\n        self._id = node_id  # type: str\n        self._decorators = []  # type: List[SceneNodeDecorator]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

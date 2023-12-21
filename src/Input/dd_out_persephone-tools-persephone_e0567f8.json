@@ -1,0 +1,36 @@
+[
+  {
+    "project": "persephone-tools/persephone",
+    "commit": "e0567f8f99719ca7091b55a5258ee9d844d742cf",
+    "filename": "persephone/corpus.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/persephone-tools-persephone/persephone/corpus.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "persephone/corpus.py:238:18 Incompatible variable type [9]: label_segmenter is declared to have type `LabelSegmenter` but is used as type `None`.",
+    "message": " label_segmenter is declared to have type `LabelSegmenter` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 238,
+    "warning_line": "                  label_segmenter: LabelSegmenter = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                  utterance_filter: Callable[[Utterance], bool] = None,\n                  label_segmenter: LabelSegmenter = None,\n                  speakers: List[str] = None, lazy: bool = True,\n",
+        "source_code_len": 195,
+        "target_code": "                  utterance_filter: Callable[[Utterance], bool] = None,\n                  label_segmenter: Optional[LabelSegmenter] = None,\n                  speakers: List[str] = None, lazy: bool = True,\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -237,3 +237,3 @@\n                   utterance_filter: Callable[[Utterance], bool] = None,\n-                  label_segmenter: LabelSegmenter = None,\n+                  label_segmenter: Optional[LabelSegmenter] = None,\n                   speakers: List[str] = None, lazy: bool = True,\n",
+        "source_code_with_indent": "                  utterance_filter: Callable[[Utterance], bool] = None,\n                  label_segmenter: LabelSegmenter = None,\n                  speakers: List[str] = None, lazy: bool = True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                  utterance_filter: Callable[[Utterance], bool] = None,\n                  label_segmenter: Optional[LabelSegmenter] = None,\n                  speakers: List[str] = None, lazy: bool = True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

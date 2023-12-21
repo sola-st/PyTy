@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "3b509490d1a13be59f338f0a2a60a76e0193181f",
+    "filename": "qcodes/tests/test_deprecate.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/tests/test_deprecate.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/tests/test_deprecate.py:53:8 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 53,
+    "warning_line": "        self.a = 'last called by method'",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def method(self) -> str:\n        self.a = 'last called by method'\n",
+        "source_code_len": 71,
+        "target_code": "\n    def method(self) -> None:\n        self.a = 'last called by method'\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-    def method(self) -> str:\n+    def method(self) -> None:\n         self.a = 'last called by method'\n",
+        "source_code_with_indent": "\n    <DED>def method(self) -> str:\n        <IND>self.a = 'last called by method'\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def method(self) -> None:\n        <IND>self.a = 'last called by method'\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

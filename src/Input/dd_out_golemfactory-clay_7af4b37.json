@@ -1,0 +1,36 @@
+[
+  {
+    "project": "golemfactory/clay",
+    "commit": "7af4b37a587e7179390f0d24a108365fd0545eb6",
+    "filename": "scripts/node_integration_tests/playbooks/concent/concent_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/golemfactory-clay/scripts/node_integration_tests/playbooks/concent/concent_base.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/node_integration_tests/playbooks/concent/concent_base.py:24:10 Invalid type [31]: Expression `(typing.Optional[bool], typing.Optional[typing.Match])` is not a valid type.",
+    "message": " Expression `(typing.Optional[bool], typing.Optional[typing.Match])` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 24,
+    "warning_line": "    ) -> (typing.Optional[bool], typing.Optional[typing.Match]):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            awaited_messages: typing.Optional[list] = None\n    ) -> (typing.Optional[bool], typing.Optional[typing.Match]):\n        \"\"\"\n",
+        "source_code_len": 136,
+        "target_code": "            awaited_messages: typing.Optional[list] = None\n    ) -> typing.Tuple[typing.Optional[bool], typing.Optional[typing.Match]]:\n        \"\"\"\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -23,3 +23,3 @@\n             awaited_messages: typing.Optional[list] = None\n-    ) -> (typing.Optional[bool], typing.Optional[typing.Match]):\n+    ) -> typing.Tuple[typing.Optional[bool], typing.Optional[typing.Match]]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "            awaited_messages: typing.Optional[list] = None\n    ) -> (typing.Optional[bool], typing.Optional[typing.Match]):\n        <IND>",
+        "target_code_with_indent": "            awaited_messages: typing.Optional[list] = None\n    ) -> typing.Tuple[typing.Optional[bool], typing.Optional[typing.Match]]:\n        <IND>"
+      }
+    ]
+  }
+]

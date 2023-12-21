@@ -1,0 +1,51 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "95abe51f9c69473bda14c727e2e4281f64f54783",
+    "filename": "src/ezdxf/entities/polygon.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/entities/polygon.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/entities/polygon.py:59:4 Inconsistent override [14]: `src.ezdxf.entities.polygon.DXFPolygon._copy_data` overrides method defined in `src.ezdxf.entities.dxfentity.DXFEntity` inconsistently. Parameter of type `DXFPolygon` is not a supertype of the overridden parameter `src.ezdxf.entities.dxfentity.DXFEntity`.",
+    "message": " `src.ezdxf.entities.polygon.DXFPolygon._copy_data` overrides method defined in `src.ezdxf.entities.dxfentity.DXFEntity` inconsistently. Parameter of type `DXFPolygon` is not a supertype of the overridden parameter `src.ezdxf.entities.dxfentity.DXFEntity`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 59,
+    "warning_line": "    def _copy_data(self, entity: \"DXFPolygon\") -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from .pattern import Pattern, PatternLine\n\n",
+        "source_code_len": 43,
+        "target_code": "from .pattern import Pattern, PatternLine\nfrom .dxfentity import DXFEntity\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -17,2 +17,3 @@\n from .pattern import Pattern, PatternLine\n+from .dxfentity import DXFEntity\n \n",
+        "source_code_with_indent": "from .pattern import Pattern, PatternLine\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from .pattern import Pattern, PatternLine\nfrom .dxfentity import DXFEntity\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _copy_data(self, entity: \"DXFPolygon\") -> None:\n        \"\"\"Copy paths, pattern, gradient, seeds.\"\"\"\n        entity.paths = copy.deepcopy(self.paths)\n",
+        "source_code_len": 158,
+        "target_code": "\n    def _copy_data(self, entity: DXFEntity) -> None:\n        \"\"\"Copy paths, pattern, gradient, seeds.\"\"\"\n        assert isinstance(entity, DXFPolygon)\n        entity.paths = copy.deepcopy(self.paths)\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -58,4 +59,5 @@\n \n-    def _copy_data(self, entity: \"DXFPolygon\") -> None:\n+    def _copy_data(self, entity: DXFEntity) -> None:\n         \"\"\"Copy paths, pattern, gradient, seeds.\"\"\"\n+        assert isinstance(entity, DXFPolygon)\n         entity.paths = copy.deepcopy(self.paths)\n",
+        "source_code_with_indent": "\n    <DED>def _copy_data(self, entity: \"DXFPolygon\") -> None:\n        <IND>\"\"\"Copy paths, pattern, gradient, seeds.\"\"\"\n        entity.paths = copy.deepcopy(self.paths)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _copy_data(self, entity: DXFEntity) -> None:\n        <IND>\"\"\"Copy paths, pattern, gradient, seeds.\"\"\"\n        assert isinstance(entity, DXFPolygon)\n        entity.paths = copy.deepcopy(self.paths)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

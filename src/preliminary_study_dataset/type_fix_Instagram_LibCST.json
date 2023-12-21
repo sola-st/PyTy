@@ -1,0 +1,146 @@
+[
+  {
+    "isolated_code_change": "-elif isinstance(base.value, cst.Subscript):\n+elif isinstance(value, cst.Subscript):",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_ISINSTANCE_CALL",
+    "involved_types": ["cst._nodes.expression.BaseExpression", "cst._nodes.expression.Subscript"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "cst._nodes.expression.BaseExpression",
+      "to": "cst._nodes.expression.Subscript"
+    },
+    "location": "ENCLOSING_IF",
+    "full_warning_msg": "libcst/codemod/visitors/_apply_type_annotations.py:80:51 Incompatible parameter type [6]: Expected `cst._nodes.expression.Subscript` for 1st positional only parameter to call `TypeCollector._handle_Subscript` but got `cst._nodes.expression.BaseExpression`.",
+    "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
+    "repo": "https://github.com/Instagram/LibCST",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "+name = None\n-    return get_full_name_for_node(node)\n-elif len(names) == 1:\n-    return names[0]\n-else:\n+    name = get_full_name_for_node(node)\n+elif len(names) == 1 and isinstance(names[0], str):\n+    name = names[0]\n+if name is None:\n+return name\n",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_NONE_CHECK",
+    "involved_types": ["str", "Optional"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Optional[str]",
+      "to": "str"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "libcst/codemod/visitors/_apply_type_annotations.py:129:12 Incompatible return type [7]: Expected `str` but got `Optional[str]`.",
+    "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
+    "repo": "https://github.com/Instagram/LibCST",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "+return False",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_RETURN_VAL",
+    "involved_types": ["bool", "None"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "None",
+      "to": "bool"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "libcst/codemod/visitors/_apply_type_annotations.py:163:16 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
+    "repo": "https://github.com/Instagram/LibCST",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },  
+  {
+    "isolated_code_change": "-def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Subscript: \n+def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Index:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["cst._nodes.expression.Subscript", "cst._nodes.expression.Index"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "cst._nodes.expression.Subscript",
+      "to": "cst._nodes.expression.Index"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "libcst/codemod/visitors/_apply_type_annotations.py:189:12 Incompatible return type [7]: Expected `cst._nodes.expression.Subscript` but got `cst._nodes.expression.Index`.",
+    "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
+    "repo": "https://github.com/Instagram/LibCST",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },    
+  {
+    "isolated_code_change": "-def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Subscript: \n+def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Index:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["cst._nodes.expression.Subscript", "cst._nodes.expression.Index"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "cst._nodes.expression.Subscript",
+      "to": "cst._nodes.expression.Index"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "libcst/codemod/visitors/_apply_type_annotations.py:191:12 Incompatible return type [7]: Expected `cst._nodes.expression.Subscript` but got `cst._nodes.expression.Index`.",
+    "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
+    "repo": "https://github.com/Instagram/LibCST",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Subscript: \n+def _handle_Index(self, slice: cst.Index, node: cst.Subscript) -> cst.Index:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["cst._nodes.expression.Subscript", "cst._nodes.expression.Index"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "cst._nodes.expression.Subscript",
+      "to": "cst._nodes.expression.Index"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "libcst/codemod/visitors/_apply_type_annotations.py:193:12 Incompatible return type [7]: Expected `cst._nodes.expression.Subscript` but got `cst._nodes.expression.Index`.",
+    "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
+    "repo": "https://github.com/Instagram/LibCST",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-else:\n+elif isinstance(node, NAME_OR_ATTRIBUTE):",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_ISINSTANCE_CALL",
+    "involved_types": ["cst._nodes.expression.BaseExpression", "Union", "cst._nodes.expression.Attribute", "cst._nodes.expression.Name"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "cst._nodes.expression.BaseExpression",
+      "to": "Union[cst._nodes.expression.Attribute, cst._nodes.expression.Name]"
+    },
+    "location": "ENCLOSING_IF",
+    "full_warning_msg": "libcst/codemod/visitors/_apply_type_annotations.py:237:74 Incompatible parameter type [6]: Expected `Union[cst._nodes.expression.Attribute, cst._nodes.expression.Name]` for 1st positional only parameter to call `TypeCollector._handle_NameOrAttribute` but got `cst._nodes.expression.BaseExpression`.",
+    "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
+    "repo": "https://github.com/Instagram/LibCST",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-if set_return_annotation: \n+if set_return_annotation and function_annotation.returns is not None:",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "ADD_NONE_CHECK",
+    "involved_types": ["Optional", "Union", "cst._nodes.expression.Annotation"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Optional[cst._nodes.expression.Annotation]",
+      "to": "cst._nodes.expression.Annotation"
+    },
+    "location": "ENCLOSING_IF",
+    "full_warning_msg": "libcst/codemod/visitors/_apply_type_annotations.py:609:47 Incompatible parameter type [6]: Expected `cst._nodes.expression.Annotation` for 2nd parameter `annotation` to call `ApplyTypeAnnotationsVisitor._apply_annotation_to_return` but got `Optional[cst._nodes.expression.Annotation]`.",
+    "url": "https://github.com/Instagram/LibCST/commit/3ccfc4a",
+    "repo": "https://github.com/Instagram/LibCST",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  }
+]

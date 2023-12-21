@@ -1,0 +1,36 @@
+[
+  {
+    "project": "orchest/orchest",
+    "commit": "83dd8603000e8da8ebfd5bce756c69288513a357",
+    "filename": "orchest-sdk/python/orchest/transfer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/orchest-orchest/orchest-sdk/python/orchest/transfer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "orchest-sdk/python/orchest/transfer.py:269:43 Incompatible parameter type [6]: Expected `str` for 2nd parameter `serialization` to call `_get_output_disk` but got `Serialization`.",
+    "message": " Expected `str` for 2nd parameter `serialization` to call `_get_output_disk` but got `Serialization`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 269,
+    "warning_line": "        return _get_output_disk(full_path, serialization=serialization)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_output_disk(step_uuid: str, serialization: Serialization) -> Any:\n    \"\"\"Gets data from disk.\n",
+        "source_code_len": 103,
+        "target_code": "\ndef get_output_disk(step_uuid: str, serialization: str) -> Any:\n    \"\"\"Gets data from disk.\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -250,3 +250,3 @@\n \n-def get_output_disk(step_uuid: str, serialization: Serialization) -> Any:\n+def get_output_disk(step_uuid: str, serialization: str) -> Any:\n     \"\"\"Gets data from disk.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>def get_output_disk(step_uuid: str, serialization: Serialization) -> Any:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def get_output_disk(step_uuid: str, serialization: str) -> Any:\n    <IND>"
+      }
+    ]
+  }
+]

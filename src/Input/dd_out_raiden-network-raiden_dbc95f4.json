@@ -1,0 +1,70 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "dbc95f434078185c124bfb9e61372b180f9ac7e0",
+    "filename": "raiden/transfer/views.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/views.py",
+    "file_hunks_size": 15,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/views.py:452:4 Incompatible return type [7]: Expected `str` but got `typing.Optional[str]`.",
+    "message": " Expected `str` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 452,
+    "warning_line": "    return role_from_transfer_task(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    return None\n\n\ndef get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> str:\n    return role_from_transfer_task(\n        chain_state.payment_mapping.secrethashes_to_task.get(secrethash),\n    )\n\n",
+        "source_code_len": 215,
+        "target_code": "\n    raise ValueError('Argument to role_from_transfer_task is not a TransferTask')\n\n\ndef get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> Optional[str]:\n    \"\"\"\n    Returns 'initiator', 'mediator' or 'target' to signify the role the node has\n    in a transfer. If a transfer task is not found for the secrethash then the\n    function returns None\n    \"\"\"\n    task = chain_state.payment_mapping.secrethashes_to_task.get(secrethash)\n    if not task:\n        return None\n    return role_from_transfer_task(task)\n\n",
+        "target_code_len": 531,
+        "diff_format": "@@ -447,9 +448,15 @@\n \n-    return None\n-\n-\n-def get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> str:\n-    return role_from_transfer_task(\n-        chain_state.payment_mapping.secrethashes_to_task.get(secrethash),\n-    )\n+    raise ValueError('Argument to role_from_transfer_task is not a TransferTask')\n+\n+\n+def get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> Optional[str]:\n+    \"\"\"\n+    Returns 'initiator', 'mediator' or 'target' to signify the role the node has\n+    in a transfer. If a transfer task is not found for the secrethash then the\n+    function returns None\n+    \"\"\"\n+    task = chain_state.payment_mapping.secrethashes_to_task.get(secrethash)\n+    if not task:\n+        return None\n+    return role_from_transfer_task(task)\n \n",
+        "source_code_with_indent": "\n    <DED>return None\n\n\n<DED>def get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> str:\n    <IND>return role_from_transfer_task(\n        chain_state.payment_mapping.secrethashes_to_task.get(secrethash),\n    )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>raise ValueError('Argument to role_from_transfer_task is not a TransferTask')\n\n\n<DED>def get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> Optional[str]:\n    <IND>\"\"\"\n    Returns 'initiator', 'mediator' or 'target' to signify the role the node has\n    in a transfer. If a transfer task is not found for the secrethash then the\n    function returns None\n    \"\"\"\n    task = chain_state.payment_mapping.secrethashes_to_task.get(secrethash)\n    if not task:\n        <IND>return None\n    <DED>return role_from_transfer_task(task)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "dbc95f434078185c124bfb9e61372b180f9ac7e0",
+    "filename": "raiden/transfer/views.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/views.py",
+    "file_hunks_size": 15,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/views.py:453:8 Incompatible parameter type [6]: Expected `TransferTask` for 1st positional only parameter to call `role_from_transfer_task` but got `typing.Optional[TransferTask]`.",
+    "message": " Expected `TransferTask` for 1st positional only parameter to call `role_from_transfer_task` but got `typing.Optional[TransferTask]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 453,
+    "warning_line": "        chain_state.payment_mapping.secrethashes_to_task.get(secrethash),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    return None\n\n\ndef get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> str:\n    return role_from_transfer_task(\n        chain_state.payment_mapping.secrethashes_to_task.get(secrethash),\n    )\n\n",
+        "source_code_len": 215,
+        "target_code": "\n    raise ValueError('Argument to role_from_transfer_task is not a TransferTask')\n\n\ndef get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> Optional[str]:\n    \"\"\"\n    Returns 'initiator', 'mediator' or 'target' to signify the role the node has\n    in a transfer. If a transfer task is not found for the secrethash then the\n    function returns None\n    \"\"\"\n    task = chain_state.payment_mapping.secrethashes_to_task.get(secrethash)\n    if not task:\n        return None\n    return role_from_transfer_task(task)\n\n",
+        "target_code_len": 531,
+        "diff_format": "@@ -447,9 +448,15 @@\n \n-    return None\n-\n-\n-def get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> str:\n-    return role_from_transfer_task(\n-        chain_state.payment_mapping.secrethashes_to_task.get(secrethash),\n-    )\n+    raise ValueError('Argument to role_from_transfer_task is not a TransferTask')\n+\n+\n+def get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> Optional[str]:\n+    \"\"\"\n+    Returns 'initiator', 'mediator' or 'target' to signify the role the node has\n+    in a transfer. If a transfer task is not found for the secrethash then the\n+    function returns None\n+    \"\"\"\n+    task = chain_state.payment_mapping.secrethashes_to_task.get(secrethash)\n+    if not task:\n+        return None\n+    return role_from_transfer_task(task)\n \n",
+        "source_code_with_indent": "\n    <DED>return None\n\n\n<DED>def get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> str:\n    <IND>return role_from_transfer_task(\n        chain_state.payment_mapping.secrethashes_to_task.get(secrethash),\n    )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>raise ValueError('Argument to role_from_transfer_task is not a TransferTask')\n\n\n<DED>def get_transfer_role(chain_state: ChainState, secrethash: SecretHash) -> Optional[str]:\n    <IND>\"\"\"\n    Returns 'initiator', 'mediator' or 'target' to signify the role the node has\n    in a transfer. If a transfer task is not found for the secrethash then the\n    function returns None\n    \"\"\"\n    task = chain_state.payment_mapping.secrethashes_to_task.get(secrethash)\n    if not task:\n        <IND>return None\n    <DED>return role_from_transfer_task(task)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

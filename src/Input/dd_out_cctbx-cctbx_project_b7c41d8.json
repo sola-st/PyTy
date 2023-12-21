@@ -1,0 +1,36 @@
+[
+  {
+    "project": "cctbx/cctbx_project",
+    "commit": "b7c41d8ab7cfec5977efb4d79dd5af58434a8a08",
+    "filename": "xfel/command_line/print_pickle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cctbx-cctbx_project/xfel/command_line/print_pickle.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "xfel/command_line/print_pickle.py:176:25 Unbound name [10]: Name `path` is used but not defined in the current scope.",
+    "message": " Name `path` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 176,
+    "warning_line": "      image = dxtbx.load(path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n  for data in generate_data_from_streams(args, verbose=True):\n    if 'TIMESTAMP' in data:\n",
+        "source_code_len": 91,
+        "target_code": "\n  for data, path in generate_data_from_streams(args, verbose=True):\n    if 'TIMESTAMP' in data:\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -151,3 +155,3 @@\n \n-  for data in generate_data_from_streams(args, verbose=True):\n+  for data, path in generate_data_from_streams(args, verbose=True):\n     if 'TIMESTAMP' in data:\n",
+        "source_code_with_indent": "\n  <DED>for data in generate_data_from_streams(args, verbose=True):\n    <IND>if 'TIMESTAMP' in data:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n  <DED>for data, path in generate_data_from_streams(args, verbose=True):\n    <IND>if 'TIMESTAMP' in data:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

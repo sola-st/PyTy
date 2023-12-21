@@ -1,0 +1,36 @@
+[
+  {
+    "project": "hikari-py/hikari",
+    "commit": "d0b4a117ae8071420aeeeb8326d8b30eaa971efe",
+    "filename": "hikari/impl/rest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/impl/rest.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hikari/impl/rest.py:1421:41 Incompatible parameter type [6]: Expected `embeds_.Embed` for 1st positional only parameter to call `list.append` but got `typing.Dict[str, typing.Any]`.",
+    "message": " Expected `embeds_.Embed` for 1st positional only parameter to call `list.append` but got `typing.Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1421,
+    "warning_line": "                serialized_embeds.append(embed_payload)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        serialized_embeds: typing.List[embeds_.Embed] = []\n\n        if embeds is not undefined.UNDEFINED:\n            for embed in embeds:  # type: ignore[unreachable]\n                embed_payload, embed_attachments = self._app.entity_factory.serialize_embed(embed)\n",
+        "source_code_len": 268,
+        "target_code": "\n        serialized_embeds: data_binding.JSONArray = []\n\n        if embeds is not undefined.UNDEFINED:\n            for embed in embeds:\n                embed_payload, embed_attachments = self._app.entity_factory.serialize_embed(embed)\n",
+        "target_code_len": 235,
+        "diff_format": "@@ -1415,6 +1415,6 @@\n \n-        serialized_embeds: typing.List[embeds_.Embed] = []\n+        serialized_embeds: data_binding.JSONArray = []\n \n         if embeds is not undefined.UNDEFINED:\n-            for embed in embeds:  # type: ignore[unreachable]\n+            for embed in embeds:\n                 embed_payload, embed_attachments = self._app.entity_factory.serialize_embed(embed)\n",
+        "source_code_with_indent": "\n        <DED>serialized_embeds: typing.List[embeds_.Embed] = []\n\n        if embeds is not undefined.UNDEFINED:\n            <IND>for embed in embeds:  # type: ignore[unreachable]\n                <IND>embed_payload, embed_attachments = self._app.entity_factory.serialize_embed(embed)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>serialized_embeds: data_binding.JSONArray = []\n\n        if embeds is not undefined.UNDEFINED:\n            <IND>for embed in embeds:\n                <IND>embed_payload, embed_attachments = self._app.entity_factory.serialize_embed(embed)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "project": "woefe/ytcc",
+    "commit": "2cc842b80f651a29a92974c5c0a5b533e702eced",
+    "filename": "ytcc/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/woefe-ytcc/ytcc/cli.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ytcc/cli.py:160:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 160,
+    "warning_line": "            return _(\"Play video\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def command_line(self, tags: List[str], alphabet: Set[str]) -> Tuple[str, bool]:\n",
+        "source_code_len": 86,
+        "target_code": "\n        return \"\"\n\n    def command_line(self, tags: List[str], alphabet: Set[str]) -> Tuple[str, bool]:\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -161,2 +162,4 @@\n \n+        return \"\"\n+\n     def command_line(self, tags: List[str], alphabet: Set[str]) -> Tuple[str, bool]:\n",
+        "source_code_with_indent": "\n    <DED><DED>def command_line(self, tags: List[str], alphabet: Set[str]) -> Tuple[str, bool]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>return \"\"\n\n    <DED>def command_line(self, tags: List[str], alphabet: Set[str]) -> Tuple[str, bool]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "woefe/ytcc",
+    "commit": "2cc842b80f651a29a92974c5c0a5b533e702eced",
+    "filename": "ytcc/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/woefe-ytcc/ytcc/cli.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ytcc/cli.py:293:34 Incompatible parameter type [6]: Expected `Optional[List[int]]` for 1st positional only parameter to call `core.Ytcc.set_video_id_filter` but got `Optional[Iterable[int]]`.",
+    "message": " Expected `Optional[List[int]]` for 1st positional only parameter to call `core.Ytcc.set_video_id_filter` but got `Optional[Iterable[int]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 293,
+    "warning_line": "    ytcc_core.set_video_id_filter(video_ids)"
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Yelp/paasta",
+    "commit": "3e7712f223635628332d115a5e23cfb11ee91e36",
+    "filename": "paasta_tools/cli/cmds/status.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/cli/cmds/status.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/cli/cmds/status.py:671:24 Incompatible parameter type [6]: Expected `Iterable[Tuple[str, str, str, str]]` for 1st positional only parameter to call `list.extend` but got `List[str]`.",
+    "message": " Expected `Iterable[Tuple[str, str, str, str]]` for 1st positional only parameter to call `list.extend` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 671,
+    "warning_line": "            rows.extend(format_pod_event_messages(pod.events, pod.name))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def format_kubernetes_pod_table(pods, verbose: int):\n    rows = [(\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")]\n    for pod in pods:\n",
+        "source_code_len": 158,
+        "target_code": "def format_kubernetes_pod_table(pods, verbose: int):\n    rows: List[Union[str, Sequence[str]]] = [\n        (\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")\n    ]\n    for pod in pods:\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -644,3 +644,5 @@\n def format_kubernetes_pod_table(pods, verbose: int):\n-    rows = [(\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")]\n+    rows: List[Union[str, Sequence[str]]] = [\n+        (\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")\n+    ]\n     for pod in pods:\n",
+        "source_code_with_indent": "<DED>def format_kubernetes_pod_table(pods, verbose: int):\n    <IND>rows = [(\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")]\n    for pod in pods:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def format_kubernetes_pod_table(pods, verbose: int):\n    <IND>rows: List[Union[str, Sequence[str]]] = [\n        (\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")\n    ]\n    for pod in pods:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Yelp/paasta",
+    "commit": "3e7712f223635628332d115a5e23cfb11ee91e36",
+    "filename": "paasta_tools/cli/cmds/status.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/cli/cmds/status.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/cli/cmds/status.py:675:24 Incompatible parameter type [6]: Expected `Iterable[Tuple[str, str, str, str]]` for 1st positional only parameter to call `list.extend` but got `List[str]`.",
+    "message": " Expected `Iterable[Tuple[str, str, str, str]]` for 1st positional only parameter to call `list.extend` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 675,
+    "warning_line": "            rows.extend(format_tail_lines_for_kubernetes_pod(pod.containers, pod.name))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def format_kubernetes_pod_table(pods, verbose: int):\n    rows = [(\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")]\n    for pod in pods:\n",
+        "source_code_len": 158,
+        "target_code": "def format_kubernetes_pod_table(pods, verbose: int):\n    rows: List[Union[str, Sequence[str]]] = [\n        (\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")\n    ]\n    for pod in pods:\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -644,3 +644,5 @@\n def format_kubernetes_pod_table(pods, verbose: int):\n-    rows = [(\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")]\n+    rows: List[Union[str, Sequence[str]]] = [\n+        (\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")\n+    ]\n     for pod in pods:\n",
+        "source_code_with_indent": "<DED>def format_kubernetes_pod_table(pods, verbose: int):\n    <IND>rows = [(\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")]\n    for pod in pods:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def format_kubernetes_pod_table(pods, verbose: int):\n    <IND>rows: List[Union[str, Sequence[str]]] = [\n        (\"Pod ID\", \"Host deployed to\", \"Deployed at what localtime\", \"Health\")\n    ]\n    for pod in pods:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

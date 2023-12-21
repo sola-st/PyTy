@@ -1,0 +1,36 @@
+[
+  {
+    "project": "plasma-umass/scalene",
+    "commit": "024debbe9a387d859f4ee9ce0127687a64d2cd8a",
+    "filename": "scalene/leak_analysis.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plasma-umass-scalene/scalene/leak_analysis.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scalene/leak_analysis.py:98:74 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `one_sided_binomial_test_ge` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `one_sided_binomial_test_ge` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 98,
+    "warning_line": "            this_pvalue = one_sided_binomial_test_ge(int(np.nansum(vec)), vec[max_index], 1/(m-removed))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def outliers(\n    vec: List[float], alpha: float = 0.01, trials: int = 3000\n) -> List[Tuple[int, float]]:\n",
+        "source_code_len": 106,
+        "target_code": "def outliers(\n    vec: List[Any], alpha: float = 0.01, trials: int = 3000\n) -> List[Tuple[int, float]]:\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -79,3 +88,3 @@\n def outliers(\n-    vec: List[float], alpha: float = 0.01, trials: int = 3000\n+    vec: List[Any], alpha: float = 0.01, trials: int = 3000\n ) -> List[Tuple[int, float]]:\n",
+        "source_code_with_indent": "<DED>def outliers(\n    vec: List[float], alpha: float = 0.01, trials: int = 3000\n) -> List[Tuple[int, float]]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def outliers(\n    vec: List[Any], alpha: float = 0.01, trials: int = 3000\n) -> List[Tuple[int, float]]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

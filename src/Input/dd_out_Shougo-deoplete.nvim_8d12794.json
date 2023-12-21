@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Shougo/deoplete.nvim",
+    "commit": "8d12794def17889b9fd97ad872fe2c658e0770d9",
+    "filename": "rplugin/python3/deoplete/deoplete.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Shougo-deoplete.nvim/rplugin/python3/deoplete/deoplete.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rplugin/python3/deoplete/deoplete.py:32:28 Unbound name [10]: Name `typng` is used but not defined in the current scope.",
+    "message": " Name `typng` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 32,
+    "warning_line": "        self._prev_results: typng.Iterable[typing.Dict[int, Candidates]] = {}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._loaded_paths: typing.Set[str] = set()\n        self._prev_results: typng.Iterable[typing.Dict[int, Candidates]] = {}\n        self._prev_input = ''\n",
+        "source_code_len": 160,
+        "target_code": "        self._loaded_paths: typing.Set[str] = set()\n        self._prev_results: typing.Dict[int, Candidates] = {}\n        self._prev_input = ''\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -31,3 +31,3 @@\n         self._loaded_paths: typing.Set[str] = set()\n-        self._prev_results: typng.Iterable[typing.Dict[int, Candidates]] = {}\n+        self._prev_results: typing.Dict[int, Candidates] = {}\n         self._prev_input = ''\n",
+        "source_code_with_indent": "        self._loaded_paths: typing.Set[str] = set()\n        self._prev_results: typng.Iterable[typing.Dict[int, Candidates]] = {}\n        self._prev_input = ''\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._loaded_paths: typing.Set[str] = set()\n        self._prev_results: typing.Dict[int, Candidates] = {}\n        self._prev_input = ''\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                # Use previous result\n                results += copy.deepcopy(self._prev_results[cnt])\n            else:\n",
+        "source_code_len": 122,
+        "target_code": "                # Use previous result\n                results += copy.deepcopy(  # type: ignore\n                    self._prev_results[cnt])\n            else:\n",
+        "target_code_len": 159,
+        "diff_format": "@@ -152,3 +152,4 @@\n                 # Use previous result\n-                results += copy.deepcopy(self._prev_results[cnt])\n+                results += copy.deepcopy(  # type: ignore\n+                    self._prev_results[cnt])\n             else:\n",
+        "source_code_with_indent": "                # Use previous result\n                <IND>results += copy.deepcopy(self._prev_results[cnt])\n            <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                # Use previous result\n                <IND>results += copy.deepcopy(  # type: ignore\n                    self._prev_results[cnt])\n            <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

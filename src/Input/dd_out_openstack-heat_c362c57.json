@@ -1,0 +1,51 @@
+[
+  {
+    "project": "openstack/heat",
+    "commit": "c362c57854f7d841a72dd9de2f6ec3a9b9187f82",
+    "filename": "heat/engine/resources/openstack/heat/delay.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openstack-heat/heat/engine/resources/openstack/heat/delay.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "heat/engine/resources/openstack/heat/delay.py:54:59 Inconsistent override [15]: `ACTIONS` overrides attribute defined in `heat.engine.status.ResourceStatus` inconsistently. Type `str` is not a subtype of the overridden attribute `typing.Tuple[str, str, str, str, str, str, str, str, str, str]`.",
+    "message": " `ACTIONS` overrides attribute defined in `heat.engine.status.ResourceStatus` inconsistently. Type `str` is not a subtype of the overridden attribute `typing.Tuple[str, str, str, str, str, str, str, str, str, str]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 54,
+    "warning_line": "        MIN_WAIT_SECS, MAX_JITTER, JITTER_MULTIPLIER_SECS, ACTIONS,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    PROPERTIES = (\n        MIN_WAIT_SECS, MAX_JITTER, JITTER_MULTIPLIER_SECS, ACTIONS,\n    ) = (\n",
+        "source_code_len": 97,
+        "target_code": "    PROPERTIES = (\n        MIN_WAIT_SECS, MAX_JITTER, JITTER_MULTIPLIER_SECS, DELAY_ACTIONS,\n    ) = (\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -53,3 +53,3 @@\n     PROPERTIES = (\n-        MIN_WAIT_SECS, MAX_JITTER, JITTER_MULTIPLIER_SECS, ACTIONS,\n+        MIN_WAIT_SECS, MAX_JITTER, JITTER_MULTIPLIER_SECS, DELAY_ACTIONS,\n     ) = (\n",
+        "source_code_with_indent": "    PROPERTIES = (\n        MIN_WAIT_SECS, MAX_JITTER, JITTER_MULTIPLIER_SECS, ACTIONS,\n    ) = (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    PROPERTIES = (\n        MIN_WAIT_SECS, MAX_JITTER, JITTER_MULTIPLIER_SECS, DELAY_ACTIONS,\n    ) = (\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ),\n        ACTIONS: properties.Schema(\n            properties.Schema.LIST,\n",
+        "source_code_len": 83,
+        "target_code": "        ),\n        DELAY_ACTIONS: properties.Schema(\n            properties.Schema.LIST,\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -86,3 +86,3 @@\n         ),\n-        ACTIONS: properties.Schema(\n+        DELAY_ACTIONS: properties.Schema(\n             properties.Schema.LIST,\n",
+        "source_code_with_indent": "        ),\n        ACTIONS: properties.Schema(\n            properties.Schema.LIST,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ),\n        DELAY_ACTIONS: properties.Schema(\n            properties.Schema.LIST,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

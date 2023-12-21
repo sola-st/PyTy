@@ -1,0 +1,36 @@
+[
+  {
+    "project": "karlicoss/promnesia",
+    "commit": "622fb6c5594c811ea3756e9bd92491231cef24fa",
+    "filename": "src/promnesia/indexers/custom.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlicoss-promnesia/src/promnesia/indexers/custom.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/promnesia/indexers/custom.py:40:20 Incompatible variable type [9]: lineno is declared to have type `Optional[int]` but is used as type `str`.",
+    "message": " lineno is declared to have type `Optional[int]` but is used as type `str`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 40,
+    "warning_line": "            [fname, lineno] = parts[0].rsplit(':', maxsplit=1)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else:\n            [fname, lineno] = parts[0].rsplit(':', maxsplit=1)\n            lineno = int(lineno) # type: ignore\n            url = split_by[1:] + parts[1]\n",
+        "source_code_len": 167,
+        "target_code": "        else:\n            [fname, linenos] = parts[0].rsplit(':', maxsplit=1)\n            lineno = int(linenos)\n            url = split_by[1:] + parts[1]\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -39,4 +39,4 @@\n         else:\n-            [fname, lineno] = parts[0].rsplit(':', maxsplit=1)\n-            lineno = int(lineno) # type: ignore\n+            [fname, linenos] = parts[0].rsplit(':', maxsplit=1)\n+            lineno = int(linenos)\n             url = split_by[1:] + parts[1]\n",
+        "source_code_with_indent": "        <DED>else:\n            <IND>[fname, lineno] = parts[0].rsplit(':', maxsplit=1)\n            lineno = int(lineno) # type: ignore\n            url = split_by[1:] + parts[1]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>else:\n            <IND>[fname, linenos] = parts[0].rsplit(':', maxsplit=1)\n            lineno = int(linenos)\n            url = split_by[1:] + parts[1]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

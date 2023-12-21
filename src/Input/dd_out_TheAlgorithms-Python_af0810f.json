@@ -1,0 +1,70 @@
+[
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "af0810fca133dde19b39fc7735572b6989ea269b",
+    "filename": "maths/average_median.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/maths/average_median.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maths/average_median.py:22:25 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]` for 1st positional only parameter to call `sorted` but got `Union[float, int]`.",
+    "message": " Expected `typing.Iterable[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]` for 1st positional only parameter to call `sorted` but got `Union[float, int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 22,
+    "warning_line": "    sorted_list = sorted(nums)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef median(nums: Union[int, float]) -> Union[int, float]:\n    \"\"\"\n",
+        "source_code_len": 67,
+        "target_code": "\ndef median(nums: list) -> Union[int, float]:\n    \"\"\"\n",
+        "target_code_len": 54,
+        "diff_format": "@@ -3,3 +3,3 @@\n \n-def median(nums: Union[int, float]) -> Union[int, float]:\n+def median(nums: list) -> Union[int, float]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef median(nums: Union[int, float]) -> Union[int, float]:\n    <IND>",
+        "target_code_with_indent": "\ndef median(nums: list) -> Union[int, float]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "af0810fca133dde19b39fc7735572b6989ea269b",
+    "filename": "maths/series/harmonic_series.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/maths/series/harmonic_series.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maths/series/harmonic_series.py:36:8 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got `str`.",
+    "message": " Expected `typing.List[typing.Any]` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 36,
+    "warning_line": "        return n_term",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if n_term == \"\":\n        return n_term\n    series = []\n    for temp in range(int(n_term)):\n",
+        "source_code_len": 95,
+        "target_code": "    if n_term == \"\":\n        return []\n    series: list = []\n    for temp in range(int(n_term)):\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -35,4 +35,4 @@\n     if n_term == \"\":\n-        return n_term\n-    series = []\n+        return []\n+    series: list = []\n     for temp in range(int(n_term)):\n",
+        "source_code_with_indent": "    if n_term == \"\":\n        <IND>return n_term\n    <DED>series = []\n    for temp in range(int(n_term)):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if n_term == \"\":\n        <IND>return []\n    <DED>series: list = []\n    for temp in range(int(n_term)):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

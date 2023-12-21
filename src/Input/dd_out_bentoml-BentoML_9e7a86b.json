@@ -1,0 +1,53 @@
+[
+  {
+    "project": "bentoml/BentoML",
+    "commit": "9e7a86be53833f3f36dda09dbfeba114b4977fcd",
+    "filename": "bentoml/service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bentoml-BentoML/bentoml/service.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bentoml/service.py:259:49 Incompatible parameter type [6]: Expected `typing.Tuple[str]` for 1st positional only parameter to call `bentoml.adapters.base_input.BaseInputAdapter.from_cli` but got `Sequence[str]`.",
+    "message": " Expected `typing.Tuple[str]` for 1st positional only parameter to call `bentoml.adapters.base_input.BaseInputAdapter.from_cli` but got `Sequence[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 259,
+    "warning_line": "        tasks_iter = self.input_adapter.from_cli(cli_args)"
+  },
+  {
+    "project": "bentoml/BentoML",
+    "commit": "9e7a86be53833f3f36dda09dbfeba114b4977fcd",
+    "filename": "bentoml/service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bentoml-BentoML/bentoml/service.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bentoml/service.py:588:4 Incompatible attribute type [8]: Attribute `_inference_apis` declared in class `BentoService` has type `InferenceAPI` but is used as type `List[Variable[_T]]`.",
+    "message": " Attribute `_inference_apis` declared in class `BentoService` has type `InferenceAPI` but is used as type `List[Variable[_T]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 588,
+    "warning_line": "    _inference_apis: InferenceAPI = []",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # List of inference APIs that this BentoService provides\n    _inference_apis: InferenceAPI = []\n\n",
+        "source_code_len": 101,
+        "target_code": "    # List of inference APIs that this BentoService provides\n    _inference_apis: List[InferenceAPI] = []\n\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -587,3 +587,3 @@\n     # List of inference APIs that this BentoService provides\n-    _inference_apis: InferenceAPI = []\n+    _inference_apis: List[InferenceAPI] = []\n \n",
+        "source_code_with_indent": "    # List of inference APIs that this BentoService provides\n    _inference_apis: InferenceAPI = []\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # List of inference APIs that this BentoService provides\n    _inference_apis: List[InferenceAPI] = []\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

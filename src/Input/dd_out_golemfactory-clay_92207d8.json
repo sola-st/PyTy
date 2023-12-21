@@ -1,0 +1,36 @@
+[
+  {
+    "project": "golemfactory/clay",
+    "commit": "92207d8ccf905d14971aae87de3faf49c14e8e5e",
+    "filename": "apps/core/task/coretask.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/golemfactory-clay/apps/core/task/coretask.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "apps/core/task/coretask.py:590:4 Inconsistent override [14]: `apps.core.task.coretask.CoreTaskBuilder.build_definition` overrides method defined in `TaskBuilder` inconsistently. Parameter of type `CoreTaskTypeInfo` is not a supertype of the overridden parameter `TaskTypeInfo`.",
+    "message": " `apps.core.task.coretask.CoreTaskBuilder.build_definition` overrides method defined in `TaskBuilder` inconsistently. Parameter of type `CoreTaskTypeInfo` is not a supertype of the overridden parameter `TaskTypeInfo`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 590,
+    "warning_line": "    def build_definition(cls,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    @classmethod\n    def build_definition(cls,\n                         task_type: CoreTaskTypeInfo, # type: ignore\n                         dictionary: Dict[str, Any],\n",
+        "source_code_len": 169,
+        "target_code": "    @classmethod\n    def build_definition(cls, # type: ignore\n                         task_type: CoreTaskTypeInfo,\n                         dictionary: Dict[str, Any],\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -589,4 +589,4 @@\n     @classmethod\n-    def build_definition(cls,\n-                         task_type: CoreTaskTypeInfo, # type: ignore\n+    def build_definition(cls, # type: ignore\n+                         task_type: CoreTaskTypeInfo,\n                          dictionary: Dict[str, Any],\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def build_definition(cls,\n                         task_type: CoreTaskTypeInfo, # type: ignore\n                         dictionary: Dict[str, Any],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def build_definition(cls, # type: ignore\n                         task_type: CoreTaskTypeInfo,\n                         dictionary: Dict[str, Any],\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "willmcgugan/rich",
+    "commit": "e3f508022633e5be03d5aa9fa3248cc050c66210",
+    "filename": "rich/progress.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/progress.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/progress.py:160:12 Incompatible return type [7]: Expected `Iterable[Variable[ProgressType]]` but got `typing.Generator[Union[Iterable[Variable[ProgressType]], Sequence[Variable[ProgressType]]], None, None]`.",
+    "message": " Expected `Iterable[Variable[ProgressType]]` but got `typing.Generator[Union[Iterable[Variable[ProgressType]], Sequence[Variable[ProgressType]]], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 160,
+    "warning_line": "            yield from values",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def iter_track(\n    values: ProgressType, update_period: float = 0.05\n) -> Iterable[List[ProgressType]]:\n",
+        "source_code_len": 105,
+        "target_code": "def iter_track(\n    values: Iterable[ProgressType], update_period: float = 0.05\n) -> Iterable[List[ProgressType]]:\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -56,3 +56,3 @@\n def iter_track(\n-    values: ProgressType, update_period: float = 0.05\n+    values: Iterable[ProgressType], update_period: float = 0.05\n ) -> Iterable[List[ProgressType]]:\n",
+        "source_code_with_indent": "def iter_track(\n    values: ProgressType, update_period: float = 0.05\n) -> Iterable[List[ProgressType]]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def iter_track(\n    values: Iterable[ProgressType], update_period: float = 0.05\n) -> Iterable[List[ProgressType]]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "willmcgugan/rich",
+    "commit": "e3f508022633e5be03d5aa9fa3248cc050c66210",
+    "filename": "rich/progress.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/progress.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/progress.py:684:16 Incompatible return type [7]: Expected `Iterable[Variable[ProgressType]]` but got `typing.Generator[Union[Iterable[Variable[ProgressType]], Sequence[Variable[ProgressType]]], None, None]`.",
+    "message": " Expected `Iterable[Variable[ProgressType]]` but got `typing.Generator[Union[Iterable[Variable[ProgressType]], Sequence[Variable[ProgressType]]], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 684,
+    "warning_line": "                yield from values",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def iter_track(\n    values: ProgressType, update_period: float = 0.05\n) -> Iterable[List[ProgressType]]:\n",
+        "source_code_len": 105,
+        "target_code": "def iter_track(\n    values: Iterable[ProgressType], update_period: float = 0.05\n) -> Iterable[List[ProgressType]]:\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -56,3 +56,3 @@\n def iter_track(\n-    values: ProgressType, update_period: float = 0.05\n+    values: Iterable[ProgressType], update_period: float = 0.05\n ) -> Iterable[List[ProgressType]]:\n",
+        "source_code_with_indent": "def iter_track(\n    values: ProgressType, update_period: float = 0.05\n) -> Iterable[List[ProgressType]]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def iter_track(\n    values: Iterable[ProgressType], update_period: float = 0.05\n) -> Iterable[List[ProgressType]]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

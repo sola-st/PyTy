@@ -1,0 +1,51 @@
+[
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "1f01db8b303e647b102f48c36e91ddb17784414f",
+    "filename": "pytorch_lightning/utilities/argparse.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/utilities/argparse.py",
+    "file_hunks_size": 15,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/utilities/argparse.py:247:4 Incompatible return type [7]: Expected `ArgumentParser` but got `Union[ArgumentParser, _ArgumentGroup]`.",
+    "message": " Expected `ArgumentParser` but got `Union[ArgumentParser, _ArgumentGroup]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 247,
+    "warning_line": "    return parser",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os\nfrom argparse import _ArgumentGroup, ArgumentParser, Namespace\nfrom contextlib import suppress\nfrom typing import Any, Dict, List, Tuple, Union\n\nfrom pytorch_lightning.utilities.parsing import str_to_bool, str_to_bool_or_int, str_to_bool_or_str\n",
+        "source_code_len": 255,
+        "target_code": "import os\nfrom abc import ABC\nfrom argparse import _ArgumentGroup, ArgumentParser, Namespace\nfrom contextlib import suppress\nfrom typing import Any, Callable, Dict, List, Tuple, Type, Union\n\nimport pytorch_lightning as pl\nfrom pytorch_lightning.utilities.parsing import str_to_bool, str_to_bool_or_int, str_to_bool_or_str\n",
+        "target_code_len": 322,
+        "diff_format": "@@ -15,6 +15,8 @@\n import os\n+from abc import ABC\n from argparse import _ArgumentGroup, ArgumentParser, Namespace\n from contextlib import suppress\n-from typing import Any, Dict, List, Tuple, Union\n-\n+from typing import Any, Callable, Dict, List, Tuple, Type, Union\n+\n+import pytorch_lightning as pl\n from pytorch_lightning.utilities.parsing import str_to_bool, str_to_bool_or_int, str_to_bool_or_str\n",
+        "source_code_with_indent": "import os\nfrom argparse import _ArgumentGroup, ArgumentParser, Namespace\nfrom contextlib import suppress\nfrom typing import Any, Dict, List, Tuple, Union\n\nfrom pytorch_lightning.utilities.parsing import str_to_bool, str_to_bool_or_int, str_to_bool_or_str\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nfrom abc import ABC\nfrom argparse import _ArgumentGroup, ArgumentParser, Namespace\nfrom contextlib import suppress\nfrom typing import Any, Callable, Dict, List, Tuple, Type, Union\n\nimport pytorch_lightning as pl\nfrom pytorch_lightning.utilities.parsing import str_to_bool, str_to_bool_or_int, str_to_bool_or_str\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef add_argparse_args(cls, parent_parser: ArgumentParser, *, use_argument_group=True) -> ArgumentParser:\n    r\"\"\"Extends existing argparse by default attributes for ``cls``.\n",
+        "source_code_len": 175,
+        "target_code": "\ndef add_argparse_args(\n    cls: Type[\"pl.Trainer\"], parent_parser: ArgumentParser, *, use_argument_group: bool = True\n) -> Union[_ArgumentGroup, ArgumentParser]:\n    r\"\"\"Extends existing argparse by default attributes for ``cls``.\n",
+        "target_code_len": 232,
+        "diff_format": "@@ -145,3 +158,5 @@\n \n-def add_argparse_args(cls, parent_parser: ArgumentParser, *, use_argument_group=True) -> ArgumentParser:\n+def add_argparse_args(\n+    cls: Type[\"pl.Trainer\"], parent_parser: ArgumentParser, *, use_argument_group: bool = True\n+) -> Union[_ArgumentGroup, ArgumentParser]:\n     r\"\"\"Extends existing argparse by default attributes for ``cls``.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def add_argparse_args(cls, parent_parser: ArgumentParser, *, use_argument_group=True) -> ArgumentParser:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def add_argparse_args(\n    cls: Type[\"pl.Trainer\"], parent_parser: ArgumentParser, *, use_argument_group: bool = True\n) -> Union[_ArgumentGroup, ArgumentParser]:\n    <IND>"
+      }
+    ]
+  }
+]

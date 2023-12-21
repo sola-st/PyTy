@@ -1,0 +1,51 @@
+[
+  {
+    "project": "commaai/openpilot",
+    "commit": "3d08dcc3b27936cb14c0eae63605be9a6c077380",
+    "filename": "selfdrive/test/test_car_models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/commaai-openpilot/selfdrive/test/test_car_models.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "selfdrive/test/test_car_models.py:439:34 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `os._Environ.__setitem__` but got `typing.Union[bool, str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `os._Environ.__setitem__` but got `typing.Union[bool, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 439,
+    "warning_line": "      os.environ['FINGERPRINT'] = checks['carFingerprint']",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#!/usr/bin/env python3\nimport time\nimport os\nimport sys\nimport signal\nimport subprocess\nimport requests\nfrom cereal import car\n\nimport selfdrive.manager as manager\nimport cereal.messaging as messaging\nfrom common.params import Params\nfrom common.basedir import BASEDIR\nfrom selfdrive.car.fingerprints import all_known_cars\nfrom selfdrive.car.honda.values import CAR as HONDA\nfrom selfdrive.car.toyota.values import CAR as TOYOTA\nfrom selfdrive.car.gm.values import CAR as GM\nfrom selfdrive.car.ford.values import CAR as FORD\nfrom selfdrive.car.hyundai.values import CAR as HYUNDAI\nfrom selfdrive.car.chrysler.values import CAR as CHRYSLER\nfrom selfdrive.car.subaru.values import CAR as SUBARU\nfrom selfdrive.car.volkswagen.values import CAR as VOLKSWAGEN\nfrom selfdrive.car.nissan.values import CAR as NISSAN\n\n\n",
+        "source_code_len": 811,
+        "target_code": "#!/usr/bin/env python3\nimport os\nimport signal\nimport subprocess\nimport sys\nimport time\nfrom typing import List, cast\n\nimport requests\n\nimport cereal.messaging as messaging\nimport selfdrive.manager as manager\nfrom cereal import car\nfrom common.basedir import BASEDIR\nfrom common.params import Params\nfrom selfdrive.car.chrysler.values import CAR as CHRYSLER\nfrom selfdrive.car.fingerprints import all_known_cars\nfrom selfdrive.car.ford.values import CAR as FORD\nfrom selfdrive.car.gm.values import CAR as GM\nfrom selfdrive.car.honda.values import CAR as HONDA\nfrom selfdrive.car.hyundai.values import CAR as HYUNDAI\nfrom selfdrive.car.nissan.values import CAR as NISSAN\nfrom selfdrive.car.subaru.values import CAR as SUBARU\nfrom selfdrive.car.toyota.values import CAR as TOYOTA\nfrom selfdrive.car.volkswagen.values import CAR as VOLKSWAGEN\n\n",
+        "target_code_len": 841,
+        "diff_format": "@@ -1,25 +1,26 @@\n #!/usr/bin/env python3\n-import time\n import os\n-import sys\n import signal\n import subprocess\n+import sys\n+import time\n+from typing import List, cast\n+\n import requests\n+\n+import cereal.messaging as messaging\n+import selfdrive.manager as manager\n from cereal import car\n-\n-import selfdrive.manager as manager\n-import cereal.messaging as messaging\n+from common.basedir import BASEDIR\n from common.params import Params\n-from common.basedir import BASEDIR\n+from selfdrive.car.chrysler.values import CAR as CHRYSLER\n from selfdrive.car.fingerprints import all_known_cars\n+from selfdrive.car.ford.values import CAR as FORD\n+from selfdrive.car.gm.values import CAR as GM\n from selfdrive.car.honda.values import CAR as HONDA\n+from selfdrive.car.hyundai.values import CAR as HYUNDAI\n+from selfdrive.car.nissan.values import CAR as NISSAN\n+from selfdrive.car.subaru.values import CAR as SUBARU\n from selfdrive.car.toyota.values import CAR as TOYOTA\n-from selfdrive.car.gm.values import CAR as GM\n-from selfdrive.car.ford.values import CAR as FORD\n-from selfdrive.car.hyundai.values import CAR as HYUNDAI\n-from selfdrive.car.chrysler.values import CAR as CHRYSLER\n-from selfdrive.car.subaru.values import CAR as SUBARU\n from selfdrive.car.volkswagen.values import CAR as VOLKSWAGEN\n-from selfdrive.car.nissan.values import CAR as NISSAN\n-\n \n",
+        "source_code_with_indent": "#!/usr/bin/env python3\nimport time\nimport os\nimport sys\nimport signal\nimport subprocess\nimport requests\nfrom cereal import car\n\nimport selfdrive.manager as manager\nimport cereal.messaging as messaging\nfrom common.params import Params\nfrom common.basedir import BASEDIR\nfrom selfdrive.car.fingerprints import all_known_cars\nfrom selfdrive.car.honda.values import CAR as HONDA\nfrom selfdrive.car.toyota.values import CAR as TOYOTA\nfrom selfdrive.car.gm.values import CAR as GM\nfrom selfdrive.car.ford.values import CAR as FORD\nfrom selfdrive.car.hyundai.values import CAR as HYUNDAI\nfrom selfdrive.car.chrysler.values import CAR as CHRYSLER\nfrom selfdrive.car.subaru.values import CAR as SUBARU\nfrom selfdrive.car.volkswagen.values import CAR as VOLKSWAGEN\nfrom selfdrive.car.nissan.values import CAR as NISSAN\n\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#!/usr/bin/env python3\nimport os\nimport signal\nimport subprocess\nimport sys\nimport time\nfrom typing import List, cast\n\nimport requests\n\nimport cereal.messaging as messaging\nimport selfdrive.manager as manager\nfrom cereal import car\nfrom common.basedir import BASEDIR\nfrom common.params import Params\nfrom selfdrive.car.chrysler.values import CAR as CHRYSLER\nfrom selfdrive.car.fingerprints import all_known_cars\nfrom selfdrive.car.ford.values import CAR as FORD\nfrom selfdrive.car.gm.values import CAR as GM\nfrom selfdrive.car.honda.values import CAR as HONDA\nfrom selfdrive.car.hyundai.values import CAR as HYUNDAI\nfrom selfdrive.car.nissan.values import CAR as NISSAN\nfrom selfdrive.car.subaru.values import CAR as SUBARU\nfrom selfdrive.car.toyota.values import CAR as TOYOTA\nfrom selfdrive.car.volkswagen.values import CAR as VOLKSWAGEN\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if checks.get('fingerprintSource', None) == 'fixed':\n      os.environ['FINGERPRINT'] = checks['carFingerprint']\n    else:\n",
+        "source_code_len": 126,
+        "target_code": "    if checks.get('fingerprintSource', None) == 'fixed':\n      os.environ['FINGERPRINT'] = cast(str, checks['carFingerprint'])\n    else:\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -438,3 +439,3 @@\n     if checks.get('fingerprintSource', None) == 'fixed':\n-      os.environ['FINGERPRINT'] = checks['carFingerprint']\n+      os.environ['FINGERPRINT'] = cast(str, checks['carFingerprint'])\n     else:\n",
+        "source_code_with_indent": "    if checks.get('fingerprintSource', None) == 'fixed':\n      <IND>os.environ['FINGERPRINT'] = checks['carFingerprint']\n    <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if checks.get('fingerprintSource', None) == 'fixed':\n      <IND>os.environ['FINGERPRINT'] = cast(str, checks['carFingerprint'])\n    <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

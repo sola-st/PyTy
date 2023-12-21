@@ -1,0 +1,70 @@
+[
+  {
+    "project": "se2p/pynguin",
+    "commit": "045a41fb934f12fb07048b6819698459e320249d",
+    "filename": "pynguin/analyses/controlflow/controldependencegraph.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/se2p-pynguin/pynguin/analyses/controlflow/controldependencegraph.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pynguin/analyses/controlflow/controldependencegraph.py:120:73 Invalid type [31]: Expression `True` is not a valid type.",
+    "message": " Expression `True` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 120,
+    "warning_line": "    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> True:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> True:\n        return self._is_control_dependent_on_root(node, set())\n\n    def _is_control_dependent_on_root(self, node: pg.ProgramGraphNode, visited: Set) -> True:\n        if (self.entry_node, node) in self.graph.edges:\n",
+        "source_code_len": 294,
+        "target_code": "\n    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> bool:\n        \"\"\"Does this node directly depend on entering the code object?\"\"\"\n        return self._is_control_dependent_on_root(node, set())\n\n    def _is_control_dependent_on_root(\n        self, node: pg.ProgramGraphNode, visited: Set[pg.ProgramGraphNode]\n    ) -> bool:\n        if (self.entry_node, node) in self.graph.edges:\n",
+        "target_code_len": 403,
+        "diff_format": "@@ -119,6 +119,9 @@\n \n-    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> True:\n+    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> bool:\n+        \"\"\"Does this node directly depend on entering the code object?\"\"\"\n         return self._is_control_dependent_on_root(node, set())\n \n-    def _is_control_dependent_on_root(self, node: pg.ProgramGraphNode, visited: Set) -> True:\n+    def _is_control_dependent_on_root(\n+        self, node: pg.ProgramGraphNode, visited: Set[pg.ProgramGraphNode]\n+    ) -> bool:\n         if (self.entry_node, node) in self.graph.edges:\n",
+        "source_code_with_indent": "\n    <DED>def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> True:\n        <IND>return self._is_control_dependent_on_root(node, set())\n\n    <DED>def _is_control_dependent_on_root(self, node: pg.ProgramGraphNode, visited: Set) -> True:\n        <IND>if (self.entry_node, node) in self.graph.edges:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> bool:\n        <IND>\"\"\"Does this node directly depend on entering the code object?\"\"\"\n        return self._is_control_dependent_on_root(node, set())\n\n    <DED>def _is_control_dependent_on_root(\n        self, node: pg.ProgramGraphNode, visited: Set[pg.ProgramGraphNode]\n    ) -> bool:\n        <IND>if (self.entry_node, node) in self.graph.edges:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "se2p/pynguin",
+    "commit": "045a41fb934f12fb07048b6819698459e320249d",
+    "filename": "pynguin/analyses/controlflow/controldependencegraph.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/se2p-pynguin/pynguin/analyses/controlflow/controldependencegraph.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pynguin/analyses/controlflow/controldependencegraph.py:123:88 Invalid type [31]: Expression `True` is not a valid type.",
+    "message": " Expression `True` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 123,
+    "warning_line": "    def _is_control_dependent_on_root(self, node: pg.ProgramGraphNode, visited: Set) -> True:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> True:\n        return self._is_control_dependent_on_root(node, set())\n\n    def _is_control_dependent_on_root(self, node: pg.ProgramGraphNode, visited: Set) -> True:\n        if (self.entry_node, node) in self.graph.edges:\n",
+        "source_code_len": 294,
+        "target_code": "\n    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> bool:\n        \"\"\"Does this node directly depend on entering the code object?\"\"\"\n        return self._is_control_dependent_on_root(node, set())\n\n    def _is_control_dependent_on_root(\n        self, node: pg.ProgramGraphNode, visited: Set[pg.ProgramGraphNode]\n    ) -> bool:\n        if (self.entry_node, node) in self.graph.edges:\n",
+        "target_code_len": 403,
+        "diff_format": "@@ -119,6 +119,9 @@\n \n-    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> True:\n+    def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> bool:\n+        \"\"\"Does this node directly depend on entering the code object?\"\"\"\n         return self._is_control_dependent_on_root(node, set())\n \n-    def _is_control_dependent_on_root(self, node: pg.ProgramGraphNode, visited: Set) -> True:\n+    def _is_control_dependent_on_root(\n+        self, node: pg.ProgramGraphNode, visited: Set[pg.ProgramGraphNode]\n+    ) -> bool:\n         if (self.entry_node, node) in self.graph.edges:\n",
+        "source_code_with_indent": "\n    <DED>def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> True:\n        <IND>return self._is_control_dependent_on_root(node, set())\n\n    <DED>def _is_control_dependent_on_root(self, node: pg.ProgramGraphNode, visited: Set) -> True:\n        <IND>if (self.entry_node, node) in self.graph.edges:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def is_control_dependent_on_root(self, node: pg.ProgramGraphNode) -> bool:\n        <IND>\"\"\"Does this node directly depend on entering the code object?\"\"\"\n        return self._is_control_dependent_on_root(node, set())\n\n    <DED>def _is_control_dependent_on_root(\n        self, node: pg.ProgramGraphNode, visited: Set[pg.ProgramGraphNode]\n    ) -> bool:\n        <IND>if (self.entry_node, node) in self.graph.edges:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

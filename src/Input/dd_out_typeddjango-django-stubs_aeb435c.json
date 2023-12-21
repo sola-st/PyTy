@@ -1,0 +1,36 @@
+[
+  {
+    "project": "typeddjango/django-stubs",
+    "commit": "aeb435c8b3c9c248fe0ddee7caead8f5c6b0a35c",
+    "filename": "mypy_django_plugin/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/typeddjango-django-stubs/mypy_django_plugin/main.py",
+    "file_hunks_size": 17,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy_django_plugin/main.py:298:36 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `list.append` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `list.append` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 298,
+    "warning_line": "            settings_modules.append(self.django_settings_module)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n        settings_modules = ['django.conf.global_settings']\n        if self.django_settings_module:\n            settings_modules.append(self.django_settings_module)\n\n        auto_imports = ['mypy_extensions']\n        auto_imports.extend(settings_modules)\n\n        monkeypatch.add_modules_as_a_source_seed_files(auto_imports)\n        monkeypatch.inject_modules_as_dependencies_for_django_conf_settings(settings_modules)\n\n    def _get_current_model_bases(self) -> Dict[str, int]:\n",
+        "source_code_len": 478,
+        "target_code": "\n    def _get_current_model_bases(self) -> Dict[str, int]:\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -295,12 +138,2 @@\n \n-        settings_modules = ['django.conf.global_settings']\n-        if self.django_settings_module:\n-            settings_modules.append(self.django_settings_module)\n-\n-        auto_imports = ['mypy_extensions']\n-        auto_imports.extend(settings_modules)\n-\n-        monkeypatch.add_modules_as_a_source_seed_files(auto_imports)\n-        monkeypatch.inject_modules_as_dependencies_for_django_conf_settings(settings_modules)\n-\n     def _get_current_model_bases(self) -> Dict[str, int]:\n",
+        "source_code_with_indent": "\n        <DED>settings_modules = ['django.conf.global_settings']\n        if self.django_settings_module:\n            <IND>settings_modules.append(self.django_settings_module)\n\n        <DED>auto_imports = ['mypy_extensions']\n        auto_imports.extend(settings_modules)\n\n        monkeypatch.add_modules_as_a_source_seed_files(auto_imports)\n        monkeypatch.inject_modules_as_dependencies_for_django_conf_settings(settings_modules)\n\n    <DED>def _get_current_model_bases(self) -> Dict[str, int]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def _get_current_model_bases(self) -> Dict[str, int]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "d29cd776ecf8ed987f55a4cfc22898ba1281fe4a",
+    "filename": "volatility/framework/interfaces/layers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility/framework/interfaces/layers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility/framework/interfaces/layers.py:253:16 Incompatible variable type [9]: progress is declared to have type `DummyProgress` but is used as type `multiprocessing.managers.ValueProxy[int]`.",
+    "message": " progress is declared to have type `DummyProgress` but is used as type `multiprocessing.managers.ValueProxy[int]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 253,
+    "warning_line": "                progress = multiprocessing.Manager().Value(\"Q\", 0)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from abc import ABCMeta, abstractmethod\nfrom typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Tuple, Union\n",
+        "source_code_len": 128,
+        "target_code": "from abc import ABCMeta, abstractmethod\nfrom multiprocessing import managers\nfrom typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Tuple, Union\n",
+        "target_code_len": 165,
+        "diff_format": "@@ -16,2 +16,3 @@\n from abc import ABCMeta, abstractmethod\n+from multiprocessing import managers\n from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Tuple, Union\n",
+        "source_code_with_indent": "from abc import ABCMeta, abstractmethod\nfrom typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Tuple, Union\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from abc import ABCMeta, abstractmethod\nfrom multiprocessing import managers\nfrom typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Tuple, Union\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nProgressValue = Union['DummyProgress', multiprocessing.Value]\nIteratorValue = Tuple[List[Tuple[str, int, int]], int]\n",
+        "source_code_len": 118,
+        "target_code": "\nProgressValue = Union['DummyProgress', managers.ValueProxy]\nIteratorValue = Tuple[List[Tuple[str, int, int]], int]\n",
+        "target_code_len": 116,
+        "diff_format": "@@ -31,3 +32,3 @@\n \n-ProgressValue = Union['DummyProgress', multiprocessing.Value]\n+ProgressValue = Union['DummyProgress', managers.ValueProxy]\n IteratorValue = Tuple[List[Tuple[str, int, int]], int]\n",
+        "source_code_with_indent": "\n<DED>ProgressValue = Union['DummyProgress', multiprocessing.Value]\nIteratorValue = Tuple[List[Tuple[str, int, int]], int]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>ProgressValue = Union['DummyProgress', managers.ValueProxy]\nIteratorValue = Tuple[List[Tuple[str, int, int]], int]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

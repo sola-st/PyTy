@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Yelp/paasta",
+    "commit": "1412e3eb50e5c27f3aca2fcfc63ca583c5c203a7",
+    "filename": "paasta_tools/check_services_replication_tools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/check_services_replication_tools.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/check_services_replication_tools.py:157:4 Incompatible return type [7]: Expected `float` but got `Tuple[int, int]`.",
+    "message": " Expected `float` but got `Tuple[int, int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 157,
+    "warning_line": "    return num_under_replicated, len(replication_statuses)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    all_tasks_or_pods: Sequence[Union[MarathonTask, V1Pod]],\n) -> float:\n    service_instances_set = set(service_instances)\n",
+        "source_code_len": 124,
+        "target_code": "    all_tasks_or_pods: Sequence[Union[MarathonTask, V1Pod]],\n) -> Tuple[int, int]:\n    service_instances_set = set(service_instances)\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -123,3 +123,3 @@\n     all_tasks_or_pods: Sequence[Union[MarathonTask, V1Pod]],\n-) -> float:\n+) -> Tuple[int, int]:\n     service_instances_set = set(service_instances)\n",
+        "source_code_with_indent": "    all_tasks_or_pods: Sequence[Union[MarathonTask, V1Pod]],\n) -> float:\n    <IND>service_instances_set = set(service_instances)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    all_tasks_or_pods: Sequence[Union[MarathonTask, V1Pod]],\n) -> Tuple[int, int]:\n    <IND>service_instances_set = set(service_instances)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

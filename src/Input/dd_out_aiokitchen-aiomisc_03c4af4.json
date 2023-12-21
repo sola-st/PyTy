@@ -1,0 +1,36 @@
+[
+  {
+    "project": "aiokitchen/aiomisc",
+    "commit": "03c4af4e261e9cc24d504b9f46dd867eb10aea96",
+    "filename": "aiomisc/service/sdwatchdog.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aiokitchen-aiomisc/aiomisc/service/sdwatchdog.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiomisc/service/sdwatchdog.py:81:28 Incompatible parameter type [6]: Expected `typing.Union[bytes, str, typing.Tuple[typing.Any, ...]]` for 1st positional only parameter to call `_socket.socket.connect` but got `Optional[str]`.",
+    "message": " Expected `typing.Union[bytes, str, typing.Tuple[typing.Any, ...]]` for 1st positional only parameter to call `_socket.socket.connect` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 81,
+    "warning_line": "        self.socket.connect(self._get_socket_addr())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)\n        self.socket.connect(self._get_socket_addr())\n        self.socket.setblocking(False)\n",
+        "source_code_len": 163,
+        "target_code": "        self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)\n        self.socket.connect(addr)\n        self.socket.setblocking(False)\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -80,3 +80,3 @@\n         self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)\n-        self.socket.connect(self._get_socket_addr())\n+        self.socket.connect(addr)\n         self.socket.setblocking(False)\n",
+        "source_code_with_indent": "        <DED>self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)\n        self.socket.connect(self._get_socket_addr())\n        self.socket.setblocking(False)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)\n        self.socket.connect(addr)\n        self.socket.setblocking(False)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

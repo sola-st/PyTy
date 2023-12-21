@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pschanely/CrossHair",
+    "commit": "ce4dfa9f67788c9d45a2e4dd003e77ea94669c60",
+    "filename": "crosshair/examples/immutable_class.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pschanely-CrossHair/crosshair/examples/immutable_class.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "crosshair/examples/immutable_class.py:13:8 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+    "message": " Expected `int` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 13,
+    "warning_line": "        self.count += 1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    count: int\n    def buy_one_more(self) -> int:\n        self.count += 1\n",
+        "source_code_len": 74,
+        "target_code": "    count: int\n    def buy_one_more(self) -> None:\n        self.count += 1\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -11,3 +12,3 @@\n     count: int\n-    def buy_one_more(self) -> int:\n+    def buy_one_more(self) -> None:\n         self.count += 1\n",
+        "source_code_with_indent": "    count: int\n    def buy_one_more(self) -> int:\n        <IND>self.count += 1\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    count: int\n    def buy_one_more(self) -> None:\n        <IND>self.count += 1\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

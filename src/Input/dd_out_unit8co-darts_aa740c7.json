@@ -1,0 +1,36 @@
+[
+  {
+    "project": "unit8co/darts",
+    "commit": "aa740c7761b978e9125e73d1bb8fa572e9386a49",
+    "filename": "u8timeseries/models/regressive_model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/unit8co-darts/u8timeseries/models/regressive_model.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "u8timeseries/models/regressive_model.py:47:12 Unbound name [10]: Name `raise_log` is used but not defined in the current scope.",
+    "message": " Name `raise_log` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 47,
+    "warning_line": "            raise_log(Exception('fit() must be called before predict()'), logger)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from ..timeseries import TimeSeries\nfrom ..custom_logging import raise_if_not, get_logger\nfrom typing import List\n",
+        "source_code_len": 114,
+        "target_code": "from ..timeseries import TimeSeries\nfrom ..custom_logging import raise_if_not, get_logger, raise_log\nfrom typing import List\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -7,3 +7,3 @@\n from ..timeseries import TimeSeries\n-from ..custom_logging import raise_if_not, get_logger\n+from ..custom_logging import raise_if_not, get_logger, raise_log\n from typing import List\n",
+        "source_code_with_indent": "from ..timeseries import TimeSeries\nfrom ..custom_logging import raise_if_not, get_logger\nfrom typing import List\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from ..timeseries import TimeSeries\nfrom ..custom_logging import raise_if_not, get_logger, raise_log\nfrom typing import List\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

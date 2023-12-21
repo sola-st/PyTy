@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "81d4ec271b079460686dc352c0a52536ad81fdd8",
+    "filename": "qcodes/instrument_drivers/Lakeshore/Model_325.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Lakeshore/Model_325.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Lakeshore/Model_325.py:26:8 Incompatible return type [7]: Expected `Tuple[str]` but got `typing.Tuple[str, ...]`.",
+    "message": " Expected `Tuple[str]` but got `typing.Tuple[str, ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 26,
+    "warning_line": "        return tuple(s.strip() for s in strings)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def split_data_line(line: str, parser: type = str) -> List[str]:\n        return [parser(i) for i in line.split(\"  \") if i != \"\"]\n\n    def strip(strings: Iterable[str]) -> Tuple[str]:\n        return tuple(s.strip() for s in strings)\n",
+        "source_code_len": 237,
+        "target_code": "\n    def split_data_line(line: str, parser: type=str) -> List[str]:\n        return [parser(i) for i in line.split(\"  \") if i != \"\"]\n\n    def strip(strings: Iterable[str]) -> Tuple:\n        return tuple(s.strip() for s in strings)\n",
+        "target_code_len": 230,
+        "diff_format": "@@ -21,6 +21,6 @@\n \n-    def split_data_line(line: str, parser: type = str) -> List[str]:\n+    def split_data_line(line: str, parser: type=str) -> List[str]:\n         return [parser(i) for i in line.split(\"  \") if i != \"\"]\n \n-    def strip(strings: Iterable[str]) -> Tuple[str]:\n+    def strip(strings: Iterable[str]) -> Tuple:\n         return tuple(s.strip() for s in strings)\n",
+        "source_code_with_indent": "\n    def split_data_line(line: str, parser: type = str) -> List[str]:\n        <IND>return [parser(i) for i in line.split(\"  \") if i != \"\"]\n\n    <DED>def strip(strings: Iterable[str]) -> Tuple[str]:\n        <IND>return tuple(s.strip() for s in strings)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def split_data_line(line: str, parser: type=str) -> List[str]:\n        <IND>return [parser(i) for i in line.split(\"  \") if i != \"\"]\n\n    <DED>def strip(strings: Iterable[str]) -> Tuple:\n        <IND>return tuple(s.strip() for s in strings)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

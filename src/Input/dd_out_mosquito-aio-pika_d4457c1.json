@@ -1,0 +1,51 @@
+[
+  {
+    "project": "mosquito/aio-pika",
+    "commit": "d4457c1b86bd7809d1825fa763613614e9debf1c",
+    "filename": "aio_pika/queue.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mosquito-aio-pika/aio_pika/queue.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aio_pika/queue.py:264:16 Incompatible return type [7]: Expected `IncomingMessage` but got `Generator[typing.Any, None, None]`.",
+    "message": " Expected `IncomingMessage` but got `Generator[typing.Any, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 264,
+    "warning_line": "                return message",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from types import FunctionType\nfrom typing import Any, Generator\n\n",
+        "source_code_len": 66,
+        "target_code": "from types import FunctionType\nfrom typing import Any, Generator, Optional\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -4,3 +4,3 @@\n from types import FunctionType\n-from typing import Any, Generator\n+from typing import Any, Generator, Optional\n \n",
+        "source_code_with_indent": "from types import FunctionType\nfrom typing import Any, Generator\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from types import FunctionType\nfrom typing import Any, Generator, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @asyncio.coroutine\n    def get(self, *, no_ack=False, timeout=None, fail=True) -> IncomingMessage:\n\n",
+        "source_code_len": 104,
+        "target_code": "    @asyncio.coroutine\n    def get(self, *, no_ack=False, timeout=None, fail=True) -> Generator[Any, None, Optional[IncomingMessage]]:\n\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -227,3 +227,3 @@\n     @asyncio.coroutine\n-    def get(self, *, no_ack=False, timeout=None, fail=True) -> IncomingMessage:\n+    def get(self, *, no_ack=False, timeout=None, fail=True) -> Generator[Any, None, Optional[IncomingMessage]]:\n \n",
+        "source_code_with_indent": "    @asyncio.coroutine\n    def get(self, *, no_ack=False, timeout=None, fail=True) -> IncomingMessage:\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @asyncio.coroutine\n    def get(self, *, no_ack=False, timeout=None, fail=True) -> Generator[Any, None, Optional[IncomingMessage]]:\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

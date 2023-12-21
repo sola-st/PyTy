@@ -1,0 +1,36 @@
+[
+  {
+    "project": "nix-community/NUR",
+    "commit": "6faa57ee38788d0bc73b9e04429a97dd8ebff237",
+    "filename": "nur/prefetch.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nix-community-NUR/nur/prefetch.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nur/prefetch.py:107:25 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `GitlabRepo.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `GitlabRepo.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 107,
+    "warning_line": "    gl_repo = GitlabRepo(repo.url.hostname, list(gitlab_path.parts[1:]))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    gitlab_path = Path(repo.url.path)\n    gl_repo = GitlabRepo(repo.url.hostname, list(gitlab_path.parts[1:]))\n    commit = gl_repo.latest_commit()\n",
+        "source_code_len": 148,
+        "target_code": "    gitlab_path = Path(repo.url.path)\n    hostname = repo.url.hostname\n    assert hostname is not None, f\"Expect a hostname for Gitlab repo: {repo.name}\"\n    gl_repo = GitlabRepo(hostname, list(gitlab_path.parts[1:]))\n    commit = gl_repo.latest_commit()\n",
+        "target_code_len": 255,
+        "diff_format": "@@ -106,3 +107,5 @@\n     gitlab_path = Path(repo.url.path)\n-    gl_repo = GitlabRepo(repo.url.hostname, list(gitlab_path.parts[1:]))\n+    hostname = repo.url.hostname\n+    assert hostname is not None, f\"Expect a hostname for Gitlab repo: {repo.name}\"\n+    gl_repo = GitlabRepo(hostname, list(gitlab_path.parts[1:]))\n     commit = gl_repo.latest_commit()\n",
+        "source_code_with_indent": "    <IND>gitlab_path = Path(repo.url.path)\n    gl_repo = GitlabRepo(repo.url.hostname, list(gitlab_path.parts[1:]))\n    commit = gl_repo.latest_commit()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>gitlab_path = Path(repo.url.path)\n    hostname = repo.url.hostname\n    assert hostname is not None, f\"Expect a hostname for Gitlab repo: {repo.name}\"\n    gl_repo = GitlabRepo(hostname, list(gitlab_path.parts[1:]))\n    commit = gl_repo.latest_commit()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

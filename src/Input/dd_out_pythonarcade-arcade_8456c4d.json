@@ -1,0 +1,77 @@
+[
+  {
+    "project": "pythonarcade/arcade",
+    "commit": "8456c4d64e60766bbb6f315da3f53a9f7ae9e9aa",
+    "filename": "arcade/gl/buffer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pythonarcade-arcade/arcade/gl/buffer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arcade/gl/buffer.py:31:28 Incompatible variable type [9]: data is declared to have type `bytes` but is used as type `None`.",
+    "message": " data is declared to have type `bytes` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 31,
+    "warning_line": "    def __init__(self, ctx, data: bytes = None, reserve: int = 0, usage: str = 'static'):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import weakref\nfrom typing import Any, Tuple, TYPE_CHECKING\n\n",
+        "source_code_len": 61,
+        "target_code": "import weakref\nfrom typing import Any, Optional, Tuple, TYPE_CHECKING\n\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -2,3 +2,3 @@\n import weakref\n-from typing import Any, Tuple, TYPE_CHECKING\n+from typing import Any, Optional, Tuple, TYPE_CHECKING\n \n",
+        "source_code_with_indent": "import weakref\nfrom typing import Any, Tuple, TYPE_CHECKING\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import weakref\nfrom typing import Any, Optional, Tuple, TYPE_CHECKING\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, ctx, data: bytes = None, reserve: int = 0, usage: str = 'static'):\n        self._ctx = ctx\n",
+        "source_code_len": 115,
+        "target_code": "\n    def __init__(self, ctx, data: Optional[Any] = None, reserve: int = 0, usage: str = 'static'):\n        self._ctx = ctx\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -30,3 +30,3 @@\n \n-    def __init__(self, ctx, data: bytes = None, reserve: int = 0, usage: str = 'static'):\n+    def __init__(self, ctx, data: Optional[Any] = None, reserve: int = 0, usage: str = 'static'):\n         self._ctx = ctx\n",
+        "source_code_with_indent": "\n    def __init__(self, ctx, data: bytes = None, reserve: int = 0, usage: str = 'static'):\n        <IND>self._ctx = ctx\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, ctx, data: Optional[Any] = None, reserve: int = 0, usage: str = 'static'):\n        <IND>self._ctx = ctx\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pythonarcade/arcade",
+    "commit": "8456c4d64e60766bbb6f315da3f53a9f7ae9e9aa",
+    "filename": "arcade/gl/context.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pythonarcade-arcade/arcade/gl/context.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arcade/gl/context.py:195:16 Incompatible variable type [9]: data is declared to have type `bytes` but is used as type `None`.",
+    "message": " data is declared to have type `bytes` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 195,
+    "warning_line": "                data: bytes = None,"
+  },
+  {
+    "project": "pythonarcade/arcade",
+    "commit": "8456c4d64e60766bbb6f315da3f53a9f7ae9e9aa",
+    "filename": "arcade/gl/geometry.py",
+    "min_patch_found": false,
+    "full_warning_msg": "arcade/gl/geometry.py:43:19 Incompatible parameter type [6]: Expected `bytes` for 1st parameter `data` to call `arcade.gl.context.Context.buffer` but got `array.array[float]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

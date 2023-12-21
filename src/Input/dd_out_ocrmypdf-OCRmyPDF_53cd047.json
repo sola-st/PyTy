@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ocrmypdf/OCRmyPDF",
+    "commit": "53cd04799abedb6318e40d40c8b76cd94a2d6c7d",
+    "filename": "src/ocrmypdf/_pipeline.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ocrmypdf-OCRmyPDF/src/ocrmypdf/_pipeline.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ocrmypdf/_pipeline.py:532:31 Incompatible parameter type [6]: Expected `typing.Union[typing.Tuple[typing.Tuple[float, float], typing.Tuple[float, float]], typing.Tuple[float, float, float, float]]` for 1st positional only parameter to call `ImageDraw.ImageDraw.rectangle` but got `typing.List[int]`.",
+    "message": " Expected `typing.Union[typing.Tuple[typing.Tuple[float, float], typing.Tuple[float, float]], typing.Tuple[float, float, float, float]]` for 1st positional only parameter to call `ImageDraw.ImageDraw.rectangle` but got `typing.List[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 532,
+    "warning_line": "                draw.rectangle(pixcoords, fill=white)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                xyscale = tuple(float(coord) / 72.0 for coord in im.info['dpi'])\n                pixcoords = [\n                    bbox[0] * xyscale[0],\n",
+        "source_code_len": 153,
+        "target_code": "                xyscale = tuple(float(coord) / 72.0 for coord in im.info['dpi'])\n                pixcoords = (\n                    bbox[0] * xyscale[0],\n",
+        "target_code_len": 153,
+        "diff_format": "@@ -523,3 +523,3 @@\n                 xyscale = tuple(float(coord) / 72.0 for coord in im.info['dpi'])\n-                pixcoords = [\n+                pixcoords = (\n                     bbox[0] * xyscale[0],\n",
+        "source_code_with_indent": "                xyscale = tuple(float(coord) / 72.0 for coord in im.info['dpi'])\n                pixcoords = [\n                    bbox[0] * xyscale[0],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                xyscale = tuple(float(coord) / 72.0 for coord in im.info['dpi'])\n                pixcoords = (\n                    bbox[0] * xyscale[0],\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    im.height - bbox[1] * xyscale[1],\n                ]\n                pixcoords = [int(round(c)) for c in pixcoords]\n                log.debug('blanking %r', pixcoords)\n",
+        "source_code_len": 187,
+        "target_code": "                    im.height - bbox[1] * xyscale[1],\n                )\n                log.debug('blanking %r', pixcoords)\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -528,4 +528,3 @@\n                     im.height - bbox[1] * xyscale[1],\n-                ]\n-                pixcoords = [int(round(c)) for c in pixcoords]\n+                )\n                 log.debug('blanking %r', pixcoords)\n",
+        "source_code_with_indent": "                    im.height - bbox[1] * xyscale[1],\n                ]\n                pixcoords = [int(round(c)) for c in pixcoords]\n                log.debug('blanking %r', pixcoords)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    im.height - bbox[1] * xyscale[1],\n                )\n                log.debug('blanking %r', pixcoords)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

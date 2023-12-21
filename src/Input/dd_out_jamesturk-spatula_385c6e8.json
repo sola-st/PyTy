@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jamesturk/spatula",
+    "commit": "385c6e81270b90cea0f0835e3c2e875180a82f8b",
+    "filename": "src/spatula/workflow.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jamesturk-spatula/src/spatula/workflow.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/spatula/workflow.py:73:22 Incompatible variable type [9]: output_dir is declared to have type `str` but is used as type `None`.",
+    "message": " output_dir is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 73,
+    "warning_line": "    def execute(self, output_dir: str = None) -> int:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def execute(self, output_dir: str = None) -> int:\n        count = 0\n",
+        "source_code_len": 73,
+        "target_code": "\n    def execute(self, output_dir: str) -> int:\n        count = 0\n",
+        "target_code_len": 66,
+        "diff_format": "@@ -72,3 +72,3 @@\n \n-    def execute(self, output_dir: str = None) -> int:\n+    def execute(self, output_dir: str) -> int:\n         count = 0\n",
+        "source_code_with_indent": "\n    <DED><DED>def execute(self, output_dir: str = None) -> int:\n        <IND>count = 0\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def execute(self, output_dir: str) -> int:\n        <IND>count = 0\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

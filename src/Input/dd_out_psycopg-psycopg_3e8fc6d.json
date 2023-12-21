@@ -1,0 +1,36 @@
+[
+  {
+    "project": "psycopg/psycopg",
+    "commit": "3e8fc6d79c463d779ff1be0661ff50b0dbfdb17b",
+    "filename": "psycopg3/pq/_pq_ctypes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/psycopg-psycopg/psycopg3/pq/_pq_ctypes.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "psycopg3/pq/_pq_ctypes.py:14:30 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `ctypes.LibraryLoader.LoadLibrary` but got `typing.Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `ctypes.LibraryLoader.LoadLibrary` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 14,
+    "warning_line": "pq = ctypes.pydll.LoadLibrary(ctypes.util.find_library(\"pq\"))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\npq = ctypes.pydll.LoadLibrary(ctypes.util.find_library(\"pq\"))\n\n",
+        "source_code_len": 64,
+        "target_code": "\nlibname = ctypes.util.find_library(\"pq\")\nif libname is None:\n    raise ImportError(\"libpq library not found\")\n\npq = ctypes.pydll.LoadLibrary(libname)\n\n",
+        "target_code_len": 152,
+        "diff_format": "@@ -13,3 +14,7 @@\n \n-pq = ctypes.pydll.LoadLibrary(ctypes.util.find_library(\"pq\"))\n+libname = ctypes.util.find_library(\"pq\")\n+if libname is None:\n+    raise ImportError(\"libpq library not found\")\n+\n+pq = ctypes.pydll.LoadLibrary(libname)\n \n",
+        "source_code_with_indent": "\npq = ctypes.pydll.LoadLibrary(ctypes.util.find_library(\"pq\"))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nlibname = ctypes.util.find_library(\"pq\")\nif libname is None:\n    <IND>raise ImportError(\"libpq library not found\")\n\n<DED>pq = ctypes.pydll.LoadLibrary(libname)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

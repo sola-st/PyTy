@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ottowayi/pycomm3",
+    "commit": "b7ec71c9ab608f70e31bab04b7d6360d04c3c612",
+    "filename": "pycomm3/slc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ottowayi-pycomm3/pycomm3/slc.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pycomm3/slc.py:358:4 Incompatible return type [7]: Expected `typing.Dict[typing.Any, typing.Any]` but got `None`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 358,
+    "warning_line": "    return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef parse_tag(tag: str) -> dict:\n    t = re.search(r\"(?P<file_type>[CT])(?P<file_number>\\d{1,3})\"\n",
+        "source_code_len": 99,
+        "target_code": "\ndef parse_tag(tag: str) -> Optional[dict]:\n    t = re.search(r\"(?P<file_type>[CT])(?P<file_number>\\d{1,3})\"\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -215,3 +215,3 @@\n \n-def parse_tag(tag: str) -> dict:\n+def parse_tag(tag: str) -> Optional[dict]:\n     t = re.search(r\"(?P<file_type>[CT])(?P<file_number>\\d{1,3})\"\n",
+        "source_code_with_indent": "\n<DED><DED>def parse_tag(tag: str) -> dict:\n    <IND>t = re.search(r\"(?P<file_type>[CT])(?P<file_number>\\d{1,3})\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def parse_tag(tag: str) -> Optional[dict]:\n    <IND>t = re.search(r\"(?P<file_type>[CT])(?P<file_number>\\d{1,3})\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "fcc3b92fb6770597c4058c547a49f391de4dba44",
+    "filename": "airflow/providers/snowflake/hooks/snowflake.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/snowflake/hooks/snowflake.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/snowflake/hooks/snowflake.py:258:4 Inconsistent override [14]: `airflow.providers.snowflake.hooks.snowflake.SnowflakeHook.run` overrides method defined in `DbApiHook` inconsistently. Could not find parameter `handler` in overriding signature.",
+    "message": " `airflow.providers.snowflake.hooks.snowflake.SnowflakeHook.run` overrides method defined in `DbApiHook` inconsistently. Could not find parameter `handler` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 258,
+    "warning_line": "    def run(self, sql: Union[str, list], autocommit: bool = False, parameters: Optional[dict] = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from io import StringIO\nfrom typing import Any, Dict, Optional, Union\n\n",
+        "source_code_len": 71,
+        "target_code": "from io import StringIO\nfrom typing import Any, Callable, Dict, Iterable, List, Optional, Union\n\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -20,3 +20,3 @@\n from io import StringIO\n-from typing import Any, Dict, Optional, Union\n+from typing import Any, Callable, Dict, Iterable, List, Optional, Union\n \n",
+        "source_code_with_indent": "from io import StringIO\nfrom typing import Any, Dict, Optional, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from io import StringIO\nfrom typing import Any, Callable, Dict, Iterable, List, Optional, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def run(self, sql: Union[str, list], autocommit: bool = False, parameters: Optional[dict] = None):\n        \"\"\"\n",
+        "source_code_len": 116,
+        "target_code": "\n    def run(\n        self,\n        sql: Union[str, list],\n        autocommit: bool = False,\n        parameters: Optional[Union[dict, Iterable]] = None,\n        handler: Optional[Callable] = None,\n    ):\n        \"\"\"\n",
+        "target_code_len": 216,
+        "diff_format": "@@ -257,3 +257,9 @@\n \n-    def run(self, sql: Union[str, list], autocommit: bool = False, parameters: Optional[dict] = None):\n+    def run(\n+        self,\n+        sql: Union[str, list],\n+        autocommit: bool = False,\n+        parameters: Optional[Union[dict, Iterable]] = None,\n+        handler: Optional[Callable] = None,\n+    ):\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def run(self, sql: Union[str, list], autocommit: bool = False, parameters: Optional[dict] = None):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def run(\n        self,\n        sql: Union[str, list],\n        autocommit: bool = False,\n        parameters: Optional[Union[dict, Iterable]] = None,\n        handler: Optional[Callable] = None,\n    ):\n        <IND>"
+      }
+    ]
+  }
+]

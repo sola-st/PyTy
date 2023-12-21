@@ -1,0 +1,36 @@
+[
+  {
+    "project": "bryancatanzaro/copperhead",
+    "commit": "ef6a09a5dc3d090c9dc323a7f856164ef6314dff",
+    "filename": "tests/test_unify.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bryancatanzaro-copperhead/tests/test_unify.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_unify.py:22:14 Unbound name [10]: Name `T` is used but not defined in the current scope.",
+    "message": " Name `T` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 22,
+    "warning_line": "a, b, c, d = [T.Typevar(v) for v in \"abcd\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom copperhead.compiler.inference import *\n\n",
+        "source_code_len": 46,
+        "target_code": "\nfrom copperhead.compiler.typeinference import *\nfrom copperhead.compiler.unifier import unify\n\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -19,3 +19,4 @@\n \n-from copperhead.compiler.inference import *\n+from copperhead.compiler.typeinference import *\n+from copperhead.compiler.unifier import unify\n \n",
+        "source_code_with_indent": "\nfrom copperhead.compiler.inference import *\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom copperhead.compiler.typeinference import *\nfrom copperhead.compiler.unifier import unify\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

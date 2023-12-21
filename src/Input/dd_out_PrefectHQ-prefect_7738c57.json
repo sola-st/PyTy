@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PrefectHQ/prefect",
+    "commit": "7738c57aea2ca1f4847e2106fbf6d6f3279aaa6c",
+    "filename": "src/prefect/client/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PrefectHQ-prefect/src/prefect/client/client.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/prefect/client/client.py:389:30 Unbound name [10]: Name `result` is used but not defined in the current scope.",
+    "message": " Name `result` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 389,
+    "warning_line": "            raise ClientError(result.createProject.error)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if res.createProject.error:\n            raise ClientError(result.createProject.error)\n\n",
+        "source_code_len": 95,
+        "target_code": "        if res.createProject.error:\n            raise ClientError(res.createProject.error)\n\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -388,3 +390,3 @@\n         if res.createProject.error:\n-            raise ClientError(result.createProject.error)\n+            raise ClientError(res.createProject.error)\n \n",
+        "source_code_with_indent": "        if res.createProject.error:\n            <IND>raise ClientError(result.createProject.error)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if res.createProject.error:\n            <IND>raise ClientError(res.createProject.error)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

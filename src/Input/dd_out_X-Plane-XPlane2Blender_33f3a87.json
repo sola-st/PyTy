@@ -1,0 +1,36 @@
+[
+  {
+    "project": "X-Plane/XPlane2Blender",
+    "commit": "33f3a87566975b5d92d1f4acf0e93032c2206859",
+    "filename": "io_xplane2blender/xplane_utils/xplane_lights_txt_parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/X-Plane-XPlane2Blender/io_xplane2blender/xplane_utils/xplane_lights_txt_parser.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "io_xplane2blender/xplane_utils/xplane_lights_txt_parser.py:290:34 Incompatible parameter type [6]: Expected `typing.SupportsRound[Variable[_T]]` for 1st positional only parameter to call `round` but got `Union[float, str]`.",
+    "message": " Expected `typing.SupportsRound[Variable[_T]]` for 1st positional only parameter to call `round` but got `Union[float, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 290,
+    "warning_line": "        if width_column and round(width_column, xplane_constants.PRECISION_KEYFRAME) == 1:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if width_column and round(width_column, xplane_constants.PRECISION_KEYFRAME) == 1:\n            return True\n",
+        "source_code_len": 116,
+        "target_code": "\n        if isinstance(width_column, float) and round(width_column, xplane_constants.PRECISION_KEYFRAME) == 1:\n            return True\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -289,3 +305,3 @@\n \n-        if width_column and round(width_column, xplane_constants.PRECISION_KEYFRAME) == 1:\n+        if isinstance(width_column, float) and round(width_column, xplane_constants.PRECISION_KEYFRAME) == 1:\n             return True\n",
+        "source_code_with_indent": "\n        <DED>if width_column and round(width_column, xplane_constants.PRECISION_KEYFRAME) == 1:\n            <IND>return True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>if isinstance(width_column, float) and round(width_column, xplane_constants.PRECISION_KEYFRAME) == 1:\n            <IND>return True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

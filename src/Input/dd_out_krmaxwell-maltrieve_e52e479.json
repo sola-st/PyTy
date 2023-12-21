@@ -1,0 +1,36 @@
+[
+  {
+    "project": "krmaxwell/maltrieve",
+    "commit": "e52e479c9776cea4a92c265ee44e79c623b6ceb9",
+    "filename": "maltrieve.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/krmaxwell-maltrieve/maltrieve.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maltrieve.py:164:39 Unbound name [10]: Name `sacourtext` is used but not defined in the current scope.",
+    "message": " Name `sacourtext` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 164,
+    "warning_line": "    for url in re.sub('\\<[^>]*\\>','\\n',sacourtext).splitlines():",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \n    sacour=get_URL('http://www.sacour.cn/showmal.asp?month=%d&year=%d' % \n                  (now.month, now.year)).read()\n",
+        "source_code_len": 127,
+        "target_code": "    \n    sacourtext=get_URL('http://www.sacour.cn/showmal.asp?month=%d&year=%d' % \n                  (now.month, now.year)).read()\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -161,3 +163,3 @@\n     \n-    sacour=get_URL('http://www.sacour.cn/showmal.asp?month=%d&year=%d' % \n+    sacourtext=get_URL('http://www.sacour.cn/showmal.asp?month=%d&year=%d' % \n                   (now.month, now.year)).read()\n",
+        "source_code_with_indent": "    \n    <DED><DED>sacour=get_URL('http://www.sacour.cn/showmal.asp?month=%d&year=%d' % \n                  (now.month, now.year)).read()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    \n    <DED><DED>sacourtext=get_URL('http://www.sacour.cn/showmal.asp?month=%d&year=%d' % \n                  (now.month, now.year)).read()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

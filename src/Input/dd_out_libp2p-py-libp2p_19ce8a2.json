@@ -1,0 +1,36 @@
+[
+  {
+    "project": "libp2p/py-libp2p",
+    "commit": "19ce8a2140e0c00a1273c36f1bf6282f89f98e32",
+    "filename": "libp2p/pubsub/pubsub.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libp2p-py-libp2p/libp2p/pubsub/pubsub.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libp2p/pubsub/pubsub.py:354:56 Incompatible parameter type [6]: Expected `Set[ID]` for 2nd positional only parameter to call `dict.__setitem__` but got `List[ID]`.",
+    "message": " Expected `Set[ID]` for 2nd positional only parameter to call `dict.__setitem__` but got `List[ID]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 354,
+    "warning_line": "                self.peer_topics[sub_message.topicid] = [origin_id]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if sub_message.topicid not in self.peer_topics:\n                self.peer_topics[sub_message.topicid] = [origin_id]\n            elif origin_id not in self.peer_topics[sub_message.topicid]:\n",
+        "source_code_len": 201,
+        "target_code": "            if sub_message.topicid not in self.peer_topics:\n                self.peer_topics[sub_message.topicid] = set([origin_id])\n            elif origin_id not in self.peer_topics[sub_message.topicid]:\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -353,3 +353,3 @@\n             if sub_message.topicid not in self.peer_topics:\n-                self.peer_topics[sub_message.topicid] = [origin_id]\n+                self.peer_topics[sub_message.topicid] = set([origin_id])\n             elif origin_id not in self.peer_topics[sub_message.topicid]:\n",
+        "source_code_with_indent": "            <IND>if sub_message.topicid not in self.peer_topics:\n                <IND>self.peer_topics[sub_message.topicid] = [origin_id]\n            <DED>elif origin_id not in self.peer_topics[sub_message.topicid]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>if sub_message.topicid not in self.peer_topics:\n                <IND>self.peer_topics[sub_message.topicid] = set([origin_id])\n            <DED>elif origin_id not in self.peer_topics[sub_message.topicid]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

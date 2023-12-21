@@ -1,0 +1,66 @@
+[
+  {
+    "project": "nccr-itmo/FEDOT",
+    "commit": "07c14b113eb089438ceb3bfcdf6de0bcee14ba89",
+    "filename": "fedot/core/operations/operation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nccr-itmo-FEDOT/fedot/core/operations/operation.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fedot/core/operations/operation.py:191:55 Incompatible parameter type [6]: Expected `typing.Optional[typing.Dict[typing.Any, typing.Any]]` for 1st positional only parameter to call `ImputationImplementation.__init__` but got `str`.",
+    "message": " Expected `typing.Optional[typing.Dict[typing.Any, typing.Any]]` for 1st positional only parameter to call `ImputationImplementation.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 191,
+    "warning_line": "            data.features = ImputationImplementation(**{'strategy': 'most_frequent'}).fit_transform(data).predict",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n        if 'imputation' not in self.operation_type:\n            data = _fill_remaining_gaps(data, self.operation_type)\n\n        self.fitted_operation = self._eval_strategy.fit(train_data=data)\n",
+        "source_code_len": 194,
+        "target_code": "\n        self.fitted_operation = self._eval_strategy.fit(train_data=data)\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -86,5 +86,2 @@\n \n-        if 'imputation' not in self.operation_type:\n-            data = _fill_remaining_gaps(data, self.operation_type)\n-\n         self.fitted_operation = self._eval_strategy.fit(train_data=data)\n",
+        "source_code_with_indent": "\n        if 'imputation' not in self.operation_type:\n            <IND>data = _fill_remaining_gaps(data, self.operation_type)\n\n        <DED>self.fitted_operation = self._eval_strategy.fit(train_data=data)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        self.fitted_operation = self._eval_strategy.fit(train_data=data)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        self._init(data.task, output_mode=output_mode)\n\n        data = _fill_remaining_gaps(data, self.operation_type)\n\n",
+        "source_code_len": 120,
+        "target_code": "        self._init(data.task, output_mode=output_mode)\n\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -110,4 +107,2 @@\n         self._init(data.task, output_mode=output_mode)\n-\n-        data = _fill_remaining_gaps(data, self.operation_type)\n \n",
+        "source_code_with_indent": "        self._init(data.task, output_mode=output_mode)\n\n        data = _fill_remaining_gaps(data, self.operation_type)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._init(data.task, output_mode=output_mode)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\ndef _fill_remaining_gaps(data: InputData, operation_type: str):\n    \"\"\" Function for filling in the nans in the table with features \"\"\"\n    # TODO discuss: move this \"filling\" to the pipeline method - we use such method too much here (for all tables)\n    #  np.isnan(features).any() and np.isnan(features) doesn't work with non-numeric arrays\n    features = data.features\n\n    if data.data_type == DataTypesEnum.table and data.task.task_type != TaskTypesEnum.ts_forecasting:\n        # Got indices of columns with string objects\n        categorical_ids, _ = str_columns_check(features)\n\n        # Apply most_frequent or mean filling strategy\n        if len(categorical_ids) == 0:\n            data.features = ImputationImplementation().fit_transform(data).predict\n        else:\n            data.features = ImputationImplementation(**{'strategy': 'most_frequent'}).fit_transform(data).predict\n    return data\n\n\ndef get_default_params(model_name: str):\n",
+        "source_code_len": 950,
+        "target_code": "\ndef get_default_params(model_name: str):\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -176,20 +171,2 @@\n \n-def _fill_remaining_gaps(data: InputData, operation_type: str):\n-    \"\"\" Function for filling in the nans in the table with features \"\"\"\n-    # TODO discuss: move this \"filling\" to the pipeline method - we use such method too much here (for all tables)\n-    #  np.isnan(features).any() and np.isnan(features) doesn't work with non-numeric arrays\n-    features = data.features\n-\n-    if data.data_type == DataTypesEnum.table and data.task.task_type != TaskTypesEnum.ts_forecasting:\n-        # Got indices of columns with string objects\n-        categorical_ids, _ = str_columns_check(features)\n-\n-        # Apply most_frequent or mean filling strategy\n-        if len(categorical_ids) == 0:\n-            data.features = ImputationImplementation().fit_transform(data).predict\n-        else:\n-            data.features = ImputationImplementation(**{'strategy': 'most_frequent'}).fit_transform(data).predict\n-    return data\n-\n-\n def get_default_params(model_name: str):\n",
+        "source_code_with_indent": "\n<DED>def _fill_remaining_gaps(data: InputData, operation_type: str):\n    <IND>\"\"\" Function for filling in the nans in the table with features \"\"\"\n    # TODO discuss: move this \"filling\" to the pipeline method - we use such method too much here (for all tables)\n    #  np.isnan(features).any() and np.isnan(features) doesn't work with non-numeric arrays\n    features = data.features\n\n    if data.data_type == DataTypesEnum.table and data.task.task_type != TaskTypesEnum.ts_forecasting:\n        # Got indices of columns with string objects\n        <IND>categorical_ids, _ = str_columns_check(features)\n\n        # Apply most_frequent or mean filling strategy\n        if len(categorical_ids) == 0:\n            <IND>data.features = ImputationImplementation().fit_transform(data).predict\n        <DED>else:\n            <IND>data.features = ImputationImplementation(**{'strategy': 'most_frequent'}).fit_transform(data).predict\n    <DED><DED>return data\n\n\n<DED>def get_default_params(model_name: str):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_default_params(model_name: str):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

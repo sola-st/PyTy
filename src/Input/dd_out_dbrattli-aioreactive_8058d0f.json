@@ -1,0 +1,85 @@
+[
+  {
+    "project": "dbrattli/aioreactive",
+    "commit": "8058d0fd2af0151025dc57203fe2b7542116471f",
+    "filename": "aioreactive/combine.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbrattli-aioreactive/aioreactive/combine.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioreactive/combine.py:130:46 Incompatible parameter type [6]: Expected `AsyncObservable[Variable[aioreactive.msg.TSource]]` for 1st parameter `inner_observable` to call `InnerObservableMsg.__init__` but got `Variable[TSource]`.",
+    "message": " Expected `AsyncObservable[Variable[aioreactive.msg.TSource]]` for 1st parameter `inner_observable` to call `InnerObservableMsg.__init__` but got `Variable[TSource]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 130,
+    "warning_line": "                agent.post(InnerObservableMsg(inner_observable=xs))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            async def asend(xs: TSource) -> None:\n                log.debug(\"merge_inner:asend(%s)\", xs)\n",
+        "source_code_len": 106,
+        "target_code": "\n            async def asend(xs: AsyncObservable[TSource]) -> None:\n                log.debug(\"merge_inner:asend(%s)\", xs)\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -127,3 +127,3 @@\n \n-            async def asend(xs: TSource) -> None:\n+            async def asend(xs: AsyncObservable[TSource]) -> None:\n                 log.debug(\"merge_inner:asend(%s)\", xs)\n",
+        "source_code_with_indent": "\n            async def asend(xs: TSource) -> None:\n                <IND>log.debug(\"merge_inner:asend(%s)\", xs)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            async def asend(xs: AsyncObservable[TSource]) -> None:\n                <IND>log.debug(\"merge_inner:asend(%s)\", xs)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dbrattli/aioreactive",
+    "commit": "8058d0fd2af0151025dc57203fe2b7542116471f",
+    "filename": "aioreactive/combine.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbrattli-aioreactive/aioreactive/combine.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioreactive/combine.py:278:49 Incompatible parameter type [6]: Expected `Notification[Variable[TSource]]` for 1st positional only parameter to anonymous call but got `Notification[Variable[TOther]]`.",
+    "message": " Expected `Notification[Variable[TSource]]` for 1st positional only parameter to anonymous call but got `Notification[Variable[TOther]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 278,
+    "warning_line": "                        latest = await get_value(cn.value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from .msg import CompletedMsg, DisposeMsg, InnerCompletedMsg, InnerObservableMsg, Key, Msg, OtherMsg, SourceMsg\nfrom .notification import Notification, OnNext\nfrom .observables import AsyncAnonymousObservable\n",
+        "source_code_len": 209,
+        "target_code": "from .msg import CompletedMsg, DisposeMsg, InnerCompletedMsg, InnerObservableMsg, Key, Msg, OtherMsg, SourceMsg\nfrom .notification import Notification, OnError, OnNext\nfrom .observables import AsyncAnonymousObservable\n",
+        "target_code_len": 218,
+        "diff_format": "@@ -21,3 +21,3 @@\n from .msg import CompletedMsg, DisposeMsg, InnerCompletedMsg, InnerObservableMsg, Key, Msg, OtherMsg, SourceMsg\n-from .notification import Notification, OnNext\n+from .notification import Notification, OnError, OnNext\n from .observables import AsyncAnonymousObservable\n",
+        "source_code_with_indent": "from .msg import CompletedMsg, DisposeMsg, InnerCompletedMsg, InnerObservableMsg, Key, Msg, OtherMsg, SourceMsg\nfrom .notification import Notification, OnNext\nfrom .observables import AsyncAnonymousObservable\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from .msg import CompletedMsg, DisposeMsg, InnerCompletedMsg, InnerObservableMsg, Key, Msg, OtherMsg, SourceMsg\nfrom .notification import Notification, OnError, OnNext\nfrom .observables import AsyncAnonymousObservable\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n                    async def get_value(n: Notification[TSource]) -> Option[TSource]:\n                        if isinstance(n, OnNext):\n                            n = cast(OnNext[TSource], n)\n                            return Some(n.value)\n\n                        await n.accept_observer(safe_obv)\n                        return Nothing\n",
+        "source_code_len": 341,
+        "target_code": "\n                    async def get_value(n: Notification[Any]) -> Option[Any]:\n                        with match(n) as m:\n                            for value in OnNext.case(m):\n                                return Some(value)\n\n                            for err in OnError.case(m):\n                                await safe_obv.athrow(err)\n\n                            while m.default():\n                                await safe_obv.aclose()\n                        return Nothing\n",
+        "target_code_len": 490,
+        "diff_format": "@@ -263,8 +267,12 @@\n \n-                    async def get_value(n: Notification[TSource]) -> Option[TSource]:\n-                        if isinstance(n, OnNext):\n-                            n = cast(OnNext[TSource], n)\n-                            return Some(n.value)\n-\n-                        await n.accept_observer(safe_obv)\n+                    async def get_value(n: Notification[Any]) -> Option[Any]:\n+                        with match(n) as m:\n+                            for value in OnNext.case(m):\n+                                return Some(value)\n+\n+                            for err in OnError.case(m):\n+                                await safe_obv.athrow(err)\n+\n+                            while m.default():\n+                                await safe_obv.aclose()\n                         return Nothing\n",
+        "source_code_with_indent": "\n                    async def get_value(n: Notification[TSource]) -> Option[TSource]:\n                        <IND>if isinstance(n, OnNext):\n                            <IND>n = cast(OnNext[TSource], n)\n                            return Some(n.value)\n\n                        <DED>await n.accept_observer(safe_obv)\n                        return Nothing\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n                    async def get_value(n: Notification[Any]) -> Option[Any]:\n                        <IND>with match(n) as m:\n                            <IND>for value in OnNext.case(m):\n                                <IND>return Some(value)\n\n                            <DED>for err in OnError.case(m):\n                                <IND>await safe_obv.athrow(err)\n\n                            <DED>while m.default():\n                                <IND>await safe_obv.aclose()\n                        <DED><DED>return Nothing\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

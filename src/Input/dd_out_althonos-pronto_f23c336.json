@@ -1,0 +1,36 @@
+[
+  {
+    "project": "althonos/pronto",
+    "commit": "f23c3362ed3a16e70c4238675d7543835aac1cc8",
+    "filename": "pronto/term.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/term.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/term.py:441:52 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `Ontology.get_term` but got `Union[Tuple[str, str], str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `Ontology.get_term` but got `Union[Tuple[str, str], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 441,
+    "warning_line": "                intersection_of.append(ont.get_term(item))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                r, t = item\n                intersection_of.append(ont.get_relationship(r), ont.get_term(t))\n            except TypeError:\n                intersection_of.append(ont.get_term(item))\n        return frozenset(intersection_of)\n",
+        "source_code_len": 240,
+        "target_code": "                r, t = item\n                intersection_of.append((ont.get_relationship(r), ont.get_term(t)))\n            except TypeError:\n                intersection_of.append(ont.get_term(typing.cast(str, item)))\n        return frozenset(intersection_of)\n",
+        "target_code_len": 260,
+        "diff_format": "@@ -438,5 +439,5 @@\n                 r, t = item\n-                intersection_of.append(ont.get_relationship(r), ont.get_term(t))\n+                intersection_of.append((ont.get_relationship(r), ont.get_term(t)))\n             except TypeError:\n-                intersection_of.append(ont.get_term(item))\n+                intersection_of.append(ont.get_term(typing.cast(str, item)))\n         return frozenset(intersection_of)\n",
+        "source_code_with_indent": "                <IND>r, t = item\n                intersection_of.append(ont.get_relationship(r), ont.get_term(t))\n            <DED>except TypeError:\n                <IND>intersection_of.append(ont.get_term(item))\n        <DED><DED>return frozenset(intersection_of)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>r, t = item\n                intersection_of.append((ont.get_relationship(r), ont.get_term(t)))\n            <DED>except TypeError:\n                <IND>intersection_of.append(ont.get_term(typing.cast(str, item)))\n        <DED><DED>return frozenset(intersection_of)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

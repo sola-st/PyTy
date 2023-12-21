@@ -1,0 +1,51 @@
+[
+  {
+    "project": "aiidateam/aiida-core",
+    "commit": "c79a9f2a797d462a31f745179cbb81f6d906cd97",
+    "filename": "tests/conftest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aiidateam-aiida-core/tests/conftest.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/conftest.py:431:49 Incompatible variable type [9]: options is declared to have type `typing.List[typing.Any]` but is used as type `None`.",
+    "message": " options is declared to have type `typing.List[typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 431,
+    "warning_line": "    def _run_cli_command(command: click.Command, options: list = None, raises: bool = False) -> Result:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import pathlib\n\n",
+        "source_code_len": 16,
+        "target_code": "import pathlib\nfrom typing import IO, List, Optional, Union\n\n",
+        "target_code_len": 61,
+        "diff_format": "@@ -13,2 +13,3 @@\n import pathlib\n+from typing import IO, List, Optional, Union\n \n",
+        "source_code_with_indent": "import pathlib\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import pathlib\nfrom typing import IO, List, Optional, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _run_cli_command(command: click.Command, options: list = None, raises: bool = False) -> Result:\n        \"\"\"Run the command and check the result.\n",
+        "source_code_len": 154,
+        "target_code": "\n    def _run_cli_command(\n        command: click.Command,\n        options: Optional[List] = None,\n        user_input: Optional[Union[str, bytes, IO]] = None,\n        raises: bool = False,\n        catch_exceptions: bool = True,\n        **kwargs\n    ) -> Result:\n        \"\"\"Run the command and check the result.\n",
+        "target_code_len": 311,
+        "diff_format": "@@ -430,3 +431,10 @@\n \n-    def _run_cli_command(command: click.Command, options: list = None, raises: bool = False) -> Result:\n+    def _run_cli_command(\n+        command: click.Command,\n+        options: Optional[List] = None,\n+        user_input: Optional[Union[str, bytes, IO]] = None,\n+        raises: bool = False,\n+        catch_exceptions: bool = True,\n+        **kwargs\n+    ) -> Result:\n         \"\"\"Run the command and check the result.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def _run_cli_command(command: click.Command, options: list = None, raises: bool = False) -> Result:\n        <IND>",
+        "target_code_with_indent": "\n    def _run_cli_command(\n        command: click.Command,\n        options: Optional[List] = None,\n        user_input: Optional[Union[str, bytes, IO]] = None,\n        raises: bool = False,\n        catch_exceptions: bool = True,\n        **kwargs\n    ) -> Result:\n        <IND>"
+      }
+    ]
+  }
+]

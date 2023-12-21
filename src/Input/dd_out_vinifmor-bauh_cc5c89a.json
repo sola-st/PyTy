@@ -1,0 +1,36 @@
+[
+  {
+    "project": "vinifmor/bauh",
+    "commit": "cc5c89a350d550152d72b5b3dcffbe1acdb55842",
+    "filename": "bauh/gems/snap/controller.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vinifmor-bauh/bauh/gems/snap/controller.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bauh/gems/snap/controller.py:142:65 Unbound name [10]: Name `pkg` is used but not defined in the current scope.",
+    "message": " Name `pkg` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 142,
+    "warning_line": "        raise Exception(\"'update' is not supported by {}\".format(pkg.__class__.__name__))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def upgrade(self, requirements: UpgradeRequirements, root_password: str, watcher: ProcessWatcher) -> SystemProcess:\n        raise Exception(\"'update' is not supported by {}\".format(pkg.__class__.__name__))\n\n",
+        "source_code_len": 211,
+        "target_code": "    def upgrade(self, requirements: UpgradeRequirements, root_password: str, watcher: ProcessWatcher) -> SystemProcess:\n        raise Exception(\"'upgrade' is not supported by {}\".format(SnapManager.__class__.__name__))\n\n",
+        "target_code_len": 220,
+        "diff_format": "@@ -141,3 +141,3 @@\n     def upgrade(self, requirements: UpgradeRequirements, root_password: str, watcher: ProcessWatcher) -> SystemProcess:\n-        raise Exception(\"'update' is not supported by {}\".format(pkg.__class__.__name__))\n+        raise Exception(\"'upgrade' is not supported by {}\".format(SnapManager.__class__.__name__))\n \n",
+        "source_code_with_indent": "    <DED>def upgrade(self, requirements: UpgradeRequirements, root_password: str, watcher: ProcessWatcher) -> SystemProcess:\n        <IND>raise Exception(\"'update' is not supported by {}\".format(pkg.__class__.__name__))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def upgrade(self, requirements: UpgradeRequirements, root_password: str, watcher: ProcessWatcher) -> SystemProcess:\n        <IND>raise Exception(\"'upgrade' is not supported by {}\".format(SnapManager.__class__.__name__))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

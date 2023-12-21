@@ -1,0 +1,53 @@
+[
+  {
+    "project": "voldemortX/pytorch-auto-drive",
+    "commit": "07484188058bdabf02984044b6d611b4b37e793f",
+    "filename": "utils/losses/lane_seg_loss.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/voldemortX-pytorch-auto-drive/utils/losses/lane_seg_loss.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "utils/losses/lane_seg_loss.py:13:23 Incompatible variable type [9]: existence_weight is declared to have type `int` but is used as type `float`.",
+    "message": " existence_weight is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 13,
+    "warning_line": "    def __init__(self, existence_weight: int = 0.1, weight: Optional[Tensor] = None, size_average=None,"
+  },
+  {
+    "project": "voldemortX/pytorch-auto-drive",
+    "commit": "07484188058bdabf02984044b6d611b4b37e793f",
+    "filename": "utils/losses/lane_seg_loss.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/voldemortX-pytorch-auto-drive/utils/losses/lane_seg_loss.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "utils/losses/lane_seg_loss.py:38:23 Incompatible variable type [9]: existence_weight is declared to have type `int` but is used as type `float`.",
+    "message": " existence_weight is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 38,
+    "warning_line": "    def __init__(self, existence_weight: int = 0.1, weight: Optional[Tensor] = None, size_average=None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, existence_weight: int = 0.1, weight: Optional[Tensor] = None, size_average=None,\n                 ignore_index: int = -100, reduce=None, reduction: str = 'mean') -> None:\n",
+        "source_code_len": 195,
+        "target_code": "\n    def __init__(self, existence_weight: float = 0.1, weight: Optional[Tensor] = None, size_average=None,\n                 ignore_index: int = -100, reduce=None, reduction: str = 'mean') -> None:\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -37,3 +37,3 @@\n \n-    def __init__(self, existence_weight: int = 0.1, weight: Optional[Tensor] = None, size_average=None,\n+    def __init__(self, existence_weight: float = 0.1, weight: Optional[Tensor] = None, size_average=None,\n                  ignore_index: int = -100, reduce=None, reduction: str = 'mean') -> None:\n",
+        "source_code_with_indent": "\n    def __init__(self, existence_weight: int = 0.1, weight: Optional[Tensor] = None, size_average=None,\n                 ignore_index: int = -100, reduce=None, reduction: str = 'mean') -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, existence_weight: float = 0.1, weight: Optional[Tensor] = None, size_average=None,\n                 ignore_index: int = -100, reduce=None, reduction: str = 'mean') -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

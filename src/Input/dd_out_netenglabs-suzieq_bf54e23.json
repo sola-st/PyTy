@@ -1,0 +1,51 @@
+[
+  {
+    "project": "netenglabs/suzieq",
+    "commit": "bf54e233a9c1daed5c40b92b44504ec2649a0c8c",
+    "filename": "suzieq/utilities/sq_coalescer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/netenglabs-suzieq/suzieq/utilities/sq_coalescer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "suzieq/utilities/sq_coalescer.py:23:43 Invalid type [31]: Expression `(bool, str)` is not a valid type.",
+    "message": " Expression `(bool, str)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 23,
+    "warning_line": "def validate_periodstr(periodstr: str) -> (bool, str):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from time import sleep\nfrom dataclasses import asdict\n",
+        "source_code_len": 54,
+        "target_code": "from time import sleep\nfrom typing import Tuple\nfrom dataclasses import asdict\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -11,2 +11,3 @@\n from time import sleep\n+from typing import Tuple\n from dataclasses import asdict\n",
+        "source_code_with_indent": "from time import sleep\nfrom dataclasses import asdict\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from time import sleep\nfrom typing import Tuple\nfrom dataclasses import asdict\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef validate_periodstr(periodstr: str) -> (bool, str):\n    '''Validate the period string specified by user'''\n",
+        "source_code_len": 111,
+        "target_code": "\ndef validate_periodstr(periodstr: str) -> Tuple[bool, str]:\n    '''Validate the period string specified by user'''\n",
+        "target_code_len": 116,
+        "diff_format": "@@ -22,3 +23,3 @@\n \n-def validate_periodstr(periodstr: str) -> (bool, str):\n+def validate_periodstr(periodstr: str) -> Tuple[bool, str]:\n     '''Validate the period string specified by user'''\n",
+        "source_code_with_indent": "\ndef validate_periodstr(periodstr: str) -> (bool, str):\n    <IND>'''Validate the period string specified by user'''\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef validate_periodstr(periodstr: str) -> Tuple[bool, str]:\n    <IND>'''Validate the period string specified by user'''\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

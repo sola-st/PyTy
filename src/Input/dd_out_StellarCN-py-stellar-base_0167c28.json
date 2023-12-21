@@ -1,0 +1,70 @@
+[
+  {
+    "project": "StellarCN/py-stellar-base",
+    "commit": "0167c28bff5a8d0d74fde3881719a5e7015155a3",
+    "filename": "stellar_sdk/sep/mnemonic.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/StellarCN-py-stellar-base/stellar_sdk/sep/mnemonic.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "stellar_sdk/sep/mnemonic.py:57:8 Incompatible variable type [9]: passphrase is declared to have type `str` but is used as type `bytes`.",
+    "message": " passphrase is declared to have type `str` but is used as type `bytes`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 57,
+    "warning_line": "        passphrase = passphrase.encode(\"utf-8\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        passphrase = \"mnemonic\" + passphrase\n        mnemonic = mnemonic.encode(\"utf-8\")\n        passphrase = passphrase.encode(\"utf-8\")\n        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic, passphrase, PBKDF2_ROUNDS)\n        return self.derive(stretched[:64], index)\n",
+        "source_code_len": 274,
+        "target_code": "        passphrase = \"mnemonic\" + passphrase\n        mnemonic_bytes = mnemonic.encode(\"utf-8\")\n        passphrase_bytes = passphrase.encode(\"utf-8\")\n        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic_bytes, passphrase_bytes, PBKDF2_ROUNDS)\n        return self.derive(stretched[:64], index)\n",
+        "target_code_len": 298,
+        "diff_format": "@@ -55,5 +55,5 @@\n         passphrase = \"mnemonic\" + passphrase\n-        mnemonic = mnemonic.encode(\"utf-8\")\n-        passphrase = passphrase.encode(\"utf-8\")\n-        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic, passphrase, PBKDF2_ROUNDS)\n+        mnemonic_bytes = mnemonic.encode(\"utf-8\")\n+        passphrase_bytes = passphrase.encode(\"utf-8\")\n+        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic_bytes, passphrase_bytes, PBKDF2_ROUNDS)\n         return self.derive(stretched[:64], index)\n",
+        "source_code_with_indent": "        passphrase = \"mnemonic\" + passphrase\n        mnemonic = mnemonic.encode(\"utf-8\")\n        passphrase = passphrase.encode(\"utf-8\")\n        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic, passphrase, PBKDF2_ROUNDS)\n        return self.derive(stretched[:64], index)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        passphrase = \"mnemonic\" + passphrase\n        mnemonic_bytes = mnemonic.encode(\"utf-8\")\n        passphrase_bytes = passphrase.encode(\"utf-8\")\n        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic_bytes, passphrase_bytes, PBKDF2_ROUNDS)\n        return self.derive(stretched[:64], index)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "StellarCN/py-stellar-base",
+    "commit": "0167c28bff5a8d0d74fde3881719a5e7015155a3",
+    "filename": "stellar_sdk/sep/mnemonic.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/StellarCN-py-stellar-base/stellar_sdk/sep/mnemonic.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "stellar_sdk/sep/mnemonic.py:58:60 Incompatible parameter type [6]: Expected `Union[array.array[typing.Any], bytearray, bytes, memoryview, mmap.mmap]` for 3rd positional only parameter to call `hashlib.pbkdf2_hmac` but got `str`.",
+    "message": " Expected `Union[array.array[typing.Any], bytearray, bytes, memoryview, mmap.mmap]` for 3rd positional only parameter to call `hashlib.pbkdf2_hmac` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 58,
+    "warning_line": "        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic, passphrase, PBKDF2_ROUNDS)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        passphrase = \"mnemonic\" + passphrase\n        mnemonic = mnemonic.encode(\"utf-8\")\n        passphrase = passphrase.encode(\"utf-8\")\n        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic, passphrase, PBKDF2_ROUNDS)\n        return self.derive(stretched[:64], index)\n",
+        "source_code_len": 274,
+        "target_code": "        passphrase = \"mnemonic\" + passphrase\n        mnemonic_bytes = mnemonic.encode(\"utf-8\")\n        passphrase_bytes = passphrase.encode(\"utf-8\")\n        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic_bytes, passphrase_bytes, PBKDF2_ROUNDS)\n        return self.derive(stretched[:64], index)\n",
+        "target_code_len": 298,
+        "diff_format": "@@ -55,5 +55,5 @@\n         passphrase = \"mnemonic\" + passphrase\n-        mnemonic = mnemonic.encode(\"utf-8\")\n-        passphrase = passphrase.encode(\"utf-8\")\n-        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic, passphrase, PBKDF2_ROUNDS)\n+        mnemonic_bytes = mnemonic.encode(\"utf-8\")\n+        passphrase_bytes = passphrase.encode(\"utf-8\")\n+        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic_bytes, passphrase_bytes, PBKDF2_ROUNDS)\n         return self.derive(stretched[:64], index)\n",
+        "source_code_with_indent": "        passphrase = \"mnemonic\" + passphrase\n        mnemonic = mnemonic.encode(\"utf-8\")\n        passphrase = passphrase.encode(\"utf-8\")\n        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic, passphrase, PBKDF2_ROUNDS)\n        return self.derive(stretched[:64], index)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        passphrase = \"mnemonic\" + passphrase\n        mnemonic_bytes = mnemonic.encode(\"utf-8\")\n        passphrase_bytes = passphrase.encode(\"utf-8\")\n        stretched = hashlib.pbkdf2_hmac(\"sha512\", mnemonic_bytes, passphrase_bytes, PBKDF2_ROUNDS)\n        return self.derive(stretched[:64], index)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

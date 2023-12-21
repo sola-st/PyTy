@@ -1,0 +1,36 @@
+[
+  {
+    "project": "cpbotha/nvpy",
+    "commit": "ff3e2801319f48224fc90c8cb22568505d57b986",
+    "filename": "nvpy/notes_db.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cpbotha-nvpy/nvpy/notes_db.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nvpy/notes_db.py:541:12 Incompatible return type [7]: Expected `typing.Tuple[typing.List[NoteInfo], str, int]` but got `typing.Tuple[typing.List[typing.Any], typing.List[Variable[_T]], int]`.",
+    "message": " Expected `typing.Tuple[typing.List[NoteInfo], str, int]` but got `typing.Tuple[typing.List[typing.Any], typing.List[Variable[_T]], int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 541,
+    "warning_line": "            return filtered_notes, [], active_notes",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            return filtered_notes, [], active_notes\n\n",
+        "source_code_len": 54,
+        "target_code": "\n            return filtered_notes, '', active_notes\n\n",
+        "target_code_len": 54,
+        "diff_format": "@@ -540,3 +540,3 @@\n \n-            return filtered_notes, [], active_notes\n+            return filtered_notes, '', active_notes\n \n",
+        "source_code_with_indent": "\n            <DED><DED>return filtered_notes, [], active_notes\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            <DED><DED>return filtered_notes, '', active_notes\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

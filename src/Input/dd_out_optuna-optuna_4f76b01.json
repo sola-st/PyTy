@@ -1,0 +1,100 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "4f76b01f18d3aa2b5c16e8a3b0c9d0f32245171f",
+    "filename": "optuna/integration/keras.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/integration/keras.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/integration/keras.py:52:39 Incompatible variable type [9]: logs is declared to have type `Dict[str, float]` but is used as type `None`.",
+    "message": " logs is declared to have type `Dict[str, float]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 52,
+    "warning_line": "    def on_epoch_end(self, epoch: int, logs: Dict[str, float] = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import Dict\n\n",
+        "source_code_len": 25,
+        "target_code": "from typing import Dict\nfrom typing import Optional\n\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -1,2 +1,3 @@\n from typing import Dict\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from typing import Dict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Dict\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def on_epoch_end(self, epoch: int, logs: Dict[str, float] = None) -> None:\n        if (epoch + 1) % self._interval != 0:\n",
+        "source_code_len": 126,
+        "target_code": "\n    def on_epoch_end(self, epoch: int, logs: Optional[Dict[str, float]] = None) -> None:\n        if (epoch + 1) % self._interval != 0:\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -51,3 +52,3 @@\n \n-    def on_epoch_end(self, epoch: int, logs: Dict[str, float] = None) -> None:\n+    def on_epoch_end(self, epoch: int, logs: Optional[Dict[str, float]] = None) -> None:\n         if (epoch + 1) % self._interval != 0:\n",
+        "source_code_with_indent": "\n    <DED>def on_epoch_end(self, epoch: int, logs: Dict[str, float] = None) -> None:\n        <IND>if (epoch + 1) % self._interval != 0:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def on_epoch_end(self, epoch: int, logs: Optional[Dict[str, float]] = None) -> None:\n        <IND>if (epoch + 1) % self._interval != 0:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "optuna/optuna",
+    "commit": "4f76b01f18d3aa2b5c16e8a3b0c9d0f32245171f",
+    "filename": "optuna/integration/tfkeras.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/integration/tfkeras.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/integration/tfkeras.py:40:39 Incompatible variable type [9]: logs is declared to have type `Dict[str, typing.Any]` but is used as type `None`.",
+    "message": " logs is declared to have type `Dict[str, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 40,
+    "warning_line": "    def on_epoch_end(self, epoch: int, logs: Dict[str, Any] = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import Dict\n\n",
+        "source_code_len": 25,
+        "target_code": "from typing import Dict\nfrom typing import Optional\n\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -2,2 +2,3 @@\n from typing import Dict\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from typing import Dict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Dict\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def on_epoch_end(self, epoch: int, logs: Dict[str, Any] = None) -> None:\n\n",
+        "source_code_len": 79,
+        "target_code": "\n    def on_epoch_end(self, epoch: int, logs: Optional[Dict[str, Any]] = None) -> None:\n\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -39,3 +40,3 @@\n \n-    def on_epoch_end(self, epoch: int, logs: Dict[str, Any] = None) -> None:\n+    def on_epoch_end(self, epoch: int, logs: Optional[Dict[str, Any]] = None) -> None:\n \n",
+        "source_code_with_indent": "\n    <DED>def on_epoch_end(self, epoch: int, logs: Dict[str, Any] = None) -> None:\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def on_epoch_end(self, epoch: int, logs: Optional[Dict[str, Any]] = None) -> None:\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

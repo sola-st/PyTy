@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "80ffb8af9ba7a3ff1e13a2dc2ed2bde49054d942",
+    "filename": "mypy/stubgen.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/stubgen.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/stubgen.py:562:33 Incompatible parameter type [6]: Expected `Tuple[int, int]` for 6th parameter `pyversion` to call `generate_stub_for_module` but got `str`.",
+    "message": " Expected `Tuple[int, int]` for 6th parameter `pyversion` to call `generate_stub_for_module` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 562,
+    "warning_line": "                                 pyversion=options.pyversion,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nOptions = NamedTuple('Options', [('pyversion', str),\n                                 ('no_import', bool),\n",
+        "source_code_len": 108,
+        "target_code": "\nOptions = NamedTuple('Options', [('pyversion', Tuple[int, int]),\n                                 ('no_import', bool),\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -59,3 +59,3 @@\n \n-Options = NamedTuple('Options', [('pyversion', str),\n+Options = NamedTuple('Options', [('pyversion', Tuple[int, int]),\n                                  ('no_import', bool),\n",
+        "source_code_with_indent": "\nOptions = NamedTuple('Options', [('pyversion', str),\n                                 ('no_import', bool),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nOptions = NamedTuple('Options', [('pyversion', Tuple[int, int]),\n                                 ('no_import', bool),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "80ffb8af9ba7a3ff1e13a2dc2ed2bde49054d942",
+    "filename": "mypy/stubgen.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/stubgen.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/stubgen.py:600:19 Incompatible parameter type [6]: Expected `str` for 1st parameter `pyversion` to call `Options.__init__` but got `Tuple[int, int]`.",
+    "message": " Expected `str` for 1st parameter `pyversion` to call `Options.__init__` but got `Tuple[int, int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 600,
+    "warning_line": "    return Options(pyversion=pyversion,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nOptions = NamedTuple('Options', [('pyversion', str),\n                                 ('no_import', bool),\n",
+        "source_code_len": 108,
+        "target_code": "\nOptions = NamedTuple('Options', [('pyversion', Tuple[int, int]),\n                                 ('no_import', bool),\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -59,3 +59,3 @@\n \n-Options = NamedTuple('Options', [('pyversion', str),\n+Options = NamedTuple('Options', [('pyversion', Tuple[int, int]),\n                                  ('no_import', bool),\n",
+        "source_code_with_indent": "\nOptions = NamedTuple('Options', [('pyversion', str),\n                                 ('no_import', bool),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nOptions = NamedTuple('Options', [('pyversion', Tuple[int, int]),\n                                 ('no_import', bool),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

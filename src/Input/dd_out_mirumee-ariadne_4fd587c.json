@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mirumee/ariadne",
+    "commit": "4fd587c7e404099d63ea43949de1bdea2d444d5c",
+    "filename": "ariadne/wsgi.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mirumee-ariadne/ariadne/wsgi.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ariadne/wsgi.py:175:12 Incompatible parameter type [6]: Expected `Optional[List[Type[ariadne.types.Extension]]]` for 8th parameter `extensions` to call `graphql_sync` but got `Optional[List[Type[ExtensionSync]]]`.",
+    "message": " Expected `Optional[List[Type[ariadne.types.Extension]]]` for 8th parameter `extensions` to call `graphql_sync` but got `Optional[List[Type[ExtensionSync]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 175,
+    "warning_line": "            extensions=extensions,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from .graphql import graphql_sync\nfrom .types import ContextValue, ErrorFormatter, ExtensionSync, GraphQLResult, RootValue\n\nExtensionList = Optional[List[Type[ExtensionSync]]]\nExtensions = Union[\n",
+        "source_code_len": 196,
+        "target_code": "from .graphql import graphql_sync\nfrom .types import ContextValue, ErrorFormatter, Extension, GraphQLResult, RootValue\n\nExtensionList = Optional[List[Type[Extension]]]\nExtensions = Union[\n",
+        "target_code_len": 188,
+        "diff_format": "@@ -21,5 +21,5 @@\n from .graphql import graphql_sync\n-from .types import ContextValue, ErrorFormatter, ExtensionSync, GraphQLResult, RootValue\n-\n-ExtensionList = Optional[List[Type[ExtensionSync]]]\n+from .types import ContextValue, ErrorFormatter, Extension, GraphQLResult, RootValue\n+\n+ExtensionList = Optional[List[Type[Extension]]]\n Extensions = Union[\n",
+        "source_code_with_indent": "from .graphql import graphql_sync\nfrom .types import ContextValue, ErrorFormatter, ExtensionSync, GraphQLResult, RootValue\n\nExtensionList = Optional[List[Type[ExtensionSync]]]\nExtensions = Union[\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from .graphql import graphql_sync\nfrom .types import ContextValue, ErrorFormatter, Extension, GraphQLResult, RootValue\n\nExtensionList = Optional[List[Type[Extension]]]\nExtensions = Union[\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

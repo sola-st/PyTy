@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "fde3c879992122bf0bab631cacd3e825d931bc19",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:2230:37 Incompatible parameter type [6]: Expected `typing.Iterable[Tuple[str, NoneTyp]]` for 1st positional only parameter to call `list.extend` but got `typing.Iterable[Tuple[str, Instance]]`.",
+    "message": " Expected `typing.Iterable[Tuple[str, NoneTyp]]` for 1st positional only parameter to call `list.extend` but got `typing.Iterable[Tuple[str, Instance]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 2230,
+    "warning_line": "                literal_types.extend([",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                ('None', NoneTyp()),\n            ]\n\n",
+        "source_code_len": 52,
+        "target_code": "                ('None', NoneTyp()),\n            ]  # type: List[Tuple[str, Type]]\n\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -2221,3 +2221,3 @@\n                 ('None', NoneTyp()),\n-            ]\n+            ]  # type: List[Tuple[str, Type]]\n \n",
+        "source_code_with_indent": "                ('None', NoneTyp()),\n            ]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                ('None', NoneTyp()),\n            ]  # type: List[Tuple[str, Type]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

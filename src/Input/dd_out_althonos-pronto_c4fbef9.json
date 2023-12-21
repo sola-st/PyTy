@@ -1,0 +1,36 @@
+[
+  {
+    "project": "althonos/pronto",
+    "commit": "c4fbef968aeeee04ccdc3594bf41249cadac32ad",
+    "filename": "pronto/synonym.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/synonym.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/synonym.py:183:8 Incompatible variable type [9]: synonyms is declared to have type `Set[SynonymType]` but is used as type `pronto.utils.iter.SizedIterator[SynonymType]`.",
+    "message": " synonyms is declared to have type `Set[SynonymType]` but is used as type `pronto.utils.iter.SizedIterator[SynonymType]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 183,
+    "warning_line": "        synonyms: Set[SynonymType] = self.__ontology.synonym_types()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def type(self, type_: Optional[SynonymType]) -> None:\n        synonyms: Set[SynonymType] = self.__ontology.synonym_types()\n        if type_ is not None and not any(type_.id == s.id for s in synonyms):\n",
+        "source_code_len": 205,
+        "target_code": "    def type(self, type_: Optional[SynonymType]) -> None:\n        synonyms: Iterable[SynonymType] = self.__ontology.synonym_types()\n        if type_ is not None and not any(type_.id == s.id for s in synonyms):\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -182,3 +182,3 @@\n     def type(self, type_: Optional[SynonymType]) -> None:\n-        synonyms: Set[SynonymType] = self.__ontology.synonym_types()\n+        synonyms: Iterable[SynonymType] = self.__ontology.synonym_types()\n         if type_ is not None and not any(type_.id == s.id for s in synonyms):\n",
+        "source_code_with_indent": "    def type(self, type_: Optional[SynonymType]) -> None:\n        <IND>synonyms: Set[SynonymType] = self.__ontology.synonym_types()\n        if type_ is not None and not any(type_.id == s.id for s in synonyms):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def type(self, type_: Optional[SynonymType]) -> None:\n        <IND>synonyms: Iterable[SynonymType] = self.__ontology.synonym_types()\n        if type_ is not None and not any(type_.id == s.id for s in synonyms):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

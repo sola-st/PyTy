@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ROBelgium/MSNoise",
+    "commit": "02e622e282c3912a0c8d1c893ff5235aff948979",
+    "filename": "s02new_jobs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ROBelgium-MSNoise/s02new_jobs.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "s02new_jobs.py:60:16 Incompatible variable type [9]: old_day is declared to have type `int` but is used as type `str`.",
+    "message": " old_day is declared to have type `int` but is used as type `str`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 60,
+    "warning_line": "                old_day = day",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            day = \"%s\" % (nf.starttime.date())\n            if day != old_day:\n                day_pairs = np.unique(day_pairs)\n                for pair in day_pairs:\n                    logging.debug('New Job for: %s - %s' % (day, pair))\n                    # add_job(db, day, pair,type='CC',flag='T',commit=False)\n                    jobs.append([day, pair, 'CC', 'T'])\n                day_pairs = []\n                old_day = day\n    \n",
+        "source_code_len": 437,
+        "target_code": "            day = \"%s\" % (nf.starttime.date())\n    \n",
+        "target_code_len": 52,
+        "diff_format": "@@ -52,10 +49,2 @@\n             day = \"%s\" % (nf.starttime.date())\n-            if day != old_day:\n-                day_pairs = np.unique(day_pairs)\n-                for pair in day_pairs:\n-                    logging.debug('New Job for: %s - %s' % (day, pair))\n-                    # add_job(db, day, pair,type='CC',flag='T',commit=False)\n-                    jobs.append([day, pair, 'CC', 'T'])\n-                day_pairs = []\n-                old_day = day\n     \n",
+        "source_code_with_indent": "            <IND>day = \"%s\" % (nf.starttime.date())\n            if day != old_day:\n                <IND>day_pairs = np.unique(day_pairs)\n                for pair in day_pairs:\n                    <IND>logging.debug('New Job for: %s - %s' % (day, pair))\n                    # add_job(db, day, pair,type='CC',flag='T',commit=False)\n                    jobs.append([day, pair, 'CC', 'T'])\n                <DED>day_pairs = []\n                old_day = day\n    \n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>day = \"%s\" % (nf.starttime.date())\n    \n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

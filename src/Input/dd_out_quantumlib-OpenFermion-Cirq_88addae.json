@@ -1,0 +1,36 @@
+[
+  {
+    "project": "quantumlib/OpenFermion-Cirq",
+    "commit": "88addae5facb01ad493beda04d734bcca75a55c2",
+    "filename": "openfermioncirq/variational/study.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-OpenFermion-Cirq/openfermioncirq/variational/study.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "openfermioncirq/variational/study.py:512:52 Incompatible parameter type [6]: Expected `float` for 2nd positional only parameter to call `VariationalStudy.evaluate_with_cost` but got `Optional[float]`.",
+    "message": " Expected `float` for 2nd positional only parameter to call `VariationalStudy.evaluate_with_cost` but got `Optional[float]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 512,
+    "warning_line": "            return self.study.evaluate_with_cost(x, self.cost_of_evaluate)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def evaluate(self,\n                 x: numpy.ndarray) -> float:\n        \"\"\"Evaluate the objective function.\n\n        If `cost_of_evaluate` is None, then this just calls `study.evaluate`.\n        Otherwise, it calls `study.evaluate_with_cost` with with that cost.\n\n        Side effects: Increments self.num_evaluations by one.\n            If cost_of_evaluate is not None, then its value is added to\n            self.cost_spent.\n        \"\"\"\n        self.num_evaluations += 1\n        if self.cost_of_evaluate is None:\n            return self.study.evaluate(x)\n        else:\n            self.cost_spent += self.cost_of_evaluate\n            return self.study.evaluate_with_cost(x, self.cost_of_evaluate)\n\n    def evaluate_with_cost(self,\n                           x: numpy.ndarray,\n                           cost: float) -> float:\n        \"\"\"Evaluate the objective function with a specified cost.\n\n        Side effects: Increments self.num_evaluations by one and adds the cost\n            spent to self.cost_spent.\n        \"\"\"\n        self.num_evaluations += 1\n        self.cost_spent += cost\n        return self.study.evaluate_with_cost(x, cost)\n",
+        "source_code_len": 1149,
+        "target_code": "\n    def _evaluate(self,\n                  x: numpy.ndarray) -> float:\n        \"\"\"Evaluate the objective function.\"\"\"\n        return self.study.evaluate(x)\n\n    def _evaluate_with_cost(self,\n                            x: numpy.ndarray,\n                            cost: float) -> float:\n        \"\"\"Evaluate the objective function with a specified cost.\"\"\"\n        return self.study.evaluate_with_cost(x, cost)\n",
+        "target_code_len": 411,
+        "diff_format": "@@ -495,30 +515,11 @@\n \n-    def evaluate(self,\n-                 x: numpy.ndarray) -> float:\n-        \"\"\"Evaluate the objective function.\n-\n-        If `cost_of_evaluate` is None, then this just calls `study.evaluate`.\n-        Otherwise, it calls `study.evaluate_with_cost` with with that cost.\n-\n-        Side effects: Increments self.num_evaluations by one.\n-            If cost_of_evaluate is not None, then its value is added to\n-            self.cost_spent.\n-        \"\"\"\n-        self.num_evaluations += 1\n-        if self.cost_of_evaluate is None:\n-            return self.study.evaluate(x)\n-        else:\n-            self.cost_spent += self.cost_of_evaluate\n-            return self.study.evaluate_with_cost(x, self.cost_of_evaluate)\n-\n-    def evaluate_with_cost(self,\n-                           x: numpy.ndarray,\n-                           cost: float) -> float:\n-        \"\"\"Evaluate the objective function with a specified cost.\n-\n-        Side effects: Increments self.num_evaluations by one and adds the cost\n-            spent to self.cost_spent.\n-        \"\"\"\n-        self.num_evaluations += 1\n-        self.cost_spent += cost\n+    def _evaluate(self,\n+                  x: numpy.ndarray) -> float:\n+        \"\"\"Evaluate the objective function.\"\"\"\n+        return self.study.evaluate(x)\n+\n+    def _evaluate_with_cost(self,\n+                            x: numpy.ndarray,\n+                            cost: float) -> float:\n+        \"\"\"Evaluate the objective function with a specified cost.\"\"\"\n         return self.study.evaluate_with_cost(x, cost)\n",
+        "source_code_with_indent": "\n    <DED>def evaluate(self,\n                 x: numpy.ndarray) -> float:\n        <IND>\"\"\"Evaluate the objective function.\n\n        If `cost_of_evaluate` is None, then this just calls `study.evaluate`.\n        Otherwise, it calls `study.evaluate_with_cost` with with that cost.\n\n        Side effects: Increments self.num_evaluations by one.\n            If cost_of_evaluate is not None, then its value is added to\n            self.cost_spent.\n        \"\"\"\n        self.num_evaluations += 1\n        if self.cost_of_evaluate is None:\n            <IND>return self.study.evaluate(x)\n        <DED>else:\n            <IND>self.cost_spent += self.cost_of_evaluate\n            return self.study.evaluate_with_cost(x, self.cost_of_evaluate)\n\n    <DED><DED>def evaluate_with_cost(self,\n                           x: numpy.ndarray,\n                           cost: float) -> float:\n        <IND>\"\"\"Evaluate the objective function with a specified cost.\n\n        Side effects: Increments self.num_evaluations by one and adds the cost\n            spent to self.cost_spent.\n        \"\"\"\n        self.num_evaluations += 1\n        self.cost_spent += cost\n        return self.study.evaluate_with_cost(x, cost)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _evaluate(self,\n                  x: numpy.ndarray) -> float:\n        <IND>\"\"\"Evaluate the objective function.\"\"\"\n        return self.study.evaluate(x)\n\n    <DED>def _evaluate_with_cost(self,\n                            x: numpy.ndarray,\n                            cost: float) -> float:\n        <IND>\"\"\"Evaluate the objective function with a specified cost.\"\"\"\n        return self.study.evaluate_with_cost(x, cost)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

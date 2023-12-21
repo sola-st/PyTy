@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lbryio/lbry-sdk",
+    "commit": "12d6074e3bde19d20f0e21cffbadb4a44ba719f5",
+    "filename": "lbry/wallet/network.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lbryio-lbry-sdk/lbry/wallet/network.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lbry/wallet/network.py:256:16 Incompatible return type [7]: Expected `Dict[Tuple[str, int], SPVPong]` but got `Dict[typing.Any, None]`.",
+    "message": " Expected `Dict[Tuple[str, int], SPVPong]` but got `Dict[typing.Any, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 256,
+    "warning_line": "                return {random.choice(list(ip_to_hostnames)): None}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def get_n_fastest_spvs(self, timeout=3.0) -> Dict[Tuple[str, int], SPVPong]:\n        loop = asyncio.get_event_loop()\n",
+        "source_code_len": 128,
+        "target_code": "\n    async def get_n_fastest_spvs(self, timeout=3.0) -> Dict[Tuple[str, int], Optional[SPVPong]]:\n        loop = asyncio.get_event_loop()\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -221,3 +221,3 @@\n \n-    async def get_n_fastest_spvs(self, timeout=3.0) -> Dict[Tuple[str, int], SPVPong]:\n+    async def get_n_fastest_spvs(self, timeout=3.0) -> Dict[Tuple[str, int], Optional[SPVPong]]:\n         loop = asyncio.get_event_loop()\n",
+        "source_code_with_indent": "\n    <DED>async def get_n_fastest_spvs(self, timeout=3.0) -> Dict[Tuple[str, int], SPVPong]:\n        <IND>loop = asyncio.get_event_loop()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>async def get_n_fastest_spvs(self, timeout=3.0) -> Dict[Tuple[str, int], Optional[SPVPong]]:\n        <IND>loop = asyncio.get_event_loop()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

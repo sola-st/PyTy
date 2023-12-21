@@ -1,0 +1,36 @@
+[
+  {
+    "project": "yt-project/yt",
+    "commit": "217558cd08ecdafd9e033c6bc4c8d1f27578c7db",
+    "filename": "yt/frontends/adaptahop/io.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/yt-project-yt/yt/frontends/adaptahop/io.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "yt/frontends/adaptahop/io.py:204:4 Incompatible variable type [9]: Unable to unpack `typing.Set[typing.Tuple[typing.Union[str, typing.Tuple[str, ...]], int, str]]`, expected a tuple.",
+    "message": " Unable to unpack `typing.Set[typing.Tuple[typing.Union[str, typing.Tuple[str, ...]], int, str]]`, expected a tuple.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 204,
+    "warning_line": "    attributes = set(attributes)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    attributes = set(attributes)\n\n",
+        "source_code_len": 35,
+        "target_code": "\n    attributes = tuple(set(attributes))\n\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -203,3 +203,3 @@\n \n-    attributes = set(attributes)\n+    attributes = tuple(set(attributes))\n \n",
+        "source_code_with_indent": "\n    attributes = set(attributes)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    attributes = tuple(set(attributes))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

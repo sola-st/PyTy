@@ -1,0 +1,83 @@
+[
+  {
+    "project": "hasherezade/ida_ifl",
+    "commit": "f3c76a2a33b96224fedb75ae767b403b205a6e40",
+    "filename": "ifl.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hasherezade-ida_ifl/ifl.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ifl.py:853:12 Incompatible return type [7]: Expected `Tuple[int, int]` but got `bool`.",
+    "message": " Expected `Tuple[int, int]` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 853,
+    "warning_line": "            return False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _loadFunctionsNames(self, file_name: Optional[str], ext: str) -> Tuple[int, int]:\n        \"\"\"Loads functions names from the given file into the internal mappings.\n",
+        "source_code_len": 172,
+        "target_code": "\n    def _loadFunctionsNames(self, file_name: Optional[str], ext: str) -> Optional[Tuple[int, int]]:\n        \"\"\"Loads functions names from the given file into the internal mappings.\n",
+        "target_code_len": 182,
+        "diff_format": "@@ -846,3 +846,3 @@\n \n-    def _loadFunctionsNames(self, file_name: Optional[str], ext: str) -> Tuple[int, int]:\n+    def _loadFunctionsNames(self, file_name: Optional[str], ext: str) -> Optional[Tuple[int, int]]:\n         \"\"\"Loads functions names from the given file into the internal mappings.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def _loadFunctionsNames(self, file_name: Optional[str], ext: str) -> Tuple[int, int]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def _loadFunctionsNames(self, file_name: Optional[str], ext: str) -> Optional[Tuple[int, int]]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if file_name is None or len(file_name) == 0:\n            return False\n        curr_functions = self._listFunctionsAddr()\n",
+        "source_code_len": 129,
+        "target_code": "        if file_name is None or len(file_name) == 0:\n            return None\n        curr_functions = self._listFunctionsAddr()\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -852,3 +852,3 @@\n         if file_name is None or len(file_name) == 0:\n-            return False\n+            return None\n         curr_functions = self._listFunctionsAddr()\n",
+        "source_code_with_indent": "        if file_name is None or len(file_name) == 0:\n            <IND>return False\n        <DED>curr_functions = self._listFunctionsAddr()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if file_name is None or len(file_name) == 0:\n            <IND>return None\n        <DED>curr_functions = self._listFunctionsAddr()\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if file_name is not None and len(file_name) > 0:\n            try:\n                (loaded, comments) = self._loadFunctionsNames(file_name, ext)\n                if loaded == 0 and comments == 0:\n                    idaapi.warning(\"Failed importing functions names! Not matching offsets!\")\n                else:\n                    idaapi.info(\"Imported %d function names and %d comments\" % (loaded, comments))\n            except ValueError as e:\n                idaapi.warning(\"Malformed file: %s\" % e)\n\n",
+        "source_code_len": 511,
+        "target_code": "        if file_name is not None and len(file_name) > 0:\n            names = self._loadFunctionsNames(file_name, ext)\n            if names is None:\n                idaapi.warning(\"Malformed file %s\" % file_name)\n                return\n\n            (loaded, comments) = names\n            if loaded == 0 and comments == 0:\n                idaapi.warning(\"Failed importing functions names! Not matching offsets!\")\n            else:\n                idaapi.info(\"Imported %d function names and %d comments\" % (loaded, comments))\n\n",
+        "target_code_len": 525,
+        "diff_format": "@@ -1165,10 +1165,12 @@\n         if file_name is not None and len(file_name) > 0:\n-            try:\n-                (loaded, comments) = self._loadFunctionsNames(file_name, ext)\n-                if loaded == 0 and comments == 0:\n-                    idaapi.warning(\"Failed importing functions names! Not matching offsets!\")\n-                else:\n-                    idaapi.info(\"Imported %d function names and %d comments\" % (loaded, comments))\n-            except ValueError as e:\n-                idaapi.warning(\"Malformed file: %s\" % e)\n+            names = self._loadFunctionsNames(file_name, ext)\n+            if names is None:\n+                idaapi.warning(\"Malformed file %s\" % file_name)\n+                return\n+\n+            (loaded, comments) = names\n+            if loaded == 0 and comments == 0:\n+                idaapi.warning(\"Failed importing functions names! Not matching offsets!\")\n+            else:\n+                idaapi.info(\"Imported %d function names and %d comments\" % (loaded, comments))\n \n",
+        "source_code_with_indent": "        if file_name is not None and len(file_name) > 0:\n            <IND>try:\n                <IND>(loaded, comments) = self._loadFunctionsNames(file_name, ext)\n                if loaded == 0 and comments == 0:\n                    <IND>idaapi.warning(\"Failed importing functions names! Not matching offsets!\")\n                <DED>else:\n                    <IND>idaapi.info(\"Imported %d function names and %d comments\" % (loaded, comments))\n            <DED><DED>except ValueError as e:\n                <IND>idaapi.warning(\"Malformed file: %s\" % e)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if file_name is not None and len(file_name) > 0:\n            <IND>names = self._loadFunctionsNames(file_name, ext)\n            if names is None:\n                <IND>idaapi.warning(\"Malformed file %s\" % file_name)\n                return\n\n            <DED>(loaded, comments) = names\n            if loaded == 0 and comments == 0:\n                <IND>idaapi.warning(\"Failed importing functions names! Not matching offsets!\")\n            <DED>else:\n                <IND>idaapi.info(\"Imported %d function names and %d comments\" % (loaded, comments))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "hasherezade/ida_ifl",
+    "commit": "f3c76a2a33b96224fedb75ae767b403b205a6e40",
+    "filename": "ifl.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hasherezade-ida_ifl/ifl.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ifl.py:878:20 Unbound name [10]: Name `MakeRptCmt` is used but not defined in the current scope.",
+    "message": " Name `MakeRptCmt` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 878,
+    "warning_line": "                    MakeRptCmt(start, func_name) #set the name as a comment"
+  }
+]

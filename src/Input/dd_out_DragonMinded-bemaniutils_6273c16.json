@@ -1,0 +1,104 @@
+[
+  {
+    "project": "DragonMinded/bemaniutils",
+    "commit": "6273c16a3a48e31ba103681c15bc1e3409cfb644",
+    "filename": "bemani/backend/popn/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DragonMinded-bemaniutils/bemani/backend/popn/base.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bemani/backend/popn/base.py:297:35 Incompatible parameter type [6]: Expected `bemani.data.types.UserID` for 1st positional only parameter to call `Base.get_profile` but got `int`.",
+    "message": " Expected `bemani.data.types.UserID` for 1st positional only parameter to call `Base.get_profile` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 297,
+    "warning_line": "        profile = self.get_profile(userid)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def broadcast_score(self, userid: int, songid: int, chart: int, medal: int, points: int, combo: int, stats: Dict[str, int]) -> None:\n        # Generate scorecard\n",
+        "source_code_len": 167,
+        "target_code": "\n    def broadcast_score(self, userid: UserID, songid: int, chart: int, medal: int, points: int, combo: int, stats: Dict[str, int]) -> None:\n        # Generate scorecard\n",
+        "target_code_len": 170,
+        "diff_format": "@@ -294,3 +294,3 @@\n \n-    def broadcast_score(self, userid: int, songid: int, chart: int, medal: int, points: int, combo: int, stats: Dict[str, int]) -> None:\n+    def broadcast_score(self, userid: UserID, songid: int, chart: int, medal: int, points: int, combo: int, stats: Dict[str, int]) -> None:\n         # Generate scorecard\n",
+        "source_code_with_indent": "\n    <DED><DED>def broadcast_score(self, userid: int, songid: int, chart: int, medal: int, points: int, combo: int, stats: Dict[str, int]) -> None:\n        # Generate scorecard\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def broadcast_score(self, userid: UserID, songid: int, chart: int, medal: int, points: int, combo: int, stats: Dict[str, int]) -> None:\n        # Generate scorecard\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "DragonMinded/bemaniutils",
+    "commit": "6273c16a3a48e31ba103681c15bc1e3409cfb644",
+    "filename": "bemani/frontend/mga/mga.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DragonMinded-bemaniutils/bemani/frontend/mga/mga.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bemani/frontend/mga/mga.py:21:4 Inconsistent override [15]: `bemani.frontend.mga.mga.MetalGearArcadeFrontend.all_games` overrides method defined in `FrontendBase` inconsistently. Returned type `Iterator[Tuple[str, int, str]]` is not a subtype of the overridden return `Iterator[Tuple[bemani.common.constants.GameConstants, int, str]]`.",
+    "message": " `bemani.frontend.mga.mga.MetalGearArcadeFrontend.all_games` overrides method defined in `FrontendBase` inconsistently. Returned type `Iterator[Tuple[str, int, str]]` is not a subtype of the overridden return `Iterator[Tuple[bemani.common.constants.GameConstants, int, str]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 21,
+    "warning_line": "    def all_games(self) -> Iterator[Tuple[str, int, str]]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def all_games(self) -> Iterator[Tuple[str, int, str]]:\n        yield from MetalGearArcadeFactory.all_games()\n",
+        "source_code_len": 114,
+        "target_code": "\n    def all_games(self) -> Iterator[Tuple[GameConstants, int, str]]:\n        yield from MetalGearArcadeFactory.all_games()\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -20,3 +20,3 @@\n \n-    def all_games(self) -> Iterator[Tuple[str, int, str]]:\n+    def all_games(self) -> Iterator[Tuple[GameConstants, int, str]]:\n         yield from MetalGearArcadeFactory.all_games()\n",
+        "source_code_with_indent": "\n    <DED>def all_games(self) -> Iterator[Tuple[str, int, str]]:\n        <IND>yield from MetalGearArcadeFactory.all_games()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def all_games(self) -> Iterator[Tuple[GameConstants, int, str]]:\n        <IND>yield from MetalGearArcadeFactory.all_games()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "DragonMinded/bemaniutils",
+    "commit": "6273c16a3a48e31ba103681c15bc1e3409cfb644",
+    "filename": "bemani/frontend/mga/mga.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DragonMinded-bemaniutils/bemani/frontend/mga/mga.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bemani/frontend/mga/mga.py:22:8 Incompatible return type [7]: Expected `Iterator[Tuple[str, int, str]]` but got `typing.Generator[Tuple[bemani.common.constants.GameConstants, int, str], None, None]`.",
+    "message": " Expected `Iterator[Tuple[str, int, str]]` but got `typing.Generator[Tuple[bemani.common.constants.GameConstants, int, str], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 22,
+    "warning_line": "        yield from MetalGearArcadeFactory.all_games()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def all_games(self) -> Iterator[Tuple[str, int, str]]:\n        yield from MetalGearArcadeFactory.all_games()\n",
+        "source_code_len": 114,
+        "target_code": "\n    def all_games(self) -> Iterator[Tuple[GameConstants, int, str]]:\n        yield from MetalGearArcadeFactory.all_games()\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -20,3 +20,3 @@\n \n-    def all_games(self) -> Iterator[Tuple[str, int, str]]:\n+    def all_games(self) -> Iterator[Tuple[GameConstants, int, str]]:\n         yield from MetalGearArcadeFactory.all_games()\n",
+        "source_code_with_indent": "\n    <DED>def all_games(self) -> Iterator[Tuple[str, int, str]]:\n        <IND>yield from MetalGearArcadeFactory.all_games()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def all_games(self) -> Iterator[Tuple[GameConstants, int, str]]:\n        <IND>yield from MetalGearArcadeFactory.all_games()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

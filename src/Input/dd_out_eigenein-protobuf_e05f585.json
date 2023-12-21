@@ -1,0 +1,53 @@
+[
+  {
+    "project": "eigenein/protobuf",
+    "commit": "e05f585124568e06efc72a7524a1aa03caa5d23c",
+    "filename": "pure_protobuf/serializers/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/eigenein-protobuf/pure_protobuf/serializers/__init__.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pure_protobuf/serializers/__init__.py:443:12 Incompatible return type [7]: Expected `types.uint` but got implicit return value of `None`.",
+    "message": " Expected `types.uint` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 443,
+    "warning_line": "            return value"
+  },
+  {
+    "project": "eigenein/protobuf",
+    "commit": "e05f585124568e06efc72a7524a1aa03caa5d23c",
+    "filename": "pure_protobuf/serializers/google.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/eigenein-protobuf/pure_protobuf/serializers/google.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pure_protobuf/serializers/google.py:102:0 Incompatible variable type [9]: SERIALIZERS is declared to have type `Dict[Type[typing.Any], Serializer]` but is used as type `Dict[object, PackingSerializer]`.",
+    "message": " SERIALIZERS is declared to have type `Dict[Type[typing.Any], Serializer]` but is used as type `Dict[object, PackingSerializer]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 102,
+    "warning_line": "SERIALIZERS: Dict[Type, Serializer] = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nSERIALIZERS: Dict[Type, Serializer] = {\n    Any: PackingSerializer(AnySerializer()),\n",
+        "source_code_len": 86,
+        "target_code": "\nSERIALIZERS: Dict[Any, Serializer] = {\n    Any: PackingSerializer(AnySerializer()),\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -101,3 +101,3 @@\n \n-SERIALIZERS: Dict[Type, Serializer] = {\n+SERIALIZERS: Dict[Any, Serializer] = {\n     Any: PackingSerializer(AnySerializer()),\n",
+        "source_code_with_indent": "\n<DED>SERIALIZERS: Dict[Type, Serializer] = {\n    Any: PackingSerializer(AnySerializer()),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>SERIALIZERS: Dict[Any, Serializer] = {\n    Any: PackingSerializer(AnySerializer()),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

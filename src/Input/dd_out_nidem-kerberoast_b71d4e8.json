@@ -1,0 +1,36 @@
+[
+  {
+    "project": "nidem/kerberoast",
+    "commit": "b71d4e8dcde7a8f707d1e8a9dc0abf513cc24938",
+    "filename": "tgsrepcrack.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nidem-kerberoast/tgsrepcrack.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tgsrepcrack.py:46:36 Unbound name [10]: Name `file` is used but not defined in the current scope.",
+    "message": " Name `file` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 46,
+    "warning_line": "\t\t\t\t\tmetavar='dictionary.txt', type=file, # windows closes it in thread",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\tparser.add_argument('wordlistfile', action='store',\n\t\t\t\t\tmetavar='dictionary.txt', type=file, # windows closes it in thread\n\t\t\t\t\thelp='the word list to use with password cracking')\n\tparser.add_argument('files', nargs='+', metavar='file.kirbi',\n\t\t\t\t\thelp='File name to crack. Use asterisk \\'*\\' for many files.\\n Files are exported with mimikatz or from extracttgsrepfrompcap.py')\n",
+        "source_code_len": 381,
+        "target_code": "\tparser.add_argument('wordlistfile', action='store',\n\t\t\t\t\tmetavar='dictionary.txt', type=argparse.FileType('r'), # windows closes it in thread\n\t\t\t\t\thelp='the word list to use with password cracking')\n\tparser.add_argument('files', nargs='+', metavar='file.kirbi', type=argparse.FileType('r'),\n\t\t\t\t\thelp='File name to crack. Use asterisk \\'*\\' for many files.\\n Files are exported with mimikatz or from extracttgsrepfrompcap.py')\n",
+        "target_code_len": 428,
+        "diff_format": "@@ -45,5 +45,5 @@\n \tparser.add_argument('wordlistfile', action='store',\n-\t\t\t\t\tmetavar='dictionary.txt', type=file, # windows closes it in thread\n+\t\t\t\t\tmetavar='dictionary.txt', type=argparse.FileType('r'), # windows closes it in thread\n \t\t\t\t\thelp='the word list to use with password cracking')\n-\tparser.add_argument('files', nargs='+', metavar='file.kirbi',\n+\tparser.add_argument('files', nargs='+', metavar='file.kirbi', type=argparse.FileType('r'),\n \t\t\t\t\thelp='File name to crack. Use asterisk \\'*\\' for many files.\\n Files are exported with mimikatz or from extracttgsrepfrompcap.py')\n",
+        "source_code_with_indent": " parser.add_argument('wordlistfile', action='store',\n     metavar='dictionary.txt', type=file, # windows closes it in thread\n     help='the word list to use with password cracking')\n parser.add_argument('files', nargs='+', metavar='file.kirbi',\n     help='File name to crack. Use asterisk \\'*\\' for many files.\\n Files are exported with mimikatz or from extracttgsrepfrompcap.py')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": " parser.add_argument('wordlistfile', action='store',\n     metavar='dictionary.txt', type=argparse.FileType('r'), # windows closes it in thread\n     help='the word list to use with password cracking')\n parser.add_argument('files', nargs='+', metavar='file.kirbi', type=argparse.FileType('r'),\n     help='File name to crack. Use asterisk \\'*\\' for many files.\\n Files are exported with mimikatz or from extracttgsrepfrompcap.py')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

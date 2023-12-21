@@ -1,0 +1,36 @@
+[
+  {
+    "project": "golemfactory/clay",
+    "commit": "6832462943f813b8278ba0e2acc601bc7f32f846",
+    "filename": "apps/wasm/task.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/golemfactory-clay/apps/wasm/task.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "apps/wasm/task.py:187:8 Incompatible return type [7]: Expected `WasmTaskDefinition` but got `TaskDefinition`.",
+    "message": " Expected `WasmTaskDefinition` but got `TaskDefinition`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 187,
+    "warning_line": "        return task_def",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def build_full_definition(cls, task_type: 'CoreTaskTypeInfo',\n                              dictionary: Dict[str, Any]) -> WasmTaskDefinition:\n        # Resources are generated from 'input_dir' later on.\n",
+        "source_code_len": 208,
+        "target_code": "    def build_full_definition(cls, task_type: 'CoreTaskTypeInfo',\n                              dictionary: Dict[str, Any]) -> TaskDefinition:\n        # Resources are generated from 'input_dir' later on.\n",
+        "target_code_len": 204,
+        "diff_format": "@@ -162,3 +462,3 @@\n     def build_full_definition(cls, task_type: 'CoreTaskTypeInfo',\n-                              dictionary: Dict[str, Any]) -> WasmTaskDefinition:\n+                              dictionary: Dict[str, Any]) -> TaskDefinition:\n         # Resources are generated from 'input_dir' later on.\n",
+        "source_code_with_indent": "    def build_full_definition(cls, task_type: 'CoreTaskTypeInfo',\n                              dictionary: Dict[str, Any]) -> WasmTaskDefinition:\n        # Resources are generated from 'input_dir' later on.\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def build_full_definition(cls, task_type: 'CoreTaskTypeInfo',\n                              dictionary: Dict[str, Any]) -> TaskDefinition:\n        # Resources are generated from 'input_dir' later on.\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

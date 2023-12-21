@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Project-MONAI/MONAI",
+    "commit": "e08dde67f50dca1cdcef6c6c5c9fbcd52411fc35",
+    "filename": "monai/transforms/post/array.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Project-MONAI-MONAI/monai/transforms/post/array.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "monai/transforms/post/array.py:134:31 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `one_hot` but got `Optional[int]`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `one_hot` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 134,
+    "warning_line": "            img = one_hot(img, self.n_classes if n_classes is None else n_classes)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if to_onehot or self.to_onehot:\n            img = one_hot(img, self.n_classes if n_classes is None else n_classes)\n\n",
+        "source_code_len": 124,
+        "target_code": "        if to_onehot or self.to_onehot:\n            _nclasses = self.n_classes if n_classes is None else n_classes\n            assert isinstance(_nclasses, int), \"One of self.n_classes or n_classes must be an integer\"\n            img = one_hot(img, _nclasses)\n\n",
+        "target_code_len": 261,
+        "diff_format": "@@ -133,3 +133,5 @@\n         if to_onehot or self.to_onehot:\n-            img = one_hot(img, self.n_classes if n_classes is None else n_classes)\n+            _nclasses = self.n_classes if n_classes is None else n_classes\n+            assert isinstance(_nclasses, int), \"One of self.n_classes or n_classes must be an integer\"\n+            img = one_hot(img, _nclasses)\n \n",
+        "source_code_with_indent": "        <DED>if to_onehot or self.to_onehot:\n            <IND>img = one_hot(img, self.n_classes if n_classes is None else n_classes)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>if to_onehot or self.to_onehot:\n            <IND>_nclasses = self.n_classes if n_classes is None else n_classes\n            assert isinstance(_nclasses, int), \"One of self.n_classes or n_classes must be an integer\"\n            img = one_hot(img, _nclasses)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

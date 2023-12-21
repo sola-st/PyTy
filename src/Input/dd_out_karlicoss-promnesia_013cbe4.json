@@ -1,0 +1,36 @@
+[
+  {
+    "project": "karlicoss/promnesia",
+    "commit": "013cbe4fb6dee2e0ce5751ca0bf22fe08fc3c995",
+    "filename": "src/promnesia/dump.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlicoss-promnesia/src/promnesia/dump.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/promnesia/dump.py:40:16 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.",
+    "message": " Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 40,
+    "warning_line": "    shutil.move(tpath, db_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    shutil.move(tpath, db_path)\n\n",
+        "source_code_len": 34,
+        "target_code": "\n    shutil.move(str(tpath), str(db_path))\n\n",
+        "target_code_len": 44,
+        "diff_format": "@@ -39,3 +39,3 @@\n \n-    shutil.move(tpath, db_path)\n+    shutil.move(str(tpath), str(db_path))\n \n",
+        "source_code_with_indent": "\n    <DED><DED>shutil.move(tpath, db_path)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>shutil.move(str(tpath), str(db_path))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

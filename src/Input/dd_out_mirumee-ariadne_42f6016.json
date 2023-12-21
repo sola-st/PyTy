@@ -1,0 +1,70 @@
+[
+  {
+    "project": "mirumee/ariadne",
+    "commit": "42f6016c46dc2f830d287aeba31dc79ee6f5c40c",
+    "filename": "ariadne/objects.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mirumee-ariadne/ariadne/objects.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ariadne/objects.py:26:30 Incompatible variable type [9]: resolver is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " resolver is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 26,
+    "warning_line": "    def set_field(self, name, resolver: Resolver = None) -> Resolver:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def set_field(self, name, resolver: Resolver = None) -> Resolver:\n        self._resolvers[name] = resolver\n",
+        "source_code_len": 112,
+        "target_code": "\n    def set_field(self, name, resolver: Resolver) -> Resolver:\n        self._resolvers[name] = resolver\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -25,3 +25,3 @@\n \n-    def set_field(self, name, resolver: Resolver = None) -> Resolver:\n+    def set_field(self, name, resolver: Resolver) -> Resolver:\n         self._resolvers[name] = resolver\n",
+        "source_code_with_indent": "\n    <DED>def set_field(self, name, resolver: Resolver = None) -> Resolver:\n        <IND>self._resolvers[name] = resolver\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def set_field(self, name, resolver: Resolver) -> Resolver:\n        <IND>self._resolvers[name] = resolver\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mirumee/ariadne",
+    "commit": "42f6016c46dc2f830d287aeba31dc79ee6f5c40c",
+    "filename": "ariadne/subscriptions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mirumee-ariadne/ariadne/subscriptions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ariadne/subscriptions.py:28:31 Incompatible variable type [9]: generator is declared to have type `typing.Callable[..., typing.AsyncGenerator[typing.Any, typing.Any]]` but is used as type `None`.",
+    "message": " generator is declared to have type `typing.Callable[..., typing.AsyncGenerator[typing.Any, typing.Any]]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 28,
+    "warning_line": "    def set_source(self, name, generator: Subscriber = None) -> Subscriber:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def set_source(self, name, generator: Subscriber = None) -> Subscriber:\n        self._subscribers[name] = generator\n",
+        "source_code_len": 121,
+        "target_code": "\n    def set_source(self, name, generator: Subscriber) -> Subscriber:\n        self._subscribers[name] = generator\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -27,3 +27,3 @@\n \n-    def set_source(self, name, generator: Subscriber = None) -> Subscriber:\n+    def set_source(self, name, generator: Subscriber) -> Subscriber:\n         self._subscribers[name] = generator\n",
+        "source_code_with_indent": "\n    <DED>def set_source(self, name, generator: Subscriber = None) -> Subscriber:\n        <IND>self._subscribers[name] = generator\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def set_source(self, name, generator: Subscriber) -> Subscriber:\n        <IND>self._subscribers[name] = generator\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

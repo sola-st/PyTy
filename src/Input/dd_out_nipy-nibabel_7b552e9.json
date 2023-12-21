@@ -1,0 +1,51 @@
+[
+  {
+    "project": "nipy/nibabel",
+    "commit": "7b552e96ccd895babec7d2c564eb6bb21ce72688",
+    "filename": "nibabel/tests/test_nifti1.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nipy-nibabel/nibabel/tests/test_nifti1.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nibabel/tests/test_nifti1.py:862:4 Inconsistent override [15]: `image_class` overrides attribute defined in `TestNifti1Image` inconsistently. Type `typing.Type[Nifti1Pair]` is not a subtype of the overridden attribute `typing.Type[Nifti1Image]`.",
+    "message": " `image_class` overrides attribute defined in `TestNifti1Image` inconsistently. Type `typing.Type[Nifti1Pair]` is not a subtype of the overridden attribute `typing.Type[Nifti1Image]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 862,
+    "warning_line": "    image_class = Nifti1Pair",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass TestNifti1Image(tana.TestAnalyzeImage):\n    # Run analyze-flavor spatialimage tests\n    image_class = Nifti1Image\n\n",
+        "source_code_len": 122,
+        "target_code": "\nclass TestNifti1Pair(tana.TestAnalyzeImage):\n    # Run analyze-flavor spatialimage tests\n    image_class = Nifti1Pair\n\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -572,5 +593,5 @@\n \n-class TestNifti1Image(tana.TestAnalyzeImage):\n+class TestNifti1Pair(tana.TestAnalyzeImage):\n     # Run analyze-flavor spatialimage tests\n-    image_class = Nifti1Image\n+    image_class = Nifti1Pair\n \n",
+        "source_code_with_indent": "\n<DED><DED><DED>class TestNifti1Image(tana.TestAnalyzeImage):\n    # Run analyze-flavor spatialimage tests\n    <IND>image_class = Nifti1Image\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>class TestNifti1Pair(tana.TestAnalyzeImage):\n    # Run analyze-flavor spatialimage tests\n    <IND>image_class = Nifti1Pair\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass TestNifti1Pair(TestNifti1Image):\n    # Run analyze-flavor spatialimage tests\n    image_class = Nifti1Pair\n\n",
+        "source_code_len": 114,
+        "target_code": "\nclass TestNifti1Image(TestNifti1Pair):\n    # Run analyze-flavor spatialimage tests\n    image_class = Nifti1Image\n\n    def test_offset_errors(self):\n        # Test that explicit offset too low raises error\n        IC = self.image_class\n        arr = np.arange(24).reshape((2,3,4))\n        img = IC(arr, np.eye(4))\n        assert_equal(img.header.get_data_offset(), 0)\n        # Saving with zero offset is OK\n        img_rt = bytesio_round_trip(img)\n        assert_equal(img_rt.header.get_data_offset(), 0)\n        # Saving with too low offset explicitly set gives error\n        fm = bytesio_filemap(IC)\n        img.header.set_data_offset(16)\n        assert_raises(HeaderDataError, img.to_file_map, fm)\n\n",
+        "target_code_len": 703,
+        "diff_format": "@@ -859,5 +881,19 @@\n \n-class TestNifti1Pair(TestNifti1Image):\n+class TestNifti1Image(TestNifti1Pair):\n     # Run analyze-flavor spatialimage tests\n-    image_class = Nifti1Pair\n+    image_class = Nifti1Image\n+\n+    def test_offset_errors(self):\n+        # Test that explicit offset too low raises error\n+        IC = self.image_class\n+        arr = np.arange(24).reshape((2,3,4))\n+        img = IC(arr, np.eye(4))\n+        assert_equal(img.header.get_data_offset(), 0)\n+        # Saving with zero offset is OK\n+        img_rt = bytesio_round_trip(img)\n+        assert_equal(img_rt.header.get_data_offset(), 0)\n+        # Saving with too low offset explicitly set gives error\n+        fm = bytesio_filemap(IC)\n+        img.header.set_data_offset(16)\n+        assert_raises(HeaderDataError, img.to_file_map, fm)\n \n",
+        "source_code_with_indent": "\n<DED><DED>class TestNifti1Pair(TestNifti1Image):\n    # Run analyze-flavor spatialimage tests\n    <IND>image_class = Nifti1Pair\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class TestNifti1Image(TestNifti1Pair):\n    # Run analyze-flavor spatialimage tests\n    <IND>image_class = Nifti1Image\n\n    def test_offset_errors(self):\n        # Test that explicit offset too low raises error\n        <IND>IC = self.image_class\n        arr = np.arange(24).reshape((2,3,4))\n        img = IC(arr, np.eye(4))\n        assert_equal(img.header.get_data_offset(), 0)\n        # Saving with zero offset is OK\n        img_rt = bytesio_round_trip(img)\n        assert_equal(img_rt.header.get_data_offset(), 0)\n        # Saving with too low offset explicitly set gives error\n        fm = bytesio_filemap(IC)\n        img.header.set_data_offset(16)\n        assert_raises(HeaderDataError, img.to_file_map, fm)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

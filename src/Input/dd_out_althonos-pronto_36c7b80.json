@@ -1,0 +1,85 @@
+[
+  {
+    "project": "althonos/pronto",
+    "commit": "36c7b80304d1c3b1606854ada66c11ae34b04f50",
+    "filename": "pronto/ontology.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/ontology.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/ontology.py:150:16 Incompatible attribute type [8]: Attribute `path` declared in class `Ontology` has type `str` but is used as type `None`.",
+    "message": " Attribute `path` declared in class `Ontology` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 150,
+    "warning_line": "                self.path = self.handle = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    imports: Dict[str, \"Ontology\"]\n\n",
+        "source_code_len": 36,
+        "target_code": "    imports: Dict[str, \"Ontology\"]\n    path: Optional[str]\n\n",
+        "target_code_len": 60,
+        "diff_format": "@@ -64,2 +64,3 @@\n     imports: Dict[str, \"Ontology\"]\n+    path: Optional[str]\n \n",
+        "source_code_with_indent": "    imports: Dict[str, \"Ontology\"]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    imports: Dict[str, \"Ontology\"]\n    path: Optional[str]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "althonos/pronto",
+    "commit": "36c7b80304d1c3b1606854ada66c11ae34b04f50",
+    "filename": "pronto/ontology.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/ontology.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/ontology.py:159:16 Incompatible attribute type [8]: Attribute `path` declared in class `Ontology` has type `str` but is used as type `Optional[str]`.",
+    "message": " Attribute `path` declared in class `Ontology` has type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 159,
+    "warning_line": "                self.path: str = get_location(handle)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if isinstance(handle, str):\n                self.path: str = handle\n                self.handle = ctx << get_handle(handle, timeout)\n",
+        "source_code_len": 145,
+        "target_code": "            if isinstance(handle, str):\n                self.path = handle\n                self.handle = ctx << get_handle(handle, timeout)\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -154,3 +155,3 @@\n             if isinstance(handle, str):\n-                self.path: str = handle\n+                self.path = handle\n                 self.handle = ctx << get_handle(handle, timeout)\n",
+        "source_code_with_indent": "            <DED>if isinstance(handle, str):\n                <IND>self.path: str = handle\n                self.handle = ctx << get_handle(handle, timeout)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>if isinstance(handle, str):\n                <IND>self.path = handle\n                self.handle = ctx << get_handle(handle, timeout)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            elif hasattr(handle, \"read\"):\n                self.path: str = get_location(handle)\n                self.handle = handle\n",
+        "source_code_len": 133,
+        "target_code": "            elif hasattr(handle, \"read\"):\n                self.path = get_location(handle)\n                self.handle = handle\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -158,3 +159,3 @@\n             elif hasattr(handle, \"read\"):\n-                self.path: str = get_location(handle)\n+                self.path = get_location(handle)\n                 self.handle = handle\n",
+        "source_code_with_indent": "            <DED>elif hasattr(handle, \"read\"):\n                <IND>self.path: str = get_location(handle)\n                self.handle = handle\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>elif hasattr(handle, \"read\"):\n                <IND>self.path = get_location(handle)\n                self.handle = handle\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

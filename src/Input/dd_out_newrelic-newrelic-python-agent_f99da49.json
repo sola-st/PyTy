@@ -1,0 +1,36 @@
+[
+  {
+    "project": "newrelic/newrelic-python-agent",
+    "commit": "f99da493986f24a588af50e197bbe62f5ad6332a",
+    "filename": "newrelic/packages/urllib3/packages/six.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/newrelic-newrelic-python-agent/newrelic/packages/urllib3/packages/six.py",
+    "file_hunks_size": 20,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "newrelic/packages/urllib3/packages/six.py:1021:21 Incompatible parameter type [6]: Expected `sys._MetaPathFinder` for 1st positional only parameter to call `list.append` but got `_SixMetaPathImporter`.",
+    "message": " Expected `sys._MetaPathFinder` for 1st positional only parameter to call `list.append` but got `_SixMetaPathImporter`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1021,
+    "warning_line": "sys.meta_path.append(_importer)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __get_module(self, fullname):\n",
+        "source_code_len": 39,
+        "target_code": "\n    def find_spec(self, fullname, path, target=None):\n        if fullname in self.known_modules:\n            return spec_from_loader(fullname, self)\n        return None\n\n    def __get_module(self, fullname):\n",
+        "target_code_len": 209,
+        "diff_format": "@@ -184,2 +189,7 @@\n \n+    def find_spec(self, fullname, path, target=None):\n+        if fullname in self.known_modules:\n+            return spec_from_loader(fullname, self)\n+        return None\n+\n     def __get_module(self, fullname):\n",
+        "source_code_with_indent": "\n    <DED>def __get_module(self, fullname):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def find_spec(self, fullname, path, target=None):\n        <IND>if fullname in self.known_modules:\n            <IND>return spec_from_loader(fullname, self)\n        <DED>return None\n\n    <DED>def __get_module(self, fullname):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

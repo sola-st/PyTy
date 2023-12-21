@@ -1,0 +1,138 @@
+[
+  {
+    "project": "kinnala/scikit-fem",
+    "commit": "2b8c3b5d0230904e36fb60ebd4d95040778cfa1b",
+    "filename": "skfem/mesh/mesh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kinnala-scikit-fem/skfem/mesh/mesh.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "skfem/mesh/mesh.py:188:8 Incompatible return type [7]: Expected `Variable[MeshType (bound to Mesh)]` but got `Mesh`.",
+    "message": " Expected `Variable[MeshType (bound to Mesh)]` but got `Mesh`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 188,
+    "warning_line": "        return meshclass(newp, newt.astype(np.intp))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def remove_elements(self, element_indices: ndarray) -> MeshType:\n        \"\"\"Construct new mesh with elements removed\n",
+        "source_code_len": 122,
+        "target_code": "\n    def remove_elements(self, element_indices: ndarray) -> 'Mesh':\n        \"\"\"Construct new mesh with elements removed\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -162,3 +165,3 @@\n \n-    def remove_elements(self, element_indices: ndarray) -> MeshType:\n+    def remove_elements(self, element_indices: ndarray) -> 'Mesh':\n         \"\"\"Construct new mesh with elements removed\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED><DED>def remove_elements(self, element_indices: ndarray) -> MeshType:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED><DED>def remove_elements(self, element_indices: ndarray) -> 'Mesh':\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "kinnala/scikit-fem",
+    "commit": "2b8c3b5d0230904e36fb60ebd4d95040778cfa1b",
+    "filename": "skfem/mesh/mesh2d/mesh2d.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kinnala-scikit-fem/skfem/mesh/mesh2d/mesh2d.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "skfem/mesh/mesh2d/mesh2d.py:41:8 Incompatible return type [7]: Expected `Variable[MeshType (bound to skfem.mesh.mesh.Mesh)]` but got `Mesh2D`.",
+    "message": " Expected `Variable[MeshType (bound to skfem.mesh.mesh.Mesh)]` but got `Mesh2D`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 41,
+    "warning_line": "        return meshclass(points, tris)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def mirror(self, a: float, b: float, c: float) -> MeshType:\n        \"\"\"Mirror a mesh by the line :math:`ax + by + c = 0`.  Returns a new\n",
+        "source_code_len": 142,
+        "target_code": "\n    def __init__(self, *args, **kwargs):\n        super(Mesh2D, self).__init__()\n\n    def mirror(self, a: float, b: float, c: float) -> Mesh:\n        \"\"\"Mirror a mesh by the line :math:`ax + by + c = 0`.  Returns a new\n",
+        "target_code_len": 219,
+        "diff_format": "@@ -20,3 +20,6 @@\n \n-    def mirror(self, a: float, b: float, c: float) -> MeshType:\n+    def __init__(self, *args, **kwargs):\n+        super(Mesh2D, self).__init__()\n+\n+    def mirror(self, a: float, b: float, c: float) -> Mesh:\n         \"\"\"Mirror a mesh by the line :math:`ax + by + c = 0`.  Returns a new\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def mirror(self, a: float, b: float, c: float) -> MeshType:\n        <IND>",
+        "target_code_with_indent": "\n    def __init__(self, *args, **kwargs):\n        <IND>super(Mesh2D, self).__init__()\n\n    <DED>def mirror(self, a: float, b: float, c: float) -> Mesh:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "kinnala/scikit-fem",
+    "commit": "2b8c3b5d0230904e36fb60ebd4d95040778cfa1b",
+    "filename": "skfem/mesh/mesh2d/mesh_tri.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kinnala-scikit-fem/skfem/mesh/mesh2d/mesh_tri.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "skfem/mesh/mesh2d/mesh_tri.py:175:8 Incompatible return type [7]: Expected `Variable[MeshType (bound to skfem.mesh.mesh.Mesh)]` but got `MeshTri`.",
+    "message": " Expected `Variable[MeshType (bound to skfem.mesh.mesh.Mesh)]` but got `MeshTri`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 175,
+    "warning_line": "        return cls(p, t)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def init_symmetric(cls) -> MeshType:\n        r\"\"\"Initialize a symmetric mesh of the unit square.\n",
+        "source_code_len": 118,
+        "target_code": "    @classmethod\n    def init_symmetric(cls: Type) -> Mesh2D:\n        r\"\"\"Initialize a symmetric mesh of the unit square.\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -152,3 +152,3 @@\n     @classmethod\n-    def init_symmetric(cls) -> MeshType:\n+    def init_symmetric(cls: Type) -> Mesh2D:\n         r\"\"\"Initialize a symmetric mesh of the unit square.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@classmethod\n    def init_symmetric(cls) -> MeshType:\n        <IND>",
+        "target_code_with_indent": "    <DED>@classmethod\n    def init_symmetric(cls: Type) -> Mesh2D:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "kinnala/scikit-fem",
+    "commit": "2b8c3b5d0230904e36fb60ebd4d95040778cfa1b",
+    "filename": "skfem/mesh/mesh3d/mesh_hex.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kinnala-scikit-fem/skfem/mesh/mesh3d/mesh_hex.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "skfem/mesh/mesh3d/mesh_hex.py:322:4 Inconsistent override [14]: `skfem.mesh.mesh3d.mesh_hex.MeshHex.save` overrides method defined in `skfem.mesh.mesh.Mesh` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "message": " `skfem.mesh.mesh3d.mesh_hex.MeshHex.save` overrides method defined in `skfem.mesh.mesh.Mesh` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 322,
+    "warning_line": "    def save(self,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "             point_data: Optional[Dict[str, ndarray]] = None,\n             cell_data: Optional[Dict[str, ndarray]] = None):\n        \"\"\"Export the mesh and fields using meshio. (Hexahedron version.)\n",
+        "source_code_len": 198,
+        "target_code": "             point_data: Optional[Dict[str, ndarray]] = None,\n             cell_data: Optional[Dict[str, ndarray]] = None,\n             **kwargs):\n        \"\"\"Export the mesh and fields using meshio. (Hexahedron version.)\n",
+        "target_code_len": 221,
+        "diff_format": "@@ -324,3 +323,4 @@\n              point_data: Optional[Dict[str, ndarray]] = None,\n-             cell_data: Optional[Dict[str, ndarray]] = None):\n+             cell_data: Optional[Dict[str, ndarray]] = None,\n+             **kwargs):\n         \"\"\"Export the mesh and fields using meshio. (Hexahedron version.)\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "             point_data: Optional[Dict[str, ndarray]] = None,\n             cell_data: Optional[Dict[str, ndarray]] = None):\n        <IND>",
+        "target_code_with_indent": "             point_data: Optional[Dict[str, ndarray]] = None,\n             cell_data: Optional[Dict[str, ndarray]] = None,\n             **kwargs):\n        <IND>"
+      }
+    ]
+  }
+]

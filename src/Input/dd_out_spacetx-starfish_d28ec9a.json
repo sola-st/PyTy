@@ -1,0 +1,109 @@
+[
+  {
+    "project": "spacetx/starfish",
+    "commit": "d28ec9a727b9cc0029bab49ceec022833659acb2",
+    "filename": "starfish/core/spots/AssignTargets/label.py",
+    "min_patch_found": false,
+    "full_warning_msg": "starfish/core/spots/AssignTargets/label.py:69:4 Inconsistent override [14]: `starfish.core.spots.AssignTargets.label.Label.run` overrides method defined in `AssignTargetsAlgorithm` inconsistently. Could not find parameter `label_image` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "spacetx/starfish",
+    "commit": "d28ec9a727b9cc0029bab49ceec022833659acb2",
+    "filename": "starfish/core/spots/DetectPixels/combine_adjacent_features.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spacetx-starfish/starfish/core/spots/DetectPixels/combine_adjacent_features.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "starfish/core/spots/DetectPixels/combine_adjacent_features.py:287:43 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 287,
+    "warning_line": "        spot_attrs[Features.SPOT_RADIUS] = spot_property.equivalent_diameter / 2",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from functools import partial\nfrom typing import cast, Dict, List, NamedTuple, Optional, Tuple\n\n",
+        "source_code_len": 96,
+        "target_code": "from functools import partial\nfrom typing import cast, Dict, List, NamedTuple, Optional, Tuple, Union\n\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -3,3 +3,3 @@\n from functools import partial\n-from typing import cast, Dict, List, NamedTuple, Optional, Tuple\n+from typing import cast, Dict, List, NamedTuple, Optional, Tuple, Union\n \n",
+        "source_code_with_indent": "from functools import partial\nfrom typing import cast, Dict, List, NamedTuple, Optional, Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from functools import partial\nfrom typing import cast, Dict, List, NamedTuple, Optional, Tuple, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            max_area: Number,\n    ) -> Tuple[Dict[str, int], int]:\n        \"\"\"\n",
+        "source_code_len": 79,
+        "target_code": "            max_area: Number,\n    ) -> Tuple[Dict[str, Union[Number, str]], int]:\n        \"\"\"\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -228,3 +230,3 @@\n             max_area: Number,\n-    ) -> Tuple[Dict[str, int], int]:\n+    ) -> Tuple[Dict[str, Union[Number, str]], int]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "            max_area: Number,\n    ) -> Tuple[Dict[str, int], int]:\n        <IND>",
+        "target_code_with_indent": "            max_area: Number,\n    ) -> Tuple[Dict[str, Union[Number, str]], int]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        centroid = spot_property.centroid\n        if len(centroid) == 3:\n",
+        "source_code_len": 73,
+        "target_code": "        centroid = spot_property.centroid\n\n        spot_attrs: Dict[str, Union[Number, str]]\n        if len(centroid) == 3:\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -258,2 +260,4 @@\n         centroid = spot_property.centroid\n+\n+        spot_attrs: Dict[str, Union[Number, str]]\n         if len(centroid) == 3:\n",
+        "source_code_with_indent": "        centroid = spot_property.centroid\n        if len(centroid) == 3:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        centroid = spot_property.centroid\n\n        spot_attrs: Dict[str, Union[Number, str]]\n        if len(centroid) == 3:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spacetx/starfish",
+    "commit": "d28ec9a727b9cc0029bab49ceec022833659acb2",
+    "filename": "starfish/core/types/_spot_attributes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spacetx-starfish/starfish/core/types/_spot_attributes.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "starfish/core/types/_spot_attributes.py:33:46 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T2]]` for 2nd positional only parameter to call `zip.__new__` but got `int`.",
+    "message": " Expected `typing.Iterable[Variable[_T2]]` for 2nd positional only parameter to call `zip.__new__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 33,
+    "warning_line": "        extra_dtypes = list(zip(extra_fields, [np.object] * len(extra_fields)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"return an empty SpotAttributes object\"\"\"\n        extra_dtypes = list(zip(extra_fields, [np.object] * len(extra_fields)))\n        dtype = cls.required_fields + extra_dtypes\n",
+        "source_code_len": 183,
+        "target_code": "        \"\"\"return an empty SpotAttributes object\"\"\"\n        extra_dtypes: list = list(zip(extra_fields, [object] * len(extra_fields)))\n        dtype = cls.required_fields + extra_dtypes\n",
+        "target_code_len": 186,
+        "diff_format": "@@ -32,3 +32,3 @@\n         \"\"\"return an empty SpotAttributes object\"\"\"\n-        extra_dtypes = list(zip(extra_fields, [np.object] * len(extra_fields)))\n+        extra_dtypes: list = list(zip(extra_fields, [object] * len(extra_fields)))\n         dtype = cls.required_fields + extra_dtypes\n",
+        "source_code_with_indent": "        <IND>\"\"\"return an empty SpotAttributes object\"\"\"\n        extra_dtypes = list(zip(extra_fields, [np.object] * len(extra_fields)))\n        dtype = cls.required_fields + extra_dtypes\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>\"\"\"return an empty SpotAttributes object\"\"\"\n        extra_dtypes: list = list(zip(extra_fields, [object] * len(extra_fields)))\n        dtype = cls.required_fields + extra_dtypes\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

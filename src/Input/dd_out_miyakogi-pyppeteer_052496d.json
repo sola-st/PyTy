@@ -1,0 +1,70 @@
+[
+  {
+    "project": "miyakogi/pyppeteer",
+    "commit": "052496dce49e1fcc6dbe7a8143b54de0c3fe90a0",
+    "filename": "pyppeteer/page.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/miyakogi-pyppeteer/pyppeteer/page.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyppeteer/page.py:290:8 Incompatible return type [7]: Expected `str` but got `ElementHandle`.",
+    "message": " Expected `str` but got `ElementHandle`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 290,
+    "warning_line": "        return await frame.addScriptTag(options)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def addScriptTag(self, options: Dict = None, **kwargs: str) -> str:\n        \"\"\"Add script tag to this page.\"\"\"\n",
+        "source_code_len": 122,
+        "target_code": "\n    async def addScriptTag(self, options: Dict = None, **kwargs: str\n                           ) -> ElementHandle:\n        \"\"\"Add script tag to this page.\"\"\"\n",
+        "target_code_len": 160,
+        "diff_format": "@@ -281,3 +281,4 @@\n \n-    async def addScriptTag(self, options: Dict = None, **kwargs: str) -> str:\n+    async def addScriptTag(self, options: Dict = None, **kwargs: str\n+                           ) -> ElementHandle:\n         \"\"\"Add script tag to this page.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED><DED>async def addScriptTag(self, options: Dict = None, **kwargs: str) -> str:\n        <IND>\"\"\"Add script tag to this page.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>async def addScriptTag(self, options: Dict = None, **kwargs: str\n                           ) -> ElementHandle:\n        <IND>\"\"\"Add script tag to this page.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "miyakogi/pyppeteer",
+    "commit": "052496dce49e1fcc6dbe7a8143b54de0c3fe90a0",
+    "filename": "pyppeteer/page.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/miyakogi-pyppeteer/pyppeteer/page.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyppeteer/page.py:300:8 Incompatible return type [7]: Expected `str` but got `ElementHandle`.",
+    "message": " Expected `str` but got `ElementHandle`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 300,
+    "warning_line": "        return await frame.addStyleTag(options)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def addStyleTag(self, options: Dict = None, **kwargs: str) -> str:\n        \"\"\"Add script tag to this page.\"\"\"\n",
+        "source_code_len": 121,
+        "target_code": "\n    async def addStyleTag(self, options: Dict = None, **kwargs: str\n                          ) -> ElementHandle:\n        \"\"\"Add script tag to this page.\"\"\"\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -291,3 +292,4 @@\n \n-    async def addStyleTag(self, options: Dict = None, **kwargs: str) -> str:\n+    async def addStyleTag(self, options: Dict = None, **kwargs: str\n+                          ) -> ElementHandle:\n         \"\"\"Add script tag to this page.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>async def addStyleTag(self, options: Dict = None, **kwargs: str) -> str:\n        <IND>\"\"\"Add script tag to this page.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>async def addStyleTag(self, options: Dict = None, **kwargs: str\n                          ) -> ElementHandle:\n        <IND>\"\"\"Add script tag to this page.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

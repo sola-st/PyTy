@@ -1,0 +1,117 @@
+[
+  {
+    "project": "Flask-Middleware/flask-security",
+    "commit": "e7c5ab63a16ac1a3460ca1b3fde9a07089f50762",
+    "filename": "flask_security/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Flask-Middleware-flask-security/flask_security/utils.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flask_security/utils.py:1070:41 Incompatible parameter type [6]: Expected `typing.Type[DummySmsSender]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[TwilioSmsSender]`.",
+    "message": " Expected `typing.Type[DummySmsSender]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[TwilioSmsSender]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1070,
+    "warning_line": "    SmsSenderFactory.senders[\"Twilio\"] = TwilioSmsSender",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import time\nfrom typing import Dict, List\nimport warnings\n",
+        "source_code_len": 58,
+        "target_code": "import time\nimport typing as t\nimport warnings\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -17,3 +17,3 @@\n import time\n-from typing import Dict, List\n+import typing as t\n import warnings\n",
+        "source_code_with_indent": "import time\nfrom typing import Dict, List\nimport warnings\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import time\nimport typing as t\nimport warnings\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_identity_attributes(app=None) -> List:\n    # Return list of keys of identity attributes\n",
+        "source_code_len": 97,
+        "target_code": "\ndef get_identity_attributes(app=None) -> t.List[str]:\n    # Return list of keys of identity attributes\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -766,3 +772,3 @@\n \n-def get_identity_attributes(app=None) -> List:\n+def get_identity_attributes(app=None) -> t.List[str]:\n     # Return list of keys of identity attributes\n",
+        "source_code_with_indent": "\n<DED>def get_identity_attributes(app=None) -> List:\n    # Return list of keys of identity attributes\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_identity_attributes(app=None) -> t.List[str]:\n    # Return list of keys of identity attributes\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_identity_attribute(attr, app=None) -> Dict:\n    \"\"\"Given an user_identity_attribute, return the defining dict.\n",
+        "source_code_len": 120,
+        "target_code": "\ndef get_identity_attribute(attr: str, app=None) -> t.Dict[str, t.Any]:\n    \"\"\"Given an user_identity_attribute, return the defining dict.\n",
+        "target_code_len": 139,
+        "diff_format": "@@ -776,3 +782,3 @@\n \n-def get_identity_attribute(attr, app=None) -> Dict:\n+def get_identity_attribute(attr: str, app=None) -> t.Dict[str, t.Any]:\n     \"\"\"Given an user_identity_attribute, return the defining dict.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def get_identity_attribute(attr, app=None) -> Dict:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def get_identity_attribute(attr: str, app=None) -> t.Dict[str, t.Any]:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class SmsSenderFactory:\n    senders = {\"Dummy\": DummySmsSender}\n\n",
+        "source_code_len": 65,
+        "target_code": "class SmsSenderFactory:\n    senders: t.Dict[str, t.Type[SmsSenderBaseClass]] = {\"Dummy\": DummySmsSender}\n\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -1043,3 +1049,3 @@\n class SmsSenderFactory:\n-    senders = {\"Dummy\": DummySmsSender}\n+    senders: t.Dict[str, t.Type[SmsSenderBaseClass]] = {\"Dummy\": DummySmsSender}\n \n",
+        "source_code_with_indent": "<DED><DED>class SmsSenderFactory:\n    <IND>senders = {\"Dummy\": DummySmsSender}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class SmsSenderFactory:\n    <IND>senders: t.Dict[str, t.Type[SmsSenderBaseClass]] = {\"Dummy\": DummySmsSender}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Flask-Middleware/flask-security",
+    "commit": "e7c5ab63a16ac1a3460ca1b3fde9a07089f50762",
+    "filename": "tests/test_two_factor.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_two_factor.py:35:35 Incompatible parameter type [6]: Expected `typing.Type[flask_security.utils.DummySmsSender]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[SmsTestSender]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Flask-Middleware/flask-security",
+    "commit": "e7c5ab63a16ac1a3460ca1b3fde9a07089f50762",
+    "filename": "tests/test_two_factor.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_two_factor.py:36:34 Incompatible parameter type [6]: Expected `typing.Type[flask_security.utils.DummySmsSender]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[SmsBadSender]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Flask-Middleware/flask-security",
+    "commit": "e7c5ab63a16ac1a3460ca1b3fde9a07089f50762",
+    "filename": "tests/test_unified_signin.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_unified_signin.py:46:35 Incompatible parameter type [6]: Expected `typing.Type[flask_security.utils.DummySmsSender]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[SmsTestSender]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Flask-Middleware/flask-security",
+    "commit": "e7c5ab63a16ac1a3460ca1b3fde9a07089f50762",
+    "filename": "tests/test_unified_signin.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_unified_signin.py:47:34 Incompatible parameter type [6]: Expected `typing.Type[flask_security.utils.DummySmsSender]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[SmsBadSender]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

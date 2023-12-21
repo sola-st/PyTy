@@ -1,0 +1,70 @@
+[
+  {
+    "project": "amor71/LiuAlgoTrader",
+    "commit": "74429bf23545b2f0490109d95d5e55a1a0764075",
+    "filename": "liualgotrader/backtester.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/amor71-LiuAlgoTrader/liualgotrader/backtester.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "liualgotrader/backtester.py:127:73 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 127,
+    "warning_line": "                custom_strategy_module = importlib.util.module_from_spec(spec)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                )\n                custom_strategy_module = importlib.util.module_from_spec(spec)\n                spec.loader.exec_module(custom_strategy_module)  # type: ignore\n",
+        "source_code_len": 177,
+        "target_code": "                )\n                custom_strategy_module = importlib.util.module_from_spec(spec)  # type: ignore\n                spec.loader.exec_module(custom_strategy_module)  # type: ignore\n",
+        "target_code_len": 193,
+        "diff_format": "@@ -126,3 +135,3 @@\n                 )\n-                custom_strategy_module = importlib.util.module_from_spec(spec)\n+                custom_strategy_module = importlib.util.module_from_spec(spec)  # type: ignore\n                 spec.loader.exec_module(custom_strategy_module)  # type: ignore\n",
+        "source_code_with_indent": "                )\n                custom_strategy_module = importlib.util.module_from_spec(spec)\n                spec.loader.exec_module(custom_strategy_module)  # type: ignore\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                )\n                custom_strategy_module = importlib.util.module_from_spec(spec)  # type: ignore\n                spec.loader.exec_module(custom_strategy_module)  # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "amor71/LiuAlgoTrader",
+    "commit": "74429bf23545b2f0490109d95d5e55a1a0764075",
+    "filename": "liualgotrader/backtester.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/amor71-LiuAlgoTrader/liualgotrader/backtester.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "liualgotrader/backtester.py:536:24 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 536,
+    "warning_line": "                        spec",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                    custom_scanner_module = importlib.util.module_from_spec(\n                        spec\n                    )\n",
+        "source_code_len": 128,
+        "target_code": "                    custom_scanner_module = importlib.util.module_from_spec(\n                        spec  # type: ignore\n                    )\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -535,3 +542,3 @@\n                     custom_scanner_module = importlib.util.module_from_spec(\n-                        spec\n+                        spec  # type: ignore\n                     )\n",
+        "source_code_with_indent": "                    custom_scanner_module = importlib.util.module_from_spec(\n                        spec\n                    )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    custom_scanner_module = importlib.util.module_from_spec(\n                        spec  # type: ignore\n                    )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

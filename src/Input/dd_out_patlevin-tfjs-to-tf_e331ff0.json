@@ -1,0 +1,119 @@
+[
+  {
+    "project": "patlevin/tfjs-to-tf",
+    "commit": "e331ff06f21d1cd5e29427110335b7943ff832f3",
+    "filename": "tfjs_graph_converter/converter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/patlevin-tfjs-to-tf/tfjs_graph_converter/converter.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tfjs_graph_converter/converter.py:130:4 Incompatible return type [7]: Expected `typing.Dict[typing.Any, typing.Any]` but got `typing.Optional[typing.Dict[typing.Any, typing.Dict[str, typing.Any]]]`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` but got `typing.Optional[typing.Dict[typing.Any, typing.Dict[str, typing.Any]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 130,
+    "warning_line": "    return {namespace.signature_key: {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from __future__ import unicode_literals\n\n",
+        "source_code_len": 41,
+        "target_code": "from __future__ import unicode_literals\n\nfrom typing import Optional\n\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -8,2 +8,4 @@\n from __future__ import unicode_literals\n+\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from __future__ import unicode_literals\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from __future__ import unicode_literals\n\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_signature(namespace: argparse.Namespace) -> dict:\n    return {namespace.signature_key: {\n",
+        "source_code_len": 99,
+        "target_code": "\ndef _get_signature(namespace: argparse.Namespace) -> Optional[dict]:\n    return {namespace.signature_key: {\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -128,3 +130,3 @@\n \n-def _get_signature(namespace: argparse.Namespace) -> dict:\n+def _get_signature(namespace: argparse.Namespace) -> Optional[dict]:\n     return {namespace.signature_key: {\n",
+        "source_code_with_indent": "\n<DED>def _get_signature(namespace: argparse.Namespace) -> dict:\n    <IND>return {namespace.signature_key: {\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _get_signature(namespace: argparse.Namespace) -> Optional[dict]:\n    <IND>return {namespace.signature_key: {\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "patlevin/tfjs-to-tf",
+    "commit": "e331ff06f21d1cd5e29427110335b7943ff832f3",
+    "filename": "tfjs_graph_converter/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/patlevin-tfjs-to-tf/tfjs_graph_converter/util.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tfjs_graph_converter/util.py:64:8 Incompatible return type [7]: Expected `Optional[int]` but got `typing.Type[typing.Any]`.",
+    "message": " Expected `Optional[int]` but got `typing.Type[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 64,
+    "warning_line": "        return _map_type(node.attr[c.TFJS_ATTR_DTYPE_KEY].type)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _dtype(node: NodeDef) -> Optional[int]:\n    # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "source_code_len": 114,
+        "target_code": "\ndef _dtype(node: NodeDef) -> Optional[type]:\n    # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -60,3 +60,3 @@\n \n-def _dtype(node: NodeDef) -> Optional[int]:\n+def _dtype(node: NodeDef) -> Optional[type]:\n     # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "source_code_with_indent": "\n<DED><DED>def _dtype(node: NodeDef) -> Optional[int]:\n    # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def _dtype(node: NodeDef) -> Optional[type]:\n    # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "patlevin/tfjs-to-tf",
+    "commit": "e331ff06f21d1cd5e29427110335b7943ff832f3",
+    "filename": "tfjs_graph_converter/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/patlevin-tfjs-to-tf/tfjs_graph_converter/util.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tfjs_graph_converter/util.py:66:8 Incompatible return type [7]: Expected `Optional[int]` but got `typing.Type[typing.Any]`.",
+    "message": " Expected `Optional[int]` but got `typing.Type[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 66,
+    "warning_line": "        return _map_type(node.attr['T'].type)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _dtype(node: NodeDef) -> Optional[int]:\n    # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "source_code_len": 114,
+        "target_code": "\ndef _dtype(node: NodeDef) -> Optional[type]:\n    # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -60,3 +60,3 @@\n \n-def _dtype(node: NodeDef) -> Optional[int]:\n+def _dtype(node: NodeDef) -> Optional[type]:\n     # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "source_code_with_indent": "\n<DED><DED>def _dtype(node: NodeDef) -> Optional[int]:\n    # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def _dtype(node: NodeDef) -> Optional[type]:\n    # accessing non-existing keys would CREATE the key in mapfields!\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

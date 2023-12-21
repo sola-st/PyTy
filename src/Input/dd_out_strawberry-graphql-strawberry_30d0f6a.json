@@ -1,0 +1,68 @@
+[
+  {
+    "project": "strawberry-graphql/strawberry",
+    "commit": "30d0f6a32c702844a15355942710c8207302f543",
+    "filename": "strawberry/federation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/strawberry-graphql-strawberry/strawberry/federation.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "strawberry/federation.py:82:32 Incompatible parameter type [6]: Expected `Union[EnumDefinition, ScalarDefinition, TypeDefinition]` for 1st positional only parameter to call `_has_federation_keys` but got `Union[EnumDefinition, ScalarDefinition, TypeDefinition, strawberry.union.StrawberryUnion]`.",
+    "message": " Expected `Union[EnumDefinition, ScalarDefinition, TypeDefinition]` for 1st positional only parameter to call `_has_federation_keys` but got `Union[EnumDefinition, ScalarDefinition, TypeDefinition, strawberry.union.StrawberryUnion]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 82,
+    "warning_line": "        if _has_federation_keys(type.definition)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from strawberry.types.types import TypeDefinition\n\n",
+        "source_code_len": 51,
+        "target_code": "from strawberry.types.types import TypeDefinition\nfrom strawberry.union import StrawberryUnion\n\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -17,2 +17,3 @@\n from strawberry.types.types import TypeDefinition\n+from strawberry.union import StrawberryUnion\n \n",
+        "source_code_with_indent": "from strawberry.types.types import TypeDefinition\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from strawberry.types.types import TypeDefinition\nfrom strawberry.union import StrawberryUnion\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _has_federation_keys(\n    definition: Union[TypeDefinition, ScalarDefinition, EnumDefinition]\n) -> bool:\n",
+        "source_code_len": 109,
+        "target_code": "def _has_federation_keys(\n    definition: Union[TypeDefinition, ScalarDefinition, EnumDefinition, StrawberryUnion]\n) -> bool:\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -64,3 +65,3 @@\n def _has_federation_keys(\n-    definition: Union[TypeDefinition, ScalarDefinition, EnumDefinition]\n+    definition: Union[TypeDefinition, ScalarDefinition, EnumDefinition, StrawberryUnion]\n ) -> bool:\n",
+        "source_code_with_indent": "<DED>def _has_federation_keys(\n    definition: Union[TypeDefinition, ScalarDefinition, EnumDefinition]\n) -> bool:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _has_federation_keys(\n    definition: Union[TypeDefinition, ScalarDefinition, EnumDefinition, StrawberryUnion]\n) -> bool:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "strawberry-graphql/strawberry",
+    "commit": "30d0f6a32c702844a15355942710c8207302f543",
+    "filename": "strawberry/schema/schema.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/strawberry-graphql-strawberry/strawberry/schema/schema.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "strawberry/schema/schema.py:58:12 Incompatible return type [7]: Expected `Union[None, EnumDefinition, ScalarDefinition, TypeDefinition]` but got `Union[EnumDefinition, ScalarDefinition, TypeDefinition, strawberry.union.StrawberryUnion]`.",
+    "message": " Expected `Union[None, EnumDefinition, ScalarDefinition, TypeDefinition]` but got `Union[EnumDefinition, ScalarDefinition, TypeDefinition, strawberry.union.StrawberryUnion]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 58,
+    "warning_line": "            return self.type_map[name].definition"
+  }
+]

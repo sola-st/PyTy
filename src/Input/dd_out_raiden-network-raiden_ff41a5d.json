@@ -1,0 +1,104 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "ff41a5dc40657487209cc25e2b8f8d239d4f27cd",
+    "filename": "raiden/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/messages.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/messages.py:1748:12 Incompatible parameter type [6]: Expected `TokenNetworkAddress` for 5th parameter `token_network_address` to call `UpdatePFS.__init__` but got `typing.TokenNetworkID`.",
+    "message": " Expected `TokenNetworkAddress` for 5th parameter `token_network_address` to call `UpdatePFS.__init__` but got `typing.TokenNetworkID`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1748,
+    "warning_line": "            token_network_address=balance_proof.token_network_identifier,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            locksroot=balance_proof.locksroot,\n            token_network_address=balance_proof.token_network_identifier,\n            channel_identifier=balance_proof.channel_identifier,\n",
+        "source_code_len": 186,
+        "target_code": "            locksroot=balance_proof.locksroot,\n            token_network_address=TokenNetworkAddress(balance_proof.token_network_identifier),\n            channel_identifier=balance_proof.channel_identifier,\n",
+        "target_code_len": 207,
+        "diff_format": "@@ -1747,3 +1747,3 @@\n             locksroot=balance_proof.locksroot,\n-            token_network_address=balance_proof.token_network_identifier,\n+            token_network_address=TokenNetworkAddress(balance_proof.token_network_identifier),\n             channel_identifier=balance_proof.channel_identifier,\n",
+        "source_code_with_indent": "            locksroot=balance_proof.locksroot,\n            token_network_address=balance_proof.token_network_identifier,\n            channel_identifier=balance_proof.channel_identifier,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            locksroot=balance_proof.locksroot,\n            token_network_address=TokenNetworkAddress(balance_proof.token_network_identifier),\n            channel_identifier=balance_proof.channel_identifier,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "ff41a5dc40657487209cc25e2b8f8d239d4f27cd",
+    "filename": "raiden/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/messages.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/messages.py:1769:4 Inconsistent override [14]: `raiden.messages.UpdatePFS.from_dict` overrides method defined in `Message` inconsistently. Parameter of type `typing.Type[Variable[typing.T_UpdatePFS (bound to UpdatePFS)]]` is not a supertype of the overridden parameter `typing.Type[Message]`.",
+    "message": " `raiden.messages.UpdatePFS.from_dict` overrides method defined in `Message` inconsistently. Parameter of type `typing.Type[Variable[typing.T_UpdatePFS (bound to UpdatePFS)]]` is not a supertype of the overridden parameter `typing.Type[Message]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 1769,
+    "warning_line": "    def from_dict(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def from_dict(\n            cls: typing.Type[typing.T_UpdatePFS],\n            data: typing.Dict,\n    ) -> typing.T_UpdatePFS:\n        return cls(\n",
+        "source_code_len": 149,
+        "target_code": "    def from_dict(\n            cls,\n            data: typing.Dict[str, typing.Any],\n    ) -> 'UpdatePFS':\n        return cls(\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -1769,5 +1769,5 @@\n     def from_dict(\n-            cls: typing.Type[typing.T_UpdatePFS],\n-            data: typing.Dict,\n-    ) -> typing.T_UpdatePFS:\n+            cls,\n+            data: typing.Dict[str, typing.Any],\n+    ) -> 'UpdatePFS':\n         return cls(\n",
+        "source_code_with_indent": "    def from_dict(\n            cls: typing.Type[typing.T_UpdatePFS],\n            data: typing.Dict,\n    ) -> typing.T_UpdatePFS:\n        <IND>return cls(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def from_dict(\n            cls,\n            data: typing.Dict[str, typing.Any],\n    ) -> 'UpdatePFS':\n        <IND>return cls(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "ff41a5dc40657487209cc25e2b8f8d239d4f27cd",
+    "filename": "raiden/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/messages.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/messages.py:1796:4 Inconsistent override [14]: `raiden.messages.UpdatePFS.unpack` overrides method defined in `Message` inconsistently. Parameter of type `typing.Type[Variable[typing.T_UpdatePFS (bound to UpdatePFS)]]` is not a supertype of the overridden parameter `typing.Type[Message]`.",
+    "message": " `raiden.messages.UpdatePFS.unpack` overrides method defined in `Message` inconsistently. Parameter of type `typing.Type[Variable[typing.T_UpdatePFS (bound to UpdatePFS)]]` is not a supertype of the overridden parameter `typing.Type[Message]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 1796,
+    "warning_line": "    def unpack(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def unpack(\n            cls: typing.Type[typing.T_UpdatePFS],\n            packed: bytes,\n    ) -> typing.T_UpdatePFS:\n        return cls(\n",
+        "source_code_len": 142,
+        "target_code": "    def unpack(\n            cls,\n            packed: bytes,\n    ) -> 'UpdatePFS':\n        return cls(\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -1796,5 +1796,5 @@\n     def unpack(\n-            cls: typing.Type[typing.T_UpdatePFS],\n+            cls,\n             packed: bytes,\n-    ) -> typing.T_UpdatePFS:\n+    ) -> 'UpdatePFS':\n         return cls(\n",
+        "source_code_with_indent": "    def unpack(\n            cls: typing.Type[typing.T_UpdatePFS],\n            packed: bytes,\n    ) -> typing.T_UpdatePFS:\n        <IND>return cls(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def unpack(\n            cls,\n            packed: bytes,\n    ) -> 'UpdatePFS':\n        <IND>return cls(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

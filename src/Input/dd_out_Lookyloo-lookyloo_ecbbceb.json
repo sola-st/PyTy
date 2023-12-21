@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Lookyloo/lookyloo",
+    "commit": "ecbbceb781f7ab94062c4cdb1650c4e078b9118a",
+    "filename": "lookyloo/lookyloo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Lookyloo-lookyloo/lookyloo/lookyloo.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lookyloo/lookyloo.py:1076:8 Incompatible return type [7]: Expected `Dict[str, List[Tuple[str, str, str, str, str]]]` but got `Tuple[int, Dict[str, List[Tuple[str, str, str, str, str]]]]`.",
+    "message": " Expected `Dict[str, List[Tuple[str, str, str, str, str]]]` but got `Tuple[int, Dict[str, List[Tuple[str, str, str, str, str]]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1076,
+    "warning_line": "        return total_captures, captures_list",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n",
+        "source_code_len": 235,
+        "target_code": "\n    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Tuple[int, Dict[str, List[Tuple[str, str, str, str, str]]]]:\n        captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n",
+        "target_code_len": 247,
+        "diff_format": "@@ -1062,3 +1062,3 @@\n \n-    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n+    def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Tuple[int, Dict[str, List[Tuple[str, str, str, str, str]]]]:\n         captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n",
+        "source_code_with_indent": "\n    <DED>def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Dict[str, List[Tuple[str, str, str, str, str]]]:\n        <IND>captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def hash_lookup(self, blob_hash: str, url: str, capture_uuid: str) -> Tuple[int, Dict[str, List[Tuple[str, str, str, str, str]]]]:\n        <IND>captures_list: Dict[str, List[Tuple[str, str, str, str, str]]] = {'same_url': [], 'different_url': []}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

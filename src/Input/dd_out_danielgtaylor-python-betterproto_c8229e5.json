@@ -1,0 +1,51 @@
+[
+  {
+    "project": "danielgtaylor/python-betterproto",
+    "commit": "c8229e53a7b73f60c4d658e512cebb1cf8080a7d",
+    "filename": "betterproto/plugin.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/danielgtaylor-python-betterproto/betterproto/plugin.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "betterproto/plugin.py:74:4 Incompatible return type [7]: Expected `str` but got `typing.Union[float, int, str]`.",
+    "message": " Expected `str` but got `typing.Union[float, int, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 74,
+    "warning_line": "    return zero",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import textwrap\nfrom typing import List\nfrom betterproto.casing import safe_snake_case\nfrom betterproto.compile.importing import get_ref_type\nimport betterproto\n\n",
+        "source_code_len": 162,
+        "target_code": "import textwrap\nfrom typing import List, Union\nimport betterproto\nfrom betterproto.casing import safe_snake_case\nfrom betterproto.compile.importing import get_ref_type\n\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -8,6 +8,6 @@\n import textwrap\n-from typing import List\n+from typing import List, Union\n+import betterproto\n from betterproto.casing import safe_snake_case\n from betterproto.compile.importing import get_ref_type\n-import betterproto\n \n",
+        "source_code_with_indent": "import textwrap\nfrom typing import List\nfrom betterproto.casing import safe_snake_case\nfrom betterproto.compile.importing import get_ref_type\nimport betterproto\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import textwrap\nfrom typing import List, Union\nimport betterproto\nfrom betterproto.casing import safe_snake_case\nfrom betterproto.compile.importing import get_ref_type\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_py_zero(type_num: int) -> str:\n    zero = 0\n    if type_num in []:\n",
+        "source_code_len": 76,
+        "target_code": "\ndef get_py_zero(type_num: int) -> Union[str, float]:\n    zero: Union[str, float] = 0\n    if type_num in []:\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -60,4 +60,4 @@\n \n-def get_py_zero(type_num: int) -> str:\n-    zero = 0\n+def get_py_zero(type_num: int) -> Union[str, float]:\n+    zero: Union[str, float] = 0\n     if type_num in []:\n",
+        "source_code_with_indent": "\n<DED><DED>def get_py_zero(type_num: int) -> str:\n    <IND>zero = 0\n    if type_num in []:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def get_py_zero(type_num: int) -> Union[str, float]:\n    <IND>zero: Union[str, float] = 0\n    if type_num in []:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

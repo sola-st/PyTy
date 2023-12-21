@@ -1,0 +1,51 @@
+[
+  {
+    "project": "nornir-automation/nornir",
+    "commit": "26861733523f4a81945f9323a2f68b5ba155d949",
+    "filename": "nornir/core/deserializer/configuration.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nornir-automation-nornir/nornir/core/deserializer/configuration.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nornir/core/deserializer/configuration.py:54:12 Incompatible parameter type [6]: Expected `typing.Type[nornir.core.inventory.Inventory]` for 1st parameter `plugin` to call `configuration.InventoryConfig.__init__` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "message": " Expected `typing.Type[nornir.core.inventory.Inventory]` for 1st parameter `plugin` to call `configuration.InventoryConfig.__init__` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 54,
+    "warning_line": "            plugin=_resolve_import_from_string(inv.plugin),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import logging\nfrom typing import Any, Callable, Dict, List, Optional\n\nfrom nornir.core import configuration\n\n",
+        "source_code_len": 110,
+        "target_code": "import logging\nfrom typing import Any, Callable, Dict, List, Optional, Type, cast\n\nfrom nornir.core import configuration\nfrom nornir.core.inventory import Inventory\n\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -2,5 +2,6 @@\n import logging\n-from typing import Any, Callable, Dict, List, Optional\n+from typing import Any, Callable, Dict, List, Optional, Type, cast\n \n from nornir.core import configuration\n+from nornir.core.inventory import Inventory\n \n",
+        "source_code_with_indent": "import logging\nfrom typing import Any, Callable, Dict, List, Optional\n\nfrom nornir.core import configuration\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\nfrom typing import Any, Callable, Dict, List, Optional, Type, cast\n\nfrom nornir.core import configuration\nfrom nornir.core.inventory import Inventory\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        return configuration.InventoryConfig(\n            plugin=_resolve_import_from_string(inv.plugin),\n            options=inv.options,\n",
+        "source_code_len": 139,
+        "target_code": "        return configuration.InventoryConfig(\n            plugin=cast(Type[Inventory], _resolve_import_from_string(inv.plugin)),\n            options=inv.options,\n",
+        "target_code_len": 162,
+        "diff_format": "@@ -53,3 +54,3 @@\n         return configuration.InventoryConfig(\n-            plugin=_resolve_import_from_string(inv.plugin),\n+            plugin=cast(Type[Inventory], _resolve_import_from_string(inv.plugin)),\n             options=inv.options,\n",
+        "source_code_with_indent": "        return configuration.InventoryConfig(\n            plugin=_resolve_import_from_string(inv.plugin),\n            options=inv.options,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        return configuration.InventoryConfig(\n            plugin=cast(Type[Inventory], _resolve_import_from_string(inv.plugin)),\n            options=inv.options,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

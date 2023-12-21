@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "1be1dee5fd2515df904b9f9cc2c293dcf2761744",
+    "filename": "src/ezdxf/tools/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/tools/__init__.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/tools/__init__.py:79:12 Incompatible return type [7]: Expected `Tuple[typing.Any, typing.Any]` but got `typing.Generator[Tuple[typing.Any, typing.Any], None, None]`.",
+    "message": " Expected `Tuple[typing.Any, typing.Any]` but got `typing.Generator[Tuple[typing.Any, typing.Any], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 79,
+    "warning_line": "            yield store, item",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef take2(iterable: Iterable) -> Tuple[Any, Any]:\n    \"\"\" Iterate `iterable` as 2-tuples.\n\n",
+        "source_code_len": 92,
+        "target_code": "\ndef take2(iterable: Iterable) -> Iterable[Tuple[Any, Any]]:\n    \"\"\"Iterate `iterable` as 2-tuples.\n\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -67,4 +66,4 @@\n \n-def take2(iterable: Iterable) -> Tuple[Any, Any]:\n-    \"\"\" Iterate `iterable` as 2-tuples.\n+def take2(iterable: Iterable) -> Iterable[Tuple[Any, Any]]:\n+    \"\"\"Iterate `iterable` as 2-tuples.\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def take2(iterable: Iterable) -> Tuple[Any, Any]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def take2(iterable: Iterable) -> Iterable[Tuple[Any, Any]]:\n    <IND>"
+      }
+    ]
+  }
+]

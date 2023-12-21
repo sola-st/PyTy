@@ -1,0 +1,36 @@
+[
+  {
+    "project": "iDevision/enhanced-discord.py",
+    "commit": "bbc4460c38e6d04b8175ce87ddcfce175ec2be26",
+    "filename": "discord/emoji.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/iDevision-enhanced-discord.py/discord/emoji.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/emoji.py:151:4 Inconsistent override [15]: `__slots__` overrides attribute defined in `Hashable` inconsistently. Type `typing.Tuple[str, str, str, str, str, str, str, str]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "message": " `__slots__` overrides attribute defined in `Hashable` inconsistently. Type `typing.Tuple[str, str, str, str, str, str, str, str]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 151,
+    "warning_line": "    __slots__ = ('require_colons', 'animated', 'managed', 'id', 'name', '_roles', 'guild_id', '_state')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass Emoji(Hashable):\n    \"\"\"Represents a custom emoji.\n",
+        "source_code_len": 58,
+        "target_code": "\nclass Emoji:\n    \"\"\"Represents a custom emoji.\n",
+        "target_code_len": 48,
+        "diff_format": "@@ -106,3 +105,3 @@\n \n-class Emoji(Hashable):\n+class Emoji:\n     \"\"\"Represents a custom emoji.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>class Emoji(Hashable):\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>class Emoji:\n    <IND>"
+      }
+    ]
+  }
+]

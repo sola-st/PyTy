@@ -1,0 +1,66 @@
+[
+  {
+    "project": "couchbase/couchbase-python-client",
+    "commit": "e09a19ab60255734e06ec0ebf8695f5940e1e433",
+    "filename": "couchbase/collection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/couchbase-couchbase-python-client/couchbase/collection.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "couchbase/collection.py:975:8 Incompatible return type [7]: Expected `ResultPrecursor` but got `MutateInResult`.",
+    "message": " Expected `ResultPrecursor` but got `MutateInResult`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 975,
+    "warning_line": "        return MutateInResult(self.bucket.mutate_in(id, spec, **final_options), **final_options)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                  ):\n        # type: (...) -> MutationResult\n        pass\n",
+        "source_code_len": 74,
+        "target_code": "                  ):\n        # type: (...) -> MutateInResult\n        pass\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -921,3 +921,3 @@\n                   ):\n-        # type: (...) -> MutationResult\n+        # type: (...) -> MutateInResult\n         pass\n",
+        "source_code_with_indent": "                  ):\n        # type: (...) -> MutationResult\n        <IND>pass\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                  ):\n        # type: (...) -> MutateInResult\n        <IND>pass\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                  ):\n        # type: (...) -> MutationResult\n        pass\n",
+        "source_code_len": 74,
+        "target_code": "                  ):\n        # type: (...) -> MutateInResult\n        pass\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -933,3 +933,3 @@\n                   ):\n-        # type: (...) -> MutationResult\n+        # type: (...) -> MutateInResult\n         pass\n",
+        "source_code_with_indent": "                  ):\n        # type: (...) -> MutationResult\n        <IND>pass\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                  ):\n        # type: (...) -> MutateInResult\n        <IND>pass\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                  ):\n        # type: (...) -> ResultPrecursor\n        \"\"\"Perform multiple atomic modifications within a document.\n",
+        "source_code_len": 130,
+        "target_code": "                  ):\n        # type: (...) -> MutateInResult\n        \"\"\"Perform multiple atomic modifications within a document.\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -942,3 +942,3 @@\n                   ):\n-        # type: (...) -> ResultPrecursor\n+        # type: (...) -> MutateInResult\n         \"\"\"Perform multiple atomic modifications within a document.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                  ):\n        # type: (...) -> ResultPrecursor\n        <IND>",
+        "target_code_with_indent": "                  ):\n        # type: (...) -> MutateInResult\n        <IND>"
+      }
+    ]
+  }
+]

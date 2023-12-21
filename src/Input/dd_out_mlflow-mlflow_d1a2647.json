@@ -1,0 +1,79 @@
+[
+  {
+    "project": "mlflow/mlflow",
+    "commit": "d1a2647a4d265f290261ab91db44125422ee57ab",
+    "filename": "mlflow/models/model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mlflow-mlflow/mlflow/models/model.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mlflow/models/model.py:34:8 Incompatible variable type [9]: signature is declared to have type `ModelSignature` but is used as type `None`.",
+    "message": " signature is declared to have type `ModelSignature` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 34,
+    "warning_line": "        signature: ModelSignature = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        flavors=None,\n        signature: ModelSignature = None,\n        saved_input_example_info: Dict[str, Any] = None,\n",
+        "source_code_len": 121,
+        "target_code": "        flavors=None,\n        signature=None,  # ModelSignature\n        saved_input_example_info: Dict[str, Any] = None,\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -33,3 +32,3 @@\n         flavors=None,\n-        signature: ModelSignature = None,\n+        signature=None,  # ModelSignature\n         saved_input_example_info: Dict[str, Any] = None,\n",
+        "source_code_with_indent": "        flavors=None,\n        signature: ModelSignature = None,\n        saved_input_example_info: Dict[str, Any] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        flavors=None,\n        signature=None,  # ModelSignature\n        saved_input_example_info: Dict[str, Any] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mlflow/mlflow",
+    "commit": "d1a2647a4d265f290261ab91db44125422ee57ab",
+    "filename": "mlflow/models/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mlflow/models/utils.py:155:38 Incompatible parameter type [6]: Expected `mlflow.types.schema.Schema` for 2nd parameter `schema` to call `_dataframe_from_json` but got `typing.Optional[mlflow.types.schema.Schema]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mlflow/mlflow",
+    "commit": "d1a2647a4d265f290261ab91db44125422ee57ab",
+    "filename": "mlflow/utils/proto_json_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mlflow-mlflow/mlflow/utils/proto_json_utils.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mlflow/utils/proto_json_utils.py:86:17 Incompatible variable type [9]: schema is declared to have type `Schema` but is used as type `None`.",
+    "message": " schema is declared to have type `Schema` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 86,
+    "warning_line": "    path_or_str, schema: Schema = None, pandas_orient: str = \"split\", precise_float=False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _dataframe_from_json(\n    path_or_str, schema: Schema = None, pandas_orient: str = \"split\", precise_float=False\n) -> pd.DataFrame:\n    \"\"\"\n",
+        "source_code_len": 143,
+        "target_code": "def _dataframe_from_json(\n    path_or_str, schema=None, pandas_orient: str = \"split\", precise_float=False\n):\n    \"\"\"\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -85,4 +82,4 @@\n def _dataframe_from_json(\n-    path_or_str, schema: Schema = None, pandas_orient: str = \"split\", precise_float=False\n-) -> pd.DataFrame:\n+    path_or_str, schema=None, pandas_orient: str = \"split\", precise_float=False\n+):\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED><DED><DED>def _dataframe_from_json(\n    path_or_str, schema: Schema = None, pandas_orient: str = \"split\", precise_float=False\n) -> pd.DataFrame:\n    <IND>",
+        "target_code_with_indent": "<DED><DED><DED>def _dataframe_from_json(\n    path_or_str, schema=None, pandas_orient: str = \"split\", precise_float=False\n):\n    <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "project": "ktbyers/netmiko",
+    "commit": "bbdb10efe05561f6ea2b5c9fd8cfff1b0dd293b8",
+    "filename": "netmiko/dell/dell_isilon_ssh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ktbyers-netmiko/netmiko/dell/dell_isilon_ssh.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "netmiko/dell/dell_isilon_ssh.py:65:22 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `str.__add__` but got `typing.Union[typing.Dict[str, typing.Any], typing.List[typing.Any], str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `str.__add__` but got `typing.Union[typing.Dict[str, typing.Any], typing.List[typing.Any], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 65,
+    "warning_line": "            output += self.send_command_timing(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if not self.check_enable_mode():\n            output += self.send_command_timing(\n                cmd, strip_prompt=False, strip_command=False\n            )\n            if re.search(pattern, output, flags=re_flags):\n",
+        "source_code_len": 223,
+        "target_code": "        if not self.check_enable_mode():\n            new_data = self.send_command_timing(\n                cmd, strip_prompt=False, strip_command=False\n            )\n            assert isinstance(new_data, str)\n            output += new_data\n            if re.search(pattern, output, flags=re_flags):\n",
+        "target_code_len": 300,
+        "diff_format": "@@ -64,5 +69,7 @@\n         if not self.check_enable_mode():\n-            output += self.send_command_timing(\n+            new_data = self.send_command_timing(\n                 cmd, strip_prompt=False, strip_command=False\n             )\n+            assert isinstance(new_data, str)\n+            output += new_data\n             if re.search(pattern, output, flags=re_flags):\n",
+        "source_code_with_indent": "        if not self.check_enable_mode():\n            <IND>output += self.send_command_timing(\n                cmd, strip_prompt=False, strip_command=False\n            )\n            if re.search(pattern, output, flags=re_flags):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if not self.check_enable_mode():\n            <IND>new_data = self.send_command_timing(\n                cmd, strip_prompt=False, strip_command=False\n            )\n            assert isinstance(new_data, str)\n            output += new_data\n            if re.search(pattern, output, flags=re_flags):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ktbyers/netmiko",
+    "commit": "bbdb10efe05561f6ea2b5c9fd8cfff1b0dd293b8",
+    "filename": "netmiko/dell/dell_isilon_ssh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ktbyers-netmiko/netmiko/dell/dell_isilon_ssh.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "netmiko/dell/dell_isilon_ssh.py:80:4 Inconsistent override [15]: `netmiko.dell.dell_isilon_ssh.DellIsilonSSH.check_config_mode` overrides method defined in `BaseConnection` inconsistently. Returned type `str` is not a subtype of the overridden return `bool`.",
+    "message": " `netmiko.dell.dell_isilon_ssh.DellIsilonSSH.check_config_mode` overrides method defined in `BaseConnection` inconsistently. Returned type `str` is not a subtype of the overridden return `bool`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 80,
+    "warning_line": "    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> str:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> str:\n        \"\"\"Use equivalent enable method.\"\"\"\n",
+        "source_code_len": 129,
+        "target_code": "\n    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> bool:\n        \"\"\"Use equivalent enable method.\"\"\"\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -79,3 +86,3 @@\n \n-    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> str:\n+    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> bool:\n         \"\"\"Use equivalent enable method.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> str:\n        <IND>\"\"\"Use equivalent enable method.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> bool:\n        <IND>\"\"\"Use equivalent enable method.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ktbyers/netmiko",
+    "commit": "bbdb10efe05561f6ea2b5c9fd8cfff1b0dd293b8",
+    "filename": "netmiko/dell/dell_isilon_ssh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ktbyers-netmiko/netmiko/dell/dell_isilon_ssh.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "netmiko/dell/dell_isilon_ssh.py:82:8 Incompatible return type [7]: Expected `str` but got `bool`.",
+    "message": " Expected `str` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 82,
+    "warning_line": "        return self.check_enable_mode(check_string=check_string)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> str:\n        \"\"\"Use equivalent enable method.\"\"\"\n",
+        "source_code_len": 129,
+        "target_code": "\n    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> bool:\n        \"\"\"Use equivalent enable method.\"\"\"\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -79,3 +86,3 @@\n \n-    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> str:\n+    def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> bool:\n         \"\"\"Use equivalent enable method.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> str:\n        <IND>\"\"\"Use equivalent enable method.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def check_config_mode(self, check_string: str = \"#\", pattern: str = \"\") -> bool:\n        <IND>\"\"\"Use equivalent enable method.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

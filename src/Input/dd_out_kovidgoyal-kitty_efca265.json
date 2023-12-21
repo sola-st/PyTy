@@ -1,0 +1,85 @@
+[
+  {
+    "project": "kovidgoyal/kitty",
+    "commit": "efca2658eae62306c6f5ad3a24df3c7b5eaca6de",
+    "filename": "kittens/diff/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kovidgoyal-kitty/kittens/diff/main.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kittens/diff/main.py:600:4 Incompatible variable type [9]: warnings.showwarning is declared to have type `typing.Callable(warnings.showwarning)[[Named(message, Union[Warning, str]), Named(category, typing.Type[Warning]), Named(filename, str), Named(lineno, int), Named(file, Optional[typing.TextIO], default), Named(line, Optional[str], default)], None]` but is used as type `ShowWarning`.",
+    "message": " warnings.showwarning is declared to have type `typing.Callable(warnings.showwarning)[[Named(message, Union[Warning, str]), Named(category, typing.Type[Warning]), Named(filename, str), Named(lineno, int), Named(file, Optional[typing.TextIO], default), Named(line, Optional[str], default)], None]` but is used as type `ShowWarning`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 600,
+    "warning_line": "    warnings.showwarning = showwarning",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from gettext import gettext as _\nfrom typing import DefaultDict, Dict, Iterable, List, Optional, Tuple, Union\n\n",
+        "source_code_len": 111,
+        "target_code": "from gettext import gettext as _\nfrom typing import (\n    Any, DefaultDict, Dict, Iterable, List, Optional, Tuple, Union\n)\n\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -15,3 +15,5 @@\n from gettext import gettext as _\n-from typing import DefaultDict, Dict, Iterable, List, Optional, Tuple, Union\n+from typing import (\n+    Any, DefaultDict, Dict, Iterable, List, Optional, Tuple, Union\n+)\n \n",
+        "source_code_with_indent": "from gettext import gettext as _\nfrom typing import DefaultDict, Dict, Iterable, List, Optional, Tuple, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from gettext import gettext as _\nfrom typing import (\n    Any, DefaultDict, Dict, Iterable, List, Optional, Tuple, Union\n)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __call__(self, message: str, category: object, filename: str, lineno: int, file: object = None, line: object = None) -> None:\n        if category is ImageSupportWarning:\n            showwarning.warnings.append(message)\n",
+        "source_code_len": 228,
+        "target_code": "\n    def __call__(self, message: Any, category: Any, filename: str, lineno: int, file: object = None, line: object = None) -> None:\n        if category is ImageSupportWarning and isinstance(message, str):\n            showwarning.warnings.append(message)\n",
+        "target_code_len": 254,
+        "diff_format": "@@ -568,4 +572,4 @@\n \n-    def __call__(self, message: str, category: object, filename: str, lineno: int, file: object = None, line: object = None) -> None:\n-        if category is ImageSupportWarning:\n+    def __call__(self, message: Any, category: Any, filename: str, lineno: int, file: object = None, line: object = None) -> None:\n+        if category is ImageSupportWarning and isinstance(message, str):\n             showwarning.warnings.append(message)\n",
+        "source_code_with_indent": "\n    <DED>def __call__(self, message: str, category: object, filename: str, lineno: int, file: object = None, line: object = None) -> None:\n        <IND>if category is ImageSupportWarning:\n            <IND>showwarning.warnings.append(message)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __call__(self, message: Any, category: Any, filename: str, lineno: int, file: object = None, line: object = None) -> None:\n        <IND>if category is ImageSupportWarning and isinstance(message, str):\n            <IND>showwarning.warnings.append(message)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "kovidgoyal/kitty",
+    "commit": "efca2658eae62306c6f5ad3a24df3c7b5eaca6de",
+    "filename": "publish.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kovidgoyal-kitty/publish.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "publish.py:140:4 Inconsistent override [15]: `publish.ReadFileWithProgressReporting.read` overrides method defined in `io.FileIO` inconsistently. Returned type `Optional[bytes]` is not a subtype of the overridden return `bytes`.",
+    "message": " `publish.ReadFileWithProgressReporting.read` overrides method defined in `io.FileIO` inconsistently. Returned type `Optional[bytes]` is not a subtype of the overridden return `bytes`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 140,
+    "warning_line": "    def read(self, size: int = -1) -> Optional[bytes]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def read(self, size: int = -1) -> Optional[bytes]:\n        data = io.FileIO.read(self, size)\n",
+        "source_code_len": 98,
+        "target_code": "\n    def read(self, size: int = -1) -> bytes:\n        data = io.FileIO.read(self, size)\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -139,3 +139,3 @@\n \n-    def read(self, size: int = -1) -> Optional[bytes]:\n+    def read(self, size: int = -1) -> bytes:\n         data = io.FileIO.read(self, size)\n",
+        "source_code_with_indent": "\n    <DED>def read(self, size: int = -1) -> Optional[bytes]:\n        <IND>data = io.FileIO.read(self, size)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def read(self, size: int = -1) -> bytes:\n        <IND>data = io.FileIO.read(self, size)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

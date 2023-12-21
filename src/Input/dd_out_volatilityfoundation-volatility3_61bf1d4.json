@@ -1,0 +1,36 @@
+[
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "61bf1d40b02f0061fc46f6e0ec4d6262f8a5f462",
+    "filename": "volatility/framework/interfaces/layers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility/framework/interfaces/layers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility/framework/interfaces/layers.py:206:12 Incompatible variable type [9]: scan_iterator is declared to have type `typing.Optional[typing.Callable[[ScannerInterface, int, int], typing.Tuple[typing.List[typing.Tuple[str, int, int]], int]]]` but is used as type `functools.partial[typing.Iterable[typing.Union[typing.List[typing.Tuple[str, int, int]], typing.Tuple[typing.List[typing.Tuple[str, int, int]], int], int]]]`.",
+    "message": " scan_iterator is declared to have type `typing.Optional[typing.Callable[[ScannerInterface, int, int], typing.Tuple[typing.List[typing.Tuple[str, int, int]], int]]]` but is used as type `functools.partial[typing.Iterable[typing.Union[typing.List[typing.Tuple[str, int, int]], typing.Tuple[typing.List[typing.Tuple[str, int, int]], int], int]]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 206,
+    "warning_line": "            scan_iterator = functools.partial(scan_iterator, scanner, min_address, max_address)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "             max_address: typing.Optional[int] = None,\n             scan_iterator: typing.Optional[typing.Callable[['ScannerInterface', int, int], IteratorValue]] = None) -> \\\n            typing.Iterable[typing.Any]:\n",
+        "source_code_len": 217,
+        "target_code": "             max_address: typing.Optional[int] = None,\n             scan_iterator: typing.Optional[typing.Callable[['ScannerInterface', int, int],\n                                                            typing.Iterable[IteratorValue]]] = None) -> \\\n            typing.Iterable[typing.Any]:\n",
+        "target_code_len": 294,
+        "diff_format": "@@ -175,3 +175,4 @@\n              max_address: typing.Optional[int] = None,\n-             scan_iterator: typing.Optional[typing.Callable[['ScannerInterface', int, int], IteratorValue]] = None) -> \\\n+             scan_iterator: typing.Optional[typing.Callable[['ScannerInterface', int, int],\n+                                                            typing.Iterable[IteratorValue]]] = None) -> \\\n             typing.Iterable[typing.Any]:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "             max_address: typing.Optional[int] = None,\n             scan_iterator: typing.Optional[typing.Callable[['ScannerInterface', int, int], IteratorValue]] = None) ->            typing.Iterable[typing.Any]:\n",
+        "target_code_with_indent": "             max_address: typing.Optional[int] = None,\n             scan_iterator: typing.Optional[typing.Callable[['ScannerInterface', int, int],\n                                                            typing.Iterable[IteratorValue]]] = None) ->            typing.Iterable[typing.Any]:\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jamesturk/spatula",
+    "commit": "e7680194e771e981193071fc510f2359870a8604",
+    "filename": "src/spatula/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jamesturk-spatula/src/spatula/cli.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/spatula/cli.py:149:17 Call error [29]: `Page` is not a function.",
+    "message": " `Page` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 149,
+    "warning_line": "        pages = [Cls() for Cls in get_pages_from_module(dotted_name)]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_pages_from_module(dotted_name: str) -> typing.List[Page]:\n    mod = import_mod(dotted_name)\n",
+        "source_code_len": 101,
+        "target_code": "\ndef get_pages_from_module(dotted_name: str) -> typing.List[type]:\n    mod = import_mod(dotted_name)\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -132,3 +132,3 @@\n \n-def get_pages_from_module(dotted_name: str) -> typing.List[Page]:\n+def get_pages_from_module(dotted_name: str) -> typing.List[type]:\n     mod = import_mod(dotted_name)\n",
+        "source_code_with_indent": "\n<DED>def get_pages_from_module(dotted_name: str) -> typing.List[Page]:\n    <IND>mod = import_mod(dotted_name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_pages_from_module(dotted_name: str) -> typing.List[type]:\n    <IND>mod = import_mod(dotted_name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "project": "EmuKit/emukit",
+    "commit": "9a5285fa9ab4fbe9b10fefa20818a225f4a01102",
+    "filename": "emukit/core/loop/loop_state.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/EmuKit-emukit/emukit/core/loop/loop_state.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "emukit/core/loop/loop_state.py:21:4 Incompatible return type [7]: Expected `None` but got `LoopState`.",
+    "message": " Expected `None` but got `LoopState`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 21,
+    "warning_line": "    return LoopState(initial_results)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "from .user_function_result import UserFunctionResult\n\ndef create_loop_state(x_init: np.ndarray, y_init: np.ndarray) -> None:\n    \"\"\"\n    Creates a loop state object using the provided data\n\n    :param x_init: x values for initial function evaluations.\n    :param y_init: y values for initial function evaluations\n    \"\"\"\n    if x_init.shape[0] != y_init.shape[0]:\n        error_message = \"X and Y should have the same length. Actual length x_init {}, y_init {}\".format(x_init.shape[0], y_init.shape[0])\n        raise ValueError(error_message)\n\n    initial_results = []\n    for x, y in zip(x_init, y_init):\n        initial_results.append(UserFunctionResult(x, y))\n    return LoopState(initial_results)\n\n",
+        "source_code_len": 702,
+        "target_code": "from .user_function_result import UserFunctionResult\n\n",
+        "target_code_len": 54,
+        "diff_format": "@@ -5,18 +5,2 @@\n from .user_function_result import UserFunctionResult\n-\n-def create_loop_state(x_init: np.ndarray, y_init: np.ndarray) -> None:\n-    \"\"\"\n-    Creates a loop state object using the provided data\n-\n-    :param x_init: x values for initial function evaluations.\n-    :param y_init: y values for initial function evaluations\n-    \"\"\"\n-    if x_init.shape[0] != y_init.shape[0]:\n-        error_message = \"X and Y should have the same length. Actual length x_init {}, y_init {}\".format(x_init.shape[0], y_init.shape[0])\n-        raise ValueError(error_message)\n-\n-    initial_results = []\n-    for x, y in zip(x_init, y_init):\n-        initial_results.append(UserFunctionResult(x, y))\n-    return LoopState(initial_results)\n \n",
+        "source_code_with_indent": "from .user_function_result import UserFunctionResult\n\ndef create_loop_state(x_init: np.ndarray, y_init: np.ndarray) -> None:\n    <IND>\"\"\"\n    Creates a loop state object using the provided data\n\n    :param x_init: x values for initial function evaluations.\n    :param y_init: y values for initial function evaluations\n    \"\"\"\n    if x_init.shape[0] != y_init.shape[0]:\n        <IND>error_message = \"X and Y should have the same length. Actual length x_init {}, y_init {}\".format(x_init.shape[0], y_init.shape[0])\n        raise ValueError(error_message)\n\n    <DED>initial_results = []\n    for x, y in zip(x_init, y_init):\n        <IND>initial_results.append(UserFunctionResult(x, y))\n    <DED>return LoopState(initial_results)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from .user_function_result import UserFunctionResult\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "EmuKit/emukit",
+    "commit": "9a5285fa9ab4fbe9b10fefa20818a225f4a01102",
+    "filename": "emukit/experimental_design/model_based/experimental_design_loop.py",
+    "min_patch_found": false,
+    "full_warning_msg": "emukit/experimental_design/model_based/experimental_design_loop.py:34:68 Incompatible parameter type [6]: Expected `emukit.core.loop.loop_state.LoopState` for 3rd positional only parameter to call `emukit.core.loop.outer_loop.OuterLoop.__init__` but got `None`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

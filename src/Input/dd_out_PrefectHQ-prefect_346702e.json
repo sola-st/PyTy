@@ -1,0 +1,53 @@
+[
+  {
+    "project": "PrefectHQ/prefect",
+    "commit": "346702e66c7e5f4e4993f728f121a3a8be107dc7",
+    "filename": "src/prefect/utilities/executors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PrefectHQ-prefect/src/prefect/utilities/executors.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/prefect/utilities/executors.py:74:26 Incompatible parameter type [6]: Expected `typing_extensions.Literal[2]` for 1st parameter `thread_name_prefix` to call `dict.update` but got `str`.",
+    "message": " Expected `typing_extensions.Literal[2]` for 1st parameter `thread_name_prefix` to call `dict.update` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 74,
+    "warning_line": "            kwargs.update(thread_name_prefix=name_prefix)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        kwargs = dict(max_workers=2)\n        if sys.version.minor != 5:\n            kwargs.update(thread_name_prefix=name_prefix)\n        self.executor = ThreadPoolExecutor(**kwargs)\n",
+        "source_code_len": 184,
+        "target_code": "\n        kwargs = dict(max_workers=2)  # type: Dict[str, Any]\n        if sys.version_info.minor != 5:\n            kwargs.update(dict(thread_name_prefix=name_prefix))\n        self.executor = ThreadPoolExecutor(**kwargs)\n",
+        "target_code_len": 219,
+        "diff_format": "@@ -71,5 +71,5 @@\n \n-        kwargs = dict(max_workers=2)\n-        if sys.version.minor != 5:\n-            kwargs.update(thread_name_prefix=name_prefix)\n+        kwargs = dict(max_workers=2)  # type: Dict[str, Any]\n+        if sys.version_info.minor != 5:\n+            kwargs.update(dict(thread_name_prefix=name_prefix))\n         self.executor = ThreadPoolExecutor(**kwargs)\n",
+        "source_code_with_indent": "\n        <DED><DED>kwargs = dict(max_workers=2)\n        if sys.version.minor != 5:\n            <IND>kwargs.update(thread_name_prefix=name_prefix)\n        <DED>self.executor = ThreadPoolExecutor(**kwargs)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED><DED>kwargs = dict(max_workers=2)  # type: Dict[str, Any]\n        if sys.version_info.minor != 5:\n            <IND>kwargs.update(dict(thread_name_prefix=name_prefix))\n        <DED>self.executor = ThreadPoolExecutor(**kwargs)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "PrefectHQ/prefect",
+    "commit": "346702e66c7e5f4e4993f728f121a3a8be107dc7",
+    "filename": "src/prefect/utilities/executors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PrefectHQ-prefect/src/prefect/utilities/executors.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/prefect/utilities/executors.py:75:45 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `concurrent.futures.thread.ThreadPoolExecutor.__init__` but got `int`.",
+    "message": " Expected `str` for 1st positional only parameter to call `concurrent.futures.thread.ThreadPoolExecutor.__init__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 75,
+    "warning_line": "        self.executor = ThreadPoolExecutor(**kwargs)"
+  }
+]

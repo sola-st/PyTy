@@ -1,0 +1,36 @@
+[
+  {
+    "project": "graphql-python/graphql-core",
+    "commit": "a6c1e56e095c149bf32dce9685040b10eb5f953f",
+    "filename": "graphql/type/definition.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/graphql-python-graphql-core/graphql/type/definition.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "graphql/type/definition.py:842:8 Incompatible variable type [9]: resolve_type is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " resolve_type is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 842,
+    "warning_line": "        resolve_type: GraphQLFieldResolver = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        types: Thunk[GraphQLTypeList],\n        resolve_type: GraphQLFieldResolver = None,\n        description: str = None,\n",
+        "source_code_len": 123,
+        "target_code": "        types: Thunk[GraphQLTypeList],\n        resolve_type: GraphQLTypeResolver = None,\n        description: str = None,\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -841,3 +841,3 @@\n         types: Thunk[GraphQLTypeList],\n-        resolve_type: GraphQLFieldResolver = None,\n+        resolve_type: GraphQLTypeResolver = None,\n         description: str = None,\n",
+        "source_code_with_indent": "        types: Thunk[GraphQLTypeList],\n        resolve_type: GraphQLFieldResolver = None,\n        description: str = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        types: Thunk[GraphQLTypeList],\n        resolve_type: GraphQLTypeResolver = None,\n        description: str = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

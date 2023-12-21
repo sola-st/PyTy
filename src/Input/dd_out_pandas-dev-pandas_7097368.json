@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pandas-dev/pandas",
+    "commit": "7097368a20fdbec7505092e723d359a871f16c10",
+    "filename": "pandas/io/html.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pandas-dev-pandas/pandas/io/html.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pandas/io/html.py:679:20 Incompatible parameter type [6]: Expected `typing.Mapping[str, typing.Type[_BeautifulSoupHtml5LibFrameParser]]` for 1st positional only parameter to call `dict.update` but got `typing.Dict[str, typing.Type[typing.Union[_BeautifulSoupLxmlFrameParser, _LxmlFrameParser]]]`.",
+    "message": " Expected `typing.Mapping[str, typing.Type[_BeautifulSoupHtml5LibFrameParser]]` for 1st positional only parameter to call `dict.update` but got `typing.Dict[str, typing.Type[typing.Union[_BeautifulSoupLxmlFrameParser, _LxmlFrameParser]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 679,
+    "warning_line": "_all_parsers.update(_invalid_parsers)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n_invalid_parsers = {'lxml': _LxmlFrameParser,\n                    'bs4': _BeautifulSoupLxmlFrameParser}\n_valid_parsers = {'html5lib': _BeautifulSoupHtml5LibFrameParser}\n_all_parsers = _valid_parsers.copy()\n_all_parsers.update(_invalid_parsers)\n\n",
+        "source_code_len": 246,
+        "target_code": "\n_valid_parsers = {'lxml': _LxmlFrameParser, None: _LxmlFrameParser,\n                  'html5lib': _BeautifulSoupHtml5LibFrameParser,\n                  'bs4': _BeautifulSoupHtml5LibFrameParser}\n\n",
+        "target_code_len": 195,
+        "diff_format": "@@ -674,7 +688,5 @@\n \n-_invalid_parsers = {'lxml': _LxmlFrameParser,\n-                    'bs4': _BeautifulSoupLxmlFrameParser}\n-_valid_parsers = {'html5lib': _BeautifulSoupHtml5LibFrameParser}\n-_all_parsers = _valid_parsers.copy()\n-_all_parsers.update(_invalid_parsers)\n+_valid_parsers = {'lxml': _LxmlFrameParser, None: _LxmlFrameParser,\n+                  'html5lib': _BeautifulSoupHtml5LibFrameParser,\n+                  'bs4': _BeautifulSoupHtml5LibFrameParser}\n \n",
+        "source_code_with_indent": "\n<DED>_invalid_parsers = {'lxml': _LxmlFrameParser,\n                    'bs4': _BeautifulSoupLxmlFrameParser}\n_valid_parsers = {'html5lib': _BeautifulSoupHtml5LibFrameParser}\n_all_parsers = _valid_parsers.copy()\n_all_parsers.update(_invalid_parsers)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>_valid_parsers = {'lxml': _LxmlFrameParser, None: _LxmlFrameParser,\n                  'html5lib': _BeautifulSoupHtml5LibFrameParser,\n                  'bs4': _BeautifulSoupHtml5LibFrameParser}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

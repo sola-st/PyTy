@@ -1,0 +1,36 @@
+[
+  {
+    "project": "instaloader/instaloader",
+    "commit": "84c2a823c4e3abc27f5d3413e888d0f55a414781",
+    "filename": "instaloader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instaloader-instaloader/instaloader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "instaloader.py:477:36 Invalid type [31]: Expression `typing.Optional[typing.Callable[(typing.Dict[(str, typing.Dict[(str, typing.Any)])], bool)]]` is not a valid type.",
+    "message": " Expression `typing.Optional[typing.Callable[(typing.Dict[(str, typing.Dict[(str, typing.Any)])], bool)]]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 477,
+    "warning_line": "                       filter_func: Optional[Callable[Dict[str, Dict[str, Any]], bool]] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def download_feed_pics(session: requests.Session, max_count: int = None, fast_update: bool = False,\n                       filter_func: Optional[Callable[Dict[str, Dict[str, Any]], bool]] = None,\n                       download_videos: bool = True, geotags: bool = False,\n",
+        "source_code_len": 272,
+        "target_code": "def download_feed_pics(session: requests.Session, max_count: int = None, fast_update: bool = False,\n                       filter_func: Optional[Callable[[Dict[str, Dict[str, Any]]], bool]] = None,\n                       download_videos: bool = True, geotags: bool = False,\n",
+        "target_code_len": 274,
+        "diff_format": "@@ -476,3 +476,3 @@\n def download_feed_pics(session: requests.Session, max_count: int = None, fast_update: bool = False,\n-                       filter_func: Optional[Callable[Dict[str, Dict[str, Any]], bool]] = None,\n+                       filter_func: Optional[Callable[[Dict[str, Dict[str, Any]]], bool]] = None,\n                        download_videos: bool = True, geotags: bool = False,\n",
+        "source_code_with_indent": "<DED>def download_feed_pics(session: requests.Session, max_count: int = None, fast_update: bool = False,\n                       filter_func: Optional[Callable[Dict[str, Dict[str, Any]], bool]] = None,\n                       download_videos: bool = True, geotags: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def download_feed_pics(session: requests.Session, max_count: int = None, fast_update: bool = False,\n                       filter_func: Optional[Callable[[Dict[str, Dict[str, Any]]], bool]] = None,\n                       download_videos: bool = True, geotags: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

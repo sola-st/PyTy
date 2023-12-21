@@ -1,0 +1,130 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "dce26a37b274af1a2f35ba30e85f4b57d5120717",
+    "filename": "mythril/laser/ethereum/call.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mythril/laser/ethereum/call.py:189:22 Unsupported operand [58]: `-` is not supported for operand types `mythril.laser.smt.bitvec.BitVec` and `mythril.laser.smt.expression.Expression`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "dce26a37b274af1a2f35ba30e85f4b57d5120717",
+    "filename": "mythril/laser/ethereum/state/calldata.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/state/calldata.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/state/calldata.py:270:58 Incompatible parameter type [6]: Expected `typing.Optional[List[typing.Any]]` for 2nd positional only parameter to call `mythril.laser.smt.bitvec.BitVec.__init__` but got `int`.",
+    "message": " Expected `typing.Optional[List[typing.Any]]` for 2nd positional only parameter to call `mythril.laser.smt.bitvec.BitVec.__init__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 270,
+    "warning_line": "        self._size = BitVec(str(tx_id) + \"_calldatasize\", 256)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._reads = []  # type: List[Tuple[Union[int, BitVec], BitVec]]\n        self._size = BitVec(str(tx_id) + \"_calldatasize\", 256)\n        super().__init__(tx_id)\n",
+        "source_code_len": 169,
+        "target_code": "        self._reads = []  # type: List[Tuple[Union[int, BitVec], BitVec]]\n        self._size = BitVec(symbol_factory.BitVecSym(str(tx_id) + \"_calldatasize\", 256))\n        super().__init__(tx_id)\n",
+        "target_code_len": 195,
+        "diff_format": "@@ -269,3 +269,3 @@\n         self._reads = []  # type: List[Tuple[Union[int, BitVec], BitVec]]\n-        self._size = BitVec(str(tx_id) + \"_calldatasize\", 256)\n+        self._size = BitVec(symbol_factory.BitVecSym(str(tx_id) + \"_calldatasize\", 256))\n         super().__init__(tx_id)\n",
+        "source_code_with_indent": "        self._reads = []  # type: List[Tuple[Union[int, BitVec], BitVec]]\n        self._size = BitVec(str(tx_id) + \"_calldatasize\", 256)\n        super().__init__(tx_id)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._reads = []  # type: List[Tuple[Union[int, BitVec], BitVec]]\n        self._size = BitVec(symbol_factory.BitVecSym(str(tx_id) + \"_calldatasize\", 256))\n        super().__init__(tx_id)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "dce26a37b274af1a2f35ba30e85f4b57d5120717",
+    "filename": "mythril/laser/ethereum/state/calldata.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/state/calldata.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/state/calldata.py:279:12 Unsupported operand [58]: `>=` is not supported for operand types `mythril.laser.smt.bitvec.BitVec` and `mythril.laser.smt.bitvec.BitVec`.",
+    "message": " `>=` is not supported for operand types `mythril.laser.smt.bitvec.BitVec` and `mythril.laser.smt.bitvec.BitVec`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 279,
+    "warning_line": "            expr_item >= self._size,"
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "dce26a37b274af1a2f35ba30e85f4b57d5120717",
+    "filename": "mythril/laser/ethereum/state/calldata.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/state/calldata.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/state/calldata.py:281:67 Incompatible parameter type [6]: Expected `typing.Optional[List[typing.Any]]` for 2nd positional only parameter to call `mythril.laser.smt.bitvec.BitVec.__init__` but got `int`.",
+    "message": " Expected `typing.Optional[List[typing.Any]]` for 2nd positional only parameter to call `mythril.laser.smt.bitvec.BitVec.__init__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 281,
+    "warning_line": "            BitVec(\"{}_calldata_{}\".format(self.tx_id, str(item)), 8),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            symbol_factory.BitVecVal(0, 8),\n            BitVec(\"{}_calldata_{}\".format(self.tx_id, str(item)), 8),\n        )\n",
+        "source_code_len": 125,
+        "target_code": "            symbol_factory.BitVecVal(0, 8),\n            BitVec(\n                symbol_factory.BitVecSym(\n                    \"{}_calldata_{}\".format(self.tx_id, str(item)), 8\n                )\n            ),\n        )\n",
+        "target_code_len": 219,
+        "diff_format": "@@ -280,3 +282,7 @@\n             symbol_factory.BitVecVal(0, 8),\n-            BitVec(\"{}_calldata_{}\".format(self.tx_id, str(item)), 8),\n+            BitVec(\n+                symbol_factory.BitVecSym(\n+                    \"{}_calldata_{}\".format(self.tx_id, str(item)), 8\n+                )\n+            ),\n         )\n",
+        "source_code_with_indent": "            symbol_factory.BitVecVal(0, 8),\n            BitVec(\"{}_calldata_{}\".format(self.tx_id, str(item)), 8),\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            symbol_factory.BitVecVal(0, 8),\n            BitVec(\n                symbol_factory.BitVecSym(\n                    \"{}_calldata_{}\".format(self.tx_id, str(item)), 8\n                )\n            ),\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "dce26a37b274af1a2f35ba30e85f4b57d5120717",
+    "filename": "mythril/laser/ethereum/state/memory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/state/memory.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/state/memory.py:97:64 Incompatible parameter type [6]: Expected `mythril.laser.smt.bitvec.BitVec` for 3rd positional only parameter to call `mythril.laser.smt.bitvec.Extract` but got `Union[bool, int, mythril.laser.smt.bitvec.BitVec]`.",
+    "message": " Expected `mythril.laser.smt.bitvec.BitVec` for 3rd positional only parameter to call `mythril.laser.smt.bitvec.Extract` but got `Union[bool, int, mythril.laser.smt.bitvec.BitVec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 97,
+    "warning_line": "                self[index + 31 - (i // 8)] = Extract(i + 7, i, value_to_write)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        except (Z3Exception, AttributeError):  # BitVector or BoolRef\n            if isinstance(value, Bool):\n",
+        "source_code_len": 110,
+        "target_code": "        except (Z3Exception, AttributeError):  # BitVector or BoolRef\n            value = cast(Union[BitVec, Bool], value)\n            if isinstance(value, Bool):\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -85,2 +85,3 @@\n         except (Z3Exception, AttributeError):  # BitVector or BoolRef\n+            value = cast(Union[BitVec, Bool], value)\n             if isinstance(value, Bool):\n",
+        "source_code_with_indent": "        <DED>except (Z3Exception, AttributeError):  # BitVector or BoolRef\n            <IND>if isinstance(value, Bool):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>except (Z3Exception, AttributeError):  # BitVector or BoolRef\n            <IND>value = cast(Union[BitVec, Bool], value)\n            if isinstance(value, Bool):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "getsentry/snuba",
+    "commit": "28a1ddecbf3882f929246cac3ce472a2defcb6fd",
+    "filename": "snuba/datasets/storages/events_common.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/snuba/datasets/storages/events_common.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "snuba/datasets/storages/events_common.py:236:18 Incompatible parameter type [6]: Expected `_typeshed.SupportsKeysAndGetItem[Variable[_KT], Variable[_VT]]` for 1st positional only parameter to call `dict.__init__` but got `map[reversed[Variable[_T]]]`.",
+    "message": " Expected `_typeshed.SupportsKeysAndGetItem[Variable[_KT], Variable[_VT]]` for 1st positional only parameter to call `dict.__init__` but got `map[reversed[Variable[_T]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 236,
+    "warning_line": "        col: dict(map(reversed, trans.items()))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    return {\n        col: dict(map(reversed, trans.items()))\n        for col, trans in get_column_tag_map().items()\n",
+        "source_code_len": 116,
+        "target_code": "    return {\n        col: dict(map(reversed, trans.items()))  # type: ignore\n        for col, trans in get_column_tag_map().items()\n",
+        "target_code_len": 132,
+        "diff_format": "@@ -235,3 +235,3 @@\n     return {\n-        col: dict(map(reversed, trans.items()))\n+        col: dict(map(reversed, trans.items()))  # type: ignore\n         for col, trans in get_column_tag_map().items()\n",
+        "source_code_with_indent": "    <IND>return {\n        col: dict(map(reversed, trans.items()))\n        for col, trans in get_column_tag_map().items()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>return {\n        col: dict(map(reversed, trans.items()))  # type: ignore\n        for col, trans in get_column_tag_map().items()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

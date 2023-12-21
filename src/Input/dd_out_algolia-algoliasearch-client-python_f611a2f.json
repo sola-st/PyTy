@@ -1,0 +1,79 @@
+[
+  {
+    "project": "algolia/algoliasearch-client-python",
+    "commit": "f611a2f6f08cc7f7723b7a8d469215e482afb5d6",
+    "filename": "algoliasearch/analytics_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/algolia-algoliasearch-client-python/algoliasearch/analytics_client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "algoliasearch/analytics_client.py:46:37 Incompatible parameter type [6]: Expected `Union[None, int, str]` for 2nd positional only parameter to call `endpoint` but got `typing.Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `Union[None, int, str]` for 2nd positional only parameter to call `endpoint` but got `typing.Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 46,
+    "warning_line": "            endpoint('2/abtests/%s', ab_test_id),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_ab_test(self, ab_test_id, request_options=None):\n        # type: (dict, Optional[Union[dict, RequestOptions]]) -> dict\n\n",
+        "source_code_len": 132,
+        "target_code": "    def get_ab_test(self, ab_test_id, request_options=None):\n        # type: (str, Optional[Union[dict, RequestOptions]]) -> dict\n\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -38,3 +38,3 @@\n     def get_ab_test(self, ab_test_id, request_options=None):\n-        # type: (dict, Optional[Union[dict, RequestOptions]]) -> dict\n+        # type: (str, Optional[Union[dict, RequestOptions]]) -> dict\n \n",
+        "source_code_with_indent": "    <DED>def get_ab_test(self, ab_test_id, request_options=None):\n        # type: (dict, Optional[Union[dict, RequestOptions]]) -> dict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def get_ab_test(self, ab_test_id, request_options=None):\n        # type: (str, Optional[Union[dict, RequestOptions]]) -> dict\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "algolia/algoliasearch-client-python",
+    "commit": "f611a2f6f08cc7f7723b7a8d469215e482afb5d6",
+    "filename": "algoliasearch/http/transporter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/algolia-algoliasearch-client-python/algoliasearch/http/transporter.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "algoliasearch/http/transporter.py:67:65 Incompatible parameter type [6]: Expected `typing.Dict[typing.Any, typing.Any]` for 3rd positional only parameter to call `Request.__init__` but got `Union[None, typing.Dict[typing.Any, typing.Any], typing.List[typing.Any]]`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` for 3rd positional only parameter to call `Request.__init__` but got `Union[None, typing.Dict[typing.Any, typing.Any], typing.List[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 67,
+    "warning_line": "        request = Request(verb.upper(), request_options.headers, data,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, verb, headers, data, connect_timeout, timeout):\n        # type: (str, dict, dict, int, int) -> None\n\n",
+        "source_code_len": 124,
+        "target_code": "    def __init__(self, verb, headers, data, connect_timeout, timeout):\n        # type: (str, dict, Optional[Union[dict, list]], int, int) -> None\n\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -97,3 +96,3 @@\n     def __init__(self, verb, headers, data, connect_timeout, timeout):\n-        # type: (str, dict, dict, int, int) -> None\n+        # type: (str, dict, Optional[Union[dict, list]], int, int) -> None\n \n",
+        "source_code_with_indent": "    <IND>def __init__(self, verb, headers, data, connect_timeout, timeout):\n        # type: (str, dict, dict, int, int) -> None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>def __init__(self, verb, headers, data, connect_timeout, timeout):\n        # type: (str, dict, Optional[Union[dict, list]], int, int) -> None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "algolia/algoliasearch-client-python",
+    "commit": "f611a2f6f08cc7f7723b7a8d469215e482afb5d6",
+    "filename": "algoliasearch/search_client.py",
+    "min_patch_found": false,
+    "full_warning_msg": "algoliasearch/search_client.py:59:41 Incompatible parameter type [6]: Expected `Requester` for 1st positional only parameter to call `Transporter.__init__` but got `RequesterAsync`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

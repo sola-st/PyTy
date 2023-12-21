@@ -1,0 +1,70 @@
+[
+  {
+    "project": "samschott/maestral",
+    "commit": "a6b2a49fbc657503b91dd8c5b09cd0f30967f8da",
+    "filename": "maestral/sync.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/sync.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/sync.py:1053:41 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `SyncEngine.save_local_hash` but got `Optional[str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `SyncEngine.save_local_hash` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1053,
+    "warning_line": "        self.save_local_hash(local_path, hash_str, mtime)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def save_local_hash(self, local_path: str, hash_str: str, mtime: float) -> None:\n        \"\"\"\n",
+        "source_code_len": 98,
+        "target_code": "\n    def save_local_hash(self, local_path: str,\n                        hash_str: Optional[str], mtime: Optional[float]) -> None:\n        \"\"\"\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -1056,3 +1055,4 @@\n \n-    def save_local_hash(self, local_path: str, hash_str: str, mtime: float) -> None:\n+    def save_local_hash(self, local_path: str,\n+                        hash_str: Optional[str], mtime: Optional[float]) -> None:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def save_local_hash(self, local_path: str, hash_str: str, mtime: float) -> None:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def save_local_hash(self, local_path: str,\n                        hash_str: Optional[str], mtime: Optional[float]) -> None:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "samschott/maestral",
+    "commit": "a6b2a49fbc657503b91dd8c5b09cd0f30967f8da",
+    "filename": "maestral/sync.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/sync.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/sync.py:1053:51 Incompatible parameter type [6]: Expected `float` for 3rd positional only parameter to call `SyncEngine.save_local_hash` but got `Optional[float]`.",
+    "message": " Expected `float` for 3rd positional only parameter to call `SyncEngine.save_local_hash` but got `Optional[float]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1053,
+    "warning_line": "        self.save_local_hash(local_path, hash_str, mtime)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def save_local_hash(self, local_path: str, hash_str: str, mtime: float) -> None:\n        \"\"\"\n",
+        "source_code_len": 98,
+        "target_code": "\n    def save_local_hash(self, local_path: str,\n                        hash_str: Optional[str], mtime: Optional[float]) -> None:\n        \"\"\"\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -1056,3 +1055,4 @@\n \n-    def save_local_hash(self, local_path: str, hash_str: str, mtime: float) -> None:\n+    def save_local_hash(self, local_path: str,\n+                        hash_str: Optional[str], mtime: Optional[float]) -> None:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def save_local_hash(self, local_path: str, hash_str: str, mtime: float) -> None:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def save_local_hash(self, local_path: str,\n                        hash_str: Optional[str], mtime: Optional[float]) -> None:\n        <IND>"
+      }
+    ]
+  }
+]

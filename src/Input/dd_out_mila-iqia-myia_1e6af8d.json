@@ -1,0 +1,68 @@
+[
+  {
+    "project": "mila-iqia/myia",
+    "commit": "1e6af8ded817a4eae64a25af0afb13ecc7cd7937",
+    "filename": "myia/monomorphize.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mila-iqia-myia/myia/monomorphize.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "myia/monomorphize.py:88:25 Invalid type [31]: Expression `type(None)` is not a valid type.",
+    "message": " Expression `type(None)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 88,
+    "warning_line": "def _refmap(self, fn, x: type(None)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from .abstract import AbstractFunction, PrimitiveFunction, GraphFunction, \\\n    MetaGraphFunction, MyiaTypeError, build_value, AbstractError, \\\n    BaseGraphInferrer, TrackedInferrer, DummyFunction, \\\n    TypedPrimitive, broaden, DEAD, POLY, \\\n    VirtualReference, Context, Reference, abstract_clone, \\\n    abstract_check, concretize_abstract, InferenceError\nfrom .abstract.utils import CheckState, CloneState\n",
+        "source_code_len": 411,
+        "target_code": "from .abstract import AbstractFunction, PrimitiveFunction, GraphFunction, \\\n    MetaGraphFunction, build_value, AbstractError, \\\n    GraphInferrer, TrackedInferrer, DummyFunction, \\\n    AbstractValue, TypedPrimitive, broaden, DEAD, POLY, \\\n    VirtualReference, Context, Reference, abstract_clone, \\\n    abstract_check, concretize_abstract\nfrom .abstract.utils import CheckState, CloneState\n",
+        "target_code_len": 391,
+        "diff_format": "@@ -11,7 +11,7 @@\n from .abstract import AbstractFunction, PrimitiveFunction, GraphFunction, \\\n-    MetaGraphFunction, MyiaTypeError, build_value, AbstractError, \\\n-    BaseGraphInferrer, TrackedInferrer, DummyFunction, \\\n-    TypedPrimitive, broaden, DEAD, POLY, \\\n+    MetaGraphFunction, build_value, AbstractError, \\\n+    GraphInferrer, TrackedInferrer, DummyFunction, \\\n+    AbstractValue, TypedPrimitive, broaden, DEAD, POLY, \\\n     VirtualReference, Context, Reference, abstract_clone, \\\n-    abstract_check, concretize_abstract, InferenceError\n+    abstract_check, concretize_abstract\n from .abstract.utils import CheckState, CloneState\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "from .abstract import AbstractFunction, PrimitiveFunction, GraphFunction,    MetaGraphFunction, MyiaTypeError, build_value, AbstractError,    BaseGraphInferrer, TrackedInferrer, DummyFunction,    TypedPrimitive, broaden, DEAD, POLY,    VirtualReference, Context, Reference, abstract_clone,    abstract_check, concretize_abstract, InferenceError\nfrom .abstract.utils import CheckState, CloneState\n",
+        "target_code_with_indent": "from .abstract import AbstractFunction, PrimitiveFunction, GraphFunction,    MetaGraphFunction, build_value, AbstractError,    GraphInferrer, TrackedInferrer, DummyFunction,    AbstractValue, TypedPrimitive, broaden, DEAD, POLY,    VirtualReference, Context, Reference, abstract_clone,    abstract_check, concretize_abstract\nfrom .abstract.utils import CheckState, CloneState\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@overload  # noqa: F811\ndef _refmap(self, fn, x: type(None)):\n    return None\n\n",
+        "source_code_len": 79,
+        "target_code": "@overload  # noqa: F811\ndef _refmap(self, fn, x: AbstractValue):\n    return fn(x)\n\n\n@overload  # noqa: F811\ndef _refmap(self, fn, x: object):\n    return x\n\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -87,4 +87,9 @@\n @overload  # noqa: F811\n-def _refmap(self, fn, x: type(None)):\n-    return None\n+def _refmap(self, fn, x: AbstractValue):\n+    return fn(x)\n+\n+\n+@overload  # noqa: F811\n+def _refmap(self, fn, x: object):\n+    return x\n \n",
+        "source_code_with_indent": "<DED>@overload  # noqa: F811\ndef _refmap(self, fn, x: type(None)):\n    <IND>return None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>@overload  # noqa: F811\ndef _refmap(self, fn, x: AbstractValue):\n    <IND>return fn(x)\n\n\n<DED>@overload  # noqa: F811\ndef _refmap(self, fn, x: object):\n    <IND>return x\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mila-iqia/myia",
+    "commit": "1e6af8ded817a4eae64a25af0afb13ecc7cd7937",
+    "filename": "myia/opt/clean.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mila-iqia-myia/myia/opt/clean.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "myia/opt/clean.py:38:12 Call error [29]: `typing.Generator[typing.Type[myia.abstract.data.AbstractTaggedUnion], None, None]` is not a function.",
+    "message": " `typing.Generator[typing.Type[myia.abstract.data.AbstractTaggedUnion], None, None]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 38,
+    "warning_line": "    return (yield AbstractTaggedUnion)("
+  }
+]

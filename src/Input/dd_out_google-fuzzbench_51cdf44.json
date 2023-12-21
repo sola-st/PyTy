@@ -1,0 +1,36 @@
+[
+  {
+    "project": "google/fuzzbench",
+    "commit": "51cdf447225cc76238e5fe7875507617ebc56101",
+    "filename": "experiment/run_experiment.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-fuzzbench/experiment/run_experiment.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "experiment/run_experiment.py:449:8 Incompatible return type [7]: Expected `BaseDispatcher` but got `LocalDispatcher`.",
+    "message": " Expected `BaseDispatcher` but got `LocalDispatcher`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 449,
+    "warning_line": "        return LocalDispatcher(config)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass LocalDispatcher:\n    \"\"\"Class representing the local dispatcher.\"\"\"\n",
+        "source_code_len": 75,
+        "target_code": "\nclass LocalDispatcher(BaseDispatcher):\n    \"\"\"Class representing the local dispatcher.\"\"\"\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -316,3 +318,3 @@\n \n-class LocalDispatcher:\n+class LocalDispatcher(BaseDispatcher):\n     \"\"\"Class representing the local dispatcher.\"\"\"\n",
+        "source_code_with_indent": "\n<DED><DED>class LocalDispatcher:\n    <IND>\"\"\"Class representing the local dispatcher.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class LocalDispatcher(BaseDispatcher):\n    <IND>\"\"\"Class representing the local dispatcher.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

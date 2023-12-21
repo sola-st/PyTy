@@ -1,0 +1,51 @@
+[
+  {
+    "project": "IBM/lale",
+    "commit": "ffccbd48b1e2e87de9ed37a37ec34f9c7bc685fc",
+    "filename": "lale/operators.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/IBM-lale/lale/operators.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lale/operators.py:1210:4 Incompatible attribute type [8]: Attribute `_name` declared in class `BasePipeline` has type `str` but is used as type `None`.",
+    "message": " Attribute `_name` declared in class `BasePipeline` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 1210,
+    "warning_line": "    _name:str=None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    _preds:Dict[OpType, List[OpType]]\n    _name:str=None\n\n",
+        "source_code_len": 58,
+        "target_code": "    _preds:Dict[OpType, List[OpType]]\n    _name:str\n\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -1209,3 +1209,3 @@\n     _preds:Dict[OpType, List[OpType]]\n-    _name:str=None\n+    _name:str\n \n",
+        "source_code_with_indent": "    _preds:Dict[OpType, List[OpType]]\n    _name:str=None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    _preds:Dict[OpType, List[OpType]]\n    _name:str\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                ordered:bool=False) -> None:\n        for step in steps:\n",
+        "source_code_len": 72,
+        "target_code": "                ordered:bool=False) -> None:\n        self._name = \"pipeline_\" + str(id(self))                \n        for step in steps:\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -1225,2 +1225,3 @@\n                 ordered:bool=False) -> None:\n+        self._name = \"pipeline_\" + str(id(self))                \n         for step in steps:\n",
+        "source_code_with_indent": "                ordered:bool=False) -> None:\n        <IND>for step in steps:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                ordered:bool=False) -> None:\n        <IND>self._name = \"pipeline_\" + str(id(self))                \n        for step in steps:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

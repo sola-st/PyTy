@@ -1,0 +1,36 @@
+[
+  {
+    "project": "tartiflette/tartiflette",
+    "commit": "c1d2eea532e6de23a5ffee668157580237a0cd3e",
+    "filename": "tartiflette/types/object.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tartiflette-tartiflette/tartiflette/types/object.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tartiflette/types/object.py:208:30 Unbound name [10]: Name `GraphQLInputObjectTypeExtension` is used but not defined in the current scope.",
+    "message": " Name `GraphQLInputObjectTypeExtension` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 208,
+    "warning_line": "            isinstance(other, GraphQLInputObjectTypeExtension)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        return self is other or (\n            isinstance(other, GraphQLInputObjectTypeExtension)\n            and other.directives == self.directives\n",
+        "source_code_len": 149,
+        "target_code": "        return self is other or (\n            isinstance(other, GraphQLObjectTypeExtension)\n            and other.directives == self.directives\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -207,3 +207,3 @@\n         return self is other or (\n-            isinstance(other, GraphQLInputObjectTypeExtension)\n+            isinstance(other, GraphQLObjectTypeExtension)\n             and other.directives == self.directives\n",
+        "source_code_with_indent": "        return self is other or (\n            isinstance(other, GraphQLInputObjectTypeExtension)\n            and other.directives == self.directives\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        return self is other or (\n            isinstance(other, GraphQLObjectTypeExtension)\n            and other.directives == self.directives\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

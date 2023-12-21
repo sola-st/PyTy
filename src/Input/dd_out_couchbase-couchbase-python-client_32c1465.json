@@ -1,0 +1,36 @@
+[
+  {
+    "project": "couchbase/couchbase-python-client",
+    "commit": "32c1465538644afb159660f0e0897fe47c7fb69f",
+    "filename": "couchbase/tests_v3/cases/scenarios_t.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/couchbase-couchbase-python-client/couchbase/tests_v3/cases/scenarios_t.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "couchbase/tests_v3/cases/scenarios_t.py:220:63 Invalid type [31]: Expression `typing.Callable[None]` is not a valid type.",
+    "message": " Expression `typing.Callable[None]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 220,
+    "warning_line": "                                            callback,  # type: Callable[None],",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def retry_idempotent_remove_server_side(self,\n                                            callback,  # type: Callable[None],\n                                            until=Durations.seconds(10)  # type: FiniteDuration\n",
+        "source_code_len": 226,
+        "target_code": "\n    def retry_idempotent_remove_server_side(self,  # type: Scenarios\n                                            callback,  # type: Callable[[],Any]\n                                            until=Durations.seconds(10)  # type: FiniteDuration\n",
+        "target_code_len": 246,
+        "diff_format": "@@ -218,4 +219,4 @@\n \n-    def retry_idempotent_remove_server_side(self,\n-                                            callback,  # type: Callable[None],\n+    def retry_idempotent_remove_server_side(self,  # type: Scenarios\n+                                            callback,  # type: Callable[[],Any]\n                                             until=Durations.seconds(10)  # type: FiniteDuration\n",
+        "source_code_with_indent": "\n    <DED><DED>def retry_idempotent_remove_server_side(self,\n                                            callback,  # type: Callable[None],\n                                            until=Durations.seconds(10)  # type: FiniteDuration\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def retry_idempotent_remove_server_side(self,  # type: Scenarios\n                                            callback,  # type: Callable[[],Any]\n                                            until=Durations.seconds(10)  # type: FiniteDuration\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

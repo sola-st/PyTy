@@ -1,0 +1,104 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "3b0f98ae7da2b035c81f292c041958c2309f105c",
+    "filename": "rasa/utils/tensorflow/model_data_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/utils/tensorflow/model_data_utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/utils/tensorflow/model_data_utils.py:179:16 Incompatible variable type [9]: features is declared to have type `List[List[Dict[str, List[Features]]]]` but is used as type `Optional[List[Features]]`.",
+    "message": " features is declared to have type `List[List[Dict[str, List[Features]]]]` but is used as type `Optional[List[Features]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 179,
+    "warning_line": "                features = attribute_to_features.get(attribute)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            for attribute in attributes:\n                features = attribute_to_features.get(attribute)\n                if featurizers:\n                    features = _filter_features(features, featurizers)\n\n                # if attribute is not present in the example, populate it with None\n                intermediate_features[attribute].append(features)\n\n        for key, value in intermediate_features.items():\n            output[key].append(value)\n\n",
+        "source_code_len": 456,
+        "target_code": "            for attribute in attributes:\n                attribute_features = attribute_to_features.get(attribute)\n                if featurizers:\n                    attribute_features = _filter_features(\n                        attribute_features, featurizers\n                    )\n\n                # if attribute is not present in the example, populate it with None\n                intermediate_features[attribute].append(attribute_features)\n\n        for key, collection_of_feature_collections in intermediate_features.items():\n            output[key].append(collection_of_feature_collections)\n\n",
+        "target_code_len": 598,
+        "diff_format": "@@ -178,11 +177,13 @@\n             for attribute in attributes:\n-                features = attribute_to_features.get(attribute)\n+                attribute_features = attribute_to_features.get(attribute)\n                 if featurizers:\n-                    features = _filter_features(features, featurizers)\n+                    attribute_features = _filter_features(\n+                        attribute_features, featurizers\n+                    )\n \n                 # if attribute is not present in the example, populate it with None\n-                intermediate_features[attribute].append(features)\n-\n-        for key, value in intermediate_features.items():\n-            output[key].append(value)\n+                intermediate_features[attribute].append(attribute_features)\n+\n+        for key, collection_of_feature_collections in intermediate_features.items():\n+            output[key].append(collection_of_feature_collections)\n \n",
+        "source_code_with_indent": "            <IND>for attribute in attributes:\n                <IND>features = attribute_to_features.get(attribute)\n                if featurizers:\n                    <IND>features = _filter_features(features, featurizers)\n\n                # if attribute is not present in the example, populate it with None\n                <DED>intermediate_features[attribute].append(features)\n\n        <DED><DED>for key, value in intermediate_features.items():\n            <IND>output[key].append(value)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>for attribute in attributes:\n                <IND>attribute_features = attribute_to_features.get(attribute)\n                if featurizers:\n                    <IND>attribute_features = _filter_features(\n                        attribute_features, featurizers\n                    )\n\n                # if attribute is not present in the example, populate it with None\n                <DED>intermediate_features[attribute].append(attribute_features)\n\n        <DED><DED>for key, collection_of_feature_collections in intermediate_features.items():\n            <IND>output[key].append(collection_of_feature_collections)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "3b0f98ae7da2b035c81f292c041958c2309f105c",
+    "filename": "rasa/utils/tensorflow/model_data_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/utils/tensorflow/model_data_utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/utils/tensorflow/model_data_utils.py:181:20 Incompatible variable type [9]: features is declared to have type `List[List[Dict[str, List[Features]]]]` but is used as type `Optional[List[Features]]`.",
+    "message": " features is declared to have type `List[List[Dict[str, List[Features]]]]` but is used as type `Optional[List[Features]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 181,
+    "warning_line": "                    features = _filter_features(features, featurizers)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            for attribute in attributes:\n                features = attribute_to_features.get(attribute)\n                if featurizers:\n                    features = _filter_features(features, featurizers)\n\n                # if attribute is not present in the example, populate it with None\n                intermediate_features[attribute].append(features)\n\n        for key, value in intermediate_features.items():\n            output[key].append(value)\n\n",
+        "source_code_len": 456,
+        "target_code": "            for attribute in attributes:\n                attribute_features = attribute_to_features.get(attribute)\n                if featurizers:\n                    attribute_features = _filter_features(\n                        attribute_features, featurizers\n                    )\n\n                # if attribute is not present in the example, populate it with None\n                intermediate_features[attribute].append(attribute_features)\n\n        for key, collection_of_feature_collections in intermediate_features.items():\n            output[key].append(collection_of_feature_collections)\n\n",
+        "target_code_len": 598,
+        "diff_format": "@@ -178,11 +177,13 @@\n             for attribute in attributes:\n-                features = attribute_to_features.get(attribute)\n+                attribute_features = attribute_to_features.get(attribute)\n                 if featurizers:\n-                    features = _filter_features(features, featurizers)\n+                    attribute_features = _filter_features(\n+                        attribute_features, featurizers\n+                    )\n \n                 # if attribute is not present in the example, populate it with None\n-                intermediate_features[attribute].append(features)\n-\n-        for key, value in intermediate_features.items():\n-            output[key].append(value)\n+                intermediate_features[attribute].append(attribute_features)\n+\n+        for key, collection_of_feature_collections in intermediate_features.items():\n+            output[key].append(collection_of_feature_collections)\n \n",
+        "source_code_with_indent": "            <IND>for attribute in attributes:\n                <IND>features = attribute_to_features.get(attribute)\n                if featurizers:\n                    <IND>features = _filter_features(features, featurizers)\n\n                # if attribute is not present in the example, populate it with None\n                <DED>intermediate_features[attribute].append(features)\n\n        <DED><DED>for key, value in intermediate_features.items():\n            <IND>output[key].append(value)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>for attribute in attributes:\n                <IND>attribute_features = attribute_to_features.get(attribute)\n                if featurizers:\n                    <IND>attribute_features = _filter_features(\n                        attribute_features, featurizers\n                    )\n\n                # if attribute is not present in the example, populate it with None\n                <DED>intermediate_features[attribute].append(attribute_features)\n\n        <DED><DED>for key, collection_of_feature_collections in intermediate_features.items():\n            <IND>output[key].append(collection_of_feature_collections)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "3b0f98ae7da2b035c81f292c041958c2309f105c",
+    "filename": "rasa/utils/tensorflow/model_data_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/utils/tensorflow/model_data_utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/utils/tensorflow/model_data_utils.py:181:48 Incompatible parameter type [6]: Expected `Optional[List[Features]]` for 1st positional only parameter to call `_filter_features` but got `List[List[Dict[str, List[Features]]]]`.",
+    "message": " Expected `Optional[List[Features]]` for 1st positional only parameter to call `_filter_features` but got `List[List[Dict[str, List[Features]]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 181,
+    "warning_line": "                    features = _filter_features(features, featurizers)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            for attribute in attributes:\n                features = attribute_to_features.get(attribute)\n                if featurizers:\n                    features = _filter_features(features, featurizers)\n\n                # if attribute is not present in the example, populate it with None\n                intermediate_features[attribute].append(features)\n\n        for key, value in intermediate_features.items():\n            output[key].append(value)\n\n",
+        "source_code_len": 456,
+        "target_code": "            for attribute in attributes:\n                attribute_features = attribute_to_features.get(attribute)\n                if featurizers:\n                    attribute_features = _filter_features(\n                        attribute_features, featurizers\n                    )\n\n                # if attribute is not present in the example, populate it with None\n                intermediate_features[attribute].append(attribute_features)\n\n        for key, collection_of_feature_collections in intermediate_features.items():\n            output[key].append(collection_of_feature_collections)\n\n",
+        "target_code_len": 598,
+        "diff_format": "@@ -178,11 +177,13 @@\n             for attribute in attributes:\n-                features = attribute_to_features.get(attribute)\n+                attribute_features = attribute_to_features.get(attribute)\n                 if featurizers:\n-                    features = _filter_features(features, featurizers)\n+                    attribute_features = _filter_features(\n+                        attribute_features, featurizers\n+                    )\n \n                 # if attribute is not present in the example, populate it with None\n-                intermediate_features[attribute].append(features)\n-\n-        for key, value in intermediate_features.items():\n-            output[key].append(value)\n+                intermediate_features[attribute].append(attribute_features)\n+\n+        for key, collection_of_feature_collections in intermediate_features.items():\n+            output[key].append(collection_of_feature_collections)\n \n",
+        "source_code_with_indent": "            <IND>for attribute in attributes:\n                <IND>features = attribute_to_features.get(attribute)\n                if featurizers:\n                    <IND>features = _filter_features(features, featurizers)\n\n                # if attribute is not present in the example, populate it with None\n                <DED>intermediate_features[attribute].append(features)\n\n        <DED><DED>for key, value in intermediate_features.items():\n            <IND>output[key].append(value)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>for attribute in attributes:\n                <IND>attribute_features = attribute_to_features.get(attribute)\n                if featurizers:\n                    <IND>attribute_features = _filter_features(\n                        attribute_features, featurizers\n                    )\n\n                # if attribute is not present in the example, populate it with None\n                <DED>intermediate_features[attribute].append(attribute_features)\n\n        <DED><DED>for key, collection_of_feature_collections in intermediate_features.items():\n            <IND>output[key].append(collection_of_feature_collections)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

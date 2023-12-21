@@ -1,0 +1,36 @@
+[
+  {
+    "project": "aiqm/torchani",
+    "commit": "fb2072c926b2e2facbe8de108c345ce2c15da50a",
+    "filename": "torchani/neurochem/trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aiqm-torchani/torchani/neurochem/trainer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torchani/neurochem/trainer.py:32:4 Incompatible variable type [9]: parser is declared to have type `argparse.ArgumentParser` but is used as type `argparse.Namespace`.",
+    "message": " parser is declared to have type `argparse.ArgumentParser` but is used as type `argparse.Namespace`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 32,
+    "warning_line": "    parser = parser.parse_args()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                        default='model.pt')\n    parser = parser.parse_args()\n\n    d = torch.device(parser.device)\n    trainer = Trainer(parser.config_path, d, parser.tqdm, parser.tensorboard, parser.checkpoint_name)\n    trainer.load_data(parser.training_path, parser.validation_path)\n    trainer.run()\n",
+        "source_code_len": 302,
+        "target_code": "                        default='model.pt')\n    args = parser.parse_args()\n\n    d = torch.device(args.device)\n    trainer = Trainer(args.config_path, d, args.tqdm, args.tensorboard, args.checkpoint_name)\n    trainer.load_data(args.training_path, args.validation_path)\n    trainer.run()\n",
+        "target_code_len": 286,
+        "diff_format": "@@ -31,7 +31,7 @@\n                         default='model.pt')\n-    parser = parser.parse_args()\n+    args = parser.parse_args()\n \n-    d = torch.device(parser.device)\n-    trainer = Trainer(parser.config_path, d, parser.tqdm, parser.tensorboard, parser.checkpoint_name)\n-    trainer.load_data(parser.training_path, parser.validation_path)\n+    d = torch.device(args.device)\n+    trainer = Trainer(args.config_path, d, args.tqdm, args.tensorboard, args.checkpoint_name)\n+    trainer.load_data(args.training_path, args.validation_path)\n     trainer.run()\n",
+        "source_code_with_indent": "                        default='model.pt')\n    parser = parser.parse_args()\n\n    d = torch.device(parser.device)\n    trainer = Trainer(parser.config_path, d, parser.tqdm, parser.tensorboard, parser.checkpoint_name)\n    trainer.load_data(parser.training_path, parser.validation_path)\n    trainer.run()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                        default='model.pt')\n    args = parser.parse_args()\n\n    d = torch.device(args.device)\n    trainer = Trainer(args.config_path, d, args.tqdm, args.tensorboard, args.checkpoint_name)\n    trainer.load_data(args.training_path, args.validation_path)\n    trainer.run()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

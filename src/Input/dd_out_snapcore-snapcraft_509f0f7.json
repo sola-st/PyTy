@@ -1,0 +1,36 @@
+[
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "509f0f7639682b9b7c5277b928a2a6ab20ad6bb7",
+    "filename": "snapcraft/internal/remote_build/_launchpad.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/remote_build/_launchpad.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/remote_build/_launchpad.py:100:8 Incompatible attribute type [8]: Attribute `architectures` declared in class `LaunchpadClient` has type `Sequence[str]` but is used as type `Optional[List[str]]`.",
+    "message": " Attribute `architectures` declared in class `LaunchpadClient` has type `Sequence[str]` but is used as type `Optional[List[str]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 100,
+    "warning_line": "        self.architectures = architectures",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        user: str,\n        architectures: Optional[List[str]] = None,\n        git_branch: str = \"master\",\n",
+        "source_code_len": 106,
+        "target_code": "        user: str,\n        architectures: Sequence[str],\n        git_branch: str = \"master\",\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -88,3 +88,3 @@\n         user: str,\n-        architectures: Optional[List[str]] = None,\n+        architectures: Sequence[str],\n         git_branch: str = \"master\",\n",
+        "source_code_with_indent": "        user: str,\n        architectures: Optional[List[str]] = None,\n        git_branch: str = \"master\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        user: str,\n        architectures: Sequence[str],\n        git_branch: str = \"master\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

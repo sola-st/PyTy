@@ -1,0 +1,51 @@
+[
+  {
+    "project": "aws/chalice",
+    "commit": "753b3950d6f23784f5f9de955e5c54f9e4981804",
+    "filename": "chalice/deployer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aws-chalice/chalice/deployer.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chalice/deployer.py:1014:61 Incompatible parameter type [6]: Expected `typing.Union[Dict[str, str], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `Dict[str, bool]`.",
+    "message": " Expected `typing.Union[Dict[str, str], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `Dict[str, bool]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1014,
+    "warning_line": "                method_response_args['responseParameters'] = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            resource_id, http_method, route_entry.cors)\n        self._apig_methods.create_error_responses(\n            resource_id, http_method, app.ALL_ERRORS, route_entry.cors)\n\n",
+        "source_code_len": 180,
+        "target_code": "            resource_id, http_method, route_entry.cors)\n\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -360,4 +360,2 @@\n             resource_id, http_method, route_entry.cors)\n-        self._apig_methods.create_error_responses(\n-            resource_id, http_method, app.ALL_ERRORS, route_entry.cors)\n \n",
+        "source_code_with_indent": "            resource_id, http_method, route_entry.cors)\n        self._apig_methods.create_error_responses(\n            resource_id, http_method, app.ALL_ERRORS, route_entry.cors)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            resource_id, http_method, route_entry.cors)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        self._apig_client.put_integration_response(**kwargs)\n\n    def create_error_responses(self, resource_id, http_method,\n                               error_classes, cors):\n        # type: (str, str, List[app.ChaliceViewError], bool) -> None\n        for error_cls in error_classes:\n            method_response_args = {\n                'restApiId': self.rest_api_id,\n                'resourceId': resource_id,\n                'httpMethod': http_method,\n                'statusCode': str(error_cls.STATUS_CODE),\n                'responseModels': {'application/json': 'Empty'},\n            }\n            if cors:\n                method_response_args['responseParameters'] = {\n                    'method.response.header.Access-Control-Allow-Origin':\n                        False}\n            self._apig_client.put_method_response(**method_response_args)\n            integration_response_args = {\n                'restApiId': self.rest_api_id,\n                'resourceId': resource_id,\n                'httpMethod': http_method,\n                'statusCode': str(error_cls.STATUS_CODE),\n                'selectionPattern': error_cls.__name__ + '.*',\n                'responseTemplates': {'application/json': ERROR_MAPPING},\n            }\n            if cors:\n                integration_response_args['responseParameters'] = {\n                    'method.response.header.Access-Control-Allow-Origin':\n                        \"'*'\"}\n            self._apig_client.put_integration_response(\n                **integration_response_args)\n\n",
+        "source_code_len": 1537,
+        "target_code": "        self._apig_client.put_integration_response(**kwargs)\n\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -1000,33 +994,2 @@\n         self._apig_client.put_integration_response(**kwargs)\n-\n-    def create_error_responses(self, resource_id, http_method,\n-                               error_classes, cors):\n-        # type: (str, str, List[app.ChaliceViewError], bool) -> None\n-        for error_cls in error_classes:\n-            method_response_args = {\n-                'restApiId': self.rest_api_id,\n-                'resourceId': resource_id,\n-                'httpMethod': http_method,\n-                'statusCode': str(error_cls.STATUS_CODE),\n-                'responseModels': {'application/json': 'Empty'},\n-            }\n-            if cors:\n-                method_response_args['responseParameters'] = {\n-                    'method.response.header.Access-Control-Allow-Origin':\n-                        False}\n-            self._apig_client.put_method_response(**method_response_args)\n-            integration_response_args = {\n-                'restApiId': self.rest_api_id,\n-                'resourceId': resource_id,\n-                'httpMethod': http_method,\n-                'statusCode': str(error_cls.STATUS_CODE),\n-                'selectionPattern': error_cls.__name__ + '.*',\n-                'responseTemplates': {'application/json': ERROR_MAPPING},\n-            }\n-            if cors:\n-                integration_response_args['responseParameters'] = {\n-                    'method.response.header.Access-Control-Allow-Origin':\n-                        \"'*'\"}\n-            self._apig_client.put_integration_response(\n-                **integration_response_args)\n \n",
+        "source_code_with_indent": "        <DED>self._apig_client.put_integration_response(**kwargs)\n\n    <DED>def create_error_responses(self, resource_id, http_method,\n                               error_classes, cors):\n        # type: (str, str, List[app.ChaliceViewError], bool) -> None\n        <IND>for error_cls in error_classes:\n            <IND>method_response_args = {\n                'restApiId': self.rest_api_id,\n                'resourceId': resource_id,\n                'httpMethod': http_method,\n                'statusCode': str(error_cls.STATUS_CODE),\n                'responseModels': {'application/json': 'Empty'},\n            }\n            if cors:\n                <IND>method_response_args['responseParameters'] = {\n                    'method.response.header.Access-Control-Allow-Origin':\n                        False}\n            <DED>self._apig_client.put_method_response(**method_response_args)\n            integration_response_args = {\n                'restApiId': self.rest_api_id,\n                'resourceId': resource_id,\n                'httpMethod': http_method,\n                'statusCode': str(error_cls.STATUS_CODE),\n                'selectionPattern': error_cls.__name__ + '.*',\n                'responseTemplates': {'application/json': ERROR_MAPPING},\n            }\n            if cors:\n                <IND>integration_response_args['responseParameters'] = {\n                    'method.response.header.Access-Control-Allow-Origin':\n                        \"'*'\"}\n            <DED>self._apig_client.put_integration_response(\n                **integration_response_args)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>self._apig_client.put_integration_response(**kwargs)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

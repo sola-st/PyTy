@@ -1,0 +1,172 @@
+[
+  {
+    "project": "EDCD/EDMarketConnector",
+    "commit": "55fcfbeb17937cc4fdc86334b530f18c6bb1d4d3",
+    "filename": "companion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/EDCD-EDMarketConnector/companion.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "companion.py:271:47 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `Auth.base64_url_encode` but got `bytes`.",
+    "message": " Expected `str` for 1st positional only parameter to call `Auth.base64_url_encode` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 271,
+    "warning_line": "        self.verifier = self.base64_url_encode(v.to_bytes(32, byteorder='big')).encode('utf-8')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def base64_url_encode(self, text: str) -> str:\n        \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "\n    # noinspection PyMethodMayBeStatic\n    def base64_url_encode(self, text: bytes) -> str:\n        \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -355,3 +356,4 @@\n \n-    def base64_url_encode(self, text: str) -> str:\n+    # noinspection PyMethodMayBeStatic\n+    def base64_url_encode(self, text: bytes) -> str:\n         \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def base64_url_encode(self, text: str) -> str:\n        <IND>\"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    # noinspection PyMethodMayBeStatic\n    <DED>def base64_url_encode(self, text: bytes) -> str:\n        <IND>\"\"\"Base64 encode text for URL.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "EDCD/EDMarketConnector",
+    "commit": "55fcfbeb17937cc4fdc86334b530f18c6bb1d4d3",
+    "filename": "companion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/EDCD-EDMarketConnector/companion.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "companion.py:273:44 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `Auth.base64_url_encode` but got `bytes`.",
+    "message": " Expected `str` for 1st positional only parameter to call `Auth.base64_url_encode` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 273,
+    "warning_line": "        self.state = self.base64_url_encode(s.to_bytes(32, byteorder='big'))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def base64_url_encode(self, text: str) -> str:\n        \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "\n    # noinspection PyMethodMayBeStatic\n    def base64_url_encode(self, text: bytes) -> str:\n        \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -355,3 +356,4 @@\n \n-    def base64_url_encode(self, text: str) -> str:\n+    # noinspection PyMethodMayBeStatic\n+    def base64_url_encode(self, text: bytes) -> str:\n         \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def base64_url_encode(self, text: str) -> str:\n        <IND>\"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    # noinspection PyMethodMayBeStatic\n    <DED>def base64_url_encode(self, text: bytes) -> str:\n        <IND>\"\"\"Base64 encode text for URL.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "EDCD/EDMarketConnector",
+    "commit": "55fcfbeb17937cc4fdc86334b530f18c6bb1d4d3",
+    "filename": "companion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/EDCD-EDMarketConnector/companion.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "companion.py:276:43 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `Auth.base64_url_encode` but got `bytes`.",
+    "message": " Expected `str` for 1st positional only parameter to call `Auth.base64_url_encode` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 276,
+    "warning_line": "        challenge = self.base64_url_encode(hashlib.sha256(self.verifier).digest())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def base64_url_encode(self, text: str) -> str:\n        \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "\n    # noinspection PyMethodMayBeStatic\n    def base64_url_encode(self, text: bytes) -> str:\n        \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -355,3 +356,4 @@\n \n-    def base64_url_encode(self, text: str) -> str:\n+    # noinspection PyMethodMayBeStatic\n+    def base64_url_encode(self, text: bytes) -> str:\n         \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def base64_url_encode(self, text: str) -> str:\n        <IND>\"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    # noinspection PyMethodMayBeStatic\n    <DED>def base64_url_encode(self, text: bytes) -> str:\n        <IND>\"\"\"Base64 encode text for URL.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "EDCD/EDMarketConnector",
+    "commit": "55fcfbeb17937cc4fdc86334b530f18c6bb1d4d3",
+    "filename": "companion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/EDCD-EDMarketConnector/companion.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "companion.py:358:40 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `base64.urlsafe_b64encode` but got `str`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `base64.urlsafe_b64encode` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 358,
+    "warning_line": "        return base64.urlsafe_b64encode(text).decode().replace('=', '')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def base64_url_encode(self, text: str) -> str:\n        \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "\n    # noinspection PyMethodMayBeStatic\n    def base64_url_encode(self, text: bytes) -> str:\n        \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -355,3 +356,4 @@\n \n-    def base64_url_encode(self, text: str) -> str:\n+    # noinspection PyMethodMayBeStatic\n+    def base64_url_encode(self, text: bytes) -> str:\n         \"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def base64_url_encode(self, text: str) -> str:\n        <IND>\"\"\"Base64 encode text for URL.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    # noinspection PyMethodMayBeStatic\n    <DED>def base64_url_encode(self, text: bytes) -> str:\n        <IND>\"\"\"Base64 encode text for URL.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "EDCD/EDMarketConnector",
+    "commit": "55fcfbeb17937cc4fdc86334b530f18c6bb1d4d3",
+    "filename": "companion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/EDCD-EDMarketConnector/companion.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "companion.py:678:8 Incompatible return type [7]: Expected `CAPIData` but got `Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `CAPIData` but got `Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 678,
+    "warning_line": "        return filtered",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"Filter provided ship data.\"\"\"\n        filtered = {}\n        for k, v in d.items():\n            if v == []:\n                pass  # just skip empty fields for brevity\n",
+        "source_code_len": 177,
+        "target_code": "        \"\"\"Filter provided ship data.\"\"\"\n        filtered: CAPIData = CAPIData({})\n        for k, v in d.items():\n            if not v:\n                pass  # just skip empty fields for brevity\n",
+        "target_code_len": 195,
+        "diff_format": "@@ -656,5 +659,5 @@\n         \"\"\"Filter provided ship data.\"\"\"\n-        filtered = {}\n+        filtered: CAPIData = CAPIData({})\n         for k, v in d.items():\n-            if v == []:\n+            if not v:\n                 pass  # just skip empty fields for brevity\n",
+        "source_code_with_indent": "        <IND>\"\"\"Filter provided ship data.\"\"\"\n        filtered = {}\n        for k, v in d.items():\n            <IND>if v == []:\n                <IND>pass  # just skip empty fields for brevity\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>\"\"\"Filter provided ship data.\"\"\"\n        filtered: CAPIData = CAPIData({})\n        for k, v in d.items():\n            <IND>if not v:\n                <IND>pass  # just skip empty fields for brevity\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

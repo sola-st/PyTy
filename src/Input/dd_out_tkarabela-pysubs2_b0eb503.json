@@ -1,0 +1,36 @@
+[
+  {
+    "project": "tkarabela/pysubs2",
+    "commit": "b0eb503678685e86d110c86e5a76e906184ea4f9",
+    "filename": "pysubs2/ssastyle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tkarabela-pysubs2/pysubs2/ssastyle.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "pysubs2/ssastyle.py:23:4 Incompatible attribute type [8]: Attribute `DEFAULT_STYLE` declared in class `SSAStyle` has type `SSAStyle` but is used as type `None`.",
+    "message": " Attribute `DEFAULT_STYLE` declared in class `SSAStyle` has type `SSAStyle` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 23,
+    "warning_line": "    DEFAULT_STYLE: ClassVar[\"SSAStyle\"] = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    \"\"\"\n    DEFAULT_STYLE: ClassVar[\"SSAStyle\"] = None\n\n",
+        "source_code_len": 56,
+        "target_code": "    \"\"\"\n    DEFAULT_STYLE: ClassVar[\"SSAStyle\"] = None  # type: ignore[assignment]\n\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -22,3 +22,3 @@\n     \"\"\"\n-    DEFAULT_STYLE: ClassVar[\"SSAStyle\"] = None\n+    DEFAULT_STYLE: ClassVar[\"SSAStyle\"] = None  # type: ignore[assignment]\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    DEFAULT_STYLE: ClassVar[\"SSAStyle\"] = None\n\n",
+        "target_code_with_indent": "\n    DEFAULT_STYLE: ClassVar[\"SSAStyle\"] = None  # type: ignore[assignment]\n\n"
+      }
+    ]
+  }
+]

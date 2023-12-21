@@ -1,0 +1,36 @@
+[
+  {
+    "project": "inducer/relate",
+    "commit": "1b93e90aa83c8359add7bc06adaf507c7aed4923",
+    "filename": "course/grades.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/inducer-relate/course/grades.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "course/grades.py:564:24 Incompatible parameter type [6]: Expected `FlowSession` for 2nd parameter `flow_session` to call `OpportunitySessionGradeInfo.__init__` but got `None`.",
+    "message": " Expected `FlowSession` for 2nd parameter `flow_session` to call `OpportunitySessionGradeInfo.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 564,
+    "warning_line": "                        flow_session=None)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, grade_state_machine, flow_session, grades=None):\n        # type: (GradeStateMachine, FlowSession, Optional[Any]) ->  None\n\n",
+        "source_code_len": 146,
+        "target_code": "    def __init__(self, grade_state_machine, flow_session, grades=None):\n        # type: (GradeStateMachine, Optional[FlowSession], Optional[Any]) ->  None\n\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -339,3 +339,3 @@\n     def __init__(self, grade_state_machine, flow_session, grades=None):\n-        # type: (GradeStateMachine, FlowSession, Optional[Any]) ->  None\n+        # type: (GradeStateMachine, Optional[FlowSession], Optional[Any]) ->  None\n \n",
+        "source_code_with_indent": "    <IND>def __init__(self, grade_state_machine, flow_session, grades=None):\n        # type: (GradeStateMachine, FlowSession, Optional[Any]) ->  None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>def __init__(self, grade_state_machine, flow_session, grades=None):\n        # type: (GradeStateMachine, Optional[FlowSession], Optional[Any]) ->  None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

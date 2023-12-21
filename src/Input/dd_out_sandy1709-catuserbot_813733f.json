@@ -1,0 +1,70 @@
+[
+  {
+    "project": "sandy1709/catuserbot",
+    "commit": "813733fea79f904c169ef4b0e45a49bd6f887613",
+    "filename": "sample_config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sandy1709-catuserbot/sample_config.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sample_config.py:192:33 Incompatible parameter type [6]: Expected `typing.Union[_SupportsTrunc, bytes, str, typing.SupportsInt, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `int.__new__` but got `typing.Optional[str]`.",
+    "message": " Expected `typing.Union[_SupportsTrunc, bytes, str, typing.SupportsInt, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `int.__new__` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 192,
+    "warning_line": "        PM_LOGGER_GROUP_ID = int(os.environ.get(\"PM_LOGGR_BOT_API_ID\", None))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    )\n\n    TEMP_DIR = os.environ.get(\"TEMP_DIR\", \"./temp/\")\n\n    # spotify stuff\n    DEFAULT_BIO = os.environ.get(\"DEFAULT_BIO\", None)\n    SPOTIFY_BIO_PREFIX = os.environ.get(\"SPOTIFY_BIO_PREFIX\", None)\n    SPOTIFY_PASS = os.environ.get(\"SPOTIFY_PASS\", None)\n    SPOTIFY_USERNAME = os.environ.get(\"SPOTIFY_USERNAME\", None)\n    LYDIA_API = os.environ.get(\"LYDIA_API\", None)\n    DEFAULT_NAME = os.environ.get(\"DEFAULT_NAME\", None)\n\n    # define \"spam\" in PMs\n    MAX_FLOOD_IN_PMS = int(os.environ.get(\"MAX_FLOOD_IN_PMS\", 5))\n\n    # leave this blank, should be automatically filled for Heroku.com users\n    PM_LOGGER_GROUP_ID = os.environ.get(\"PM_LOGGER_GROUP_ID\", None)\n    if PM_LOGGER_GROUP_ID:\n        PM_LOGGER_GROUP_ID = int(PM_LOGGER_GROUP_ID)\n    elif os.environ.get(\"PM_LOGGR_BOT_API_ID\", None):\n        PM_LOGGER_GROUP_ID = int(os.environ.get(\"PM_LOGGR_BOT_API_ID\", None))\n\n    # to work manager.py\n    DUAL_LOG = os.environ.get(\"DUAL_LOG\", False)\n\n    # JustWatch Country\n    WATCH_COUNTRY = os.environ.get(\"WATCH_COUNTRY\", \"IN\")\n    TZ = os.environ.get(\"TZ\", None)\n\n    # SpamWatch API you can get it from get api from http://t.me/SpamWatchBot?start=token\n    SPAMWATCH_API = os.environ.get(\"SPAMWATCH_API\", None)\n\n    # SpamWatch, CAS, SpamProtection ban Needed or not\n    ANTISPAMBOT_BAN = os.environ.get(\"ANTISPAMBOT_BAN\", False)\n\n    # Deepai value can get from https://deepai.org/\n    DEEP_AI = os.environ.get(\"DEEP_AI\", None)\n\n    # For custom stickerpack names\n    CUSTOM_STICKER_PACKNAME = os.environ.get(\"CUSTOM_STICKER_PACKNAME\", None)\n\n    # Owner id to show profile link of given id as owner\n    OWNER_ID = os.environ.get(\"OWNER_ID\", None)\n    if OWNER_ID:\n        OWNER_ID = int(OWNER_ID)\n\n    # Last.fm plugin\n    BIO_PREFIX = os.environ.get(\"BIO_PREFIX\", None)\n    DEFAULT_BIO = os.environ.get(\"DEFAULT_BIO\", None)\n    LASTFM_API = os.environ.get(\"LASTFM_API\", None)\n    LASTFM_SECRET = os.environ.get(\"LASTFM_SECRET\", None)\n    LASTFM_USERNAME = os.environ.get(\"LASTFM_USERNAME\", None)\n    LASTFM_PASSWORD_PLAIN = os.environ.get(\"LASTFM_PASSWORD\", None)\n\n    # time.py\n",
+        "source_code_len": 2094,
+        "target_code": "    )\n    # time.py\n",
+        "target_code_len": 20,
+        "diff_format": "@@ -172,55 +182,2 @@\n     )\n-\n-    TEMP_DIR = os.environ.get(\"TEMP_DIR\", \"./temp/\")\n-\n-    # spotify stuff\n-    DEFAULT_BIO = os.environ.get(\"DEFAULT_BIO\", None)\n-    SPOTIFY_BIO_PREFIX = os.environ.get(\"SPOTIFY_BIO_PREFIX\", None)\n-    SPOTIFY_PASS = os.environ.get(\"SPOTIFY_PASS\", None)\n-    SPOTIFY_USERNAME = os.environ.get(\"SPOTIFY_USERNAME\", None)\n-    LYDIA_API = os.environ.get(\"LYDIA_API\", None)\n-    DEFAULT_NAME = os.environ.get(\"DEFAULT_NAME\", None)\n-\n-    # define \"spam\" in PMs\n-    MAX_FLOOD_IN_PMS = int(os.environ.get(\"MAX_FLOOD_IN_PMS\", 5))\n-\n-    # leave this blank, should be automatically filled for Heroku.com users\n-    PM_LOGGER_GROUP_ID = os.environ.get(\"PM_LOGGER_GROUP_ID\", None)\n-    if PM_LOGGER_GROUP_ID:\n-        PM_LOGGER_GROUP_ID = int(PM_LOGGER_GROUP_ID)\n-    elif os.environ.get(\"PM_LOGGR_BOT_API_ID\", None):\n-        PM_LOGGER_GROUP_ID = int(os.environ.get(\"PM_LOGGR_BOT_API_ID\", None))\n-\n-    # to work manager.py\n-    DUAL_LOG = os.environ.get(\"DUAL_LOG\", False)\n-\n-    # JustWatch Country\n-    WATCH_COUNTRY = os.environ.get(\"WATCH_COUNTRY\", \"IN\")\n-    TZ = os.environ.get(\"TZ\", None)\n-\n-    # SpamWatch API you can get it from get api from http://t.me/SpamWatchBot?start=token\n-    SPAMWATCH_API = os.environ.get(\"SPAMWATCH_API\", None)\n-\n-    # SpamWatch, CAS, SpamProtection ban Needed or not\n-    ANTISPAMBOT_BAN = os.environ.get(\"ANTISPAMBOT_BAN\", False)\n-\n-    # Deepai value can get from https://deepai.org/\n-    DEEP_AI = os.environ.get(\"DEEP_AI\", None)\n-\n-    # For custom stickerpack names\n-    CUSTOM_STICKER_PACKNAME = os.environ.get(\"CUSTOM_STICKER_PACKNAME\", None)\n-\n-    # Owner id to show profile link of given id as owner\n-    OWNER_ID = os.environ.get(\"OWNER_ID\", None)\n-    if OWNER_ID:\n-        OWNER_ID = int(OWNER_ID)\n-\n-    # Last.fm plugin\n-    BIO_PREFIX = os.environ.get(\"BIO_PREFIX\", None)\n-    DEFAULT_BIO = os.environ.get(\"DEFAULT_BIO\", None)\n-    LASTFM_API = os.environ.get(\"LASTFM_API\", None)\n-    LASTFM_SECRET = os.environ.get(\"LASTFM_SECRET\", None)\n-    LASTFM_USERNAME = os.environ.get(\"LASTFM_USERNAME\", None)\n-    LASTFM_PASSWORD_PLAIN = os.environ.get(\"LASTFM_PASSWORD\", None)\n-\n     # time.py\n",
+        "source_code_with_indent": "    )\n\n    TEMP_DIR = os.environ.get(\"TEMP_DIR\", \"./temp/\")\n\n    # spotify stuff\n    DEFAULT_BIO = os.environ.get(\"DEFAULT_BIO\", None)\n    SPOTIFY_BIO_PREFIX = os.environ.get(\"SPOTIFY_BIO_PREFIX\", None)\n    SPOTIFY_PASS = os.environ.get(\"SPOTIFY_PASS\", None)\n    SPOTIFY_USERNAME = os.environ.get(\"SPOTIFY_USERNAME\", None)\n    LYDIA_API = os.environ.get(\"LYDIA_API\", None)\n    DEFAULT_NAME = os.environ.get(\"DEFAULT_NAME\", None)\n\n    # define \"spam\" in PMs\n    MAX_FLOOD_IN_PMS = int(os.environ.get(\"MAX_FLOOD_IN_PMS\", 5))\n\n    # leave this blank, should be automatically filled for Heroku.com users\n    PM_LOGGER_GROUP_ID = os.environ.get(\"PM_LOGGER_GROUP_ID\", None)\n    if PM_LOGGER_GROUP_ID:\n        <IND>PM_LOGGER_GROUP_ID = int(PM_LOGGER_GROUP_ID)\n    <DED>elif os.environ.get(\"PM_LOGGR_BOT_API_ID\", None):\n        <IND>PM_LOGGER_GROUP_ID = int(os.environ.get(\"PM_LOGGR_BOT_API_ID\", None))\n\n    # to work manager.py\n    <DED>DUAL_LOG = os.environ.get(\"DUAL_LOG\", False)\n\n    # JustWatch Country\n    WATCH_COUNTRY = os.environ.get(\"WATCH_COUNTRY\", \"IN\")\n    TZ = os.environ.get(\"TZ\", None)\n\n    # SpamWatch API you can get it from get api from http://t.me/SpamWatchBot?start=token\n    SPAMWATCH_API = os.environ.get(\"SPAMWATCH_API\", None)\n\n    # SpamWatch, CAS, SpamProtection ban Needed or not\n    ANTISPAMBOT_BAN = os.environ.get(\"ANTISPAMBOT_BAN\", False)\n\n    # Deepai value can get from https://deepai.org/\n    DEEP_AI = os.environ.get(\"DEEP_AI\", None)\n\n    # For custom stickerpack names\n    CUSTOM_STICKER_PACKNAME = os.environ.get(\"CUSTOM_STICKER_PACKNAME\", None)\n\n    # Owner id to show profile link of given id as owner\n    OWNER_ID = os.environ.get(\"OWNER_ID\", None)\n    if OWNER_ID:\n        <IND>OWNER_ID = int(OWNER_ID)\n\n    # Last.fm plugin\n    <DED>BIO_PREFIX = os.environ.get(\"BIO_PREFIX\", None)\n    DEFAULT_BIO = os.environ.get(\"DEFAULT_BIO\", None)\n    LASTFM_API = os.environ.get(\"LASTFM_API\", None)\n    LASTFM_SECRET = os.environ.get(\"LASTFM_SECRET\", None)\n    LASTFM_USERNAME = os.environ.get(\"LASTFM_USERNAME\", None)\n    LASTFM_PASSWORD_PLAIN = os.environ.get(\"LASTFM_PASSWORD\", None)\n\n    # time.py\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    )\n    # time.py\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sandy1709/catuserbot",
+    "commit": "813733fea79f904c169ef4b0e45a49bd6f887613",
+    "filename": "userbot/plugins/clone.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sandy1709-catuserbot/userbot/plugins/clone.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "userbot/plugins/clone.py:20:3 Unbound name [10]: Name `Config` is used but not defined in the current scope.",
+    "message": " Name `Config` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 20,
+    "warning_line": "if Config.PRIVATE_GROUP_BOT_API_ID is None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": ")\nif Config.PRIVATE_GROUP_BOT_API_ID is None:\n    BOTLOG = False\nelse:\n    BOTLOG = True\n    BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID\n\n",
+        "source_code_len": 142,
+        "target_code": ")\n\n",
+        "target_code_len": 3,
+        "diff_format": "@@ -19,7 +19,2 @@\n )\n-if Config.PRIVATE_GROUP_BOT_API_ID is None:\n-    BOTLOG = False\n-else:\n-    BOTLOG = True\n-    BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID\n \n",
+        "source_code_with_indent": ")\nif Config.PRIVATE_GROUP_BOT_API_ID is None:\n    <IND>BOTLOG = False\n<DED>else:\n    <IND>BOTLOG = True\n    BOTLOG_CHATID = Config.PRIVATE_GROUP_BOT_API_ID\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": ")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

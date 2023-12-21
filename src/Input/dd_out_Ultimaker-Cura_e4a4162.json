@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "e4a416258b96c2927adba04d0c8ffd89abc3a8a7",
+    "filename": "cura/PickingPass.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/PickingPass.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/PickingPass.py:59:12 Incompatible return type [7]: Expected `float` but got `None`.",
+    "message": " Expected `float` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 59,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if px < 0 or px > (output.width() - 1) or py < 0 or py > (output.height() - 1):\n            return None\n\n",
+        "source_code_len": 113,
+        "target_code": "        if px < 0 or px > (output.width() - 1) or py < 0 or py > (output.height() - 1):\n            return -1\n\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -58,3 +57,3 @@\n         if px < 0 or px > (output.width() - 1) or py < 0 or py > (output.height() - 1):\n-            return None\n+            return -1\n \n",
+        "source_code_with_indent": "        if px < 0 or px > (output.width() - 1) or py < 0 or py > (output.height() - 1):\n            <IND>return None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if px < 0 or px > (output.width() - 1) or py < 0 or py > (output.height() - 1):\n            <IND>return -1\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

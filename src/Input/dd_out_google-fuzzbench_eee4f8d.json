@@ -1,0 +1,36 @@
+[
+  {
+    "project": "google/fuzzbench",
+    "commit": "eee4f8d22449d4e6c4345a57c0e81958da4287c4",
+    "filename": "experiment/build/gcb_build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-fuzzbench/experiment/build/gcb_build.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "experiment/build/gcb_build.py:153:4 Incompatible return type [7]: Expected `Tuple[int, str]` but got `new_process.ProcessResult`.",
+    "message": " Expected `Tuple[int, str]` but got `new_process.ProcessResult`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 153,
+    "warning_line": "    return result",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "           substitutions: Dict[str, str] = None,\n           timeout_seconds: int = GCB_BUILD_TIMEOUT) -> Tuple[int, str]:\n    \"\"\"Build each of |args| on gcb.\"\"\"\n",
+        "source_code_len": 161,
+        "target_code": "           substitutions: Dict[str, str] = None,\n           timeout_seconds: int = GCB_BUILD_TIMEOUT\n          ) -> new_process.ProcessResult:\n    \"\"\"Build each of |args| on gcb.\"\"\"\n",
+        "target_code_len": 182,
+        "diff_format": "@@ -112,3 +62,4 @@\n            substitutions: Dict[str, str] = None,\n-           timeout_seconds: int = GCB_BUILD_TIMEOUT) -> Tuple[int, str]:\n+           timeout_seconds: int = GCB_BUILD_TIMEOUT\n+          ) -> new_process.ProcessResult:\n     \"\"\"Build each of |args| on gcb.\"\"\"\n",
+        "source_code_with_indent": "           substitutions: Dict[str, str] = None,\n           timeout_seconds: int = GCB_BUILD_TIMEOUT) -> Tuple[int, str]:\n    <IND>\"\"\"Build each of |args| on gcb.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "           substitutions: Dict[str, str] = None,\n           timeout_seconds: int = GCB_BUILD_TIMEOUT\n          ) -> new_process.ProcessResult:\n    <IND>\"\"\"Build each of |args| on gcb.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

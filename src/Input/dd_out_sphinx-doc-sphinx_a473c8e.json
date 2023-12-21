@@ -1,0 +1,36 @@
+[
+  {
+    "project": "sphinx-doc/sphinx",
+    "commit": "a473c8e618dc3a3d3df3441532e05975c19dd87e",
+    "filename": "sphinx/search/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sphinx-doc-sphinx/sphinx/search/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sphinx/search/__init__.py:321:46 Incompatible parameter type [6]: Expected `Dict[str, Tuple[int, int, int, str]]` for 2nd positional only parameter to call `dict.setdefault` but got `List[Variable[_T]]`.",
+    "message": " Expected `Dict[str, Tuple[int, int, int, str]]` for 2nd positional only parameter to call `dict.setdefault` but got `List[Variable[_T]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 321,
+    "warning_line": "                plist = rv.setdefault(prefix, [])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_objects(self, fn2index: Dict[str, int]\n                    ) -> Dict[str, Dict[str, Tuple[int, int, int, str]]]:\n        rv: Dict[str, Dict[str, Tuple[int, int, int, str]]] = {}\n        otypes = self._objtypes\n",
+        "source_code_len": 222,
+        "target_code": "    def get_objects(self, fn2index: Dict[str, int]\n                    ) -> Dict[str, List[Tuple[int, int, int, str, str]]]:\n        rv: Dict[str, List[Tuple[int, int, int, str, str]]] = {}\n        otypes = self._objtypes\n",
+        "target_code_len": 222,
+        "diff_format": "@@ -306,4 +306,4 @@\n     def get_objects(self, fn2index: Dict[str, int]\n-                    ) -> Dict[str, Dict[str, Tuple[int, int, int, str]]]:\n-        rv: Dict[str, Dict[str, Tuple[int, int, int, str]]] = {}\n+                    ) -> Dict[str, List[Tuple[int, int, int, str, str]]]:\n+        rv: Dict[str, List[Tuple[int, int, int, str, str]]] = {}\n         otypes = self._objtypes\n",
+        "source_code_with_indent": "    <DED>def get_objects(self, fn2index: Dict[str, int]\n                    ) -> Dict[str, Dict[str, Tuple[int, int, int, str]]]:\n        <IND>rv: Dict[str, Dict[str, Tuple[int, int, int, str]]] = {}\n        otypes = self._objtypes\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def get_objects(self, fn2index: Dict[str, int]\n                    ) -> Dict[str, List[Tuple[int, int, int, str, str]]]:\n        <IND>rv: Dict[str, List[Tuple[int, int, int, str, str]]] = {}\n        otypes = self._objtypes\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

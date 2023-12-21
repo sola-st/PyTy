@@ -1,0 +1,138 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "db2fe2542eb017ffd6b316d999b9826d1cb22657",
+    "filename": "src/ezdxf/addons/odafc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/odafc.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/ezdxf/addons/odafc.py:81:25 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `_odafc_arguments` but got `Path`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `_odafc_arguments` but got `Path`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 81,
+    "warning_line": "            infile.name, infile.parent, tmp_dir, output_format='DXF',",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n    with tempfile.TemporaryDirectory(prefix='odafc_') as tmp_dir:\n        args = _odafc_arguments(\n            infile.name, infile.parent, tmp_dir, output_format='DXF',\n            version=version, audit=audit\n        )\n        _execute_odafc(args)\n        out_file = Path(tmp_dir) / infile.with_suffix('.dxf').name\n        if out_file.exists():\n            doc = ezdxf.readfile(str(out_file))\n            doc.filename = infile.with_suffix('.dxf')\n            return doc\n    raise ODAFCError('Failed to convert file: Unknown Error')\n\n\ndef export_dwg(doc: Drawing, filename: str, version: Optional[str] = None, *,\n               audit: bool = False, replace: bool = False) -> None:\n    \"\"\" Use an installed `ODA File Converter`_ to export a DXF document `doc`\n    as a DWG file.\n",
+        "source_code_len": 779,
+        "target_code": "\n    with tempfile.TemporaryDirectory(prefix=\"odafc_\") as tmp_dir:\n        args = _odafc_arguments(\n            infile.name,\n            str(infile.parent),\n            tmp_dir,\n            output_format=\"DXF\",\n            version=version,\n            audit=audit,\n        )\n        _execute_odafc(args)\n        out_file = Path(tmp_dir) / infile.with_suffix(\".dxf\").name\n        if out_file.exists():\n            doc = ezdxf.readfile(str(out_file))\n            doc.filename = infile.with_suffix(\".dxf\")  #type: ignore\n            return doc\n    raise ODAFCError(\"Failed to convert file: Unknown Error\")\n\n\ndef export_dwg(\n    doc: Drawing,\n    filename: str,\n    version: Optional[str] = None,\n    *,\n    audit: bool = False,\n    replace: bool = False,\n) -> None:\n    \"\"\"Use an installed `ODA File Converter`_ to export a DXF document `doc`\n    as a DWG file.\n",
+        "target_code_len": 859,
+        "diff_format": "@@ -78,19 +90,29 @@\n \n-    with tempfile.TemporaryDirectory(prefix='odafc_') as tmp_dir:\n+    with tempfile.TemporaryDirectory(prefix=\"odafc_\") as tmp_dir:\n         args = _odafc_arguments(\n-            infile.name, infile.parent, tmp_dir, output_format='DXF',\n-            version=version, audit=audit\n+            infile.name,\n+            str(infile.parent),\n+            tmp_dir,\n+            output_format=\"DXF\",\n+            version=version,\n+            audit=audit,\n         )\n         _execute_odafc(args)\n-        out_file = Path(tmp_dir) / infile.with_suffix('.dxf').name\n+        out_file = Path(tmp_dir) / infile.with_suffix(\".dxf\").name\n         if out_file.exists():\n             doc = ezdxf.readfile(str(out_file))\n-            doc.filename = infile.with_suffix('.dxf')\n+            doc.filename = infile.with_suffix(\".dxf\")  #type: ignore\n             return doc\n-    raise ODAFCError('Failed to convert file: Unknown Error')\n-\n-\n-def export_dwg(doc: Drawing, filename: str, version: Optional[str] = None, *,\n-               audit: bool = False, replace: bool = False) -> None:\n-    \"\"\" Use an installed `ODA File Converter`_ to export a DXF document `doc`\n+    raise ODAFCError(\"Failed to convert file: Unknown Error\")\n+\n+\n+def export_dwg(\n+    doc: Drawing,\n+    filename: str,\n+    version: Optional[str] = None,\n+    *,\n+    audit: bool = False,\n+    replace: bool = False,\n+) -> None:\n+    \"\"\"Use an installed `ODA File Converter`_ to export a DXF document `doc`\n     as a DWG file.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    with tempfile.TemporaryDirectory(prefix='odafc_') as tmp_dir:\n        <IND>args = _odafc_arguments(\n            infile.name, infile.parent, tmp_dir, output_format='DXF',\n            version=version, audit=audit\n        )\n        _execute_odafc(args)\n        out_file = Path(tmp_dir) / infile.with_suffix('.dxf').name\n        if out_file.exists():\n            <IND>doc = ezdxf.readfile(str(out_file))\n            doc.filename = infile.with_suffix('.dxf')\n            return doc\n    <DED><DED>raise ODAFCError('Failed to convert file: Unknown Error')\n\n\n<DED>def export_dwg(doc: Drawing, filename: str, version: Optional[str] = None, *,\n               audit: bool = False, replace: bool = False) -> None:\n    <IND>",
+        "target_code_with_indent": "\n    with tempfile.TemporaryDirectory(prefix=\"odafc_\") as tmp_dir:\n        <IND>args = _odafc_arguments(\n            infile.name,\n            str(infile.parent),\n            tmp_dir,\n            output_format=\"DXF\",\n            version=version,\n            audit=audit,\n        )\n        _execute_odafc(args)\n        out_file = Path(tmp_dir) / infile.with_suffix(\".dxf\").name\n        if out_file.exists():\n            <IND>doc = ezdxf.readfile(str(out_file))\n            doc.filename = infile.with_suffix(\".dxf\")  #type: ignore\n            return doc\n    <DED><DED>raise ODAFCError(\"Failed to convert file: Unknown Error\")\n\n\n<DED>def export_dwg(\n    doc: Drawing,\n    filename: str,\n    version: Optional[str] = None,\n    *,\n    audit: bool = False,\n    replace: bool = False,\n) -> None:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "db2fe2542eb017ffd6b316d999b9826d1cb22657",
+    "filename": "src/ezdxf/addons/odafc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/odafc.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/odafc.py:181:4 Incompatible variable type [9]: audit is declared to have type `bool` but is used as type `typing.Union[str, str]`.",
+    "message": " audit is declared to have type `bool` but is used as type `typing.Union[str, str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 181,
+    "warning_line": "    audit = '1' if audit else '0'",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    recurse = '0'\n    audit = '1' if audit else '0'\n    return [in_folder, out_folder, version, output_format, recurse, audit,\n            filename]\n\n",
+        "source_code_len": 158,
+        "target_code": "    \"\"\"\n    recurse = \"0\"\n    audit_str = \"1\" if audit else \"0\"\n    return [\n        in_folder,\n        out_folder,\n        version,\n        output_format,\n        recurse,\n        audit_str,\n        filename,\n    ]\n\n",
+        "target_code_len": 217,
+        "diff_format": "@@ -179,6 +209,13 @@\n     \"\"\"\n-    recurse = '0'\n-    audit = '1' if audit else '0'\n-    return [in_folder, out_folder, version, output_format, recurse, audit,\n-            filename]\n+    recurse = \"0\"\n+    audit_str = \"1\" if audit else \"0\"\n+    return [\n+        in_folder,\n+        out_folder,\n+        version,\n+        output_format,\n+        recurse,\n+        audit_str,\n+        filename,\n+    ]\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    recurse = '0'\n    audit = '1' if audit else '0'\n    return [in_folder, out_folder, version, output_format, recurse, audit,\n            filename]\n\n",
+        "target_code_with_indent": "\n    recurse = \"0\"\n    audit_str = \"1\" if audit else \"0\"\n    return [\n        in_folder,\n        out_folder,\n        version,\n        output_format,\n        recurse,\n        audit_str,\n        filename,\n    ]\n\n"
+      }
+    ]
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "db2fe2542eb017ffd6b316d999b9826d1cb22657",
+    "filename": "src/ezdxf/addons/odafc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/odafc.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/odafc.py:182:4 Incompatible return type [7]: Expected `List[str]` but got `List[typing.Union[bool, str]]`.",
+    "message": " Expected `List[str]` but got `List[typing.Union[bool, str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 182,
+    "warning_line": "    return [in_folder, out_folder, version, output_format, recurse, audit,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    recurse = '0'\n    audit = '1' if audit else '0'\n    return [in_folder, out_folder, version, output_format, recurse, audit,\n            filename]\n\n",
+        "source_code_len": 158,
+        "target_code": "    \"\"\"\n    recurse = \"0\"\n    audit_str = \"1\" if audit else \"0\"\n    return [\n        in_folder,\n        out_folder,\n        version,\n        output_format,\n        recurse,\n        audit_str,\n        filename,\n    ]\n\n",
+        "target_code_len": 217,
+        "diff_format": "@@ -179,6 +209,13 @@\n     \"\"\"\n-    recurse = '0'\n-    audit = '1' if audit else '0'\n-    return [in_folder, out_folder, version, output_format, recurse, audit,\n-            filename]\n+    recurse = \"0\"\n+    audit_str = \"1\" if audit else \"0\"\n+    return [\n+        in_folder,\n+        out_folder,\n+        version,\n+        output_format,\n+        recurse,\n+        audit_str,\n+        filename,\n+    ]\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    recurse = '0'\n    audit = '1' if audit else '0'\n    return [in_folder, out_folder, version, output_format, recurse, audit,\n            filename]\n\n",
+        "target_code_with_indent": "\n    recurse = \"0\"\n    audit_str = \"1\" if audit else \"0\"\n    return [\n        in_folder,\n        out_folder,\n        version,\n        output_format,\n        recurse,\n        audit_str,\n        filename,\n    ]\n\n"
+      }
+    ]
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "db2fe2542eb017ffd6b316d999b9826d1cb22657",
+    "filename": "src/ezdxf/addons/odafc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/odafc.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/ezdxf/addons/odafc.py:280:4 Incompatible return type [7]: Expected `Optional[bytes]` but got `Optional[typing.IO[typing.Any]]`.",
+    "message": " Expected `Optional[bytes]` but got `Optional[typing.IO[typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 280,
+    "warning_line": "    return proc.stdout",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    proc = _run_with_no_gui(system, oda_fc, arguments)\n    stdout = proc.stdout.read().decode('utf-8')\n    stderr = proc.stderr.read().decode('utf-8')\n\n    if _odafc_failed(system, proc, stderr):\n        msg = f'ODA File Converter failed: return code = {proc.returncode}.\\n' \\\n              f'stdout: {stdout}\\nstderr: {stderr}'\n        logger.debug(msg)\n        raise ODAFCError(msg)\n    return proc.stdout\n",
+        "source_code_len": 408,
+        "target_code": "    proc = _run_with_no_gui(system, oda_fc, arguments)\n    stdout = proc.stdout.read().decode(\"utf-8\")  # type: ignore\n    stderr = proc.stderr.read().decode(\"utf-8\")  # type: ignore\n\n    if _odafc_failed(system, proc, stderr):\n        msg = (\n            f\"ODA File Converter failed: return code = {proc.returncode}.\\n\"\n            f\"stdout: {stdout}\\nstderr: {stderr}\"\n        )\n        logger.debug(msg)\n        raise ODAFCError(msg)\n    return proc.stdout  # type: ignore\n",
+        "target_code_len": 476,
+        "diff_format": "@@ -271,10 +323,12 @@\n     proc = _run_with_no_gui(system, oda_fc, arguments)\n-    stdout = proc.stdout.read().decode('utf-8')\n-    stderr = proc.stderr.read().decode('utf-8')\n+    stdout = proc.stdout.read().decode(\"utf-8\")  # type: ignore\n+    stderr = proc.stderr.read().decode(\"utf-8\")  # type: ignore\n \n     if _odafc_failed(system, proc, stderr):\n-        msg = f'ODA File Converter failed: return code = {proc.returncode}.\\n' \\\n-              f'stdout: {stdout}\\nstderr: {stderr}'\n+        msg = (\n+            f\"ODA File Converter failed: return code = {proc.returncode}.\\n\"\n+            f\"stdout: {stdout}\\nstderr: {stderr}\"\n+        )\n         logger.debug(msg)\n         raise ODAFCError(msg)\n-    return proc.stdout\n+    return proc.stdout  # type: ignore\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent": "    proc = _run_with_no_gui(system, oda_fc, arguments)\n    stdout = proc.stdout.read().decode(\"utf-8\")  # type: ignore\n    stderr = proc.stderr.read().decode(\"utf-8\")  # type: ignore\n\n    if _odafc_failed(system, proc, stderr):\n        <IND>msg = (\n            f\"ODA File Converter failed: return code = {proc.returncode}.\\n\"\n            f\"stdout: {stdout}\\nstderr: {stderr}\"\n        )\n        logger.debug(msg)\n        raise ODAFCError(msg)\n    <DED>return proc.stdout  # type: ignore\n",
+        "target_code_with_indent_exact_match": true,
+        "source_code_with_indent": "    proc = _run_with_no_gui(system, oda_fc, arguments)\n    stdout = proc.stdout.read().decode('utf-8')\n    stderr = proc.stderr.read().decode('utf-8')\n\n    if _odafc_failed(system, proc, stderr):\n        <IND>msg = f'ODA File Converter failed: return code = {proc.returncode}.\\n'              f'stdout: {stdout}\\nstderr: {stderr}'\n        logger.debug(msg)\n        raise ODAFCError(msg)\n    <DED>return proc.stdout\n"
+      }
+    ]
+  }
+]

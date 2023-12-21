@@ -1,0 +1,70 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "285f17b6726e1ee9432fc321b001b8fd5339ef7f",
+    "filename": "optuna/pruners/hyperband.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/pruners/hyperband.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/pruners/hyperband.py:86:38 Incompatible parameter type [6]: Expected `Study` for 1st positional only parameter to call `SuccessiveHalvingPruner.prune` but got `bool`.",
+    "message": " Expected `Study` for 1st positional only parameter to call `SuccessiveHalvingPruner.prune` but got `bool`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 86,
+    "warning_line": "        return self._pruners[i].prune(bracket_study, trial)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _create_bracket_study(self, study, bracket_index):\n        # type: (Study, int) -> bool\n\n",
+        "source_code_len": 97,
+        "target_code": "    def _create_bracket_study(self, study, bracket_index):\n        # type: (Study, int) -> Study\n\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -112,3 +112,3 @@\n     def _create_bracket_study(self, study, bracket_index):\n-        # type: (Study, int) -> bool\n+        # type: (Study, int) -> Study\n \n",
+        "source_code_with_indent": "    <DED>def _create_bracket_study(self, study, bracket_index):\n        # type: (Study, int) -> bool\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _create_bracket_study(self, study, bracket_index):\n        # type: (Study, int) -> Study\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "optuna/optuna",
+    "commit": "285f17b6726e1ee9432fc321b001b8fd5339ef7f",
+    "filename": "optuna/pruners/hyperband.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/pruners/hyperband.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/pruners/hyperband.py:156:8 Incompatible return type [7]: Expected `bool` but got `HyperbandPruner._create_bracket_study._BracketStudy`.",
+    "message": " Expected `bool` but got `HyperbandPruner._create_bracket_study._BracketStudy`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 156,
+    "warning_line": "        return _BracketStudy(study, bracket_index)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _create_bracket_study(self, study, bracket_index):\n        # type: (Study, int) -> bool\n\n",
+        "source_code_len": 97,
+        "target_code": "    def _create_bracket_study(self, study, bracket_index):\n        # type: (Study, int) -> Study\n\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -112,3 +112,3 @@\n     def _create_bracket_study(self, study, bracket_index):\n-        # type: (Study, int) -> bool\n+        # type: (Study, int) -> Study\n \n",
+        "source_code_with_indent": "    <DED>def _create_bracket_study(self, study, bracket_index):\n        # type: (Study, int) -> bool\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _create_bracket_study(self, study, bracket_index):\n        # type: (Study, int) -> Study\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

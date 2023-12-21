@@ -1,0 +1,36 @@
+[
+  {
+    "project": "plastex/plastex",
+    "commit": "8d3437d398007ceed8440f5e8c8c75b216bb373f",
+    "filename": "plasTeX/Packages/cleveref.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plastex-plastex/plasTeX/Packages/cleveref.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plasTeX/Packages/cleveref.py:27:16 Incompatible return type [7]: Expected `Union[Tuple[str, str], str]` but got `typing.Optional[str]`.",
+    "message": " Expected `Union[Tuple[str, str], str]` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 27,
+    "warning_line": "                return label.counter",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            else:\n                return label.counter\n",
+        "source_code_len": 55,
+        "target_code": "            else:\n                assert label.counter is not None\n                return label.counter\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -26,2 +26,3 @@\n             else:\n+                assert label.counter is not None\n                 return label.counter\n",
+        "source_code_with_indent": "            <DED>else:\n                <IND>return label.counter\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>else:\n                <IND>assert label.counter is not None\n                return label.counter\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "e61dd7c6545c4de38a05873a7f85d529702b2781",
+    "filename": "rasa/core/agent.py",
+    "min_patch_found": false,
+    "full_warning_msg": "rasa/core/agent.py:951:12 Incompatible parameter type [6]: Expected `Union[Path, str]` for 1st positional only parameter to call `Agent.load` but got `typing.ContextManager[rasa.utils.common.TempDirectoryPath]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "e61dd7c6545c4de38a05873a7f85d529702b2781",
+    "filename": "rasa/model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/model.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/model.py:196:4 Incompatible return type [7]: Expected `TempDirectoryPath` but got `ContextManager[TempDirectoryPath]`.",
+    "message": " Expected `TempDirectoryPath` but got `ContextManager[TempDirectoryPath]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 196,
+    "warning_line": "    return unpack_model(model_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    model_file: Text, working_directory: Optional[Union[Path, Text]] = None\n) -> ContextManager[TempDirectoryPath]:\n    \"\"\"Unpack a zipped Rasa model.\n",
+        "source_code_len": 151,
+        "target_code": "    model_file: Text, working_directory: Optional[Union[Path, Text]] = None\n) -> TempDirectoryPath:\n    \"\"\"Unpack a zipped Rasa model.\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -221,3 +220,3 @@\n     model_file: Text, working_directory: Optional[Union[Path, Text]] = None\n-) -> ContextManager[TempDirectoryPath]:\n+) -> TempDirectoryPath:\n     \"\"\"Unpack a zipped Rasa model.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    model_file: Text, working_directory: Optional[Union[Path, Text]] = None\n) -> ContextManager[TempDirectoryPath]:\n    <IND>",
+        "target_code_with_indent": "    model_file: Text, working_directory: Optional[Union[Path, Text]] = None\n) -> TempDirectoryPath:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "e61dd7c6545c4de38a05873a7f85d529702b2781",
+    "filename": "tests/test_model_training.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_model_training.py:47:8 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `rasa.model.package_model` but got `typing.ContextManager[rasa.utils.common.TempDirectoryPath]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

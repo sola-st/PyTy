@@ -1,0 +1,51 @@
+[
+  {
+    "project": "PyCQA/isort",
+    "commit": "beea65dc10bee9ed62abbbb43c5b034b10a422b8",
+    "filename": "isort/pylama_isort.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyCQA-isort/isort/pylama_isort.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "isort/pylama_isort.py:27:29 Incompatible variable type [9]: params is declared to have type `Dict[str, typing.Any]` but is used as type `None`.",
+    "message": " params is declared to have type `Dict[str, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 27,
+    "warning_line": "    def run(self, path: str, params: Dict[str, Any] = None, **meta: Any) -> List[Dict[str, Any]]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from contextlib import contextmanager\nfrom typing import Any, Dict, Iterator, List\n\n",
+        "source_code_len": 84,
+        "target_code": "from contextlib import contextmanager\nfrom typing import Any, Dict, Iterator, List, Optional\n\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -3,3 +3,3 @@\n from contextlib import contextmanager\n-from typing import Any, Dict, Iterator, List\n+from typing import Any, Dict, Iterator, List, Optional\n \n",
+        "source_code_with_indent": "from contextlib import contextmanager\nfrom typing import Any, Dict, Iterator, List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from contextlib import contextmanager\nfrom typing import Any, Dict, Iterator, List, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def run(self, path: str, params: Dict[str, Any] = None, **meta: Any) -> List[Dict[str, Any]]:\n        \"\"\"Lint the file. Return an array of error dicts if appropriate.\"\"\"\n",
+        "source_code_len": 175,
+        "target_code": "\n    def run(\n        self, path: str, params: Optional[Dict[str, Any]] = None, **meta: Any\n    ) -> List[Dict[str, Any]]:\n        \"\"\"Lint the file. Return an array of error dicts if appropriate.\"\"\"\n",
+        "target_code_len": 199,
+        "diff_format": "@@ -26,3 +26,5 @@\n \n-    def run(self, path: str, params: Dict[str, Any] = None, **meta: Any) -> List[Dict[str, Any]]:\n+    def run(\n+        self, path: str, params: Optional[Dict[str, Any]] = None, **meta: Any\n+    ) -> List[Dict[str, Any]]:\n         \"\"\"Lint the file. Return an array of error dicts if appropriate.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def run(self, path: str, params: Dict[str, Any] = None, **meta: Any) -> List[Dict[str, Any]]:\n        <IND>\"\"\"Lint the file. Return an array of error dicts if appropriate.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def run(\n        self, path: str, params: Optional[Dict[str, Any]] = None, **meta: Any\n    ) -> List[Dict[str, Any]]:\n        <IND>\"\"\"Lint the file. Return an array of error dicts if appropriate.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

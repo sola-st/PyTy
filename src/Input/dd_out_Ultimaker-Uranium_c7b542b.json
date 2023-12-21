@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "c7b542beb2ac9d07e83ab1d5b96058690ed43ea8",
+    "filename": "UM/TaskManagement/HttpRequestManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/TaskManagement/HttpRequestManager.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/TaskManagement/HttpRequestManager.py:325:38 Unsupported operand [58]: `+` is not supported for operand types `Optional[float]` and `float`.",
+    "message": " `+` is not supported for operand types `Optional[float]` and `float`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 325,
+    "warning_line": "                    next_check_time = request.getTimeToTimeout(now) + 1.0  # TODO: doc this, use 1 extra second margin.",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    # Schedule the timeout Timer to the next most recent timeout as a checkpoint.\n                    next_check_time = request.getTimeToTimeout(now) + 1.0  # TODO: doc this, use 1 extra second margin.\n                    self._timeout_timer.stop()\n                    self._timeout_timer.setInterval(next_check_time * 1000)\n                    self._timeout_timer.start()\n                    has_timeout_timer_rescheduled = True\n                    Logger.log(\"d\", \"Timeout timer scheduled in [%s] sec for request\", request)\n                    break\n\n",
+        "source_code_len": 569,
+        "target_code": "                    # Schedule the timeout Timer to the next most recent timeout as a checkpoint.\n                    seconds_to_timeout = request.getTimeToTimeout(now)\n                    if seconds_to_timeout is not None:  # Make type checking happy\n                        next_check_time = seconds_to_timeout + 0.5  # add a little margin\n                        self._timeout_timer.stop()\n                        self._timeout_timer.setInterval(next_check_time * 1000)\n                        self._timeout_timer.start()\n                        has_timeout_timer_rescheduled = True\n                        Logger.log(\"d\", \"Timeout timer scheduled in [%s] sec for request\", request)\n                        break\n\n",
+        "target_code_len": 717,
+        "diff_format": "@@ -324,9 +324,11 @@\n                     # Schedule the timeout Timer to the next most recent timeout as a checkpoint.\n-                    next_check_time = request.getTimeToTimeout(now) + 1.0  # TODO: doc this, use 1 extra second margin.\n-                    self._timeout_timer.stop()\n-                    self._timeout_timer.setInterval(next_check_time * 1000)\n-                    self._timeout_timer.start()\n-                    has_timeout_timer_rescheduled = True\n-                    Logger.log(\"d\", \"Timeout timer scheduled in [%s] sec for request\", request)\n-                    break\n+                    seconds_to_timeout = request.getTimeToTimeout(now)\n+                    if seconds_to_timeout is not None:  # Make type checking happy\n+                        next_check_time = seconds_to_timeout + 0.5  # add a little margin\n+                        self._timeout_timer.stop()\n+                        self._timeout_timer.setInterval(next_check_time * 1000)\n+                        self._timeout_timer.start()\n+                        has_timeout_timer_rescheduled = True\n+                        Logger.log(\"d\", \"Timeout timer scheduled in [%s] sec for request\", request)\n+                        break\n \n",
+        "source_code_with_indent": "                    # Schedule the timeout Timer to the next most recent timeout as a checkpoint.\n                    <IND>next_check_time = request.getTimeToTimeout(now) + 1.0  # TODO: doc this, use 1 extra second margin.\n                    self._timeout_timer.stop()\n                    self._timeout_timer.setInterval(next_check_time * 1000)\n                    self._timeout_timer.start()\n                    has_timeout_timer_rescheduled = True\n                    Logger.log(\"d\", \"Timeout timer scheduled in [%s] sec for request\", request)\n                    break\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    # Schedule the timeout Timer to the next most recent timeout as a checkpoint.\n                    <IND>seconds_to_timeout = request.getTimeToTimeout(now)\n                    if seconds_to_timeout is not None:  # Make type checking happy\n                        <IND>next_check_time = seconds_to_timeout + 0.5  # add a little margin\n                        self._timeout_timer.stop()\n                        self._timeout_timer.setInterval(next_check_time * 1000)\n                        self._timeout_timer.start()\n                        has_timeout_timer_rescheduled = True\n                        Logger.log(\"d\", \"Timeout timer scheduled in [%s] sec for request\", request)\n                        break\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

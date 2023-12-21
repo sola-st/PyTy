@@ -1,0 +1,36 @@
+[
+  {
+    "project": "gridsync/gridsync",
+    "commit": "ba4e199b65ad7681c8ea130acd8b647689a930f0",
+    "filename": "gridsync/zkapauthorizer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gridsync-gridsync/gridsync/zkapauthorizer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gridsync/zkapauthorizer.py:37:47 Incompatible variable type [9]: data is declared to have type `Optional[typing.Any]` but is used as type `None`.",
+    "message": " data is declared to have type `Optional[typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 37,
+    "warning_line": "    def _request(self, method: str, path: str, data: Optional = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @inlineCallbacks\n    def _request(self, method: str, path: str, data: Optional = None):\n        nodeurl = self.gateway.nodeurl\n",
+        "source_code_len": 131,
+        "target_code": "    @inlineCallbacks\n    def _request(self, method: str, path: str, data: Optional[bytes] = None):\n        nodeurl = self.gateway.nodeurl\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -36,3 +36,3 @@\n     @inlineCallbacks\n-    def _request(self, method: str, path: str, data: Optional = None):\n+    def _request(self, method: str, path: str, data: Optional[bytes] = None):\n         nodeurl = self.gateway.nodeurl\n",
+        "source_code_with_indent": "    <DED>@inlineCallbacks\n    def _request(self, method: str, path: str, data: Optional = None):\n        <IND>nodeurl = self.gateway.nodeurl\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@inlineCallbacks\n    def _request(self, method: str, path: str, data: Optional[bytes] = None):\n        <IND>nodeurl = self.gateway.nodeurl\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

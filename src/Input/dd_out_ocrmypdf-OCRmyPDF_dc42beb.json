@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ocrmypdf/OCRmyPDF",
+    "commit": "dc42beb6a87f863330138c8a4a957f77b52ab5e0",
+    "filename": "src/ocrmypdf/_plugin_manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ocrmypdf-OCRmyPDF/src/ocrmypdf/_plugin_manager.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ocrmypdf/_plugin_manager.py:76:12 Unsupported operand [58]: `+` is not supported for operand types `List[str]` and `List[Union[Path, str]]`.",
+    "message": " `+` is not supported for operand types `List[str]` and `List[Union[Path, str]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 76,
+    "warning_line": "        ] + plugins",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    if builtins:\n        all_plugins = [\n            'ocrmypdf.builtin_plugins.ghostscript',\n            'ocrmypdf.builtin_plugins.tesseract_ocr',\n        ] + plugins\n    else:\n        all_plugins = plugins\n    for name in all_plugins:\n",
+        "source_code_len": 237,
+        "target_code": "\n    all_plugins: List[Union[str, Path]] = []\n    if builtins:\n        all_plugins.extend(\n            [\n                'ocrmypdf.builtin_plugins.ghostscript',\n                'ocrmypdf.builtin_plugins.tesseract_ocr',\n            ]\n        )\n    all_plugins.extend(plugins)\n    for name in all_plugins:\n",
+        "target_code_len": 304,
+        "diff_format": "@@ -71,9 +71,11 @@\n \n+    all_plugins: List[Union[str, Path]] = []\n     if builtins:\n-        all_plugins = [\n-            'ocrmypdf.builtin_plugins.ghostscript',\n-            'ocrmypdf.builtin_plugins.tesseract_ocr',\n-        ] + plugins\n-    else:\n-        all_plugins = plugins\n+        all_plugins.extend(\n+            [\n+                'ocrmypdf.builtin_plugins.ghostscript',\n+                'ocrmypdf.builtin_plugins.tesseract_ocr',\n+            ]\n+        )\n+    all_plugins.extend(plugins)\n     for name in all_plugins:\n",
+        "source_code_with_indent": "\n    if builtins:\n        <IND>all_plugins = [\n            'ocrmypdf.builtin_plugins.ghostscript',\n            'ocrmypdf.builtin_plugins.tesseract_ocr',\n        ] + plugins\n    <DED>else:\n        <IND>all_plugins = plugins\n    <DED>for name in all_plugins:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    all_plugins: List[Union[str, Path]] = []\n    if builtins:\n        <IND>all_plugins.extend(\n            [\n                'ocrmypdf.builtin_plugins.ghostscript',\n                'ocrmypdf.builtin_plugins.tesseract_ocr',\n            ]\n        )\n    <DED>all_plugins.extend(plugins)\n    for name in all_plugins:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

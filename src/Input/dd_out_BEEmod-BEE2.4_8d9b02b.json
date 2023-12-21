@@ -1,0 +1,70 @@
+[
+  {
+    "project": "BEEmod/BEE2.4",
+    "commit": "8d9b02be683925f0191e5b5fe72bd2cbff4a225f",
+    "filename": "src/template_brush.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/BEEmod-BEE2.4/src/template_brush.py",
+    "file_hunks_size": 20,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/template_brush.py:184:8 Incompatible variable type [9]: tile_setters is declared to have type `List[TileSetter]` but is used as type `Tuple[]`.",
+    "message": " tile_setters is declared to have type `List[TileSetter]` but is used as type `Tuple[]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 184,
+    "warning_line": "        tile_setters: List[TileSetter]=(),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        color_pickers: Iterable[ColorPicker]=(),\n        tile_setters: List[TileSetter]=(),\n    ):\n        \"\"\"Make an overlay.\n",
+        "source_code_len": 127,
+        "target_code": "        color_pickers: Iterable[ColorPicker]=(),\n        tile_setters: Iterable[TileSetter]=(),\n    ) -> None:\n        \"\"\"Make an overlay.\n",
+        "target_code_len": 139,
+        "diff_format": "@@ -183,4 +183,4 @@\n         color_pickers: Iterable[ColorPicker]=(),\n-        tile_setters: List[TileSetter]=(),\n-    ):\n+        tile_setters: Iterable[TileSetter]=(),\n+    ) -> None:\n         \"\"\"Make an overlay.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        color_pickers: Iterable[ColorPicker]=(),\n        tile_setters: List[TileSetter]=(),\n    ):\n        <IND>",
+        "target_code_with_indent": "        color_pickers: Iterable[ColorPicker]=(),\n        tile_setters: Iterable[TileSetter]=(),\n    ) -> None:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "BEEmod/BEE2.4",
+    "commit": "8d9b02be683925f0191e5b5fe72bd2cbff4a225f",
+    "filename": "src/template_brush.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/BEEmod-BEE2.4/src/template_brush.py",
+    "file_hunks_size": 20,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/template_brush.py:223:8 Incompatible variable type [9]: visgroups is declared to have type `Set[str]` but is used as type `Tuple[]`.",
+    "message": " visgroups is declared to have type `Set[str]` but is used as type `Tuple[]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 223,
+    "warning_line": "        visgroups: Set[str]=(),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        visgroups: Set[str]=(),\n    ) -> Tuple[List[Solid], List[Solid], List[Entity]]:\n",
+        "source_code_len": 102,
+        "target_code": "        self,\n        visgroups: Union[str, Iterable[str]]=(),\n    ) -> Tuple[List[Solid], List[Solid], List[Entity]]:\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -222,3 +222,3 @@\n         self,\n-        visgroups: Set[str]=(),\n+        visgroups: Union[str, Iterable[str]]=(),\n     ) -> Tuple[List[Solid], List[Solid], List[Entity]]:\n",
+        "source_code_with_indent": "        self,\n        visgroups: Set[str]=(),\n    ) -> Tuple[List[Solid], List[Solid], List[Entity]]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        visgroups: Union[str, Iterable[str]]=(),\n    ) -> Tuple[List[Solid], List[Solid], List[Entity]]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

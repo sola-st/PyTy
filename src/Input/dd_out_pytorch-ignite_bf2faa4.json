@@ -1,0 +1,104 @@
+[
+  {
+    "project": "pytorch/ignite",
+    "commit": "bf2faa4184c365320d04697fbe6d35e6ff051838",
+    "filename": "ignite/distributed/comp_models/horovod.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/distributed/comp_models/horovod.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "ignite/distributed/comp_models/horovod.py:119:8 Inconsistent override [14]: `ignite.distributed.comp_models.horovod._HorovodDistModel.spawn` overrides method defined in `ComputationModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "message": " `ignite.distributed.comp_models.horovod._HorovodDistModel.spawn` overrides method defined in `ComputationModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 119,
+    "warning_line": "        def spawn(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        @staticmethod\n        def spawn(\n            fn: Callable,\n",
+        "source_code_len": 67,
+        "target_code": "        @staticmethod\n        def spawn(  # type: ignore[override]\n            fn: Callable,\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -118,3 +118,3 @@\n         @staticmethod\n-        def spawn(\n+        def spawn(  # type: ignore[override]\n             fn: Callable,\n",
+        "source_code_with_indent": "        <DED>@staticmethod\n        def spawn(\n            fn: Callable,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>@staticmethod\n        def spawn(  # type: ignore[override]\n            fn: Callable,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pytorch/ignite",
+    "commit": "bf2faa4184c365320d04697fbe6d35e6ff051838",
+    "filename": "ignite/distributed/comp_models/xla.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/distributed/comp_models/xla.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "ignite/distributed/comp_models/xla.py:106:8 Inconsistent override [14]: `ignite.distributed.comp_models.xla._XlaDistModel.spawn` overrides method defined in `ComputationModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "message": " `ignite.distributed.comp_models.xla._XlaDistModel.spawn` overrides method defined in `ComputationModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 106,
+    "warning_line": "        def spawn(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        @staticmethod\n        def spawn(\n            fn: Callable,\n",
+        "source_code_len": 67,
+        "target_code": "        @staticmethod\n        def spawn(  # type: ignore[override]\n            fn: Callable,\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -105,3 +107,3 @@\n         @staticmethod\n-        def spawn(\n+        def spawn(  # type: ignore[override]\n             fn: Callable,\n",
+        "source_code_with_indent": "        <DED>@staticmethod\n        def spawn(\n            fn: Callable,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>@staticmethod\n        def spawn(  # type: ignore[override]\n            fn: Callable,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pytorch/ignite",
+    "commit": "bf2faa4184c365320d04697fbe6d35e6ff051838",
+    "filename": "ignite/distributed/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/distributed/utils.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ignite/distributed/utils.py:111:4 Incompatible return type [7]: Expected `Tuple[str]` but got `Union[Tuple[], typing.Tuple[typing.Any, ...]]`.",
+    "message": " Expected `Tuple[str]` but got `Union[Tuple[], typing.Tuple[typing.Any, ...]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 111,
+    "warning_line": "    return out",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef available_backends() -> Tuple[str]:\n    \"\"\"Returns available backends.\n    \"\"\"\n    out = ()\n    for m in registered_computation_models:\n",
+        "source_code_len": 141,
+        "target_code": "\ndef available_backends() -> Tuple[str, ...]:\n    \"\"\"Returns available backends.\n    \"\"\"\n    out = ()  # type: Tuple[str, ...]\n    for m in registered_computation_models:\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -104,6 +104,6 @@\n \n-def available_backends() -> Tuple[str]:\n+def available_backends() -> Tuple[str, ...]:\n     \"\"\"Returns available backends.\n     \"\"\"\n-    out = ()\n+    out = ()  # type: Tuple[str, ...]\n     for m in registered_computation_models:\n",
+        "source_code_with_indent": "\n<DED>def available_backends() -> Tuple[str]:\n    <IND>\"\"\"Returns available backends.\n    \"\"\"\n    out = ()\n    for m in registered_computation_models:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def available_backends() -> Tuple[str, ...]:\n    <IND>\"\"\"Returns available backends.\n    \"\"\"\n    out = ()  # type: Tuple[str, ...]\n    for m in registered_computation_models:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

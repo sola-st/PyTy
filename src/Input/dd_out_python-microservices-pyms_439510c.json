@@ -1,0 +1,51 @@
+[
+  {
+    "project": "python-microservices/pyms",
+    "commit": "439510c16b1d13ad9c1189a5c2ed6057d4fdba49",
+    "filename": "pyms/flask/services/driver.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-microservices-pyms/pyms/flask/services/driver.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyms/flask/services/driver.py:69:20 Incompatible return type [7]: Expected `Tuple[str, DriverService]` but got `typing.Generator[Tuple[str, DriverService], None, None]`.",
+    "message": " Expected `Tuple[str, DriverService]` but got `typing.Generator[Tuple[str, DriverService], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 69,
+    "warning_line": "                    yield k, service",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import logging\nfrom typing import Text, Tuple\n\n",
+        "source_code_len": 47,
+        "target_code": "import logging\nfrom typing import Text, Tuple, Iterator\n\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -1,3 +1,3 @@\n import logging\n-from typing import Text, Tuple\n+from typing import Text, Tuple, Iterator\n \n",
+        "source_code_with_indent": "import logging\nfrom typing import Text, Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\nfrom typing import Text, Tuple, Iterator\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_services(self) -> Tuple[Text, DriverService]:\n        for k in self.config.__dict__.keys():\n",
+        "source_code_len": 105,
+        "target_code": "\n    def get_services(self) -> Iterator[Tuple[Text, DriverService]]:\n        for k in self.config.__dict__.keys():\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -63,3 +63,3 @@\n \n-    def get_services(self) -> Tuple[Text, DriverService]:\n+    def get_services(self) -> Iterator[Tuple[Text, DriverService]]:\n         for k in self.config.__dict__.keys():\n",
+        "source_code_with_indent": "\n    def get_services(self) -> Tuple[Text, DriverService]:\n        <IND>for k in self.config.__dict__.keys():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def get_services(self) -> Iterator[Tuple[Text, DriverService]]:\n        <IND>for k in self.config.__dict__.keys():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

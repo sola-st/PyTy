@@ -1,0 +1,104 @@
+[
+  {
+    "project": "ocrmypdf/OCRmyPDF",
+    "commit": "86875997b8eda4aab064bef6f9b9bc397b4b2274",
+    "filename": "src/ocrmypdf/_exec/ghostscript.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ocrmypdf-OCRmyPDF/src/ocrmypdf/_exec/ghostscript.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ocrmypdf/_exec/ghostscript.py:39:4 Incompatible variable type [9]: GS is declared to have type `str` but is used as type `typing.Optional[str]`.",
+    "message": " GS is declared to have type `str` but is used as type `typing.Optional[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 39,
+    "warning_line": "    GS = which('gswin64c')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nGS = 'gs'\nif os.name == 'nt':\n    GS = which('gswin64c')\n    if not GS:\n        GS = which('gswin32c')\n        if not GS:\n            raise MissingDependencyError(\n",
+        "source_code_len": 165,
+        "target_code": "\n_gswin = None\nif os.name == 'nt':\n    _gswin = which('gswin64c')\n    if not _gswin:\n        _gswin = which('gswin32c')\n        if not _gswin:\n            raise MissingDependencyError(\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -36,8 +37,8 @@\n \n-GS = 'gs'\n+_gswin = None\n if os.name == 'nt':\n-    GS = which('gswin64c')\n-    if not GS:\n-        GS = which('gswin32c')\n-        if not GS:\n+    _gswin = which('gswin64c')\n+    if not _gswin:\n+        _gswin = which('gswin32c')\n+        if not _gswin:\n             raise MissingDependencyError(\n",
+        "source_code_with_indent": "\nGS = 'gs'\nif os.name == 'nt':\n    <IND>GS = which('gswin64c')\n    if not GS:\n        <IND>GS = which('gswin32c')\n        if not GS:\n            <IND>raise MissingDependencyError(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n_gswin = None\nif os.name == 'nt':\n    <IND>_gswin = which('gswin64c')\n    if not _gswin:\n        <IND>_gswin = which('gswin32c')\n        if not _gswin:\n            <IND>raise MissingDependencyError(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ocrmypdf/OCRmyPDF",
+    "commit": "86875997b8eda4aab064bef6f9b9bc397b4b2274",
+    "filename": "src/ocrmypdf/_exec/ghostscript.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ocrmypdf-OCRmyPDF/src/ocrmypdf/_exec/ghostscript.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ocrmypdf/_exec/ghostscript.py:41:8 Incompatible variable type [9]: GS is declared to have type `str` but is used as type `typing.Optional[str]`.",
+    "message": " GS is declared to have type `str` but is used as type `typing.Optional[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 41,
+    "warning_line": "        GS = which('gswin32c')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nGS = 'gs'\nif os.name == 'nt':\n    GS = which('gswin64c')\n    if not GS:\n        GS = which('gswin32c')\n        if not GS:\n            raise MissingDependencyError(\n",
+        "source_code_len": 165,
+        "target_code": "\n_gswin = None\nif os.name == 'nt':\n    _gswin = which('gswin64c')\n    if not _gswin:\n        _gswin = which('gswin32c')\n        if not _gswin:\n            raise MissingDependencyError(\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -36,8 +37,8 @@\n \n-GS = 'gs'\n+_gswin = None\n if os.name == 'nt':\n-    GS = which('gswin64c')\n-    if not GS:\n-        GS = which('gswin32c')\n-        if not GS:\n+    _gswin = which('gswin64c')\n+    if not _gswin:\n+        _gswin = which('gswin32c')\n+        if not _gswin:\n             raise MissingDependencyError(\n",
+        "source_code_with_indent": "\nGS = 'gs'\nif os.name == 'nt':\n    <IND>GS = which('gswin64c')\n    if not GS:\n        <IND>GS = which('gswin32c')\n        if not GS:\n            <IND>raise MissingDependencyError(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n_gswin = None\nif os.name == 'nt':\n    <IND>_gswin = which('gswin64c')\n    if not _gswin:\n        <IND>_gswin = which('gswin32c')\n        if not _gswin:\n            <IND>raise MissingDependencyError(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ocrmypdf/OCRmyPDF",
+    "commit": "86875997b8eda4aab064bef6f9b9bc397b4b2274",
+    "filename": "src/ocrmypdf/_exec/ghostscript.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ocrmypdf-OCRmyPDF/src/ocrmypdf/_exec/ghostscript.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ocrmypdf/_exec/ghostscript.py:80:4 Incompatible return type [7]: Expected `bool` but got `typing.Optional[typing.Match[str]]`.",
+    "message": " Expected `bool` but got `typing.Optional[typing.Match[str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 80,
+    "warning_line": "    return re.search(r'error', stream, flags=re.IGNORECASE)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _gs_error_reported(stream) -> bool:\n    return re.search(r'error', stream, flags=re.IGNORECASE)\n\n",
+        "source_code_len": 101,
+        "target_code": "def _gs_error_reported(stream) -> bool:\n    return True if re.search(r'error', stream, flags=re.IGNORECASE) else False\n\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -79,3 +83,3 @@\n def _gs_error_reported(stream) -> bool:\n-    return re.search(r'error', stream, flags=re.IGNORECASE)\n+    return True if re.search(r'error', stream, flags=re.IGNORECASE) else False\n \n",
+        "source_code_with_indent": "<DED>def _gs_error_reported(stream) -> bool:\n    <IND>return re.search(r'error', stream, flags=re.IGNORECASE)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _gs_error_reported(stream) -> bool:\n    <IND>return True if re.search(r'error', stream, flags=re.IGNORECASE) else False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

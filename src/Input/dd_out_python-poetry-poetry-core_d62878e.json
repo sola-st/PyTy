@@ -1,0 +1,68 @@
+[
+  {
+    "project": "python-poetry/poetry-core",
+    "commit": "d62878e81a3b1e2ee944e76e4908d8129c2f8e16",
+    "filename": "poetry/core/masonry/builders/sdist.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-poetry-poetry-core/poetry/core/masonry/builders/sdist.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poetry/core/masonry/builders/sdist.py:320:8 Incompatible return type [7]: Expected `Tuple[str, List[str], Dict[typing.Any, typing.Any]]` but got `Tuple[Optional[str], List[str], Dict[typing.Any, List[typing.Any]]]`.",
+    "message": " Expected `Tuple[str, List[str], Dict[typing.Any, typing.Any]]` but got `Tuple[Optional[str], List[str], Dict[typing.Any, List[typing.Any]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 320,
+    "warning_line": "        return pkgdir, sorted(packages), pkg_data"
+  },
+  {
+    "project": "python-poetry/poetry-core",
+    "commit": "d62878e81a3b1e2ee944e76e4908d8129c2f8e16",
+    "filename": "poetry/core/masonry/metadata.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-poetry-poetry-core/poetry/core/masonry/metadata.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poetry/core/masonry/metadata.py:94:16 Incompatible attribute type [8]: Attribute `project_urls` declared in class `Metadata` has type `typing.Tuple[]` but is used as type `typing.Tuple[str, ...]`.",
+    "message": " Attribute `project_urls` declared in class `Metadata` has type `typing.Tuple[]` but is used as type `typing.Tuple[str, ...]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 94,
+    "warning_line": "                meta.project_urls += (\"{}, {}\".format(name, url),)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import TYPE_CHECKING\n\n",
+        "source_code_len": 34,
+        "target_code": "from typing import TYPE_CHECKING\nfrom typing import List\nfrom typing import Tuple\n\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -1,2 +1,4 @@\n from typing import TYPE_CHECKING\n+from typing import List\n+from typing import Tuple\n \n",
+        "source_code_with_indent": "from typing import TYPE_CHECKING\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import TYPE_CHECKING\nfrom typing import List\nfrom typing import Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    requires_external = ()\n    requires_dist = []\n    provides_dist = ()\n    obsoletes_dist = ()\n    project_urls = ()\n\n",
+        "source_code_len": 120,
+        "target_code": "    requires_external = ()\n    requires_dist: List[str] = []\n    provides_dist = ()\n    obsoletes_dist = ()\n    project_urls: Tuple[str, ...] = ()\n\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -33,6 +35,6 @@\n     requires_external = ()\n-    requires_dist = []\n+    requires_dist: List[str] = []\n     provides_dist = ()\n     obsoletes_dist = ()\n-    project_urls = ()\n+    project_urls: Tuple[str, ...] = ()\n \n",
+        "source_code_with_indent": "    requires_external = ()\n    requires_dist = []\n    provides_dist = ()\n    obsoletes_dist = ()\n    project_urls = ()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    requires_external = ()\n    requires_dist: List[str] = []\n    provides_dist = ()\n    obsoletes_dist = ()\n    project_urls: Tuple[str, ...] = ()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

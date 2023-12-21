@@ -1,0 +1,104 @@
+[
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "50b7fd1726b47f3552d708964f2b4e0177da5f6f",
+    "filename": "snapcraft/internal/meta/_snap_packaging.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/meta/_snap_packaging.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/meta/_snap_packaging.py:78:62 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `_update_yaml_with_defaults` but got `Optional[str]`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `_update_yaml_with_defaults` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 78,
+    "warning_line": "        project_config.data, project_config.validator.schema, required_grade",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _update_yaml_with_defaults(config_data, schema, required_grade: str) -> None:\n    # Ensure that grade and confinement have their defaults applied, if\n",
+        "source_code_len": 155,
+        "target_code": "\ndef _update_yaml_with_defaults(\n    config_data, schema, required_grade: Optional[str]\n) -> None:\n    # Ensure that grade and confinement have their defaults applied, if\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -256,3 +258,5 @@\n \n-def _update_yaml_with_defaults(config_data, schema, required_grade: str) -> None:\n+def _update_yaml_with_defaults(\n+    config_data, schema, required_grade: Optional[str]\n+) -> None:\n     # Ensure that grade and confinement have their defaults applied, if\n",
+        "source_code_with_indent": "\n<DED><DED>def _update_yaml_with_defaults(config_data, schema, required_grade: str) -> None:\n    # Ensure that grade and confinement have their defaults applied, if\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def _update_yaml_with_defaults(\n    config_data, schema, required_grade: Optional[str]\n) -> None:\n    # Ensure that grade and confinement have their defaults applied, if\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "50b7fd1726b47f3552d708964f2b4e0177da5f6f",
+    "filename": "snapcraft/internal/meta/_snap_packaging.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/meta/_snap_packaging.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/meta/_snap_packaging.py:81:47 Incompatible parameter type [6]: Expected `_metadata.ExtractedMetadata` for 2nd positional only parameter to call `_SnapPackaging.__init__` but got `Optional[_metadata.ExtractedMetadata]`.",
+    "message": " Expected `_metadata.ExtractedMetadata` for 2nd positional only parameter to call `_SnapPackaging.__init__` but got `Optional[_metadata.ExtractedMetadata]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 81,
+    "warning_line": "    packaging = _SnapPackaging(project_config, extracted_metadata)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        project_config: _config.Config,\n        extracted_metadata: _metadata.ExtractedMetadata,\n    ) -> None:\n",
+        "source_code_len": 112,
+        "target_code": "        project_config: _config.Config,\n        extracted_metadata: Optional[_metadata.ExtractedMetadata],\n    ) -> None:\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -323,3 +327,3 @@\n         project_config: _config.Config,\n-        extracted_metadata: _metadata.ExtractedMetadata,\n+        extracted_metadata: Optional[_metadata.ExtractedMetadata],\n     ) -> None:\n",
+        "source_code_with_indent": "        project_config: _config.Config,\n        extracted_metadata: _metadata.ExtractedMetadata,\n    ) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        project_config: _config.Config,\n        extracted_metadata: Optional[_metadata.ExtractedMetadata],\n    ) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "50b7fd1726b47f3552d708964f2b4e0177da5f6f",
+    "filename": "snapcraft/internal/meta/_snap_packaging.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/meta/_snap_packaging.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/meta/_snap_packaging.py:235:4 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 235,
+    "warning_line": "    return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_app_name_from_common_id(config_data: Dict[str, Any], common_id: str) -> str:\n    \"\"\"Get the snap app name with a common-id.\n",
+        "source_code_len": 134,
+        "target_code": "\ndef _get_app_name_from_common_id(\n    config_data: Dict[str, Any], common_id: str\n) -> Optional[str]:\n    \"\"\"Get the snap app name with a common-id.\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -221,3 +221,5 @@\n \n-def _get_app_name_from_common_id(config_data: Dict[str, Any], common_id: str) -> str:\n+def _get_app_name_from_common_id(\n+    config_data: Dict[str, Any], common_id: str\n+) -> Optional[str]:\n     \"\"\"Get the snap app name with a common-id.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>def _get_app_name_from_common_id(config_data: Dict[str, Any], common_id: str) -> str:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def _get_app_name_from_common_id(\n    config_data: Dict[str, Any], common_id: str\n) -> Optional[str]:\n    <IND>"
+      }
+    ]
+  }
+]

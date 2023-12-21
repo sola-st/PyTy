@@ -1,0 +1,70 @@
+[
+  {
+    "project": "trailofbits/deepstate",
+    "commit": "fcd17ae0349dc4b0857c4ee7c760837278ece115",
+    "filename": "bin/deepstate/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-deepstate/bin/deepstate/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "bin/deepstate/__init__.py:7:22 Invalid type [31]: Expression `logging.getLoggerClass()` is not a valid type.",
+    "message": " Expression `logging.getLoggerClass()` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 7,
+    "warning_line": "class DeepStateLogger(logging.getLoggerClass()):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\nclass DeepStateLogger(logging.getLoggerClass()):\n    def __init__(self, name: str) -> None:\n",
+        "source_code_len": 93,
+        "target_code": "\nclass DeepStateLogger(logging.getLoggerClass()): # type: ignore\n    def __init__(self, name: str) -> None:\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -6,3 +6,3 @@\n \n-class DeepStateLogger(logging.getLoggerClass()):\n+class DeepStateLogger(logging.getLoggerClass()): # type: ignore\n     def __init__(self, name: str) -> None:\n",
+        "source_code_with_indent": "\nclass DeepStateLogger(logging.getLoggerClass()):\n    <IND>def __init__(self, name: str) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nclass DeepStateLogger(logging.getLoggerClass()): # type: ignore\n    <IND>def __init__(self, name: str) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "trailofbits/deepstate",
+    "commit": "fcd17ae0349dc4b0857c4ee7c760837278ece115",
+    "filename": "bin/deepstate/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-deepstate/bin/deepstate/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bin/deepstate/__init__.py:49:0 Incompatible variable type [9]: log_level_from_env is declared to have type `str` but is used as type `typing.Union[int, str]`.",
+    "message": " log_level_from_env is declared to have type `str` but is used as type `typing.Union[int, str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 49,
+    "warning_line": "log_level_from_env: str = os.environ.get(\"DEEPSTATE_LOG\", 2)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nlog_level_from_env: str = os.environ.get(\"DEEPSTATE_LOG\", 2)\ntry:\n",
+        "source_code_len": 67,
+        "target_code": "\nlog_level_from_env: str = os.environ.get(\"DEEPSTATE_LOG\", \"2\")\ntry:\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -48,3 +48,3 @@\n \n-log_level_from_env: str = os.environ.get(\"DEEPSTATE_LOG\", 2)\n+log_level_from_env: str = os.environ.get(\"DEEPSTATE_LOG\", \"2\")\n try:\n",
+        "source_code_with_indent": "\nlog_level_from_env: str = os.environ.get(\"DEEPSTATE_LOG\", 2)\ntry:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nlog_level_from_env: str = os.environ.get(\"DEEPSTATE_LOG\", \"2\")\ntry:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

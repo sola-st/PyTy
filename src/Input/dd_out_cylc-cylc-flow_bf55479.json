@@ -1,0 +1,51 @@
+[
+  {
+    "project": "cylc/cylc-flow",
+    "commit": "bf55479a921967e5d9e1f43d6eadbaca7564a781",
+    "filename": "cylc/flow/network/resolvers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cylc-cylc-flow/cylc/flow/network/resolvers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cylc/flow/network/resolvers.py:446:4 Incompatible attribute type [8]: Attribute `schd` declared in class `Resolvers` has type `Scheduler` but is used as type `None`.",
+    "message": " Attribute `schd` declared in class `Resolvers` has type `Scheduler` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 446,
+    "warning_line": "    schd: 'Scheduler' = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "if TYPE_CHECKING:\n    from cylc.flow.scheduler import Scheduler\n",
+        "source_code_len": 64,
+        "target_code": "if TYPE_CHECKING:\n    from cylc.flow.data_store_mgr import DataStoreMgr\n    from cylc.flow.scheduler import Scheduler\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -38,2 +38,3 @@\n if TYPE_CHECKING:\n+    from cylc.flow.data_store_mgr import DataStoreMgr\n     from cylc.flow.scheduler import Scheduler\n",
+        "source_code_with_indent": "if TYPE_CHECKING:\n    <IND>from cylc.flow.scheduler import Scheduler\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "if TYPE_CHECKING:\n    <IND>from cylc.flow.data_store_mgr import DataStoreMgr\n    from cylc.flow.scheduler import Scheduler\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    schd: 'Scheduler' = None\n\n    def __init__(self, data, **kwargs):\n        super().__init__(data)\n\n        # Set extra attributes\n        for key, value in kwargs.items():\n            if hasattr(self, key):\n                setattr(self, key, value)\n\n",
+        "source_code_len": 254,
+        "target_code": "\n    schd: 'Scheduler'\n\n    def __init__(self, data: 'DataStoreMgr', schd: 'Scheduler') -> None:\n        super().__init__(data)\n        self.schd = schd\n\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -445,11 +446,7 @@\n \n-    schd: 'Scheduler' = None\n-\n-    def __init__(self, data, **kwargs):\n+    schd: 'Scheduler'\n+\n+    def __init__(self, data: 'DataStoreMgr', schd: 'Scheduler') -> None:\n         super().__init__(data)\n-\n-        # Set extra attributes\n-        for key, value in kwargs.items():\n-            if hasattr(self, key):\n-                setattr(self, key, value)\n+        self.schd = schd\n \n",
+        "source_code_with_indent": "\n    schd: 'Scheduler' = None\n\n    def __init__(self, data, **kwargs):\n        <IND>super().__init__(data)\n\n        # Set extra attributes\n        for key, value in kwargs.items():\n            <IND>if hasattr(self, key):\n                <IND>setattr(self, key, value)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    schd: 'Scheduler'\n\n    def __init__(self, data: 'DataStoreMgr', schd: 'Scheduler') -> None:\n        <IND>super().__init__(data)\n        self.schd = schd\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

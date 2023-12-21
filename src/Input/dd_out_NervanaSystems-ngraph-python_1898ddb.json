@@ -1,0 +1,36 @@
+[
+  {
+    "project": "NervanaSystems/ngraph-python",
+    "commit": "1898ddba881de3a0b4a8132205b936609ac69a44",
+    "filename": "examples/dist_hetr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/NervanaSystems-ngraph-python/examples/dist_hetr.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/dist_hetr.py:83:33 Unbound name [10]: Name `ng` is used but not defined in the current scope.",
+    "message": " Name `ng` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 83,
+    "warning_line": "        hetr.register_graph_pass(ngraph.transformers.passes.nviz.VizPass(show_all_metadata=True))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if args.visualize:\n        hetr.register_graph_pass(ngraph.transformers.passes.nviz.VizPass(show_all_metadata=True))\n\n",
+        "source_code_len": 122,
+        "target_code": "    if args.visualize:\n        hetr.register_graph_pass(ng.transformers.passes.nviz.VizPass(show_all_metadata=True))\n\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -82,3 +85,3 @@\n     if args.visualize:\n-        hetr.register_graph_pass(ngraph.transformers.passes.nviz.VizPass(show_all_metadata=True))\n+        hetr.register_graph_pass(ng.transformers.passes.nviz.VizPass(show_all_metadata=True))\n \n",
+        "source_code_with_indent": "    <IND>if args.visualize:\n        <IND>hetr.register_graph_pass(ngraph.transformers.passes.nviz.VizPass(show_all_metadata=True))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>if args.visualize:\n        <IND>hetr.register_graph_pass(ng.transformers.passes.nviz.VizPass(show_all_metadata=True))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

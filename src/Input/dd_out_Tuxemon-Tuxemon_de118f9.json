@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Tuxemon/Tuxemon",
+    "commit": "de118f9d23305c495fe982defccd9b75fdf5e1a9",
+    "filename": "tuxemon/event/actions/set_monster_level.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tuxemon-Tuxemon/tuxemon/event/actions/set_monster_level.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tuxemon/event/actions/set_monster_level.py:45:15 Unsupported operand [58]: `<=` is not supported for operand types `typing.List[tuxemon.monster.Monster]` and `int`.",
+    "message": " `<=` is not supported for operand types `typing.List[tuxemon.monster.Monster]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 45,
+    "warning_line": "        if not self.session.player.monsters > 0:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def start(self) -> None:\n        if not self.session.player.monsters > 0:\n            return\n",
+        "source_code_len": 97,
+        "target_code": "    def start(self) -> None:\n        if not len(self.session.player.monsters) > 0:\n            return\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -44,3 +44,3 @@\n     def start(self) -> None:\n-        if not self.session.player.monsters > 0:\n+        if not len(self.session.player.monsters) > 0:\n             return\n",
+        "source_code_with_indent": "    def start(self) -> None:\n        <IND>if not self.session.player.monsters > 0:\n            <IND>return\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def start(self) -> None:\n        <IND>if not len(self.session.player.monsters) > 0:\n            <IND>return\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

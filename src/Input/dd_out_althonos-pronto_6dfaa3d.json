@@ -1,0 +1,100 @@
+[
+  {
+    "project": "althonos/pronto",
+    "commit": "6dfaa3dceabe9de6260311cdcc627a0fc9b5a5d6",
+    "filename": "pronto/utils/io.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/utils/io.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/utils/io.py:126:4 Incompatible variable type [9]: confidence is declared to have type `float` but is used as type `Union[float, str]`.",
+    "message": " confidence is declared to have type `float` but is used as type `Union[float, str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 126,
+    "warning_line": "    confidence: float = 1.0 if encoding is not None else det[\"confidence\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from http.client import HTTPResponse\nfrom typing import ByteString, BinaryIO, Dict, Union, Optional\n\n",
+        "source_code_len": 101,
+        "target_code": "from http.client import HTTPResponse\nfrom typing import cast, ByteString, BinaryIO, Dict, Union, Optional\n\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -9,3 +9,3 @@\n from http.client import HTTPResponse\n-from typing import ByteString, BinaryIO, Dict, Union, Optional\n+from typing import cast, ByteString, BinaryIO, Dict, Union, Optional\n \n",
+        "source_code_with_indent": "from http.client import HTTPResponse\nfrom typing import ByteString, BinaryIO, Dict, Union, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from http.client import HTTPResponse\nfrom typing import cast, ByteString, BinaryIO, Dict, Union, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n    confidence: float = 1.0 if encoding is not None else det[\"confidence\"]\n    encoding = encoding if encoding is not None else det[\"encoding\"]\n\n",
+        "source_code_len": 221,
+        "target_code": "    det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n    confidence = 1.0 if encoding is not None else cast(float, det[\"confidence\"])\n    encoding = encoding if encoding is not None else cast(str, det[\"encoding\"])\n\n",
+        "target_code_len": 238,
+        "diff_format": "@@ -125,4 +125,4 @@\n     det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n-    confidence: float = 1.0 if encoding is not None else det[\"confidence\"]\n-    encoding = encoding if encoding is not None else det[\"encoding\"]\n+    confidence = 1.0 if encoding is not None else cast(float, det[\"confidence\"])\n+    encoding = encoding if encoding is not None else cast(str, det[\"encoding\"])\n \n",
+        "source_code_with_indent": "    <DED>det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n    confidence: float = 1.0 if encoding is not None else det[\"confidence\"]\n    encoding = encoding if encoding is not None else det[\"encoding\"]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n    confidence = 1.0 if encoding is not None else cast(float, det[\"confidence\"])\n    encoding = encoding if encoding is not None else cast(str, det[\"encoding\"])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "althonos/pronto",
+    "commit": "6dfaa3dceabe9de6260311cdcc627a0fc9b5a5d6",
+    "filename": "pronto/utils/io.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/utils/io.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/utils/io.py:127:4 Incompatible variable type [9]: encoding is declared to have type `Optional[str]` but is used as type `Union[float, str]`.",
+    "message": " encoding is declared to have type `Optional[str]` but is used as type `Union[float, str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 127,
+    "warning_line": "    encoding = encoding if encoding is not None else det[\"encoding\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from http.client import HTTPResponse\nfrom typing import ByteString, BinaryIO, Dict, Union, Optional\n\n",
+        "source_code_len": 101,
+        "target_code": "from http.client import HTTPResponse\nfrom typing import cast, ByteString, BinaryIO, Dict, Union, Optional\n\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -9,3 +9,3 @@\n from http.client import HTTPResponse\n-from typing import ByteString, BinaryIO, Dict, Union, Optional\n+from typing import cast, ByteString, BinaryIO, Dict, Union, Optional\n \n",
+        "source_code_with_indent": "from http.client import HTTPResponse\nfrom typing import ByteString, BinaryIO, Dict, Union, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from http.client import HTTPResponse\nfrom typing import cast, ByteString, BinaryIO, Dict, Union, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n    confidence: float = 1.0 if encoding is not None else det[\"confidence\"]\n    encoding = encoding if encoding is not None else det[\"encoding\"]\n\n",
+        "source_code_len": 221,
+        "target_code": "    det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n    confidence = 1.0 if encoding is not None else cast(float, det[\"confidence\"])\n    encoding = encoding if encoding is not None else cast(str, det[\"encoding\"])\n\n",
+        "target_code_len": 238,
+        "diff_format": "@@ -125,4 +125,4 @@\n     det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n-    confidence: float = 1.0 if encoding is not None else det[\"confidence\"]\n-    encoding = encoding if encoding is not None else det[\"encoding\"]\n+    confidence = 1.0 if encoding is not None else cast(float, det[\"confidence\"])\n+    encoding = encoding if encoding is not None else cast(str, det[\"encoding\"])\n \n",
+        "source_code_with_indent": "    <DED>det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n    confidence: float = 1.0 if encoding is not None else det[\"confidence\"]\n    encoding = encoding if encoding is not None else det[\"encoding\"]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>det: Dict[str, Union[str, float]] = chardet.detect(decompressed.peek())\n    confidence = 1.0 if encoding is not None else cast(float, det[\"confidence\"])\n    encoding = encoding if encoding is not None else cast(str, det[\"encoding\"])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

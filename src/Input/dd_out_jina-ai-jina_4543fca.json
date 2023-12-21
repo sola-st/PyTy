@@ -1,0 +1,85 @@
+[
+  {
+    "project": "jina-ai/jina",
+    "commit": "4543fcaf8fbceb077262d6c828738eab7f32e113",
+    "filename": "jina/types/arrays/search_ops.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jina-ai-jina/jina/types/arrays/search_ops.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jina/types/arrays/search_ops.py:78:29 Incompatible variable type [9]: seed is declared to have type `int` but is used as type `None`.",
+    "message": " seed is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 78,
+    "warning_line": "    def sample(self, k: int, seed: int = None) -> 'DocumentArray':",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def sample(self, k: int, seed: int = None) -> 'DocumentArray':\n        \"\"\"random sample k elements from :class:`DocumentArray` without replacement.\n",
+        "source_code_len": 153,
+        "target_code": "\n    def sample(self, k: int, seed: Optional[int] = None) -> 'DocumentArray':\n        \"\"\"random sample k elements from :class:`DocumentArray` without replacement.\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -77,3 +76,3 @@\n \n-    def sample(self, k: int, seed: int = None) -> 'DocumentArray':\n+    def sample(self, k: int, seed: Optional[int] = None) -> 'DocumentArray':\n         \"\"\"random sample k elements from :class:`DocumentArray` without replacement.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def sample(self, k: int, seed: int = None) -> 'DocumentArray':\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def sample(self, k: int, seed: Optional[int] = None) -> 'DocumentArray':\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "jina-ai/jina",
+    "commit": "4543fcaf8fbceb077262d6c828738eab7f32e113",
+    "filename": "jina/types/arrays/search_ops.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jina-ai-jina/jina/types/arrays/search_ops.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jina/types/arrays/search_ops.py:101:22 Incompatible variable type [9]: seed is declared to have type `int` but is used as type `None`.",
+    "message": " seed is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 101,
+    "warning_line": "    def shuffle(self, seed: int = None) -> 'DocumentArray':",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def sample(self, k: int, seed: int = None) -> 'DocumentArray':\n        \"\"\"random sample k elements from :class:`DocumentArray` without replacement.\n",
+        "source_code_len": 153,
+        "target_code": "\n    def sample(self, k: int, seed: Optional[int] = None) -> 'DocumentArray':\n        \"\"\"random sample k elements from :class:`DocumentArray` without replacement.\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -77,3 +76,3 @@\n \n-    def sample(self, k: int, seed: int = None) -> 'DocumentArray':\n+    def sample(self, k: int, seed: Optional[int] = None) -> 'DocumentArray':\n         \"\"\"random sample k elements from :class:`DocumentArray` without replacement.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def sample(self, k: int, seed: int = None) -> 'DocumentArray':\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def sample(self, k: int, seed: Optional[int] = None) -> 'DocumentArray':\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        indices = random.sample(range(len(self)), k)\n        sampled = list(operator.itemgetter(*indices)(self))\n        return DocumentArray(sampled)\n\n    def shuffle(self, seed: int = None) -> 'DocumentArray':\n        \"\"\"Randomly shuffle documents within the :class:`DocumentArray`.\n",
+        "source_code_len": 285,
+        "target_code": "        indices = random.sample(range(len(self)), k)\n        sampled = operator.itemgetter(*indices)(self)\n        return DocumentArray(sampled)\n\n    def shuffle(self, seed: Optional[int] = None) -> 'DocumentArray':\n        \"\"\"Randomly shuffle documents within the :class:`DocumentArray`.\n",
+        "target_code_len": 289,
+        "diff_format": "@@ -97,6 +96,6 @@\n         indices = random.sample(range(len(self)), k)\n-        sampled = list(operator.itemgetter(*indices)(self))\n+        sampled = operator.itemgetter(*indices)(self)\n         return DocumentArray(sampled)\n \n-    def shuffle(self, seed: int = None) -> 'DocumentArray':\n+    def shuffle(self, seed: Optional[int] = None) -> 'DocumentArray':\n         \"\"\"Randomly shuffle documents within the :class:`DocumentArray`.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        <DED>indices = random.sample(range(len(self)), k)\n        sampled = list(operator.itemgetter(*indices)(self))\n        return DocumentArray(sampled)\n\n    <DED>def shuffle(self, seed: int = None) -> 'DocumentArray':\n        <IND>",
+        "target_code_with_indent": "        <DED>indices = random.sample(range(len(self)), k)\n        sampled = operator.itemgetter(*indices)(self)\n        return DocumentArray(sampled)\n\n    <DED>def shuffle(self, seed: Optional[int] = None) -> 'DocumentArray':\n        <IND>"
+      }
+    ]
+  }
+]

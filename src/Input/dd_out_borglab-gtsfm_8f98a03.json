@@ -1,0 +1,36 @@
+[
+  {
+    "project": "borglab/gtsfm",
+    "commit": "8f98a0340d631595f65d320230a83d747245c794",
+    "filename": "gtsfm/utils/images.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/borglab-gtsfm/gtsfm/utils/images.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gtsfm/utils/images.py:157:4 Incompatible return type [7]: Expected `Tuple[float, int, int]` but got `Tuple[float, float, int, int]`.",
+    "message": " Expected `Tuple[float, int, int]` but got `Tuple[float, float, int, int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 157,
+    "warning_line": "    return downsample_u, downsample_v, new_h, new_w",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_downsample_factor_per_axis(img: Image, max_resolution: int) -> Tuple[float, int, int]:\n    \"\"\"\n",
+        "source_code_len": 104,
+        "target_code": "\ndef get_downsample_factor_per_axis(img: Image, max_resolution: int) -> Tuple[float, float, int, int]:\n    \"\"\"\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -120,3 +120,3 @@\n \n-def get_downsample_factor_per_axis(img: Image, max_resolution: int) -> Tuple[float, int, int]:\n+def get_downsample_factor_per_axis(img: Image, max_resolution: int) -> Tuple[float, float, int, int]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def get_downsample_factor_per_axis(img: Image, max_resolution: int) -> Tuple[float, int, int]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def get_downsample_factor_per_axis(img: Image, max_resolution: int) -> Tuple[float, float, int, int]:\n    <IND>"
+      }
+    ]
+  }
+]

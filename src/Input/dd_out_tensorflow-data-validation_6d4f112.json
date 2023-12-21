@@ -1,0 +1,51 @@
+[
+  {
+    "project": "tensorflow/data-validation",
+    "commit": "6d4f1125d864d6af9d5a65707e59e4fda353394a",
+    "filename": "tensorflow_data_validation/statistics/stats_impl.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-data-validation/tensorflow_data_validation/statistics/stats_impl.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_data_validation/statistics/stats_impl.py:822:2 Incompatible variable type [9]: stats_generators is declared to have type `List[stats_generator.CombinerStatsGenerator]` but is used as type `List[stats_generator.StatsGenerator]`.",
+    "message": " stats_generators is declared to have type `List[stats_generator.CombinerStatsGenerator]` but is used as type `List[stats_generator.StatsGenerator]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 822,
+    "warning_line": "  stats_generators = get_generators(options, in_memory=True)  # type: List[stats_generator.CombinerStatsGenerator]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import random\nfrom typing import Any, Callable, Dict, Iterable, List, Optional, Text, Tuple\n\n",
+        "source_code_len": 93,
+        "target_code": "import random\nfrom typing import Any, Callable, cast, Dict, Iterable, List, Optional, Text, Tuple\n\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -19,3 +19,3 @@\n import random\n-from typing import Any, Callable, Dict, Iterable, List, Optional, Text, Tuple\n+from typing import Any, Callable, cast, Dict, Iterable, List, Optional, Text, Tuple\n \n",
+        "source_code_with_indent": "import random\nfrom typing import Any, Callable, Dict, Iterable, List, Optional, Text, Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import random\nfrom typing import Any, Callable, cast, Dict, Iterable, List, Optional, Text, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "  \"\"\"\n  stats_generators = get_generators(options, in_memory=True)  # type: List[stats_generator.CombinerStatsGenerator]\n  partial_stats = generate_partial_statistics_in_memory(record_batch, options,\n",
+        "source_code_len": 200,
+        "target_code": "  \"\"\"\n  stats_generators = cast(List[stats_generator.CombinerStatsGenerator],\n                          get_generators(options, in_memory=True))\n  partial_stats = generate_partial_statistics_in_memory(record_batch, options,\n",
+        "target_code_len": 224,
+        "diff_format": "@@ -821,3 +821,4 @@\n   \"\"\"\n-  stats_generators = get_generators(options, in_memory=True)  # type: List[stats_generator.CombinerStatsGenerator]\n+  stats_generators = cast(List[stats_generator.CombinerStatsGenerator],\n+                          get_generators(options, in_memory=True))\n   partial_stats = generate_partial_statistics_in_memory(record_batch, options,\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n  stats_generators = get_generators(options, in_memory=True)  # type: List[stats_generator.CombinerStatsGenerator]\n  partial_stats = generate_partial_statistics_in_memory(record_batch, options,\n",
+        "target_code_with_indent": "\n  stats_generators = cast(List[stats_generator.CombinerStatsGenerator],\n                          get_generators(options, in_memory=True))\n  partial_stats = generate_partial_statistics_in_memory(record_batch, options,\n"
+      }
+    ]
+  }
+]

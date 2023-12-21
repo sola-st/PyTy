@@ -1,0 +1,85 @@
+[
+  {
+    "project": "tribe29/checkmk",
+    "commit": "5c57fa0a4642b50bc8cdbac70ea5cce1d149b6a1",
+    "filename": "agents/plugins/mk_postgres.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tribe29-checkmk/agents/plugins/mk_postgres.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "agents/plugins/mk_postgres.py:77:32 Incompatible variable type [9]: instance is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "message": " instance is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 77,
+    "warning_line": "    def __init__(self, db_user, instance=None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, db_user, instance=None):\n        # type: (str, Dict) -> None\n        self.db_user = db_user\n",
+        "source_code_len": 115,
+        "target_code": "    def __init__(self, db_user, instance=None):\n        # type: (str, Optional[Dict]) -> None\n        self.db_user = db_user\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -77,3 +77,3 @@\n     def __init__(self, db_user, instance=None):\n-        # type: (str, Dict) -> None\n+        # type: (str, Optional[Dict]) -> None\n         self.db_user = db_user\n",
+        "source_code_with_indent": "    def __init__(self, db_user, instance=None):\n        # type: (str, Dict) -> None\n        <IND>self.db_user = db_user\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def __init__(self, db_user, instance=None):\n        # type: (str, Optional[Dict]) -> None\n        <IND>self.db_user = db_user\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "tribe29/checkmk",
+    "commit": "5c57fa0a4642b50bc8cdbac70ea5cce1d149b6a1",
+    "filename": "agents/plugins/mk_postgres.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tribe29-checkmk/agents/plugins/mk_postgres.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "agents/plugins/mk_postgres.py:895:30 Incompatible variable type [9]: pg_instance is declared to have type `Dict[str, str]` but is used as type `None`.",
+    "message": " pg_instance is declared to have type `Dict[str, str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 895,
+    "warning_line": "def postgres_factory(db_user, pg_instance=None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, db_user, instance=None):\n        # type: (str, Dict) -> None\n        self.db_user = db_user\n",
+        "source_code_len": 115,
+        "target_code": "    def __init__(self, db_user, instance=None):\n        # type: (str, Optional[Dict]) -> None\n        self.db_user = db_user\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -77,3 +77,3 @@\n     def __init__(self, db_user, instance=None):\n-        # type: (str, Dict) -> None\n+        # type: (str, Optional[Dict]) -> None\n         self.db_user = db_user\n",
+        "source_code_with_indent": "    def __init__(self, db_user, instance=None):\n        # type: (str, Dict) -> None\n        <IND>self.db_user = db_user\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def __init__(self, db_user, instance=None):\n        # type: (str, Optional[Dict]) -> None\n        <IND>self.db_user = db_user\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def postgres_factory(db_user, pg_instance=None):\n    # type: (str, Dict[str, str]) -> PostgresBase\n    if IS_LINUX:\n",
+        "source_code_len": 116,
+        "target_code": "def postgres_factory(db_user, pg_instance=None):\n    # type: (str, Optional[Dict[str, str]]) -> PostgresBase\n    if IS_LINUX:\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -895,3 +895,3 @@\n def postgres_factory(db_user, pg_instance=None):\n-    # type: (str, Dict[str, str]) -> PostgresBase\n+    # type: (str, Optional[Dict[str, str]]) -> PostgresBase\n     if IS_LINUX:\n",
+        "source_code_with_indent": "<DED><DED>def postgres_factory(db_user, pg_instance=None):\n    # type: (str, Dict[str, str]) -> PostgresBase\n    <IND>if IS_LINUX:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>def postgres_factory(db_user, pg_instance=None):\n    # type: (str, Optional[Dict[str, str]]) -> PostgresBase\n    <IND>if IS_LINUX:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "project": "facebookresearch/Mephisto",
+    "commit": "dc2131ed7c485d3a29f0605c4b17012115fb41c7",
+    "filename": "mephisto/data_model/agent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-Mephisto/mephisto/data_model/agent.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mephisto/data_model/agent.py:231:45 Unbound name [10]: Name `agent_id` is used but not defined in the current scope.",
+    "message": " Name `agent_id` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 231,
+    "warning_line": "            raise AgentTimeoutError(timeout, agent_id)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            elif status == AgentState.STATUS_RETURNED:\n                raise AgentReturnedError(self.agent_id)\n            self.update_status(AgentState.STATUS_TIMEOUT)\n            raise AgentTimeoutError(timeout, agent_id)\n        # TODO the below needs to be considered an agent timeout\n",
+        "source_code_len": 289,
+        "target_code": "            elif status == AgentState.STATUS_RETURNED:\n                raise AgentReturnedError(self.db_id)\n            self.update_status(AgentState.STATUS_TIMEOUT)\n            raise AgentTimeoutError(timeout, self.db_id)\n        # TODO the below needs to be considered an agent timeout\n",
+        "target_code_len": 288,
+        "diff_format": "@@ -228,5 +228,5 @@\n             elif status == AgentState.STATUS_RETURNED:\n-                raise AgentReturnedError(self.agent_id)\n+                raise AgentReturnedError(self.db_id)\n             self.update_status(AgentState.STATUS_TIMEOUT)\n-            raise AgentTimeoutError(timeout, agent_id)\n+            raise AgentTimeoutError(timeout, self.db_id)\n         # TODO the below needs to be considered an agent timeout\n",
+        "source_code_with_indent": "            <DED>elif status == AgentState.STATUS_RETURNED:\n                <IND>raise AgentReturnedError(self.agent_id)\n            <DED>self.update_status(AgentState.STATUS_TIMEOUT)\n            raise AgentTimeoutError(timeout, agent_id)\n        # TODO the below needs to be considered an agent timeout\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>elif status == AgentState.STATUS_RETURNED:\n                <IND>raise AgentReturnedError(self.db_id)\n            <DED>self.update_status(AgentState.STATUS_TIMEOUT)\n            raise AgentTimeoutError(timeout, self.db_id)\n        # TODO the below needs to be considered an agent timeout\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/Mephisto",
+    "commit": "dc2131ed7c485d3a29f0605c4b17012115fb41c7",
+    "filename": "mephisto/providers/mturk_sandbox/sandbox_mturk_provider.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mephisto/providers/mturk_sandbox/sandbox_mturk_provider.py:36:4 Incompatible attribute type [8]: Attribute `UnitClass` declared in class `SandboxMTurkProvider` has type `Type[Unit]` but is used as type `Type[SandboxMTurkUnit]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "facebookresearch/Mephisto",
+    "commit": "dc2131ed7c485d3a29f0605c4b17012115fb41c7",
+    "filename": "mephisto/server/blueprints/parlai_chat/parlai_chat_agent_state.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-Mephisto/mephisto/server/blueprints/parlai_chat/parlai_chat_agent_state.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mephisto/server/blueprints/parlai_chat/parlai_chat_agent_state.py:85:29 Incompatible parameter type [6]: Expected `Tuple[str, Dict[str, typing.Any]]` for 1st positional only parameter to call `list.append` but got `Dict[str, typing.Any]`.",
+    "message": " Expected `Tuple[str, Dict[str, typing.Any]]` for 1st positional only parameter to call `list.append` but got `Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 85,
+    "warning_line": "        self.messages.append(packet.to_sendable_dict())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else:\n            self.messages: List[Tuple[str, Dict[str, Any]]] = []\n            self.init_data = None\n",
+        "source_code_len": 113,
+        "target_code": "        else:\n            self.messages: List[Dict[str, Any]] = []\n            self.init_data = None\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -33,3 +33,3 @@\n         else:\n-            self.messages: List[Tuple[str, Dict[str, Any]]] = []\n+            self.messages: List[Dict[str, Any]] = []\n             self.init_data = None\n",
+        "source_code_with_indent": "        <DED>else:\n            <IND>self.messages: List[Tuple[str, Dict[str, Any]]] = []\n            self.init_data = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>else:\n            <IND>self.messages: List[Dict[str, Any]] = []\n            self.init_data = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

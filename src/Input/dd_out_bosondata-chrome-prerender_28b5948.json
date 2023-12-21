@@ -1,0 +1,51 @@
+[
+  {
+    "project": "bosondata/chrome-prerender",
+    "commit": "28b594840dac098cc488da157f54f81e032399e0",
+    "filename": "prerender/cache/dummy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bosondata-chrome-prerender/prerender/cache/dummy.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "prerender/cache/dummy.py:7:8 Incompatible return type [7]: Expected `bytes` but got `None`.",
+    "message": " Expected `bytes` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 7,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n",
+        "source_code_len": 1,
+        "target_code": "import time\nfrom typing import Optional\n\n",
+        "target_code_len": 41,
+        "diff_format": "@@ -1,1 +1,3 @@\n+import time\n+from typing import Optional\n \n",
+        "source_code_with_indent": "\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import time\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class DummyCache(CacheBackend):\n    async def get(self, key: str, format: str = 'html') -> bytes:\n        return None\n",
+        "source_code_len": 118,
+        "target_code": "class DummyCache(CacheBackend):\n    async def get(self, key: str, format: str = 'html') -> Optional[bytes]:\n        return None\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -5,3 +7,3 @@\n class DummyCache(CacheBackend):\n-    async def get(self, key: str, format: str = 'html') -> bytes:\n+    async def get(self, key: str, format: str = 'html') -> Optional[bytes]:\n         return None\n",
+        "source_code_with_indent": "class DummyCache(CacheBackend):\n    <IND>async def get(self, key: str, format: str = 'html') -> bytes:\n        <IND>return None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class DummyCache(CacheBackend):\n    <IND>async def get(self, key: str, format: str = 'html') -> Optional[bytes]:\n        <IND>return None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

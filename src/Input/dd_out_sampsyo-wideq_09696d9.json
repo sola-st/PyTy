@@ -1,0 +1,70 @@
+[
+  {
+    "project": "sampsyo/wideq",
+    "commit": "09696d94f464d18e0e1d149903d70fc8ddd22752",
+    "filename": "wideq/dishwasher.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sampsyo-wideq/wideq/dishwasher.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wideq/dishwasher.py:108:12 Incompatible return type [7]: Expected `DishWasherProcess` but got `None`.",
+    "message": " Expected `DishWasherProcess` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 108,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def process(self) -> DishWasherProcess:\n        \"\"\"Get the process of the dishwasher.\"\"\"\n",
+        "source_code_len": 107,
+        "target_code": "    @property\n    def process(self) -> Optional[DishWasherProcess]:\n        \"\"\"Get the process of the dishwasher.\"\"\"\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -101,3 +101,3 @@\n     @property\n-    def process(self) -> DishWasherProcess:\n+    def process(self) -> Optional[DishWasherProcess]:\n         \"\"\"Get the process of the dishwasher.\"\"\"\n",
+        "source_code_with_indent": "    <DED>@property\n    def process(self) -> DishWasherProcess:\n        <IND>\"\"\"Get the process of the dishwasher.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def process(self) -> Optional[DishWasherProcess]:\n        <IND>\"\"\"Get the process of the dishwasher.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sampsyo/wideq",
+    "commit": "09696d94f464d18e0e1d149903d70fc8ddd22752",
+    "filename": "wideq/dishwasher.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sampsyo-wideq/wideq/dishwasher.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wideq/dishwasher.py:116:12 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 116,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else:\n            return None\n\n",
+        "source_code_len": 39,
+        "target_code": "        else:\n            return \"\"\n\n",
+        "target_code_len": 37,
+        "diff_format": "@@ -115,3 +115,3 @@\n         else:\n-            return None\n+            return \"\"\n \n",
+        "source_code_with_indent": "        <DED>else:\n            <IND>return None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>else:\n            <IND>return \"\"\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

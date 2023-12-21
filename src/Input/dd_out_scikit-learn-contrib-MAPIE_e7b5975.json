@@ -1,0 +1,36 @@
+[
+  {
+    "project": "scikit-learn-contrib/MAPIE",
+    "commit": "e7b5975906bad07bcf8f8031493f565c90164bf4",
+    "filename": "mapie/classification.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/scikit-learn-contrib-MAPIE/mapie/classification.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mapie/classification.py:643:20 Incompatible parameter type [6]: Expected `Union[bool, str]` for 2nd positional only parameter to call `MapieClassifier._get_last_score_included` but got `Union[None, bool, str]`.",
+    "message": " Expected `Union[bool, str]` for 2nd positional only parameter to call `MapieClassifier._get_last_score_included` but got `Union[None, bool, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 643,
+    "warning_line": "                    include_last_label",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        y_pred_proba_sorted_cumsum: ArrayLike,\n        include_last_label: Union[bool, str]\n    ) -> Optional[ArrayLike]:\n",
+        "source_code_len": 122,
+        "target_code": "        y_pred_proba_sorted_cumsum: ArrayLike,\n        include_last_label: Optional[Union[bool, str]]\n    ) -> Optional[ArrayLike]:\n",
+        "target_code_len": 132,
+        "diff_format": "@@ -347,3 +347,3 @@\n         y_pred_proba_sorted_cumsum: ArrayLike,\n-        include_last_label: Union[bool, str]\n+        include_last_label: Optional[Union[bool, str]]\n     ) -> Optional[ArrayLike]:\n",
+        "source_code_with_indent": "        y_pred_proba_sorted_cumsum: ArrayLike,\n        include_last_label: Union[bool, str]\n    ) -> Optional[ArrayLike]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        y_pred_proba_sorted_cumsum: ArrayLike,\n        include_last_label: Optional[Union[bool, str]]\n    ) -> Optional[ArrayLike]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

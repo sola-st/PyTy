@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pikvm/kvmd",
+    "commit": "31c74a1c3020710fb1878a24c8dc8fda71e3fa2e",
+    "filename": "kvmd/plugins/hid/otg/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pikvm-kvmd/kvmd/plugins/hid/otg/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kvmd/plugins/hid/otg/__init__.py:59:8 Incompatible return type [7]: Expected `Dict[str, Option]` but got `Dict[str, typing.Union[Dict[str, Option], Option]]`.",
+    "message": " Expected `Dict[str, Option]` but got `Dict[str, typing.Union[Dict[str, Option], Option]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 59,
+    "warning_line": "        return {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def get_plugin_options(cls) -> Dict[str, Option]:\n        return {\n",
+        "source_code_len": 88,
+        "target_code": "    @classmethod\n    def get_plugin_options(cls) -> Dict:\n        return {\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -57,3 +57,3 @@\n     @classmethod\n-    def get_plugin_options(cls) -> Dict[str, Option]:\n+    def get_plugin_options(cls) -> Dict:\n         return {\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def get_plugin_options(cls) -> Dict[str, Option]:\n        <IND>return {\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def get_plugin_options(cls) -> Dict:\n        <IND>return {\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

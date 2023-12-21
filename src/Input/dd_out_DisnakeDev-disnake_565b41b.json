@@ -1,0 +1,51 @@
+[
+  {
+    "project": "DisnakeDev/disnake",
+    "commit": "565b41b0b2ae78bfce7e7a2301f65f9fabb76f95",
+    "filename": "discord/embeds.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DisnakeDev-disnake/discord/embeds.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/embeds.py:229:8 Incompatible variable type [9]: self.type is declared to have type `Union[typing_extensions.Literal['article'], typing_extensions.Literal['gifv'], typing_extensions.Literal['image'], typing_extensions.Literal['link'], typing_extensions.Literal['rich'], typing_extensions.Literal['video']]` but is used as type `Union[typing_extensions.Literal['article'], typing_extensions.Literal['gifv'], typing_extensions.Literal['image'], typing_extensions.Literal['link'], typing_extensions.Literal['rich'], typing_extensions.Literal['video'], Final]`.",
+    "message": " self.type is declared to have type `Union[typing_extensions.Literal['article'], typing_extensions.Literal['gifv'], typing_extensions.Literal['image'], typing_extensions.Literal['link'], typing_extensions.Literal['rich'], typing_extensions.Literal['video']]` but is used as type `Union[typing_extensions.Literal['article'], typing_extensions.Literal['gifv'], typing_extensions.Literal['image'], typing_extensions.Literal['link'], typing_extensions.Literal['rich'], typing_extensions.Literal['video'], Final]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 229,
+    "warning_line": "        self.type = data.get('type', EmptyEmbed)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import datetime\nfrom typing import Any, Dict, Final, List, Protocol, TYPE_CHECKING, Type, TypeVar, Union\n\n",
+        "source_code_len": 106,
+        "target_code": "import datetime\nfrom typing import Any, Dict, Final, List, Mapping, Protocol, TYPE_CHECKING, Type, TypeVar, Union\n\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -27,3 +27,3 @@\n import datetime\n-from typing import Any, Dict, Final, List, Protocol, TYPE_CHECKING, Type, TypeVar, Union\n+from typing import Any, Dict, Final, List, Mapping, Protocol, TYPE_CHECKING, Type, TypeVar, Union\n \n",
+        "source_code_with_indent": "import datetime\nfrom typing import Any, Dict, Final, List, Protocol, TYPE_CHECKING, Type, TypeVar, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import datetime\nfrom typing import Any, Dict, Final, List, Mapping, Protocol, TYPE_CHECKING, Type, TypeVar, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def from_dict(cls: Type[E], data: EmbedData) -> E:\n        \"\"\"Converts a :class:`dict` to a :class:`Embed` provided it is in the\n",
+        "source_code_len": 150,
+        "target_code": "    @classmethod\n    def from_dict(cls: Type[E], data: Mapping[str, Any]) -> E:\n        \"\"\"Converts a :class:`dict` to a :class:`Embed` provided it is in the\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -207,3 +207,3 @@\n     @classmethod\n-    def from_dict(cls: Type[E], data: EmbedData) -> E:\n+    def from_dict(cls: Type[E], data: Mapping[str, Any]) -> E:\n         \"\"\"Converts a :class:`dict` to a :class:`Embed` provided it is in the\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED><DED>@classmethod\n    def from_dict(cls: Type[E], data: EmbedData) -> E:\n        <IND>",
+        "target_code_with_indent": "    <DED><DED>@classmethod\n    def from_dict(cls: Type[E], data: Mapping[str, Any]) -> E:\n        <IND>"
+      }
+    ]
+  }
+]

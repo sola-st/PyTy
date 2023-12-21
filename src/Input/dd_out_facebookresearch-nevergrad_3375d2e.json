@@ -1,0 +1,100 @@
+[
+  {
+    "project": "facebookresearch/nevergrad",
+    "commit": "3375d2e10fa8030a5c46296a9da258cea51ebfae",
+    "filename": "nevergrad/benchmark/gymexperiments.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-nevergrad/nevergrad/benchmark/gymexperiments.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nevergrad/benchmark/gymexperiments.py:353:8 Incompatible parameter type [6]: Expected `str` for 2nd parameter `specific_problem` to call `gym_problem` but got `tp.Optional[str]`.",
+    "message": " Expected `str` for 2nd parameter `specific_problem` to call `gym_problem` but got `tp.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 353,
+    "warning_line": "        specific_problem=specific_problem,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "# pylint: disable=too-many-nested-blocks,stop-iteration-return\n\n",
+        "source_code_len": 64,
+        "target_code": "# pylint: disable=too-many-nested-blocks,stop-iteration-return\n\n\n# A few GYM modifiers based on environment variables.\ndef gym_problem_modifier(specific_problem):\n    specific_problem = os.environ.get(\"TARGET_GYM_ENV\", specific_problem)\n    print(\"problem=\", specific_problem)\n    return specific_problem\n\n\ndef gym_optimizer_modifier(optims):\n    print(optims)\n    if os.environ.get(\"GYM_OPTIMIZER\") is not None:\n        optimizer_string = os.environ.get(\"GYM_OPTIMIZER\")\n        print(f\"Considering optimizers with {optimizer_string} in their name.\")\n        optims = [o for o in optims if optimizer_string in str(o)]  # type: ignore\n        if len(optims) == 0:\n            optims = [optimizer_string]  # type: ignore\n    print(\"optims=\", optims)\n    return optims\n\n\ndef gym_budget_modifier(budgets):\n    if os.environ.get(\"MAX_GYM_BUDGET\") is not None:\n        budget_string = os.environ.get(\"MAX_GYM_BUDGET\")\n        budgets = [b for b in budgets if b < int(budget_string)]  # type: ignore\n    print(\"budgets=\", budgets)\n    return budgets\n\n",
+        "target_code_len": 1045,
+        "diff_format": "@@ -16,2 +16,29 @@\n # pylint: disable=too-many-nested-blocks,stop-iteration-return\n+\n+\n+# A few GYM modifiers based on environment variables.\n+def gym_problem_modifier(specific_problem):\n+    specific_problem = os.environ.get(\"TARGET_GYM_ENV\", specific_problem)\n+    print(\"problem=\", specific_problem)\n+    return specific_problem\n+\n+\n+def gym_optimizer_modifier(optims):\n+    print(optims)\n+    if os.environ.get(\"GYM_OPTIMIZER\") is not None:\n+        optimizer_string = os.environ.get(\"GYM_OPTIMIZER\")\n+        print(f\"Considering optimizers with {optimizer_string} in their name.\")\n+        optims = [o for o in optims if optimizer_string in str(o)]  # type: ignore\n+        if len(optims) == 0:\n+            optims = [optimizer_string]  # type: ignore\n+    print(\"optims=\", optims)\n+    return optims\n+\n+\n+def gym_budget_modifier(budgets):\n+    if os.environ.get(\"MAX_GYM_BUDGET\") is not None:\n+        budget_string = os.environ.get(\"MAX_GYM_BUDGET\")\n+        budgets = [b for b in budgets if b < int(budget_string)]  # type: ignore\n+    print(\"budgets=\", budgets)\n+    return budgets\n \n",
+        "source_code_with_indent": "# pylint: disable=too-many-nested-blocks,stop-iteration-return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# pylint: disable=too-many-nested-blocks,stop-iteration-return\n\n\n# A few GYM modifiers based on environment variables.\ndef gym_problem_modifier(specific_problem):\n    <IND>specific_problem = os.environ.get(\"TARGET_GYM_ENV\", specific_problem)\n    print(\"problem=\", specific_problem)\n    return specific_problem\n\n\n<DED>def gym_optimizer_modifier(optims):\n    <IND>print(optims)\n    if os.environ.get(\"GYM_OPTIMIZER\") is not None:\n        <IND>optimizer_string = os.environ.get(\"GYM_OPTIMIZER\")\n        print(f\"Considering optimizers with {optimizer_string} in their name.\")\n        optims = [o for o in optims if optimizer_string in str(o)]  # type: ignore\n        if len(optims) == 0:\n            <IND>optims = [optimizer_string]  # type: ignore\n    <DED><DED>print(\"optims=\", optims)\n    return optims\n\n\n<DED>def gym_budget_modifier(budgets):\n    <IND>if os.environ.get(\"MAX_GYM_BUDGET\") is not None:\n        <IND>budget_string = os.environ.get(\"MAX_GYM_BUDGET\")\n        budgets = [b for b in budgets if b < int(budget_string)]  # type: ignore\n    <DED>print(\"budgets=\", budgets)\n    return budgets\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def conformant_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n    specific_problem = \"EnergySavingsGym-v0\"\n    # You might modify this problem by specifying an environment variable.\n    if os.environ.get(\"TARGET_GYM_ENV\") is not None:\n        specific_problem = os.environ.get(\"TARGET_GYM_ENV\")  # type: ignore\n    return gym_problem(\n        seed,\n        specific_problem=specific_problem,\n        conformant=True,\n",
+        "source_code_len": 438,
+        "target_code": "def conformant_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n    # You might modify this problem by specifying an environment variable.\n    specific_problem = \"EnergySavingsGym-v0\"\n\n    return gym_problem(\n        seed,\n        specific_problem=gym_problem_modifier(specific_problem),\n        conformant=True,\n",
+        "target_code_len": 332,
+        "diff_format": "@@ -346,9 +388,8 @@\n def conformant_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n+    # You might modify this problem by specifying an environment variable.\n     specific_problem = \"EnergySavingsGym-v0\"\n-    # You might modify this problem by specifying an environment variable.\n-    if os.environ.get(\"TARGET_GYM_ENV\") is not None:\n-        specific_problem = os.environ.get(\"TARGET_GYM_ENV\")  # type: ignore\n+\n     return gym_problem(\n         seed,\n-        specific_problem=specific_problem,\n+        specific_problem=gym_problem_modifier(specific_problem),\n         conformant=True,\n",
+        "source_code_with_indent": "def conformant_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n    <IND>specific_problem = \"EnergySavingsGym-v0\"\n    # You might modify this problem by specifying an environment variable.\n    if os.environ.get(\"TARGET_GYM_ENV\") is not None:\n        <IND>specific_problem = os.environ.get(\"TARGET_GYM_ENV\")  # type: ignore\n    <DED>return gym_problem(\n        seed,\n        specific_problem=specific_problem,\n        conformant=True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def conformant_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n    # You might modify this problem by specifying an environment variable.\n    <IND>specific_problem = \"EnergySavingsGym-v0\"\n\n    return gym_problem(\n        seed,\n        specific_problem=gym_problem_modifier(specific_problem),\n        conformant=True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/nevergrad",
+    "commit": "3375d2e10fa8030a5c46296a9da258cea51ebfae",
+    "filename": "nevergrad/benchmark/gymexperiments.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-nevergrad/nevergrad/benchmark/gymexperiments.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nevergrad/benchmark/gymexperiments.py:367:8 Incompatible parameter type [6]: Expected `str` for 2nd parameter `specific_problem` to call `gym_problem` but got `tp.Optional[str]`.",
+    "message": " Expected `str` for 2nd parameter `specific_problem` to call `gym_problem` but got `tp.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 367,
+    "warning_line": "        specific_problem=specific_problem,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "# pylint: disable=too-many-nested-blocks,stop-iteration-return\n\n",
+        "source_code_len": 64,
+        "target_code": "# pylint: disable=too-many-nested-blocks,stop-iteration-return\n\n\n# A few GYM modifiers based on environment variables.\ndef gym_problem_modifier(specific_problem):\n    specific_problem = os.environ.get(\"TARGET_GYM_ENV\", specific_problem)\n    print(\"problem=\", specific_problem)\n    return specific_problem\n\n\ndef gym_optimizer_modifier(optims):\n    print(optims)\n    if os.environ.get(\"GYM_OPTIMIZER\") is not None:\n        optimizer_string = os.environ.get(\"GYM_OPTIMIZER\")\n        print(f\"Considering optimizers with {optimizer_string} in their name.\")\n        optims = [o for o in optims if optimizer_string in str(o)]  # type: ignore\n        if len(optims) == 0:\n            optims = [optimizer_string]  # type: ignore\n    print(\"optims=\", optims)\n    return optims\n\n\ndef gym_budget_modifier(budgets):\n    if os.environ.get(\"MAX_GYM_BUDGET\") is not None:\n        budget_string = os.environ.get(\"MAX_GYM_BUDGET\")\n        budgets = [b for b in budgets if b < int(budget_string)]  # type: ignore\n    print(\"budgets=\", budgets)\n    return budgets\n\n",
+        "target_code_len": 1045,
+        "diff_format": "@@ -16,2 +16,29 @@\n # pylint: disable=too-many-nested-blocks,stop-iteration-return\n+\n+\n+# A few GYM modifiers based on environment variables.\n+def gym_problem_modifier(specific_problem):\n+    specific_problem = os.environ.get(\"TARGET_GYM_ENV\", specific_problem)\n+    print(\"problem=\", specific_problem)\n+    return specific_problem\n+\n+\n+def gym_optimizer_modifier(optims):\n+    print(optims)\n+    if os.environ.get(\"GYM_OPTIMIZER\") is not None:\n+        optimizer_string = os.environ.get(\"GYM_OPTIMIZER\")\n+        print(f\"Considering optimizers with {optimizer_string} in their name.\")\n+        optims = [o for o in optims if optimizer_string in str(o)]  # type: ignore\n+        if len(optims) == 0:\n+            optims = [optimizer_string]  # type: ignore\n+    print(\"optims=\", optims)\n+    return optims\n+\n+\n+def gym_budget_modifier(budgets):\n+    if os.environ.get(\"MAX_GYM_BUDGET\") is not None:\n+        budget_string = os.environ.get(\"MAX_GYM_BUDGET\")\n+        budgets = [b for b in budgets if b < int(budget_string)]  # type: ignore\n+    print(\"budgets=\", budgets)\n+    return budgets\n \n",
+        "source_code_with_indent": "# pylint: disable=too-many-nested-blocks,stop-iteration-return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# pylint: disable=too-many-nested-blocks,stop-iteration-return\n\n\n# A few GYM modifiers based on environment variables.\ndef gym_problem_modifier(specific_problem):\n    <IND>specific_problem = os.environ.get(\"TARGET_GYM_ENV\", specific_problem)\n    print(\"problem=\", specific_problem)\n    return specific_problem\n\n\n<DED>def gym_optimizer_modifier(optims):\n    <IND>print(optims)\n    if os.environ.get(\"GYM_OPTIMIZER\") is not None:\n        <IND>optimizer_string = os.environ.get(\"GYM_OPTIMIZER\")\n        print(f\"Considering optimizers with {optimizer_string} in their name.\")\n        optims = [o for o in optims if optimizer_string in str(o)]  # type: ignore\n        if len(optims) == 0:\n            <IND>optims = [optimizer_string]  # type: ignore\n    <DED><DED>print(\"optims=\", optims)\n    return optims\n\n\n<DED>def gym_budget_modifier(budgets):\n    <IND>if os.environ.get(\"MAX_GYM_BUDGET\") is not None:\n        <IND>budget_string = os.environ.get(\"MAX_GYM_BUDGET\")\n        budgets = [b for b in budgets if b < int(budget_string)]  # type: ignore\n    <DED>print(\"budgets=\", budgets)\n    return budgets\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def neuro_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n    specific_problem = \"EnergySavingsGym\"\n    # You might modify this problem by specifying an environment variable.\n    if os.environ.get(\"TARGET_GYM_ENV\") is not None:\n        specific_problem = os.environ.get(\"TARGET_GYM_ENV\")  # type: ignore\n    return gym_problem(\n        seed,\n        specific_problem=specific_problem,\n        conformant=False,\n",
+        "source_code_len": 431,
+        "target_code": "def neuro_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n    # You might modify this problem by specifying an environment variable.\n    specific_problem = \"EnergySavingsGym-v0\"\n    return gym_problem(\n        seed,\n        specific_problem=gym_problem_modifier(specific_problem),\n        conformant=False,\n",
+        "target_code_len": 327,
+        "diff_format": "@@ -360,9 +401,7 @@\n def neuro_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n-    specific_problem = \"EnergySavingsGym\"\n     # You might modify this problem by specifying an environment variable.\n-    if os.environ.get(\"TARGET_GYM_ENV\") is not None:\n-        specific_problem = os.environ.get(\"TARGET_GYM_ENV\")  # type: ignore\n+    specific_problem = \"EnergySavingsGym-v0\"\n     return gym_problem(\n         seed,\n-        specific_problem=specific_problem,\n+        specific_problem=gym_problem_modifier(specific_problem),\n         conformant=False,\n",
+        "source_code_with_indent": "def neuro_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n    <IND>specific_problem = \"EnergySavingsGym\"\n    # You might modify this problem by specifying an environment variable.\n    if os.environ.get(\"TARGET_GYM_ENV\") is not None:\n        <IND>specific_problem = os.environ.get(\"TARGET_GYM_ENV\")  # type: ignore\n    <DED>return gym_problem(\n        seed,\n        specific_problem=specific_problem,\n        conformant=False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def neuro_planning(seed: tp.Optional[int] = None) -> tp.Iterator[Experiment]:\n    # You might modify this problem by specifying an environment variable.\n    <IND>specific_problem = \"EnergySavingsGym-v0\"\n    return gym_problem(\n        seed,\n        specific_problem=gym_problem_modifier(specific_problem),\n        conformant=False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ritchie46/anaStruct",
+    "commit": "7b32d67a08e33531b15636d2677432d888a3e4f8",
+    "filename": "anastruct/fem/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ritchie46-anaStruct/anastruct/fem/system.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "anastruct/fem/system.py:924:12 Incompatible attribute type [8]: Attribute `max_q` declared in class `plotter.mpl.Plotter` has type `int` but is used as type `float`.",
+    "message": " Attribute `max_q` declared in class `plotter.mpl.Plotter` has type `int` but is used as type `float`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 924,
+    "warning_line": "            self.plotter.max_q = max(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            )\n        q_ = [q]\n        element_id, direction = args_to_lists(element_id, direction)\n        element_id = cast(Sequence[int], element_id)\n        direction = cast(Sequence[str], direction)\n\n        assert len(q_) == len(element_id) == len(direction)\n\n        for i in range(len(element_id)):\n            id_ = _negative_index_to_id(element_id[i], self.element_map.keys())\n            self.plotter.max_q = max(\n                self.plotter.max_q, max(abs(q_[i][0]), abs(q_[i][1]))\n            )\n            self.loads_q[id_] = [\n                j * self.orientation_cs * self.load_factor for j in q_[i]\n            ]\n            el = self.element_map[id_]\n            el.q_load = tuple(\n                [j * self.orientation_cs * self.load_factor for j in q_[i]]\n            )\n            el.q_direction = direction[i]\n",
+        "source_code_len": 833,
+        "target_code": "            )\n        q = [q]  # type: ignore\n        q, element_id, direction = args_to_lists(q, element_id, direction)\n\n        assert len(q) == len(element_id) == len(direction)  # type: ignore\n\n        for i in range(len(element_id)):  # type: ignore\n            id_ = _negative_index_to_id(element_id[i], self.element_map.keys())  # type: ignore\n            self.plotter.max_q = max(\n                self.plotter.max_q, max(abs(q[i][0]), abs(q[i][1]))  # type: ignore\n            )\n            self.loads_q[id_] = [\n                i * self.orientation_cs * self.load_factor for i in q[i]  # type: ignore\n            ]\n            el = self.element_map[id_]\n            el.q_load = [i * self.orientation_cs * self.load_factor for i in q[i]]  # type: ignore\n            el.q_direction = direction[i]\n",
+        "target_code_len": 804,
+        "diff_format": "@@ -914,21 +914,17 @@\n             )\n-        q_ = [q]\n-        element_id, direction = args_to_lists(element_id, direction)\n-        element_id = cast(Sequence[int], element_id)\n-        direction = cast(Sequence[str], direction)\n-\n-        assert len(q_) == len(element_id) == len(direction)\n-\n-        for i in range(len(element_id)):\n-            id_ = _negative_index_to_id(element_id[i], self.element_map.keys())\n+        q = [q]  # type: ignore\n+        q, element_id, direction = args_to_lists(q, element_id, direction)\n+\n+        assert len(q) == len(element_id) == len(direction)  # type: ignore\n+\n+        for i in range(len(element_id)):  # type: ignore\n+            id_ = _negative_index_to_id(element_id[i], self.element_map.keys())  # type: ignore\n             self.plotter.max_q = max(\n-                self.plotter.max_q, max(abs(q_[i][0]), abs(q_[i][1]))\n+                self.plotter.max_q, max(abs(q[i][0]), abs(q[i][1]))  # type: ignore\n             )\n             self.loads_q[id_] = [\n-                j * self.orientation_cs * self.load_factor for j in q_[i]\n+                i * self.orientation_cs * self.load_factor for i in q[i]  # type: ignore\n             ]\n             el = self.element_map[id_]\n-            el.q_load = tuple(\n-                [j * self.orientation_cs * self.load_factor for j in q_[i]]\n-            )\n+            el.q_load = [i * self.orientation_cs * self.load_factor for i in q[i]]  # type: ignore\n             el.q_direction = direction[i]\n",
+        "source_code_with_indent": "            )\n        <DED>q_ = [q]\n        element_id, direction = args_to_lists(element_id, direction)\n        element_id = cast(Sequence[int], element_id)\n        direction = cast(Sequence[str], direction)\n\n        assert len(q_) == len(element_id) == len(direction)\n\n        for i in range(len(element_id)):\n            <IND>id_ = _negative_index_to_id(element_id[i], self.element_map.keys())\n            self.plotter.max_q = max(\n                self.plotter.max_q, max(abs(q_[i][0]), abs(q_[i][1]))\n            )\n            self.loads_q[id_] = [\n                j * self.orientation_cs * self.load_factor for j in q_[i]\n            ]\n            el = self.element_map[id_]\n            el.q_load = tuple(\n                [j * self.orientation_cs * self.load_factor for j in q_[i]]\n            )\n            el.q_direction = direction[i]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            )\n        <DED>q = [q]  # type: ignore\n        q, element_id, direction = args_to_lists(q, element_id, direction)\n\n        assert len(q) == len(element_id) == len(direction)  # type: ignore\n\n        for i in range(len(element_id)):  # type: ignore\n            <IND>id_ = _negative_index_to_id(element_id[i], self.element_map.keys())  # type: ignore\n            self.plotter.max_q = max(\n                self.plotter.max_q, max(abs(q[i][0]), abs(q[i][1]))  # type: ignore\n            )\n            self.loads_q[id_] = [\n                i * self.orientation_cs * self.load_factor for i in q[i]  # type: ignore\n            ]\n            el = self.element_map[id_]\n            el.q_load = [i * self.orientation_cs * self.load_factor for i in q[i]]  # type: ignore\n            el.q_direction = direction[i]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

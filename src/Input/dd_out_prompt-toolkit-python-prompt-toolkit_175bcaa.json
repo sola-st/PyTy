@@ -1,0 +1,36 @@
+[
+  {
+    "project": "prompt-toolkit/python-prompt-toolkit",
+    "commit": "175bcaabb65ccc56449afb38ed6b8cbbf77d3edb",
+    "filename": "prompt_toolkit/input/vt100.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/prompt-toolkit-python-prompt-toolkit/prompt_toolkit/input/vt100.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "prompt_toolkit/input/vt100.py:277:64 Incompatible parameter type [6]: Expected `List[Union[List[Union[bytes, int]], int]]` for 3rd positional only parameter to call `termios.tcsetattr` but got `List[Union[List[bytes], int]]`.",
+    "message": " Expected `List[Union[List[Union[bytes, int]], int]]` for 3rd positional only parameter to call `termios.tcsetattr` but got `List[Union[List[bytes], int]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 277,
+    "warning_line": "                termios.tcsetattr(self.fileno, termios.TCSANOW, self.attrs_before)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.fileno = fileno\n        self.attrs_before: Optional[List[Union[int, List[bytes]]]]\n        try:\n",
+        "source_code_len": 109,
+        "target_code": "        self.fileno = fileno\n        self.attrs_before: Optional[List[Union[int, List[Union[bytes, int]]]]]\n        try:\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -228,3 +228,3 @@\n         self.fileno = fileno\n-        self.attrs_before: Optional[List[Union[int, List[bytes]]]]\n+        self.attrs_before: Optional[List[Union[int, List[Union[bytes, int]]]]]\n         try:\n",
+        "source_code_with_indent": "        <IND>self.fileno = fileno\n        self.attrs_before: Optional[List[Union[int, List[bytes]]]]\n        try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>self.fileno = fileno\n        self.attrs_before: Optional[List[Union[int, List[Union[bytes, int]]]]]\n        try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

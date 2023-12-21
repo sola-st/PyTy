@@ -1,0 +1,36 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "d5ab8525240c0f4fb66732ca1e1b5d40687ef49d",
+    "filename": "raiden/utils/smart_contracts.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/utils/smart_contracts.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/utils/smart_contracts.py:22:4 Incompatible variable type [9]: constructor_arguments is declared to have type `typing.Sequence[typing.Any]` but is used as type `None`.",
+    "message": " constructor_arguments is declared to have type `typing.Sequence[typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 22,
+    "warning_line": "    constructor_arguments: Sequence = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    return int(calculated_limit * constants.GAS_FACTOR)\n\n\ndef deploy_contract_web3(\n    contract_name: str,\n    deploy_client: JSONRPCClient,\n    contract_manager: ContractManager,\n    constructor_arguments: Sequence = None,\n) -> Address:\n    contract_proxy, _ = deploy_client.deploy_single_contract(\n        contract_name=contract_name,\n        contract=contract_manager.get_contract(contract_name),\n        constructor_parameters=constructor_arguments,\n    )\n    return Address(to_canonical_address(contract_proxy.address))\n",
+        "source_code_len": 526,
+        "target_code": "    return int(calculated_limit * constants.GAS_FACTOR)\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -15,15 +10,1 @@\n     return int(calculated_limit * constants.GAS_FACTOR)\n-\n-\n-def deploy_contract_web3(\n-    contract_name: str,\n-    deploy_client: JSONRPCClient,\n-    contract_manager: ContractManager,\n-    constructor_arguments: Sequence = None,\n-) -> Address:\n-    contract_proxy, _ = deploy_client.deploy_single_contract(\n-        contract_name=contract_name,\n-        contract=contract_manager.get_contract(contract_name),\n-        constructor_parameters=constructor_arguments,\n-    )\n-    return Address(to_canonical_address(contract_proxy.address))\n",
+        "source_code_with_indent": "    return int(calculated_limit * constants.GAS_FACTOR)\n\n\n<DED>def deploy_contract_web3(\n    contract_name: str,\n    deploy_client: JSONRPCClient,\n    contract_manager: ContractManager,\n    constructor_arguments: Sequence = None,\n) -> Address:\n    <IND>contract_proxy, _ = deploy_client.deploy_single_contract(\n        contract_name=contract_name,\n        contract=contract_manager.get_contract(contract_name),\n        constructor_parameters=constructor_arguments,\n    )\n    return Address(to_canonical_address(contract_proxy.address))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    return int(calculated_limit * constants.GAS_FACTOR)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ebellocchia/bip_utils",
+    "commit": "78ddc8f557326ad1ddf4306c1e5e65452c2ec9c7",
+    "filename": "bip_utils/bech32/bch_bech32.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ebellocchia-bip_utils/bip_utils/bech32/bch_bech32.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bip_utils/bech32/bch_bech32.py:196:8 Incompatible return type [7]: Expected `Tuple[bytes, bytes]` but got `Tuple[int, bytes]`.",
+    "message": " Expected `Tuple[bytes, bytes]` but got `Tuple[int, bytes]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 196,
+    "warning_line": "        return conv_data[0], ConvUtils.ListToBytes(conv_data[1:])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def Decode(hrp: str,\n               addr: str) -> Tuple[bytes, bytes]:\n        \"\"\" Decode from Bitcoin Cash Bech32.\n",
+        "source_code_len": 120,
+        "target_code": "    def Decode(hrp: str,\n               addr: str) -> Tuple[int, bytes]:\n        \"\"\" Decode from Bitcoin Cash Bech32.\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -166,3 +166,3 @@\n     def Decode(hrp: str,\n-               addr: str) -> Tuple[bytes, bytes]:\n+               addr: str) -> Tuple[int, bytes]:\n         \"\"\" Decode from Bitcoin Cash Bech32.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    def Decode(hrp: str,\n               addr: str) -> Tuple[bytes, bytes]:\n        <IND>",
+        "target_code_with_indent": "    def Decode(hrp: str,\n               addr: str) -> Tuple[int, bytes]:\n        <IND>"
+      }
+    ]
+  }
+]

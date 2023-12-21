@@ -1,0 +1,36 @@
+[
+  {
+    "project": "nabla-c0d3/sslyze",
+    "commit": "e977e855d4bbca829e82608830336a7471fa54f4",
+    "filename": "sslyze/plugins/early_data_plugin.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nabla-c0d3-sslyze/sslyze/plugins/early_data_plugin.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sslyze/plugins/early_data_plugin.py:90:62 Incompatible parameter type [6]: Expected `bool` for 3rd positional only parameter to call `EarlyDataScanResult.__init__` but got `typing.Union[bool, None, bool]`.",
+    "message": " Expected `bool` for 3rd positional only parameter to call `EarlyDataScanResult.__init__` but got `typing.Union[bool, None, bool]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 90,
+    "warning_line": "        return EarlyDataScanResult(server_info, scan_command, is_early_data_supported)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        session = None\n        is_early_data_supported = None\n        ssl_connection = server_info.get_preconfigured_ssl_connection(override_ssl_version=OpenSslVersionEnum.TLSV1_3)\n",
+        "source_code_len": 181,
+        "target_code": "        session = None\n        is_early_data_supported = False\n        ssl_connection = server_info.get_preconfigured_ssl_connection(override_ssl_version=OpenSslVersionEnum.TLSV1_3)\n",
+        "target_code_len": 182,
+        "diff_format": "@@ -45,3 +45,3 @@\n         session = None\n-        is_early_data_supported = None\n+        is_early_data_supported = False\n         ssl_connection = server_info.get_preconfigured_ssl_connection(override_ssl_version=OpenSslVersionEnum.TLSV1_3)\n",
+        "source_code_with_indent": "        <DED>session = None\n        is_early_data_supported = None\n        ssl_connection = server_info.get_preconfigured_ssl_connection(override_ssl_version=OpenSslVersionEnum.TLSV1_3)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>session = None\n        is_early_data_supported = False\n        ssl_connection = server_info.get_preconfigured_ssl_connection(override_ssl_version=OpenSslVersionEnum.TLSV1_3)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

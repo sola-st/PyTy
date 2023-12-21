@@ -1,0 +1,51 @@
+[
+  {
+    "project": "mandiant/capa",
+    "commit": "c121e9219c0996fb99bf3e75b9bf3153504035ab",
+    "filename": "capa/features/extractors/elffile.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mandiant-capa/capa/features/extractors/elffile.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "capa/features/extractors/elffile.py:85:12 Incompatible return type [7]: Expected `Tuple[Feature, int]` but got `typing.Generator[Tuple[typing.Any, typing.Any], None, None]`.",
+    "message": " Expected `Tuple[Feature, int]` but got `typing.Generator[Tuple[typing.Any, typing.Any], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 85,
+    "warning_line": "            yield feature, va",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import contextlib\nfrom typing import Tuple\n\n",
+        "source_code_len": 44,
+        "target_code": "import contextlib\nfrom typing import Tuple, Iterator\n\n",
+        "target_code_len": 54,
+        "diff_format": "@@ -10,3 +10,3 @@\n import contextlib\n-from typing import Tuple\n+from typing import Tuple, Iterator\n \n",
+        "source_code_with_indent": "import contextlib\nfrom typing import Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import contextlib\nfrom typing import Tuple, Iterator\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\ndef extract_file_features(elf: ELFFile, buf: bytes) -> Tuple[Feature, int]:\n    for file_handler in FILE_HANDLERS:\n        for feature, va in file_handler(elf=elf, buf=buf):\n            yield feature, va\n",
+        "source_code_len": 205,
+        "target_code": "\ndef extract_file_features(elf: ELFFile, buf: bytes) -> Iterator[Tuple[Feature, int]]:\n    for file_handler in FILE_HANDLERS:\n        for feature, va in file_handler(elf=elf, buf=buf):  # type: ignore\n            yield feature, va\n",
+        "target_code_len": 231,
+        "diff_format": "@@ -81,5 +81,5 @@\n \n-def extract_file_features(elf: ELFFile, buf: bytes) -> Tuple[Feature, int]:\n+def extract_file_features(elf: ELFFile, buf: bytes) -> Iterator[Tuple[Feature, int]]:\n     for file_handler in FILE_HANDLERS:\n-        for feature, va in file_handler(elf=elf, buf=buf):\n+        for feature, va in file_handler(elf=elf, buf=buf):  # type: ignore\n             yield feature, va\n",
+        "source_code_with_indent": "\n<DED><DED>def extract_file_features(elf: ELFFile, buf: bytes) -> Tuple[Feature, int]:\n    <IND>for file_handler in FILE_HANDLERS:\n        <IND>for feature, va in file_handler(elf=elf, buf=buf):\n            <IND>yield feature, va\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def extract_file_features(elf: ELFFile, buf: bytes) -> Iterator[Tuple[Feature, int]]:\n    <IND>for file_handler in FILE_HANDLERS:\n        <IND>for feature, va in file_handler(elf=elf, buf=buf):  # type: ignore\n            <IND>yield feature, va\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

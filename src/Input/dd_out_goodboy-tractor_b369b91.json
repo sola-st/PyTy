@@ -1,0 +1,138 @@
+[
+  {
+    "project": "goodboy/tractor",
+    "commit": "b369b9135705d630ee5285b53a631bf869ea8861",
+    "filename": "tractor/_debug.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/_debug.py",
+    "file_hunks_size": 26,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/_debug.py:188:4 Incompatible return type [7]: Expected `AsyncIterator[str]` but got implicit return value of `None`.",
+    "message": " Expected `AsyncIterator[str]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 188,
+    "warning_line": "    log.debug(f\"Actor {subactor_uid} RELEASED stdin hijack lock\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    ctx: tractor.context,\n    subactor_uid: Tuple[str, str]\n\n) -> AsyncIterator[str]:\n\n",
+        "source_code_len": 88,
+        "target_code": "\n    ctx: tractor.Context,\n    subactor_uid: Tuple[str, str]\n\n) -> None:\n\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -153,6 +160,6 @@\n \n-    ctx: tractor.context,\n+    ctx: tractor.Context,\n     subactor_uid: Tuple[str, str]\n \n-) -> AsyncIterator[str]:\n+) -> None:\n \n",
+        "source_code_with_indent": "\n    ctx: tractor.context,\n    subactor_uid: Tuple[str, str]\n\n) -> AsyncIterator[str]:\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    ctx: tractor.Context,\n    subactor_uid: Tuple[str, str]\n\n) -> None:\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "goodboy/tractor",
+    "commit": "b369b9135705d630ee5285b53a631bf869ea8861",
+    "filename": "tractor/_debug.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/_debug.py",
+    "file_hunks_size": 26,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/_debug.py:248:16 Incompatible return type [7]: Expected `Awaitable[None]` but got `None`.",
+    "message": " Expected `Awaitable[None]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 248,
+    "warning_line": "                return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n# XXX: We only make this sync in case someone wants to\n# overload the ``breakpoint()`` built-in.\nasync def _breakpoint(debug_func) -> Awaitable[None]:\n    \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n    \"\"\"\n",
+        "source_code_len": 241,
+        "target_code": "\nasync def _breakpoint(debug_func) -> None:\n    \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n\n    \"\"\"\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -190,7 +198,6 @@\n \n-# XXX: We only make this sync in case someone wants to\n-# overload the ``breakpoint()`` built-in.\n-async def _breakpoint(debug_func) -> Awaitable[None]:\n+async def _breakpoint(debug_func) -> None:\n     \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n     in subactors.\n+\n     \"\"\"\n",
+        "source_code_with_indent": "\n# XXX: We only make this sync in case someone wants to\n# overload the ``breakpoint()`` built-in.\n<DED>async def _breakpoint(debug_func) -> Awaitable[None]:\n    <IND>\"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n    \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>async def _breakpoint(debug_func) -> None:\n    <IND>\"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n\n    \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "goodboy/tractor",
+    "commit": "b369b9135705d630ee5285b53a631bf869ea8861",
+    "filename": "tractor/_debug.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/_debug.py",
+    "file_hunks_size": 26,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/_debug.py:280:12 Incompatible return type [7]: Expected `Awaitable[None]` but got `None`.",
+    "message": " Expected `Awaitable[None]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 280,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n# XXX: We only make this sync in case someone wants to\n# overload the ``breakpoint()`` built-in.\nasync def _breakpoint(debug_func) -> Awaitable[None]:\n    \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n    \"\"\"\n",
+        "source_code_len": 241,
+        "target_code": "\nasync def _breakpoint(debug_func) -> None:\n    \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n\n    \"\"\"\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -190,7 +198,6 @@\n \n-# XXX: We only make this sync in case someone wants to\n-# overload the ``breakpoint()`` built-in.\n-async def _breakpoint(debug_func) -> Awaitable[None]:\n+async def _breakpoint(debug_func) -> None:\n     \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n     in subactors.\n+\n     \"\"\"\n",
+        "source_code_with_indent": "\n# XXX: We only make this sync in case someone wants to\n# overload the ``breakpoint()`` built-in.\n<DED>async def _breakpoint(debug_func) -> Awaitable[None]:\n    <IND>\"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n    \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>async def _breakpoint(debug_func) -> None:\n    <IND>\"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n\n    \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "goodboy/tractor",
+    "commit": "b369b9135705d630ee5285b53a631bf869ea8861",
+    "filename": "tractor/_debug.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/_debug.py",
+    "file_hunks_size": 26,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/_debug.py:303:4 Incompatible return type [7]: Expected `Awaitable[None]` but got implicit return value of `None`.",
+    "message": " Expected `Awaitable[None]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 303,
+    "warning_line": "    debug_func(actor)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n# XXX: We only make this sync in case someone wants to\n# overload the ``breakpoint()`` built-in.\nasync def _breakpoint(debug_func) -> Awaitable[None]:\n    \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n    \"\"\"\n",
+        "source_code_len": 241,
+        "target_code": "\nasync def _breakpoint(debug_func) -> None:\n    \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n\n    \"\"\"\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -190,7 +198,6 @@\n \n-# XXX: We only make this sync in case someone wants to\n-# overload the ``breakpoint()`` built-in.\n-async def _breakpoint(debug_func) -> Awaitable[None]:\n+async def _breakpoint(debug_func) -> None:\n     \"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n     in subactors.\n+\n     \"\"\"\n",
+        "source_code_with_indent": "\n# XXX: We only make this sync in case someone wants to\n# overload the ``breakpoint()`` built-in.\n<DED>async def _breakpoint(debug_func) -> Awaitable[None]:\n    <IND>\"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n    \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>async def _breakpoint(debug_func) -> None:\n    <IND>\"\"\"``tractor`` breakpoint entry for engaging pdb machinery\n    in subactors.\n\n    \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

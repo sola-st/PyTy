@@ -1,0 +1,70 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "9bfa0f274277ba7b2102f49b6a5bd7a334a4cdd1",
+    "filename": "raiden/transfer/channel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/channel.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/channel.py:520:12 Incompatible parameter type [6]: Expected `HashTimeLockState` for 2nd parameter `lock` to call `is_lock_expired` but got `Union[HashTimeLockState, UnlockPartialProofState]`.",
+    "message": " Expected `HashTimeLockState` for 2nd parameter `lock` to call `is_lock_expired` but got `Union[HashTimeLockState, UnlockPartialProofState]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 520,
+    "warning_line": "            lock=lock,"
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "9bfa0f274277ba7b2102f49b6a5bd7a334a4cdd1",
+    "filename": "raiden/transfer/channel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/channel.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/channel.py:1762:12 Incompatible parameter type [6]: Expected `LockedTransferUnsignedState` for 3rd positional only parameter to call `delete_secrethash_endstate` but got `typing.Optional[HashTimeLockState]`.",
+    "message": " Expected `LockedTransferUnsignedState` for 3rd positional only parameter to call `delete_secrethash_endstate` but got `typing.Optional[HashTimeLockState]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1762,
+    "warning_line": "            locked_lock,"
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "9bfa0f274277ba7b2102f49b6a5bd7a334a4cdd1",
+    "filename": "raiden/transfer/mediated_transfer/state.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/mediated_transfer/state.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/mediated_transfer/state.py:176:8 Incompatible attribute type [8]: Attribute `transfers_pair` declared in class `MediatorTransferState` has type `MediationPairState` but is used as type `typing.List[Variable[_T]]`.",
+    "message": " Attribute `transfers_pair` declared in class `MediatorTransferState` has type `MediationPairState` but is used as type `typing.List[Variable[_T]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 176,
+    "warning_line": "        self.transfers_pair: MediationPairState = list()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.secret = None\n        self.transfers_pair: MediationPairState = list()\n\n",
+        "source_code_len": 85,
+        "target_code": "        self.secret = None\n        self.transfers_pair: typing.List[MediationPairState] = list()\n\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -175,3 +175,3 @@\n         self.secret = None\n-        self.transfers_pair: MediationPairState = list()\n+        self.transfers_pair: typing.List[MediationPairState] = list()\n \n",
+        "source_code_with_indent": "        self.secret = None\n        self.transfers_pair: MediationPairState = list()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.secret = None\n        self.transfers_pair: typing.List[MediationPairState] = list()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

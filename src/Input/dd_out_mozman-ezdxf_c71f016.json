@@ -1,0 +1,102 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "c71f016041896fca4228ae3485ee29b9fbaf2256",
+    "filename": "src/ezdxf/entities/lwpolyline.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/entities/lwpolyline.py",
+    "file_hunks_size": 8,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/entities/lwpolyline.py:100:4 Inconsistent override [14]: `src.ezdxf.entities.lwpolyline.LWPolyline._copy_data` overrides method defined in `src.ezdxf.entities.dxfentity.DXFEntity` inconsistently. Parameter of type `LWPolyline` is not a supertype of the overridden parameter `src.ezdxf.entities.dxfentity.DXFEntity`.",
+    "message": " `src.ezdxf.entities.lwpolyline.LWPolyline._copy_data` overrides method defined in `src.ezdxf.entities.dxfentity.DXFEntity` inconsistently. Parameter of type `LWPolyline` is not a supertype of the overridden parameter `src.ezdxf.entities.dxfentity.DXFEntity`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 100,
+    "warning_line": "    def _copy_data(self, entity: \"LWPolyline\") -> None:"
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "c71f016041896fca4228ae3485ee29b9fbaf2256",
+    "filename": "src/ezdxf/entities/lwpolyline.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/entities/lwpolyline.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/entities/lwpolyline.py:315:8 Incompatible return type [7]: Expected `List[Sequence[float]]` but got `typing.Generator[List[Sequence[float]], None, None]`.",
+    "message": " Expected `List[Sequence[float]]` but got `typing.Generator[List[Sequence[float]], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 315,
+    "warning_line": "        yield points",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# License: MIT License\nfrom typing import TYPE_CHECKING, Tuple, Sequence, Iterable, cast, List, Union\nimport array\n",
+        "source_code_len": 115,
+        "target_code": "# License: MIT License\nfrom typing import (\n    TYPE_CHECKING,\n    Tuple,\n    Sequence,\n    Iterable,\n    cast,\n    List,\n    Union,\n    Iterator,\n)\nimport array\n",
+        "target_code_len": 162,
+        "diff_format": "@@ -2,3 +2,12 @@\n # License: MIT License\n-from typing import TYPE_CHECKING, Tuple, Sequence, Iterable, cast, List, Union\n+from typing import (\n+    TYPE_CHECKING,\n+    Tuple,\n+    Sequence,\n+    Iterable,\n+    cast,\n+    List,\n+    Union,\n+    Iterator,\n+)\n import array\n",
+        "source_code_with_indent": "# License: MIT License\nfrom typing import TYPE_CHECKING, Tuple, Sequence, Iterable, cast, List, Union\nimport array\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# License: MIT License\nfrom typing import (\n    TYPE_CHECKING,\n    Tuple,\n    Sequence,\n    Iterable,\n    cast,\n    List,\n    Union,\n    Iterator,\n)\nimport array\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @contextmanager\n    def points(self, format: str = DEFAULT_FORMAT) -> List[Sequence[float]]:\n        \"\"\"Context manager for polyline points. Returns a standard Python list\n",
+        "source_code_len": 176,
+        "target_code": "    @contextmanager\n    def points(\n        self, format: str = DEFAULT_FORMAT\n    ) -> Iterator[List[Sequence[float]]]:\n        \"\"\"Context manager for polyline points. Returns a standard Python list\n",
+        "target_code_len": 200,
+        "diff_format": "@@ -303,3 +314,5 @@\n     @contextmanager\n-    def points(self, format: str = DEFAULT_FORMAT) -> List[Sequence[float]]:\n+    def points(\n+        self, format: str = DEFAULT_FORMAT\n+    ) -> Iterator[List[Sequence[float]]]:\n         \"\"\"Context manager for polyline points. Returns a standard Python list\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED><DED>@contextmanager\n    def points(self, format: str = DEFAULT_FORMAT) -> List[Sequence[float]]:\n        <IND>",
+        "target_code_with_indent": "    <DED><DED>@contextmanager\n    def points(\n        self, format: str = DEFAULT_FORMAT\n    ) -> Iterator[List[Sequence[float]]]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "c71f016041896fca4228ae3485ee29b9fbaf2256",
+    "filename": "src/ezdxf/entities/lwpolyline.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/entities/lwpolyline.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/entities/lwpolyline.py:425:12 Incompatible return type [7]: Expected `Tuple[float, float, float, float, float]` but got `typing.Tuple[Variable[_T_co](covariant), ...]`.",
+    "message": " Expected `Tuple[float, float, float, float, float]` but got `typing.Tuple[Variable[_T_co](covariant), ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 425,
+    "warning_line": "            return tuple(point)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def from_tags(cls, tags: Tags) -> Tuple[\"LWPolylinePoints\", Tags]:\n        \"\"\"Setup point array from tags.\"\"\"\n\n        def get_vertex() -> LWPointType:\n            point.append(attribs.get(cls.START_WIDTH_CODE, 0))\n",
+        "source_code_len": 236,
+        "target_code": "    @classmethod\n    def from_tags(cls, tags):\n        \"\"\"Setup point array from tags.\"\"\"\n\n        def get_vertex():\n            point.append(attribs.get(cls.START_WIDTH_CODE, 0))\n",
+        "target_code_len": 180,
+        "diff_format": "@@ -417,6 +430,6 @@\n     @classmethod\n-    def from_tags(cls, tags: Tags) -> Tuple[\"LWPolylinePoints\", Tags]:\n+    def from_tags(cls, tags):\n         \"\"\"Setup point array from tags.\"\"\"\n \n-        def get_vertex() -> LWPointType:\n+        def get_vertex():\n             point.append(attribs.get(cls.START_WIDTH_CODE, 0))\n",
+        "source_code_with_indent": "    @classmethod\n    def from_tags(cls, tags: Tags) -> Tuple[\"LWPolylinePoints\", Tags]:\n        <IND>\"\"\"Setup point array from tags.\"\"\"\n\n        def get_vertex() -> LWPointType:\n            <IND>point.append(attribs.get(cls.START_WIDTH_CODE, 0))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @classmethod\n    def from_tags(cls, tags):\n        <IND>\"\"\"Setup point array from tags.\"\"\"\n\n        def get_vertex():\n            <IND>point.append(attribs.get(cls.START_WIDTH_CODE, 0))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

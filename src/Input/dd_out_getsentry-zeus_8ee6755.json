@@ -1,0 +1,36 @@
+[
+  {
+    "project": "getsentry/zeus",
+    "commit": "8ee67556708fa6f1de0814914616d924850aae65",
+    "filename": "zeus/api/resources/repository_revisions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-zeus/zeus/api/resources/repository_revisions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "zeus/api/resources/repository_revisions.py:35:12 Incompatible return type [7]: Expected `Tuple[typing.List[typing.Any], bool]` but got `typing.List[Variable[_T]]`.",
+    "message": " Expected `Tuple[typing.List[typing.Any], bool]` but got `typing.List[Variable[_T]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 35,
+    "warning_line": "            return []",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if not vcs:\n            return []\n\n",
+        "source_code_len": 43,
+        "target_code": "        if not vcs:\n            return [], False\n\n",
+        "target_code_len": 50,
+        "diff_format": "@@ -34,3 +34,3 @@\n         if not vcs:\n-            return []\n+            return [], False\n \n",
+        "source_code_with_indent": "        if not vcs:\n            <IND>return []\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if not vcs:\n            <IND>return [], False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

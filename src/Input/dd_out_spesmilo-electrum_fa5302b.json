@@ -1,0 +1,45 @@
+[
+  {
+    "project": "spesmilo/electrum",
+    "commit": "fa5302bcfb695490c56ace8208fdebc7b1f04953",
+    "filename": "electrum/channel_db.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spesmilo-electrum/electrum/channel_db.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrum/channel_db.py:475:12 Incompatible return type [7]: Expected `Optional[bytes]` but got `Optional[Policy]`.",
+    "message": " Expected `Optional[bytes]` but got `Optional[Policy]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 475,
+    "warning_line": "            return self.get_policy_for_node(short_channel_id, start_node_id)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_routing_policy_for_channel(self, start_node_id: bytes,\n                                       short_channel_id: bytes) -> Optional[bytes]:\n        if not start_node_id or not short_channel_id: return None\n",
+        "source_code_len": 217,
+        "target_code": "    def get_routing_policy_for_channel(self, start_node_id: bytes,\n                                       short_channel_id: bytes) -> Optional[Policy]:\n        if not start_node_id or not short_channel_id: return None\n",
+        "target_code_len": 218,
+        "diff_format": "@@ -470,3 +470,3 @@\n     def get_routing_policy_for_channel(self, start_node_id: bytes,\n-                                       short_channel_id: bytes) -> Optional[bytes]:\n+                                       short_channel_id: bytes) -> Optional[Policy]:\n         if not start_node_id or not short_channel_id: return None\n",
+        "source_code_with_indent": "    <DED>def get_routing_policy_for_channel(self, start_node_id: bytes,\n                                       short_channel_id: bytes) -> Optional[bytes]:\n        <IND>if not start_node_id or not short_channel_id: return None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def get_routing_policy_for_channel(self, start_node_id: bytes,\n                                       short_channel_id: bytes) -> Optional[Policy]:\n        <IND>if not start_node_id or not short_channel_id: return None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spesmilo/electrum",
+    "commit": "fa5302bcfb695490c56ace8208fdebc7b1f04953",
+    "filename": "electrum/lnrouter.py",
+    "min_patch_found": false,
+    "full_warning_msg": "electrum/lnrouter.py:249:55 Incompatible parameter type [6]: Expected `Policy` for 1st positional only parameter to call `RouteEdge.from_channel_policy` but got `bytes`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

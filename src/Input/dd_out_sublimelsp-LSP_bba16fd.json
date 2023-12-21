@@ -1,0 +1,70 @@
+[
+  {
+    "project": "sublimelsp/LSP",
+    "commit": "bba16fdfc568b85fa732ca04474dfbd63fe5edb1",
+    "filename": "main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sublimelsp-LSP/main.py",
+    "file_hunks_size": 23,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "main.py:295:26 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__setitem__` but got `int`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 295,
+    "warning_line": "            self.handlers[self.request_id] = handler",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.request_id = 0\n        self.handlers = {}  # type: Dict[str, Callable]\n        self.capabilities = {}  # type: Dict[str, Any]\n",
+        "source_code_len": 139,
+        "target_code": "        self.request_id = 0\n        self.handlers = {}  # type: Dict[int, Callable]\n        self.capabilities = {}  # type: Dict[str, Any]\n",
+        "target_code_len": 139,
+        "diff_format": "@@ -279,3 +279,3 @@\n         self.request_id = 0\n-        self.handlers = {}  # type: Dict[str, Callable]\n+        self.handlers = {}  # type: Dict[int, Callable]\n         self.capabilities = {}  # type: Dict[str, Any]\n",
+        "source_code_with_indent": "        self.request_id = 0\n        self.handlers = {}  # type: Dict[str, Callable]\n        self.capabilities = {}  # type: Dict[str, Any]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.request_id = 0\n        self.handlers = {}  # type: Dict[int, Callable]\n        self.capabilities = {}  # type: Dict[str, Any]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sublimelsp/LSP",
+    "commit": "bba16fdfc568b85fa732ca04474dfbd63fe5edb1",
+    "filename": "main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sublimelsp-LSP/main.py",
+    "file_hunks_size": 23,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "main.py:640:4 Incompatible return type [7]: Expected `DocumentState` but got `Optional[DocumentState]`.",
+    "message": " Expected `DocumentState` but got `Optional[DocumentState]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 640,
+    "warning_line": "    return document_states.get(path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        document_states[path] = DocumentState(path)\n    return document_states.get(path)\n\n",
+        "source_code_len": 90,
+        "target_code": "        document_states[path] = DocumentState(path)\n    return document_states[path]\n\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -639,3 +645,3 @@\n         document_states[path] = DocumentState(path)\n-    return document_states.get(path)\n+    return document_states[path]\n \n",
+        "source_code_with_indent": "        <IND>document_states[path] = DocumentState(path)\n    <DED>return document_states.get(path)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>document_states[path] = DocumentState(path)\n    <DED>return document_states[path]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

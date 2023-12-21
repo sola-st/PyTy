@@ -1,0 +1,87 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "dd71ddc356cec0745071069489e72b1886deb3ae",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:2401:12 Incompatible return type [7]: Expected `Tuple[Optional[Dict[Node, Type]], Optional[Dict[Node, Type]]]` but got `Tuple[Optional[Dict[Node, Type]], Dict[Expression, Optional[Type]]]`.",
+    "message": " Expected `Tuple[Optional[Dict[Node, Type]], Optional[Dict[Node, Type]]]` but got `Tuple[Optional[Dict[Node, Type]], Dict[Expression, Optional[Type]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 2401,
+    "warning_line": "            return {expr: AnyType()}, {expr: current_type}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # An isinstance check, but we don't understand the type\n        if weak:\n            return {expr: AnyType()}, {expr: current_type}\n        else:\n            return {}, {}\n\n",
+        "source_code_len": 181,
+        "target_code": "        # An isinstance check, but we don't understand the type\n        return {}, {}\n\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -2399,6 +2367,3 @@\n         # An isinstance check, but we don't understand the type\n-        if weak:\n-            return {expr: AnyType()}, {expr: current_type}\n-        else:\n-            return {}, {}\n+        return {}, {}\n \n",
+        "source_code_with_indent": "        # An isinstance check, but we don't understand the type\n        <IND>if weak:\n            <IND>return {expr: AnyType()}, {expr: current_type}\n        <DED>else:\n            <IND>return {}, {}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # An isinstance check, but we don't understand the type\n        <IND>return {}, {}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "dd71ddc356cec0745071069489e72b1886deb3ae",
+    "filename": "mypy/nodes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/nodes.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/nodes.py:195:4 Incompatible attribute type [8]: Attribute `weak_opts` declared in class `MypyFile` has type `Set[str]` but is used as type `None`.",
+    "message": " Attribute `weak_opts` declared in class `MypyFile` has type `Set[str]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 195,
+    "warning_line": "    weak_opts = None  # type: Set[str]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    is_stub = False\n    # Do weak typing globally in the file?\n    weak_opts = None  # type: Set[str]\n\n",
+        "source_code_len": 103,
+        "target_code": "    is_stub = False\n\n",
+        "target_code_len": 21,
+        "diff_format": "@@ -193,4 +193,2 @@\n     is_stub = False\n-    # Do weak typing globally in the file?\n-    weak_opts = None  # type: Set[str]\n \n",
+        "source_code_with_indent": "    is_stub = False\n    # Do weak typing globally in the file?\n    weak_opts = None  # type: Set[str]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    is_stub = False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "dd71ddc356cec0745071069489e72b1886deb3ae",
+    "filename": "mypy/nodes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/nodes.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/nodes.py:202:17 Incompatible variable type [9]: weak_opts is declared to have type `Set[str]` but is used as type `None`.",
+    "message": " weak_opts is declared to have type `Set[str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 202,
+    "warning_line": "                 weak_opts: Set[str] = None) -> None:"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "4075949b96e5feb327443cc62eef1c24d870b8a3",
+    "filename": "eccodes_grib/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/eccodes_grib/dataset.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eccodes_grib/dataset.py:84:37 Unsupported operand [58]: `|` is not supported for operand types `T.Set[typing.Any]` and `T.Union[T.Dict[typing.Any, typing.Any], T.Set[typing.Any]]`.",
+    "message": " `|` is not supported for operand types `T.Set[typing.Any]` and `T.Union[T.Dict[typing.Any, typing.Any], T.Set[typing.Any]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 84,
+    "warning_line": "    all_significant_keys = ei_keys | grid_type_keys",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        log.warning(\"unknown gridType %r\", grid_type)\n        grid_type_keys = {}\n    all_significant_keys = ei_keys | grid_type_keys\n",
+        "source_code_len": 134,
+        "target_code": "        log.warning(\"unknown gridType %r\", grid_type)\n        grid_type_keys = set()\n    all_significant_keys = ei_keys | grid_type_keys\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -82,3 +85,3 @@\n         log.warning(\"unknown gridType %r\", grid_type)\n-        grid_type_keys = {}\n+        grid_type_keys = set()\n     all_significant_keys = ei_keys | grid_type_keys\n",
+        "source_code_with_indent": "        <IND>log.warning(\"unknown gridType %r\", grid_type)\n        grid_type_keys = {}\n    <DED>all_significant_keys = ei_keys | grid_type_keys\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>log.warning(\"unknown gridType %r\", grid_type)\n        grid_type_keys = set()\n    <DED>all_significant_keys = ei_keys | grid_type_keys\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

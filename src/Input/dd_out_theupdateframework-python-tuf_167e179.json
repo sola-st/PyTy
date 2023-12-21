@@ -1,0 +1,36 @@
+[
+  {
+    "project": "theupdateframework/python-tuf",
+    "commit": "167e1793d00a97fe488ceaf70aeee5f3329ed5aa",
+    "filename": "tuf/api/metadata.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theupdateframework-python-tuf/tuf/api/metadata.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tuf/api/metadata.py:586:27 Incompatible parameter type [6]: Expected `Key` for 2nd positional only parameter to call `dict.__setitem__` but got `Dict[str, typing.Any]`.",
+    "message": " Expected `Key` for 2nd positional only parameter to call `dict.__setitem__` but got `Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 586,
+    "warning_line": "        self.keys[keyid] = key_metadata",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # Update key for a role.\n    def add_key(\n        self, role: str, keyid: str, key_metadata: Dict[str, Any]\n    ) -> None:\n        \"\"\"Adds new key for 'role' and updates the key store.\"\"\"\n",
+        "source_code_len": 192,
+        "target_code": "    # Update key for a role.\n    def add_key(self, role: str, keyid: str, key_metadata: Key) -> None:\n        \"\"\"Adds new key for 'role' and updates the key store.\"\"\"\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -580,5 +580,3 @@\n     # Update key for a role.\n-    def add_key(\n-        self, role: str, keyid: str, key_metadata: Dict[str, Any]\n-    ) -> None:\n+    def add_key(self, role: str, keyid: str, key_metadata: Key) -> None:\n         \"\"\"Adds new key for 'role' and updates the key store.\"\"\"\n",
+        "source_code_with_indent": "    # Update key for a role.\n    <DED>def add_key(\n        self, role: str, keyid: str, key_metadata: Dict[str, Any]\n    ) -> None:\n        <IND>\"\"\"Adds new key for 'role' and updates the key store.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # Update key for a role.\n    <DED>def add_key(self, role: str, keyid: str, key_metadata: Key) -> None:\n        <IND>\"\"\"Adds new key for 'role' and updates the key store.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "project": "robotframework/RIDE",
+    "commit": "c4e0745f2ead98e21bd44a7a3037af02733e4f1a",
+    "filename": "src/robotide/publish/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/robotframework-RIDE/src/robotide/publish/messages.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/robotide/publish/messages.py:26:6 Unsupported operand [58]: `>=` is not supported for operand types `typing.Union[int, str]` and `int`.",
+    "message": " `>=` is not supported for operand types `typing.Union[int, str]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 26,
+    "warning_line": "PY3 = sys.version_info[0] >= 3"
+  },
+  {
+    "project": "robotframework/RIDE",
+    "commit": "c4e0745f2ead98e21bd44a7a3037af02733e4f1a",
+    "filename": "src/robotide/utils/versioncomparator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/robotframework-RIDE/src/robotide/utils/versioncomparator.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/robotide/utils/versioncomparator.py:17:6 Unsupported operand [58]: `>=` is not supported for operand types `typing.Union[int, str]` and `int`.",
+    "message": " `>=` is not supported for operand types `typing.Union[int, str]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 17,
+    "warning_line": "PY3 = sys.version_info[0] >= 3",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#  limitations under the License.\nimport re\nimport sys\n\nPY3 = sys.version_info[0] >= 3\nif PY3:\n    def cmp(a, b):\n        return (a > b) - (a < b)\n\n    # mixin class for Python3 supporting __cmp__\n    class PY3__cmp__:\n        def __eq__(self, other):\n            return self.__cmp__(other) == 0\n        def __ne__(self, other):\n            return self.__cmp__(other) != 0\n        def __gt__(self, other):\n            return self.__cmp__(other) > 0\n        def __lt__(self, other):\n            return self.__cmp__(other) < 0\n        def __ge__(self, other):\n            return self.__cmp__(other) >= 0\n        def __le__(self, other):\n            return self.__cmp__(other) <= 0\nelse:\n    class PY3__cmp__:\n        pass\n\ndef cmp_versions(version1, version2):\n    if version1 == version2:\n        return 0\n    if version1 is None:\n        return -1\n    if version2 is None:\n        return 1\n    l1 = _version_string_to_list(version1)\n    l2 = _version_string_to_list(version2)\n    d = len(l1) - len(l2)\n    if d > 0:\n        l2 += ['' for _ in range(d)]\n    if d < 0:\n        l1 += ['' for _ in range(-d)]\n    return cmp(l1, l2)\n\n_PREVIEW_VERSION = re.compile(r'(\\d+)(\\.\\d+)*(a|b|rc)(\\d*)$')\n_PREVIEW_PREFERENCE = {'a':-3, 'b':-2, 'rc':-1}\n\n\ndef _version_string_to_list(version_string):\n    if version_string == 'trunk':\n        return ['-100']\n    version_list = version_string.split('.')\n    if _PREVIEW_VERSION.match(version_string):\n        m = _PREVIEW_VERSION.match(version_list[-1])\n        version_list[-1] = m.group(1)\n        version_list += [_PREVIEW_PREFERENCE[m.group(3)]]\n        version_list += [m.group(4)]\n    return _strip_leading_zeros(version_list)\n\n\ndef _strip_leading_zeros(version_list):\n    while version_list and version_list[-1] == '0':\n        version_list.pop()\n    return version_list\n",
+        "source_code_len": 1813,
+        "target_code": "#  limitations under the License.\n\nfrom pkg_resources import parse_version\n\n\ndef cmp_versions(version1, version2):\n    if version1 is None:\n        if version2 is None:\n            return 0\n        else:\n            return -1\n    if version2 is None:\n        return 1\n    if parse_version(version1) == parse_version(version2):\n        return 0\n    elif parse_version(version1) > parse_version(version2):\n        return 1\n    return -1\n",
+        "target_code_len": 435,
+        "diff_format": "@@ -13,63 +13,18 @@\n #  limitations under the License.\n-import re\n-import sys\n \n-PY3 = sys.version_info[0] >= 3\n-if PY3:\n-    def cmp(a, b):\n-        return (a > b) - (a < b)\n+from pkg_resources import parse_version\n \n-    # mixin class for Python3 supporting __cmp__\n-    class PY3__cmp__:\n-        def __eq__(self, other):\n-            return self.__cmp__(other) == 0\n-        def __ne__(self, other):\n-            return self.__cmp__(other) != 0\n-        def __gt__(self, other):\n-            return self.__cmp__(other) > 0\n-        def __lt__(self, other):\n-            return self.__cmp__(other) < 0\n-        def __ge__(self, other):\n-            return self.__cmp__(other) >= 0\n-        def __le__(self, other):\n-            return self.__cmp__(other) <= 0\n-else:\n-    class PY3__cmp__:\n-        pass\n \n def cmp_versions(version1, version2):\n-    if version1 == version2:\n-        return 0\n     if version1 is None:\n-        return -1\n+        if version2 is None:\n+            return 0\n+        else:\n+            return -1\n     if version2 is None:\n         return 1\n-    l1 = _version_string_to_list(version1)\n-    l2 = _version_string_to_list(version2)\n-    d = len(l1) - len(l2)\n-    if d > 0:\n-        l2 += ['' for _ in range(d)]\n-    if d < 0:\n-        l1 += ['' for _ in range(-d)]\n-    return cmp(l1, l2)\n-\n-_PREVIEW_VERSION = re.compile(r'(\\d+)(\\.\\d+)*(a|b|rc)(\\d*)$')\n-_PREVIEW_PREFERENCE = {'a':-3, 'b':-2, 'rc':-1}\n-\n-\n-def _version_string_to_list(version_string):\n-    if version_string == 'trunk':\n-        return ['-100']\n-    version_list = version_string.split('.')\n-    if _PREVIEW_VERSION.match(version_string):\n-        m = _PREVIEW_VERSION.match(version_list[-1])\n-        version_list[-1] = m.group(1)\n-        version_list += [_PREVIEW_PREFERENCE[m.group(3)]]\n-        version_list += [m.group(4)]\n-    return _strip_leading_zeros(version_list)\n-\n-\n-def _strip_leading_zeros(version_list):\n-    while version_list and version_list[-1] == '0':\n-        version_list.pop()\n-    return version_list\n+    if parse_version(version1) == parse_version(version2):\n+        return 0\n+    elif parse_version(version1) > parse_version(version2):\n+        return 1\n+    return -1\n",
+        "source_code_with_indent": "#  limitations under the License.\nimport re\nimport sys\n\nPY3 = sys.version_info[0] >= 3\nif PY3:\n    <IND>def cmp(a, b):\n        <IND>return (a > b) - (a < b)\n\n    # mixin class for Python3 supporting __cmp__\n    <DED>class PY3__cmp__:\n        <IND>def __eq__(self, other):\n            <IND>return self.__cmp__(other) == 0\n        <DED>def __ne__(self, other):\n            <IND>return self.__cmp__(other) != 0\n        <DED>def __gt__(self, other):\n            <IND>return self.__cmp__(other) > 0\n        <DED>def __lt__(self, other):\n            <IND>return self.__cmp__(other) < 0\n        <DED>def __ge__(self, other):\n            <IND>return self.__cmp__(other) >= 0\n        <DED>def __le__(self, other):\n            <IND>return self.__cmp__(other) <= 0\n<DED><DED><DED>else:\n    <IND>class PY3__cmp__:\n        <IND>pass\n\n<DED><DED>def cmp_versions(version1, version2):\n    <IND>if version1 == version2:\n        <IND>return 0\n    <DED>if version1 is None:\n        <IND>return -1\n    <DED>if version2 is None:\n        <IND>return 1\n    <DED>l1 = _version_string_to_list(version1)\n    l2 = _version_string_to_list(version2)\n    d = len(l1) - len(l2)\n    if d > 0:\n        <IND>l2 += ['' for _ in range(d)]\n    <DED>if d < 0:\n        <IND>l1 += ['' for _ in range(-d)]\n    <DED>return cmp(l1, l2)\n\n<DED>_PREVIEW_VERSION = re.compile(r'(\\d+)(\\.\\d+)*(a|b|rc)(\\d*)$')\n_PREVIEW_PREFERENCE = {'a':-3, 'b':-2, 'rc':-1}\n\n\ndef _version_string_to_list(version_string):\n    <IND>if version_string == 'trunk':\n        <IND>return ['-100']\n    <DED>version_list = version_string.split('.')\n    if _PREVIEW_VERSION.match(version_string):\n        <IND>m = _PREVIEW_VERSION.match(version_list[-1])\n        version_list[-1] = m.group(1)\n        version_list += [_PREVIEW_PREFERENCE[m.group(3)]]\n        version_list += [m.group(4)]\n    <DED>return _strip_leading_zeros(version_list)\n\n\n<DED>def _strip_leading_zeros(version_list):\n    <IND>while version_list and version_list[-1] == '0':\n        <IND>version_list.pop()\n    <DED>return version_list\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#  limitations under the License.\n\nfrom pkg_resources import parse_version\n\n\ndef cmp_versions(version1, version2):\n    <IND>if version1 is None:\n        <IND>if version2 is None:\n            <IND>return 0\n        <DED>else:\n            <IND>return -1\n    <DED><DED>if version2 is None:\n        <IND>return 1\n    <DED>if parse_version(version1) == parse_version(version2):\n        <IND>return 0\n    <DED>elif parse_version(version1) > parse_version(version2):\n        <IND>return 1\n    <DED>return -1\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

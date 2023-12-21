@@ -1,0 +1,70 @@
+[
+  {
+    "project": "activeloopai/Hub",
+    "commit": "fc6429637d9664efeff3be2bac3e8af3cec00160",
+    "filename": "hub/api/tests/test_readonly.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/api/tests/test_readonly.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/api/tests/test_readonly.py:27:39 Incompatible parameter type [6]: Expected `Tuple[int]` for 3rd positional only parameter to call `_assert_readonly_ops` but got `Tuple[int, int]`.",
+    "message": " Expected `Tuple[int]` for 3rd positional only parameter to call `_assert_readonly_ops` but got `Tuple[int, int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 27,
+    "warning_line": "    _assert_readonly_ops(local_ds, 1, (100, 100))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef test_readonly(local_ds: Dataset):\n    path = local_ds.path\n",
+        "source_code_len": 64,
+        "target_code": "\ndef test_readonly(local_ds):\n    path = local_ds.path\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -20,3 +20,3 @@\n \n-def test_readonly(local_ds: Dataset):\n+def test_readonly(local_ds):\n     path = local_ds.path\n",
+        "source_code_with_indent": "\n<DED>def test_readonly(local_ds: Dataset):\n    <IND>path = local_ds.path\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def test_readonly(local_ds):\n    <IND>path = local_ds.path\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "activeloopai/Hub",
+    "commit": "fc6429637d9664efeff3be2bac3e8af3cec00160",
+    "filename": "hub/api/tests/test_readonly.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/api/tests/test_readonly.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/api/tests/test_readonly.py:32:39 Incompatible parameter type [6]: Expected `Tuple[int]` for 3rd positional only parameter to call `_assert_readonly_ops` but got `Tuple[int, int]`.",
+    "message": " Expected `Tuple[int]` for 3rd positional only parameter to call `_assert_readonly_ops` but got `Tuple[int, int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 32,
+    "warning_line": "    _assert_readonly_ops(local_ds, 1, (100, 100))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef test_readonly(local_ds: Dataset):\n    path = local_ds.path\n",
+        "source_code_len": 64,
+        "target_code": "\ndef test_readonly(local_ds):\n    path = local_ds.path\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -20,3 +20,3 @@\n \n-def test_readonly(local_ds: Dataset):\n+def test_readonly(local_ds):\n     path = local_ds.path\n",
+        "source_code_with_indent": "\n<DED>def test_readonly(local_ds: Dataset):\n    <IND>path = local_ds.path\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def test_readonly(local_ds):\n    <IND>path = local_ds.path\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

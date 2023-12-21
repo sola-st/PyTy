@@ -1,0 +1,36 @@
+[
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "969755f35c265afba88a0fc14476964079fcbd10",
+    "filename": "qutebrowser/browser/webkit/webkitelem.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/qutebrowser/browser/webkit/webkitelem.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qutebrowser/browser/webkit/webkitelem.py:178:35 Incompatible parameter type [6]: Expected `webkittab.WebKitTab` for 2nd parameter `tab` to call `WebKitElement.__init__` but got `qutebrowser.browser.browsertab.AbstractTab`.",
+    "message": " Expected `webkittab.WebKitTab` for 2nd parameter `tab` to call `WebKitElement.__init__` but got `qutebrowser.browser.browsertab.AbstractTab`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 178,
+    "warning_line": "        return WebKitElement(elem, tab=self._tab)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return None\n        return WebKitElement(elem, tab=self._tab)\n",
+        "source_code_len": 74,
+        "target_code": "            return None\n\n        if typing.TYPE_CHECKING:\n            assert isinstance(self._tab, webkittab.WebKitTab)\n\n        return WebKitElement(elem, tab=self._tab)\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -177,2 +177,6 @@\n             return None\n+\n+        if typing.TYPE_CHECKING:\n+            assert isinstance(self._tab, webkittab.WebKitTab)\n+\n         return WebKitElement(elem, tab=self._tab)\n",
+        "source_code_with_indent": "            <IND>return None\n        <DED>return WebKitElement(elem, tab=self._tab)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return None\n\n        <DED>if typing.TYPE_CHECKING:\n            <IND>assert isinstance(self._tab, webkittab.WebKitTab)\n\n        <DED>return WebKitElement(elem, tab=self._tab)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

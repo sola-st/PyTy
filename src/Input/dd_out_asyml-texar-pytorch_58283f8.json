@@ -1,0 +1,100 @@
+[
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "58283f866cb269b8a3b81b8c7ecffadaedc2e81a",
+    "filename": "texar/losses/entropy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/losses/entropy.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "texar/losses/entropy.py:40:24 Incompatible variable type [9]: rank is declared to have type `int` but is used as type `None`.",
+    "message": " rank is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 40,
+    "warning_line": "                        rank: int = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n# pylint: disable=too-many-arguments\n",
+        "source_code_len": 38,
+        "target_code": "\nfrom typing import Optional\n\n# pylint: disable=too-many-arguments\n",
+        "target_code_len": 67,
+        "diff_format": "@@ -23,2 +23,4 @@\n \n+from typing import Optional\n+\n # pylint: disable=too-many-arguments\n",
+        "source_code_with_indent": "\n# pylint: disable=too-many-arguments\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Optional\n\n# pylint: disable=too-many-arguments\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def entropy_with_logits(logits: torch.Tensor,\n                        rank: int = None,\n                        average_across_batch: bool = True,\n",
+        "source_code_len": 147,
+        "target_code": "def entropy_with_logits(logits: torch.Tensor,\n                        rank: Optional[int] = None,\n                        average_across_batch: bool = True,\n",
+        "target_code_len": 157,
+        "diff_format": "@@ -39,3 +41,3 @@\n def entropy_with_logits(logits: torch.Tensor,\n-                        rank: int = None,\n+                        rank: Optional[int] = None,\n                         average_across_batch: bool = True,\n",
+        "source_code_with_indent": "<DED>def entropy_with_logits(logits: torch.Tensor,\n                        rank: int = None,\n                        average_across_batch: bool = True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def entropy_with_logits(logits: torch.Tensor,\n                        rank: Optional[int] = None,\n                        average_across_batch: bool = True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "58283f866cb269b8a3b81b8c7ecffadaedc2e81a",
+    "filename": "texar/losses/entropy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/losses/entropy.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "texar/losses/entropy.py:117:33 Incompatible variable type [9]: rank is declared to have type `int` but is used as type `None`.",
+    "message": " rank is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 117,
+    "warning_line": "                                 rank: int = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n# pylint: disable=too-many-arguments\n",
+        "source_code_len": 38,
+        "target_code": "\nfrom typing import Optional\n\n# pylint: disable=too-many-arguments\n",
+        "target_code_len": 67,
+        "diff_format": "@@ -23,2 +23,4 @@\n \n+from typing import Optional\n+\n # pylint: disable=too-many-arguments\n",
+        "source_code_with_indent": "\n# pylint: disable=too-many-arguments\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Optional\n\n# pylint: disable=too-many-arguments\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def sequence_entropy_with_logits(logits: torch.Tensor,\n                                 rank: int = None,\n                                 sequence_length: torch.Tensor = None,\n",
+        "source_code_len": 177,
+        "target_code": "def sequence_entropy_with_logits(logits: torch.Tensor,\n                                 rank: Optional[int] = None,\n                                 sequence_length: torch.Tensor = None,\n",
+        "target_code_len": 187,
+        "diff_format": "@@ -116,3 +118,3 @@\n def sequence_entropy_with_logits(logits: torch.Tensor,\n-                                 rank: int = None,\n+                                 rank: Optional[int] = None,\n                                  sequence_length: torch.Tensor = None,\n",
+        "source_code_with_indent": "<DED>def sequence_entropy_with_logits(logits: torch.Tensor,\n                                 rank: int = None,\n                                 sequence_length: torch.Tensor = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def sequence_entropy_with_logits(logits: torch.Tensor,\n                                 rank: Optional[int] = None,\n                                 sequence_length: torch.Tensor = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

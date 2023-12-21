@@ -1,0 +1,70 @@
+[
+  {
+    "project": "graphql-python/graphene",
+    "commit": "8e7d76bbce3eb8755bf4f3beba8b9d8b026c6424",
+    "filename": "graphene/types/enum.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/graphql-python-graphene/graphene/types/enum.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "graphene/types/enum.py:69:11 Invalid type [31]: Expression `six.with_metaclass(graphene.types.enum.EnumMeta, graphene.types.unmountedtype.UnmountedType, graphene.types.base.BaseType)` is not a valid type.",
+    "message": " Expression `six.with_metaclass(graphene.types.enum.EnumMeta, graphene.types.unmountedtype.UnmountedType, graphene.types.base.BaseType)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 69,
+    "warning_line": "class Enum(six.with_metaclass(EnumMeta, UnmountedType, BaseType)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass Enum(six.with_metaclass(EnumMeta, UnmountedType, BaseType)):\n    \"\"\"\n",
+        "source_code_len": 76,
+        "target_code": "\nclass Enum(UnmountedType, BaseType, metaclass=EnumMeta):\n    \"\"\"\n",
+        "target_code_len": 66,
+        "diff_format": "@@ -68,3 +65,3 @@\n \n-class Enum(six.with_metaclass(EnumMeta, UnmountedType, BaseType)):\n+class Enum(UnmountedType, BaseType, metaclass=EnumMeta):\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>class Enum(six.with_metaclass(EnumMeta, UnmountedType, BaseType)):\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>class Enum(UnmountedType, BaseType, metaclass=EnumMeta):\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "graphql-python/graphene",
+    "commit": "8e7d76bbce3eb8755bf4f3beba8b9d8b026c6424",
+    "filename": "graphene/utils/subclass_with_meta.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/graphql-python-graphene/graphene/utils/subclass_with_meta.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "graphene/utils/subclass_with_meta.py:21:23 Invalid type [31]: Expression `six.with_metaclass(graphene.utils.subclass_with_meta.SubclassWithMeta_Meta)` is not a valid type.",
+    "message": " Expression `six.with_metaclass(graphene.utils.subclass_with_meta.SubclassWithMeta_Meta)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 21,
+    "warning_line": "class SubclassWithMeta(six.with_metaclass(SubclassWithMeta_Meta)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass SubclassWithMeta(six.with_metaclass(SubclassWithMeta_Meta)):\n    \"\"\"This class improves __init_subclass__ to receive automatically the options from meta\"\"\"\n",
+        "source_code_len": 163,
+        "target_code": "\nclass SubclassWithMeta(metaclass=SubclassWithMeta_Meta):\n    \"\"\"This class improves __init_subclass__ to receive automatically the options from meta\"\"\"\n",
+        "target_code_len": 153,
+        "diff_format": "@@ -20,3 +18,3 @@\n \n-class SubclassWithMeta(six.with_metaclass(SubclassWithMeta_Meta)):\n+class SubclassWithMeta(metaclass=SubclassWithMeta_Meta):\n     \"\"\"This class improves __init_subclass__ to receive automatically the options from meta\"\"\"\n",
+        "source_code_with_indent": "\n<DED><DED>class SubclassWithMeta(six.with_metaclass(SubclassWithMeta_Meta)):\n    <IND>\"\"\"This class improves __init_subclass__ to receive automatically the options from meta\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class SubclassWithMeta(metaclass=SubclassWithMeta_Meta):\n    <IND>\"\"\"This class improves __init_subclass__ to receive automatically the options from meta\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

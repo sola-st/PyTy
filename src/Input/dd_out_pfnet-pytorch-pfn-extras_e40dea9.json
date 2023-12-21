@@ -1,0 +1,113 @@
+[
+  {
+    "project": "pfnet/pytorch-pfn-extras",
+    "commit": "e40dea974b85696e54b2ba2edcf85f1758301b55",
+    "filename": "pytorch_pfn_extras/engine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pytorch_pfn_extras/engine.py:185:17 Incompatible parameter type [6]: Expected `Union[Tuple[_Evaluator, Union[typing.Callable[[training.manager._BaseExtensionsManager], bool], None, Tuple[int, str], training._trigger_util.Trigger]], _Evaluator]` for 2nd parameter `evaluator` to call `_Trainer.__init__` but got `Optional[_Evaluator]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "pfnet/pytorch-pfn-extras",
+    "commit": "e40dea974b85696e54b2ba2edcf85f1758301b55",
+    "filename": "pytorch_pfn_extras/profiler/_time_summary.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pfnet-pytorch-pfn-extras/pytorch_pfn_extras/profiler/_time_summary.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_pfn_extras/profiler/_time_summary.py:298:12 Incompatible return type [7]: Expected `Generator[None, None, None]` but got `Generator[_ReportNotification, None, None]`.",
+    "message": " Expected `Generator[None, None, None]` but got `Generator[_ReportNotification, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 298,
+    "warning_line": "            yield notification",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @contextmanager\n    def report(self, tag: str, use_cuda: bool = False) -> Generator[None, None, None]:\n        \"\"\"Context manager to automatically report execution times.\n",
+        "source_code_len": 175,
+        "target_code": "    @contextmanager\n    def report(\n            self,\n            tag: str,\n            use_cuda: bool = False,\n    ) -> Generator[_ReportNotification, None, None]:\n        \"\"\"Context manager to automatically report execution times.\n",
+        "target_code_len": 233,
+        "diff_format": "@@ -276,3 +276,7 @@\n     @contextmanager\n-    def report(self, tag: str, use_cuda: bool = False) -> Generator[None, None, None]:\n+    def report(\n+            self,\n+            tag: str,\n+            use_cuda: bool = False,\n+    ) -> Generator[_ReportNotification, None, None]:\n         \"\"\"Context manager to automatically report execution times.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED><DED>@contextmanager\n    def report(self, tag: str, use_cuda: bool = False) -> Generator[None, None, None]:\n        <IND>",
+        "target_code_with_indent": "    <DED><DED>@contextmanager\n    def report(\n            self,\n            tag: str,\n            use_cuda: bool = False,\n    ) -> Generator[_ReportNotification, None, None]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "pfnet/pytorch-pfn-extras",
+    "commit": "e40dea974b85696e54b2ba2edcf85f1758301b55",
+    "filename": "pytorch_pfn_extras/training/_trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pfnet-pytorch-pfn-extras/pytorch_pfn_extras/training/_trainer.py",
+    "file_hunks_size": 13,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_pfn_extras/training/_trainer.py:121:4 Inconsistent override [14]: `pytorch_pfn_extras.training._trainer._Trainer.run` overrides method defined in `pytorch_pfn_extras.engine._Engine` inconsistently. Could not find parameter `Variable(typing.Any)` in overriding signature.",
+    "message": " `pytorch_pfn_extras.training._trainer._Trainer.run` overrides method defined in `pytorch_pfn_extras.engine._Engine` inconsistently. Could not find parameter `Variable(typing.Any)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 121,
+    "warning_line": "    def run(self,"
+  },
+  {
+    "project": "pfnet/pytorch-pfn-extras",
+    "commit": "e40dea974b85696e54b2ba2edcf85f1758301b55",
+    "filename": "pytorch_pfn_extras/training/_trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pfnet-pytorch-pfn-extras/pytorch_pfn_extras/training/_trainer.py",
+    "file_hunks_size": 13,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_pfn_extras/training/_trainer.py:121:4 Inconsistent override [14]: `pytorch_pfn_extras.training._trainer._Trainer.run` overrides method defined in `pytorch_pfn_extras.engine._Engine` inconsistently. Could not find parameter `Keywords(typing.Any)` in overriding signature.",
+    "message": " `pytorch_pfn_extras.training._trainer._Trainer.run` overrides method defined in `pytorch_pfn_extras.engine._Engine` inconsistently. Could not find parameter `Keywords(typing.Any)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 121,
+    "warning_line": "    def run(self,"
+  },
+  {
+    "project": "pfnet/pytorch-pfn-extras",
+    "commit": "e40dea974b85696e54b2ba2edcf85f1758301b55",
+    "filename": "pytorch_pfn_extras/training/manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pfnet-pytorch-pfn-extras/pytorch_pfn_extras/training/manager.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_pfn_extras/training/manager.py:575:16 Incompatible return type [7]: Expected `Generator[None, None, None]` but got `Generator[IterationNotification, None, None]`.",
+    "message": " Expected `Generator[None, None, None]` but got `Generator[IterationNotification, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 575,
+    "warning_line": "                yield notification",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            step_optimizers: Optional[List[str]] = None\n    ) -> Generator[None, None, None]:\n        \"\"\"Context manager to run an iteration.\n",
+        "source_code_len": 142,
+        "target_code": "            step_optimizers: Optional[List[str]] = None\n    ) -> Generator[IterationNotification, None, None]:\n        \"\"\"Context manager to run an iteration.\n",
+        "target_code_len": 159,
+        "diff_format": "@@ -551,3 +551,3 @@\n             step_optimizers: Optional[List[str]] = None\n-    ) -> Generator[None, None, None]:\n+    ) -> Generator[IterationNotification, None, None]:\n         \"\"\"Context manager to run an iteration.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "            step_optimizers: Optional[List[str]] = None\n    ) -> Generator[None, None, None]:\n        <IND>",
+        "target_code_with_indent": "            step_optimizers: Optional[List[str]] = None\n    ) -> Generator[IterationNotification, None, None]:\n        <IND>"
+      }
+    ]
+  }
+]

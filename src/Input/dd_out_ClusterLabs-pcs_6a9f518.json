@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ClusterLabs/pcs",
+    "commit": "6a9f518ea6ab2bf097f8949fb12de04c171a746e",
+    "filename": "pcs/lib/commands/cluster.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ClusterLabs-pcs/pcs/lib/commands/cluster.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pcs/lib/commands/cluster.py:961:12 Incompatible parameter type [6]: Expected `Mapping[str, typing.Union[str, validate.ValuePair]]` for 1st positional only parameter to call `validate.NamesIn.validate` but got `typing.Dict[typing.Any, None]`.",
+    "message": " Expected `Mapping[str, typing.Union[str, validate.ValuePair]]` for 1st positional only parameter to call `validate.NamesIn.validate` but got `typing.Dict[typing.Any, None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 961,
+    "warning_line": "            {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                # matter for validate.NamesIn validator.\n                option_name: None\n                for node_option_names in [node.keys() for node in new_nodes]\n",
+        "source_code_len": 168,
+        "target_code": "                # matter for validate.NamesIn validator.\n                option_name: \"\"\n                for node_option_names in [node.keys() for node in new_nodes]\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -963,3 +964,3 @@\n                 # matter for validate.NamesIn validator.\n-                option_name: None\n+                option_name: \"\"\n                 for node_option_names in [node.keys() for node in new_nodes]\n",
+        "source_code_with_indent": "                # matter for validate.NamesIn validator.\n                option_name: None\n                for node_option_names in [node.keys() for node in new_nodes]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                # matter for validate.NamesIn validator.\n                option_name: \"\"\n                for node_option_names in [node.keys() for node in new_nodes]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "arskom/spyne",
+    "commit": "d52dd95d116908c1763b9a2524e8e14884bbd5f3",
+    "filename": "spyne/model/primitive.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/arskom-spyne/spyne/model/primitive.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spyne/model/primitive.py:727:11 Invalid type [31]: Expression `Unicode($parameter$pattern = $local_spyne?model?primitive$UUID_PATTERN, $parameter$type_name = \"uuid\")` is not a valid type.",
+    "message": " Expression `Unicode($parameter$pattern = $local_spyne?model?primitive$UUID_PATTERN, $parameter$type_name = \"uuid\")` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 727,
+    "warning_line": "class Uuid(Unicode(pattern=UUID_PATTERN, type_name='uuid')):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass Uuid(Unicode(pattern=UUID_PATTERN, type_name='uuid')):\n    \"\"\"Unicode subclass for Universially-Unique Identifiers.\"\"\"\n\n",
+        "source_code_len": 127,
+        "target_code": "\nclass Uuid(Unicode):\n    \"\"\"Unicode subclass for Universially-Unique Identifiers.\"\"\"\n    __base_type__ = Unicode\n    __namespace__ = 'http://spyne.io/schema'\n    __type_name__ = 'uuid'\n\n    class Attributes(Unicode.Attributes):\n        pattern = UUID_PATTERN\n\n",
+        "target_code_len": 261,
+        "diff_format": "@@ -726,4 +728,10 @@\n \n-class Uuid(Unicode(pattern=UUID_PATTERN, type_name='uuid')):\n+class Uuid(Unicode):\n     \"\"\"Unicode subclass for Universially-Unique Identifiers.\"\"\"\n+    __base_type__ = Unicode\n+    __namespace__ = 'http://spyne.io/schema'\n+    __type_name__ = 'uuid'\n+\n+    class Attributes(Unicode.Attributes):\n+        pattern = UUID_PATTERN\n \n",
+        "source_code_with_indent": "\n<DED>class Uuid(Unicode(pattern=UUID_PATTERN, type_name='uuid')):\n    <IND>\"\"\"Unicode subclass for Universially-Unique Identifiers.\"\"\"\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>class Uuid(Unicode):\n    <IND>\"\"\"Unicode subclass for Universially-Unique Identifiers.\"\"\"\n    __base_type__ = Unicode\n    __namespace__ = 'http://spyne.io/schema'\n    __type_name__ = 'uuid'\n\n    class Attributes(Unicode.Attributes):\n        <IND>pattern = UUID_PATTERN\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

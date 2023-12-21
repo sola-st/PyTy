@@ -1,0 +1,100 @@
+[
+  {
+    "project": "yt-project/yt",
+    "commit": "55f116a53454148b37bac50b70d99be7f5a54107",
+    "filename": "yt/frontends/adaptahop/data_structures.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/yt-project-yt/yt/frontends/adaptahop/data_structures.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "yt/frontends/adaptahop/data_structures.py:60:4 Incompatible attribute type [8]: Attribute `_header_attributes` declared in class `AdaptaHOPDataset` has type `typing.Tuple[typing.Tuple[typing.Union[str, typing.Tuple[str, ...]], int, str], ...]` but is used as type `None`.",
+    "message": " Attribute `_header_attributes` declared in class `AdaptaHOPDataset` has type `typing.Tuple[typing.Tuple[typing.Union[str, typing.Tuple[str, ...]], int, str], ...]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 60,
+    "warning_line": "    _header_attributes: ATTR_T = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from itertools import product\n\n",
+        "source_code_len": 31,
+        "target_code": "from itertools import product\nfrom typing import Optional\n\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -13,2 +13,3 @@\n from itertools import product\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from itertools import product\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from itertools import product\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n    _header_attributes: ATTR_T = None\n    _halo_attributes: ATTR_T = None\n\n",
+        "source_code_len": 138,
+        "target_code": "    _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n    _header_attributes: Optional[ATTR_T] = None\n    _halo_attributes: Optional[ATTR_T] = None\n\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -59,4 +60,4 @@\n     _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n-    _header_attributes: ATTR_T = None\n-    _halo_attributes: ATTR_T = None\n+    _header_attributes: Optional[ATTR_T] = None\n+    _halo_attributes: Optional[ATTR_T] = None\n \n",
+        "source_code_with_indent": "    _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n    _header_attributes: ATTR_T = None\n    _halo_attributes: ATTR_T = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n    _header_attributes: Optional[ATTR_T] = None\n    _halo_attributes: Optional[ATTR_T] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "yt-project/yt",
+    "commit": "55f116a53454148b37bac50b70d99be7f5a54107",
+    "filename": "yt/frontends/adaptahop/data_structures.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/yt-project-yt/yt/frontends/adaptahop/data_structures.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "yt/frontends/adaptahop/data_structures.py:61:4 Incompatible attribute type [8]: Attribute `_halo_attributes` declared in class `AdaptaHOPDataset` has type `typing.Tuple[typing.Tuple[typing.Union[str, typing.Tuple[str, ...]], int, str], ...]` but is used as type `None`.",
+    "message": " Attribute `_halo_attributes` declared in class `AdaptaHOPDataset` has type `typing.Tuple[typing.Tuple[typing.Union[str, typing.Tuple[str, ...]], int, str], ...]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 61,
+    "warning_line": "    _halo_attributes: ATTR_T = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from itertools import product\n\n",
+        "source_code_len": 31,
+        "target_code": "from itertools import product\nfrom typing import Optional\n\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -13,2 +13,3 @@\n from itertools import product\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from itertools import product\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from itertools import product\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n    _header_attributes: ATTR_T = None\n    _halo_attributes: ATTR_T = None\n\n",
+        "source_code_len": 138,
+        "target_code": "    _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n    _header_attributes: Optional[ATTR_T] = None\n    _halo_attributes: Optional[ATTR_T] = None\n\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -59,4 +60,4 @@\n     _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n-    _header_attributes: ATTR_T = None\n-    _halo_attributes: ATTR_T = None\n+    _header_attributes: Optional[ATTR_T] = None\n+    _halo_attributes: Optional[ATTR_T] = None\n \n",
+        "source_code_with_indent": "    _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n    _header_attributes: ATTR_T = None\n    _halo_attributes: ATTR_T = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    _code_length_to_Mpc = (1.0 * Mpc).to(\"cm\").value / 3.08e24\n    _header_attributes: Optional[ATTR_T] = None\n    _halo_attributes: Optional[ATTR_T] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

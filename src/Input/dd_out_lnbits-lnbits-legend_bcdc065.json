@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lnbits/lnbits-legend",
+    "commit": "bcdc065cc055b2d88e8297e102541c6af6b29a8a",
+    "filename": "lnbits/core/services.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lnbits-lnbits-legend/lnbits/core/services.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lnbits/core/services.py:121:16 Incompatible parameter type [6]: Expected `str` for 1st parameter `checking_id` to call `create_payment` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st parameter `checking_id` to call `create_payment` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 121,
+    "warning_line": "                checking_id=payment.checking_id,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        payment: PaymentResponse = WALLET.pay_invoice(payment_request)\n        if payment.ok:\n            create_payment(\n",
+        "source_code_len": 122,
+        "target_code": "        payment: PaymentResponse = WALLET.pay_invoice(payment_request)\n        if payment.ok and payment.checking_id:\n            create_payment(\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -118,3 +118,3 @@\n         payment: PaymentResponse = WALLET.pay_invoice(payment_request)\n-        if payment.ok:\n+        if payment.ok and payment.checking_id:\n             create_payment(\n",
+        "source_code_with_indent": "        <IND>payment: PaymentResponse = WALLET.pay_invoice(payment_request)\n        if payment.ok:\n            <IND>create_payment(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>payment: PaymentResponse = WALLET.pay_invoice(payment_request)\n        if payment.ok and payment.checking_id:\n            <IND>create_payment(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

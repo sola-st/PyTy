@@ -1,0 +1,127 @@
+[
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9156618a56d635bb51261d019a3703a1b4e3b588",
+    "filename": "cmd2/cmd2.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/cmd2/cmd2.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cmd2/cmd2.py:3165:27 Incompatible parameter type [6]: Expected `types.CodeType` for 1st positional only parameter to call `code.InteractiveInterpreter.runcode` but got `str`.",
+    "message": " Expected `types.CodeType` for 1st positional only parameter to call `code.InteractiveInterpreter.runcode` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 3165,
+    "warning_line": "            interp.runcode('import sys, os;sys.path.insert(0, os.getcwd())')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        from .py_bridge import PyBridge\n        if self.in_pyscript():\n",
+        "source_code_len": 83,
+        "target_code": "        \"\"\"\n        def py_quit():\n            \"\"\"Function callable from the interactive Python console to exit that environment\"\"\"\n            raise EmbeddedConsoleExit\n\n        from .py_bridge import PyBridge\n        py_bridge = PyBridge(self)\n        saved_sys_path = None\n\n        if self.in_pyscript():\n",
+        "target_code_len": 308,
+        "diff_format": "@@ -3106,3 +3105,10 @@\n         \"\"\"\n+        def py_quit():\n+            \"\"\"Function callable from the interactive Python console to exit that environment\"\"\"\n+            raise EmbeddedConsoleExit\n+\n         from .py_bridge import PyBridge\n+        py_bridge = PyBridge(self)\n+        saved_sys_path = None\n+\n         if self.in_pyscript():\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        from .py_bridge import PyBridge\n        if self.in_pyscript():\n",
+        "target_code_with_indent": "\n        def py_quit():\n            <IND>\"\"\"Function callable from the interactive Python console to exit that environment\"\"\"\n            raise EmbeddedConsoleExit\n\n        <DED>from .py_bridge import PyBridge\n        py_bridge = PyBridge(self)\n        saved_sys_path = None\n\n        if self.in_pyscript():\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        py_bridge = PyBridge(self)\n        py_code_to_run = ''\n\n        # Handle case where we were called by run_pyscript\n        if args.pyscript:\n            args.pyscript = utils.strip_quotes(args.pyscript)\n\n            # Run the script - use repr formatting to escape things which\n            # need to be escaped to prevent issues on Windows\n            py_code_to_run = 'run({!r})'.format(args.pyscript)\n\n        elif args.command:\n            py_code_to_run = args.command\n            if args.remainder:\n                py_code_to_run += ' ' + ' '.join(args.remainder)\n\n            # Set cmd_echo to True so PyBridge statements like: py app('help')\n            # run at the command line will print their output.\n            py_bridge.cmd_echo = True\n\n        try:\n            self._in_py = True\n\n            def py_run(filename: str):\n                \"\"\"Run a Python script file in the interactive console.\n                :param filename: filename of script file to run\n                \"\"\"\n                expanded_filename = os.path.expanduser(filename)\n\n",
+        "source_code_len": 1066,
+        "target_code": "\n        try:\n            self._in_py = True\n            py_code_to_run = ''\n\n            # Locals for the Python environment we are creating\n            localvars = dict(self.py_locals)\n            localvars[self.py_bridge_name] = py_bridge\n            localvars['quit'] = py_quit\n            localvars['exit'] = py_quit\n\n            if self.self_in_py:\n                localvars['self'] = self\n\n            # Handle case where we were called by run_pyscript\n            if args.pyscript:\n                # Read the script file\n                expanded_filename = os.path.expanduser(utils.strip_quotes(args.pyscript))\n\n",
+        "target_code_len": 620,
+        "diff_format": "@@ -3112,30 +3118,19 @@\n \n-        py_bridge = PyBridge(self)\n-        py_code_to_run = ''\n-\n-        # Handle case where we were called by run_pyscript\n-        if args.pyscript:\n-            args.pyscript = utils.strip_quotes(args.pyscript)\n-\n-            # Run the script - use repr formatting to escape things which\n-            # need to be escaped to prevent issues on Windows\n-            py_code_to_run = 'run({!r})'.format(args.pyscript)\n-\n-        elif args.command:\n-            py_code_to_run = args.command\n-            if args.remainder:\n-                py_code_to_run += ' ' + ' '.join(args.remainder)\n-\n-            # Set cmd_echo to True so PyBridge statements like: py app('help')\n-            # run at the command line will print their output.\n-            py_bridge.cmd_echo = True\n-\n         try:\n             self._in_py = True\n-\n-            def py_run(filename: str):\n-                \"\"\"Run a Python script file in the interactive console.\n-                :param filename: filename of script file to run\n-                \"\"\"\n-                expanded_filename = os.path.expanduser(filename)\n+            py_code_to_run = ''\n+\n+            # Locals for the Python environment we are creating\n+            localvars = dict(self.py_locals)\n+            localvars[self.py_bridge_name] = py_bridge\n+            localvars['quit'] = py_quit\n+            localvars['exit'] = py_quit\n+\n+            if self.self_in_py:\n+                localvars['self'] = self\n+\n+            # Handle case where we were called by run_pyscript\n+            if args.pyscript:\n+                # Read the script file\n+                expanded_filename = os.path.expanduser(utils.strip_quotes(args.pyscript))\n \n",
+        "source_code_with_indent": "\n        <DED>py_bridge = PyBridge(self)\n        py_code_to_run = ''\n\n        # Handle case where we were called by run_pyscript\n        if args.pyscript:\n            <IND>args.pyscript = utils.strip_quotes(args.pyscript)\n\n            # Run the script - use repr formatting to escape things which\n            # need to be escaped to prevent issues on Windows\n            py_code_to_run = 'run({!r})'.format(args.pyscript)\n\n        <DED>elif args.command:\n            <IND>py_code_to_run = args.command\n            if args.remainder:\n                <IND>py_code_to_run += ' ' + ' '.join(args.remainder)\n\n            # Set cmd_echo to True so PyBridge statements like: py app('help')\n            # run at the command line will print their output.\n            <DED>py_bridge.cmd_echo = True\n\n        <DED>try:\n            <IND>self._in_py = True\n\n            def py_run(filename: str):\n                <IND>\"\"\"Run a Python script file in the interactive console.\n                :param filename: filename of script file to run\n                \"\"\"\n                expanded_filename = os.path.expanduser(filename)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>try:\n            <IND>self._in_py = True\n            py_code_to_run = ''\n\n            # Locals for the Python environment we are creating\n            localvars = dict(self.py_locals)\n            localvars[self.py_bridge_name] = py_bridge\n            localvars['quit'] = py_quit\n            localvars['exit'] = py_quit\n\n            if self.self_in_py:\n                <IND>localvars['self'] = self\n\n            # Handle case where we were called by run_pyscript\n            <DED>if args.pyscript:\n                # Read the script file\n                <IND>expanded_filename = os.path.expanduser(utils.strip_quotes(args.pyscript))\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    with open(expanded_filename) as f:\n                        interp.runcode(f.read())\n                except OSError as ex:\n                    self.pexcept(\"Error reading script file '{}': {}\".format(expanded_filename, ex))\n\n            def py_quit():\n                \"\"\"Function callable from the interactive Python console to exit that environment\"\"\"\n                raise EmbeddedConsoleExit\n\n            # Set up Python environment\n            self.py_locals[self.py_bridge_name] = py_bridge\n            self.py_locals['run'] = py_run\n            self.py_locals['quit'] = py_quit\n            self.py_locals['exit'] = py_quit\n\n            if self.self_in_py:\n                self.py_locals['self'] = self\n            elif 'self' in self.py_locals:\n                del self.py_locals['self']\n\n            localvars = self.py_locals\n            interp = InteractiveConsole(locals=localvars)\n            interp.runcode('import sys, os;sys.path.insert(0, os.getcwd())')\n\n",
+        "source_code_len": 989,
+        "target_code": "                    with open(expanded_filename) as f:\n                        py_code_to_run = f.read()\n                except OSError as ex:\n                    self.pexcept(\"Error reading script file '{}': {}\".format(expanded_filename, ex))\n                    return\n\n                localvars['__name__'] = '__main__'\n                localvars['__file__'] = expanded_filename\n\n                # Place the script's directory at sys.path[0] just as Python does when executing a script\n                saved_sys_path = list(sys.path)\n                sys.path.insert(0, os.path.dirname(os.path.abspath(expanded_filename)))\n\n            else:\n                # This is the default name chosen by InteractiveConsole when no locals are passed in\n                localvars['__name__'] = '__console__'\n\n                if args.command:\n                    py_code_to_run = args.command\n                    if args.remainder:\n                        py_code_to_run += ' ' + ' '.join(args.remainder)\n\n                    # Set cmd_echo to True so PyBridge statements like: py app('help')\n                    # run at the command line will print their output.\n                    py_bridge.cmd_echo = True\n\n            # Create the Python interpreter\n            interp = InteractiveConsole(locals=localvars)\n\n",
+        "target_code_len": 1303,
+        "diff_format": "@@ -3143,24 +3138,29 @@\n                     with open(expanded_filename) as f:\n-                        interp.runcode(f.read())\n+                        py_code_to_run = f.read()\n                 except OSError as ex:\n                     self.pexcept(\"Error reading script file '{}': {}\".format(expanded_filename, ex))\n-\n-            def py_quit():\n-                \"\"\"Function callable from the interactive Python console to exit that environment\"\"\"\n-                raise EmbeddedConsoleExit\n-\n-            # Set up Python environment\n-            self.py_locals[self.py_bridge_name] = py_bridge\n-            self.py_locals['run'] = py_run\n-            self.py_locals['quit'] = py_quit\n-            self.py_locals['exit'] = py_quit\n-\n-            if self.self_in_py:\n-                self.py_locals['self'] = self\n-            elif 'self' in self.py_locals:\n-                del self.py_locals['self']\n-\n-            localvars = self.py_locals\n+                    return\n+\n+                localvars['__name__'] = '__main__'\n+                localvars['__file__'] = expanded_filename\n+\n+                # Place the script's directory at sys.path[0] just as Python does when executing a script\n+                saved_sys_path = list(sys.path)\n+                sys.path.insert(0, os.path.dirname(os.path.abspath(expanded_filename)))\n+\n+            else:\n+                # This is the default name chosen by InteractiveConsole when no locals are passed in\n+                localvars['__name__'] = '__console__'\n+\n+                if args.command:\n+                    py_code_to_run = args.command\n+                    if args.remainder:\n+                        py_code_to_run += ' ' + ' '.join(args.remainder)\n+\n+                    # Set cmd_echo to True so PyBridge statements like: py app('help')\n+                    # run at the command line will print their output.\n+                    py_bridge.cmd_echo = True\n+\n+            # Create the Python interpreter\n             interp = InteractiveConsole(locals=localvars)\n-            interp.runcode('import sys, os;sys.path.insert(0, os.getcwd())')\n \n",
+        "source_code_with_indent": "                    <IND>with open(expanded_filename) as f:\n                        <IND>interp.runcode(f.read())\n                <DED><DED>except OSError as ex:\n                    <IND>self.pexcept(\"Error reading script file '{}': {}\".format(expanded_filename, ex))\n\n            <DED><DED>def py_quit():\n                <IND>\"\"\"Function callable from the interactive Python console to exit that environment\"\"\"\n                raise EmbeddedConsoleExit\n\n            # Set up Python environment\n            <DED>self.py_locals[self.py_bridge_name] = py_bridge\n            self.py_locals['run'] = py_run\n            self.py_locals['quit'] = py_quit\n            self.py_locals['exit'] = py_quit\n\n            if self.self_in_py:\n                <IND>self.py_locals['self'] = self\n            <DED>elif 'self' in self.py_locals:\n                <IND>del self.py_locals['self']\n\n            <DED>localvars = self.py_locals\n            interp = InteractiveConsole(locals=localvars)\n            interp.runcode('import sys, os;sys.path.insert(0, os.getcwd())')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>with open(expanded_filename) as f:\n                        <IND>py_code_to_run = f.read()\n                <DED><DED>except OSError as ex:\n                    <IND>self.pexcept(\"Error reading script file '{}': {}\".format(expanded_filename, ex))\n                    return\n\n                <DED>localvars['__name__'] = '__main__'\n                localvars['__file__'] = expanded_filename\n\n                # Place the script's directory at sys.path[0] just as Python does when executing a script\n                saved_sys_path = list(sys.path)\n                sys.path.insert(0, os.path.dirname(os.path.abspath(expanded_filename)))\n\n            <DED>else:\n                # This is the default name chosen by InteractiveConsole when no locals are passed in\n                <IND>localvars['__name__'] = '__console__'\n\n                if args.command:\n                    <IND>py_code_to_run = args.command\n                    if args.remainder:\n                        <IND>py_code_to_run += ' ' + ' '.join(args.remainder)\n\n                    # Set cmd_echo to True so PyBridge statements like: py app('help')\n                    # run at the command line will print their output.\n                    <DED>py_bridge.cmd_echo = True\n\n            # Create the Python interpreter\n            <DED><DED>interp = InteractiveConsole(locals=localvars)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9156618a56d635bb51261d019a3703a1b4e3b588",
+    "filename": "tests/pyscript/recursive.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/tests/pyscript/recursive.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/pyscript/recursive.py:10:43 Unbound name [10]: Name `sys` is used but not defined in the current scope.",
+    "message": " Name `sys` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 10,
+    "warning_line": "my_dir = (os.path.dirname(os.path.realpath(sys.argv[0])))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os\n\n",
+        "source_code_len": 11,
+        "target_code": "import os\nimport sys\n\n",
+        "target_code_len": 22,
+        "diff_format": "@@ -7,2 +7,3 @@\n import os\n+import sys\n \n",
+        "source_code_with_indent": "import os\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nimport sys\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9156618a56d635bb51261d019a3703a1b4e3b588",
+    "filename": "tests/pyscript/run.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/pyscript/run.py:4:0 Unbound name [10]: Name `app` is used but not defined in the current scope.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/tests/pyscript/run.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9156618a56d635bb51261d019a3703a1b4e3b588",
+    "filename": "tests/pyscript/run.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/pyscript/run.py:5:43 Unbound name [10]: Name `sys` is used but not defined in the current scope.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/tests/pyscript/run.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9156618a56d635bb51261d019a3703a1b4e3b588",
+    "filename": "tests/pyscript/run.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/pyscript/run.py:6:0 Unbound name [10]: Name `run` is used but not defined in the current scope.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/tests/pyscript/run.py'",
+    "dd_fail": true
+  }
+]

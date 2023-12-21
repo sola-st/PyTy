@@ -1,0 +1,51 @@
+[
+  {
+    "project": "jeffwidman/bitbucket-issue-migration",
+    "commit": "60ca3346d2223fed7eb31d18dd7055793bcf9d83",
+    "filename": "migrate.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jeffwidman-bitbucket-issue-migration/migrate.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "migrate.py:53:18 Unbound name [10]: Name `raw_input` is used but not defined in the current scope.",
+    "message": " Name `raw_input` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 53,
+    "warning_line": "github_password = raw_input('Please enter your github password: ')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import time\n\n",
+        "source_code_len": 13,
+        "target_code": "import time\nimport getpass\n\n",
+        "target_code_len": 28,
+        "diff_format": "@@ -20,2 +20,3 @@\n import time\n+import getpass\n \n",
+        "source_code_with_indent": "import time\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import time\nimport getpass\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\ngithub_password = raw_input('Please enter your github password: ')\n\n",
+        "source_code_len": 70,
+        "target_code": "\nprint 'Please enter your github password'\ngithub_password = getpass.getpass()\n\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -51,4 +52,4 @@\n \n-\n-github_password = raw_input('Please enter your github password: ')\n+print 'Please enter your github password'\n+github_password = getpass.getpass()\n \n",
+        "source_code_with_indent": "\n\ngithub_password = raw_input('Please enter your github password: ')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nprint 'Please enter your github password'\ngithub_password = getpass.getpass()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

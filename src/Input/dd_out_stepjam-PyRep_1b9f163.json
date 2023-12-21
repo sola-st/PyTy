@@ -1,0 +1,70 @@
+[
+  {
+    "project": "stepjam/PyRep",
+    "commit": "1b9f163e85b6ba68ff1faa714eb321e1344a370d",
+    "filename": "pyrep/backend/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stepjam-PyRep/pyrep/backend/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyrep/backend/utils.py:38:8 Incompatible return type [7]: Expected `Object` but got implicit return value of `None`.",
+    "message": " Expected `Object` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 38,
+    "warning_line": "        return ProximitySensor(handle)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        return ProximitySensor(handle)\n\n",
+        "source_code_len": 40,
+        "target_code": "        return ProximitySensor(handle)\n    raise ValueError\n\n",
+        "target_code_len": 61,
+        "diff_format": "@@ -38,2 +38,3 @@\n         return ProximitySensor(handle)\n+    raise ValueError\n \n",
+        "source_code_with_indent": "        <IND>return ProximitySensor(handle)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>return ProximitySensor(handle)\n    <DED>raise ValueError\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "stepjam/PyRep",
+    "commit": "1b9f163e85b6ba68ff1faa714eb321e1344a370d",
+    "filename": "pyrep/robots/configuration_paths/arm_configuration_path.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stepjam-PyRep/pyrep/robots/configuration_paths/arm_configuration_path.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyrep/robots/configuration_paths/arm_configuration_path.py:192:8 Incompatible return type [7]: Expected `List[float]` but got `List[int]`.",
+    "message": " Expected `List[float]` but got `List[int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 192,
+    "warning_line": "        return dists",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        prev_points = path_points[0:len(self._arm.joints)]\n        dists = [0]\n        d = 0\n",
+        "source_code_len": 93,
+        "target_code": "        prev_points = path_points[0:len(self._arm.joints)]\n        dists = [0.]\n        d = 0\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -183,3 +183,3 @@\n         prev_points = path_points[0:len(self._arm.joints)]\n-        dists = [0]\n+        dists = [0.]\n         d = 0\n",
+        "source_code_with_indent": "        prev_points = path_points[0:len(self._arm.joints)]\n        dists = [0]\n        d = 0\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        prev_points = path_points[0:len(self._arm.joints)]\n        dists = [0.]\n        d = 0\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

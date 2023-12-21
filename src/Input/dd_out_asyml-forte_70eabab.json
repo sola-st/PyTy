@@ -1,0 +1,106 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "70eababb9e2acb3fea55b9310f9ea0ef5153cb8e",
+    "filename": "examples/biobert_ner/bio_ner_predictor.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples/biobert_ner/bio_ner_predictor.py:187:4 Inconsistent override [14]: `examples.biobert_ner.bio_ner_predictor.BioBERTNERPredictor.pack` overrides method defined in `forte.processors.base.batch_processor.BaseBatchProcessor` inconsistently. Could not find parameter `inputs` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/examples/biobert_ner/bio_ner_predictor.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "70eababb9e2acb3fea55b9310f9ea0ef5153cb8e",
+    "filename": "examples/biobert_ner/bio_ner_predictor.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples/biobert_ner/bio_ner_predictor.py:187:4 Inconsistent override [14]: `examples.biobert_ner.bio_ner_predictor.BioBERTNERPredictor.pack` overrides method defined in `forte.processors.base.batch_processor.BaseBatchProcessor` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/examples/biobert_ner/bio_ner_predictor.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "70eababb9e2acb3fea55b9310f9ea0ef5153cb8e",
+    "filename": "examples/clinical_pipeline/mimic3_note_reader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/examples/clinical_pipeline/mimic3_note_reader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "examples/clinical_pipeline/mimic3_note_reader.py:42:4 Inconsistent override [14]: `examples.clinical_pipeline.mimic3_note_reader.Mimic3DischargeNoteReader._collect` overrides method defined in `forte.data.base_reader.BaseReader` inconsistently. Could not find parameter `Variable(typing.Any)` in overriding signature.",
+    "message": " `examples.clinical_pipeline.mimic3_note_reader.Mimic3DischargeNoteReader._collect` overrides method defined in `forte.data.base_reader.BaseReader` inconsistently. Could not find parameter `Variable(typing.Any)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 42,
+    "warning_line": "    def _collect(self, mimic3_path: Union[Path, str]) -> Iterator[Any]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n    def _collect(self, mimic3_path: Union[Path, str]) -> Iterator[Any]:\n        with open(mimic3_path) as f:\n",
+        "source_code_len": 110,
+        "target_code": "\n    def _collect(  # type: ignore\n            self, mimic3_path: Union[Path, str]\n    ) -> Iterator[Any]:\n        with open(mimic3_path) as f:\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -41,3 +41,5 @@\n \n-    def _collect(self, mimic3_path: Union[Path, str]) -> Iterator[Any]:\n+    def _collect(  # type: ignore\n+            self, mimic3_path: Union[Path, str]\n+    ) -> Iterator[Any]:\n         with open(mimic3_path) as f:\n",
+        "source_code_with_indent": "\n    <DED>def _collect(self, mimic3_path: Union[Path, str]) -> Iterator[Any]:\n        <IND>with open(mimic3_path) as f:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _collect(  # type: ignore\n            self, mimic3_path: Union[Path, str]\n    ) -> Iterator[Any]:\n        <IND>with open(mimic3_path) as f:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "70eababb9e2acb3fea55b9310f9ea0ef5153cb8e",
+    "filename": "examples/clinical_pipeline/mimic3_note_reader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/examples/clinical_pipeline/mimic3_note_reader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "examples/clinical_pipeline/mimic3_note_reader.py:42:4 Inconsistent override [14]: `examples.clinical_pipeline.mimic3_note_reader.Mimic3DischargeNoteReader._collect` overrides method defined in `forte.data.base_reader.BaseReader` inconsistently. Could not find parameter `Keywords(typing.Any)` in overriding signature.",
+    "message": " `examples.clinical_pipeline.mimic3_note_reader.Mimic3DischargeNoteReader._collect` overrides method defined in `forte.data.base_reader.BaseReader` inconsistently. Could not find parameter `Keywords(typing.Any)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 42,
+    "warning_line": "    def _collect(self, mimic3_path: Union[Path, str]) -> Iterator[Any]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n    def _collect(self, mimic3_path: Union[Path, str]) -> Iterator[Any]:\n        with open(mimic3_path) as f:\n",
+        "source_code_len": 110,
+        "target_code": "\n    def _collect(  # type: ignore\n            self, mimic3_path: Union[Path, str]\n    ) -> Iterator[Any]:\n        with open(mimic3_path) as f:\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -41,3 +41,5 @@\n \n-    def _collect(self, mimic3_path: Union[Path, str]) -> Iterator[Any]:\n+    def _collect(  # type: ignore\n+            self, mimic3_path: Union[Path, str]\n+    ) -> Iterator[Any]:\n         with open(mimic3_path) as f:\n",
+        "source_code_with_indent": "\n    <DED>def _collect(self, mimic3_path: Union[Path, str]) -> Iterator[Any]:\n        <IND>with open(mimic3_path) as f:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _collect(  # type: ignore\n            self, mimic3_path: Union[Path, str]\n    ) -> Iterator[Any]:\n        <IND>with open(mimic3_path) as f:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "70eababb9e2acb3fea55b9310f9ea0ef5153cb8e",
+    "filename": "forte/processors/third_party/text_generation_processor.py",
+    "min_patch_found": false,
+    "full_warning_msg": "forte/processors/third_party/text_generation_processor.py:162:4 Inconsistent override [14]: `forte.processors.third_party.text_generation_processor.TextGenerationProcessor.pack` overrides method defined in `forte.processors.base.batch_processor.BaseBatchProcessor` inconsistently. Could not find parameter `inputs` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/processors/third_party/text_generation_processor.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "70eababb9e2acb3fea55b9310f9ea0ef5153cb8e",
+    "filename": "forte/processors/third_party/text_generation_processor.py",
+    "min_patch_found": false,
+    "full_warning_msg": "forte/processors/third_party/text_generation_processor.py:162:4 Inconsistent override [14]: `forte.processors.third_party.text_generation_processor.TextGenerationProcessor.pack` overrides method defined in `forte.processors.base.batch_processor.BaseBatchProcessor` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/processors/third_party/text_generation_processor.py'",
+    "dd_fail": true
+  }
+]

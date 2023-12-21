@@ -1,0 +1,104 @@
+[
+  {
+    "project": "vidify/vidify",
+    "commit": "5dbded85a35bc2bca0802dc564c60b468c9551b3",
+    "filename": "spotivids/api/web.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vidify-vidify/spotivids/api/web.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spotivids/api/web.py:183:33 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `WebAPI.__init__` but got `Union[bool, int, str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `WebAPI.__init__` but got `Union[bool, int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 183,
+    "warning_line": "        spotify = WebAPI(player, config.client_id, config.client_secret,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    msg = \"Waiting for a Spotify song to play...\"\n    try:\n        if not wait_for_connection(spotify.connect, msg):\n            return\n    except HTTPError as e:\n        if e.response.status_code != 401:\n            raise\n        spotify = WebAPI(player, config.client_id, config.client_secret,\n                         config.redirect_uri)\n        if not wait_for_connection(spotify.connect, msg):\n            return\n\n",
+        "source_code_len": 420,
+        "target_code": "    msg = \"Waiting for a Spotify song to play...\"\n    if not wait_for_connection(spotify.connect, msg):\n        return\n\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -176,12 +180,4 @@\n     msg = \"Waiting for a Spotify song to play...\"\n-    try:\n-        if not wait_for_connection(spotify.connect, msg):\n-            return\n-    except HTTPError as e:\n-        if e.response.status_code != 401:\n-            raise\n-        spotify = WebAPI(player, config.client_id, config.client_secret,\n-                         config.redirect_uri)\n-        if not wait_for_connection(spotify.connect, msg):\n-            return\n+    if not wait_for_connection(spotify.connect, msg):\n+        return\n \n",
+        "source_code_with_indent": "    msg = \"Waiting for a Spotify song to play...\"\n    try:\n        <IND>if not wait_for_connection(spotify.connect, msg):\n            <IND>return\n    <DED><DED>except HTTPError as e:\n        <IND>if e.response.status_code != 401:\n            <IND>raise\n        <DED>spotify = WebAPI(player, config.client_id, config.client_secret,\n                         config.redirect_uri)\n        if not wait_for_connection(spotify.connect, msg):\n            <IND>return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    msg = \"Waiting for a Spotify song to play...\"\n    if not wait_for_connection(spotify.connect, msg):\n        <IND>return\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "vidify/vidify",
+    "commit": "5dbded85a35bc2bca0802dc564c60b468c9551b3",
+    "filename": "spotivids/api/web.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vidify-vidify/spotivids/api/web.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spotivids/api/web.py:183:51 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `WebAPI.__init__` but got `Union[bool, int, str]`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `WebAPI.__init__` but got `Union[bool, int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 183,
+    "warning_line": "        spotify = WebAPI(player, config.client_id, config.client_secret,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    msg = \"Waiting for a Spotify song to play...\"\n    try:\n        if not wait_for_connection(spotify.connect, msg):\n            return\n    except HTTPError as e:\n        if e.response.status_code != 401:\n            raise\n        spotify = WebAPI(player, config.client_id, config.client_secret,\n                         config.redirect_uri)\n        if not wait_for_connection(spotify.connect, msg):\n            return\n\n",
+        "source_code_len": 420,
+        "target_code": "    msg = \"Waiting for a Spotify song to play...\"\n    if not wait_for_connection(spotify.connect, msg):\n        return\n\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -176,12 +180,4 @@\n     msg = \"Waiting for a Spotify song to play...\"\n-    try:\n-        if not wait_for_connection(spotify.connect, msg):\n-            return\n-    except HTTPError as e:\n-        if e.response.status_code != 401:\n-            raise\n-        spotify = WebAPI(player, config.client_id, config.client_secret,\n-                         config.redirect_uri)\n-        if not wait_for_connection(spotify.connect, msg):\n-            return\n+    if not wait_for_connection(spotify.connect, msg):\n+        return\n \n",
+        "source_code_with_indent": "    msg = \"Waiting for a Spotify song to play...\"\n    try:\n        <IND>if not wait_for_connection(spotify.connect, msg):\n            <IND>return\n    <DED><DED>except HTTPError as e:\n        <IND>if e.response.status_code != 401:\n            <IND>raise\n        <DED>spotify = WebAPI(player, config.client_id, config.client_secret,\n                         config.redirect_uri)\n        if not wait_for_connection(spotify.connect, msg):\n            <IND>return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    msg = \"Waiting for a Spotify song to play...\"\n    if not wait_for_connection(spotify.connect, msg):\n        <IND>return\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "vidify/vidify",
+    "commit": "5dbded85a35bc2bca0802dc564c60b468c9551b3",
+    "filename": "spotivids/api/web.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vidify-vidify/spotivids/api/web.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spotivids/api/web.py:184:25 Incompatible parameter type [6]: Expected `str` for 4th positional only parameter to call `WebAPI.__init__` but got `Union[bool, int, str]`.",
+    "message": " Expected `str` for 4th positional only parameter to call `WebAPI.__init__` but got `Union[bool, int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 184,
+    "warning_line": "                         config.redirect_uri)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    msg = \"Waiting for a Spotify song to play...\"\n    try:\n        if not wait_for_connection(spotify.connect, msg):\n            return\n    except HTTPError as e:\n        if e.response.status_code != 401:\n            raise\n        spotify = WebAPI(player, config.client_id, config.client_secret,\n                         config.redirect_uri)\n        if not wait_for_connection(spotify.connect, msg):\n            return\n\n",
+        "source_code_len": 420,
+        "target_code": "    msg = \"Waiting for a Spotify song to play...\"\n    if not wait_for_connection(spotify.connect, msg):\n        return\n\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -176,12 +180,4 @@\n     msg = \"Waiting for a Spotify song to play...\"\n-    try:\n-        if not wait_for_connection(spotify.connect, msg):\n-            return\n-    except HTTPError as e:\n-        if e.response.status_code != 401:\n-            raise\n-        spotify = WebAPI(player, config.client_id, config.client_secret,\n-                         config.redirect_uri)\n-        if not wait_for_connection(spotify.connect, msg):\n-            return\n+    if not wait_for_connection(spotify.connect, msg):\n+        return\n \n",
+        "source_code_with_indent": "    msg = \"Waiting for a Spotify song to play...\"\n    try:\n        <IND>if not wait_for_connection(spotify.connect, msg):\n            <IND>return\n    <DED><DED>except HTTPError as e:\n        <IND>if e.response.status_code != 401:\n            <IND>raise\n        <DED>spotify = WebAPI(player, config.client_id, config.client_secret,\n                         config.redirect_uri)\n        if not wait_for_connection(spotify.connect, msg):\n            <IND>return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    msg = \"Waiting for a Spotify song to play...\"\n    if not wait_for_connection(spotify.connect, msg):\n        <IND>return\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

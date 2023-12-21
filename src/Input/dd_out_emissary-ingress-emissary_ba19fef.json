@@ -1,0 +1,36 @@
+[
+  {
+    "project": "emissary-ingress/emissary",
+    "commit": "ba19fef596ec9ca67cb72e5bc4bb3308a03adaa4",
+    "filename": "python/ambassador/envoy/v2/v2listener.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/emissary-ingress-emissary/python/ambassador/envoy/v2/v2listener.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "python/ambassador/envoy/v2/v2listener.py:793:53 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `Optional[List[str]]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `Optional[List[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 793,
+    "warning_line": "                filter_chain_match['server_names'] = hosts",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self.need_tls_inspector = True\n            filter_chain_match = {\n                'transport_protocol': 'tls'\n",
+        "source_code_len": 122,
+        "target_code": "            self.need_tls_inspector = True\n            filter_chain_match: Dict[str, Any] = {\n                'transport_protocol': 'tls'\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -787,3 +787,3 @@\n             self.need_tls_inspector = True\n-            filter_chain_match = {\n+            filter_chain_match: Dict[str, Any] = {\n                 'transport_protocol': 'tls'\n",
+        "source_code_with_indent": "            self.need_tls_inspector = True\n            filter_chain_match = {\n                'transport_protocol': 'tls'\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self.need_tls_inspector = True\n            filter_chain_match: Dict[str, Any] = {\n                'transport_protocol': 'tls'\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

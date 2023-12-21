@@ -1,0 +1,36 @@
+[
+  {
+    "project": "wikimedia/pywikibot",
+    "commit": "cc7794142452c13fe626bbda984cfc86723725ad",
+    "filename": "pywikibot/config2.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wikimedia-pywikibot/pywikibot/config2.py",
+    "file_hunks_size": 15,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pywikibot/config2.py:735:8 Incompatible variable type [9]: transliteration_target is declared to have type `str` but is used as type `typing.Optional[str]`.",
+    "message": " transliteration_target is declared to have type `str` but is used as type `typing.Optional[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 735,
+    "warning_line": "        transliteration_target = console_encoding",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "if transliteration_target == 'not set':\n    if __sys.platform == 'win32':\n        transliteration_target = console_encoding\n",
+        "source_code_len": 124,
+        "target_code": "if transliteration_target == 'not set':\n    if sys.platform == 'win32':\n        transliteration_target = console_encoding\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -733,3 +729,3 @@\n if transliteration_target == 'not set':\n-    if __sys.platform == 'win32':\n+    if sys.platform == 'win32':\n         transliteration_target = console_encoding\n",
+        "source_code_with_indent": "<DED><DED>if transliteration_target == 'not set':\n    <IND>if __sys.platform == 'win32':\n        <IND>transliteration_target = console_encoding\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>if transliteration_target == 'not set':\n    <IND>if sys.platform == 'win32':\n        <IND>transliteration_target = console_encoding\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

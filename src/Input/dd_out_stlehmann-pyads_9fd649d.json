@@ -1,0 +1,36 @@
+[
+  {
+    "project": "stlehmann/pyads",
+    "commit": "9fd649d656d0cbe9360762b60004c01340586a9e",
+    "filename": "pyads/pyads_ex.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stlehmann-pyads/pyads/pyads_ex.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyads/pyads_ex.py:889:32 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `dict.__setitem__` but got `str`.",
+    "message": " Expected `None` for 2nd positional only parameter to call `dict.__setitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 889,
+    "warning_line": "            result[data_name] = ERROR_CODES[error]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    :rtype: dict[str, Any]\n    \"\"\"\n    result = {i: None for i in data_names}\n\n",
+        "source_code_len": 79,
+        "target_code": "    :rtype: dict[str, Any]\n\n    \"\"\"\n    result: Dict[str, Optional[Any]] = {i: None for i in data_names}\n\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -858,4 +858,5 @@\n     :rtype: dict[str, Any]\n-    \"\"\"\n-    result = {i: None for i in data_names}\n+\n+    \"\"\"\n+    result: Dict[str, Optional[Any]] = {i: None for i in data_names}\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    result = {i: None for i in data_names}\n\n",
+        "target_code_with_indent": "\n    result: Dict[str, Optional[Any]] = {i: None for i in data_names}\n\n"
+      }
+    ]
+  }
+]

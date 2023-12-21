@@ -1,0 +1,36 @@
+[
+  {
+    "project": "glucometers-tech/glucometerutils",
+    "commit": "e9bc2ad97817f6c28aad0eef01adeb07ec74eefb",
+    "filename": "glucometerutils/support/freestyle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/glucometers-tech-glucometerutils/glucometerutils/support/freestyle.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "glucometerutils/support/freestyle.py:280:12 Incompatible return type [7]: Expected `Iterator[List[str]]` but got `Tuple[]`.",
+    "message": " Expected `Iterator[List[str]]` but got `Tuple[]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 280,
+    "warning_line": "            return ()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if message == \"Log Empty\\r\\n\":\n            return ()\n\n",
+        "source_code_len": 62,
+        "target_code": "        if message == \"Log Empty\\r\\n\":\n            return iter(())\n\n",
+        "target_code_len": 68,
+        "diff_format": "@@ -279,3 +279,3 @@\n         if message == \"Log Empty\\r\\n\":\n-            return ()\n+            return iter(())\n \n",
+        "source_code_with_indent": "        if message == \"Log Empty\\r\\n\":\n            <IND>return ()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if message == \"Log Empty\\r\\n\":\n            <IND>return iter(())\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

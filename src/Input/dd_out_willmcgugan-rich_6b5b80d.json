@@ -1,0 +1,85 @@
+[
+  {
+    "project": "willmcgugan/rich",
+    "commit": "6b5b80d68f86d60be8ae1c8cc200b0a26cdcada7",
+    "filename": "rich/console.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/console.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/console.py:773:8 Incompatible variable type [9]: status is declared to have type `Union[ConsoleRenderable, RichCast, str]` but is used as type `Status`.",
+    "message": " status is declared to have type `Union[ConsoleRenderable, RichCast, str]` but is used as type `Status`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 773,
+    "warning_line": "        status = Status(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ) -> \"Status\":\n        from .status import Status\n\n        status = Status(\n            status,\n",
+        "source_code_len": 100,
+        "target_code": "    ) -> \"Status\":\n        \"\"\"Display a status and spinner.\n\n        Args:\n            status (RenderableType): A status renderable (str or Text typically).\n            console (Console, optional): Console instance to use, or None for global console. Defaults to None.\n            spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to \"dots\".\n            spinner_style (StyleType, optional): Style of spinner. Defaults to \"status.spinner\".\n            speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.\n            refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.\n\n        Returns:\n            Status: A Status object that may be used as a context manager.\n        \"\"\"\n        from .status import Status\n\n        status_renderable = Status(\n            status,\n",
+        "target_code_len": 866,
+        "diff_format": "@@ -770,5 +770,18 @@\n     ) -> \"Status\":\n+        \"\"\"Display a status and spinner.\n+\n+        Args:\n+            status (RenderableType): A status renderable (str or Text typically).\n+            console (Console, optional): Console instance to use, or None for global console. Defaults to None.\n+            spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to \"dots\".\n+            spinner_style (StyleType, optional): Style of spinner. Defaults to \"status.spinner\".\n+            speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.\n+            refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.\n+\n+        Returns:\n+            Status: A Status object that may be used as a context manager.\n+        \"\"\"\n         from .status import Status\n \n-        status = Status(\n+        status_renderable = Status(\n             status,\n",
+        "source_code_with_indent": "    ) -> \"Status\":\n        <IND>from .status import Status\n\n        status = Status(\n            status,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> \"Status\":\n        <IND>\"\"\"Display a status and spinner.\n\n        Args:\n            status (RenderableType): A status renderable (str or Text typically).\n            console (Console, optional): Console instance to use, or None for global console. Defaults to None.\n            spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to \"dots\".\n            spinner_style (StyleType, optional): Style of spinner. Defaults to \"status.spinner\".\n            speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.\n            refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.\n\n        Returns:\n            Status: A Status object that may be used as a context manager.\n        \"\"\"\n        from .status import Status\n\n        status_renderable = Status(\n            status,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "willmcgugan/rich",
+    "commit": "6b5b80d68f86d60be8ae1c8cc200b0a26cdcada7",
+    "filename": "rich/console.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/console.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/console.py:781:8 Incompatible return type [7]: Expected `Status` but got `Union[ConsoleRenderable, RichCast, str]`.",
+    "message": " Expected `Status` but got `Union[ConsoleRenderable, RichCast, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 781,
+    "warning_line": "        return status",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ) -> \"Status\":\n        from .status import Status\n\n        status = Status(\n            status,\n",
+        "source_code_len": 100,
+        "target_code": "    ) -> \"Status\":\n        \"\"\"Display a status and spinner.\n\n        Args:\n            status (RenderableType): A status renderable (str or Text typically).\n            console (Console, optional): Console instance to use, or None for global console. Defaults to None.\n            spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to \"dots\".\n            spinner_style (StyleType, optional): Style of spinner. Defaults to \"status.spinner\".\n            speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.\n            refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.\n\n        Returns:\n            Status: A Status object that may be used as a context manager.\n        \"\"\"\n        from .status import Status\n\n        status_renderable = Status(\n            status,\n",
+        "target_code_len": 866,
+        "diff_format": "@@ -770,5 +770,18 @@\n     ) -> \"Status\":\n+        \"\"\"Display a status and spinner.\n+\n+        Args:\n+            status (RenderableType): A status renderable (str or Text typically).\n+            console (Console, optional): Console instance to use, or None for global console. Defaults to None.\n+            spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to \"dots\".\n+            spinner_style (StyleType, optional): Style of spinner. Defaults to \"status.spinner\".\n+            speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.\n+            refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.\n+\n+        Returns:\n+            Status: A Status object that may be used as a context manager.\n+        \"\"\"\n         from .status import Status\n \n-        status = Status(\n+        status_renderable = Status(\n             status,\n",
+        "source_code_with_indent": "    ) -> \"Status\":\n        <IND>from .status import Status\n\n        status = Status(\n            status,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> \"Status\":\n        <IND>\"\"\"Display a status and spinner.\n\n        Args:\n            status (RenderableType): A status renderable (str or Text typically).\n            console (Console, optional): Console instance to use, or None for global console. Defaults to None.\n            spinner (str, optional): Name of spinner animation (see python -m rich.spinner). Defaults to \"dots\".\n            spinner_style (StyleType, optional): Style of spinner. Defaults to \"status.spinner\".\n            speed (float, optional): Speed factor for spinner animation. Defaults to 1.0.\n            refresh_per_second (float, optional): Number of refreshes per second. Defaults to 12.5.\n\n        Returns:\n            Status: A Status object that may be used as a context manager.\n        \"\"\"\n        from .status import Status\n\n        status_renderable = Status(\n            status,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        )\n        return status\n\n",
+        "source_code_len": 33,
+        "target_code": "        )\n        return status_renderable\n\n",
+        "target_code_len": 44,
+        "diff_format": "@@ -780,3 +793,3 @@\n         )\n-        return status\n+        return status_renderable\n \n",
+        "source_code_with_indent": "        )\n        return status\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n        return status_renderable\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

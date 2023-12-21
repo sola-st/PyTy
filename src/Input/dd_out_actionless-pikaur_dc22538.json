@@ -1,0 +1,36 @@
+[
+  {
+    "project": "actionless/pikaur",
+    "commit": "dc22538c3d010c381442569fed417df83c0f8ecc",
+    "filename": "pikaur_test/helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/actionless-pikaur/pikaur_test/helpers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pikaur_test/helpers.py:85:8 Incompatible attribute type [8]: Attribute `returncode` declared in class `InterceptSysOutput` has type `int` but is used as type `Optional[int]`.",
+    "message": " Attribute `returncode` declared in class `InterceptSysOutput` has type `int` but is used as type `Optional[int]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 85,
+    "warning_line": "        self.returncode = code",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _fake_exit(self, code: Optional[int] = 0) -> NoReturn:\n        self.returncode = code\n",
+        "source_code_len": 95,
+        "target_code": "\n    def _fake_exit(self, code: int = 0) -> NoReturn:\n        self.returncode = code\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -83,3 +83,3 @@\n \n-    def _fake_exit(self, code: Optional[int] = 0) -> NoReturn:\n+    def _fake_exit(self, code: int = 0) -> NoReturn:\n         self.returncode = code\n",
+        "source_code_with_indent": "\n    def _fake_exit(self, code: Optional[int] = 0) -> NoReturn:\n        <IND>self.returncode = code\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def _fake_exit(self, code: int = 0) -> NoReturn:\n        <IND>self.returncode = code\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

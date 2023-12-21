@@ -1,0 +1,70 @@
+[
+  {
+    "project": "trezor/trezor-firmware",
+    "commit": "0f6f05e4b7e2881dc681db5fbead2723411c9058",
+    "filename": "core/mocks/generated/trezorconfig.pyi",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trezor-trezor-firmware/core/mocks/generated/trezorconfig.pyi",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/mocks/generated/trezorconfig.pyi:59:4 Incompatible return type [7]: Expected `bytes` but got implicit return value of `None`.",
+    "message": " Expected `bytes` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 59,
+    "warning_line": "    \"\"\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# extmod/modtrezorconfig/modtrezorconfig.c\ndef get(app: int, key: int, public: bool = False) -> bytes:\n    \"\"\"\n",
+        "source_code_len": 111,
+        "target_code": "# extmod/modtrezorconfig/modtrezorconfig.c\ndef get(app: int, key: int, public: bool = False) -> Optional[bytes]:\n    \"\"\"\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -57,3 +57,3 @@\n # extmod/modtrezorconfig/modtrezorconfig.c\n-def get(app: int, key: int, public: bool = False) -> bytes:\n+def get(app: int, key: int, public: bool = False) -> Optional[bytes]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "# extmod/modtrezorconfig/modtrezorconfig.c\n<DED>def get(app: int, key: int, public: bool = False) -> bytes:\n    <IND>",
+        "target_code_with_indent": "# extmod/modtrezorconfig/modtrezorconfig.c\n<DED>def get(app: int, key: int, public: bool = False) -> Optional[bytes]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "trezor/trezor-firmware",
+    "commit": "0f6f05e4b7e2881dc681db5fbead2723411c9058",
+    "filename": "core/mocks/generated/trezorconfig.pyi",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trezor-trezor-firmware/core/mocks/generated/trezorconfig.pyi",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/mocks/generated/trezorconfig.pyi:91:4 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 91,
+    "warning_line": "    \"\"\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# extmod/modtrezorconfig/modtrezorconfig.c\ndef next_counter(app: int, key: int, writable_locked: bool = False) -> bool:\n    \"\"\"\n",
+        "source_code_len": 128,
+        "target_code": "# extmod/modtrezorconfig/modtrezorconfig.c\ndef next_counter(\n   app: int, key: int, writable_locked: bool = False,\n) -> Optional[int]:\n    \"\"\"\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -89,3 +89,5 @@\n # extmod/modtrezorconfig/modtrezorconfig.c\n-def next_counter(app: int, key: int, writable_locked: bool = False) -> bool:\n+def next_counter(\n+   app: int, key: int, writable_locked: bool = False,\n+) -> Optional[int]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "# extmod/modtrezorconfig/modtrezorconfig.c\n<DED>def next_counter(app: int, key: int, writable_locked: bool = False) -> bool:\n    <IND>",
+        "target_code_with_indent": "# extmod/modtrezorconfig/modtrezorconfig.c\n<DED>def next_counter(\n   app: int, key: int, writable_locked: bool = False,\n) -> Optional[int]:\n    <IND>"
+      }
+    ]
+  }
+]

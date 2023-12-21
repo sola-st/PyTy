@@ -1,0 +1,36 @@
+[
+  {
+    "project": "frostming/python-cfonts",
+    "commit": "4082d2146cfdc8f3f0957d7a04fc0c9bd7cd1582",
+    "filename": "cfonts/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/frostming-python-cfonts/cfonts/core.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfonts/core.py:142:38 Incompatible parameter type [6]: Expected `Sequence[Variable[random._T]]` for 1st positional only parameter to call `random.choice` but got `typing.Type[CANDYCOLORS]`.",
+    "message": " Expected `Sequence[Variable[random._T]]` for 1st positional only parameter to call `random.choice` but got `typing.Type[CANDYCOLORS]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 142,
+    "warning_line": "                color = random.choice(CANDYCOLORS)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if color == COLORS.candy:\n                color = random.choice(CANDYCOLORS)\n\n",
+        "source_code_len": 90,
+        "target_code": "            if color == COLORS.candy:\n                color = random.choice(CANDYCOLORS.all())\n\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -141,3 +138,3 @@\n             if color == COLORS.candy:\n-                color = random.choice(CANDYCOLORS)\n+                color = random.choice(CANDYCOLORS.all())\n \n",
+        "source_code_with_indent": "            <DED>if color == COLORS.candy:\n                <IND>color = random.choice(CANDYCOLORS)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>if color == COLORS.candy:\n                <IND>color = random.choice(CANDYCOLORS.all())\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

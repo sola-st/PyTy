@@ -1,0 +1,24 @@
+[
+  {
+    "isolated_code_change": "-if sys.version_info[0] == 3 and sys.version_info[1] < 2:",
+    "type_error": "Unsupported operand [58]",
+    "code_transform": "REMOVE",
+    "involved_types": [
+      "Union",
+      "str",
+      "int"
+    ],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "Union[int, str]",
+      "to": ""
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "tools/effmpeg.py:29:32 Unsupported operand [58]: `<` is not supported for operand types `typing.Union[int, str]` and `int`.",
+    "url": "https://github.com/deepfakes/faceswap/commit/4153a7e",
+    "repo": "https://github.com/deepfakes/faceswap",
+    "change_runtime": true,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "REMOVE"
+  }
+]

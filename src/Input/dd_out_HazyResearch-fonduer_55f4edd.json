@@ -1,0 +1,153 @@
+[
+  {
+    "project": "HazyResearch/fonduer",
+    "commit": "55f4eddf915c6afd514ea35d19b5761adb2441a5",
+    "filename": "src/fonduer/candidates/models/temporary_context.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HazyResearch-fonduer/src/fonduer/candidates/models/temporary_context.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/fonduer/candidates/models/temporary_context.py:54:16 Incompatible return type [7]: Expected `Dict[str, typing.Any]` but got implicit return value of `None`.",
+    "message": " Expected `Dict[str, typing.Any]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 54,
+    "warning_line": "                self.id = id[0]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from builtins import object\nfrom typing import Any, Dict, Type\n\n",
+        "source_code_len": 64,
+        "target_code": "from builtins import object\nfrom typing import Any, Dict, Optional, Type\n\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -1,3 +1,3 @@\n from builtins import object\n-from typing import Any, Dict, Type\n+from typing import Any, Dict, Optional, Type\n \n",
+        "source_code_with_indent": "from builtins import object\nfrom typing import Any, Dict, Type\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from builtins import object\nfrom typing import Any, Dict, Optional, Type\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _load_id_or_insert(self, session: Session) -> Dict[str, Any]:\n        \"\"\"Load the id of the temporary context if it exists or return insert args.\n",
+        "source_code_len": 155,
+        "target_code": "\n    def _load_id_or_insert(self, session: Session) -> Optional[Dict[str, Any]]:\n        \"\"\"Load the id of the temporary context if it exists or return insert args.\n",
+        "target_code_len": 165,
+        "diff_format": "@@ -28,3 +28,3 @@\n \n-    def _load_id_or_insert(self, session: Session) -> Dict[str, Any]:\n+    def _load_id_or_insert(self, session: Session) -> Optional[Dict[str, Any]]:\n         \"\"\"Load the id of the temporary context if it exists or return insert args.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def _load_id_or_insert(self, session: Session) -> Dict[str, Any]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def _load_id_or_insert(self, session: Session) -> Optional[Dict[str, Any]]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "HazyResearch/fonduer",
+    "commit": "55f4eddf915c6afd514ea35d19b5761adb2441a5",
+    "filename": "src/fonduer/parser/lingual_parser/spacy_parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HazyResearch-fonduer/src/fonduer/parser/lingual_parser/spacy_parser.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/fonduer/parser/lingual_parser/spacy_parser.py:70:8 Incompatible return type [7]: Expected `bool` but got `Optional[bool]`.",
+    "message": " Expected `bool` but got `Optional[bool]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 70,
+    "warning_line": "        return self.lang and (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def has_tokenizer_support(self) -> bool:\n        return self.lang and (\n            self.has_NLP_support() or self.lang in self.alpha_languages\n",
+        "source_code_len": 148,
+        "target_code": "    def has_tokenizer_support(self) -> bool:\n        return self.lang is not None and (\n            self.has_NLP_support() or self.lang in self.alpha_languages\n",
+        "target_code_len": 160,
+        "diff_format": "@@ -69,3 +69,3 @@\n     def has_tokenizer_support(self) -> bool:\n-        return self.lang and (\n+        return self.lang is not None and (\n             self.has_NLP_support() or self.lang in self.alpha_languages\n",
+        "source_code_with_indent": "    <DED><DED>def has_tokenizer_support(self) -> bool:\n        <IND>return self.lang and (\n            self.has_NLP_support() or self.lang in self.alpha_languages\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>def has_tokenizer_support(self) -> bool:\n        <IND>return self.lang is not None and (\n            self.has_NLP_support() or self.lang in self.alpha_languages\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "HazyResearch/fonduer",
+    "commit": "55f4eddf915c6afd514ea35d19b5761adb2441a5",
+    "filename": "src/fonduer/parser/lingual_parser/spacy_parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HazyResearch-fonduer/src/fonduer/parser/lingual_parser/spacy_parser.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/fonduer/parser/lingual_parser/spacy_parser.py:75:8 Incompatible return type [7]: Expected `bool` but got `Optional[bool]`.",
+    "message": " Expected `bool` but got `Optional[bool]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 75,
+    "warning_line": "        return self.lang and (self.lang in self.languages)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def has_NLP_support(self) -> bool:\n        return self.lang and (self.lang in self.languages)\n\n",
+        "source_code_len": 99,
+        "target_code": "    def has_NLP_support(self) -> bool:\n        return self.lang is not None and (self.lang in self.languages)\n\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -74,3 +74,3 @@\n     def has_NLP_support(self) -> bool:\n-        return self.lang and (self.lang in self.languages)\n+        return self.lang is not None and (self.lang in self.languages)\n \n",
+        "source_code_with_indent": "    <DED>def has_NLP_support(self) -> bool:\n        <IND>return self.lang and (self.lang in self.languages)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def has_NLP_support(self) -> bool:\n        <IND>return self.lang is not None and (self.lang in self.languages)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "HazyResearch/fonduer",
+    "commit": "55f4eddf915c6afd514ea35d19b5761adb2441a5",
+    "filename": "src/fonduer/utils/utils_parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HazyResearch-fonduer/src/fonduer/utils/utils_parser.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/fonduer/utils/utils_parser.py:23:8 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 23,
+    "warning_line": "        return f\"<img name='{name}' src='{content}'/>\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        return f\"<img name='{name}' src='{content}'/>\"\n\n",
+        "source_code_len": 56,
+        "target_code": "        return f\"<img name='{name}' src='{content}'/>\"\n    raise RuntimeError(f\"unknown type\")\n\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -23,2 +23,3 @@\n         return f\"<img name='{name}' src='{content}'/>\"\n+    raise RuntimeError(f\"unknown type\")\n \n",
+        "source_code_with_indent": "        <IND>return f\"<img name='{name}' src='{content}'/>\"\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>return f\"<img name='{name}' src='{content}'/>\"\n    <DED>raise RuntimeError(f\"unknown type\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

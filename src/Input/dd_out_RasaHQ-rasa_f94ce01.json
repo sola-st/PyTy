@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "f94ce013fb0fd44cfbb73e6e42e469a2b7318912",
+    "filename": "rasa/nlu/featurizers/dense_featurizer/spacy_featurizer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/nlu/featurizers/dense_featurizer/spacy_featurizer.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/nlu/featurizers/dense_featurizer/spacy_featurizer.py:127:4 Inconsistent override [14]: `rasa.nlu.featurizers.dense_featurizer.spacy_featurizer.SpacyFeaturizerGraphComponent.validate_compatibility_with_tokenizer` overrides method defined in `rasa.nlu.featurizers.featurizer.Featurizer2` inconsistently. Parameter of type `Type[TokenizerGraphComponent]` is not a supertype of the overridden parameter `Type[rasa.nlu.tokenizers._tokenizer.Tokenizer]`.",
+    "message": " `rasa.nlu.featurizers.dense_featurizer.spacy_featurizer.SpacyFeaturizerGraphComponent.validate_compatibility_with_tokenizer` overrides method defined in `rasa.nlu.featurizers.featurizer.Featurizer2` inconsistently. Parameter of type `Type[TokenizerGraphComponent]` is not a supertype of the overridden parameter `Type[rasa.nlu.tokenizers._tokenizer.Tokenizer]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 127,
+    "warning_line": "    def validate_compatibility_with_tokenizer(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        pass\n\n    @classmethod\n    def validate_compatibility_with_tokenizer(\n        cls, config: Dict[Text, Any], tokenizer_type: Type[TokenizerGraphComponent]\n    ) -> None:\n        \"\"\"Validates that the featurizer is compatible with the given tokenizer.\"\"\"\n        if tokenizer_type != SpacyTokenizerGraphComponent:\n            rasa.shared.utils.io.raise_warning(\n                f\"Expected '{SpacyTokenizerGraphComponent.__name__}' to be present.\"\n            )\n",
+        "source_code_len": 467,
+        "target_code": "        pass\n",
+        "target_code_len": 13,
+        "diff_format": "@@ -124,11 +121,1 @@\n         pass\n-\n-    @classmethod\n-    def validate_compatibility_with_tokenizer(\n-        cls, config: Dict[Text, Any], tokenizer_type: Type[TokenizerGraphComponent]\n-    ) -> None:\n-        \"\"\"Validates that the featurizer is compatible with the given tokenizer.\"\"\"\n-        if tokenizer_type != SpacyTokenizerGraphComponent:\n-            rasa.shared.utils.io.raise_warning(\n-                f\"Expected '{SpacyTokenizerGraphComponent.__name__}' to be present.\"\n-            )\n",
+        "source_code_with_indent": "        pass\n\n    <DED>@classmethod\n    def validate_compatibility_with_tokenizer(\n        cls, config: Dict[Text, Any], tokenizer_type: Type[TokenizerGraphComponent]\n    ) -> None:\n        <IND>\"\"\"Validates that the featurizer is compatible with the given tokenizer.\"\"\"\n        if tokenizer_type != SpacyTokenizerGraphComponent:\n            <IND>rasa.shared.utils.io.raise_warning(\n                f\"Expected '{SpacyTokenizerGraphComponent.__name__}' to be present.\"\n            )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        pass\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

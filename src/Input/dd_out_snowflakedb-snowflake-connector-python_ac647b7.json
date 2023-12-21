@@ -1,0 +1,36 @@
+[
+  {
+    "project": "snowflakedb/snowflake-connector-python",
+    "commit": "ac647b773cac8a75a5502074760ea8236bc6a9b1",
+    "filename": "test/generate_test_files.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snowflakedb-snowflake-connector-python/test/generate_test_files.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "test/generate_test_files.py:79:4 Incompatible return type [7]: Expected `str` but got `typing.Union[bool, str]`.",
+    "message": " Expected `str` but got `typing.Union[bool, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 79,
+    "warning_line": "    return tmp_dir",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef generate_k_lines_of_n_files(k: int, n: int, compress: bool = False, tmp_dir: Optional[bool] = None) -> str:\n    \"\"\"Creates testing files.\n",
+        "source_code_len": 143,
+        "target_code": "\ndef generate_k_lines_of_n_files(k: int, n: int, compress: bool = False, tmp_dir: Optional[str] = None) -> str:\n    \"\"\"Creates testing files.\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -17,3 +17,3 @@\n \n-def generate_k_lines_of_n_files(k: int, n: int, compress: bool = False, tmp_dir: Optional[bool] = None) -> str:\n+def generate_k_lines_of_n_files(k: int, n: int, compress: bool = False, tmp_dir: Optional[str] = None) -> str:\n     \"\"\"Creates testing files.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef generate_k_lines_of_n_files(k: int, n: int, compress: bool = False, tmp_dir: Optional[bool] = None) -> str:\n    <IND>",
+        "target_code_with_indent": "\ndef generate_k_lines_of_n_files(k: int, n: int, compress: bool = False, tmp_dir: Optional[str] = None) -> str:\n    <IND>"
+      }
+    ]
+  }
+]

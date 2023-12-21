@@ -1,0 +1,51 @@
+[
+  {
+    "project": "activeloopai/Hub",
+    "commit": "741f7ef215b2b2c6696e2aab7a44a93c9b36ebea",
+    "filename": "hub/tests/common.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/tests/common.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/tests/common.py:65:8 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 65,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import pathlib\nfrom typing import List\nfrom uuid import uuid1\n",
+        "source_code_len": 62,
+        "target_code": "import pathlib\nfrom typing import List, Optional\nfrom uuid import uuid1\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -4,3 +4,3 @@\n import pathlib\n-from typing import List\n+from typing import List, Optional\n from uuid import uuid1\n",
+        "source_code_with_indent": "import pathlib\nfrom typing import List\nfrom uuid import uuid1\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import pathlib\nfrom typing import List, Optional\nfrom uuid import uuid1\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_actual_compression_from_buffer(buffer: memoryview) -> str:\n    \"\"\"Helpful for checking if actual compression matches expected.\"\"\"\n",
+        "source_code_len": 139,
+        "target_code": "\ndef get_actual_compression_from_buffer(buffer: memoryview) -> Optional[str]:\n    \"\"\"Helpful for checking if actual compression matches expected.\"\"\"\n",
+        "target_code_len": 149,
+        "diff_format": "@@ -55,3 +55,3 @@\n \n-def get_actual_compression_from_buffer(buffer: memoryview) -> str:\n+def get_actual_compression_from_buffer(buffer: memoryview) -> Optional[str]:\n     \"\"\"Helpful for checking if actual compression matches expected.\"\"\"\n",
+        "source_code_with_indent": "\n<DED>def get_actual_compression_from_buffer(buffer: memoryview) -> str:\n    <IND>\"\"\"Helpful for checking if actual compression matches expected.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_actual_compression_from_buffer(buffer: memoryview) -> Optional[str]:\n    <IND>\"\"\"Helpful for checking if actual compression matches expected.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

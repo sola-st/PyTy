@@ -1,0 +1,70 @@
+[
+  {
+    "project": "omnilib/aioitertools",
+    "commit": "3277dbbdf5ae40e42597f0f3cfd48a564d198667",
+    "filename": "aioitertools/itertools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/omnilib-aioitertools/aioitertools/itertools.py",
+    "file_hunks_size": 23,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioitertools/itertools.py:168:8 Incompatible return type [7]: Expected `AsyncIterator[Variable[T]]` but got `typing.AsyncGenerator[int, None]`.",
+    "message": " Expected `AsyncIterator[Variable[T]]` but got `typing.AsyncGenerator[int, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 168,
+    "warning_line": "        yield value"
+  },
+  {
+    "project": "omnilib/aioitertools",
+    "commit": "3277dbbdf5ae40e42597f0f3cfd48a564d198667",
+    "filename": "aioitertools/itertools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/omnilib-aioitertools/aioitertools/itertools.py",
+    "file_hunks_size": 23,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioitertools/itertools.py:251:22 Incompatible variable type [9]: key is declared to have type `typing.Union[typing.Callable[..., typing.Any], typing.Callable[..., typing.Awaitable[typing.Any]]]` but is used as type `None`.",
+    "message": " key is declared to have type `typing.Union[typing.Callable[..., typing.Any], typing.Callable[..., typing.Awaitable[typing.Any]]]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 251,
+    "warning_line": "    itr: AnyIterable, key: KeyFunction = None"
+  },
+  {
+    "project": "omnilib/aioitertools",
+    "commit": "3277dbbdf5ae40e42597f0f3cfd48a564d198667",
+    "filename": "aioitertools/itertools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/omnilib-aioitertools/aioitertools/itertools.py",
+    "file_hunks_size": 23,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioitertools/itertools.py:351:41 Incompatible variable type [9]: r is declared to have type `int` but is used as type `None`.",
+    "message": " r is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 351,
+    "warning_line": "async def permutations(itr: AnyIterable, r: int = None) -> AsyncIterator[Sequence[T]]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nasync def permutations(itr: AnyIterable, r: int = None) -> AsyncIterator[Sequence[T]]:\n    \"\"\"\n",
+        "source_code_len": 96,
+        "target_code": "\n# pylint: enable=function-redefined\n\n\nasync def permutations(\n    itr: AnyIterable[T], r: Optional[int] = None\n) -> AsyncIterator[Tuple[T, ...]]:\n    \"\"\"\n",
+        "target_code_len": 155,
+        "diff_format": "@@ -350,3 +391,8 @@\n \n-async def permutations(itr: AnyIterable, r: int = None) -> AsyncIterator[Sequence[T]]:\n+# pylint: enable=function-redefined\n+\n+\n+async def permutations(\n+    itr: AnyIterable[T], r: Optional[int] = None\n+) -> AsyncIterator[Tuple[T, ...]]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>async def permutations(itr: AnyIterable, r: int = None) -> AsyncIterator[Sequence[T]]:\n    <IND>",
+        "target_code_with_indent": "\n# pylint: enable=function-redefined\n\n\n<DED><DED>async def permutations(\n    itr: AnyIterable[T], r: Optional[int] = None\n) -> AsyncIterator[Tuple[T, ...]]:\n    <IND>"
+      }
+    ]
+  }
+]

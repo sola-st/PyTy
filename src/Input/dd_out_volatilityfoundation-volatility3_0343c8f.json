@@ -1,0 +1,70 @@
+[
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "0343c8f81e3aaf0cff5979dcbb686ad91a14bbb3",
+    "filename": "volatility3/framework/automagic/pdbscan.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility3/framework/automagic/pdbscan.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility3/framework/automagic/pdbscan.py:243:8 Incompatible return type [7]: Expected `Tuple[str, int, Dict[str, Union[None, bytes, int, str]]]` but got `Optional[Tuple[str, int, Dict[str, Union[None, bytes, int, str]]]]`.",
+    "message": " Expected `Tuple[str, int, Dict[str, Union[None, bytes, int, str]]]` but got `Optional[Tuple[str, int, Dict[str, Union[None, bytes, int, str]]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 243,
+    "warning_line": "        return self._method_offset(context, vlayer, b\"\\\\SystemRoot\\\\system32\\\\nt\",",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                             vlayer: layers.intel.Intel,\n                             progress_callback: constants.ProgressCallback = None) -> ValidKernelType:\n        return self._method_offset(context, vlayer, b\"\\\\SystemRoot\\\\system32\\\\nt\",\n",
+        "source_code_len": 243,
+        "target_code": "                             vlayer: layers.intel.Intel,\n                             progress_callback: constants.ProgressCallback = None) -> Optional[ValidKernelType]:\n        return self._method_offset(context, vlayer, b\"\\\\SystemRoot\\\\system32\\\\nt\",\n",
+        "target_code_len": 253,
+        "diff_format": "@@ -241,3 +241,3 @@\n                              vlayer: layers.intel.Intel,\n-                             progress_callback: constants.ProgressCallback = None) -> ValidKernelType:\n+                             progress_callback: constants.ProgressCallback = None) -> Optional[ValidKernelType]:\n         return self._method_offset(context, vlayer, b\"\\\\SystemRoot\\\\system32\\\\nt\",\n",
+        "source_code_with_indent": "                             vlayer: layers.intel.Intel,\n                             progress_callback: constants.ProgressCallback = None) -> ValidKernelType:\n        <IND>return self._method_offset(context, vlayer, b\"\\\\SystemRoot\\\\system32\\\\nt\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                             vlayer: layers.intel.Intel,\n                             progress_callback: constants.ProgressCallback = None) -> Optional[ValidKernelType]:\n        <IND>return self._method_offset(context, vlayer, b\"\\\\SystemRoot\\\\system32\\\\nt\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "0343c8f81e3aaf0cff5979dcbb686ad91a14bbb3",
+    "filename": "volatility3/framework/automagic/pdbscan.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility3/framework/automagic/pdbscan.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility3/framework/automagic/pdbscan.py:250:8 Incompatible return type [7]: Expected `Tuple[str, int, Dict[str, Union[None, bytes, int, str]]]` but got `Optional[Tuple[str, int, Dict[str, Union[None, bytes, int, str]]]]`.",
+    "message": " Expected `Tuple[str, int, Dict[str, Union[None, bytes, int, str]]]` but got `Optional[Tuple[str, int, Dict[str, Union[None, bytes, int, str]]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 250,
+    "warning_line": "        return self._method_offset(context, vlayer, b\"KDBG\", 8, progress_callback)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                           vlayer: layers.intel.Intel,\n                           progress_callback: constants.ProgressCallback = None) -> ValidKernelType:\n        return self._method_offset(context, vlayer, b\"KDBG\", 8, progress_callback)\n",
+        "source_code_len": 239,
+        "target_code": "                           vlayer: layers.intel.Intel,\n                           progress_callback: constants.ProgressCallback = None) -> Optional[ValidKernelType]:\n        return self._method_offset(context, vlayer, b\"KDBG\", 8, progress_callback)\n",
+        "target_code_len": 249,
+        "diff_format": "@@ -248,3 +248,3 @@\n                            vlayer: layers.intel.Intel,\n-                           progress_callback: constants.ProgressCallback = None) -> ValidKernelType:\n+                           progress_callback: constants.ProgressCallback = None) -> Optional[ValidKernelType]:\n         return self._method_offset(context, vlayer, b\"KDBG\", 8, progress_callback)\n",
+        "source_code_with_indent": "                           vlayer: layers.intel.Intel,\n                           progress_callback: constants.ProgressCallback = None) -> ValidKernelType:\n        <IND>return self._method_offset(context, vlayer, b\"KDBG\", 8, progress_callback)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                           vlayer: layers.intel.Intel,\n                           progress_callback: constants.ProgressCallback = None) -> Optional[ValidKernelType]:\n        <IND>return self._method_offset(context, vlayer, b\"KDBG\", 8, progress_callback)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "schemathesis/schemathesis",
+    "commit": "18a2397d468f61c72aa21ad52bf8bcc3104ab49f",
+    "filename": "src/schemathesis/schemas.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/schemathesis-schemathesis/src/schemathesis/schemas.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/schemathesis/schemas.py:95:40 Incompatible parameter type [6]: Expected `typing.Hashable` for 1st positional only parameter to call `functools._lru_cache_wrapper.__call__` but got `Dict[str, typing.Any]`.",
+    "message": " Expected `typing.Hashable` for 1st positional only parameter to call `functools._lru_cache_wrapper.__call__` but got `Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 95,
+    "warning_line": "        dereferenced = self.dereference(reference)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @lru_cache()\n    def resolve_reference(self, reference: Dict[str, Any]) -> Dict[str, Any]:\n        dereferenced = self.dereference(reference)\n",
+        "source_code_len": 146,
+        "target_code": "    @lru_cache()\n    def resolve_reference(self, reference: str) -> Dict[str, Any]:\n        dereferenced = self.dereference(reference)\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -93,3 +93,3 @@\n     @lru_cache()\n-    def resolve_reference(self, reference: Dict[str, Any]) -> Dict[str, Any]:\n+    def resolve_reference(self, reference: str) -> Dict[str, Any]:\n         dereferenced = self.dereference(reference)\n",
+        "source_code_with_indent": "    <DED>@lru_cache()\n    def resolve_reference(self, reference: Dict[str, Any]) -> Dict[str, Any]:\n        <IND>dereferenced = self.dereference(reference)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@lru_cache()\n    def resolve_reference(self, reference: str) -> Dict[str, Any]:\n        <IND>dereferenced = self.dereference(reference)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

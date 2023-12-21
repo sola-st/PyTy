@@ -1,0 +1,36 @@
+[
+  {
+    "project": "piccolo-orm/piccolo",
+    "commit": "60e5ca7f9211fdf2083a03c08edcaf4dafae6309",
+    "filename": "piccolo/columns/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/piccolo-orm-piccolo/piccolo/columns/base.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "piccolo/columns/base.py:376:12 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 376,
+    "warning_line": "            raise ValueError(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return True\n        else:\n            raise ValueError(\n                f\"The default {default} isn't one of the permitted types - \"\n                f\"{allowed_types}\"\n            )\n\n",
+        "source_code_len": 195,
+        "target_code": "            return True\n\n        raise ValueError(\n            f\"The default {default} isn't one of the permitted types - \"\n            f\"{allowed_types}\"\n        )\n\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -374,7 +374,7 @@\n             return True\n-        else:\n-            raise ValueError(\n-                f\"The default {default} isn't one of the permitted types - \"\n-                f\"{allowed_types}\"\n-            )\n+\n+        raise ValueError(\n+            f\"The default {default} isn't one of the permitted types - \"\n+            f\"{allowed_types}\"\n+        )\n \n",
+        "source_code_with_indent": "            return True\n        <DED>else:\n            <IND>raise ValueError(\n                f\"The default {default} isn't one of the permitted types - \"\n                f\"{allowed_types}\"\n            )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            return True\n\n        <DED>raise ValueError(\n            f\"The default {default} isn't one of the permitted types - \"\n            f\"{allowed_types}\"\n        )\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

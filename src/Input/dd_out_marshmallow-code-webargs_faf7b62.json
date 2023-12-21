@@ -1,0 +1,70 @@
+[
+  {
+    "project": "marshmallow-code/webargs",
+    "commit": "faf7b62cf64949dba0eb1e36b5fd0b3cae2fbdb3",
+    "filename": "src/webargs/aiohttpparser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/marshmallow-code-webargs/src/webargs/aiohttpparser.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/webargs/aiohttpparser.py:112:12 Incompatible return type [7]: Expected `typing.Dict[typing.Any, typing.Any]` but got `typing.NoReturn`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` but got `typing.NoReturn`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 112,
+    "warning_line": "            return self._handle_invalid_json_error(exc, req)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def load_json(self, req: Request, schema: Schema) -> typing.Dict:\n        \"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "source_code_len": 138,
+        "target_code": "\n    async def load_json(self, req, schema: Schema):\n        \"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -102,3 +101,3 @@\n \n-    async def load_json(self, req: Request, schema: Schema) -> typing.Dict:\n+    async def load_json(self, req, schema: Schema):\n         \"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>async def load_json(self, req: Request, schema: Schema) -> typing.Dict:\n        <IND>\"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>async def load_json(self, req, schema: Schema):\n        <IND>\"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "marshmallow-code/webargs",
+    "commit": "faf7b62cf64949dba0eb1e36b5fd0b3cae2fbdb3",
+    "filename": "src/webargs/aiohttpparser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/marshmallow-code-webargs/src/webargs/aiohttpparser.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/webargs/aiohttpparser.py:114:12 Incompatible return type [7]: Expected `typing.Dict[typing.Any, typing.Any]` but got `typing.NoReturn`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` but got `typing.NoReturn`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 114,
+    "warning_line": "            return self._handle_invalid_json_error(exc, req)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def load_json(self, req: Request, schema: Schema) -> typing.Dict:\n        \"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "source_code_len": 138,
+        "target_code": "\n    async def load_json(self, req, schema: Schema):\n        \"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -102,3 +101,3 @@\n \n-    async def load_json(self, req: Request, schema: Schema) -> typing.Dict:\n+    async def load_json(self, req, schema: Schema):\n         \"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>async def load_json(self, req: Request, schema: Schema) -> typing.Dict:\n        <IND>\"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>async def load_json(self, req, schema: Schema):\n        <IND>\"\"\"Return a parsed json payload from the request.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

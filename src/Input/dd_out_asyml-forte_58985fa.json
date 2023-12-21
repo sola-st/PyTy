@@ -1,0 +1,51 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "58985fa7884eb9d31a89365a8abbb9267d6240c4",
+    "filename": "forte/data/extractor/seqtagging_extractor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/data/extractor/seqtagging_extractor.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/data/extractor/seqtagging_extractor.py:89:4 Inconsistent override [14]: `forte.data.extractor.seqtagging_extractor.BioSeqTaggingExtractor.predefined_vocab` overrides method defined in `BaseExtractor` inconsistently. Parameter of type `typing.Set[typing.Any]` is not a supertype of the overridden parameter `Union[List[typing.Any], typing.Set[typing.Any]]`.",
+    "message": " `forte.data.extractor.seqtagging_extractor.BioSeqTaggingExtractor.predefined_vocab` overrides method defined in `BaseExtractor` inconsistently. Parameter of type `typing.Set[typing.Any]` is not a supertype of the overridden parameter `Union[List[typing.Any], typing.Set[typing.Any]]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 89,
+    "warning_line": "    def predefined_vocab(self, predefined: set):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import logging\nfrom typing import Tuple, List, Dict, Union, Optional\nfrom ft.onto.base_ontology import Annotation, EntityMention\nfrom forte.common.configuration import Config\nfrom forte.data.data_pack import DataPack\nfrom forte.data.converter.feature import Feature\nfrom forte.data.extractor.utils import bio_tagging\nfrom forte.data.extractor.base_extractor import BaseExtractor\n\n",
+        "source_code_len": 380,
+        "target_code": "import logging\nfrom typing import Tuple, List, Dict, Union, Optional, Iterable\n\nfrom forte.common.configuration import Config\nfrom forte.data.converter.feature import Feature\nfrom forte.data.data_pack import DataPack\nfrom forte.data.extractor.base_extractor import BaseExtractor\nfrom forte.data.extractor.utils import bio_tagging\nfrom forte.data.ontology.top import Annotation\nfrom ft.onto.base_ontology import EntityMention\n\n",
+        "target_code_len": 426,
+        "diff_format": "@@ -18,9 +18,11 @@\n import logging\n-from typing import Tuple, List, Dict, Union, Optional\n-from ft.onto.base_ontology import Annotation, EntityMention\n+from typing import Tuple, List, Dict, Union, Optional, Iterable\n+\n from forte.common.configuration import Config\n+from forte.data.converter.feature import Feature\n from forte.data.data_pack import DataPack\n-from forte.data.converter.feature import Feature\n+from forte.data.extractor.base_extractor import BaseExtractor\n from forte.data.extractor.utils import bio_tagging\n-from forte.data.extractor.base_extractor import BaseExtractor\n+from forte.data.ontology.top import Annotation\n+from ft.onto.base_ontology import EntityMention\n \n",
+        "source_code_with_indent": "import logging\nfrom typing import Tuple, List, Dict, Union, Optional\nfrom ft.onto.base_ontology import Annotation, EntityMention\nfrom forte.common.configuration import Config\nfrom forte.data.data_pack import DataPack\nfrom forte.data.converter.feature import Feature\nfrom forte.data.extractor.utils import bio_tagging\nfrom forte.data.extractor.base_extractor import BaseExtractor\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\nfrom typing import Tuple, List, Dict, Union, Optional, Iterable\n\nfrom forte.common.configuration import Config\nfrom forte.data.converter.feature import Feature\nfrom forte.data.data_pack import DataPack\nfrom forte.data.extractor.base_extractor import BaseExtractor\nfrom forte.data.extractor.utils import bio_tagging\nfrom forte.data.ontology.top import Annotation\nfrom ft.onto.base_ontology import EntityMention\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def predefined_vocab(self, predefined: set):\n        r\"\"\"Add predefined tags into the vocabulary.\n\n        Args:\n            predefined (set): A set of tags.\n        \"\"\"\n",
+        "source_code_len": 175,
+        "target_code": "\n    def predefined_vocab(self, predefined: Iterable):\n        r\"\"\"Add predefined tags into the vocabulary. i.e. One can construct the\n        tag vocabulary without exploring the training data.\n\n        Args:\n            predefined (Iterable[str]): A set of pre-defined tags.\n        \"\"\"\n",
+        "target_code_len": 289,
+        "diff_format": "@@ -88,7 +108,8 @@\n \n-    def predefined_vocab(self, predefined: set):\n-        r\"\"\"Add predefined tags into the vocabulary.\n-\n-        Args:\n-            predefined (set): A set of tags.\n+    def predefined_vocab(self, predefined: Iterable):\n+        r\"\"\"Add predefined tags into the vocabulary. i.e. One can construct the\n+        tag vocabulary without exploring the training data.\n+\n+        Args:\n+            predefined (Iterable[str]): A set of pre-defined tags.\n         \"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def predefined_vocab(self, predefined: set):\n        <IND>r\"\"\"Add predefined tags into the vocabulary.\n\n        Args:\n            predefined (set): A set of tags.\n        \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def predefined_vocab(self, predefined: Iterable):\n        <IND>r\"\"\"Add predefined tags into the vocabulary. i.e. One can construct the\n        tag vocabulary without exploring the training data.\n\n        Args:\n            predefined (Iterable[str]): A set of pre-defined tags.\n        \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

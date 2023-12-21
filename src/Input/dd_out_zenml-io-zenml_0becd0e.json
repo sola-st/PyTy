@@ -1,0 +1,51 @@
+[
+  {
+    "project": "zenml-io/zenml",
+    "commit": "0becd0e5bbbf3be7b9d8713bccd27e075f213ac7",
+    "filename": "src/zenml/integrations/kubeflow/orchestrators/kubeflow_orchestrator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/zenml-io-zenml/src/zenml/integrations/kubeflow/orchestrators/kubeflow_orchestrator.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/zenml/integrations/kubeflow/orchestrators/kubeflow_orchestrator.py:140:12 Incompatible parameter type [6]: Expected `str` for 2nd parameter `run_name` to call `KubeflowOrchestrator._upload_and_run_pipeline` but got `Optional[str]`.",
+    "message": " Expected `str` for 2nd parameter `run_name` to call `KubeflowOrchestrator._upload_and_run_pipeline` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 140,
+    "warning_line": "            run_name=run_name,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os\nfrom typing import TYPE_CHECKING, Any, List, Optional\n",
+        "source_code_len": 64,
+        "target_code": "import os\nfrom datetime import datetime\nfrom typing import TYPE_CHECKING, Any, List, Optional\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -15,2 +15,3 @@\n import os\n+from datetime import datetime\n from typing import TYPE_CHECKING, Any, List, Optional\n",
+        "source_code_with_indent": "import os\nfrom typing import TYPE_CHECKING, Any, List, Optional\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nfrom datetime import datetime\nfrom typing import TYPE_CHECKING, Any, List, Optional\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self._upload_and_run_pipeline(\n",
+        "source_code_len": 40,
+        "target_code": "\n        run_name = run_name or datetime.now().strftime(\"%d_%h_%y-%H_%M_%S_%f\")\n        self._upload_and_run_pipeline(\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -137,2 +138,3 @@\n \n+        run_name = run_name or datetime.now().strftime(\"%d_%h_%y-%H_%M_%S_%f\")\n         self._upload_and_run_pipeline(\n",
+        "source_code_with_indent": "\n        self._upload_and_run_pipeline(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        run_name = run_name or datetime.now().strftime(\"%d_%h_%y-%H_%M_%S_%f\")\n        self._upload_and_run_pipeline(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

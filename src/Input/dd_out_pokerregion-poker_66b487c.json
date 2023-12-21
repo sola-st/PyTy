@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pokerregion/poker",
+    "commit": "66b487c4cc886e0a8fd7184c760efc4749a41ed0",
+    "filename": "poker/website/twoplustwo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pokerregion-poker/poker/website/twoplustwo.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poker/website/twoplustwo.py:74:59 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 74,
+    "warning_line": "        ('username', '//td[@id=\"username_box\"]/h1/text()', unicode),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    _attributes = (\n        ('username', '//td[@id=\"username_box\"]/h1/text()', unicode),\n        ('rank', '//td[@id=\"username_box\"]/h2/text()', unicode),\n        ('profile_picture', '//td[@id=\"profilepic_cell\"]/img/@src', unicode),\n        ('location', '//div[@id=\"collapseobj_aboutme\"]/div/ul/li/dl/dd[1]/text()', unicode),\n        ('total_posts', '//div[@id=\"collapseobj_stats\"]/div/fieldset[1]/ul/li[1]/text()', _make_int),  # noqa\n",
+        "source_code_len": 435,
+        "target_code": "    _attributes = (\n        ('username', '//td[@id=\"username_box\"]/h1/text()', str),\n        ('rank', '//td[@id=\"username_box\"]/h2/text()', str),\n        ('profile_picture', '//td[@id=\"profilepic_cell\"]/img/@src', str),\n        ('location', '//div[@id=\"collapseobj_aboutme\"]/div/ul/li/dl/dd[1]/text()', str),\n        ('total_posts', '//div[@id=\"collapseobj_stats\"]/div/fieldset[1]/ul/li[1]/text()', _make_int),  # noqa\n",
+        "target_code_len": 419,
+        "diff_format": "@@ -73,6 +70,6 @@\n     _attributes = (\n-        ('username', '//td[@id=\"username_box\"]/h1/text()', unicode),\n-        ('rank', '//td[@id=\"username_box\"]/h2/text()', unicode),\n-        ('profile_picture', '//td[@id=\"profilepic_cell\"]/img/@src', unicode),\n-        ('location', '//div[@id=\"collapseobj_aboutme\"]/div/ul/li/dl/dd[1]/text()', unicode),\n+        ('username', '//td[@id=\"username_box\"]/h1/text()', str),\n+        ('rank', '//td[@id=\"username_box\"]/h2/text()', str),\n+        ('profile_picture', '//td[@id=\"profilepic_cell\"]/img/@src', str),\n+        ('location', '//div[@id=\"collapseobj_aboutme\"]/div/ul/li/dl/dd[1]/text()', str),\n         ('total_posts', '//div[@id=\"collapseobj_stats\"]/div/fieldset[1]/ul/li[1]/text()', _make_int),  # noqa\n",
+        "source_code_with_indent": "    _attributes = (\n        ('username', '//td[@id=\"username_box\"]/h1/text()', unicode),\n        ('rank', '//td[@id=\"username_box\"]/h2/text()', unicode),\n        ('profile_picture', '//td[@id=\"profilepic_cell\"]/img/@src', unicode),\n        ('location', '//div[@id=\"collapseobj_aboutme\"]/div/ul/li/dl/dd[1]/text()', unicode),\n        ('total_posts', '//div[@id=\"collapseobj_stats\"]/div/fieldset[1]/ul/li[1]/text()', _make_int),  # noqa\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    _attributes = (\n        ('username', '//td[@id=\"username_box\"]/h1/text()', str),\n        ('rank', '//td[@id=\"username_box\"]/h2/text()', str),\n        ('profile_picture', '//td[@id=\"profilepic_cell\"]/img/@src', str),\n        ('location', '//div[@id=\"collapseobj_aboutme\"]/div/ul/li/dl/dd[1]/text()', str),\n        ('total_posts', '//div[@id=\"collapseobj_stats\"]/div/fieldset[1]/ul/li[1]/text()', _make_int),  # noqa\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

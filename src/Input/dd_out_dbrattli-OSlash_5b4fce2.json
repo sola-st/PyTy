@@ -1,0 +1,36 @@
+[
+  {
+    "project": "dbrattli/OSlash",
+    "commit": "5b4fce28306e62833690edc245d54eb9908fc20a",
+    "filename": "oslash/state.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbrattli-OSlash/oslash/state.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "oslash/state.py:32:4 Inconsistent override [15]: `oslash.state.State.unit` overrides method defined in `oslash.abc.monad.Monad` inconsistently. Returned type `State[Variable[A], Variable[S]]` is not a subtype of the overridden return `oslash.abc.monad.Monad[State[typing.Any]]`.",
+    "message": " `oslash.state.State.unit` overrides method defined in `oslash.abc.monad.Monad` inconsistently. Returned type `State[Variable[A], Variable[S]]` is not a subtype of the overridden return `oslash.abc.monad.Monad[State[typing.Any]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 32,
+    "warning_line": "    def unit(cls, value: A) -> 'State[A, S]':",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nA = TypeVar('A')\nB = TypeVar('B')\nS = TypeVar('S')\n\n\nclass State(Generic[A, S], Monad['State[S]'], Functor['State[S]']):\n\n",
+        "source_code_len": 123,
+        "target_code": "\nA = TypeVar('A')  # Type of value\nB = TypeVar('B')  # Type of new value\nS = TypeVar('S')  # Type of state\n\n\nclass State(Generic[A, S], Monad[A], Functor[A]):\n\n",
+        "target_code_len": 160,
+        "diff_format": "@@ -6,8 +6,8 @@\n \n-A = TypeVar('A')\n-B = TypeVar('B')\n-S = TypeVar('S')\n+A = TypeVar('A')  # Type of value\n+B = TypeVar('B')  # Type of new value\n+S = TypeVar('S')  # Type of state\n \n \n-class State(Generic[A, S], Monad['State[S]'], Functor['State[S]']):\n+class State(Generic[A, S], Monad[A], Functor[A]):\n \n",
+        "source_code_with_indent": "\nA = TypeVar('A')\nB = TypeVar('B')\nS = TypeVar('S')\n\n\nclass State(Generic[A, S], Monad['State[S]'], Functor['State[S]']):\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nA = TypeVar('A')  # Type of value\nB = TypeVar('B')  # Type of new value\nS = TypeVar('S')  # Type of state\n\n\nclass State(Generic[A, S], Monad[A], Functor[A]):\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

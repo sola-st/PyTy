@@ -1,0 +1,36 @@
+[
+  {
+    "project": "quantumlib/OpenFermion-Cirq",
+    "commit": "bad551f3734e2268a34be78a10558237e7fc6038",
+    "filename": "openfermioncirq/variational/ansatz_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-OpenFermion-Cirq/openfermioncirq/variational/ansatz_test.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "openfermioncirq/variational/ansatz_test.py:48:9 Call error [29]: `typing.Type[ExampleAnsatz]` is not a function.",
+    "message": " `typing.Type[ExampleAnsatz]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 48,
+    "warning_line": "ansatz = ExampleAnsatz()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                cirq.RotXGate(half_turns=self.params['theta1']).on(b),\n                cirq.RotXGate(half_turns=self.params['theta2']).on(c),\n                cirq.RotXGate(half_turns=self.params['theta3']).on(d),\n                cirq.CNOT(a, b),\n                cirq.CNOT(c, d),\n                cirq.CNOT(b, c),\n                cirq.RotZGate(half_turns=self.params['theta4']).on(a),\n                cirq.RotZGate(half_turns=self.params['theta5']).on(b),\n                cirq.RotZGate(half_turns=self.params['theta6']).on(c),\n                cirq.RotZGate(half_turns=self.params['theta7']).on(d),\n                cirq.MeasurementGate('all').on(a, b, c, d))\n\n\nansatz = ExampleAnsatz()\n\n",
+        "source_code_len": 684,
+        "target_code": "                cirq.RotXGate(half_turns=self.params['theta1']).on(b),\n                cirq.CZ(a, b),\n                cirq.RotXGate(half_turns=self.params['theta0']).on(a),\n                cirq.RotXGate(half_turns=self.params['theta1']).on(b),\n                cirq.MeasurementGate('all').on(a, b))\n\n",
+        "target_code_len": 299,
+        "diff_format": "@@ -35,15 +35,6 @@\n                 cirq.RotXGate(half_turns=self.params['theta1']).on(b),\n-                cirq.RotXGate(half_turns=self.params['theta2']).on(c),\n-                cirq.RotXGate(half_turns=self.params['theta3']).on(d),\n-                cirq.CNOT(a, b),\n-                cirq.CNOT(c, d),\n-                cirq.CNOT(b, c),\n-                cirq.RotZGate(half_turns=self.params['theta4']).on(a),\n-                cirq.RotZGate(half_turns=self.params['theta5']).on(b),\n-                cirq.RotZGate(half_turns=self.params['theta6']).on(c),\n-                cirq.RotZGate(half_turns=self.params['theta7']).on(d),\n-                cirq.MeasurementGate('all').on(a, b, c, d))\n-\n-\n-ansatz = ExampleAnsatz()\n+                cirq.CZ(a, b),\n+                cirq.RotXGate(half_turns=self.params['theta0']).on(a),\n+                cirq.RotXGate(half_turns=self.params['theta1']).on(b),\n+                cirq.MeasurementGate('all').on(a, b))\n \n",
+        "source_code_with_indent": "                cirq.RotXGate(half_turns=self.params['theta1']).on(b),\n                cirq.RotXGate(half_turns=self.params['theta2']).on(c),\n                cirq.RotXGate(half_turns=self.params['theta3']).on(d),\n                cirq.CNOT(a, b),\n                cirq.CNOT(c, d),\n                cirq.CNOT(b, c),\n                cirq.RotZGate(half_turns=self.params['theta4']).on(a),\n                cirq.RotZGate(half_turns=self.params['theta5']).on(b),\n                cirq.RotZGate(half_turns=self.params['theta6']).on(c),\n                cirq.RotZGate(half_turns=self.params['theta7']).on(d),\n                cirq.MeasurementGate('all').on(a, b, c, d))\n\n\n<DED><DED>ansatz = ExampleAnsatz()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                cirq.RotXGate(half_turns=self.params['theta1']).on(b),\n                cirq.CZ(a, b),\n                cirq.RotXGate(half_turns=self.params['theta0']).on(a),\n                cirq.RotXGate(half_turns=self.params['theta1']).on(b),\n                cirq.MeasurementGate('all').on(a, b))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

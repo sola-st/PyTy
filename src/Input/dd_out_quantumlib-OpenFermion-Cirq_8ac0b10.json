@@ -1,0 +1,53 @@
+[
+  {
+    "project": "quantumlib/OpenFermion-Cirq",
+    "commit": "8ac0b106a19cbd43eb4fc202cecd8d2be780fdc7",
+    "filename": "openfermioncirq/variational/study.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-OpenFermion-Cirq/openfermioncirq/variational/study.py",
+    "file_hunks_size": 24,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "openfermioncirq/variational/study.py:479:15 Call error [29]: `typing.Type[VariationalBlackBox]` is not a function.",
+    "message": " `typing.Type[VariationalBlackBox]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 479,
+    "warning_line": "        return VariationalBlackBox("
+  },
+  {
+    "project": "quantumlib/OpenFermion-Cirq",
+    "commit": "8ac0b106a19cbd43eb4fc202cecd8d2be780fdc7",
+    "filename": "openfermioncirq/variational/study.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-OpenFermion-Cirq/openfermioncirq/variational/study.py",
+    "file_hunks_size": 24,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "openfermioncirq/variational/study.py:543:20 Call error [29]: `typing.Type[VariationalStatefulBlackBox]` is not a function.",
+    "message": " `typing.Type[VariationalStatefulBlackBox]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 543,
+    "warning_line": "        black_box = VariationalStatefulBlackBox(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            reevaluate_final_params,\n            stateful,\n            save_x_vals,\n            seed,\n            default_initial_params\n    ) = args\n\n    if stateful:\n        black_box = VariationalStatefulBlackBox(\n                ansatz=ansatz,\n",
+        "source_code_len": 248,
+        "target_code": "            reevaluate_final_params,\n            save_x_vals,\n            seed,\n            default_initial_params,\n            black_box_type\n    ) = args\n\n    stateful = issubclass(black_box_type, StatefulBlackBox)\n\n    if stateful:\n        black_box = black_box_type(\n                ansatz=ansatz,\n",
+        "target_code_len": 302,
+        "diff_format": "@@ -535,10 +519,12 @@\n             reevaluate_final_params,\n-            stateful,\n             save_x_vals,\n             seed,\n-            default_initial_params\n+            default_initial_params,\n+            black_box_type\n     ) = args\n \n+    stateful = issubclass(black_box_type, StatefulBlackBox)\n+\n     if stateful:\n-        black_box = VariationalStatefulBlackBox(\n+        black_box = black_box_type(\n                 ansatz=ansatz,\n",
+        "source_code_with_indent": "            reevaluate_final_params,\n            stateful,\n            save_x_vals,\n            seed,\n            default_initial_params\n    ) = args\n\n    if stateful:\n        <IND>black_box = VariationalStatefulBlackBox(\n                ansatz=ansatz,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            reevaluate_final_params,\n            save_x_vals,\n            seed,\n            default_initial_params,\n            black_box_type\n    ) = args\n\n    stateful = issubclass(black_box_type, StatefulBlackBox)\n\n    if stateful:\n        <IND>black_box = black_box_type(\n                ansatz=ansatz,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

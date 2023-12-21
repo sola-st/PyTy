@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "a629e5a8195a5f5791a4b8f51a88d79de6c5724b",
+    "filename": "qcodes/instrument_drivers/meta/chip_meta.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/meta/chip_meta.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/meta/chip_meta.py:181:16 Incompatible parameter type [6]: Expected `Dict[str, List[str]]` for 5th parameter `connections` to call `DeviceMeta.__init__` but got `Dict[str, Dict[str, Union[List[str], str]]]`.",
+    "message": " Expected `Dict[str, List[str]]` for 5th parameter `connections` to call `DeviceMeta.__init__` but got `Dict[str, Dict[str, Union[List[str], str]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 181,
+    "warning_line": "                connections=connections,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        default_values: Dict[str, Dict[str, Any]],\n        connections: Dict[str, Dict[str, Union[str, List[str]]]],\n        set_defaults_on_load: bool = False,\n",
+        "source_code_len": 161,
+        "target_code": "        default_values: Dict[str, Dict[str, Any]],\n        connections: Dict[str, List[str]],\n        set_defaults_on_load: bool = False,\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -156,3 +156,3 @@\n         default_values: Dict[str, Dict[str, Any]],\n-        connections: Dict[str, Dict[str, Union[str, List[str]]]],\n+        connections: Dict[str, List[str]],\n         set_defaults_on_load: bool = False,\n",
+        "source_code_with_indent": "        default_values: Dict[str, Dict[str, Any]],\n        connections: Dict[str, Dict[str, Union[str, List[str]]]],\n        set_defaults_on_load: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        default_values: Dict[str, Dict[str, Any]],\n        connections: Dict[str, List[str]],\n        set_defaults_on_load: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

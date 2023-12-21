@@ -1,0 +1,70 @@
+[
+  {
+    "project": "irrdnet/irrd",
+    "commit": "2bef415a5e1654602bec69be92a51f4c4aae5e1d",
+    "filename": "irrd/conf/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/irrdnet-irrd/irrd/conf/__init__.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "irrd/conf/__init__.py:177:64 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 177,
+    "warning_line": "                config_module = importlib.util.module_from_spec(spec)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                spec = importlib.util.spec_from_file_location(\"logging_config\", logging_config_path)\n                config_module = importlib.util.module_from_spec(spec)\n                spec.loader.exec_module(config_module)  # type: ignore\n",
+        "source_code_len": 242,
+        "target_code": "                spec = importlib.util.spec_from_file_location(\"logging_config\", logging_config_path)\n                config_module = importlib.util.module_from_spec(spec)  # type: ignore\n                spec.loader.exec_module(config_module)  # type: ignore\n",
+        "target_code_len": 258,
+        "diff_format": "@@ -176,3 +176,3 @@\n                 spec = importlib.util.spec_from_file_location(\"logging_config\", logging_config_path)\n-                config_module = importlib.util.module_from_spec(spec)\n+                config_module = importlib.util.module_from_spec(spec)  # type: ignore\n                 spec.loader.exec_module(config_module)  # type: ignore\n",
+        "source_code_with_indent": "                <IND>spec = importlib.util.spec_from_file_location(\"logging_config\", logging_config_path)\n                config_module = importlib.util.module_from_spec(spec)\n                spec.loader.exec_module(config_module)  # type: ignore\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>spec = importlib.util.spec_from_file_location(\"logging_config\", logging_config_path)\n                config_module = importlib.util.module_from_spec(spec)  # type: ignore\n                spec.loader.exec_module(config_module)  # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "irrdnet/irrd",
+    "commit": "2bef415a5e1654602bec69be92a51f4c4aae5e1d",
+    "filename": "irrd/daemon/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/irrdnet-irrd/irrd/daemon/main.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "irrd/daemon/main.py:181:4 Incompatible return type [7]: Expected `Tuple[int, int]` but got `Tuple[Optional[int], Optional[int]]`.",
+    "message": " Expected `Tuple[int, int]` but got `Tuple[Optional[int], Optional[int]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 181,
+    "warning_line": "    return uid, gid",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_configured_owner() -> Tuple[int, int]:\n    uid = gid = None\n",
+        "source_code_len": 69,
+        "target_code": "\ndef get_configured_owner() -> Tuple[Optional[int], Optional[int]]:\n    uid = gid = None\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -173,3 +173,3 @@\n \n-def get_configured_owner() -> Tuple[int, int]:\n+def get_configured_owner() -> Tuple[Optional[int], Optional[int]]:\n     uid = gid = None\n",
+        "source_code_with_indent": "\n<DED>def get_configured_owner() -> Tuple[int, int]:\n    <IND>uid = gid = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_configured_owner() -> Tuple[Optional[int], Optional[int]]:\n    <IND>uid = gid = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

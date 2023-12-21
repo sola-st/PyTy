@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ros-tooling/cross_compile",
+    "commit": "4126f4ba2858f563fe391bc7a587bcb6744c7b2c",
+    "filename": "ros_cross_compile/builders.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ros-tooling-cross_compile/ros_cross_compile/builders.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ros_cross_compile/builders.py:35:8 Incompatible parameter type [6]: Expected `typing.Dict[str, str]` for 2nd parameter `environment` to call `DockerClient.run_container` but got `typing.Dict[str, int]`.",
+    "message": " Expected `typing.Dict[str, str]` for 2nd parameter `environment` to call `DockerClient.run_container` but got `typing.Dict[str, int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 35,
+    "warning_line": "        environment={",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        environment={\n            'OWNER_USER': os.getuid(),\n        },\n",
+        "source_code_len": 72,
+        "target_code": "        environment={\n            'OWNER_USER': str(os.getuid()),\n        },\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -35,3 +35,3 @@\n         environment={\n-            'OWNER_USER': os.getuid(),\n+            'OWNER_USER': str(os.getuid()),\n         },\n",
+        "source_code_with_indent": "        environment={\n            'OWNER_USER': os.getuid(),\n        },\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        environment={\n            'OWNER_USER': str(os.getuid()),\n        },\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ros-tooling/cross_compile",
+    "commit": "4126f4ba2858f563fe391bc7a587bcb6744c7b2c",
+    "filename": "ros_cross_compile/sysroot_creator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ros-tooling-cross_compile/ros_cross_compile/sysroot_creator.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ros_cross_compile/sysroot_creator.py:209:8 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 209,
+    "warning_line": "        logger.info('Successfully created sysroot docker image: %s', image_tag)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def create_workspace_sysroot_image(self, docker_client: DockerClient) -> str:\n        \"\"\"Build the target sysroot docker image and return its full name.\"\"\"\n        image_tag = self._platform.sysroot_image_tag\n",
+        "source_code_len": 214,
+        "target_code": "\n    def create_workspace_sysroot_image(self, docker_client: DockerClient) -> None:\n        \"\"\"Build the target sysroot docker image.\"\"\"\n        image_tag = self._platform.sysroot_image_tag\n",
+        "target_code_len": 190,
+        "diff_format": "@@ -191,4 +191,4 @@\n \n-    def create_workspace_sysroot_image(self, docker_client: DockerClient) -> str:\n-        \"\"\"Build the target sysroot docker image and return its full name.\"\"\"\n+    def create_workspace_sysroot_image(self, docker_client: DockerClient) -> None:\n+        \"\"\"Build the target sysroot docker image.\"\"\"\n         image_tag = self._platform.sysroot_image_tag\n",
+        "source_code_with_indent": "\n    <DED><DED>def create_workspace_sysroot_image(self, docker_client: DockerClient) -> str:\n        <IND>\"\"\"Build the target sysroot docker image and return its full name.\"\"\"\n        image_tag = self._platform.sysroot_image_tag\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def create_workspace_sysroot_image(self, docker_client: DockerClient) -> None:\n        <IND>\"\"\"Build the target sysroot docker image.\"\"\"\n        image_tag = self._platform.sysroot_image_tag\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

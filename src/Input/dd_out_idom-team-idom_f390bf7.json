@@ -1,0 +1,36 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "f390bf70b765fb8aac367f4492d2e43f6c5df9b7",
+    "filename": "src/idom/core/hooks.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/idom/core/hooks.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/idom/core/hooks.py:202:4 Incompatible return type [7]: Expected `Tuple[Variable[_StateType], typing.Callable[[Variable[_ActionType]], None]]` but got `Tuple[object, typing.Callable[[Variable[_ActionType]], None]]`.",
+    "message": " Expected `Tuple[Variable[_StateType], typing.Callable[[Variable[_ActionType]], None]]` but got `Tuple[object, typing.Callable[[Variable[_ActionType]], None]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 202,
+    "warning_line": "    return state, _use_const(lambda: _create_dispatcher(reducer, set_state))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef use_state(\n    initial_value: Union[_StateType, Callable[[], _StateType]],\n) -> Tuple[\n    _StateType, Callable[[Union[_StateType, Callable[[_StateType], _StateType]]], None]\n]:\n",
+        "source_code_len": 183,
+        "target_code": "\n@overload\ndef use_state(\n    initial_value: Callable[[], _StateType],\n) -> Tuple[\n    _StateType,\n    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n]:\n    ...\n\n\n@overload\ndef use_state(\n    initial_value: _StateType,\n) -> Tuple[\n    _StateType,\n    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n]:\n    ...\n\n\ndef use_state(\n    initial_value: _StateType | Callable[[], _StateType],\n) -> Tuple[\n    _StateType,\n    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n]:\n",
+        "target_code_len": 526,
+        "diff_format": "@@ -48,6 +48,27 @@\n \n+@overload\n def use_state(\n-    initial_value: Union[_StateType, Callable[[], _StateType]],\n+    initial_value: Callable[[], _StateType],\n ) -> Tuple[\n-    _StateType, Callable[[Union[_StateType, Callable[[_StateType], _StateType]]], None]\n+    _StateType,\n+    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n+]:\n+    ...\n+\n+\n+@overload\n+def use_state(\n+    initial_value: _StateType,\n+) -> Tuple[\n+    _StateType,\n+    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n+]:\n+    ...\n+\n+\n+def use_state(\n+    initial_value: _StateType | Callable[[], _StateType],\n+) -> Tuple[\n+    _StateType,\n+    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n ]:\n",
+        "source_code_with_indent": "\ndef use_state(\n    initial_value: Union[_StateType, Callable[[], _StateType]],\n) -> Tuple[\n    _StateType, Callable[[Union[_StateType, Callable[[_StateType], _StateType]]], None]\n]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n@overload\ndef use_state(\n    initial_value: Callable[[], _StateType],\n) -> Tuple[\n    _StateType,\n    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n]:\n    <IND>...\n\n\n<DED>@overload\ndef use_state(\n    initial_value: _StateType,\n) -> Tuple[\n    _StateType,\n    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n]:\n    <IND>...\n\n\n<DED>def use_state(\n    initial_value: _StateType | Callable[[], _StateType],\n) -> Tuple[\n    _StateType,\n    Callable[[_StateType | Callable[[_StateType], _StateType]], None],\n]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

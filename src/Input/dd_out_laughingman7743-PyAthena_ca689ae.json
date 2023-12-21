@@ -1,0 +1,36 @@
+[
+  {
+    "project": "laughingman7743/PyAthena",
+    "commit": "ca689ae86b553a3cf1652975ef4ba7910b251d4b",
+    "filename": "pyathena/result_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/laughingman7743-PyAthena/pyathena/result_set.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyathena/result_set.py:262:8 Incompatible attribute type [8]: Attribute `_rows` declared in class `AthenaResultSet` has type `collections.deque[typing.Any]` but is used as type `None`.",
+    "message": " Attribute `_rows` declared in class `AthenaResultSet` has type `collections.deque[typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 262,
+    "warning_line": "        self._rows = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._meta_data = None\n        self._rows = None\n        self._next_token = None\n",
+        "source_code_len": 89,
+        "target_code": "        self._meta_data = None\n        self._rows.clear()\n        self._next_token = None\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -261,3 +261,3 @@\n         self._meta_data = None\n-        self._rows = None\n+        self._rows.clear()\n         self._next_token = None\n",
+        "source_code_with_indent": "        self._meta_data = None\n        self._rows = None\n        self._next_token = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._meta_data = None\n        self._rows.clear()\n        self._next_token = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "project": "yt-project/yt",
+    "commit": "172d892c73069ff54b5226c0501cefdc99e60c1c",
+    "filename": "yt/visualization/plot_modifications.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/yt-project-yt/yt/visualization/plot_modifications.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "yt/visualization/plot_modifications.py:55:16 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[Tuple[Integral, Integral], Integral]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[Tuple[Integral, Integral], Integral]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 55,
+    "warning_line": "        and len(factor) == 2",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _validate_factor_tuple(\n    factor: Union[Tuple[Integral, Integral], Integral]\n) -> Tuple[int, int]:\n    if (\n",
+        "source_code_len": 115,
+        "target_code": "\ndef _validate_factor_tuple(factor) -> Tuple[int, int]:\n    if (\n",
+        "target_code_len": 65,
+        "diff_format": "@@ -49,5 +49,3 @@\n \n-def _validate_factor_tuple(\n-    factor: Union[Tuple[Integral, Integral], Integral]\n-) -> Tuple[int, int]:\n+def _validate_factor_tuple(factor) -> Tuple[int, int]:\n     if (\n",
+        "source_code_with_indent": "\n<DED>def _validate_factor_tuple(\n    factor: Union[Tuple[Integral, Integral], Integral]\n) -> Tuple[int, int]:\n    <IND>if (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _validate_factor_tuple(factor) -> Tuple[int, int]:\n    <IND>if (\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "yt-project/yt",
+    "commit": "172d892c73069ff54b5226c0501cefdc99e60c1c",
+    "filename": "yt/visualization/plot_modifications.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/yt-project-yt/yt/visualization/plot_modifications.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "yt/visualization/plot_modifications.py:61:8 Incompatible return type [7]: Expected `Tuple[int, int]` but got `typing.Tuple[int, ...]`.",
+    "message": " Expected `Tuple[int, int]` but got `typing.Tuple[int, ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 61,
+    "warning_line": "        return tuple(int(_) for _ in factor)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _validate_factor_tuple(\n    factor: Union[Tuple[Integral, Integral], Integral]\n) -> Tuple[int, int]:\n    if (\n",
+        "source_code_len": 115,
+        "target_code": "\ndef _validate_factor_tuple(factor) -> Tuple[int, int]:\n    if (\n",
+        "target_code_len": 65,
+        "diff_format": "@@ -49,5 +49,3 @@\n \n-def _validate_factor_tuple(\n-    factor: Union[Tuple[Integral, Integral], Integral]\n-) -> Tuple[int, int]:\n+def _validate_factor_tuple(factor) -> Tuple[int, int]:\n     if (\n",
+        "source_code_with_indent": "\n<DED>def _validate_factor_tuple(\n    factor: Union[Tuple[Integral, Integral], Integral]\n) -> Tuple[int, int]:\n    <IND>if (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _validate_factor_tuple(factor) -> Tuple[int, int]:\n    <IND>if (\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # in any case we return a with strict typing\n        return tuple(int(_) for _ in factor)\n    elif isinstance(factor, Integral):\n",
+        "source_code_len": 137,
+        "target_code": "        # in any case we return a with strict typing\n        return (int(factor[0]), int(factor[1]))\n    elif isinstance(factor, Integral):\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -60,3 +58,3 @@\n         # in any case we return a with strict typing\n-        return tuple(int(_) for _ in factor)\n+        return (int(factor[0]), int(factor[1]))\n     elif isinstance(factor, Integral):\n",
+        "source_code_with_indent": "        # in any case we return a with strict typing\n        <IND>return tuple(int(_) for _ in factor)\n    <DED>elif isinstance(factor, Integral):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # in any case we return a with strict typing\n        <IND>return (int(factor[0]), int(factor[1]))\n    <DED>elif isinstance(factor, Integral):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

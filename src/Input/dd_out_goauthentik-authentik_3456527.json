@@ -1,0 +1,100 @@
+[
+  {
+    "project": "goauthentik/authentik",
+    "commit": "3456527f10261bd39a415d3ad5e685c347a651c0",
+    "filename": "passbook/policies/process.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goauthentik-authentik/passbook/policies/process.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "passbook/policies/process.py:15:30 Incompatible variable type [9]: user is declared to have type `User` but is used as type `None`.",
+    "message": " user is declared to have type `User` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 15,
+    "warning_line": "def cache_key(policy: Policy, user: User = None) -> str:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from multiprocessing.connection import Connection\n\n",
+        "source_code_len": 51,
+        "target_code": "from multiprocessing.connection import Connection\nfrom typing import Optional\n\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -3,2 +3,3 @@\n from multiprocessing.connection import Connection\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from multiprocessing.connection import Connection\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from multiprocessing.connection import Connection\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef cache_key(policy: Policy, user: User = None) -> str:\n    \"\"\"Generate Cache key for policy\"\"\"\n",
+        "source_code_len": 98,
+        "target_code": "\ndef cache_key(policy: Policy, user: Optional[User] = None) -> str:\n    \"\"\"Generate Cache key for policy\"\"\"\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -14,3 +15,3 @@\n \n-def cache_key(policy: Policy, user: User = None) -> str:\n+def cache_key(policy: Policy, user: Optional[User] = None) -> str:\n     \"\"\"Generate Cache key for policy\"\"\"\n",
+        "source_code_with_indent": "\ndef cache_key(policy: Policy, user: User = None) -> str:\n    <IND>\"\"\"Generate Cache key for policy\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef cache_key(policy: Policy, user: Optional[User] = None) -> str:\n    <IND>\"\"\"Generate Cache key for policy\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "goauthentik/authentik",
+    "commit": "3456527f10261bd39a415d3ad5e685c347a651c0",
+    "filename": "passbook/providers/saml/utils/time.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goauthentik-authentik/passbook/providers/saml/utils/time.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "passbook/providers/saml/utils/time.py:41:20 Incompatible variable type [9]: delta is declared to have type `datetime.timedelta` but is used as type `None`.",
+    "message": " delta is declared to have type `datetime.timedelta` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 41,
+    "warning_line": "def get_time_string(delta: datetime.timedelta = None) -> str:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import datetime\n\n",
+        "source_code_len": 17,
+        "target_code": "import datetime\nfrom typing import Optional\n\n",
+        "target_code_len": 45,
+        "diff_format": "@@ -2,2 +2,3 @@\n import datetime\n+from typing import Optional\n \n",
+        "source_code_with_indent": "import datetime\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import datetime\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_time_string(delta: datetime.timedelta = None) -> str:\n    \"\"\"Get Data formatted in SAML format\"\"\"\n",
+        "source_code_len": 107,
+        "target_code": "\ndef get_time_string(delta: Optional[datetime.timedelta] = None) -> str:\n    \"\"\"Get Data formatted in SAML format\"\"\"\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -40,3 +41,3 @@\n \n-def get_time_string(delta: datetime.timedelta = None) -> str:\n+def get_time_string(delta: Optional[datetime.timedelta] = None) -> str:\n     \"\"\"Get Data formatted in SAML format\"\"\"\n",
+        "source_code_with_indent": "\n<DED>def get_time_string(delta: datetime.timedelta = None) -> str:\n    <IND>\"\"\"Get Data formatted in SAML format\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_time_string(delta: Optional[datetime.timedelta] = None) -> str:\n    <IND>\"\"\"Get Data formatted in SAML format\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

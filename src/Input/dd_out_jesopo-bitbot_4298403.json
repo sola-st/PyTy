@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jesopo/bitbot",
+    "commit": "4298403164d476199139d3b10f0194611eb4f702",
+    "filename": "src/utils/parse/spec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jesopo-bitbot/src/utils/parse/spec.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/utils/parse/spec.py:23:27 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `SpecArgumentType._set_modifier` but got `typing.Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `SpecArgumentType._set_modifier` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 23,
+    "warning_line": "        self._set_modifier(modifier)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _set_modifier(self, modifier: str):\n        pass\n",
+        "source_code_len": 58,
+        "target_code": "\n    def _set_modifier(self, modifier: typing.Optional[str]):\n        pass\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -25,3 +25,3 @@\n \n-    def _set_modifier(self, modifier: str):\n+    def _set_modifier(self, modifier: typing.Optional[str]):\n         pass\n",
+        "source_code_with_indent": "\n    <DED>def _set_modifier(self, modifier: str):\n        <IND>pass\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _set_modifier(self, modifier: typing.Optional[str]):\n        <IND>pass\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

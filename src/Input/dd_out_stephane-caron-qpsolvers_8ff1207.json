@@ -1,0 +1,51 @@
+[
+  {
+    "project": "stephane-caron/qpsolvers",
+    "commit": "8ff1207052fff37bada8f8d92fe4636303489dea",
+    "filename": "qpsolvers/ecos_.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stephane-caron-qpsolvers/qpsolvers/ecos_.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qpsolvers/ecos_.py:92:20 Incompatible parameter type [6]: Expected `typing.List[typing.Any]` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "message": " Expected `typing.List[typing.Any]` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 92,
+    "warning_line": "        dims['l'] = 0",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from scipy.sparse import csc_matrix\nfrom typing import Optional\n\n",
+        "source_code_len": 65,
+        "target_code": "from scipy.sparse import csc_matrix\nfrom typing import Any, Dict, Optional\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -24,3 +24,3 @@\n from scipy.sparse import csc_matrix\n-from typing import Optional\n+from typing import Any, Dict, Optional\n \n",
+        "source_code_with_indent": "from scipy.sparse import csc_matrix\nfrom typing import Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from scipy.sparse import csc_matrix\nfrom typing import Any, Dict, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    dims = {'q': [L.shape[0] + 2]}\n    if G is None:\n",
+        "source_code_len": 54,
+        "target_code": "\n    dims: Dict[str, Any] = {'q': [L.shape[0] + 2]}\n    if G is None:\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -87,3 +87,3 @@\n \n-    dims = {'q': [L.shape[0] + 2]}\n+    dims: Dict[str, Any] = {'q': [L.shape[0] + 2]}\n     if G is None:\n",
+        "source_code_with_indent": "\n    dims = {'q': [L.shape[0] + 2]}\n    if G is None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    dims: Dict[str, Any] = {'q': [L.shape[0] + 2]}\n    if G is None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "c022c8ce9e388e927ad83a6cb750604354be2dc4",
+    "filename": "snapcraft/plugins/python.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/plugins/python.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/plugins/python.py:280:8 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 280,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from textwrap import dedent\nfrom typing import List, Set\n\n",
+        "source_code_len": 58,
+        "target_code": "from textwrap import dedent\nfrom typing import List, Optional, Set\n\n",
+        "target_code_len": 68,
+        "diff_format": "@@ -60,3 +60,3 @@\n from textwrap import dedent\n-from typing import List, Set\n+from typing import List, Optional, Set\n \n",
+        "source_code_with_indent": "from textwrap import dedent\nfrom typing import List, Set\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from textwrap import dedent\nfrom typing import List, Optional, Set\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _find_file(self, *, filename: str) -> str:\n        # source-subdir defaults to ''\n",
+        "source_code_len": 91,
+        "target_code": "\n    def _find_file(self, *, filename: str) -> Optional[str]:\n        # source-subdir defaults to ''\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -266,3 +266,3 @@\n \n-    def _find_file(self, *, filename: str) -> str:\n+    def _find_file(self, *, filename: str) -> Optional[str]:\n         # source-subdir defaults to ''\n",
+        "source_code_with_indent": "\n    <DED>def _find_file(self, *, filename: str) -> str:\n        # source-subdir defaults to ''\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _find_file(self, *, filename: str) -> Optional[str]:\n        # source-subdir defaults to ''\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

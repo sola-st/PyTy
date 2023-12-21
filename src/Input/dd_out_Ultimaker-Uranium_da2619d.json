@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "da2619d363aeea563f69d29ebc39b8c286cffddb",
+    "filename": "UM/Scene/Camera.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Scene/Camera.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Scene/Camera.py:33:39 Incompatible variable type [9]: parent is declared to have type `SceneNode.SceneNode` but is used as type `None`.",
+    "message": " parent is declared to have type `SceneNode.SceneNode` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 33,
+    "warning_line": "    def __init__(self, name: str = \"\", parent: SceneNode.SceneNode = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def getDefaultZoomFactor():\n        return -0.3334\n\n    def __init__(self, name: str = \"\", parent: SceneNode.SceneNode = None) -> None:\n        super().__init__(parent)\n",
+        "source_code_len": 191,
+        "target_code": "    @staticmethod\n    def getDefaultZoomFactor() -> float:\n        return -0.3334\n\n    def __init__(self, name: str = \"\", parent: Optional[SceneNode.SceneNode] = None) -> None:\n        super().__init__(parent)\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -29,6 +30,6 @@\n     @staticmethod\n-    def getDefaultZoomFactor():\n+    def getDefaultZoomFactor() -> float:\n         return -0.3334\n \n-    def __init__(self, name: str = \"\", parent: SceneNode.SceneNode = None) -> None:\n+    def __init__(self, name: str = \"\", parent: Optional[SceneNode.SceneNode] = None) -> None:\n         super().__init__(parent)\n",
+        "source_code_with_indent": "    <DED>@staticmethod\n    def getDefaultZoomFactor():\n        <IND>return -0.3334\n\n    <DED>def __init__(self, name: str = \"\", parent: SceneNode.SceneNode = None) -> None:\n        <IND>super().__init__(parent)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@staticmethod\n    def getDefaultZoomFactor() -> float:\n        <IND>return -0.3334\n\n    <DED>def __init__(self, name: str = \"\", parent: Optional[SceneNode.SceneNode] = None) -> None:\n        <IND>super().__init__(parent)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

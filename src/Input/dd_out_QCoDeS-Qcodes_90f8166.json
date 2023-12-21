@@ -1,0 +1,51 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "90f81663c91979187e86bb5a2d5ceb52d15479a8",
+    "filename": "qcodes/instrument_drivers/Keysight/private/Keysight_344xxA.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Keysight/private/Keysight_344xxA.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Keysight/private/Keysight_344xxA.py:421:24 Invalid type [31]: Expression `(int, str)` is not a valid type.",
+    "message": " Expression `(int, str)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 421,
+    "warning_line": "    def error(self) -> (int, str):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import logging\n\n",
+        "source_code_len": 16,
+        "target_code": "import logging\nfrom typing import Tuple\n\n",
+        "target_code_len": 41,
+        "diff_format": "@@ -5,2 +5,3 @@\n import logging\n+from typing import Tuple\n \n",
+        "source_code_with_indent": "import logging\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\nfrom typing import Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def error(self) -> (int, str):\n        \"\"\"\n",
+        "source_code_len": 48,
+        "target_code": "\n    def error(self) -> Tuple[int, str]:\n        \"\"\"\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -420,3 +421,3 @@\n \n-    def error(self) -> (int, str):\n+    def error(self) -> Tuple[int, str]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def error(self) -> (int, str):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def error(self) -> Tuple[int, str]:\n        <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,99 @@
+[
+  {
+    "project": "allenai/allennlp",
+    "commit": "5623e412d0ba8e7d8f3934caf55ca98fce659752",
+    "filename": "allennlp/data/fields/label_field.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/data/fields/label_field.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "allennlp/data/fields/label_field.py:41:17 Incompatible variable type [9]: num_labels is declared to have type `int` but is used as type `None`.",
+    "message": " num_labels is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 41,
+    "warning_line": "                 num_labels: int = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from allennlp.data.vocabulary import Vocabulary\n\n",
+        "source_code_len": 49,
+        "target_code": "from allennlp.data.vocabulary import Vocabulary\nfrom allennlp.common.checks import ConfigurationError\n\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -8,2 +8,3 @@\n from allennlp.data.vocabulary import Vocabulary\n+from allennlp.common.checks import ConfigurationError\n \n",
+        "source_code_with_indent": "from allennlp.data.vocabulary import Vocabulary\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from allennlp.data.vocabulary import Vocabulary\nfrom allennlp.common.checks import ConfigurationError\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 label_namespace: str = 'labels',\n                 num_labels: int = None) -> None:\n        self._label = label\n        self._label_namespace = label_namespace\n        if num_labels is None:\n            self._label_id = None\n            self._num_labels = None\n            if not self._label_namespace.endswith(\"labels\"):\n                logger.warning(\"Your label namespace was '%s'. We recommend you use a namespace \"\n                               \"ending with 'labels', so we don't add UNK and PAD tokens by \"\n                               \"default to your vocabulary.  See documentation for \"\n                               \"`non_padded_namespaces` parameter in Vocabulary.\", self._label_namespace)\n        else:\n            assert isinstance(label, int), \"Labels must be ints if you want to skip indexing\"\n            self._label_id = label\n            self._num_labels = num_labels\n\n",
+        "source_code_len": 907,
+        "target_code": "                 label_namespace: str = 'labels',\n                 skip_indexing: bool = False) -> None:\n        self._label = label\n        self._label_namespace = label_namespace\n        self._label_id = None\n        if not self._label_namespace.endswith(\"labels\"):\n            logger.warning(\"Your label namespace was '%s'. We recommend you use a namespace \"\n                           \"ending with 'labels', so we don't add UNK and PAD tokens by \"\n                           \"default to your vocabulary.  See documentation for \"\n                           \"`non_padded_namespaces` parameter in Vocabulary.\", self._label_namespace)\n        if skip_indexing:\n            if not isinstance(label, int):\n                raise ConfigurationError(\"In order to skip indexing, your labels must be integers. \"\n                                         \"Found label = {}\".format(label))\n            else:\n                self._label_id = label\n\n",
+        "target_code_len": 938,
+        "diff_format": "@@ -40,17 +40,17 @@\n                  label_namespace: str = 'labels',\n-                 num_labels: int = None) -> None:\n+                 skip_indexing: bool = False) -> None:\n         self._label = label\n         self._label_namespace = label_namespace\n-        if num_labels is None:\n-            self._label_id = None\n-            self._num_labels = None\n-            if not self._label_namespace.endswith(\"labels\"):\n-                logger.warning(\"Your label namespace was '%s'. We recommend you use a namespace \"\n-                               \"ending with 'labels', so we don't add UNK and PAD tokens by \"\n-                               \"default to your vocabulary.  See documentation for \"\n-                               \"`non_padded_namespaces` parameter in Vocabulary.\", self._label_namespace)\n-        else:\n-            assert isinstance(label, int), \"Labels must be ints if you want to skip indexing\"\n-            self._label_id = label\n-            self._num_labels = num_labels\n+        self._label_id = None\n+        if not self._label_namespace.endswith(\"labels\"):\n+            logger.warning(\"Your label namespace was '%s'. We recommend you use a namespace \"\n+                           \"ending with 'labels', so we don't add UNK and PAD tokens by \"\n+                           \"default to your vocabulary.  See documentation for \"\n+                           \"`non_padded_namespaces` parameter in Vocabulary.\", self._label_namespace)\n+        if skip_indexing:\n+            if not isinstance(label, int):\n+                raise ConfigurationError(\"In order to skip indexing, your labels must be integers. \"\n+                                         \"Found label = {}\".format(label))\n+            else:\n+                self._label_id = label\n \n",
+        "source_code_with_indent": "                 label_namespace: str = 'labels',\n                 num_labels: int = None) -> None:\n        <IND>self._label = label\n        self._label_namespace = label_namespace\n        if num_labels is None:\n            <IND>self._label_id = None\n            self._num_labels = None\n            if not self._label_namespace.endswith(\"labels\"):\n                <IND>logger.warning(\"Your label namespace was '%s'. We recommend you use a namespace \"\n                               \"ending with 'labels', so we don't add UNK and PAD tokens by \"\n                               \"default to your vocabulary.  See documentation for \"\n                               \"`non_padded_namespaces` parameter in Vocabulary.\", self._label_namespace)\n        <DED><DED>else:\n            <IND>assert isinstance(label, int), \"Labels must be ints if you want to skip indexing\"\n            self._label_id = label\n            self._num_labels = num_labels\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 label_namespace: str = 'labels',\n                 skip_indexing: bool = False) -> None:\n        <IND>self._label = label\n        self._label_namespace = label_namespace\n        self._label_id = None\n        if not self._label_namespace.endswith(\"labels\"):\n            <IND>logger.warning(\"Your label namespace was '%s'. We recommend you use a namespace \"\n                           \"ending with 'labels', so we don't add UNK and PAD tokens by \"\n                           \"default to your vocabulary.  See documentation for \"\n                           \"`non_padded_namespaces` parameter in Vocabulary.\", self._label_namespace)\n        <DED>if skip_indexing:\n            <IND>if not isinstance(label, int):\n                <IND>raise ConfigurationError(\"In order to skip indexing, your labels must be integers. \"\n                                         \"Found label = {}\".format(label))\n            <DED>else:\n                <IND>self._label_id = label\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            self._label_id = vocab.get_token_index(self._label, self._label_namespace)  # type: ignore\n            self._num_labels = vocab.get_vocab_size(self._label_namespace)\n\n",
+        "source_code_len": 179,
+        "target_code": "            self._label_id = vocab.get_token_index(self._label, self._label_namespace)  # type: ignore\n\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -65,3 +65,2 @@\n             self._label_id = vocab.get_token_index(self._label, self._label_namespace)  # type: ignore\n-            self._num_labels = vocab.get_vocab_size(self._label_namespace)\n \n",
+        "source_code_with_indent": "            <IND>self._label_id = vocab.get_token_index(self._label, self._label_namespace)  # type: ignore\n            self._num_labels = vocab.get_vocab_size(self._label_namespace)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>self._label_id = vocab.get_token_index(self._label, self._label_namespace)  # type: ignore\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def as_array(self, padding_lengths: Dict[str, int]) -> numpy.ndarray:  # pylint: disable=unused-argument\n        label_array = numpy.zeros(self._num_labels)\n        label_array[self._label_id] = 1\n        return label_array\n\n",
+        "source_code_len": 229,
+        "target_code": "    def as_array(self, padding_lengths: Dict[str, int]) -> numpy.ndarray:  # pylint: disable=unused-argument\n        return numpy.asarray([self._label_id])\n\n",
+        "target_code_len": 157,
+        "diff_format": "@@ -73,5 +72,3 @@\n     def as_array(self, padding_lengths: Dict[str, int]) -> numpy.ndarray:  # pylint: disable=unused-argument\n-        label_array = numpy.zeros(self._num_labels)\n-        label_array[self._label_id] = 1\n-        return label_array\n+        return numpy.asarray([self._label_id])\n \n",
+        "source_code_with_indent": "    def as_array(self, padding_lengths: Dict[str, int]) -> numpy.ndarray:  # pylint: disable=unused-argument\n        <IND>label_array = numpy.zeros(self._num_labels)\n        label_array[self._label_id] = 1\n        return label_array\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def as_array(self, padding_lengths: Dict[str, int]) -> numpy.ndarray:  # pylint: disable=unused-argument\n        <IND>return numpy.asarray([self._label_id])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "allenai/allennlp",
+    "commit": "5623e412d0ba8e7d8f3934caf55ca98fce659752",
+    "filename": "allennlp/data/fields/tag_field.py",
+    "min_patch_found": false,
+    "full_warning_msg": "allennlp/data/fields/tag_field.py:72:45 Incompatible parameter type [6]: Expected `List[typing.Any]` for 1st positional only parameter to call `pad_sequence_to_length` but got `Optional[List[int]]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/data/fields/tag_field.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "allenai/allennlp",
+    "commit": "5623e412d0ba8e7d8f3934caf55ca98fce659752",
+    "filename": "allennlp/data/fields/tag_field.py",
+    "min_patch_found": false,
+    "full_warning_msg": "allennlp/data/fields/tag_field.py:75:32 Unsupported operand [58]: `*` is not supported for operand types `List[int]` and `Optional[int]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/data/fields/tag_field.py'",
+    "dd_fail": true
+  }
+]

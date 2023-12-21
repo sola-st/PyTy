@@ -1,0 +1,51 @@
+[
+  {
+    "project": "mlco2/codecarbon",
+    "commit": "bb39e1d149f6caae6cba6626483fc7cc5c7e56ab",
+    "filename": "carbonserver/carbonserver/api/infra/repositories/repository_users.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mlco2-codecarbon/carbonserver/carbonserver/api/infra/repositories/repository_users.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "carbonserver/carbonserver/api/infra/repositories/repository_users.py:112:24 Unbound name [10]: Name `_api_key_generator` is used but not defined in the current scope.",
+    "message": " Name `_api_key_generator` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 112,
+    "warning_line": "                api_key=_api_key_generator(),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        )\n\n",
+        "source_code_len": 11,
+        "target_code": "        )\n\n    @staticmethod\n    def api_key_generator():\n        yield secrets.token_urlsafe(16)\n\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -95,2 +100,6 @@\n         )\n+\n+    @staticmethod\n+    def api_key_generator():\n+        yield secrets.token_urlsafe(16)\n \n",
+        "source_code_with_indent": "        )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n\n    <DED>@staticmethod\n    def api_key_generator():\n        <IND>yield secrets.token_urlsafe(16)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                hashed_password=user.password,\n                api_key=_api_key_generator(),\n                is_active=True,\n",
+        "source_code_len": 125,
+        "target_code": "                hashed_password=user.password,\n                api_key=SqlAlchemyRepository.api_key_generator(),\n                is_active=True,\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -111,3 +120,3 @@\n                 hashed_password=user.password,\n-                api_key=_api_key_generator(),\n+                api_key=SqlAlchemyRepository.api_key_generator(),\n                 is_active=True,\n",
+        "source_code_with_indent": "                hashed_password=user.password,\n                api_key=_api_key_generator(),\n                is_active=True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                hashed_password=user.password,\n                api_key=SqlAlchemyRepository.api_key_generator(),\n                is_active=True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

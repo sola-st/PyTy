@@ -1,0 +1,51 @@
+[
+  {
+    "project": "fkie-cad/FACT_core",
+    "commit": "dc17564c7ba096721ac124af5a355108aa7d3628",
+    "filename": "src/scheduler/Analysis.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fkie-cad-FACT_core/src/scheduler/Analysis.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/scheduler/Analysis.py:359:8 Incompatible variable type [9]: scheduled_analyses is declared to have type `List[str]` but is used as type `Set[str]`.",
+    "message": " scheduled_analyses is declared to have type `List[str]` but is used as type `Set[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 359,
+    "warning_line": "        scheduled_analyses = set(scheduled_analyses)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _get_cumulative_remaining_dependencies(self, scheduled_analyses: Iterable[str]) -> Set[str]:\n        return {\n",
+        "source_code_len": 119,
+        "target_code": "\n    def _add_dependencies_recursively(self, scheduled_analyses: List[str]) -> List[str]:\n        scheduled_analyses_set = set(scheduled_analyses)\n        while True:\n            new_dependencies = self._get_cumulative_remaining_dependencies(scheduled_analyses_set)\n            if not new_dependencies:\n                break\n            scheduled_analyses_set.update(new_dependencies)\n        return list(scheduled_analyses_set)\n\n    def _get_cumulative_remaining_dependencies(self, scheduled_analyses: Set[str]) -> Set[str]:\n        return {\n",
+        "target_code_len": 543,
+        "diff_format": "@@ -350,3 +350,12 @@\n \n-    def _get_cumulative_remaining_dependencies(self, scheduled_analyses: Iterable[str]) -> Set[str]:\n+    def _add_dependencies_recursively(self, scheduled_analyses: List[str]) -> List[str]:\n+        scheduled_analyses_set = set(scheduled_analyses)\n+        while True:\n+            new_dependencies = self._get_cumulative_remaining_dependencies(scheduled_analyses_set)\n+            if not new_dependencies:\n+                break\n+            scheduled_analyses_set.update(new_dependencies)\n+        return list(scheduled_analyses_set)\n+\n+    def _get_cumulative_remaining_dependencies(self, scheduled_analyses: Set[str]) -> Set[str]:\n         return {\n",
+        "source_code_with_indent": "\n    <DED>def _get_cumulative_remaining_dependencies(self, scheduled_analyses: Iterable[str]) -> Set[str]:\n        <IND>return {\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _add_dependencies_recursively(self, scheduled_analyses: List[str]) -> List[str]:\n        <IND>scheduled_analyses_set = set(scheduled_analyses)\n        while True:\n            <IND>new_dependencies = self._get_cumulative_remaining_dependencies(scheduled_analyses_set)\n            if not new_dependencies:\n                <IND>break\n            <DED>scheduled_analyses_set.update(new_dependencies)\n        <DED>return list(scheduled_analyses_set)\n\n    <DED>def _get_cumulative_remaining_dependencies(self, scheduled_analyses: Set[str]) -> Set[str]:\n        <IND>return {\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            for dependency in self.analysis_plugins[plugin].DEPENDENCIES\n        }\n\n    def _add_dependencies_recursively(self, scheduled_analyses: List[str]) -> List[str]:\n        scheduled_analyses = set(scheduled_analyses)\n        old_len = 0\n        while len(scheduled_analyses) != old_len:\n            old_len = len(scheduled_analyses)\n            scheduled_analyses.update(self._get_cumulative_remaining_dependencies(scheduled_analyses))\n        return list(scheduled_analyses)\n",
+        "source_code_len": 485,
+        "target_code": "            for dependency in self.analysis_plugins[plugin].DEPENDENCIES\n        }.difference(scheduled_analyses)\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -355,10 +364,2 @@\n             for dependency in self.analysis_plugins[plugin].DEPENDENCIES\n-        }\n-\n-    def _add_dependencies_recursively(self, scheduled_analyses: List[str]) -> List[str]:\n-        scheduled_analyses = set(scheduled_analyses)\n-        old_len = 0\n-        while len(scheduled_analyses) != old_len:\n-            old_len = len(scheduled_analyses)\n-            scheduled_analyses.update(self._get_cumulative_remaining_dependencies(scheduled_analyses))\n-        return list(scheduled_analyses)\n+        }.difference(scheduled_analyses)\n",
+        "source_code_with_indent": "            for dependency in self.analysis_plugins[plugin].DEPENDENCIES\n        }\n\n    <DED>def _add_dependencies_recursively(self, scheduled_analyses: List[str]) -> List[str]:\n        <IND>scheduled_analyses = set(scheduled_analyses)\n        old_len = 0\n        while len(scheduled_analyses) != old_len:\n            <IND>old_len = len(scheduled_analyses)\n            scheduled_analyses.update(self._get_cumulative_remaining_dependencies(scheduled_analyses))\n        <DED>return list(scheduled_analyses)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            for dependency in self.analysis_plugins[plugin].DEPENDENCIES\n        }.difference(scheduled_analyses)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

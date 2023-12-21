@@ -1,0 +1,36 @@
+[
+  {
+    "project": "relekang/python-semantic-release",
+    "commit": "f3ece78b2913e70f6b99907b192a1e92bbfd6b77",
+    "filename": "semantic_release/hvcs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/relekang-python-semantic-release/semantic_release/hvcs.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "semantic_release/hvcs.py:275:15 Unbound name [10]: Name `HTTPError` is used but not defined in the current scope.",
+    "message": " Name `HTTPError` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 275,
+    "warning_line": "        except HTTPError as e:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return True\n        except HTTPError as e:\n            logger.warning(f\"The github file upload {file} has failed: {e}\")\n",
+        "source_code_len": 132,
+        "target_code": "            return True\n        except requests.exceptions.HTTPError as e:\n            logger.warning(f\"The github file upload {file} has failed: {e}\")\n",
+        "target_code_len": 152,
+        "diff_format": "@@ -274,3 +278,3 @@\n             return True\n-        except HTTPError as e:\n+        except requests.exceptions.HTTPError as e:\n             logger.warning(f\"The github file upload {file} has failed: {e}\")\n",
+        "source_code_with_indent": "            return True\n        <DED>except HTTPError as e:\n            <IND>logger.warning(f\"The github file upload {file} has failed: {e}\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            return True\n        <DED>except requests.exceptions.HTTPError as e:\n            <IND>logger.warning(f\"The github file upload {file} has failed: {e}\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

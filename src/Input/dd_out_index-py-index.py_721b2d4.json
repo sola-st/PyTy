@@ -1,0 +1,36 @@
+[
+  {
+    "project": "index-py/index.py",
+    "commit": "721b2d49bc09514c73147291d9c725e47613a689",
+    "filename": "indexpy/openapi/functions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/index-py-index.py/indexpy/openapi/functions.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "indexpy/openapi/functions.py:125:4 Incompatible return type [7]: Expected `Variable[T (bound to typing.Callable[..., typing.Any])]` but got `typing.Union[typing.Type[typing.Any], Variable[T (bound to typing.Callable[..., typing.Any])]]`.",
+    "message": " Expected `Variable[T (bound to typing.Callable[..., typing.Any])]` but got `typing.Union[typing.Type[typing.Any], Variable[T (bound to typing.Callable[..., typing.Any])]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 125,
+    "warning_line": "    return handler",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    if isclass(handler):\n        for method in getattr(handler, \"__methods__\"):\n",
+        "source_code_len": 88,
+        "target_code": "    \"\"\"\n    if isinstance(handler, type):\n        for method in getattr(handler, \"__methods__\"):\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -112,3 +99,3 @@\n     \"\"\"\n-    if isclass(handler):\n+    if isinstance(handler, type):\n         for method in getattr(handler, \"__methods__\"):\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    if isclass(handler):\n        <IND>for method in getattr(handler, \"__methods__\"):\n",
+        "target_code_with_indent": "\n    if isinstance(handler, type):\n        <IND>for method in getattr(handler, \"__methods__\"):\n"
+      }
+    ]
+  }
+]

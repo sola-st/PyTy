@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ankitects/anki",
+    "commit": "e95c2fa6cec798298d1e31b345870e4e66c210ad",
+    "filename": "qt/aqt/dyndeckconf.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ankitects-anki/qt/aqt/dyndeckconf.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qt/aqt/dyndeckconf.py:191:8 Incompatible return type [7]: Expected `Tuple[str]` but got `Tuple[]`.",
+    "message": " Expected `Tuple[str]` but got `Tuple[]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 191,
+    "warning_line": "        return ()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _second_filter(self) -> Tuple[str]:\n        if self.form.secondFilter.isChecked():\n",
+        "source_code_len": 92,
+        "target_code": "\n    def _second_filter(self) -> Tuple[str, ...]:\n        if self.form.secondFilter.isChecked():\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -187,3 +187,3 @@\n \n-    def _second_filter(self) -> Tuple[str]:\n+    def _second_filter(self) -> Tuple[str, ...]:\n         if self.form.secondFilter.isChecked():\n",
+        "source_code_with_indent": "\n    <DED><DED>def _second_filter(self) -> Tuple[str]:\n        <IND>if self.form.secondFilter.isChecked():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def _second_filter(self) -> Tuple[str, ...]:\n        <IND>if self.form.secondFilter.isChecked():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

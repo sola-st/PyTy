@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ssato/python-anyconfig",
+    "commit": "d365abbb169a87e23cfdc71993ab1eceb837a1de",
+    "filename": "src/anyconfig/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ssato-python-anyconfig/src/anyconfig/utils.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/anyconfig/utils.py:288:31 Incompatible parameter type [6]: Expected `typing.Union[os.PathLike[str], str]` for 1st positional only parameter to call `pathlib.Path.__new__` but got `typing.Optional[str]`.",
+    "message": " Expected `typing.Union[os.PathLike[str], str]` for 1st positional only parameter to call `pathlib.Path.__new__` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 288,
+    "warning_line": "            yield pathlib.Path(base)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                         sep: str = os.path.sep\n                         ) -> typing.Tuple[typing.Optional[str],\n                                           typing.Optional[str]]:\n    \"\"\"\n",
+        "source_code_len": 187,
+        "target_code": "                         sep: str = os.path.sep\n                         ) -> typing.Tuple[str, str]:\n    \"\"\"\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -240,4 +240,3 @@\n                          sep: str = os.path.sep\n-                         ) -> typing.Tuple[typing.Optional[str],\n-                                           typing.Optional[str]]:\n+                         ) -> typing.Tuple[str, str]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                         sep: str = os.path.sep\n                         ) -> typing.Tuple[typing.Optional[str],\n                                           typing.Optional[str]]:\n    <IND>",
+        "target_code_with_indent": "                         sep: str = os.path.sep\n                         ) -> typing.Tuple[str, str]:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if marker not in path:\n        return (path, None)\n\n    if sep not in path:\n        return (None, path)\n\n    return split_re(marker, sep=sep).match(path).groups()  # type: ignore\n\n",
+        "source_code_len": 184,
+        "target_code": "    if marker not in path:\n        return (path, '')\n\n    if sep not in path:\n        return ('', path)\n\n    matched = split_re(marker, sep=sep).match(path)\n    if not matched:\n        raise ValueError(f'Looks invalid: {path}')\n\n    return typing.cast(typing.Tuple[str, str], matched.groups())\n\n",
+        "target_code_len": 295,
+        "diff_format": "@@ -257,8 +256,12 @@\n     if marker not in path:\n-        return (path, None)\n+        return (path, '')\n \n     if sep not in path:\n-        return (None, path)\n-\n-    return split_re(marker, sep=sep).match(path).groups()  # type: ignore\n+        return ('', path)\n+\n+    matched = split_re(marker, sep=sep).match(path)\n+    if not matched:\n+        raise ValueError(f'Looks invalid: {path}')\n+\n+    return typing.cast(typing.Tuple[str, str], matched.groups())\n \n",
+        "source_code_with_indent": "    if marker not in path:\n        <IND>return (path, None)\n\n    <DED>if sep not in path:\n        <IND>return (None, path)\n\n    <DED>return split_re(marker, sep=sep).match(path).groups()  # type: ignore\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if marker not in path:\n        <IND>return (path, '')\n\n    <DED>if sep not in path:\n        <IND>return ('', path)\n\n    <DED>matched = split_re(marker, sep=sep).match(path)\n    if not matched:\n        <IND>raise ValueError(f'Looks invalid: {path}')\n\n    <DED>return typing.cast(typing.Tuple[str, str], matched.groups())\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

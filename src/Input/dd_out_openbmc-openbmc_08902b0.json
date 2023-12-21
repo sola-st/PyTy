@@ -1,0 +1,36 @@
+[
+  {
+    "project": "openbmc/openbmc",
+    "commit": "08902b01500fb82ac050ec2dce9b6c4358075a17",
+    "filename": "poky/meta/lib/oe/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openbmc-openbmc/poky/meta/lib/oe/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poky/meta/lib/oe/utils.py:489:20 Unbound name [10]: Name `bb` is used but not defined in the current scope.",
+    "message": " Name `bb` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 489,
+    "warning_line": "class ImageQAFailed(bb.build.FuncFailed):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass ImageQAFailed(bb.build.FuncFailed):\n    def __init__(self, description, name=None, logfile=None):\n",
+        "source_code_len": 105,
+        "target_code": "\nclass ImageQAFailed(Exception):\n    def __init__(self, description, name=None, logfile=None):\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -488,3 +488,3 @@\n \n-class ImageQAFailed(bb.build.FuncFailed):\n+class ImageQAFailed(Exception):\n     def __init__(self, description, name=None, logfile=None):\n",
+        "source_code_with_indent": "\n<DED><DED>class ImageQAFailed(bb.build.FuncFailed):\n    <IND>def __init__(self, description, name=None, logfile=None):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class ImageQAFailed(Exception):\n    <IND>def __init__(self, description, name=None, logfile=None):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

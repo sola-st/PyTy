@@ -1,0 +1,36 @@
+[
+  {
+    "project": "desec-io/desec-stack",
+    "commit": "dc948e97ce9bb7593d7571994bc468413199ad49",
+    "filename": "api/desecapi/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/desec-io-desec-stack/api/desecapi/models.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "api/desecapi/models.py:482:59 Incompatible variable type [9]: check_time is declared to have type `datetime` but is used as type `None`.",
+    "message": " check_time is declared to have type `datetime` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 482,
+    "warning_line": "    def check_expiration(self, validity_period: timedelta, check_time: datetime = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def check_expiration(self, validity_period: timedelta, check_time: datetime = None):\n        \"\"\"\n        Checks if the action's timestamp is no older than the given validity period. Note that the message\n        authentication code itself is not verified by this method.\n        :param validity_period: How long after issuance the MAC of this action is considered valid.\n        :param check_time: Point in time for which to check the expiration. Defaults to datetime.now().\n        :return: True if valid, False if expired.\n        \"\"\"\n        issue_time = datetime.fromtimestamp(self.created)\n        check_time = check_time or datetime.now()\n        return check_time - issue_time <= validity_period\n\n    @property\n    def mac_state(self):\n        \"\"\"\n",
+        "source_code_len": 760,
+        "target_code": "\n    def is_expired(self):\n        \"\"\"\n        Checks if the action's timestamp is older than the given validity period. Note that the message\n        authentication code itself is not verified by this method.\n        :return: True if expired, False otherwise.\n        \"\"\"\n        created = datetime.fromtimestamp(self.created, tz=timezone.utc)\n        return timezone.now() - created > settings.VALIDITY_PERIOD_VERIFICATION_SIGNATURE\n\n    @property\n    def _mac_state(self):\n        \"\"\"\n",
+        "target_code_len": 488,
+        "diff_format": "@@ -481,16 +474,13 @@\n \n-    def check_expiration(self, validity_period: timedelta, check_time: datetime = None):\n-        \"\"\"\n-        Checks if the action's timestamp is no older than the given validity period. Note that the message\n+    def is_expired(self):\n+        \"\"\"\n+        Checks if the action's timestamp is older than the given validity period. Note that the message\n         authentication code itself is not verified by this method.\n-        :param validity_period: How long after issuance the MAC of this action is considered valid.\n-        :param check_time: Point in time for which to check the expiration. Defaults to datetime.now().\n-        :return: True if valid, False if expired.\n-        \"\"\"\n-        issue_time = datetime.fromtimestamp(self.created)\n-        check_time = check_time or datetime.now()\n-        return check_time - issue_time <= validity_period\n-\n-    @property\n-    def mac_state(self):\n+        :return: True if expired, False otherwise.\n+        \"\"\"\n+        created = datetime.fromtimestamp(self.created, tz=timezone.utc)\n+        return timezone.now() - created > settings.VALIDITY_PERIOD_VERIFICATION_SIGNATURE\n+\n+    @property\n+    def _mac_state(self):\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def check_expiration(self, validity_period: timedelta, check_time: datetime = None):\n        <IND>\"\"\"\n        Checks if the action's timestamp is no older than the given validity period. Note that the message\n        authentication code itself is not verified by this method.\n        :param validity_period: How long after issuance the MAC of this action is considered valid.\n        :param check_time: Point in time for which to check the expiration. Defaults to datetime.now().\n        :return: True if valid, False if expired.\n        \"\"\"\n        issue_time = datetime.fromtimestamp(self.created)\n        check_time = check_time or datetime.now()\n        return check_time - issue_time <= validity_period\n\n    <DED>@property\n    def mac_state(self):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def is_expired(self):\n        <IND>\"\"\"\n        Checks if the action's timestamp is older than the given validity period. Note that the message\n        authentication code itself is not verified by this method.\n        :return: True if expired, False otherwise.\n        \"\"\"\n        created = datetime.fromtimestamp(self.created, tz=timezone.utc)\n        return timezone.now() - created > settings.VALIDITY_PERIOD_VERIFICATION_SIGNATURE\n\n    <DED>@property\n    def _mac_state(self):\n        <IND>"
+      }
+    ]
+  }
+]

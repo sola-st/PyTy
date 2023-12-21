@@ -1,0 +1,36 @@
+[
+  {
+    "project": "christgau/wsdd",
+    "commit": "5c184f3149804579932c0ce860e0ed35c724d121",
+    "filename": "src/wsdd.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/christgau-wsdd/src/wsdd.py",
+    "file_hunks_size": 24,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/wsdd.py:49:29 Unsupported operand [58]: `*` is not supported for operand types `typing.Type[ctypes.c_uint8]` and `int`.",
+    "message": " `*` is not supported for operand types `typing.Type[ctypes.c_uint8]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 49,
+    "warning_line": "                    ('data', ctypes.c_uint8 * 24)]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n# sockaddr C type, with a larger data field to capture IPv6 addresses\n# unfortunately, the structures differ on Linux and FreeBSD\nif platform.system() == 'Linux':\n    class sockaddr(ctypes.Structure):\n        _fields_ = [('family', ctypes.c_uint16),\n                    ('data', ctypes.c_uint8 * 24)]\nelse:\n    class sockaddr(ctypes.Structure):\n        _fields_ = [('length', ctypes.c_uint8),\n                    ('family', ctypes.c_uint8),\n                    ('data', ctypes.c_uint8 * 24)]\n\n\nclass if_addrs(ctypes.Structure):\n    pass\n\n\nif_addrs._fields_ = [('next', ctypes.POINTER(if_addrs)),\n                     ('name', ctypes.c_char_p),\n                     ('flags', ctypes.c_uint),\n                     ('addr', ctypes.POINTER(sockaddr)),\n                     ('netmask', ctypes.POINTER(sockaddr))]\n\n\nclass MulticastInterface:\n",
+        "source_code_len": 837,
+        "target_code": "\nclass MulticastInterface:\n",
+        "target_code_len": 27,
+        "diff_format": "@@ -38,26 +37,2 @@\n \n-# sockaddr C type, with a larger data field to capture IPv6 addresses\n-# unfortunately, the structures differ on Linux and FreeBSD\n-if platform.system() == 'Linux':\n-    class sockaddr(ctypes.Structure):\n-        _fields_ = [('family', ctypes.c_uint16),\n-                    ('data', ctypes.c_uint8 * 24)]\n-else:\n-    class sockaddr(ctypes.Structure):\n-        _fields_ = [('length', ctypes.c_uint8),\n-                    ('family', ctypes.c_uint8),\n-                    ('data', ctypes.c_uint8 * 24)]\n-\n-\n-class if_addrs(ctypes.Structure):\n-    pass\n-\n-\n-if_addrs._fields_ = [('next', ctypes.POINTER(if_addrs)),\n-                     ('name', ctypes.c_char_p),\n-                     ('flags', ctypes.c_uint),\n-                     ('addr', ctypes.POINTER(sockaddr)),\n-                     ('netmask', ctypes.POINTER(sockaddr))]\n-\n-\n class MulticastInterface:\n",
+        "source_code_with_indent": "\n# sockaddr C type, with a larger data field to capture IPv6 addresses\n# unfortunately, the structures differ on Linux and FreeBSD\nif platform.system() == 'Linux':\n    <IND>class sockaddr(ctypes.Structure):\n        <IND>_fields_ = [('family', ctypes.c_uint16),\n                    ('data', ctypes.c_uint8 * 24)]\n<DED><DED>else:\n    <IND>class sockaddr(ctypes.Structure):\n        <IND>_fields_ = [('length', ctypes.c_uint8),\n                    ('family', ctypes.c_uint8),\n                    ('data', ctypes.c_uint8 * 24)]\n\n\n<DED><DED>class if_addrs(ctypes.Structure):\n    <IND>pass\n\n\n<DED>if_addrs._fields_ = [('next', ctypes.POINTER(if_addrs)),\n                     ('name', ctypes.c_char_p),\n                     ('flags', ctypes.c_uint),\n                     ('addr', ctypes.POINTER(sockaddr)),\n                     ('netmask', ctypes.POINTER(sockaddr))]\n\n\nclass MulticastInterface:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nclass MulticastInterface:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

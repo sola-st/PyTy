@@ -1,0 +1,138 @@
+[
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "accee50cde961af501bd0c6f424cd07dc5d63269",
+    "filename": "other/fischer_yates_shuffle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/other/fischer_yates_shuffle.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "other/fischer_yates_shuffle.py:12:23 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Type[list]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Type[list]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 12,
+    "warning_line": "    for _ in range(len(list)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import random\n\n\ndef fisher_yates_shuffle(data: list) -> list:\n    for _ in range(len(list)):\n        a = random.randint(0, len(list) - 1)\n        b = random.randint(0, len(list) - 1)\n        list[a], list[b] = list[b], list[a]\n    return list\n\n",
+        "source_code_len": 244,
+        "target_code": "import random\nfrom typing import Any\n\n\ndef fisher_yates_shuffle(data: list) -> list[Any]:\n    for _ in range(len(data)):\n        a = random.randint(0, len(data) - 1)\n        b = random.randint(0, len(data) - 1)\n        data[a], data[b] = data[b], data[a]\n    return data\n\n",
+        "target_code_len": 272,
+        "diff_format": "@@ -8,10 +8,11 @@\n import random\n+from typing import Any\n \n \n-def fisher_yates_shuffle(data: list) -> list:\n-    for _ in range(len(list)):\n-        a = random.randint(0, len(list) - 1)\n-        b = random.randint(0, len(list) - 1)\n-        list[a], list[b] = list[b], list[a]\n-    return list\n+def fisher_yates_shuffle(data: list) -> list[Any]:\n+    for _ in range(len(data)):\n+        a = random.randint(0, len(data) - 1)\n+        b = random.randint(0, len(data) - 1)\n+        data[a], data[b] = data[b], data[a]\n+    return data\n \n",
+        "source_code_with_indent": "import random\n\n\ndef fisher_yates_shuffle(data: list) -> list:\n    <IND>for _ in range(len(list)):\n        <IND>a = random.randint(0, len(list) - 1)\n        b = random.randint(0, len(list) - 1)\n        list[a], list[b] = list[b], list[a]\n    <DED>return list\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import random\nfrom typing import Any\n\n\ndef fisher_yates_shuffle(data: list) -> list[Any]:\n    <IND>for _ in range(len(data)):\n        <IND>a = random.randint(0, len(data) - 1)\n        b = random.randint(0, len(data) - 1)\n        data[a], data[b] = data[b], data[a]\n    <DED>return data\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "accee50cde961af501bd0c6f424cd07dc5d63269",
+    "filename": "other/fischer_yates_shuffle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/other/fischer_yates_shuffle.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "other/fischer_yates_shuffle.py:13:34 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Type[list]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Type[list]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 13,
+    "warning_line": "        a = random.randint(0, len(list) - 1)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import random\n\n\ndef fisher_yates_shuffle(data: list) -> list:\n    for _ in range(len(list)):\n        a = random.randint(0, len(list) - 1)\n        b = random.randint(0, len(list) - 1)\n        list[a], list[b] = list[b], list[a]\n    return list\n\n",
+        "source_code_len": 244,
+        "target_code": "import random\nfrom typing import Any\n\n\ndef fisher_yates_shuffle(data: list) -> list[Any]:\n    for _ in range(len(data)):\n        a = random.randint(0, len(data) - 1)\n        b = random.randint(0, len(data) - 1)\n        data[a], data[b] = data[b], data[a]\n    return data\n\n",
+        "target_code_len": 272,
+        "diff_format": "@@ -8,10 +8,11 @@\n import random\n+from typing import Any\n \n \n-def fisher_yates_shuffle(data: list) -> list:\n-    for _ in range(len(list)):\n-        a = random.randint(0, len(list) - 1)\n-        b = random.randint(0, len(list) - 1)\n-        list[a], list[b] = list[b], list[a]\n-    return list\n+def fisher_yates_shuffle(data: list) -> list[Any]:\n+    for _ in range(len(data)):\n+        a = random.randint(0, len(data) - 1)\n+        b = random.randint(0, len(data) - 1)\n+        data[a], data[b] = data[b], data[a]\n+    return data\n \n",
+        "source_code_with_indent": "import random\n\n\ndef fisher_yates_shuffle(data: list) -> list:\n    <IND>for _ in range(len(list)):\n        <IND>a = random.randint(0, len(list) - 1)\n        b = random.randint(0, len(list) - 1)\n        list[a], list[b] = list[b], list[a]\n    <DED>return list\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import random\nfrom typing import Any\n\n\ndef fisher_yates_shuffle(data: list) -> list[Any]:\n    <IND>for _ in range(len(data)):\n        <IND>a = random.randint(0, len(data) - 1)\n        b = random.randint(0, len(data) - 1)\n        data[a], data[b] = data[b], data[a]\n    <DED>return data\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "accee50cde961af501bd0c6f424cd07dc5d63269",
+    "filename": "other/fischer_yates_shuffle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/other/fischer_yates_shuffle.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "other/fischer_yates_shuffle.py:14:34 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Type[list]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Type[list]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 14,
+    "warning_line": "        b = random.randint(0, len(list) - 1)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import random\n\n\ndef fisher_yates_shuffle(data: list) -> list:\n    for _ in range(len(list)):\n        a = random.randint(0, len(list) - 1)\n        b = random.randint(0, len(list) - 1)\n        list[a], list[b] = list[b], list[a]\n    return list\n\n",
+        "source_code_len": 244,
+        "target_code": "import random\nfrom typing import Any\n\n\ndef fisher_yates_shuffle(data: list) -> list[Any]:\n    for _ in range(len(data)):\n        a = random.randint(0, len(data) - 1)\n        b = random.randint(0, len(data) - 1)\n        data[a], data[b] = data[b], data[a]\n    return data\n\n",
+        "target_code_len": 272,
+        "diff_format": "@@ -8,10 +8,11 @@\n import random\n+from typing import Any\n \n \n-def fisher_yates_shuffle(data: list) -> list:\n-    for _ in range(len(list)):\n-        a = random.randint(0, len(list) - 1)\n-        b = random.randint(0, len(list) - 1)\n-        list[a], list[b] = list[b], list[a]\n-    return list\n+def fisher_yates_shuffle(data: list) -> list[Any]:\n+    for _ in range(len(data)):\n+        a = random.randint(0, len(data) - 1)\n+        b = random.randint(0, len(data) - 1)\n+        data[a], data[b] = data[b], data[a]\n+    return data\n \n",
+        "source_code_with_indent": "import random\n\n\ndef fisher_yates_shuffle(data: list) -> list:\n    <IND>for _ in range(len(list)):\n        <IND>a = random.randint(0, len(list) - 1)\n        b = random.randint(0, len(list) - 1)\n        list[a], list[b] = list[b], list[a]\n    <DED>return list\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import random\nfrom typing import Any\n\n\ndef fisher_yates_shuffle(data: list) -> list[Any]:\n    <IND>for _ in range(len(data)):\n        <IND>a = random.randint(0, len(data) - 1)\n        b = random.randint(0, len(data) - 1)\n        data[a], data[b] = data[b], data[a]\n    <DED>return data\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "accee50cde961af501bd0c6f424cd07dc5d63269",
+    "filename": "other/fischer_yates_shuffle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/other/fischer_yates_shuffle.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "other/fischer_yates_shuffle.py:16:4 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got `typing.Type[list]`.",
+    "message": " Expected `typing.List[typing.Any]` but got `typing.Type[list]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 16,
+    "warning_line": "    return list",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import random\n\n\ndef fisher_yates_shuffle(data: list) -> list:\n    for _ in range(len(list)):\n        a = random.randint(0, len(list) - 1)\n        b = random.randint(0, len(list) - 1)\n        list[a], list[b] = list[b], list[a]\n    return list\n\n",
+        "source_code_len": 244,
+        "target_code": "import random\nfrom typing import Any\n\n\ndef fisher_yates_shuffle(data: list) -> list[Any]:\n    for _ in range(len(data)):\n        a = random.randint(0, len(data) - 1)\n        b = random.randint(0, len(data) - 1)\n        data[a], data[b] = data[b], data[a]\n    return data\n\n",
+        "target_code_len": 272,
+        "diff_format": "@@ -8,10 +8,11 @@\n import random\n+from typing import Any\n \n \n-def fisher_yates_shuffle(data: list) -> list:\n-    for _ in range(len(list)):\n-        a = random.randint(0, len(list) - 1)\n-        b = random.randint(0, len(list) - 1)\n-        list[a], list[b] = list[b], list[a]\n-    return list\n+def fisher_yates_shuffle(data: list) -> list[Any]:\n+    for _ in range(len(data)):\n+        a = random.randint(0, len(data) - 1)\n+        b = random.randint(0, len(data) - 1)\n+        data[a], data[b] = data[b], data[a]\n+    return data\n \n",
+        "source_code_with_indent": "import random\n\n\ndef fisher_yates_shuffle(data: list) -> list:\n    <IND>for _ in range(len(list)):\n        <IND>a = random.randint(0, len(list) - 1)\n        b = random.randint(0, len(list) - 1)\n        list[a], list[b] = list[b], list[a]\n    <DED>return list\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import random\nfrom typing import Any\n\n\ndef fisher_yates_shuffle(data: list) -> list[Any]:\n    <IND>for _ in range(len(data)):\n        <IND>a = random.randint(0, len(data) - 1)\n        b = random.randint(0, len(data) - 1)\n        data[a], data[b] = data[b], data[a]\n    <DED>return data\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

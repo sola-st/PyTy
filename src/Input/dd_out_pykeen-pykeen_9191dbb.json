@@ -1,0 +1,104 @@
+[
+  {
+    "project": "pykeen/pykeen",
+    "commit": "9191dbbbdecfc2f550671e6dbc6b7ef87a9f9515",
+    "filename": "src/pykeen/evaluation/evaluator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykeen-pykeen/src/pykeen/evaluation/evaluator.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/pykeen/evaluation/evaluator.py:68:8 Incompatible variable type [9]: batch_size is declared to have type `int` but is used as type `None`.",
+    "message": " batch_size is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 68,
+    "warning_line": "        batch_size: int = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        requires_positive_mask: bool = False,\n        batch_size: int = None,\n        slice_size: int = None,\n    ):\n",
+        "source_code_len": 117,
+        "target_code": "        requires_positive_mask: bool = False,\n        batch_size: Optional[int] = None,\n        slice_size: Optional[int] = None,\n        automatic_memory_optimization: bool = True,\n    ):\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -67,4 +67,5 @@\n         requires_positive_mask: bool = False,\n-        batch_size: int = None,\n-        slice_size: int = None,\n+        batch_size: Optional[int] = None,\n+        slice_size: Optional[int] = None,\n+        automatic_memory_optimization: bool = True,\n     ):\n",
+        "source_code_with_indent": "        requires_positive_mask: bool = False,\n        batch_size: int = None,\n        slice_size: int = None,\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        requires_positive_mask: bool = False,\n        batch_size: Optional[int] = None,\n        slice_size: Optional[int] = None,\n        automatic_memory_optimization: bool = True,\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pykeen/pykeen",
+    "commit": "9191dbbbdecfc2f550671e6dbc6b7ef87a9f9515",
+    "filename": "src/pykeen/evaluation/evaluator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykeen-pykeen/src/pykeen/evaluation/evaluator.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/pykeen/evaluation/evaluator.py:69:8 Incompatible variable type [9]: slice_size is declared to have type `int` but is used as type `None`.",
+    "message": " slice_size is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 69,
+    "warning_line": "        slice_size: int = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        requires_positive_mask: bool = False,\n        batch_size: int = None,\n        slice_size: int = None,\n    ):\n",
+        "source_code_len": 117,
+        "target_code": "        requires_positive_mask: bool = False,\n        batch_size: Optional[int] = None,\n        slice_size: Optional[int] = None,\n        automatic_memory_optimization: bool = True,\n    ):\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -67,4 +67,5 @@\n         requires_positive_mask: bool = False,\n-        batch_size: int = None,\n-        slice_size: int = None,\n+        batch_size: Optional[int] = None,\n+        slice_size: Optional[int] = None,\n+        automatic_memory_optimization: bool = True,\n     ):\n",
+        "source_code_with_indent": "        requires_positive_mask: bool = False,\n        batch_size: int = None,\n        slice_size: int = None,\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        requires_positive_mask: bool = False,\n        batch_size: Optional[int] = None,\n        slice_size: Optional[int] = None,\n        automatic_memory_optimization: bool = True,\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pykeen/pykeen",
+    "commit": "9191dbbbdecfc2f550671e6dbc6b7ef87a9f9515",
+    "filename": "src/pykeen/evaluation/evaluator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykeen-pykeen/src/pykeen/evaluation/evaluator.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/pykeen/evaluation/evaluator.py:150:12 Incompatible attribute type [8]: Attribute `slice_size` declared in class `Evaluator` has type `int` but is used as type `Optional[int]`.",
+    "message": " Attribute `slice_size` declared in class `Evaluator` has type `int` but is used as type `Optional[int]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 150,
+    "warning_line": "            self.slice_size = slice_size",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        requires_positive_mask: bool = False,\n        batch_size: int = None,\n        slice_size: int = None,\n    ):\n",
+        "source_code_len": 117,
+        "target_code": "        requires_positive_mask: bool = False,\n        batch_size: Optional[int] = None,\n        slice_size: Optional[int] = None,\n        automatic_memory_optimization: bool = True,\n    ):\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -67,4 +67,5 @@\n         requires_positive_mask: bool = False,\n-        batch_size: int = None,\n-        slice_size: int = None,\n+        batch_size: Optional[int] = None,\n+        slice_size: Optional[int] = None,\n+        automatic_memory_optimization: bool = True,\n     ):\n",
+        "source_code_with_indent": "        requires_positive_mask: bool = False,\n        batch_size: int = None,\n        slice_size: int = None,\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        requires_positive_mask: bool = False,\n        batch_size: Optional[int] = None,\n        slice_size: Optional[int] = None,\n        automatic_memory_optimization: bool = True,\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

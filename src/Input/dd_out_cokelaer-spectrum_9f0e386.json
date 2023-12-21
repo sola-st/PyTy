@@ -1,0 +1,36 @@
+[
+  {
+    "project": "cokelaer/spectrum",
+    "commit": "9f0e3861f9bf9db44f242516f0b4fd42fcc3225f",
+    "filename": "src/spectrum/mtm.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cokelaer-spectrum/src/spectrum/mtm.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/spectrum/mtm.py:47:29 Unbound name [10]: Name `libname` is used but not defined in the current scope.",
+    "message": " Name `libname` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 47,
+    "warning_line": "    mtspeclib = load_library(libname, p)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "try:\n    mtspeclib = load_library(libname, p)\nexcept:\n",
+        "source_code_len": 54,
+        "target_code": "try:\n    mtspeclib = load_library(lib_name, p)\nexcept:\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -46,3 +46,3 @@\n try:\n-    mtspeclib = load_library(libname, p)\n+    mtspeclib = load_library(lib_name, p)\n except:\n",
+        "source_code_with_indent": "try:\n    <IND>mtspeclib = load_library(libname, p)\n<DED>except:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "try:\n    <IND>mtspeclib = load_library(lib_name, p)\n<DED>except:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

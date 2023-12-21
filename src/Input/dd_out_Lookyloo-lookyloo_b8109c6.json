@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Lookyloo/lookyloo",
+    "commit": "b8109c6462343f06561ba52f767f389edc204a14",
+    "filename": "lookyloo/lookyloo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Lookyloo-lookyloo/lookyloo/lookyloo.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lookyloo/lookyloo.py:631:12 Incompatible variable type [9]: capture_dir is declared to have type `str` but is used as type `None`.",
+    "message": " capture_dir is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 631,
+    "warning_line": "            capture_dir = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self._captures_index.pop(capture_uuid)\n        capture_dir: str = self.redis.hget('lookup_dirs', capture_uuid)\n        if capture_dir and not Path(capture_dir).exists():\n",
+        "source_code_len": 182,
+        "target_code": "            self._captures_index.pop(capture_uuid)\n        capture_dir = self.redis.hget('lookup_dirs', capture_uuid)\n        if capture_dir and not Path(capture_dir).exists():\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -626,3 +627,3 @@\n             self._captures_index.pop(capture_uuid)\n-        capture_dir: str = self.redis.hget('lookup_dirs', capture_uuid)\n+        capture_dir = self.redis.hget('lookup_dirs', capture_uuid)\n         if capture_dir and not Path(capture_dir).exists():\n",
+        "source_code_with_indent": "            <DED>self._captures_index.pop(capture_uuid)\n        <DED>capture_dir: str = self.redis.hget('lookup_dirs', capture_uuid)\n        if capture_dir and not Path(capture_dir).exists():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>self._captures_index.pop(capture_uuid)\n        <DED>capture_dir = self.redis.hget('lookup_dirs', capture_uuid)\n        if capture_dir and not Path(capture_dir).exists():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

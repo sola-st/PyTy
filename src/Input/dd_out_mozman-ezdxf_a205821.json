@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "a2058217ad3c6cfab724992247566f56b9d3ffd3",
+    "filename": "src/ezdxf/tools/strip.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/tools/strip.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/ezdxf/tools/strip.py:122:8 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 122,
+    "warning_line": "        backup_file.unlink(missing_ok=True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            print(f'deleting backup file \"{backup_file.name}\"')\n        backup_file.unlink(missing_ok=True)\n\n",
+        "source_code_len": 109,
+        "target_code": "            print(f'deleting backup file \"{backup_file.name}\"')\n        backup_file.unlink(missing_ok=True)  # type: ignore\n    return True\n\n",
+        "target_code_len": 141,
+        "diff_format": "@@ -121,3 +122,4 @@\n             print(f'deleting backup file \"{backup_file.name}\"')\n-        backup_file.unlink(missing_ok=True)\n+        backup_file.unlink(missing_ok=True)  # type: ignore\n+    return True\n \n",
+        "source_code_with_indent": "            <IND>print(f'deleting backup file \"{backup_file.name}\"')\n        <DED>backup_file.unlink(missing_ok=True)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>print(f'deleting backup file \"{backup_file.name}\"')\n        <DED>backup_file.unlink(missing_ok=True)  # type: ignore\n    <DED>return True\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

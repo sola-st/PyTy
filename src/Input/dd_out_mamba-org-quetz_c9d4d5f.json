@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mamba-org/quetz",
+    "commit": "c9d4d5fae91ef64d00881d93eeb1367cc6d4feac",
+    "filename": "quetz/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mamba-org-quetz/quetz/main.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "quetz/main.py:567:12 Unsupported operand [58]: `+` is not supported for operand types `Optional[str]` and `str`.",
+    "message": " `+` is not supported for operand types `Optional[str]` and `str`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 567,
+    "warning_line": "            mirror_url + '/mirrors',",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if is_mirror and register_mirror:\n        mirror_url = new_channel.mirror_channel_url\n        headers = {\"x-api-key\": mirror_api_key} if mirror_api_key else {}\n",
+        "source_code_len": 164,
+        "target_code": "    if is_mirror and register_mirror:\n        mirror_url = str(new_channel.mirror_channel_url)\n        headers = {\"x-api-key\": mirror_api_key} if mirror_api_key else {}\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -563,3 +563,3 @@\n     if is_mirror and register_mirror:\n-        mirror_url = new_channel.mirror_channel_url\n+        mirror_url = str(new_channel.mirror_channel_url)\n         headers = {\"x-api-key\": mirror_api_key} if mirror_api_key else {}\n",
+        "source_code_with_indent": "    if is_mirror and register_mirror:\n        <IND>mirror_url = new_channel.mirror_channel_url\n        headers = {\"x-api-key\": mirror_api_key} if mirror_api_key else {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if is_mirror and register_mirror:\n        <IND>mirror_url = str(new_channel.mirror_channel_url)\n        headers = {\"x-api-key\": mirror_api_key} if mirror_api_key else {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

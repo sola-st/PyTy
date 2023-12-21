@@ -1,0 +1,172 @@
+[
+  {
+    "project": "spesmilo/electrum",
+    "commit": "557987d4ebfca40902e741254734f13e9150f1d9",
+    "filename": "electrum/address_synchronizer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spesmilo-electrum/electrum/address_synchronizer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrum/address_synchronizer.py:224:43 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `AddressSynchronizer.get_tx_height` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `AddressSynchronizer.get_tx_height` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 224,
+    "warning_line": "            tx_height = self.get_tx_height(tx_hash).height",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        tx_hash = tx.txid()\n        # assert tx_hash == tx.txid()  # disabled as expensive; test done by Synchronizer.\n        # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "source_code_len": 197,
+        "target_code": "        tx_hash = tx.txid()\n        if tx_hash is None:\n            raise Exception(\"cannot add tx without txid to wallet history\")\n        # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -214,3 +214,4 @@\n         tx_hash = tx.txid()\n-        # assert tx_hash == tx.txid()  # disabled as expensive; test done by Synchronizer.\n+        if tx_hash is None:\n+            raise Exception(\"cannot add tx without txid to wallet history\")\n         # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "source_code_with_indent": "        tx_hash = tx.txid()\n        # assert tx_hash == tx.txid()  # disabled as expensive; test done by Synchronizer.\n        # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        tx_hash = tx.txid()\n        if tx_hash is None:\n            <IND>raise Exception(\"cannot add tx without txid to wallet history\")\n        # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spesmilo/electrum",
+    "commit": "557987d4ebfca40902e741254734f13e9150f1d9",
+    "filename": "electrum/address_synchronizer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spesmilo-electrum/electrum/address_synchronizer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrum/address_synchronizer.py:284:22 Unsupported operand [58]: `+` is not supported for operand types `Optional[str]` and `str`.",
+    "message": " `+` is not supported for operand types `Optional[str]` and `str`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 284,
+    "warning_line": "                ser = tx_hash + ':%d'%n",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        tx_hash = tx.txid()\n        # assert tx_hash == tx.txid()  # disabled as expensive; test done by Synchronizer.\n        # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "source_code_len": 197,
+        "target_code": "        tx_hash = tx.txid()\n        if tx_hash is None:\n            raise Exception(\"cannot add tx without txid to wallet history\")\n        # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -214,3 +214,4 @@\n         tx_hash = tx.txid()\n-        # assert tx_hash == tx.txid()  # disabled as expensive; test done by Synchronizer.\n+        if tx_hash is None:\n+            raise Exception(\"cannot add tx without txid to wallet history\")\n         # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "source_code_with_indent": "        tx_hash = tx.txid()\n        # assert tx_hash == tx.txid()  # disabled as expensive; test done by Synchronizer.\n        # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        tx_hash = tx.txid()\n        if tx_hash is None:\n            <IND>raise Exception(\"cannot add tx without txid to wallet history\")\n        # we need self.transaction_lock but get_tx_height will take self.lock\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spesmilo/electrum",
+    "commit": "557987d4ebfca40902e741254734f13e9150f1d9",
+    "filename": "electrum/lnpeer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spesmilo-electrum/electrum/lnpeer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrum/lnpeer.py:583:68 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `channel_id_from_funding_tx` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `channel_id_from_funding_tx` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 583,
+    "warning_line": "        channel_id, funding_txid_bytes = channel_id_from_funding_tx(funding_txid, funding_index)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        funding_txid = funding_tx.txid()\n        funding_index = funding_tx.outputs().index(funding_output)\n",
+        "source_code_len": 108,
+        "target_code": "        funding_txid = funding_tx.txid()\n        assert funding_txid\n        funding_index = funding_tx.outputs().index(funding_output)\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -580,2 +580,3 @@\n         funding_txid = funding_tx.txid()\n+        assert funding_txid\n         funding_index = funding_tx.outputs().index(funding_output)\n",
+        "source_code_with_indent": "        <DED>funding_txid = funding_tx.txid()\n        funding_index = funding_tx.outputs().index(funding_output)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>funding_txid = funding_tx.txid()\n        assert funding_txid\n        funding_index = funding_tx.outputs().index(funding_output)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spesmilo/electrum",
+    "commit": "557987d4ebfca40902e741254734f13e9150f1d9",
+    "filename": "electrum/lnpeer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spesmilo-electrum/electrum/lnpeer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrum/lnpeer.py:588:41 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `Outpoint.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `Outpoint.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 588,
+    "warning_line": "            \"funding_outpoint\": Outpoint(funding_txid, funding_index),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        funding_txid = funding_tx.txid()\n        funding_index = funding_tx.outputs().index(funding_output)\n",
+        "source_code_len": 108,
+        "target_code": "        funding_txid = funding_tx.txid()\n        assert funding_txid\n        funding_index = funding_tx.outputs().index(funding_output)\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -580,2 +580,3 @@\n         funding_txid = funding_tx.txid()\n+        assert funding_txid\n         funding_index = funding_tx.outputs().index(funding_output)\n",
+        "source_code_with_indent": "        <DED>funding_txid = funding_tx.txid()\n        funding_index = funding_tx.outputs().index(funding_output)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>funding_txid = funding_tx.txid()\n        assert funding_txid\n        funding_index = funding_tx.outputs().index(funding_output)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spesmilo/electrum",
+    "commit": "557987d4ebfca40902e741254734f13e9150f1d9",
+    "filename": "electrum/lnpeer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spesmilo-electrum/electrum/lnpeer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrum/lnpeer.py:610:8 Incompatible return type [7]: Expected `Channel` but got `Tuple[Channel, PartialTransaction]`.",
+    "message": " Expected `Channel` but got `Tuple[Channel, PartialTransaction]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 610,
+    "warning_line": "        return chan, funding_tx",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    async def channel_establishment_flow(self, password: Optional[str], funding_tx: 'PartialTransaction', funding_sat: int, \n                                         push_msat: int, temp_channel_id: bytes) -> Channel:\n        await asyncio.wait_for(self.initialized.wait(), LN_P2P_NETWORK_TIMEOUT)\n",
+        "source_code_len": 298,
+        "target_code": "    async def channel_establishment_flow(self, password: Optional[str], funding_tx: 'PartialTransaction', funding_sat: int, \n                                         push_msat: int, temp_channel_id: bytes) -> Tuple[Channel, 'PartialTransaction']:\n        await asyncio.wait_for(self.initialized.wait(), LN_P2P_NETWORK_TIMEOUT)\n",
+        "target_code_len": 327,
+        "diff_format": "@@ -493,3 +493,3 @@\n     async def channel_establishment_flow(self, password: Optional[str], funding_tx: 'PartialTransaction', funding_sat: int, \n-                                         push_msat: int, temp_channel_id: bytes) -> Channel:\n+                                         push_msat: int, temp_channel_id: bytes) -> Tuple[Channel, 'PartialTransaction']:\n         await asyncio.wait_for(self.initialized.wait(), LN_P2P_NETWORK_TIMEOUT)\n",
+        "source_code_with_indent": "    async def channel_establishment_flow(self, password: Optional[str], funding_tx: 'PartialTransaction', funding_sat: int, \n                                         push_msat: int, temp_channel_id: bytes) -> Channel:\n        <IND>await asyncio.wait_for(self.initialized.wait(), LN_P2P_NETWORK_TIMEOUT)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    async def channel_establishment_flow(self, password: Optional[str], funding_tx: 'PartialTransaction', funding_sat: int, \n                                         push_msat: int, temp_channel_id: bytes) -> Tuple[Channel, 'PartialTransaction']:\n        <IND>await asyncio.wait_for(self.initialized.wait(), LN_P2P_NETWORK_TIMEOUT)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

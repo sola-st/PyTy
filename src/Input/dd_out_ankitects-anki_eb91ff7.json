@@ -1,0 +1,138 @@
+[
+  {
+    "project": "ankitects/anki",
+    "commit": "eb91ff742122e1d37dd0ff882bcacb8db2d39395",
+    "filename": "qt/aqt/customstudy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ankitects-anki/qt/aqt/customstudy.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qt/aqt/customstudy.py:40:8 Unbound name [10]: Name `qconnect` is used but not defined in the current scope.",
+    "message": " Name `qconnect` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 40,
+    "warning_line": "        qconnect(f.radioNew.clicked, lambda: self.onRadioChange(RADIO_NEW))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def setupSignals(self) -> None:\n        f = self.form\n",
+        "source_code_len": 59,
+        "target_code": "\n    def setupSignals(self):\n        f = self.form\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -37,3 +37,3 @@\n \n-    def setupSignals(self) -> None:\n+    def setupSignals(self):\n         f = self.form\n",
+        "source_code_with_indent": "\n    <DED>def setupSignals(self) -> None:\n        <IND>f = self.form\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def setupSignals(self):\n        <IND>f = self.form\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ankitects/anki",
+    "commit": "eb91ff742122e1d37dd0ff882bcacb8db2d39395",
+    "filename": "qt/aqt/customstudy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ankitects-anki/qt/aqt/customstudy.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qt/aqt/customstudy.py:51:15 Unbound name [10]: Name `DYN_MAX_SIZE` is used but not defined in the current scope.",
+    "message": " Name `DYN_MAX_SIZE` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 51,
+    "warning_line": "        smax = DYN_MAX_SIZE",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def onRadioChange(self, idx: int) -> None:\n        f = self.form\n",
+        "source_code_len": 70,
+        "target_code": "\n    def onRadioChange(self, idx):\n        f = self.form\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -46,3 +46,3 @@\n \n-    def onRadioChange(self, idx: int) -> None:\n+    def onRadioChange(self, idx):\n         f = self.form\n",
+        "source_code_with_indent": "\n    <DED>def onRadioChange(self, idx: int) -> None:\n        <IND>f = self.form\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def onRadioChange(self, idx):\n        <IND>f = self.form\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ankitects/anki",
+    "commit": "eb91ff742122e1d37dd0ff882bcacb8db2d39395",
+    "filename": "qt/aqt/customstudy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ankitects-anki/qt/aqt/customstudy.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qt/aqt/customstudy.py:61:16 Incompatible variable type [9]: num is declared to have type `int` but is used as type `str`.",
+    "message": " num is declared to have type `int` but is used as type `str`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 61,
+    "warning_line": "                num = \"1000+\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        def plus(num: int) -> str:\n            if num > 1000:\n                num = \"1000+\"\n",
+        "source_code_len": 93,
+        "target_code": "\n        def plus(num):\n            if num == 1000:\n                num = \"1000+\"\n",
+        "target_code_len": 82,
+        "diff_format": "@@ -58,4 +58,4 @@\n \n-        def plus(num: int) -> str:\n-            if num > 1000:\n+        def plus(num):\n+            if num == 1000:\n                 num = \"1000+\"\n",
+        "source_code_with_indent": "\n        def plus(num: int) -> str:\n            <IND>if num > 1000:\n                <IND>num = \"1000+\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        def plus(num):\n            <IND>if num == 1000:\n                <IND>num = \"1000+\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ankitects/anki",
+    "commit": "eb91ff742122e1d37dd0ff882bcacb8db2d39395",
+    "filename": "qt/aqt/customstudy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ankitects-anki/qt/aqt/customstudy.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qt/aqt/customstudy.py:119:27 Unbound name [10]: Name `QDialogButtonBox` is used but not defined in the current scope.",
+    "message": " Name `QDialogButtonBox` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 119,
+    "warning_line": "        f.buttonBox.button(QDialogButtonBox.Ok).setText(ok)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def onRadioChange(self, idx: int) -> None:\n        f = self.form\n",
+        "source_code_len": 70,
+        "target_code": "\n    def onRadioChange(self, idx):\n        f = self.form\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -46,3 +46,3 @@\n \n-    def onRadioChange(self, idx: int) -> None:\n+    def onRadioChange(self, idx):\n         f = self.form\n",
+        "source_code_with_indent": "\n    <DED>def onRadioChange(self, idx: int) -> None:\n        <IND>f = self.form\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def onRadioChange(self, idx):\n        <IND>f = self.form\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

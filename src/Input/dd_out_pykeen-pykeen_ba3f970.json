@@ -1,0 +1,70 @@
+[
+  {
+    "project": "pykeen/pykeen",
+    "commit": "ba3f970ec538da70b72b6b56ceacd22d3ad08cf4",
+    "filename": "src/pykeen/sampling/basic_negative_sampler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykeen-pykeen/src/pykeen/sampling/basic_negative_sampler.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/pykeen/sampling/basic_negative_sampler.py:98:43 Call error [29]: `src.pykeen.sampling.filtering.Filterer` is not a function.",
+    "message": " `src.pykeen.sampling.filtering.Filterer` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 98,
+    "warning_line": "            negative_batch, batch_filter = self.filterer(negative_batch=negative_batch)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            # for that reason we choose the random value from [0, num_{heads, relations, tails} -1]\n            if self.filterer is None:\n                negative_batch[start:stop, index] += (\n                    negative_batch[start:stop, index] >= positive_batch[start:stop, index]\n                ).long()\n\n        # If filtering is activated, all negative triples that are positive in the training dataset will be removed\n        if self.filterer is not None:\n            negative_batch, batch_filter = self.filterer(negative_batch=negative_batch)\n        else:\n            batch_filter = None\n\n        return negative_batch, batch_filter\n",
+        "source_code_len": 643,
+        "target_code": "            # for that reason we choose the random value from [0, num_{heads, relations, tails} -1]\n            negative_batch[start:stop, index] += (\n                negative_batch[start:stop, index] >= positive_batch[start:stop, index]\n            ).long()\n\n        return negative_batch.view(-1, self.num_negs_per_pos, 3)\n",
+        "target_code_len": 325,
+        "diff_format": "@@ -90,13 +86,6 @@\n             # for that reason we choose the random value from [0, num_{heads, relations, tails} -1]\n-            if self.filterer is None:\n-                negative_batch[start:stop, index] += (\n-                    negative_batch[start:stop, index] >= positive_batch[start:stop, index]\n-                ).long()\n+            negative_batch[start:stop, index] += (\n+                negative_batch[start:stop, index] >= positive_batch[start:stop, index]\n+            ).long()\n \n-        # If filtering is activated, all negative triples that are positive in the training dataset will be removed\n-        if self.filterer is not None:\n-            negative_batch, batch_filter = self.filterer(negative_batch=negative_batch)\n-        else:\n-            batch_filter = None\n-\n-        return negative_batch, batch_filter\n+        return negative_batch.view(-1, self.num_negs_per_pos, 3)\n",
+        "source_code_with_indent": "            # for that reason we choose the random value from [0, num_{heads, relations, tails} -1]\n            if self.filterer is None:\n                <IND>negative_batch[start:stop, index] += (\n                    negative_batch[start:stop, index] >= positive_batch[start:stop, index]\n                ).long()\n\n        # If filtering is activated, all negative triples that are positive in the training dataset will be removed\n        <DED><DED>if self.filterer is not None:\n            <IND>negative_batch, batch_filter = self.filterer(negative_batch=negative_batch)\n        <DED>else:\n            <IND>batch_filter = None\n\n        <DED>return negative_batch, batch_filter\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            # for that reason we choose the random value from [0, num_{heads, relations, tails} -1]\n            negative_batch[start:stop, index] += (\n                negative_batch[start:stop, index] >= positive_batch[start:stop, index]\n            ).long()\n\n        <DED>return negative_batch.view(-1, self.num_negs_per_pos, 3)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pykeen/pykeen",
+    "commit": "ba3f970ec538da70b72b6b56ceacd22d3ad08cf4",
+    "filename": "src/pykeen/sampling/bernoulli_negative_sampler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykeen-pykeen/src/pykeen/sampling/bernoulli_negative_sampler.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/pykeen/sampling/bernoulli_negative_sampler.py:116:43 Call error [29]: `src.pykeen.sampling.filtering.Filterer` is not a function.",
+    "message": " `src.pykeen.sampling.filtering.Filterer` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 116,
+    "warning_line": "            negative_batch, batch_filter = self.filterer(negative_batch=negative_batch)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        # If filtering is activated, all negative triples that are positive in the training dataset will be removed\n        if self.filterer is not None:\n            negative_batch, batch_filter = self.filterer(negative_batch=negative_batch)\n        else:\n            # To make sure we don't replace the head by the original value\n            # we shift all values greater or equal than the original value by one up\n            # for that reason we choose the random value from [0, num_entities -1]\n            negative_batch[head_mask, 0] += (negative_batch[head_mask, 0] >= positive_batch[head_mask, 0]).long()\n            negative_batch[tail_mask, 2] += (negative_batch[tail_mask, 2] >= positive_batch[tail_mask, 2]).long()\n            batch_filter = None\n\n        return negative_batch, batch_filter\n",
+        "source_code_len": 805,
+        "target_code": "\n        # To make sure we don't replace the head by the original value\n        # we shift all values greater or equal than the original value by one up\n        # for that reason we choose the random value from [0, num_entities -1]\n        negative_batch[head_mask, 0] += (negative_batch[head_mask, 0] >= positive_batch[head_mask, 0]).long()\n        negative_batch[tail_mask, 2] += (negative_batch[tail_mask, 2] >= positive_batch[tail_mask, 2]).long()\n\n        return negative_batch.view(-1, self.num_negs_per_pos, 3)\n",
+        "target_code_len": 518,
+        "diff_format": "@@ -113,13 +108,8 @@\n \n-        # If filtering is activated, all negative triples that are positive in the training dataset will be removed\n-        if self.filterer is not None:\n-            negative_batch, batch_filter = self.filterer(negative_batch=negative_batch)\n-        else:\n-            # To make sure we don't replace the head by the original value\n-            # we shift all values greater or equal than the original value by one up\n-            # for that reason we choose the random value from [0, num_entities -1]\n-            negative_batch[head_mask, 0] += (negative_batch[head_mask, 0] >= positive_batch[head_mask, 0]).long()\n-            negative_batch[tail_mask, 2] += (negative_batch[tail_mask, 2] >= positive_batch[tail_mask, 2]).long()\n-            batch_filter = None\n+        # To make sure we don't replace the head by the original value\n+        # we shift all values greater or equal than the original value by one up\n+        # for that reason we choose the random value from [0, num_entities -1]\n+        negative_batch[head_mask, 0] += (negative_batch[head_mask, 0] >= positive_batch[head_mask, 0]).long()\n+        negative_batch[tail_mask, 2] += (negative_batch[tail_mask, 2] >= positive_batch[tail_mask, 2]).long()\n \n-        return negative_batch, batch_filter\n+        return negative_batch.view(-1, self.num_negs_per_pos, 3)\n",
+        "source_code_with_indent": "\n        # If filtering is activated, all negative triples that are positive in the training dataset will be removed\n        if self.filterer is not None:\n            <IND>negative_batch, batch_filter = self.filterer(negative_batch=negative_batch)\n        <DED>else:\n            # To make sure we don't replace the head by the original value\n            # we shift all values greater or equal than the original value by one up\n            # for that reason we choose the random value from [0, num_entities -1]\n            <IND>negative_batch[head_mask, 0] += (negative_batch[head_mask, 0] >= positive_batch[head_mask, 0]).long()\n            negative_batch[tail_mask, 2] += (negative_batch[tail_mask, 2] >= positive_batch[tail_mask, 2]).long()\n            batch_filter = None\n\n        <DED>return negative_batch, batch_filter\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        # To make sure we don't replace the head by the original value\n        # we shift all values greater or equal than the original value by one up\n        # for that reason we choose the random value from [0, num_entities -1]\n        negative_batch[head_mask, 0] += (negative_batch[head_mask, 0] >= positive_batch[head_mask, 0]).long()\n        negative_batch[tail_mask, 2] += (negative_batch[tail_mask, 2] >= positive_batch[tail_mask, 2]).long()\n\n        return negative_batch.view(-1, self.num_negs_per_pos, 3)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

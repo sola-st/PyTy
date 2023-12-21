@@ -1,0 +1,36 @@
+[
+  {
+    "project": "huggingface/transformers",
+    "commit": "7c6d63298f27b4a386f4603262a4603a2a6bf057",
+    "filename": "src/transformers/hf_argparser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/huggingface-transformers/src/transformers/hf_argparser.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/transformers/hf_argparser.py:97:41 Incompatible parameter type [6]: Expected `Iterable[Variable[_T]]` for 1st positional only parameter to call `list.__init__` but got `typing.Type[typing.Any]`.",
+    "message": " Expected `Iterable[Variable[_T]]` for 1st positional only parameter to call `list.__init__` but got `typing.Type[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 97,
+    "warning_line": "                kwargs[\"choices\"] = list(field.type)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if isinstance(field.type, type) and issubclass(field.type, Enum):\n                kwargs[\"choices\"] = list(field.type)\n                kwargs[\"type\"] = field.type\n                if field.default is not dataclasses.MISSING:\n",
+        "source_code_len": 236,
+        "target_code": "            if isinstance(field.type, type) and issubclass(field.type, Enum):\n                kwargs[\"choices\"] = [x.value for x in field.type]\n                kwargs[\"type\"] = type(kwargs[\"choices\"][0])\n                if field.default is not dataclasses.MISSING:\n",
+        "target_code_len": 265,
+        "diff_format": "@@ -96,4 +96,4 @@\n             if isinstance(field.type, type) and issubclass(field.type, Enum):\n-                kwargs[\"choices\"] = list(field.type)\n-                kwargs[\"type\"] = field.type\n+                kwargs[\"choices\"] = [x.value for x in field.type]\n+                kwargs[\"type\"] = type(kwargs[\"choices\"][0])\n                 if field.default is not dataclasses.MISSING:\n",
+        "source_code_with_indent": "            <DED><DED>if isinstance(field.type, type) and issubclass(field.type, Enum):\n                <IND>kwargs[\"choices\"] = list(field.type)\n                kwargs[\"type\"] = field.type\n                if field.default is not dataclasses.MISSING:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED><DED>if isinstance(field.type, type) and issubclass(field.type, Enum):\n                <IND>kwargs[\"choices\"] = [x.value for x in field.type]\n                kwargs[\"type\"] = type(kwargs[\"choices\"][0])\n                if field.default is not dataclasses.MISSING:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

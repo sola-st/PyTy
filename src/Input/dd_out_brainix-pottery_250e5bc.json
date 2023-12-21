@@ -1,0 +1,53 @@
+[
+  {
+    "project": "brainix/pottery",
+    "commit": "250e5bc958dda838cce011a8edc848c46b5f37fc",
+    "filename": "pottery/cache.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/brainix-pottery/pottery/cache.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pottery/cache.py:186:17 Incompatible variable type [9]: key is declared to have type `str` but is used as type `None`.",
+    "message": " key is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 186,
+    "warning_line": "                 key: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 *,\n                 key: str = None,\n                 redis: Optional[Redis] = None,\n",
+        "source_code_len": 102,
+        "target_code": "                 *,\n                 key: Optional[str] = None,\n                 redis: Optional[Redis] = None,\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -185,3 +185,3 @@\n                  *,\n-                 key: str = None,\n+                 key: Optional[str] = None,\n                  redis: Optional[Redis] = None,\n",
+        "source_code_with_indent": "                 *,\n                 key: str = None,\n                 redis: Optional[Redis] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 *,\n                 key: Optional[str] = None,\n                 redis: Optional[Redis] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "brainix/pottery",
+    "commit": "250e5bc958dda838cce011a8edc848c46b5f37fc",
+    "filename": "pottery/hyper.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/brainix-pottery/pottery/hyper.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pottery/hyper.py:63:40 Incompatible parameter type [6]: Expected `Union[bytes, float, int, str]` for 2nd positional only parameter to call `redis.client.Redis.pfadd` but got `Union[None, List[typing.Any], typing.Dict[str, typing.Any], bool, float, int, str]`.",
+    "message": " Expected `Union[bytes, float, int, str]` for 2nd positional only parameter to call `redis.client.Redis.pfadd` but got `Union[None, List[typing.Any], typing.Dict[str, typing.Any], bool, float, int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 63,
+    "warning_line": "            self.redis.pfadd(self.key, *encoded_values)"
+  }
+]

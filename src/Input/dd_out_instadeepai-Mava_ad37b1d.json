@@ -1,0 +1,36 @@
+[
+  {
+    "project": "instadeepai/Mava",
+    "commit": "ad37b1d66c179f237f63408518b4c20ab846ad4b",
+    "filename": "mava/wrappers/pettingzoo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/wrappers/pettingzoo.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/wrappers/pettingzoo.py:221:23 Unbound name [10]: Name `Tuple` is used but not defined in the current scope.",
+    "message": " Name `Tuple` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 221,
+    "warning_line": "    def reset(self) -> Tuple[dm_env.TimeStep, np.array]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def reset(self) -> Tuple[dm_env.TimeStep, np.array]:\n        \"\"\"Resets the episode.\"\"\"\n",
+        "source_code_len": 92,
+        "target_code": "\n    def reset(self) -> dm_env.TimeStep:\n        \"\"\"Resets the episode.\"\"\"\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -220,3 +220,3 @@\n \n-    def reset(self) -> Tuple[dm_env.TimeStep, np.array]:\n+    def reset(self) -> dm_env.TimeStep:\n         \"\"\"Resets the episode.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED><DED>def reset(self) -> Tuple[dm_env.TimeStep, np.array]:\n        <IND>\"\"\"Resets the episode.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def reset(self) -> dm_env.TimeStep:\n        <IND>\"\"\"Resets the episode.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

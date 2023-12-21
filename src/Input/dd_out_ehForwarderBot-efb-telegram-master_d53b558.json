@@ -1,0 +1,45 @@
+[
+  {
+    "project": "ehForwarderBot/efb-telegram-master",
+    "commit": "d53b5584f49881edb12808ac1c6491d3d714306a",
+    "filename": "efb_telegram_master/chat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ehForwarderBot-efb-telegram-master/efb_telegram_master/chat.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "efb_telegram_master/chat.py:360:8 Incompatible return type [7]: Expected `ETMChatMixin` but got `ETMBaseChatMixin`.",
+    "message": " Expected `ETMChatMixin` but got `ETMBaseChatMixin`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 360,
+    "warning_line": "        return chat",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    if isinstance(chat, ETMBaseChatMixin):\n        return chat\n",
+        "source_code_len": 71,
+        "target_code": "    \"\"\"\n    if isinstance(chat, ETMChatType):\n        return chat\n",
+        "target_code_len": 66,
+        "diff_format": "@@ -358,3 +358,3 @@\n     \"\"\"\n-    if isinstance(chat, ETMBaseChatMixin):\n+    if isinstance(chat, ETMChatType):\n         return chat\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    if isinstance(chat, ETMBaseChatMixin):\n        <IND>return chat\n",
+        "target_code_with_indent": "\n    if isinstance(chat, ETMChatType):\n        <IND>return chat\n"
+      }
+    ]
+  },
+  {
+    "project": "ehForwarderBot/efb-telegram-master",
+    "commit": "d53b5584f49881edb12808ac1c6491d3d714306a",
+    "filename": "efb_telegram_master/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "efb_telegram_master/utils.py:239:20 Incompatible parameter type [6]: Expected `_typeshed.SupportsRead[Variable[typing.AnyStr <: [str, bytes]]]` for 1st positional only parameter to call `copyfileobj` but got `Optional[IO[typing.Any]]`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  }
+]

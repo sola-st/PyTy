@@ -1,0 +1,138 @@
+[
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "ad695701e35fa5d1ade6eeff87e364e71838cfc3",
+    "filename": "tensorhive/controllers/task.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/controllers/task.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/controllers/task.py:277:4 Incompatible return type [7]: Expected `List[Dict[typing.Any, typing.Any]]` but got `Tuple[Dict[str, typing.Any], int]`.",
+    "message": " Expected `List[Dict[typing.Any, typing.Any]]` but got `Tuple[Dict[str, typing.Any], int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 277,
+    "warning_line": "    return {'msg': T['all']['success'], 'tasks': results}, 200",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef business_get_all(user_id: Optional[int], sync_all: Optional[bool]) -> List[Dict]:\n    \"\"\"Fetches either all Task records or only those in relation with specific user.\n",
+        "source_code_len": 172,
+        "target_code": "\ndef business_get_all(user_id: Optional[int], sync_all: Optional[bool]) -> Tuple[Content, HttpStatusCode]:\n    \"\"\"Fetches either all Task records or only those in relation with specific user.\n",
+        "target_code_len": 192,
+        "diff_format": "@@ -255,3 +255,3 @@\n \n-def business_get_all(user_id: Optional[int], sync_all: Optional[bool]) -> List[Dict]:\n+def business_get_all(user_id: Optional[int], sync_all: Optional[bool]) -> Tuple[Content, HttpStatusCode]:\n     \"\"\"Fetches either all Task records or only those in relation with specific user.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>def business_get_all(user_id: Optional[int], sync_all: Optional[bool]) -> List[Dict]:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def business_get_all(user_id: Optional[int], sync_all: Optional[bool]) -> Tuple[Content, HttpStatusCode]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "ad695701e35fa5d1ade6eeff87e364e71838cfc3",
+    "filename": "tensorhive/controllers/task.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/controllers/task.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/controllers/task.py:640:12 Incompatible variable type [9]: user is declared to have type `str` but is used as type `User`.",
+    "message": " user is declared to have type `str` but is used as type `User`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 640,
+    "warning_line": "            user = User(password='`123`123', email=random_email, username=random_username)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    user = '155136mm'\n    host = 'galileo.eti.pg.gda.pl'\n",
+        "source_code_len": 58,
+        "target_code": "\n    host = 'galileo.eti.pg.gda.pl'\n",
+        "target_code_len": 36,
+        "diff_format": "@@ -541,3 +541,2 @@\n \n-    user = '155136mm'\n     host = 'galileo.eti.pg.gda.pl'\n",
+        "source_code_with_indent": "\n    user = '155136mm'\n    host = 'galileo.eti.pg.gda.pl'\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    host = 'galileo.eti.pg.gda.pl'\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "ad695701e35fa5d1ade6eeff87e364e71838cfc3",
+    "filename": "tensorhive/core/task_nursery.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/core/task_nursery.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/core/task_nursery.py:151:8 Incompatible return type [7]: Expected `List[str]` but got `str`.",
+    "message": " Expected `List[str]` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 151,
+    "warning_line": "        return 'screen -ls | cut -f 2 | sed -e \"1d;$d\" | grep -e \"{}\"'.format(grep_pattern)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def get_active_sessions(grep_pattern: str) -> List[str]:\n        \"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "source_code_len": 164,
+        "target_code": "    @staticmethod\n    def get_active_sessions(grep_pattern: str) -> str:\n        \"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -148,3 +148,3 @@\n     @staticmethod\n-    def get_active_sessions(grep_pattern: str) -> List[str]:\n+    def get_active_sessions(grep_pattern: str) -> str:\n         \"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "source_code_with_indent": "    <DED>@staticmethod\n    def get_active_sessions(grep_pattern: str) -> List[str]:\n        <IND>\"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@staticmethod\n    def get_active_sessions(grep_pattern: str) -> str:\n        <IND>\"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "ad695701e35fa5d1ade6eeff87e364e71838cfc3",
+    "filename": "tensorhive/core/task_nursery.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/core/task_nursery.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/core/task_nursery.py:281:37 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `ssh.run_command` but got `List[str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `ssh.run_command` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 281,
+    "warning_line": "    output = ssh.run_command(client, command)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def get_active_sessions(grep_pattern: str) -> List[str]:\n        \"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "source_code_len": 164,
+        "target_code": "    @staticmethod\n    def get_active_sessions(grep_pattern: str) -> str:\n        \"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -148,3 +148,3 @@\n     @staticmethod\n-    def get_active_sessions(grep_pattern: str) -> List[str]:\n+    def get_active_sessions(grep_pattern: str) -> str:\n         \"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "source_code_with_indent": "    <DED>@staticmethod\n    def get_active_sessions(grep_pattern: str) -> List[str]:\n        <IND>\"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@staticmethod\n    def get_active_sessions(grep_pattern: str) -> str:\n        <IND>\"\"\"Fetches the full names of screen sessions matching given grep pattern.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

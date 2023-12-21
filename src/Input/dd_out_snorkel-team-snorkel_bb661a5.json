@@ -1,0 +1,36 @@
+[
+  {
+    "project": "snorkel-team/snorkel",
+    "commit": "bb661a5fad269771f0849832fe73919e1ea5b728",
+    "filename": "snorkel/classification/multitask_classifier.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snorkel-team-snorkel/snorkel/classification/multitask_classifier.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snorkel/classification/multitask_classifier.py:232:46 Incompatible parameter type [6]: Expected `Mapping[Union[int, str], typing.Any]` for 2nd positional only parameter to call `dict.__setitem__` but got `Union[List[typing.Any], Mapping[typing.Any, typing.Any]]`.",
+    "message": " Expected `Mapping[Union[int, str], typing.Any]` for 2nd positional only parameter to call `dict.__setitem__` but got `Union[List[typing.Any], Mapping[typing.Any, typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 232,
+    "warning_line": "                    outputs[operation.name] = output",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nOutputDict = Dict[str, Mapping[Union[str, int], Any]]\n\n",
+        "source_code_len": 56,
+        "target_code": "\nOutputDict = Dict[str, Union[Any, Mapping[str, Any]]]\n\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -28,3 +29,3 @@\n \n-OutputDict = Dict[str, Mapping[Union[str, int], Any]]\n+OutputDict = Dict[str, Union[Any, Mapping[str, Any]]]\n \n",
+        "source_code_with_indent": "\nOutputDict = Dict[str, Mapping[Union[str, int], Any]]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nOutputDict = Dict[str, Union[Any, Mapping[str, Any]]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

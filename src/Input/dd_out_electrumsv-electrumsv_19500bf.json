@@ -1,0 +1,51 @@
+[
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "19500bfdb40ce5a25cbb94598be3f46a5a4f0a23",
+    "filename": "electrumsv/daemon.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/daemon.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/daemon.py:186:52 Incompatible parameter type [6]: Expected `int` for 2nd parameter `port` to call `AiohttpServer.__init__` but got `Union[None, int, str]`.",
+    "message": " Expected `int` for 2nd parameter `port` to call `AiohttpServer.__init__` but got `Union[None, int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 186,
+    "warning_line": "        self.rest_server = AiohttpServer(host=host, port=restapi_port, username=username,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import base64\nfrom typing import Any, Dict, Optional, Tuple, Union\nimport os\n",
+        "source_code_len": 77,
+        "target_code": "import base64\nfrom typing import Any, cast, Dict, Optional, Tuple, Union\nimport os\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -27,3 +27,3 @@\n import base64\n-from typing import Any, Dict, Optional, Tuple, Union\n+from typing import Any, cast, Dict, Optional, Tuple, Union\n import os\n",
+        "source_code_with_indent": "import base64\nfrom typing import Any, Dict, Optional, Tuple, Union\nimport os\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import base64\nfrom typing import Any, cast, Dict, Optional, Tuple, Union\nimport os\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if os.environ.get('RESTAPI_PORT'):\n            restapi_port = os.environ.get('RESTAPI_PORT')\n\n",
+        "source_code_len": 102,
+        "target_code": "        if os.environ.get('RESTAPI_PORT'):\n            restapi_port = int(cast(str, os.environ.get('RESTAPI_PORT')))\n\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -182,3 +182,3 @@\n         if os.environ.get('RESTAPI_PORT'):\n-            restapi_port = os.environ.get('RESTAPI_PORT')\n+            restapi_port = int(cast(str, os.environ.get('RESTAPI_PORT')))\n \n",
+        "source_code_with_indent": "        if os.environ.get('RESTAPI_PORT'):\n            <IND>restapi_port = os.environ.get('RESTAPI_PORT')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if os.environ.get('RESTAPI_PORT'):\n            <IND>restapi_port = int(cast(str, os.environ.get('RESTAPI_PORT')))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

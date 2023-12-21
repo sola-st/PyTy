@@ -1,0 +1,87 @@
+[
+  {
+    "project": "ethereum/py-evm",
+    "commit": "61a9a37882b4dce596a1d9d364183f4a5bcd1c3f",
+    "filename": "trinity/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-py-evm/trinity/main.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "trinity/main.py:328:54 Incompatible parameter type [6]: Expected `eth.db.backends.base.BaseAtomicDB` for 2nd positional only parameter to call `get_chaindb_manager` but got `BaseDB`.",
+    "message": " Expected `eth.db.backends.base.BaseAtomicDB` for 2nd positional only parameter to call `get_chaindb_manager` but got `BaseDB`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 328,
+    "warning_line": "        manager = get_chaindb_manager(trinity_config, base_db)"
+  },
+  {
+    "project": "ethereum/py-evm",
+    "commit": "61a9a37882b4dce596a1d9d364183f4a5bcd1c3f",
+    "filename": "trinity/utils/db.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-py-evm/trinity/utils/db.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "trinity/utils/db.py:5:4 Incompatible attribute type [8]: Attribute `kv_store` declared in class `MemoryDB` has type `Dict[bytes, bytes]` but is used as type `None`.",
+    "message": " Attribute `kv_store` declared in class `MemoryDB` has type `Dict[bytes, bytes]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 5,
+    "warning_line": "    kv_store: Dict[bytes, bytes] = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "from typing import Dict\n\n\nclass MemoryDB:\n    kv_store: Dict[bytes, bytes] = None\n\n    def __init__(self, kv_store: Dict[bytes, bytes]=None) -> None:\n        if kv_store is None:\n            self.kv_store = {}\n        else:\n            self.kv_store = kv_store\n\n    def get(self, key: bytes) -> bytes:\n        return self.kv_store[key]\n\n    def set(self, key: bytes, value: bytes) -> None:\n        self.kv_store[key] = value\n\n    def exists(self, key: bytes) -> bool:\n        return key in self.kv_store\n\n    def delete(self, key: bytes) -> None:\n        del self.kv_store[key]\n\n    #\n    # Dictionary API\n    #\n    def __getitem__(self, key: bytes) -> bytes:\n        return self.get(key)\n\n    def __setitem__(self, key: bytes, value: bytes) -> None:\n        return self.set(key, value)\n\n    def __delitem__(self, key: bytes) -> None:\n        return self.delete(key)\n\n    def __contains__(self, key: bytes) -> bool:\n        return self.exists(key)\n",
+        "source_code_len": 948,
+        "target_code": "",
+        "target_code_len": 0,
+        "diff_format": "@@ -1,38 +0,0 @@\n-from typing import Dict\n-\n-\n-class MemoryDB:\n-    kv_store: Dict[bytes, bytes] = None\n-\n-    def __init__(self, kv_store: Dict[bytes, bytes]=None) -> None:\n-        if kv_store is None:\n-            self.kv_store = {}\n-        else:\n-            self.kv_store = kv_store\n-\n-    def get(self, key: bytes) -> bytes:\n-        return self.kv_store[key]\n-\n-    def set(self, key: bytes, value: bytes) -> None:\n-        self.kv_store[key] = value\n-\n-    def exists(self, key: bytes) -> bool:\n-        return key in self.kv_store\n-\n-    def delete(self, key: bytes) -> None:\n-        del self.kv_store[key]\n-\n-    #\n-    # Dictionary API\n-    #\n-    def __getitem__(self, key: bytes) -> bytes:\n-        return self.get(key)\n-\n-    def __setitem__(self, key: bytes, value: bytes) -> None:\n-        return self.set(key, value)\n-\n-    def __delitem__(self, key: bytes) -> None:\n-        return self.delete(key)\n-\n-    def __contains__(self, key: bytes) -> bool:\n-        return self.exists(key)\n",
+        "source_code_with_indent": "from typing import Dict\n\n\nclass MemoryDB:\n    <IND>kv_store: Dict[bytes, bytes] = None\n\n    def __init__(self, kv_store: Dict[bytes, bytes]=None) -> None:\n        <IND>if kv_store is None:\n            <IND>self.kv_store = {}\n        <DED>else:\n            <IND>self.kv_store = kv_store\n\n    <DED><DED>def get(self, key: bytes) -> bytes:\n        <IND>return self.kv_store[key]\n\n    <DED>def set(self, key: bytes, value: bytes) -> None:\n        <IND>self.kv_store[key] = value\n\n    <DED>def exists(self, key: bytes) -> bool:\n        <IND>return key in self.kv_store\n\n    <DED>def delete(self, key: bytes) -> None:\n        <IND>del self.kv_store[key]\n\n    #\n    # Dictionary API\n    #\n    <DED>def __getitem__(self, key: bytes) -> bytes:\n        <IND>return self.get(key)\n\n    <DED>def __setitem__(self, key: bytes, value: bytes) -> None:\n        <IND>return self.set(key, value)\n\n    <DED>def __delitem__(self, key: bytes) -> None:\n        <IND>return self.delete(key)\n\n    <DED>def __contains__(self, key: bytes) -> bool:\n        <IND>return self.exists(key)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/py-evm",
+    "commit": "61a9a37882b4dce596a1d9d364183f4a5bcd1c3f",
+    "filename": "trinity/utils/db.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-py-evm/trinity/utils/db.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "trinity/utils/db.py:7:23 Incompatible variable type [9]: kv_store is declared to have type `Dict[bytes, bytes]` but is used as type `None`.",
+    "message": " kv_store is declared to have type `Dict[bytes, bytes]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 7,
+    "warning_line": "    def __init__(self, kv_store: Dict[bytes, bytes]=None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "from typing import Dict\n\n\nclass MemoryDB:\n    kv_store: Dict[bytes, bytes] = None\n\n    def __init__(self, kv_store: Dict[bytes, bytes]=None) -> None:\n        if kv_store is None:\n            self.kv_store = {}\n        else:\n            self.kv_store = kv_store\n\n    def get(self, key: bytes) -> bytes:\n        return self.kv_store[key]\n\n    def set(self, key: bytes, value: bytes) -> None:\n        self.kv_store[key] = value\n\n    def exists(self, key: bytes) -> bool:\n        return key in self.kv_store\n\n    def delete(self, key: bytes) -> None:\n        del self.kv_store[key]\n\n    #\n    # Dictionary API\n    #\n    def __getitem__(self, key: bytes) -> bytes:\n        return self.get(key)\n\n    def __setitem__(self, key: bytes, value: bytes) -> None:\n        return self.set(key, value)\n\n    def __delitem__(self, key: bytes) -> None:\n        return self.delete(key)\n\n    def __contains__(self, key: bytes) -> bool:\n        return self.exists(key)\n",
+        "source_code_len": 948,
+        "target_code": "",
+        "target_code_len": 0,
+        "diff_format": "@@ -1,38 +0,0 @@\n-from typing import Dict\n-\n-\n-class MemoryDB:\n-    kv_store: Dict[bytes, bytes] = None\n-\n-    def __init__(self, kv_store: Dict[bytes, bytes]=None) -> None:\n-        if kv_store is None:\n-            self.kv_store = {}\n-        else:\n-            self.kv_store = kv_store\n-\n-    def get(self, key: bytes) -> bytes:\n-        return self.kv_store[key]\n-\n-    def set(self, key: bytes, value: bytes) -> None:\n-        self.kv_store[key] = value\n-\n-    def exists(self, key: bytes) -> bool:\n-        return key in self.kv_store\n-\n-    def delete(self, key: bytes) -> None:\n-        del self.kv_store[key]\n-\n-    #\n-    # Dictionary API\n-    #\n-    def __getitem__(self, key: bytes) -> bytes:\n-        return self.get(key)\n-\n-    def __setitem__(self, key: bytes, value: bytes) -> None:\n-        return self.set(key, value)\n-\n-    def __delitem__(self, key: bytes) -> None:\n-        return self.delete(key)\n-\n-    def __contains__(self, key: bytes) -> bool:\n-        return self.exists(key)\n",
+        "source_code_with_indent": "from typing import Dict\n\n\nclass MemoryDB:\n    <IND>kv_store: Dict[bytes, bytes] = None\n\n    def __init__(self, kv_store: Dict[bytes, bytes]=None) -> None:\n        <IND>if kv_store is None:\n            <IND>self.kv_store = {}\n        <DED>else:\n            <IND>self.kv_store = kv_store\n\n    <DED><DED>def get(self, key: bytes) -> bytes:\n        <IND>return self.kv_store[key]\n\n    <DED>def set(self, key: bytes, value: bytes) -> None:\n        <IND>self.kv_store[key] = value\n\n    <DED>def exists(self, key: bytes) -> bool:\n        <IND>return key in self.kv_store\n\n    <DED>def delete(self, key: bytes) -> None:\n        <IND>del self.kv_store[key]\n\n    #\n    # Dictionary API\n    #\n    <DED>def __getitem__(self, key: bytes) -> bytes:\n        <IND>return self.get(key)\n\n    <DED>def __setitem__(self, key: bytes, value: bytes) -> None:\n        <IND>return self.set(key, value)\n\n    <DED>def __delitem__(self, key: bytes) -> None:\n        <IND>return self.delete(key)\n\n    <DED>def __contains__(self, key: bytes) -> bool:\n        <IND>return self.exists(key)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

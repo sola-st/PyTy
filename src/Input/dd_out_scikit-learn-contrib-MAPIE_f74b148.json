@@ -1,0 +1,100 @@
+[
+  {
+    "project": "scikit-learn-contrib/MAPIE",
+    "commit": "f74b1482e4dbde490dab6dca60a186e04a02713e",
+    "filename": "examples/plot_homoscedastic_1d_data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/scikit-learn-contrib-MAPIE/examples/plot_homoscedastic_1d_data.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/plot_homoscedastic_1d_data.py:27:4 Incompatible variable type [9]: n_samples is declared to have type `str` but is used as type `int`.",
+    "message": " n_samples is declared to have type `str` but is used as type `int`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 27,
+    "warning_line": "    n_samples: str = 200,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\"\"\"\nfrom typing import Any, Union\n\n",
+        "source_code_len": 35,
+        "target_code": "\"\"\"\nfrom typing import Any, Tuple\n\n",
+        "target_code_len": 35,
+        "diff_format": "@@ -9,3 +9,3 @@\n \"\"\"\n-from typing import Any, Union\n+from typing import Any, Tuple\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nfrom typing import Any, Union\n\n",
+        "target_code_with_indent": "\nfrom typing import Any, Tuple\n\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def get_homoscedastic_data(\n    n_samples: str = 200,\n    n_test: int = 1000,\n    sigma: float = 0.1\n) -> Union[\n    np.ndarray,\n    np.ndarray,\n    float,\n    np.ndarray,\n    np.ndarray,\n    np.ndarray,\n    np.ndarray,\n    float\n]:\n    \"\"\"\n",
+        "source_code_len": 241,
+        "target_code": "def get_homoscedastic_data(\n    n_samples: int = 200,\n    n_test: int = 1000,\n    sigma: float = 0.1\n) -> Tuple[Any, Any, np.ndarray, Any, float]:\n    \"\"\"\n",
+        "target_code_len": 155,
+        "diff_format": "@@ -26,15 +26,6 @@\n def get_homoscedastic_data(\n-    n_samples: str = 200,\n+    n_samples: int = 200,\n     n_test: int = 1000,\n     sigma: float = 0.1\n-) -> Union[\n-    np.ndarray,\n-    np.ndarray,\n-    float,\n-    np.ndarray,\n-    np.ndarray,\n-    np.ndarray,\n-    np.ndarray,\n-    float\n-]:\n+) -> Tuple[Any, Any, np.ndarray, Any, float]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED>def get_homoscedastic_data(\n    n_samples: str = 200,\n    n_test: int = 1000,\n    sigma: float = 0.1\n) -> Union[\n    np.ndarray,\n    np.ndarray,\n    float,\n    np.ndarray,\n    np.ndarray,\n    np.ndarray,\n    np.ndarray,\n    float\n]:\n    <IND>",
+        "target_code_with_indent": "<DED>def get_homoscedastic_data(\n    n_samples: int = 200,\n    n_test: int = 1000,\n    sigma: float = 0.1\n) -> Tuple[Any, Any, np.ndarray, Any, float]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "scikit-learn-contrib/MAPIE",
+    "commit": "f74b1482e4dbde490dab6dca60a186e04a02713e",
+    "filename": "examples/plot_homoscedastic_1d_data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/scikit-learn-contrib-MAPIE/examples/plot_homoscedastic_1d_data.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/plot_homoscedastic_1d_data.py:132:4 Incompatible parameter type [6]: Expected `str` for 1st parameter `n_samples` to call `get_homoscedastic_data` but got `int`.",
+    "message": " Expected `str` for 1st parameter `n_samples` to call `get_homoscedastic_data` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 132,
+    "warning_line": "    n_samples=200, n_test=200, sigma=0.1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\"\"\"\nfrom typing import Any, Union\n\n",
+        "source_code_len": 35,
+        "target_code": "\"\"\"\nfrom typing import Any, Tuple\n\n",
+        "target_code_len": 35,
+        "diff_format": "@@ -9,3 +9,3 @@\n \"\"\"\n-from typing import Any, Union\n+from typing import Any, Tuple\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nfrom typing import Any, Union\n\n",
+        "target_code_with_indent": "\nfrom typing import Any, Tuple\n\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def get_homoscedastic_data(\n    n_samples: str = 200,\n    n_test: int = 1000,\n    sigma: float = 0.1\n) -> Union[\n    np.ndarray,\n    np.ndarray,\n    float,\n    np.ndarray,\n    np.ndarray,\n    np.ndarray,\n    np.ndarray,\n    float\n]:\n    \"\"\"\n",
+        "source_code_len": 241,
+        "target_code": "def get_homoscedastic_data(\n    n_samples: int = 200,\n    n_test: int = 1000,\n    sigma: float = 0.1\n) -> Tuple[Any, Any, np.ndarray, Any, float]:\n    \"\"\"\n",
+        "target_code_len": 155,
+        "diff_format": "@@ -26,15 +26,6 @@\n def get_homoscedastic_data(\n-    n_samples: str = 200,\n+    n_samples: int = 200,\n     n_test: int = 1000,\n     sigma: float = 0.1\n-) -> Union[\n-    np.ndarray,\n-    np.ndarray,\n-    float,\n-    np.ndarray,\n-    np.ndarray,\n-    np.ndarray,\n-    np.ndarray,\n-    float\n-]:\n+) -> Tuple[Any, Any, np.ndarray, Any, float]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED>def get_homoscedastic_data(\n    n_samples: str = 200,\n    n_test: int = 1000,\n    sigma: float = 0.1\n) -> Union[\n    np.ndarray,\n    np.ndarray,\n    float,\n    np.ndarray,\n    np.ndarray,\n    np.ndarray,\n    np.ndarray,\n    float\n]:\n    <IND>",
+        "target_code_with_indent": "<DED>def get_homoscedastic_data(\n    n_samples: int = 200,\n    n_test: int = 1000,\n    sigma: float = 0.1\n) -> Tuple[Any, Any, np.ndarray, Any, float]:\n    <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "f5b30e8925697cd3d2d8eae1feaa0b60c94b42b0",
+    "filename": "qcodes/instrument_drivers/stanford_research/SR86x.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/stanford_research/SR86x.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/stanford_research/SR86x.py:1051:8 Incompatible return type [7]: Expected `Tuple[float]` but got `typing.Tuple[float, ...]`.",
+    "message": " Expected `Tuple[float]` but got `typing.Tuple[float, ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1051,
+    "warning_line": "        return tuple(float(val) for val in output.split(','))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_values(self, *parameter_names: str) -> Tuple[float]:\n        \"\"\"\n",
+        "source_code_len": 78,
+        "target_code": "\n    def get_values(self, *parameter_names: str) -> Tuple[float, ...]:\n        \"\"\"\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -1020,3 +1020,3 @@\n \n-    def get_values(self, *parameter_names: str) -> Tuple[float]:\n+    def get_values(self, *parameter_names: str) -> Tuple[float, ...]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def get_values(self, *parameter_names: str) -> Tuple[float]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def get_values(self, *parameter_names: str) -> Tuple[float, ...]:\n        <IND>"
+      }
+    ]
+  }
+]

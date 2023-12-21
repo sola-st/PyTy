@@ -1,0 +1,36 @@
+[
+  {
+    "project": "encode/databases",
+    "commit": "085de3ecdc00e4d42eb9199b00ff54c6d7b61af5",
+    "filename": "databases/interfaces.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/encode-databases/databases/interfaces.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "databases/interfaces.py:54:8 Incompatible return type [7]: Expected `None` but got `typing.Generator[typing.Any, None, DatabaseTransaction]`.",
+    "message": " Expected `None` but got `typing.Generator[typing.Any, None, DatabaseTransaction]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 54,
+    "warning_line": "        return self._start().__await__()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __await__(self) -> None:\n        return self._start().__await__()\n",
+        "source_code_len": 75,
+        "target_code": "\n    def __await__(self) -> typing.Generator:\n        return self._start().__await__()\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -52,3 +52,3 @@\n \n-    def __await__(self) -> None:\n+    def __await__(self) -> typing.Generator:\n         return self._start().__await__()\n",
+        "source_code_with_indent": "\n    <DED><DED>def __await__(self) -> None:\n        <IND>return self._start().__await__()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def __await__(self) -> typing.Generator:\n        <IND>return self._start().__await__()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

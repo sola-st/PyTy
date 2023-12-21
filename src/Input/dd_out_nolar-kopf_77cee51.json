@@ -1,0 +1,51 @@
+[
+  {
+    "project": "nolar/kopf",
+    "commit": "77cee51ec9998de1cb516f9970a7f53846d60ed5",
+    "filename": "kopf/_cogs/helpers/loaders.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nolar-kopf/kopf/_cogs/helpers/loaders.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kopf/_cogs/helpers/loaders.py:36:49 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 36,
+    "warning_line": "        module = importlib.util.module_from_spec(spec)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import sys\nfrom typing import Iterable\n\n",
+        "source_code_len": 40,
+        "target_code": "import sys\nfrom typing import Iterable, cast\n\n",
+        "target_code_len": 46,
+        "diff_format": "@@ -20,3 +20,3 @@\n import sys\n-from typing import Iterable\n+from typing import Iterable, cast\n \n",
+        "source_code_with_indent": "import sys\nfrom typing import Iterable\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import sys\nfrom typing import Iterable, cast\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        spec = importlib.util.spec_from_file_location(name, path)\n        module = importlib.util.module_from_spec(spec)\n        sys.modules[name] = module\n        spec.loader.exec_module(module)  # type: ignore\n\n",
+        "source_code_len": 213,
+        "target_code": "        spec = importlib.util.spec_from_file_location(name, path)\n        module = importlib.util.module_from_spec(spec) if spec is not None else None\n        loader = cast(importlib.abc.Loader, spec.loader) if spec is not None else None\n        if module is not None and loader is not None:\n            sys.modules[name] = module\n            loader.exec_module(module)\n        else:\n            raise ImportError(f\"Failed loading {path}: no module or loader.\")\n\n",
+        "target_code_len": 463,
+        "diff_format": "@@ -35,5 +35,9 @@\n         spec = importlib.util.spec_from_file_location(name, path)\n-        module = importlib.util.module_from_spec(spec)\n-        sys.modules[name] = module\n-        spec.loader.exec_module(module)  # type: ignore\n+        module = importlib.util.module_from_spec(spec) if spec is not None else None\n+        loader = cast(importlib.abc.Loader, spec.loader) if spec is not None else None\n+        if module is not None and loader is not None:\n+            sys.modules[name] = module\n+            loader.exec_module(module)\n+        else:\n+            raise ImportError(f\"Failed loading {path}: no module or loader.\")\n \n",
+        "source_code_with_indent": "        spec = importlib.util.spec_from_file_location(name, path)\n        module = importlib.util.module_from_spec(spec)\n        sys.modules[name] = module\n        spec.loader.exec_module(module)  # type: ignore\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        spec = importlib.util.spec_from_file_location(name, path)\n        module = importlib.util.module_from_spec(spec) if spec is not None else None\n        loader = cast(importlib.abc.Loader, spec.loader) if spec is not None else None\n        if module is not None and loader is not None:\n            <IND>sys.modules[name] = module\n            loader.exec_module(module)\n        <DED>else:\n            <IND>raise ImportError(f\"Failed loading {path}: no module or loader.\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

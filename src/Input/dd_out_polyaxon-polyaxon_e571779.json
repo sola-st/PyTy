@@ -1,0 +1,51 @@
+[
+  {
+    "project": "polyaxon/polyaxon",
+    "commit": "e57177964d6e3ef9fe8656e86dfeffa037eaf849",
+    "filename": "polyaxon/constants/experiments.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/polyaxon-polyaxon/polyaxon/constants/experiments.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "polyaxon/constants/experiments.py:119:12 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 119,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import List\n\n",
+        "source_code_len": 25,
+        "target_code": "from typing import List, Optional\n\n",
+        "target_code_len": 35,
+        "diff_format": "@@ -1,2 +1,2 @@\n-from typing import List\n+from typing import List, Optional\n \n",
+        "source_code_with_indent": "from typing import List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import List, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def jobs_status(cls, job_statuses: List[str]) -> str:\n        if not job_statuses:\n",
+        "source_code_len": 104,
+        "target_code": "    @classmethod\n    def jobs_status(cls, job_statuses: List[str]) -> Optional[str]:\n        if not job_statuses:\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -116,3 +116,3 @@\n     @classmethod\n-    def jobs_status(cls, job_statuses: List[str]) -> str:\n+    def jobs_status(cls, job_statuses: List[str]) -> Optional[str]:\n         if not job_statuses:\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def jobs_status(cls, job_statuses: List[str]) -> str:\n        <IND>if not job_statuses:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def jobs_status(cls, job_statuses: List[str]) -> Optional[str]:\n        <IND>if not job_statuses:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

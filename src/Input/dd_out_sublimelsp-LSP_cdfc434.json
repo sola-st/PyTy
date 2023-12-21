@@ -1,0 +1,104 @@
+[
+  {
+    "project": "sublimelsp/LSP",
+    "commit": "cdfc434dcdf949defa518ec41384f52806de24e8",
+    "filename": "plugin/core/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sublimelsp-LSP/plugin/core/rpc.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugin/core/rpc.py:33:31 Incompatible parameter type [6]: Expected `typing.IO[typing.Any]` for 2nd positional only parameter to call `attach_logger` but got `Optional[typing.IO[typing.Any]]`.",
+    "message": " Expected `typing.IO[typing.Any]` for 2nd positional only parameter to call `attach_logger` but got `Optional[typing.IO[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 33,
+    "warning_line": "        attach_logger(process, process.stdout)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\ndef attach_tcp_client(tcp_port: int, process: 'subprocess.Popen', settings: Settings) -> 'Optional[Client]':\n    if settings.log_stderr:\n        attach_logger(process, process.stdout)\n\n    host = \"localhost\"\n    start_time = time.time()\n    debug('connecting to {}:{}'.format(host, tcp_port))\n\n    while time.time() - start_time < TCP_CONNECT_TIMEOUT:\n        try:\n            sock = socket.create_connection((host, tcp_port))\n            transport = TCPTransport(sock)\n\n            client = Client(transport, settings)\n            client.set_transport_failure_handler(lambda: try_terminate_process(process))\n            return client\n        except ConnectionRefusedError:\n            pass\n\n    process.kill()\n    raise Exception(\"Timeout connecting to socket\")\n\n\ndef attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n    transport = StdioTransport(process)\n\n    # TODO: process owner can take care of this outside client?\n    if settings.log_stderr:\n        attach_logger(process, process.stderr)\n    client = Client(transport, settings)\n",
+        "source_code_len": 1073,
+        "target_code": "\ndef attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n    transport = StdioTransport(process)\n    client = Client(transport, settings)\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -30,31 +24,4 @@\n \n-def attach_tcp_client(tcp_port: int, process: 'subprocess.Popen', settings: Settings) -> 'Optional[Client]':\n-    if settings.log_stderr:\n-        attach_logger(process, process.stdout)\n-\n-    host = \"localhost\"\n-    start_time = time.time()\n-    debug('connecting to {}:{}'.format(host, tcp_port))\n-\n-    while time.time() - start_time < TCP_CONNECT_TIMEOUT:\n-        try:\n-            sock = socket.create_connection((host, tcp_port))\n-            transport = TCPTransport(sock)\n-\n-            client = Client(transport, settings)\n-            client.set_transport_failure_handler(lambda: try_terminate_process(process))\n-            return client\n-        except ConnectionRefusedError:\n-            pass\n-\n-    process.kill()\n-    raise Exception(\"Timeout connecting to socket\")\n-\n-\n def attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n     transport = StdioTransport(process)\n-\n-    # TODO: process owner can take care of this outside client?\n-    if settings.log_stderr:\n-        attach_logger(process, process.stderr)\n     client = Client(transport, settings)\n",
+        "source_code_with_indent": "\n<DED>def attach_tcp_client(tcp_port: int, process: 'subprocess.Popen', settings: Settings) -> 'Optional[Client]':\n    <IND>if settings.log_stderr:\n        <IND>attach_logger(process, process.stdout)\n\n    <DED>host = \"localhost\"\n    start_time = time.time()\n    debug('connecting to {}:{}'.format(host, tcp_port))\n\n    while time.time() - start_time < TCP_CONNECT_TIMEOUT:\n        <IND>try:\n            <IND>sock = socket.create_connection((host, tcp_port))\n            transport = TCPTransport(sock)\n\n            client = Client(transport, settings)\n            client.set_transport_failure_handler(lambda: try_terminate_process(process))\n            return client\n        <DED>except ConnectionRefusedError:\n            <IND>pass\n\n    <DED><DED>process.kill()\n    raise Exception(\"Timeout connecting to socket\")\n\n\n<DED>def attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n    <IND>transport = StdioTransport(process)\n\n    # TODO: process owner can take care of this outside client?\n    if settings.log_stderr:\n        <IND>attach_logger(process, process.stderr)\n    <DED>client = Client(transport, settings)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n    <IND>transport = StdioTransport(process)\n    client = Client(transport, settings)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sublimelsp/LSP",
+    "commit": "cdfc434dcdf949defa518ec41384f52806de24e8",
+    "filename": "plugin/core/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sublimelsp-LSP/plugin/core/rpc.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugin/core/rpc.py:59:31 Incompatible parameter type [6]: Expected `typing.IO[typing.Any]` for 2nd positional only parameter to call `attach_logger` but got `Optional[typing.IO[typing.Any]]`.",
+    "message": " Expected `typing.IO[typing.Any]` for 2nd positional only parameter to call `attach_logger` but got `Optional[typing.IO[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 59,
+    "warning_line": "        attach_logger(process, process.stderr)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\ndef attach_tcp_client(tcp_port: int, process: 'subprocess.Popen', settings: Settings) -> 'Optional[Client]':\n    if settings.log_stderr:\n        attach_logger(process, process.stdout)\n\n    host = \"localhost\"\n    start_time = time.time()\n    debug('connecting to {}:{}'.format(host, tcp_port))\n\n    while time.time() - start_time < TCP_CONNECT_TIMEOUT:\n        try:\n            sock = socket.create_connection((host, tcp_port))\n            transport = TCPTransport(sock)\n\n            client = Client(transport, settings)\n            client.set_transport_failure_handler(lambda: try_terminate_process(process))\n            return client\n        except ConnectionRefusedError:\n            pass\n\n    process.kill()\n    raise Exception(\"Timeout connecting to socket\")\n\n\ndef attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n    transport = StdioTransport(process)\n\n    # TODO: process owner can take care of this outside client?\n    if settings.log_stderr:\n        attach_logger(process, process.stderr)\n    client = Client(transport, settings)\n",
+        "source_code_len": 1073,
+        "target_code": "\ndef attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n    transport = StdioTransport(process)\n    client = Client(transport, settings)\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -30,31 +24,4 @@\n \n-def attach_tcp_client(tcp_port: int, process: 'subprocess.Popen', settings: Settings) -> 'Optional[Client]':\n-    if settings.log_stderr:\n-        attach_logger(process, process.stdout)\n-\n-    host = \"localhost\"\n-    start_time = time.time()\n-    debug('connecting to {}:{}'.format(host, tcp_port))\n-\n-    while time.time() - start_time < TCP_CONNECT_TIMEOUT:\n-        try:\n-            sock = socket.create_connection((host, tcp_port))\n-            transport = TCPTransport(sock)\n-\n-            client = Client(transport, settings)\n-            client.set_transport_failure_handler(lambda: try_terminate_process(process))\n-            return client\n-        except ConnectionRefusedError:\n-            pass\n-\n-    process.kill()\n-    raise Exception(\"Timeout connecting to socket\")\n-\n-\n def attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n     transport = StdioTransport(process)\n-\n-    # TODO: process owner can take care of this outside client?\n-    if settings.log_stderr:\n-        attach_logger(process, process.stderr)\n     client = Client(transport, settings)\n",
+        "source_code_with_indent": "\n<DED>def attach_tcp_client(tcp_port: int, process: 'subprocess.Popen', settings: Settings) -> 'Optional[Client]':\n    <IND>if settings.log_stderr:\n        <IND>attach_logger(process, process.stdout)\n\n    <DED>host = \"localhost\"\n    start_time = time.time()\n    debug('connecting to {}:{}'.format(host, tcp_port))\n\n    while time.time() - start_time < TCP_CONNECT_TIMEOUT:\n        <IND>try:\n            <IND>sock = socket.create_connection((host, tcp_port))\n            transport = TCPTransport(sock)\n\n            client = Client(transport, settings)\n            client.set_transport_failure_handler(lambda: try_terminate_process(process))\n            return client\n        <DED>except ConnectionRefusedError:\n            <IND>pass\n\n    <DED><DED>process.kill()\n    raise Exception(\"Timeout connecting to socket\")\n\n\n<DED>def attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n    <IND>transport = StdioTransport(process)\n\n    # TODO: process owner can take care of this outside client?\n    if settings.log_stderr:\n        <IND>attach_logger(process, process.stderr)\n    <DED>client = Client(transport, settings)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def attach_stdio_client(process: 'subprocess.Popen', settings: Settings) -> 'Client':\n    <IND>transport = StdioTransport(process)\n    client = Client(transport, settings)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sublimelsp/LSP",
+    "commit": "cdfc434dcdf949defa518ec41384f52806de24e8",
+    "filename": "plugin/core/test_process.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sublimelsp-LSP/plugin/core/test_process.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugin/core/test_process.py:25:8 Incompatible return type [7]: Expected `Iterator[Tuple[StringIO, StringIO]]` but got `typing.Generator[Tuple[typing.TextIO, typing.TextIO], None, None]`.",
+    "message": " Expected `Iterator[Tuple[StringIO, StringIO]]` but got `typing.Generator[Tuple[typing.TextIO, typing.TextIO], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 25,
+    "warning_line": "        yield sys.stdout, sys.stderr",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n@contextmanager\ndef captured_output() -> 'Iterator[Tuple[StringIO, StringIO]]':\n    new_out, new_err = StringIO(), StringIO()\n    old_out, old_err = sys.stdout, sys.stderr\n    try:\n        sys.stdout, sys.stderr = new_out, new_err\n        yield sys.stdout, sys.stderr\n    finally:\n        sys.stdout, sys.stderr = old_out, old_err\n\n\nclass ProcessTests(TestCase):\n",
+        "source_code_len": 364,
+        "target_code": "\nclass ProcessTests(TestCase):\n",
+        "target_code_len": 31,
+        "diff_format": "@@ -18,13 +15,2 @@\n \n-@contextmanager\n-def captured_output() -> 'Iterator[Tuple[StringIO, StringIO]]':\n-    new_out, new_err = StringIO(), StringIO()\n-    old_out, old_err = sys.stdout, sys.stderr\n-    try:\n-        sys.stdout, sys.stderr = new_out, new_err\n-        yield sys.stdout, sys.stderr\n-    finally:\n-        sys.stdout, sys.stderr = old_out, old_err\n-\n-\n class ProcessTests(TestCase):\n",
+        "source_code_with_indent": "\n<DED>@contextmanager\ndef captured_output() -> 'Iterator[Tuple[StringIO, StringIO]]':\n    <IND>new_out, new_err = StringIO(), StringIO()\n    old_out, old_err = sys.stdout, sys.stderr\n    try:\n        <IND>sys.stdout, sys.stderr = new_out, new_err\n        yield sys.stdout, sys.stderr\n    <DED>finally:\n        <IND>sys.stdout, sys.stderr = old_out, old_err\n\n\n<DED><DED>class ProcessTests(TestCase):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>class ProcessTests(TestCase):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

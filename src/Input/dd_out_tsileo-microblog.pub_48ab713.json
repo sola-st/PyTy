@@ -1,0 +1,36 @@
+[
+  {
+    "project": "tsileo/microblog.pub",
+    "commit": "48ab7137abe34f4ea6ad818da0f3eb4c954087b2",
+    "filename": "activitypub.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tsileo-microblog.pub/activitypub.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "activitypub.py:978:14 Unbound name [10]: Name `BadActivityTypeError` is used but not defined in the current scope.",
+    "message": " Name `BadActivityTypeError` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 978,
+    "warning_line": "        raise BadActivityTypeError(f'unsupported activity type {payload[\"type\"]}')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if t not in _ACTIVITY_TYPE_TO_CLS:\n        raise BadActivityTypeError(f'unsupported activity type {payload[\"type\"]}')\n\n",
+        "source_code_len": 123,
+        "target_code": "    if t not in _ACTIVITY_TYPE_TO_CLS:\n        raise BadActivityError(f'unsupported activity type {payload[\"type\"]}')\n\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -977,3 +977,3 @@\n     if t not in _ACTIVITY_TYPE_TO_CLS:\n-        raise BadActivityTypeError(f'unsupported activity type {payload[\"type\"]}')\n+        raise BadActivityError(f'unsupported activity type {payload[\"type\"]}')\n \n",
+        "source_code_with_indent": "    <DED>if t not in _ACTIVITY_TYPE_TO_CLS:\n        <IND>raise BadActivityTypeError(f'unsupported activity type {payload[\"type\"]}')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>if t not in _ACTIVITY_TYPE_TO_CLS:\n        <IND>raise BadActivityError(f'unsupported activity type {payload[\"type\"]}')\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

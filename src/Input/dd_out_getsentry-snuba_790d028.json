@@ -1,0 +1,66 @@
+[
+  {
+    "project": "getsentry/snuba",
+    "commit": "790d028a1710af44f3beee641a76907fab4cd9fe",
+    "filename": "tests/query/processors/test_nested_optimizer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/tests/query/processors/test_nested_optimizer.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/query/processors/test_nested_optimizer.py:234:28 Incompatible parameter type [6]: Expected `snuba.clickhouse.query.Query` for 1st positional only parameter to call `NestedFieldConditionOptimizer.process_query` but got `snuba.query.logical.Query`.",
+    "message": " Expected `snuba.clickhouse.query.Query` for 1st positional only parameter to call `NestedFieldConditionOptimizer.process_query` but got `snuba.query.logical.Query`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 234,
+    "warning_line": "    processor.process_query(query, request_settings)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from snuba.query.processors.tagsmap import NestedFieldConditionOptimizer\nfrom snuba.request.request_settings import HTTPRequestSettings\n",
+        "source_code_len": 136,
+        "target_code": "from snuba.query.processors.tagsmap import NestedFieldConditionOptimizer\nfrom snuba.request import Request\nfrom snuba.request.request_settings import HTTPRequestSettings\n",
+        "target_code_len": 170,
+        "diff_format": "@@ -7,2 +7,3 @@\n from snuba.query.processors.tagsmap import NestedFieldConditionOptimizer\n+from snuba.request import Request\n from snuba.request.request_settings import HTTPRequestSettings\n",
+        "source_code_with_indent": "from snuba.query.processors.tagsmap import NestedFieldConditionOptimizer\nfrom snuba.request.request_settings import HTTPRequestSettings\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from snuba.query.processors.tagsmap import NestedFieldConditionOptimizer\nfrom snuba.request import Request\nfrom snuba.request.request_settings import HTTPRequestSettings\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def test_nested_optimizer(query_body, expected_condition) -> None:\n    query = parse_query(query_body, get_dataset(\"transactions\"))\n    request_settings = HTTPRequestSettings()\n    processor = NestedFieldConditionOptimizer(\n",
+        "source_code_len": 224,
+        "target_code": "def test_nested_optimizer(query_body, expected_condition) -> None:\n    transactions = get_dataset(\"transactions\")\n    query = parse_query(query_body, transactions)\n    request_settings = HTTPRequestSettings()\n    request = Request(\"\", query, request_settings, {}, \"\")\n\n    query_plan = transactions.get_query_plan_builder().build_plan(request)\n    processor = NestedFieldConditionOptimizer(\n",
+        "target_code_len": 391,
+        "diff_format": "@@ -225,4 +226,8 @@\n def test_nested_optimizer(query_body, expected_condition) -> None:\n-    query = parse_query(query_body, get_dataset(\"transactions\"))\n+    transactions = get_dataset(\"transactions\")\n+    query = parse_query(query_body, transactions)\n     request_settings = HTTPRequestSettings()\n+    request = Request(\"\", query, request_settings, {}, \"\")\n+\n+    query_plan = transactions.get_query_plan_builder().build_plan(request)\n     processor = NestedFieldConditionOptimizer(\n",
+        "source_code_with_indent": "def test_nested_optimizer(query_body, expected_condition) -> None:\n    <IND>query = parse_query(query_body, get_dataset(\"transactions\"))\n    request_settings = HTTPRequestSettings()\n    processor = NestedFieldConditionOptimizer(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def test_nested_optimizer(query_body, expected_condition) -> None:\n    <IND>transactions = get_dataset(\"transactions\")\n    query = parse_query(query_body, transactions)\n    request_settings = HTTPRequestSettings()\n    request = Request(\"\", query, request_settings, {}, \"\")\n\n    query_plan = transactions.get_query_plan_builder().build_plan(request)\n    processor = NestedFieldConditionOptimizer(\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    )\n    processor.process_query(query, request_settings)\n\n    assert query.get_conditions() == expected_condition\n",
+        "source_code_len": 116,
+        "target_code": "    )\n    clickhouse_query = query_plan.query\n    processor.process_query(clickhouse_query, request_settings)\n\n    assert clickhouse_query.get_conditions() == expected_condition\n",
+        "target_code_len": 178,
+        "diff_format": "@@ -233,4 +238,5 @@\n     )\n-    processor.process_query(query, request_settings)\n-\n-    assert query.get_conditions() == expected_condition\n+    clickhouse_query = query_plan.query\n+    processor.process_query(clickhouse_query, request_settings)\n+\n+    assert clickhouse_query.get_conditions() == expected_condition\n",
+        "source_code_with_indent": "    )\n    processor.process_query(query, request_settings)\n\n    assert query.get_conditions() == expected_condition\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    )\n    clickhouse_query = query_plan.query\n    processor.process_query(clickhouse_query, request_settings)\n\n    assert clickhouse_query.get_conditions() == expected_condition\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

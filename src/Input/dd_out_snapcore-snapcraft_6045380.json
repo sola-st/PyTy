@@ -1,0 +1,51 @@
+[
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "60453807cc4d57edbd2d12dc0a91c000f56153e5",
+    "filename": "snapcraft/internal/meta/plugs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/meta/plugs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/meta/plugs.py:147:12 Incompatible parameter type [6]: Expected `str` for 3rd parameter `target` to call `ContentPlug.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 3rd parameter `target` to call `ContentPlug.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 147,
+    "warning_line": "            target=plug_dict.get(\"target\"),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if \"target\" not in plug_dict:\n            raise PlugValidationError(\n",
+        "source_code_len": 78,
+        "target_code": "\n        target = plug_dict.get(\"target\", None)\n        if target is None:\n            raise PlugValidationError(\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -138,3 +138,4 @@\n \n-        if \"target\" not in plug_dict:\n+        target = plug_dict.get(\"target\", None)\n+        if target is None:\n             raise PlugValidationError(\n",
+        "source_code_with_indent": "\n        <DED>if \"target\" not in plug_dict:\n            <IND>raise PlugValidationError(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>target = plug_dict.get(\"target\", None)\n        if target is None:\n            <IND>raise PlugValidationError(\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            content=plug_dict.get(\"content\", None),\n            target=plug_dict.get(\"target\"),\n            default_provider=plug_dict.get(\"default-provider\", None),\n",
+        "source_code_len": 166,
+        "target_code": "            content=plug_dict.get(\"content\", None),\n            target=target,\n            default_provider=plug_dict.get(\"default-provider\", None),\n",
+        "target_code_len": 149,
+        "diff_format": "@@ -146,3 +147,3 @@\n             content=plug_dict.get(\"content\", None),\n-            target=plug_dict.get(\"target\"),\n+            target=target,\n             default_provider=plug_dict.get(\"default-provider\", None),\n",
+        "source_code_with_indent": "            content=plug_dict.get(\"content\", None),\n            target=plug_dict.get(\"target\"),\n            default_provider=plug_dict.get(\"default-provider\", None),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            content=plug_dict.get(\"content\", None),\n            target=target,\n            default_provider=plug_dict.get(\"default-provider\", None),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

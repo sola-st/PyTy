@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "18073b7d625e472392c1d3078bc4207318e669bd",
+    "filename": "cfgrib/xarray_to_grib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/xarray_to_grib.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/xarray_to_grib.py:248:56 Incompatible variable type [9]: no_warn is declared to have type `str` but is used as type `bool`.",
+    "message": " no_warn is declared to have type `str` but is used as type `bool`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 248,
+    "warning_line": "def canonical_dataset_to_grib(dataset, path, mode='wb', no_warn=False, grib_keys={}, **kwargs):"
+  },
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "18073b7d625e472392c1d3078bc4207318e669bd",
+    "filename": "cfgrib/xarray_to_grib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/xarray_to_grib.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/xarray_to_grib.py:248:71 Incompatible variable type [9]: grib_keys is declared to have type `bool` but is used as type `T.Dict[Variable[_KT], Variable[_VT]]`.",
+    "message": " grib_keys is declared to have type `bool` but is used as type `T.Dict[Variable[_KT], Variable[_VT]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 248,
+    "warning_line": "def canonical_dataset_to_grib(dataset, path, mode='wb', no_warn=False, grib_keys={}, **kwargs):"
+  },
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "18073b7d625e472392c1d3078bc4207318e669bd",
+    "filename": "cfgrib/xarray_to_grib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/xarray_to_grib.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/xarray_to_grib.py:261:26 Incompatible parameter type [6]: Expected `T.Mapping[typing.Any, typing.Any]` for 1st positional only parameter to call `dict.update` but got `bool`.",
+    "message": " Expected `T.Mapping[typing.Any, typing.Any]` for 1st positional only parameter to call `dict.update` but got `bool`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 261,
+    "warning_line": "    real_grib_keys.update(grib_keys)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def canonical_dataset_to_grib(dataset, path, mode='wb', no_warn=False, grib_keys={}, **kwargs):\n    # type: (xr.Dataset, str, str, bool, T.Dict[str, T.Any] T.Any) -> None\n    \"\"\"\n",
+        "source_code_len": 179,
+        "target_code": "def canonical_dataset_to_grib(dataset, path, mode='wb', no_warn=False, grib_keys={}, **kwargs):\n    # type: (xr.Dataset, str, str, bool, T.Dict[str, T.Any], T.Any) -> None\n    \"\"\"\n",
+        "target_code_len": 180,
+        "diff_format": "@@ -248,3 +248,3 @@\n def canonical_dataset_to_grib(dataset, path, mode='wb', no_warn=False, grib_keys={}, **kwargs):\n-    # type: (xr.Dataset, str, str, bool, T.Dict[str, T.Any] T.Any) -> None\n+    # type: (xr.Dataset, str, str, bool, T.Dict[str, T.Any], T.Any) -> None\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED><DED>def canonical_dataset_to_grib(dataset, path, mode='wb', no_warn=False, grib_keys={}, **kwargs):\n    # type: (xr.Dataset, str, str, bool, T.Dict[str, T.Any] T.Any) -> None\n    <IND>",
+        "target_code_with_indent": "<DED><DED>def canonical_dataset_to_grib(dataset, path, mode='wb', no_warn=False, grib_keys={}, **kwargs):\n    # type: (xr.Dataset, str, str, bool, T.Dict[str, T.Any], T.Any) -> None\n    <IND>"
+      }
+    ]
+  }
+]

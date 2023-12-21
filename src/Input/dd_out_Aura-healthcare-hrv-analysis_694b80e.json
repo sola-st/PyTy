@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Aura-healthcare/hrv-analysis",
+    "commit": "694b80e8b1ffbd788f0a46cefe599788d95bb5a7",
+    "filename": "hrvanalysis/extract_features.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Aura-healthcare-hrv-analysis/hrvanalysis/extract_features.py",
+    "file_hunks_size": 24,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hrvanalysis/extract_features.py:342:4 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got `typing.Tuple[typing.Any, typing.Any]`.",
+    "message": " Expected `typing.List[typing.Any]` but got `typing.Tuple[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 342,
+    "warning_line": "    return freq, psd",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom collections import namedtuple\n",
+        "source_code_len": 36,
+        "target_code": "\nfrom typing import List, Tuple\nfrom collections import namedtuple\n",
+        "target_code_len": 67,
+        "diff_format": "@@ -5,2 +5,3 @@\n \n+from typing import List, Tuple\n from collections import namedtuple\n",
+        "source_code_with_indent": "\nfrom collections import namedtuple\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import List, Tuple\nfrom collections import namedtuple\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                                   vlf_band: namedtuple = VlfBand(0.0033, 0.04),\n                                   hf_band: namedtuple = HfBand(0.15, 0.40)) -> list:\n    \"\"\"\n",
+        "source_code_len": 175,
+        "target_code": "                                   vlf_band: namedtuple = VlfBand(0.0033, 0.04),\n                                   hf_band: namedtuple = HfBand(0.15, 0.40)) -> Tuple:\n    \"\"\"\n",
+        "target_code_len": 176,
+        "diff_format": "@@ -288,3 +289,3 @@\n                                    vlf_band: namedtuple = VlfBand(0.0033, 0.04),\n-                                   hf_band: namedtuple = HfBand(0.15, 0.40)) -> list:\n+                                   hf_band: namedtuple = HfBand(0.15, 0.40)) -> Tuple:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                                   vlf_band: namedtuple = VlfBand(0.0033, 0.04),\n                                   hf_band: namedtuple = HfBand(0.15, 0.40)) -> list:\n    <IND>",
+        "target_code_with_indent": "                                   vlf_band: namedtuple = VlfBand(0.0033, 0.04),\n                                   hf_band: namedtuple = HfBand(0.15, 0.40)) -> Tuple:\n    <IND>"
+      }
+    ]
+  }
+]

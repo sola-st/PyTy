@@ -1,0 +1,53 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "bd2fcb268b9ff48797bebb6a2ef94d2741234191",
+    "filename": "mesonbuild/modules/i18n.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/modules/i18n.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/modules/i18n.py:147:12 Incompatible return type [7]: Expected `ModuleReturnValue` but got `None`.",
+    "message": " Expected `ModuleReturnValue` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 147,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self.nogettext_warning()\n            return\n        podir = path.join(state.build_to_src, state.subdir, kwargs['po_dir'])\n",
+        "source_code_len": 134,
+        "target_code": "            self.nogettext_warning()\n            return ModuleReturnValue(None, [])\n        podir = path.join(state.build_to_src, state.subdir, kwargs['po_dir'])\n",
+        "target_code_len": 162,
+        "diff_format": "@@ -146,3 +147,3 @@\n             self.nogettext_warning()\n-            return\n+            return ModuleReturnValue(None, [])\n         podir = path.join(state.build_to_src, state.subdir, kwargs['po_dir'])\n",
+        "source_code_with_indent": "            <IND>self.nogettext_warning()\n            return\n        <DED>podir = path.join(state.build_to_src, state.subdir, kwargs['po_dir'])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>self.nogettext_warning()\n            return ModuleReturnValue(None, [])\n        <DED>podir = path.join(state.build_to_src, state.subdir, kwargs['po_dir'])\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "bd2fcb268b9ff48797bebb6a2ef94d2741234191",
+    "filename": "mesonbuild/modules/i18n.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/modules/i18n.py",
+    "file_hunks_size": 9,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/modules/i18n.py:217:12 Incompatible return type [7]: Expected `ModuleReturnValue` but got `None`.",
+    "message": " Expected `ModuleReturnValue` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 217,
+    "warning_line": "            return"
+  }
+]

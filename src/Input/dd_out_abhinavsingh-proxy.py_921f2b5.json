@@ -1,0 +1,70 @@
+[
+  {
+    "project": "abhinavsingh/proxy.py",
+    "commit": "921f2b56e0370373357a56cf129c872f1feefd15",
+    "filename": "proxy/http/parser/parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abhinavsingh-proxy.py/proxy/http/parser/parser.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "proxy/http/parser/parser.py:207:50 Unsupported operand [58]: `+` is not supported for operand types `Optional[bytes]` and `bytes`.",
+    "message": " `+` is not supported for operand types `Optional[bytes]` and `bytes`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 207,
+    "warning_line": "            ) if not self.is_https_tunnel() else (self.host + COLON + str(self.port).encode())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                path\n            ) if not self.is_https_tunnel() else (self.host + COLON + str(self.port).encode())\n        return build_http_request(\n",
+        "source_code_len": 151,
+        "target_code": "                path\n            ) if not self.is_https_tunnel else (self.host + COLON + str(self.port).encode())\n        return build_http_request(\n",
+        "target_code_len": 149,
+        "diff_format": "@@ -206,3 +231,3 @@\n                 path\n-            ) if not self.is_https_tunnel() else (self.host + COLON + str(self.port).encode())\n+            ) if not self.is_https_tunnel else (self.host + COLON + str(self.port).encode())\n         return build_http_request(\n",
+        "source_code_with_indent": "                path\n            ) if not self.is_https_tunnel() else (self.host + COLON + str(self.port).encode())\n        <DED>return build_http_request(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                path\n            ) if not self.is_https_tunnel else (self.host + COLON + str(self.port).encode())\n        <DED>return build_http_request(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "abhinavsingh/proxy.py",
+    "commit": "921f2b56e0370373357a56cf129c872f1feefd15",
+    "filename": "proxy/plugin/modify_post_data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abhinavsingh-proxy.py/proxy/plugin/modify_post_data.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "proxy/plugin/modify_post_data.py:40:31 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[bytes]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[bytes]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 40,
+    "warning_line": "                    bytes_(len(request.body)),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            # encoded\n            if not request.is_chunked_encoded():\n                request.add_header(\n",
+        "source_code_len": 107,
+        "target_code": "            # encoded\n            if not request.is_chunked_encoded:\n                request.add_header(\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -36,3 +36,3 @@\n             # encoded\n-            if not request.is_chunked_encoded():\n+            if not request.is_chunked_encoded:\n                 request.add_header(\n",
+        "source_code_with_indent": "            # encoded\n            if not request.is_chunked_encoded():\n                <IND>request.add_header(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            # encoded\n            if not request.is_chunked_encoded:\n                <IND>request.add_header(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

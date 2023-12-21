@@ -1,0 +1,51 @@
+[
+  {
+    "project": "layday/instawow",
+    "commit": "7242c95df0e45e21b1242d502fcaedfeef52f0d7",
+    "filename": "instawow/_import_wrapper.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/layday-instawow/instawow/_import_wrapper.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "instawow/_import_wrapper.py:21:73 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 21,
+    "warning_line": "        sys.modules[fullname] = module = importlib.util.module_from_spec(spec)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import sys\nfrom typing import TYPE_CHECKING\n\n",
+        "source_code_len": 45,
+        "target_code": "import sys\nfrom typing import TYPE_CHECKING, Any\n\n",
+        "target_code_len": 50,
+        "diff_format": "@@ -4,3 +4,3 @@\n import sys\n-from typing import TYPE_CHECKING\n+from typing import TYPE_CHECKING, Any\n \n",
+        "source_code_with_indent": "import sys\nfrom typing import TYPE_CHECKING\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import sys\nfrom typing import TYPE_CHECKING, Any\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    except KeyError:\n        spec = importlib.util.find_spec(fullname)\n        sys.modules[fullname] = module = importlib.util.module_from_spec(spec)\n",
+        "source_code_len": 150,
+        "target_code": "    except KeyError:\n        # ``module_from_spec`` will raise if the spec is ``None`` but this is\n        # converted to an ``ImportError`` by Python's import mechanism so we\n        # don't have to be too fussy about what returns which - everything's\n        # gonna work out just fine, I promise\n        spec: Any = importlib.util.find_spec(fullname)\n        sys.modules[fullname] = module = importlib.util.module_from_spec(spec)\n",
+        "target_code_len": 433,
+        "diff_format": "@@ -19,3 +19,7 @@\n     except KeyError:\n-        spec = importlib.util.find_spec(fullname)\n+        # ``module_from_spec`` will raise if the spec is ``None`` but this is\n+        # converted to an ``ImportError`` by Python's import mechanism so we\n+        # don't have to be too fussy about what returns which - everything's\n+        # gonna work out just fine, I promise\n+        spec: Any = importlib.util.find_spec(fullname)\n         sys.modules[fullname] = module = importlib.util.module_from_spec(spec)\n",
+        "source_code_with_indent": "    <DED>except KeyError:\n        <IND>spec = importlib.util.find_spec(fullname)\n        sys.modules[fullname] = module = importlib.util.module_from_spec(spec)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>except KeyError:\n        # ``module_from_spec`` will raise if the spec is ``None`` but this is\n        # converted to an ``ImportError`` by Python's import mechanism so we\n        # don't have to be too fussy about what returns which - everything's\n        # gonna work out just fine, I promise\n        <IND>spec: Any = importlib.util.find_spec(fullname)\n        sys.modules[fullname] = module = importlib.util.module_from_spec(spec)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

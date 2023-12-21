@@ -1,0 +1,104 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "92b21a0045e32229f5b3b01429b683fbe1f33abe",
+    "filename": "mesonbuild/interpreter/mesonmain.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/interpreter/mesonmain.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/interpreter/mesonmain.py:325:40 Incompatible parameter type [6]: Expected `T.Optional[T.List[str]]` for 2nd positional only parameter to call `ExternalProgram.__init__` but got `str`.",
+    "message": " Expected `T.Optional[T.List[str]]` for 2nd positional only parameter to call `ExternalProgram.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 325,
+    "warning_line": "            exe = OverrideProgram(name, abspath)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                raise InterpreterException(f'Tried to override {name} with a file that does not exist.')\n            exe = OverrideProgram(name, abspath)\n        self.interpreter.add_find_program_override(name, exe)\n",
+        "source_code_len": 216,
+        "target_code": "                raise InterpreterException(f'Tried to override {name} with a file that does not exist.')\n            exe = OverrideProgram(name, [abspath])\n        self.interpreter.add_find_program_override(name, exe)\n",
+        "target_code_len": 218,
+        "diff_format": "@@ -324,3 +330,3 @@\n                 raise InterpreterException(f'Tried to override {name} with a file that does not exist.')\n-            exe = OverrideProgram(name, abspath)\n+            exe = OverrideProgram(name, [abspath])\n         self.interpreter.add_find_program_override(name, exe)\n",
+        "source_code_with_indent": "                <IND>raise InterpreterException(f'Tried to override {name} with a file that does not exist.')\n            <DED>exe = OverrideProgram(name, abspath)\n        <DED>self.interpreter.add_find_program_override(name, exe)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>raise InterpreterException(f'Tried to override {name} with a file that does not exist.')\n            <DED>exe = OverrideProgram(name, [abspath])\n        <DED>self.interpreter.add_find_program_override(name, exe)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "92b21a0045e32229f5b3b01429b683fbe1f33abe",
+    "filename": "mesonbuild/interpreter/mesonmain.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/interpreter/mesonmain.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/interpreter/mesonmain.py:388:8 Incompatible return type [7]: Expected `T.List[str]` but got `str`.",
+    "message": " Expected `T.List[str]` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 388,
+    "warning_line": "        return self.build.dep_manifest[self.interpreter.active_projectname].version",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @noKwargs\n    def project_version_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> T.List[str]:\n        return self.build.dep_manifest[self.interpreter.active_projectname].version\n",
+        "source_code_len": 200,
+        "target_code": "    @noKwargs\n    def project_version_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> str:\n        return self.build.dep_manifest[self.interpreter.active_projectname].version\n",
+        "target_code_len": 192,
+        "diff_format": "@@ -386,3 +395,3 @@\n     @noKwargs\n-    def project_version_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> T.List[str]:\n+    def project_version_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> str:\n         return self.build.dep_manifest[self.interpreter.active_projectname].version\n",
+        "source_code_with_indent": "    @noKwargs\n    def project_version_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> T.List[str]:\n        <IND>return self.build.dep_manifest[self.interpreter.active_projectname].version\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @noKwargs\n    def project_version_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> str:\n        <IND>return self.build.dep_manifest[self.interpreter.active_projectname].version\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "92b21a0045e32229f5b3b01429b683fbe1f33abe",
+    "filename": "mesonbuild/interpreter/mesonmain.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/interpreter/mesonmain.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/interpreter/mesonmain.py:394:8 Incompatible return type [7]: Expected `str` but got `T.List[str]`.",
+    "message": " Expected `str` but got `T.List[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 394,
+    "warning_line": "        return self.build.dep_manifest[self.interpreter.active_projectname].license",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @noKwargs\n    def project_license_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> str:\n        return self.build.dep_manifest[self.interpreter.active_projectname].license\n",
+        "source_code_len": 192,
+        "target_code": "    @noKwargs\n    def project_license_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> T.List[str]:\n        return self.build.dep_manifest[self.interpreter.active_projectname].license\n",
+        "target_code_len": 200,
+        "diff_format": "@@ -392,3 +401,3 @@\n     @noKwargs\n-    def project_license_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> str:\n+    def project_license_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> T.List[str]:\n         return self.build.dep_manifest[self.interpreter.active_projectname].license\n",
+        "source_code_with_indent": "    @noKwargs\n    def project_license_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> str:\n        <IND>return self.build.dep_manifest[self.interpreter.active_projectname].license\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @noKwargs\n    def project_license_method(self, args: T.List['TYPE_var'], kwargs: 'TYPE_kwargs') -> T.List[str]:\n        <IND>return self.build.dep_manifest[self.interpreter.active_projectname].license\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

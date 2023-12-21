@@ -1,0 +1,51 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "26a0d421b63fb685211e36f951b88c9b9bcf09d2",
+    "filename": "raiden/transfer/channel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/channel.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/channel.py:177:4 Incompatible variable type [9]: lock_timeout is declared to have type `BlockTimeout` but is used as type `None`.",
+    "message": " lock_timeout is declared to have type `BlockTimeout` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 177,
+    "warning_line": "    lock_timeout: BlockTimeout = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef is_channel_usable(\n    candidate_channel_state: NettingChannelState,\n    transfer_amount: PaymentWithFeeAmount,\n    lock_timeout: BlockTimeout = None,\n) -> bool:\n    \"\"\"True if the channel can safely used for the given parameters.\n\n",
+        "source_code_len": 237,
+        "target_code": "\ndef is_channel_usable_for_mediation(\n    channel_state: NettingChannelState,\n    transfer_amount: PaymentWithFeeAmount,\n    lock_timeout: BlockTimeout,\n) -> bool:\n    \"\"\"True if the channel can safely used to mediate a transfer for the given\n    parameters.\n\n",
+        "target_code_len": 260,
+        "diff_format": "@@ -173,8 +173,9 @@\n \n-def is_channel_usable(\n-    candidate_channel_state: NettingChannelState,\n+def is_channel_usable_for_mediation(\n+    channel_state: NettingChannelState,\n     transfer_amount: PaymentWithFeeAmount,\n-    lock_timeout: BlockTimeout = None,\n+    lock_timeout: BlockTimeout,\n ) -> bool:\n-    \"\"\"True if the channel can safely used for the given parameters.\n+    \"\"\"True if the channel can safely used to mediate a transfer for the given\n+    parameters.\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def is_channel_usable(\n    candidate_channel_state: NettingChannelState,\n    transfer_amount: PaymentWithFeeAmount,\n    lock_timeout: BlockTimeout = None,\n) -> bool:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def is_channel_usable_for_mediation(\n    channel_state: NettingChannelState,\n    transfer_amount: PaymentWithFeeAmount,\n    lock_timeout: BlockTimeout,\n) -> bool:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    pending_transfers = get_number_of_pending_transfers(candidate_channel_state.our_state)\n    distributable = get_distributable(\n        candidate_channel_state.our_state, candidate_channel_state.partner_state\n    )\n\n    channel_usable = (\n        get_status(candidate_channel_state) == CHANNEL_STATE_OPENED\n        and pending_transfers < MAXIMUM_PENDING_TRANSFERS\n        and transfer_amount <= distributable\n        and is_valid_amount(candidate_channel_state.our_state, transfer_amount)\n    )\n\n    lock_timeout_valid = True\n    if lock_timeout is not None:\n        lock_timeout_valid = (\n            lock_timeout > 0\n            and candidate_channel_state.settle_timeout >= lock_timeout\n            and candidate_channel_state.reveal_timeout < lock_timeout\n        )\n\n    return channel_usable and lock_timeout_valid\n\n",
+        "source_code_len": 832,
+        "target_code": "    \"\"\"\n\n    channel_usable = is_channel_usable_for_new_transfer(channel_state, transfer_amount)\n    lock_timeout_valid = (\n        lock_timeout > 0\n        and channel_state.settle_timeout >= lock_timeout\n        and channel_state.reveal_timeout < lock_timeout\n    )\n\n    return channel_usable and lock_timeout_valid\n\n\ndef is_channel_usable_for_new_transfer(\n    channel_state: NettingChannelState, transfer_amount: PaymentWithFeeAmount\n) -> bool:\n    \"\"\"True if the channel be used to start a new transfer.\n\n    This will make sure that:\n\n    - The channel has capacity.\n    - The merkle tree's size is claimable on-chain.\n    - The transfer amount does not overflow.\n\n    The merkle tree size has to be checked because the gas usage will increase\n    linearly with the number of locks in it. A tree too big can not be unlocked\n    because of block gas limit constraints.\n    \"\"\"\n    pending_transfers = get_number_of_pending_transfers(channel_state.our_state)\n    distributable = get_distributable(channel_state.our_state, channel_state.partner_state)\n\n    channel_usable = (\n        get_status(channel_state) == CHANNEL_STATE_OPENED\n        and pending_transfers < MAXIMUM_PENDING_TRANSFERS\n        and transfer_amount <= distributable\n        and is_valid_amount(channel_state.our_state, transfer_amount)\n    )\n    return channel_usable\n\n",
+        "target_code_len": 1343,
+        "diff_format": "@@ -199,23 +201,38 @@\n     \"\"\"\n-    pending_transfers = get_number_of_pending_transfers(candidate_channel_state.our_state)\n-    distributable = get_distributable(\n-        candidate_channel_state.our_state, candidate_channel_state.partner_state\n-    )\n+\n+    channel_usable = is_channel_usable_for_new_transfer(channel_state, transfer_amount)\n+    lock_timeout_valid = (\n+        lock_timeout > 0\n+        and channel_state.settle_timeout >= lock_timeout\n+        and channel_state.reveal_timeout < lock_timeout\n+    )\n+\n+    return channel_usable and lock_timeout_valid\n+\n+\n+def is_channel_usable_for_new_transfer(\n+    channel_state: NettingChannelState, transfer_amount: PaymentWithFeeAmount\n+) -> bool:\n+    \"\"\"True if the channel be used to start a new transfer.\n+\n+    This will make sure that:\n+\n+    - The channel has capacity.\n+    - The merkle tree's size is claimable on-chain.\n+    - The transfer amount does not overflow.\n+\n+    The merkle tree size has to be checked because the gas usage will increase\n+    linearly with the number of locks in it. A tree too big can not be unlocked\n+    because of block gas limit constraints.\n+    \"\"\"\n+    pending_transfers = get_number_of_pending_transfers(channel_state.our_state)\n+    distributable = get_distributable(channel_state.our_state, channel_state.partner_state)\n \n     channel_usable = (\n-        get_status(candidate_channel_state) == CHANNEL_STATE_OPENED\n+        get_status(channel_state) == CHANNEL_STATE_OPENED\n         and pending_transfers < MAXIMUM_PENDING_TRANSFERS\n         and transfer_amount <= distributable\n-        and is_valid_amount(candidate_channel_state.our_state, transfer_amount)\n-    )\n-\n-    lock_timeout_valid = True\n-    if lock_timeout is not None:\n-        lock_timeout_valid = (\n-            lock_timeout > 0\n-            and candidate_channel_state.settle_timeout >= lock_timeout\n-            and candidate_channel_state.reveal_timeout < lock_timeout\n-        )\n-\n-    return channel_usable and lock_timeout_valid\n+        and is_valid_amount(channel_state.our_state, transfer_amount)\n+    )\n+    return channel_usable\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    pending_transfers = get_number_of_pending_transfers(candidate_channel_state.our_state)\n    distributable = get_distributable(\n        candidate_channel_state.our_state, candidate_channel_state.partner_state\n    )\n\n    channel_usable = (\n        get_status(candidate_channel_state) == CHANNEL_STATE_OPENED\n        and pending_transfers < MAXIMUM_PENDING_TRANSFERS\n        and transfer_amount <= distributable\n        and is_valid_amount(candidate_channel_state.our_state, transfer_amount)\n    )\n\n    lock_timeout_valid = True\n    if lock_timeout is not None:\n        <IND>lock_timeout_valid = (\n            lock_timeout > 0\n            and candidate_channel_state.settle_timeout >= lock_timeout\n            and candidate_channel_state.reveal_timeout < lock_timeout\n        )\n\n    <DED>return channel_usable and lock_timeout_valid\n\n",
+        "target_code_with_indent": "\n\n    channel_usable = is_channel_usable_for_new_transfer(channel_state, transfer_amount)\n    lock_timeout_valid = (\n        lock_timeout > 0\n        and channel_state.settle_timeout >= lock_timeout\n        and channel_state.reveal_timeout < lock_timeout\n    )\n\n    return channel_usable and lock_timeout_valid\n\n\n<DED>def is_channel_usable_for_new_transfer(\n    channel_state: NettingChannelState, transfer_amount: PaymentWithFeeAmount\n) -> bool:\n    <IND>\"\"\"True if the channel be used to start a new transfer.\n\n    This will make sure that:\n\n    - The channel has capacity.\n    - The merkle tree's size is claimable on-chain.\n    - The transfer amount does not overflow.\n\n    The merkle tree size has to be checked because the gas usage will increase\n    linearly with the number of locks in it. A tree too big can not be unlocked\n    because of block gas limit constraints.\n    \"\"\"\n    pending_transfers = get_number_of_pending_transfers(channel_state.our_state)\n    distributable = get_distributable(channel_state.our_state, channel_state.partner_state)\n\n    channel_usable = (\n        get_status(channel_state) == CHANNEL_STATE_OPENED\n        and pending_transfers < MAXIMUM_PENDING_TRANSFERS\n        and transfer_amount <= distributable\n        and is_valid_amount(channel_state.our_state, transfer_amount)\n    )\n    return channel_usable\n\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,60 @@
+[
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "8be55562d7dfdf4e2edeec80b82813e9fa673e56",
+    "filename": "rx/core/observablebase.py",
+    "min_patch_found": false,
+    "full_warning_msg": "rx/core/observablebase.py:239:15 Call error [29]: `ObservableBase` is not a function.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "8be55562d7dfdf4e2edeec80b82813e9fa673e56",
+    "filename": "rx/core/pipe.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ReactiveX-RxPY/rx/core/pipe.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rx/core/pipe.py:28:4 Incompatible return type [7]: Expected `ObservableBase` but got `typing.Callable[[Named(source, ObservableBase)], typing.Callable[[ObservableBase], ObservableBase]]`.",
+    "message": " Expected `ObservableBase` but got `typing.Callable[[Named(source, ObservableBase)], typing.Callable[[ObservableBase], ObservableBase]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 28,
+    "warning_line": "    return compose",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef pipe(*operators: Callable[[ObservableBase], ObservableBase]) -> ObservableBase:\n    \"\"\"Compose multiple operators left to right.\n",
+        "source_code_len": 134,
+        "target_code": "\ndef pipe(*operators: Callable[[ObservableBase], ObservableBase]) -> Callable[[ObservableBase], ObservableBase]:\n    \"\"\"Compose multiple operators left to right.\n",
+        "target_code_len": 162,
+        "diff_format": "@@ -5,3 +5,3 @@\n \n-def pipe(*operators: Callable[[ObservableBase], ObservableBase]) -> ObservableBase:\n+def pipe(*operators: Callable[[ObservableBase], ObservableBase]) -> Callable[[ObservableBase], ObservableBase]:\n     \"\"\"Compose multiple operators left to right.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef pipe(*operators: Callable[[ObservableBase], ObservableBase]) -> ObservableBase:\n    <IND>",
+        "target_code_with_indent": "\ndef pipe(*operators: Callable[[ObservableBase], ObservableBase]) -> Callable[[ObservableBase], ObservableBase]:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Examples:\n        pipe()(source) == source\n        pipe(f)(source) == f(source)\n        pipe(f, g)(source) == g(f(source))\n        pipe(f, g, h)(source) == h(g(f(source)))\n    ...\n\n    Returns the composed observable.\n    \"\"\"\n\n    def compose(source: ObservableBase) -> Callable[[ObservableBase], ObservableBase]:\n        ret = reduce(lambda ops, op: lambda fn: fn(ops(op)),\n",
+        "source_code_len": 379,
+        "target_code": "    Examples:\n        >>> pipe()(source) == source\n        >>> pipe(f)(source) == f(source)\n        >>> pipe(f, g)(source) == g(f(source))\n        >>> pipe(f, g, h)(source) == h(g(f(source)))\n    ...\n\n    Returns:\n        The composed observable.\n    \"\"\"\n\n    def compose(source: ObservableBase) -> ObservableBase:\n        ret = reduce(lambda ops, op: lambda fn: fn(ops(op)),\n",
+        "target_code_len": 376,
+        "diff_format": "@@ -13,12 +13,13 @@\n     Examples:\n-        pipe()(source) == source\n-        pipe(f)(source) == f(source)\n-        pipe(f, g)(source) == g(f(source))\n-        pipe(f, g, h)(source) == h(g(f(source)))\n+        >>> pipe()(source) == source\n+        >>> pipe(f)(source) == f(source)\n+        >>> pipe(f, g)(source) == g(f(source))\n+        >>> pipe(f, g, h)(source) == h(g(f(source)))\n     ...\n \n-    Returns the composed observable.\n+    Returns:\n+        The composed observable.\n     \"\"\"\n \n-    def compose(source: ObservableBase) -> Callable[[ObservableBase], ObservableBase]:\n+    def compose(source: ObservableBase) -> ObservableBase:\n         ret = reduce(lambda ops, op: lambda fn: fn(ops(op)),\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n\n    def compose(source: ObservableBase) -> Callable[[ObservableBase], ObservableBase]:\n        <IND>ret = reduce(lambda ops, op: lambda fn: fn(ops(op)),\n",
+        "target_code_with_indent": "\n\n    def compose(source: ObservableBase) -> ObservableBase:\n        <IND>ret = reduce(lambda ops, op: lambda fn: fn(ops(op)),\n"
+      }
+    ]
+  }
+]

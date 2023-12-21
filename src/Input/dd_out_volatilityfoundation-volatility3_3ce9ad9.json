@@ -1,0 +1,36 @@
+[
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "3ce9ad93c7d7d82dfe7057ec2c4d3aef61e892f5",
+    "filename": "volatility/framework/contexts/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility/framework/contexts/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility/framework/contexts/__init__.py:190:16 Incompatible return type [7]: Expected `typing.Tuple[str, str]` but got `typing.Generator[typing.Tuple[str, typing.Any], None, None]`.",
+    "message": " Expected `typing.Tuple[str, str]` but got `typing.Generator[typing.Tuple[str, typing.Any], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 190,
+    "warning_line": "                yield (module.name, result)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_symbols_by_absolute_location(self, offset: int) -> typing.Tuple[str, str]:\n        \"\"\"Returns a tuple of (module_name, symbol_name) for symbols found at the \"\"\"\n",
+        "source_code_len": 174,
+        "target_code": "\n    def get_symbols_by_absolute_location(self, offset: int) -> typing.Generator[typing.Tuple[str, str], None, None]:\n        \"\"\"Returns a tuple of (module_name, symbol_name) for symbols found at the \"\"\"\n",
+        "target_code_len": 204,
+        "diff_format": "@@ -185,3 +184,3 @@\n \n-    def get_symbols_by_absolute_location(self, offset: int) -> typing.Tuple[str, str]:\n+    def get_symbols_by_absolute_location(self, offset: int) -> typing.Generator[typing.Tuple[str, str], None, None]:\n         \"\"\"Returns a tuple of (module_name, symbol_name) for symbols found at the \"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def get_symbols_by_absolute_location(self, offset: int) -> typing.Tuple[str, str]:\n        <IND>\"\"\"Returns a tuple of (module_name, symbol_name) for symbols found at the \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_symbols_by_absolute_location(self, offset: int) -> typing.Generator[typing.Tuple[str, str], None, None]:\n        <IND>\"\"\"Returns a tuple of (module_name, symbol_name) for symbols found at the \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

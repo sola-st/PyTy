@@ -1,0 +1,83 @@
+[
+  {
+    "project": "Scille/parsec-cloud",
+    "commit": "14540e3b71fd03f1cf7d2bbd4132a89217467e4f",
+    "filename": "parsec/core/gui/central_widget.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Scille-parsec-cloud/parsec/core/gui/central_widget.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "parsec/core/gui/central_widget.py:107:38 Incompatible parameter type [6]: Expected `parsec.event_bus.EventCallback` for 2nd positional only parameter to call `EventBus.connect` but got `BoundMethod[typing.Callable(CentralWidget.handle_event)[[Named(self, CentralWidget), Named(event, CoreEvent), Keywords(object)], None], CentralWidget]`.",
+    "message": " Expected `parsec.event_bus.EventCallback` for 2nd positional only parameter to call `EventBus.connect` but got `BoundMethod[typing.Callable(CentralWidget.handle_event)[[Named(self, CentralWidget), Named(event, CoreEvent), Keywords(object)], None], CentralWidget]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 107,
+    "warning_line": "            self.event_bus.connect(e, self.handle_event)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from parsec.api.data.manifest import WorkspaceEntry\nfrom typing import Optional\nfrom PyQt5.QtCore import pyqtSignal, QTimer\n",
+        "source_code_len": 124,
+        "target_code": "from parsec.api.data.manifest import WorkspaceEntry\nfrom typing import Optional, cast\nfrom PyQt5.QtCore import pyqtSignal, QTimer\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -3,3 +3,3 @@\n from parsec.api.data.manifest import WorkspaceEntry\n-from typing import Optional\n+from typing import Optional, cast\n from PyQt5.QtCore import pyqtSignal, QTimer\n",
+        "source_code_with_indent": "from parsec.api.data.manifest import WorkspaceEntry\nfrom typing import Optional\nfrom PyQt5.QtCore import pyqtSignal, QTimer\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from parsec.api.data.manifest import WorkspaceEntry\nfrom typing import Optional, cast\nfrom PyQt5.QtCore import pyqtSignal, QTimer\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom parsec.event_bus import EventBus\nfrom parsec.api.protocol import (\n",
+        "source_code_len": 73,
+        "target_code": "\nfrom parsec.event_bus import EventBus, EventCallback\nfrom parsec.api.protocol import (\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -8,3 +8,3 @@\n \n-from parsec.event_bus import EventBus\n+from parsec.event_bus import EventBus, EventCallback\n from parsec.api.protocol import (\n",
+        "source_code_with_indent": "\nfrom parsec.event_bus import EventBus\nfrom parsec.api.protocol import (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom parsec.event_bus import EventBus, EventCallback\nfrom parsec.api.protocol import (\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        for e in self.NOTIFICATION_EVENTS:\n            self.event_bus.connect(e, self.handle_event)\n\n",
+        "source_code_len": 101,
+        "target_code": "        for e in self.NOTIFICATION_EVENTS:\n            self.event_bus.connect(e, cast(EventCallback, self.handle_event))\n\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -106,3 +106,3 @@\n         for e in self.NOTIFICATION_EVENTS:\n-            self.event_bus.connect(e, self.handle_event)\n+            self.event_bus.connect(e, cast(EventCallback, self.handle_event))\n \n",
+        "source_code_with_indent": "        for e in self.NOTIFICATION_EVENTS:\n            <IND>self.event_bus.connect(e, self.handle_event)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        for e in self.NOTIFICATION_EVENTS:\n            <IND>self.event_bus.connect(e, cast(EventCallback, self.handle_event))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Scille/parsec-cloud",
+    "commit": "14540e3b71fd03f1cf7d2bbd4132a89217467e4f",
+    "filename": "parsec/core/gui/main_window.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Scille-parsec-cloud/parsec/core/gui/main_window.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "parsec/core/gui/main_window.py:88:61 Incompatible parameter type [6]: Expected `parsec.event_bus.EventCallback` for 2nd positional only parameter to call `EventBus.connect` but got `BoundMethod[typing.Callable(MainWindow.on_config_updated)[[Named(self, MainWindow), Named(event, CoreEvent), Keywords(object)], None], MainWindow]`.",
+    "message": " Expected `parsec.event_bus.EventCallback` for 2nd positional only parameter to call `EventBus.connect` but got `BoundMethod[typing.Callable(MainWindow.on_config_updated)[[Named(self, MainWindow), Named(event, CoreEvent), Keywords(object)], None], MainWindow]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 88,
+    "warning_line": "        self.event_bus.connect(CoreEvent.GUI_CONFIG_CHANGED, self.on_config_updated)"
+  }
+]

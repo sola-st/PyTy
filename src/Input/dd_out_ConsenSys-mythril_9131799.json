@@ -1,0 +1,106 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "9131799e81c72abcbe342e86c569f53665d05502",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:1270:68 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `KeccakFunctionManager.get_argument` but got `mythril.laser.smt.expression.Expression`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "9131799e81c72abcbe342e86c569f53665d05502",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:1357:20 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `KeccakFunctionManager.get_argument` but got `mythril.laser.smt.expression.Expression`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "9131799e81c72abcbe342e86c569f53665d05502",
+    "filename": "mythril/laser/ethereum/keccak.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/keccak.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/keccak.py:27:30 Incompatible parameter type [6]: Expected `mythril.laser.smt.expression.Expression` for 1st positional only parameter to call `KeccakFunctionManager.is_keccak` but got `str`.",
+    "message": " Expected `mythril.laser.smt.expression.Expression` for 1st positional only parameter to call `KeccakFunctionManager.is_keccak` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 27,
+    "warning_line": "        if not self.is_keccak(expression):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_argument(self, expression: str) -> Expression:\n        \"\"\"\n",
+        "source_code_len": 72,
+        "target_code": "\n    def get_argument(self, expression: Expression) -> Expression:\n        \"\"\"\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -20,3 +20,3 @@\n \n-    def get_argument(self, expression: str) -> Expression:\n+    def get_argument(self, expression: Expression) -> Expression:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def get_argument(self, expression: str) -> Expression:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def get_argument(self, expression: Expression) -> Expression:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "9131799e81c72abcbe342e86c569f53665d05502",
+    "filename": "mythril/laser/ethereum/state/machine_state.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/state/machine_state.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/state/machine_state.py:167:62 Unbound name [10]: Name `BitVec` is used but not defined in the current scope.",
+    "message": " Name `BitVec` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 167,
+    "warning_line": "    def memory_write(self, offset: int, data: List[Union[int, BitVec]]) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom mythril.laser.smt import Expression\n\n",
+        "source_code_len": 43,
+        "target_code": "\nfrom mythril.laser.smt import BitVec, Expression\n\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -5,3 +5,3 @@\n \n-from mythril.laser.smt import Expression\n+from mythril.laser.smt import BitVec, Expression\n \n",
+        "source_code_with_indent": "\nfrom mythril.laser.smt import Expression\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom mythril.laser.smt import BitVec, Expression\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "9131799e81c72abcbe342e86c569f53665d05502",
+    "filename": "mythril/laser/ethereum/transaction/concolic.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mythril/laser/ethereum/transaction/concolic.py:56:39 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `ConcreteCalldata.__init__` but got `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "9131799e81c72abcbe342e86c569f53665d05502",
+    "filename": "mythril/laser/ethereum/transaction/symbolic.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mythril/laser/ethereum/transaction/symbolic.py:51:39 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `SymbolicCalldata.__init__` but got `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

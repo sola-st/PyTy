@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "2706600b92b5d25c7c8355db7ef882168adfe75f",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/instructions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:1698:59 Unsupported operand [58]: `//` is not supported for operand types `str` and `int`.",
+    "message": " `//` is not supported for operand types `str` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 1698,
+    "warning_line": "            Instruction._sha3_gas_helper(global_state, len(code_str[2:] // 2))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            Instruction._sha3_gas_helper(global_state, len(code_str[2:] // 2))\n\n",
+        "source_code_len": 81,
+        "target_code": "\n            Instruction._sha3_gas_helper(global_state, len(code_str[2:]) // 2)\n\n",
+        "target_code_len": 81,
+        "diff_format": "@@ -1697,3 +1697,3 @@\n \n-            Instruction._sha3_gas_helper(global_state, len(code_str[2:] // 2))\n+            Instruction._sha3_gas_helper(global_state, len(code_str[2:]) // 2)\n \n",
+        "source_code_with_indent": "\n            Instruction._sha3_gas_helper(global_state, len(code_str[2:] // 2))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            Instruction._sha3_gas_helper(global_state, len(code_str[2:]) // 2)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "2706600b92b5d25c7c8355db7ef882168adfe75f",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/instructions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:1698:59 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `int`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1698,
+    "warning_line": "            Instruction._sha3_gas_helper(global_state, len(code_str[2:] // 2))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            Instruction._sha3_gas_helper(global_state, len(code_str[2:] // 2))\n\n",
+        "source_code_len": 81,
+        "target_code": "\n            Instruction._sha3_gas_helper(global_state, len(code_str[2:]) // 2)\n\n",
+        "target_code_len": 81,
+        "diff_format": "@@ -1697,3 +1697,3 @@\n \n-            Instruction._sha3_gas_helper(global_state, len(code_str[2:] // 2))\n+            Instruction._sha3_gas_helper(global_state, len(code_str[2:]) // 2)\n \n",
+        "source_code_with_indent": "\n            Instruction._sha3_gas_helper(global_state, len(code_str[2:] // 2))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            Instruction._sha3_gas_helper(global_state, len(code_str[2:]) // 2)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

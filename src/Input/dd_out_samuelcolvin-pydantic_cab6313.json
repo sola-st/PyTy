@@ -1,0 +1,36 @@
+[
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "cab6313798765d634e97e3a923c48dfe64367775",
+    "filename": "docs/examples/exporting_models_json.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samuelcolvin-pydantic/docs/examples/exporting_models_json.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "docs/examples/exporting_models_json.py:25:0 Incompatible variable type [9]: m is declared to have type `FooBarModel` but is used as type `WithCustomEncoders`.",
+    "message": " m is declared to have type `FooBarModel` but is used as type `WithCustomEncoders`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 25,
+    "warning_line": "m = WithCustomEncoders(dt=datetime(2032, 6, 1), diff=timedelta(hours=100))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "print(m.json())\n# (returns a str)\nclass WithCustomEncoders(BaseModel):\n    dt: datetime\n    diff: timedelta\n\n    class Config:\n        json_encoders = {\n            datetime: lambda v: v.timestamp(),\n            timedelta: timedelta_isoformat,\n        }\n\nm = WithCustomEncoders(dt=datetime(2032, 6, 1), diff=timedelta(hours=100))\nprint(m.json())\n",
+        "source_code_len": 346,
+        "target_code": "print(m.json())\n",
+        "target_code_len": 16,
+        "diff_format": "@@ -13,14 +12,1 @@\n print(m.json())\n-# (returns a str)\n-class WithCustomEncoders(BaseModel):\n-    dt: datetime\n-    diff: timedelta\n-\n-    class Config:\n-        json_encoders = {\n-            datetime: lambda v: v.timestamp(),\n-            timedelta: timedelta_isoformat,\n-        }\n-\n-m = WithCustomEncoders(dt=datetime(2032, 6, 1), diff=timedelta(hours=100))\n-print(m.json())\n",
+        "source_code_with_indent": "print(m.json())\n# (returns a str)\nclass WithCustomEncoders(BaseModel):\n    <IND>dt: datetime\n    diff: timedelta\n\n    class Config:\n        <IND>json_encoders = {\n            datetime: lambda v: v.timestamp(),\n            timedelta: timedelta_isoformat,\n        }\n\n<DED><DED>m = WithCustomEncoders(dt=datetime(2032, 6, 1), diff=timedelta(hours=100))\nprint(m.json())\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "print(m.json())\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

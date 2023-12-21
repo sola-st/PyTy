@@ -1,0 +1,36 @@
+[
+  {
+    "project": "SolidCode/SolidPython",
+    "commit": "e950c53362c4d12168544b7a4e33f88ccf6aaa9d",
+    "filename": "solid/examples/mazebox/mazebox.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/SolidCode-SolidPython/solid/examples/mazebox/mazebox.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "solid/examples/mazebox/mazebox.py:188:22 Incompatible parameter type [6]: Expected `typing.Tuple[float, float, float]` for 1st positional only parameter to call `translate.__init__` but got `typing.List[int]`.",
+    "message": " Expected `typing.Tuple[float, float, float]` for 1st positional only parameter to call `translate.__init__` but got `typing.List[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 188,
+    "warning_line": "            translate([3 * innerR, 0, 0])(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            top_part(),\n            translate([3 * innerR, 0, 0])(\n                    bottom_part()\n",
+        "source_code_len": 101,
+        "target_code": "            top_part(),\n            translate((3 * innerR, 0, 0))(\n                    bottom_part()\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -187,3 +187,3 @@\n             top_part(),\n-            translate([3 * innerR, 0, 0])(\n+            translate((3 * innerR, 0, 0))(\n                     bottom_part()\n",
+        "source_code_with_indent": "            top_part(),\n            translate([3 * innerR, 0, 0])(\n                    bottom_part()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            top_part(),\n            translate((3 * innerR, 0, 0))(\n                    bottom_part()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

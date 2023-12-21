@@ -1,0 +1,36 @@
+[
+  {
+    "project": "HumanCompatibleAI/imitation",
+    "commit": "7f01e0e28f0e190494d42f13902fcfeee6cb8a59",
+    "filename": "src/imitation/algorithms/adversarial.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HumanCompatibleAI-imitation/src/imitation/algorithms/adversarial.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/imitation/algorithms/adversarial.py:328:17 Incompatible variable type [9]: log_dir is declared to have type `str` but is used as type `None`.",
+    "message": " log_dir is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 328,
+    "warning_line": "                 log_dir: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 expert_trajectories: Sequence[rollout.Trajectory],\n                 *,\n                 seed: int = 0,\n                 log_dir: str = None,\n                 use_gail: bool = False,\n",
+        "source_code_len": 199,
+        "target_code": "                 expert_trajectories: Sequence[rollout.Trajectory],\n                 log_dir: str,\n                 *,\n                 seed: int = 0,\n                 use_gail: bool = False,\n",
+        "target_code_len": 192,
+        "diff_format": "@@ -325,5 +369,5 @@\n                  expert_trajectories: Sequence[rollout.Trajectory],\n+                 log_dir: str,\n                  *,\n                  seed: int = 0,\n-                 log_dir: str = None,\n                  use_gail: bool = False,\n",
+        "source_code_with_indent": "                 expert_trajectories: Sequence[rollout.Trajectory],\n                 *,\n                 seed: int = 0,\n                 log_dir: str = None,\n                 use_gail: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 expert_trajectories: Sequence[rollout.Trajectory],\n                 log_dir: str,\n                 *,\n                 seed: int = 0,\n                 use_gail: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

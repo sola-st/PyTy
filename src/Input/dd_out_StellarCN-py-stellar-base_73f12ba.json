@@ -1,0 +1,36 @@
+[
+  {
+    "project": "StellarCN/py-stellar-base",
+    "commit": "73f12ba5ab7fa50d62d5a39ef9c2cc060f7e75ac",
+    "filename": "stellar_sdk/muxed_account.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/StellarCN-py-stellar-base/stellar_sdk/muxed_account.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "stellar_sdk/muxed_account.py:102:43 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `StrKey.decode_muxed_account` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `StrKey.decode_muxed_account` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 102,
+    "warning_line": "        return StrKey.decode_muxed_account(self.account_muxed)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return StrKey.decode_muxed_account(self.account_id)\n        return StrKey.decode_muxed_account(self.account_muxed)\n",
+        "source_code_len": 127,
+        "target_code": "            return StrKey.decode_muxed_account(self.account_id)\n        assert self.account_muxed is not None\n        return StrKey.decode_muxed_account(self.account_muxed)\n",
+        "target_code_len": 173,
+        "diff_format": "@@ -101,2 +101,3 @@\n             return StrKey.decode_muxed_account(self.account_id)\n+        assert self.account_muxed is not None\n         return StrKey.decode_muxed_account(self.account_muxed)\n",
+        "source_code_with_indent": "            <IND>return StrKey.decode_muxed_account(self.account_id)\n        <DED>return StrKey.decode_muxed_account(self.account_muxed)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return StrKey.decode_muxed_account(self.account_id)\n        <DED>assert self.account_muxed is not None\n        return StrKey.decode_muxed_account(self.account_muxed)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

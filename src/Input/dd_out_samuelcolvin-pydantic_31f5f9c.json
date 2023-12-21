@@ -1,0 +1,36 @@
+[
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "31f5f9c2671b3132a311c402146cef316173e799",
+    "filename": "pydantic/error_wrappers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samuelcolvin-pydantic/pydantic/error_wrappers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydantic/error_wrappers.py:117:38 Incompatible parameter type [6]: Expected `Type[PydanticErrorMixin]` for 1st positional only parameter to call `_get_pydantic_exc_type` but got `Type[Exception]`.",
+    "message": " Expected `Type[PydanticErrorMixin]` for 1st positional only parameter to call `_get_pydantic_exc_type` but got `Type[Exception]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 117,
+    "warning_line": "        return _get_pydantic_exc_type(cls)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    if issubclass(cls, PydanticErrorMixin):\n        return _get_pydantic_exc_type(cls)\n\n    bases = tuple(_get_exc_bases(cls))\n    bases = bases[::-1]\n\n    return to_snake_case('.'.join(bases))\n\n\ndef _get_pydantic_exc_type(exc: Type[PydanticErrorMixin]) -> str:\n    if issubclass(exc, TypeError):\n        type_ = 'type_error'\n    else:\n        type_ = 'value_error'\n\n    return f'{type_}.{exc.code}'\n\n\ndef _get_exc_bases(exc: Type[Exception]) -> Iterable[str]:\n    for b in exc.__mro__:  # pragma: no branch\n        if b in (TypeError, ValueError):\n            yield b.__name__\n            break\n\n        yield b.__name__.replace('Error', '')\n",
+        "source_code_len": 644,
+        "target_code": "\n    base_name = 'type_error' if issubclass(cls, TypeError) else 'value_error'\n    if cls in (TypeError, ValueError):\n        # just TypeError or ValueError, no extra code\n        return base_name\n\n    # if it's not a TypeError or ValueError, we just take the lowercase of the exception name\n    # no chaining or snake case logic, use \"code\" for more complex error types.\n    code = getattr(cls, 'code', None) or cls.__name__.replace('Error', '').lower()\n    return base_name + '.' + code\n",
+        "target_code_len": 489,
+        "diff_format": "@@ -115,26 +111,10 @@\n \n-    if issubclass(cls, PydanticErrorMixin):\n-        return _get_pydantic_exc_type(cls)\n+    base_name = 'type_error' if issubclass(cls, TypeError) else 'value_error'\n+    if cls in (TypeError, ValueError):\n+        # just TypeError or ValueError, no extra code\n+        return base_name\n \n-    bases = tuple(_get_exc_bases(cls))\n-    bases = bases[::-1]\n-\n-    return to_snake_case('.'.join(bases))\n-\n-\n-def _get_pydantic_exc_type(exc: Type[PydanticErrorMixin]) -> str:\n-    if issubclass(exc, TypeError):\n-        type_ = 'type_error'\n-    else:\n-        type_ = 'value_error'\n-\n-    return f'{type_}.{exc.code}'\n-\n-\n-def _get_exc_bases(exc: Type[Exception]) -> Iterable[str]:\n-    for b in exc.__mro__:  # pragma: no branch\n-        if b in (TypeError, ValueError):\n-            yield b.__name__\n-            break\n-\n-        yield b.__name__.replace('Error', '')\n+    # if it's not a TypeError or ValueError, we just take the lowercase of the exception name\n+    # no chaining or snake case logic, use \"code\" for more complex error types.\n+    code = getattr(cls, 'code', None) or cls.__name__.replace('Error', '').lower()\n+    return base_name + '.' + code\n",
+        "source_code_with_indent": "\n    if issubclass(cls, PydanticErrorMixin):\n        <IND>return _get_pydantic_exc_type(cls)\n\n    <DED>bases = tuple(_get_exc_bases(cls))\n    bases = bases[::-1]\n\n    return to_snake_case('.'.join(bases))\n\n\n<DED>def _get_pydantic_exc_type(exc: Type[PydanticErrorMixin]) -> str:\n    <IND>if issubclass(exc, TypeError):\n        <IND>type_ = 'type_error'\n    <DED>else:\n        <IND>type_ = 'value_error'\n\n    <DED>return f'{type_}.{exc.code}'\n\n\n<DED>def _get_exc_bases(exc: Type[Exception]) -> Iterable[str]:\n    <IND>for b in exc.__mro__:  # pragma: no branch\n        <IND>if b in (TypeError, ValueError):\n            <IND>yield b.__name__\n            break\n\n        <DED>yield b.__name__.replace('Error', '')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    base_name = 'type_error' if issubclass(cls, TypeError) else 'value_error'\n    if cls in (TypeError, ValueError):\n        # just TypeError or ValueError, no extra code\n        <IND>return base_name\n\n    # if it's not a TypeError or ValueError, we just take the lowercase of the exception name\n    # no chaining or snake case logic, use \"code\" for more complex error types.\n    <DED>code = getattr(cls, 'code', None) or cls.__name__.replace('Error', '').lower()\n    return base_name + '.' + code\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

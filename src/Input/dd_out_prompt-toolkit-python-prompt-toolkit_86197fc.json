@@ -1,0 +1,153 @@
+[
+  {
+    "project": "prompt-toolkit/python-prompt-toolkit",
+    "commit": "86197fc4f25baea60616cb4fc6f0b000a8a8add4",
+    "filename": "prompt_toolkit/input/win32.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/prompt-toolkit-python-prompt-toolkit/prompt_toolkit/input/win32.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "prompt_toolkit/input/win32.py:436:31 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `dict.__setitem__` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `dict.__setitem__` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 436,
+    "warning_line": "        self._handle_callbacks[handle.value] = callback",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        loop = get_event_loop()\n        self._handle_callbacks[handle.value] = callback\n\n",
+        "source_code_len": 101,
+        "target_code": "        \"\"\"\n        if handle.value is None:\n            raise ValueError('Invalid handle.')\n        handle_value = handle.value\n\n        loop = get_event_loop()\n        self._handle_callbacks[handle_value] = callback\n\n",
+        "target_code_len": 219,
+        "diff_format": "@@ -434,4 +434,8 @@\n         \"\"\"\n+        if handle.value is None:\n+            raise ValueError('Invalid handle.')\n+        handle_value = handle.value\n+\n         loop = get_event_loop()\n-        self._handle_callbacks[handle.value] = callback\n+        self._handle_callbacks[handle_value] = callback\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        loop = get_event_loop()\n        self._handle_callbacks[handle.value] = callback\n\n",
+        "target_code_with_indent": "\n        if handle.value is None:\n            <IND>raise ValueError('Invalid handle.')\n        <DED>handle_value = handle.value\n\n        loop = get_event_loop()\n        self._handle_callbacks[handle_value] = callback\n\n"
+      }
+    ]
+  },
+  {
+    "project": "prompt-toolkit/python-prompt-toolkit",
+    "commit": "86197fc4f25baea60616cb4fc6f0b000a8a8add4",
+    "filename": "prompt_toolkit/input/win32.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/prompt-toolkit-python-prompt-toolkit/prompt_toolkit/input/win32.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "prompt_toolkit/input/win32.py:450:42 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 450,
+    "warning_line": "            if self._handle_callbacks.get(handle.value) != callback:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        loop = get_event_loop()\n        self._handle_callbacks[handle.value] = callback\n\n",
+        "source_code_len": 101,
+        "target_code": "        \"\"\"\n        if handle.value is None:\n            raise ValueError('Invalid handle.')\n        handle_value = handle.value\n\n        loop = get_event_loop()\n        self._handle_callbacks[handle_value] = callback\n\n",
+        "target_code_len": 219,
+        "diff_format": "@@ -434,4 +434,8 @@\n         \"\"\"\n+        if handle.value is None:\n+            raise ValueError('Invalid handle.')\n+        handle_value = handle.value\n+\n         loop = get_event_loop()\n-        self._handle_callbacks[handle.value] = callback\n+        self._handle_callbacks[handle_value] = callback\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        loop = get_event_loop()\n        self._handle_callbacks[handle.value] = callback\n\n",
+        "target_code_with_indent": "\n        if handle.value is None:\n            <IND>raise ValueError('Invalid handle.')\n        <DED>handle_value = handle.value\n\n        loop = get_event_loop()\n        self._handle_callbacks[handle_value] = callback\n\n"
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        def wait() -> None:\n            if self._handle_callbacks.get(handle.value) != callback:\n                return\n",
+        "source_code_len": 120,
+        "target_code": "        def wait() -> None:\n            if self._handle_callbacks.get(handle_value) != callback:\n                return\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -449,3 +453,3 @@\n         def wait() -> None:\n-            if self._handle_callbacks.get(handle.value) != callback:\n+            if self._handle_callbacks.get(handle_value) != callback:\n                 return\n",
+        "source_code_with_indent": "        <DED><DED>def wait() -> None:\n            <IND>if self._handle_callbacks.get(handle.value) != callback:\n                <IND>return\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED><DED>def wait() -> None:\n            <IND>if self._handle_callbacks.get(handle_value) != callback:\n                <IND>return\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "prompt-toolkit/python-prompt-toolkit",
+    "commit": "86197fc4f25baea60616cb4fc6f0b000a8a8add4",
+    "filename": "prompt_toolkit/input/win32.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/prompt-toolkit-python-prompt-toolkit/prompt_toolkit/input/win32.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "prompt_toolkit/input/win32.py:478:60 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 478,
+    "warning_line": "    previous_callback = win32_handles._handle_callbacks.get(handle.value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    handle = input.handle\n\n",
+        "source_code_len": 27,
+        "target_code": "    handle = input.handle\n\n    if handle.value is None:\n        raise ValueError('Invalid handle.')\n\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -475,2 +479,5 @@\n     handle = input.handle\n+\n+    if handle.value is None:\n+        raise ValueError('Invalid handle.')\n \n",
+        "source_code_with_indent": "    handle = input.handle\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    handle = input.handle\n\n    if handle.value is None:\n        <IND>raise ValueError('Invalid handle.')\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "prompt-toolkit/python-prompt-toolkit",
+    "commit": "86197fc4f25baea60616cb4fc6f0b000a8a8add4",
+    "filename": "prompt_toolkit/input/win32.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/prompt-toolkit-python-prompt-toolkit/prompt_toolkit/input/win32.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "prompt_toolkit/input/win32.py:495:51 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 495,
+    "warning_line": "    previous = win32_handles._handle_callbacks.get(handle.value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    handle = input.handle\n\n",
+        "source_code_len": 27,
+        "target_code": "    handle = input.handle\n\n    if handle.value is None:\n        raise ValueError('Invalid handle.')\n\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -493,2 +500,5 @@\n     handle = input.handle\n+\n+    if handle.value is None:\n+        raise ValueError('Invalid handle.')\n \n",
+        "source_code_with_indent": "    handle = input.handle\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    handle = input.handle\n\n    if handle.value is None:\n        <IND>raise ValueError('Invalid handle.')\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

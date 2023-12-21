@@ -1,0 +1,51 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "935ed36433608a2beb3dabc15274171a3eb93d29",
+    "filename": "freqtrade/rpc/telegram.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/rpc/telegram.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/rpc/telegram.py:435:12 Incompatible parameter type [6]: Expected `datetime` for 3rd positional only parameter to call `freqtrade.rpc.rpc.RPC._rpc_trade_statistics` but got `datetime.date`.",
+    "message": " Expected `datetime` for 3rd positional only parameter to call `freqtrade.rpc.rpc.RPC._rpc_trade_statistics` but got `datetime.date`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 435,
+    "warning_line": "            start_date)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import logging\nfrom datetime import datetime, timedelta\nfrom html import escape\n",
+        "source_code_len": 80,
+        "target_code": "import logging\nfrom datetime import datetime, date, timedelta\nfrom html import escape\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -7,3 +7,3 @@\n import logging\n-from datetime import datetime, timedelta\n+from datetime import datetime, date, timedelta\n from html import escape\n",
+        "source_code_with_indent": "import logging\nfrom datetime import datetime, timedelta\nfrom html import escape\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\nfrom datetime import datetime, date, timedelta\nfrom html import escape\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if 'day' in context.args:\n                start_date = datetime.utcnow().date()\n            elif 'week' in context.args:\n                start_date = datetime.utcnow().date() - timedelta(days=7)\n\n",
+        "source_code_len": 208,
+        "target_code": "            if 'day' in context.args:\n                start_date = datetime.combine(date.today(), datetime.min.time())\n            elif 'week' in context.args:\n                start_date = datetime.combine(date.today(), datetime.min.time()) - timedelta(days=7)\n\n",
+        "target_code_len": 262,
+        "diff_format": "@@ -427,5 +427,5 @@\n             if 'day' in context.args:\n-                start_date = datetime.utcnow().date()\n+                start_date = datetime.combine(date.today(), datetime.min.time())\n             elif 'week' in context.args:\n-                start_date = datetime.utcnow().date() - timedelta(days=7)\n+                start_date = datetime.combine(date.today(), datetime.min.time()) - timedelta(days=7)\n \n",
+        "source_code_with_indent": "            <IND>if 'day' in context.args:\n                <IND>start_date = datetime.utcnow().date()\n            <DED>elif 'week' in context.args:\n                <IND>start_date = datetime.utcnow().date() - timedelta(days=7)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>if 'day' in context.args:\n                <IND>start_date = datetime.combine(date.today(), datetime.min.time())\n            <DED>elif 'week' in context.args:\n                <IND>start_date = datetime.combine(date.today(), datetime.min.time()) - timedelta(days=7)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

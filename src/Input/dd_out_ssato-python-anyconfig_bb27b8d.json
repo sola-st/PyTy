@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ssato/python-anyconfig",
+    "commit": "bb27b8d0f735adb10730cdd04c2a3971a39845da",
+    "filename": "src/anyconfig/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ssato-python-anyconfig/src/anyconfig/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/anyconfig/utils.py:345:35 Incompatible parameter type [6]: Expected `typing.Union[typing.IO[typing.Any], pathlib.Path, str, typing.Tuple[typing.Any, ...]]` for 1st positional only parameter to call `expand_paths_itr` but got `typing.Union[typing.IO[typing.Any], typing.Iterable[typing.Union[pathlib.Path, str]], pathlib.Path, str, typing.Tuple[typing.Any, ...]]`.",
+    "message": " Expected `typing.Union[typing.IO[typing.Any], pathlib.Path, str, typing.Tuple[typing.Any, ...]]` for 1st positional only parameter to call `expand_paths_itr` but got `typing.Union[typing.IO[typing.Any], typing.Iterable[typing.Union[pathlib.Path, str]], pathlib.Path, str, typing.Tuple[typing.Any, ...]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 345,
+    "warning_line": "    return sorted(expand_paths_itr(paths, marker=marker), key=maybe_path_key)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef expand_paths(paths: typing.Union[PathsT, typing.Tuple, typing.IO],\n                 marker: str = '*'\n                 ) -> typing.Iterable[typing.Union[PathsT, typing.IO]]:\n    \"\"\"\n",
+        "source_code_len": 187,
+        "target_code": "\ndef expand_paths(paths: typing.Union[str, pathlib.Path,\n                                     typing.Tuple, typing.IO],\n                 marker: str = '*'\n                 ) -> typing.Iterable[typing.Union[pathlib.Path, typing.IO]]:\n    \"\"\"\n",
+        "target_code_len": 241,
+        "diff_format": "@@ -334,5 +334,6 @@\n \n-def expand_paths(paths: typing.Union[PathsT, typing.Tuple, typing.IO],\n+def expand_paths(paths: typing.Union[str, pathlib.Path,\n+                                     typing.Tuple, typing.IO],\n                  marker: str = '*'\n-                 ) -> typing.Iterable[typing.Union[PathsT, typing.IO]]:\n+                 ) -> typing.Iterable[typing.Union[pathlib.Path, typing.IO]]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def expand_paths(paths: typing.Union[PathsT, typing.Tuple, typing.IO],\n                 marker: str = '*'\n                 ) -> typing.Iterable[typing.Union[PathsT, typing.IO]]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def expand_paths(paths: typing.Union[str, pathlib.Path,\n                                     typing.Tuple, typing.IO],\n                 marker: str = '*'\n                 ) -> typing.Iterable[typing.Union[pathlib.Path, typing.IO]]:\n    <IND>"
+      }
+    ]
+  }
+]

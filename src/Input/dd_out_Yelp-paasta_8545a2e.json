@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Yelp/paasta",
+    "commit": "8545a2e19192e4680850071218f916bd1c65f5cf",
+    "filename": "paasta_tools/generate_deployments_for_service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/generate_deployments_for_service.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/generate_deployments_for_service.py:232:17 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `list.append` but got `Tuple[typing.Any, typing.Any]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `list.append` but got `Tuple[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 232,
+    "warning_line": "                (gd[\"state\"], gd[\"force_bounce\"])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    states_by_branch_and_sha: Dict[Tuple[str, str], List[str]] = {}\n\n",
+        "source_code_len": 70,
+        "target_code": "\n    states_by_branch_and_sha: Dict[Tuple[str, str], List[Tuple[str, Any]]] = {}\n\n",
+        "target_code_len": 82,
+        "diff_format": "@@ -224,3 +224,3 @@\n \n-    states_by_branch_and_sha: Dict[Tuple[str, str], List[str]] = {}\n+    states_by_branch_and_sha: Dict[Tuple[str, str], List[Tuple[str, Any]]] = {}\n \n",
+        "source_code_with_indent": "\n    states_by_branch_and_sha: Dict[Tuple[str, str], List[str]] = {}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    states_by_branch_and_sha: Dict[Tuple[str, str], List[Tuple[str, Any]]] = {}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Yelp/paasta",
+    "commit": "8545a2e19192e4680850071218f916bd1c65f5cf",
+    "filename": "paasta_tools/generate_deployments_for_service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/generate_deployments_for_service.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/generate_deployments_for_service.py:235:4 Incompatible return type [7]: Expected `Dict[Tuple[str, str], Tuple[str, typing.Any]]` but got `Dict[Tuple[str, str], str]`.",
+    "message": " Expected `Dict[Tuple[str, str], Tuple[str, typing.Any]]` but got `Dict[Tuple[str, str], str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 235,
+    "warning_line": "    return {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    states_by_branch_and_sha: Dict[Tuple[str, str], List[str]] = {}\n\n",
+        "source_code_len": 70,
+        "target_code": "\n    states_by_branch_and_sha: Dict[Tuple[str, str], List[Tuple[str, Any]]] = {}\n\n",
+        "target_code_len": 82,
+        "diff_format": "@@ -224,3 +224,3 @@\n \n-    states_by_branch_and_sha: Dict[Tuple[str, str], List[str]] = {}\n+    states_by_branch_and_sha: Dict[Tuple[str, str], List[Tuple[str, Any]]] = {}\n \n",
+        "source_code_with_indent": "\n    states_by_branch_and_sha: Dict[Tuple[str, str], List[str]] = {}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    states_by_branch_and_sha: Dict[Tuple[str, str], List[Tuple[str, Any]]] = {}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

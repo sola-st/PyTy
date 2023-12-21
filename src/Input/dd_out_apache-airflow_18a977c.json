@@ -1,0 +1,53 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "18a977ccc53f036413ccac4cab679fb7b37c65f0",
+    "filename": "airflow/utils/email.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/utils/email.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/utils/email.py:86:4 Incompatible variable type [9]: from_email is declared to have type `str` but is used as type `None`.",
+    "message": " from_email is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 86,
+    "warning_line": "    from_email: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    conn_id: str = \"smtp_default\",\n    from_email: str = None,\n    custom_headers: Optional[Dict[str, Any]] = None,\n",
+        "source_code_len": 116,
+        "target_code": "    conn_id: str = \"smtp_default\",\n    from_email: Optional[str] = None,\n    custom_headers: Optional[Dict[str, Any]] = None,\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -85,3 +85,3 @@\n     conn_id: str = \"smtp_default\",\n-    from_email: str = None,\n+    from_email: Optional[str] = None,\n     custom_headers: Optional[Dict[str, Any]] = None,\n",
+        "source_code_with_indent": "    conn_id: str = \"smtp_default\",\n    from_email: str = None,\n    custom_headers: Optional[Dict[str, Any]] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    conn_id: str = \"smtp_default\",\n    from_email: Optional[str] = None,\n    custom_headers: Optional[Dict[str, Any]] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "18a977ccc53f036413ccac4cab679fb7b37c65f0",
+    "filename": "tests/utils/test_email.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/tests/utils/test_email.py",
+    "file_hunks_size": 25,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/utils/test_email.py:280:48 Incompatible parameter type [6]: Expected `typing.List[str]` for 2nd positional only parameter to call `utils.email.send_mime_email` but got `str`.",
+    "message": " Expected `typing.List[str]` for 2nd positional only parameter to call `utils.email.send_mime_email` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 280,
+    "warning_line": "            utils.email.send_mime_email('from', 'to', msg, dryrun=False)"
+  }
+]

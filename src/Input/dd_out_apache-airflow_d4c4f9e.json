@@ -1,0 +1,36 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "d4c4f9e09ee8b0453ff8503c30274eeaa80e7fde",
+    "filename": "airflow/providers/google/cloud/operators/cloud_build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/google/cloud/operators/cloud_build.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/google/cloud/operators/cloud_build.py:1021:40 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1021,
+    "warning_line": "            source_dict[\"generation\"] = int(url_parts.fragment)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        source_dict = {\n            \"bucket\": url_parts.hostname,\n",
+        "source_code_len": 67,
+        "target_code": "\n        source_dict: Dict[str, Any] = {\n            \"bucket\": url_parts.hostname,\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -1014,3 +1012,3 @@\n \n-        source_dict = {\n+        source_dict: Dict[str, Any] = {\n             \"bucket\": url_parts.hostname,\n",
+        "source_code_with_indent": "\n        <DED>source_dict = {\n            \"bucket\": url_parts.hostname,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>source_dict: Dict[str, Any] = {\n            \"bucket\": url_parts.hostname,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

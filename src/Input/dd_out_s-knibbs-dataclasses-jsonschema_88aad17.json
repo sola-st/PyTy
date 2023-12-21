@@ -1,0 +1,36 @@
+[
+  {
+    "project": "s-knibbs/dataclasses-jsonschema",
+    "commit": "88aad17cc9e92827a9ede5aeea49043b42cb6429",
+    "filename": "dataclasses_jsonschema/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/s-knibbs-dataclasses-jsonschema/dataclasses_jsonschema/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dataclasses_jsonschema/__init__.py:382:12 Incompatible attribute type [8]: Attribute `_schema` declared in class `JsonSchemaMixin` has type `Optional[Dict[Optional[SwaggerSpecVersion], Dict[str, typing.Any]]]` but is used as type `Dict[str, Union[Dict[typing.Any, typing.Any], List[typing.Any], str]]`.",
+    "message": " Attribute `_schema` declared in class `JsonSchemaMixin` has type `Optional[Dict[Optional[SwaggerSpecVersion], Dict[str, typing.Any]]]` but is used as type `Dict[str, Union[Dict[typing.Any, typing.Any], List[typing.Any], str]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 382,
+    "warning_line": "            cls._schema = schema",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            cls._schema = schema\n\n",
+        "source_code_len": 35,
+        "target_code": "\n            cls._schema[swagger_version] = schema\n\n",
+        "target_code_len": 52,
+        "diff_format": "@@ -381,3 +381,3 @@\n \n-            cls._schema = schema\n+            cls._schema[swagger_version] = schema\n \n",
+        "source_code_with_indent": "\n            <DED>cls._schema = schema\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            <DED>cls._schema[swagger_version] = schema\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

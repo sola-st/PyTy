@@ -1,0 +1,104 @@
+[
+  {
+    "project": "InvestmentSystems/static-frame",
+    "commit": "8f4b32ccd973a6c2039954130f9e06ab9c2304b3",
+    "filename": "static_frame/profile/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/InvestmentSystems-static-frame/static_frame/profile/main.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "static_frame/profile/main.py:893:52 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `HexColor.format_terminal` but got `object`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `HexColor.format_terminal` but got `object`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 893,
+    "warning_line": "            return HexColor.format_terminal('gray', v)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return HexColor.format_terminal('orange', str(v))\n        if key[1] == 'explanation':\n            return HexColor.format_terminal('gray', v)\n        if key[1] == 'name':\n            name_root = v.split('.')[0]\n            if name_root != name_root_last:\n                name_root_last = name_root\n                name_root_count += 1\n            if name_root_count % 2:\n                return HexColor.format_terminal('lavender', v)\n            else:\n                return HexColor.format_terminal('lightslategrey', v)\n        return str(v)\n",
+        "source_code_len": 554,
+        "target_code": "            return HexColor.format_terminal('orange', str(v))\n        if isinstance(v, str):\n            if key[1] == 'explanation':\n                return HexColor.format_terminal('gray', v)\n            if key[1] == 'name':\n                name_root = v.split('.')[0]\n                if name_root != name_root_last:\n                    name_root_last = name_root\n                    name_root_count += 1\n                if name_root_count % 2:\n                    return HexColor.format_terminal('lavender', v)\n                else:\n                    return HexColor.format_terminal('lightslategrey', v)\n        return str(v)\n",
+        "target_code_len": 629,
+        "diff_format": "@@ -891,13 +891,14 @@\n             return HexColor.format_terminal('orange', str(v))\n-        if key[1] == 'explanation':\n-            return HexColor.format_terminal('gray', v)\n-        if key[1] == 'name':\n-            name_root = v.split('.')[0]\n-            if name_root != name_root_last:\n-                name_root_last = name_root\n-                name_root_count += 1\n-            if name_root_count % 2:\n-                return HexColor.format_terminal('lavender', v)\n-            else:\n-                return HexColor.format_terminal('lightslategrey', v)\n+        if isinstance(v, str):\n+            if key[1] == 'explanation':\n+                return HexColor.format_terminal('gray', v)\n+            if key[1] == 'name':\n+                name_root = v.split('.')[0]\n+                if name_root != name_root_last:\n+                    name_root_last = name_root\n+                    name_root_count += 1\n+                if name_root_count % 2:\n+                    return HexColor.format_terminal('lavender', v)\n+                else:\n+                    return HexColor.format_terminal('lightslategrey', v)\n         return str(v)\n",
+        "source_code_with_indent": "            <DED>return HexColor.format_terminal('orange', str(v))\n        <DED>if key[1] == 'explanation':\n            <IND>return HexColor.format_terminal('gray', v)\n        <DED>if key[1] == 'name':\n            <IND>name_root = v.split('.')[0]\n            if name_root != name_root_last:\n                <IND>name_root_last = name_root\n                name_root_count += 1\n            <DED>if name_root_count % 2:\n                <IND>return HexColor.format_terminal('lavender', v)\n            <DED>else:\n                <IND>return HexColor.format_terminal('lightslategrey', v)\n        <DED><DED>return str(v)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>return HexColor.format_terminal('orange', str(v))\n        <DED>if isinstance(v, str):\n            <IND>if key[1] == 'explanation':\n                <IND>return HexColor.format_terminal('gray', v)\n            <DED>if key[1] == 'name':\n                <IND>name_root = v.split('.')[0]\n                if name_root != name_root_last:\n                    <IND>name_root_last = name_root\n                    name_root_count += 1\n                <DED>if name_root_count % 2:\n                    <IND>return HexColor.format_terminal('lavender', v)\n                <DED>else:\n                    <IND>return HexColor.format_terminal('lightslategrey', v)\n        <DED><DED><DED>return str(v)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "InvestmentSystems/static-frame",
+    "commit": "8f4b32ccd973a6c2039954130f9e06ab9c2304b3",
+    "filename": "static_frame/profile/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/InvestmentSystems-static-frame/static_frame/profile/main.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "static_frame/profile/main.py:900:60 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `HexColor.format_terminal` but got `object`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `HexColor.format_terminal` but got `object`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 900,
+    "warning_line": "                return HexColor.format_terminal('lavender', v)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return HexColor.format_terminal('orange', str(v))\n        if key[1] == 'explanation':\n            return HexColor.format_terminal('gray', v)\n        if key[1] == 'name':\n            name_root = v.split('.')[0]\n            if name_root != name_root_last:\n                name_root_last = name_root\n                name_root_count += 1\n            if name_root_count % 2:\n                return HexColor.format_terminal('lavender', v)\n            else:\n                return HexColor.format_terminal('lightslategrey', v)\n        return str(v)\n",
+        "source_code_len": 554,
+        "target_code": "            return HexColor.format_terminal('orange', str(v))\n        if isinstance(v, str):\n            if key[1] == 'explanation':\n                return HexColor.format_terminal('gray', v)\n            if key[1] == 'name':\n                name_root = v.split('.')[0]\n                if name_root != name_root_last:\n                    name_root_last = name_root\n                    name_root_count += 1\n                if name_root_count % 2:\n                    return HexColor.format_terminal('lavender', v)\n                else:\n                    return HexColor.format_terminal('lightslategrey', v)\n        return str(v)\n",
+        "target_code_len": 629,
+        "diff_format": "@@ -891,13 +891,14 @@\n             return HexColor.format_terminal('orange', str(v))\n-        if key[1] == 'explanation':\n-            return HexColor.format_terminal('gray', v)\n-        if key[1] == 'name':\n-            name_root = v.split('.')[0]\n-            if name_root != name_root_last:\n-                name_root_last = name_root\n-                name_root_count += 1\n-            if name_root_count % 2:\n-                return HexColor.format_terminal('lavender', v)\n-            else:\n-                return HexColor.format_terminal('lightslategrey', v)\n+        if isinstance(v, str):\n+            if key[1] == 'explanation':\n+                return HexColor.format_terminal('gray', v)\n+            if key[1] == 'name':\n+                name_root = v.split('.')[0]\n+                if name_root != name_root_last:\n+                    name_root_last = name_root\n+                    name_root_count += 1\n+                if name_root_count % 2:\n+                    return HexColor.format_terminal('lavender', v)\n+                else:\n+                    return HexColor.format_terminal('lightslategrey', v)\n         return str(v)\n",
+        "source_code_with_indent": "            <DED>return HexColor.format_terminal('orange', str(v))\n        <DED>if key[1] == 'explanation':\n            <IND>return HexColor.format_terminal('gray', v)\n        <DED>if key[1] == 'name':\n            <IND>name_root = v.split('.')[0]\n            if name_root != name_root_last:\n                <IND>name_root_last = name_root\n                name_root_count += 1\n            <DED>if name_root_count % 2:\n                <IND>return HexColor.format_terminal('lavender', v)\n            <DED>else:\n                <IND>return HexColor.format_terminal('lightslategrey', v)\n        <DED><DED>return str(v)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>return HexColor.format_terminal('orange', str(v))\n        <DED>if isinstance(v, str):\n            <IND>if key[1] == 'explanation':\n                <IND>return HexColor.format_terminal('gray', v)\n            <DED>if key[1] == 'name':\n                <IND>name_root = v.split('.')[0]\n                if name_root != name_root_last:\n                    <IND>name_root_last = name_root\n                    name_root_count += 1\n                <DED>if name_root_count % 2:\n                    <IND>return HexColor.format_terminal('lavender', v)\n                <DED>else:\n                    <IND>return HexColor.format_terminal('lightslategrey', v)\n        <DED><DED><DED>return str(v)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "InvestmentSystems/static-frame",
+    "commit": "8f4b32ccd973a6c2039954130f9e06ab9c2304b3",
+    "filename": "static_frame/profile/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/InvestmentSystems-static-frame/static_frame/profile/main.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "static_frame/profile/main.py:902:66 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `HexColor.format_terminal` but got `object`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `HexColor.format_terminal` but got `object`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 902,
+    "warning_line": "                return HexColor.format_terminal('lightslategrey', v)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return HexColor.format_terminal('orange', str(v))\n        if key[1] == 'explanation':\n            return HexColor.format_terminal('gray', v)\n        if key[1] == 'name':\n            name_root = v.split('.')[0]\n            if name_root != name_root_last:\n                name_root_last = name_root\n                name_root_count += 1\n            if name_root_count % 2:\n                return HexColor.format_terminal('lavender', v)\n            else:\n                return HexColor.format_terminal('lightslategrey', v)\n        return str(v)\n",
+        "source_code_len": 554,
+        "target_code": "            return HexColor.format_terminal('orange', str(v))\n        if isinstance(v, str):\n            if key[1] == 'explanation':\n                return HexColor.format_terminal('gray', v)\n            if key[1] == 'name':\n                name_root = v.split('.')[0]\n                if name_root != name_root_last:\n                    name_root_last = name_root\n                    name_root_count += 1\n                if name_root_count % 2:\n                    return HexColor.format_terminal('lavender', v)\n                else:\n                    return HexColor.format_terminal('lightslategrey', v)\n        return str(v)\n",
+        "target_code_len": 629,
+        "diff_format": "@@ -891,13 +891,14 @@\n             return HexColor.format_terminal('orange', str(v))\n-        if key[1] == 'explanation':\n-            return HexColor.format_terminal('gray', v)\n-        if key[1] == 'name':\n-            name_root = v.split('.')[0]\n-            if name_root != name_root_last:\n-                name_root_last = name_root\n-                name_root_count += 1\n-            if name_root_count % 2:\n-                return HexColor.format_terminal('lavender', v)\n-            else:\n-                return HexColor.format_terminal('lightslategrey', v)\n+        if isinstance(v, str):\n+            if key[1] == 'explanation':\n+                return HexColor.format_terminal('gray', v)\n+            if key[1] == 'name':\n+                name_root = v.split('.')[0]\n+                if name_root != name_root_last:\n+                    name_root_last = name_root\n+                    name_root_count += 1\n+                if name_root_count % 2:\n+                    return HexColor.format_terminal('lavender', v)\n+                else:\n+                    return HexColor.format_terminal('lightslategrey', v)\n         return str(v)\n",
+        "source_code_with_indent": "            <DED>return HexColor.format_terminal('orange', str(v))\n        <DED>if key[1] == 'explanation':\n            <IND>return HexColor.format_terminal('gray', v)\n        <DED>if key[1] == 'name':\n            <IND>name_root = v.split('.')[0]\n            if name_root != name_root_last:\n                <IND>name_root_last = name_root\n                name_root_count += 1\n            <DED>if name_root_count % 2:\n                <IND>return HexColor.format_terminal('lavender', v)\n            <DED>else:\n                <IND>return HexColor.format_terminal('lightslategrey', v)\n        <DED><DED>return str(v)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>return HexColor.format_terminal('orange', str(v))\n        <DED>if isinstance(v, str):\n            <IND>if key[1] == 'explanation':\n                <IND>return HexColor.format_terminal('gray', v)\n            <DED>if key[1] == 'name':\n                <IND>name_root = v.split('.')[0]\n                if name_root != name_root_last:\n                    <IND>name_root_last = name_root\n                    name_root_count += 1\n                <DED>if name_root_count % 2:\n                    <IND>return HexColor.format_terminal('lavender', v)\n                <DED>else:\n                    <IND>return HexColor.format_terminal('lightslategrey', v)\n        <DED><DED><DED>return str(v)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

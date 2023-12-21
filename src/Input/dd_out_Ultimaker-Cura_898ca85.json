@@ -1,0 +1,54 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "898ca852f0e4c2a65822e3591ea823342ed1a741",
+    "filename": "cura/OAuth2/AuthorizationService.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/OAuth2/AuthorizationService.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/OAuth2/AuthorizationService.py:177:43 Incompatible parameter type [6]: Expected `Dict[str, str]` for 1st positional only parameter to call `AuthorizationService._generate_auth_url` but got `Dict[str, Optional[str]]`.",
+    "message": " Expected `Dict[str, str]` for 1st positional only parameter to call `AuthorizationService._generate_auth_url` but got `Dict[str, Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 177,
+    "warning_line": "        auth_url = self._generate_auth_url(query_parameters_dict, force_browser_logout)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _generate_auth_url(self, query_parameters_dict: Dict[str, str], force_browser_logout: bool) -> str:\n        \"\"\"\n",
+        "source_code_len": 121,
+        "target_code": "\n    def _generate_auth_url(self, query_parameters_dict: Dict[str, Optional[str]], force_browser_logout: bool) -> str:\n        \"\"\"\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -180,3 +180,3 @@\n \n-    def _generate_auth_url(self, query_parameters_dict: Dict[str, str], force_browser_logout: bool) -> str:\n+    def _generate_auth_url(self, query_parameters_dict: Dict[str, Optional[str]], force_browser_logout: bool) -> str:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def _generate_auth_url(self, query_parameters_dict: Dict[str, str], force_browser_logout: bool) -> str:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def _generate_auth_url(self, query_parameters_dict: Dict[str, Optional[str]], force_browser_logout: bool) -> str:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "898ca852f0e4c2a65822e3591ea823342ed1a741",
+    "filename": "tests/TestOAuth2.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/TestOAuth2.py:240:56 Incompatible parameter type [6]: Expected `typing.Dict[str, str]` for 1st positional only parameter to call `AuthorizationService._generate_auth_url` but got `typing.Dict[str, typing.Optional[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "898ca852f0e4c2a65822e3591ea823342ed1a741",
+    "filename": "tests/TestOAuth2.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/TestOAuth2.py:243:56 Incompatible parameter type [6]: Expected `typing.Dict[str, str]` for 1st positional only parameter to call `AuthorizationService._generate_auth_url` but got `typing.Dict[str, typing.Optional[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

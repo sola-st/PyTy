@@ -1,0 +1,85 @@
+[
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "fbacd58e7d7d3b5ac0cb01c2af9dbe49b8c933ca",
+    "filename": "snapcraft/internal/meta/snap.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/meta/snap.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/meta/snap.py:116:59 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `common.get_installed_snap_path` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `common.get_installed_snap_path` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 116,
+    "warning_line": "            provider_path = common.get_installed_snap_path(provider)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            provider = plug.provider\n            provider_path = common.get_installed_snap_path(provider)\n",
+        "source_code_len": 106,
+        "target_code": "            provider = plug.provider\n            if not provider:\n                continue\n\n            provider_path = common.get_installed_snap_path(provider)\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -115,2 +115,5 @@\n             provider = plug.provider\n+            if not provider:\n+                continue\n+\n             provider_path = common.get_installed_snap_path(provider)\n",
+        "source_code_with_indent": "            <IND>provider = plug.provider\n            provider_path = common.get_installed_snap_path(provider)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>provider = plug.provider\n            if not provider:\n                <IND>continue\n\n            <DED>provider_path = common.get_installed_snap_path(provider)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "fbacd58e7d7d3b5ac0cb01c2af9dbe49b8c933ca",
+    "filename": "snapcraft/internal/meta/snap.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/meta/snap.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/meta/snap.py:121:69 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `common.get_installed_snap_path` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `common.get_installed_snap_path` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 121,
+    "warning_line": "                slot_installed_path = common.get_installed_snap_path(plug.provider)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            provider = plug.provider\n            provider_path = common.get_installed_snap_path(provider)\n",
+        "source_code_len": 106,
+        "target_code": "            provider = plug.provider\n            if not provider:\n                continue\n\n            provider_path = common.get_installed_snap_path(provider)\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -115,2 +115,5 @@\n             provider = plug.provider\n+            if not provider:\n+                continue\n+\n             provider_path = common.get_installed_snap_path(provider)\n",
+        "source_code_with_indent": "            <IND>provider = plug.provider\n            provider_path = common.get_installed_snap_path(provider)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>provider = plug.provider\n            if not provider:\n                <IND>continue\n\n            <DED>provider_path = common.get_installed_snap_path(provider)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            for slot in snap.get_content_slots():\n                slot_installed_path = common.get_installed_snap_path(plug.provider)\n                provider_dirs |= slot.get_content_dirs(\n",
+        "source_code_len": 190,
+        "target_code": "            for slot in snap.get_content_slots():\n                slot_installed_path = common.get_installed_snap_path(provider)\n                provider_dirs |= slot.get_content_dirs(\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -120,3 +123,3 @@\n             for slot in snap.get_content_slots():\n-                slot_installed_path = common.get_installed_snap_path(plug.provider)\n+                slot_installed_path = common.get_installed_snap_path(provider)\n                 provider_dirs |= slot.get_content_dirs(\n",
+        "source_code_with_indent": "            for slot in snap.get_content_slots():\n                <IND>slot_installed_path = common.get_installed_snap_path(plug.provider)\n                provider_dirs |= slot.get_content_dirs(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            for slot in snap.get_content_slots():\n                <IND>slot_installed_path = common.get_installed_snap_path(provider)\n                provider_dirs |= slot.get_content_dirs(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

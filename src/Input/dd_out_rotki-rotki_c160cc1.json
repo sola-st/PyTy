@@ -1,0 +1,36 @@
+[
+  {
+    "project": "rotki/rotki",
+    "commit": "c160cc19e3a0e4ae2232c96206f48c7a9152989a",
+    "filename": "rotkehlchen/blockchain.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/blockchain.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/blockchain.py:223:20 Incompatible parameter type [6]: Expected `FVal` for 1st positional only parameter to anonymous call but got `Union[Dict[str, FVal], FVal]`.",
+    "message": " Expected `FVal` for 1st positional only parameter to anonymous call but got `Union[Dict[str, FVal], FVal]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 223,
+    "warning_line": "                    self.totals.get('usd_value', FVal(0)),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                'usd_value': add_or_sub(\n                    self.totals.get('usd_value', FVal(0)),\n                    usd_value,\n",
+        "source_code_len": 131,
+        "target_code": "                'usd_value': add_or_sub(\n                    self.totals[token].get('usd_value', FVal(0)),\n                    usd_value,\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -222,3 +222,3 @@\n                 'usd_value': add_or_sub(\n-                    self.totals.get('usd_value', FVal(0)),\n+                    self.totals[token].get('usd_value', FVal(0)),\n                     usd_value,\n",
+        "source_code_with_indent": "                'usd_value': add_or_sub(\n                    self.totals.get('usd_value', FVal(0)),\n                    usd_value,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                'usd_value': add_or_sub(\n                    self.totals[token].get('usd_value', FVal(0)),\n                    usd_value,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

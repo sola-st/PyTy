@@ -1,0 +1,104 @@
+[
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "0aa06df10b9531f4ba734ec7567f8621c00e65e9",
+    "filename": "aioredis/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aio-libs-aioredis-py/aioredis/client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioredis/client.py:4694:56 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `Redis.evalsha` but got `Union[bytes, float, int, memoryview, str]`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `Redis.evalsha` but got `Union[bytes, float, int, memoryview, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 4694,
+    "warning_line": "            return client.evalsha(self.sha, len(keys), *args)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n        \"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "\n    def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n        \"\"\"\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -3578,3 +3578,3 @@\n \n-    def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n+    def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "0aa06df10b9531f4ba734ec7567f8621c00e65e9",
+    "filename": "aioredis/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aio-libs-aioredis-py/aioredis/client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioredis/client.py:4696:62 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `Redis.evalsha` but got `Union[bytes, float, int, memoryview, str]`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `Redis.evalsha` but got `Union[bytes, float, int, memoryview, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 4696,
+    "warning_line": "            return await client.evalsha(self.sha, len(keys), *args)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n        \"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "\n    def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n        \"\"\"\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -3578,3 +3578,3 @@\n \n-    def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n+    def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "0aa06df10b9531f4ba734ec7567f8621c00e65e9",
+    "filename": "aioredis/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aio-libs-aioredis-py/aioredis/client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioredis/client.py:4702:62 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `Redis.evalsha` but got `Union[bytes, float, int, memoryview, str]`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `Redis.evalsha` but got `Union[bytes, float, int, memoryview, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 4702,
+    "warning_line": "            return await client.evalsha(self.sha, len(keys), *args)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n        \"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "\n    def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n        \"\"\"\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -3578,3 +3578,3 @@\n \n-    def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n+    def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def evalsha(self, sha: str, numkeys: int, *keys_and_args: str) -> Awaitable:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def evalsha(self, sha: str, numkeys: int, *keys_and_args: EncodableT) -> Awaitable:\n        <IND>"
+      }
+    ]
+  }
+]

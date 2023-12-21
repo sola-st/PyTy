@@ -1,0 +1,162 @@
+[
+  {
+    "project": "instadeepai/Mava",
+    "commit": "e9693e9e7f081d68802b70615e799cb910353fe7",
+    "filename": "mava/systems/tf/dial/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/systems/tf/dial/system.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/systems/tf/dial/system.py:154:12 Incompatible attribute type [8]: Attribute `_agent_net_config` declared in class `DIAL` has type `Dict[str, str]` but is used as type `Dict[str, Union[typing.List[str], str]]`.",
+    "message": " Attribute `_agent_net_config` declared in class `DIAL` has type `Dict[str, str]` but is used as type `Dict[str, Union[typing.List[str], str]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 154,
+    "warning_line": "            self._agent_net_config = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agents\n                for a_i, agent in enumerate(agents)\n            }\n",
+        "source_code_len": 178,
+        "target_code": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agent\n                for agent in agents\n            }\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -154,4 +154,4 @@\n             self._agent_net_config = {\n-                agent: agent.split(\"_\")[0] if shared_weights else agents\n-                for a_i, agent in enumerate(agents)\n+                agent: agent.split(\"_\")[0] if shared_weights else agent\n+                for agent in agents\n             }\n",
+        "source_code_with_indent": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agents\n                for a_i, agent in enumerate(agents)\n            }\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agent\n                for agent in agents\n            }\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "instadeepai/Mava",
+    "commit": "e9693e9e7f081d68802b70615e799cb910353fe7",
+    "filename": "mava/systems/tf/mad4pg/system.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mava/systems/tf/mad4pg/system.py:139:12 Incompatible parameter type [6]: Expected `Dict[str, typing.List[typing.Any]]` for 11th parameter `agent_net_config` to call `MADDPG.__init__` but got `Dict[str, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "instadeepai/Mava",
+    "commit": "e9693e9e7f081d68802b70615e799cb910353fe7",
+    "filename": "mava/systems/tf/maddpg/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/systems/tf/maddpg/system.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/systems/tf/maddpg/system.py:157:12 Incompatible attribute type [8]: Attribute `_agent_net_config` declared in class `MADDPG` has type `Dict[str, List[typing.Any]]` but is used as type `Dict[str, Union[List[str], str]]`.",
+    "message": " Attribute `_agent_net_config` declared in class `MADDPG` has type `Dict[str, List[typing.Any]]` but is used as type `Dict[str, Union[List[str], str]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 157,
+    "warning_line": "            self._agent_net_config = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        shared_weights: bool = True,\n        agent_net_config: Dict[str, List] = {},\n        discount: float = 0.99,\n",
+        "source_code_len": 117,
+        "target_code": "        shared_weights: bool = True,\n        agent_net_config: Dict[str, str] = {},\n        discount: float = 0.99,\n",
+        "target_code_len": 116,
+        "diff_format": "@@ -67,3 +67,3 @@\n         shared_weights: bool = True,\n-        agent_net_config: Dict[str, List] = {},\n+        agent_net_config: Dict[str, str] = {},\n         discount: float = 0.99,\n",
+        "source_code_with_indent": "        shared_weights: bool = True,\n        agent_net_config: Dict[str, List] = {},\n        discount: float = 0.99,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        shared_weights: bool = True,\n        agent_net_config: Dict[str, str] = {},\n        discount: float = 0.99,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agents\n                for a_i, agent in enumerate(agents)\n            }\n",
+        "source_code_len": 178,
+        "target_code": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agent\n                for agent in agents\n            }\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -157,4 +157,4 @@\n             self._agent_net_config = {\n-                agent: agent.split(\"_\")[0] if shared_weights else agents\n-                for a_i, agent in enumerate(agents)\n+                agent: agent.split(\"_\")[0] if shared_weights else agent\n+                for agent in agents\n             }\n",
+        "source_code_with_indent": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agents\n                for a_i, agent in enumerate(agents)\n            }\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agent\n                for agent in agents\n            }\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "instadeepai/Mava",
+    "commit": "e9693e9e7f081d68802b70615e799cb910353fe7",
+    "filename": "mava/systems/tf/madqn/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/systems/tf/madqn/system.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/systems/tf/madqn/system.py:151:12 Incompatible attribute type [8]: Attribute `_agent_net_config` declared in class `MADQN` has type `Dict[str, str]` but is used as type `Dict[str, Union[typing.List[str], str]]`.",
+    "message": " Attribute `_agent_net_config` declared in class `MADQN` has type `Dict[str, str]` but is used as type `Dict[str, Union[typing.List[str], str]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 151,
+    "warning_line": "            self._agent_net_config = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agents\n                for a_i, agent in enumerate(agents)\n            }\n",
+        "source_code_len": 178,
+        "target_code": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agent\n                for agent in agents\n            }\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -151,4 +151,4 @@\n             self._agent_net_config = {\n-                agent: agent.split(\"_\")[0] if shared_weights else agents\n-                for a_i, agent in enumerate(agents)\n+                agent: agent.split(\"_\")[0] if shared_weights else agent\n+                for agent in agents\n             }\n",
+        "source_code_with_indent": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agents\n                for a_i, agent in enumerate(agents)\n            }\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agent\n                for agent in agents\n            }\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "instadeepai/Mava",
+    "commit": "e9693e9e7f081d68802b70615e799cb910353fe7",
+    "filename": "mava/systems/tf/mappo/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/systems/tf/mappo/system.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/systems/tf/mappo/system.py:153:12 Incompatible attribute type [8]: Attribute `_agent_net_config` declared in class `MAPPO` has type `Dict[str, str]` but is used as type `Dict[str, Union[typing.List[str], str]]`.",
+    "message": " Attribute `_agent_net_config` declared in class `MAPPO` has type `Dict[str, str]` but is used as type `Dict[str, Union[typing.List[str], str]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 153,
+    "warning_line": "            self._agent_net_config = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agents\n                for a_i, agent in enumerate(agents)\n            }\n",
+        "source_code_len": 178,
+        "target_code": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agent\n                for agent in agents\n            }\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -153,4 +153,4 @@\n             self._agent_net_config = {\n-                agent: agent.split(\"_\")[0] if shared_weights else agents\n-                for a_i, agent in enumerate(agents)\n+                agent: agent.split(\"_\")[0] if shared_weights else agent\n+                for agent in agents\n             }\n",
+        "source_code_with_indent": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agents\n                for a_i, agent in enumerate(agents)\n            }\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self._agent_net_config = {\n                agent: agent.split(\"_\")[0] if shared_weights else agent\n                for agent in agents\n            }\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "606fa73c97adf8911dc5c6e5d50e97dce686445a",
+    "filename": "qcodes/dataset/plotting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/dataset/plotting.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/dataset/plotting.py:187:29 Incompatible parameter type [6]: Expected `Union[Tuple[Union[float, int], Union[float, int]], float, int]` for 2nd parameter `cutoff_percentile` to call `auto_range_iqr` but got `Union[float, typing.Tuple[typing.Any, ...]]`.",
+    "message": " Expected `Union[Tuple[Union[float, int], Union[float, int]], float, int]` for 2nd parameter `cutoff_percentile` to call `auto_range_iqr` but got `Union[float, typing.Tuple[typing.Any, ...]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 187,
+    "warning_line": "                    zpoints, cutoff_percentile=cutoff_percentile))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from functools import partial\nfrom typing import Optional, List, Sequence, Union, Tuple, Dict, Any, Set\nimport inspect\n",
+        "source_code_len": 119,
+        "target_code": "from functools import partial\nfrom typing import (Optional, List, Sequence, Union, Tuple, Dict,\n                    Any, Set, cast)\nimport inspect\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -3,3 +3,4 @@\n from functools import partial\n-from typing import Optional, List, Sequence, Union, Tuple, Dict, Any, Set\n+from typing import (Optional, List, Sequence, Union, Tuple, Dict,\n+                    Any, Set, cast)\n import inspect\n",
+        "source_code_with_indent": "from functools import partial\nfrom typing import Optional, List, Sequence, Union, Tuple, Dict, Any, Set\nimport inspect\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from functools import partial\nfrom typing import (Optional, List, Sequence, Union, Tuple, Dict,\n                    Any, Set, cast)\nimport inspect\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if cutoff_percentile is None:\n        cutoff_percentile = tuple(\n            config.gui.smart_colorscale.cutoff_percentile)\n\n",
+        "source_code_len": 129,
+        "target_code": "    if cutoff_percentile is None:\n        cutoff_percentile = cast(Tuple[Number, Number],\n                                 tuple(config.gui.smart_colorscale.cutoff_percentile))\n\n",
+        "target_code_len": 178,
+        "diff_format": "@@ -90,4 +91,4 @@\n     if cutoff_percentile is None:\n-        cutoff_percentile = tuple(\n-            config.gui.smart_colorscale.cutoff_percentile)\n+        cutoff_percentile = cast(Tuple[Number, Number],\n+                                 tuple(config.gui.smart_colorscale.cutoff_percentile))\n \n",
+        "source_code_with_indent": "    <DED>if cutoff_percentile is None:\n        <IND>cutoff_percentile = tuple(\n            config.gui.smart_colorscale.cutoff_percentile)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>if cutoff_percentile is None:\n        <IND>cutoff_percentile = cast(Tuple[Number, Number],\n                                 tuple(config.gui.smart_colorscale.cutoff_percentile))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "online-judge-tools/oj",
+    "commit": "8e3a3eb21d58c1db229d6a64d0472728c76c6c4e",
+    "filename": "onlinejudge/service/atcoder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/online-judge-tools-oj/onlinejudge/service/atcoder.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "onlinejudge/service/atcoder.py:252:8 Incompatible attribute type [8]: Attribute `_penalty` declared in class `AtCoderContest` has type `typing.Optional[datetime.timedelta]` but is used as type `typing.Union[datetime.timedelta, int]`.",
+    "message": " Attribute `_penalty` declared in class `AtCoderContest` has type `typing.Optional[datetime.timedelta]` but is used as type `typing.Union[datetime.timedelta, int]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 252,
+    "warning_line": "        self._penalty = 0 if m is None else datetime.timedelta(minutes=int(m.group(2)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        m = re.match(r'(Penalty|\u30da\u30ca\u30eb\u30c6\u30a3): (\\d+)( minutes?|\u5206)', penalty_text)\n        self._penalty = 0 if m is None else datetime.timedelta(minutes=int(m.group(2)))\n\n",
+        "source_code_len": 164,
+        "target_code": "        m = re.match(r'(Penalty|\u30da\u30ca\u30eb\u30c6\u30a3): (\\d+)( minutes?|\u5206)', penalty_text)\n        minutes = 0 if m is None else int(m.group(2))\n        self._penalty = datetime.timedelta(minutes=minutes)\n\n",
+        "target_code_len": 190,
+        "diff_format": "@@ -251,3 +251,4 @@\n         m = re.match(r'(Penalty|\u30da\u30ca\u30eb\u30c6\u30a3): (\\d+)( minutes?|\u5206)', penalty_text)\n-        self._penalty = 0 if m is None else datetime.timedelta(minutes=int(m.group(2)))\n+        minutes = 0 if m is None else int(m.group(2))\n+        self._penalty = datetime.timedelta(minutes=minutes)\n \n",
+        "source_code_with_indent": "        m = re.match(r'(Penalty|\u30da\u30ca\u30eb\u30c6\u30a3): (\\d+)( minutes?|\u5206)', penalty_text)\n        self._penalty = 0 if m is None else datetime.timedelta(minutes=int(m.group(2)))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        m = re.match(r'(Penalty|\u30da\u30ca\u30eb\u30c6\u30a3): (\\d+)( minutes?|\u5206)', penalty_text)\n        minutes = 0 if m is None else int(m.group(2))\n        self._penalty = datetime.timedelta(minutes=minutes)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

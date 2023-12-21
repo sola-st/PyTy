@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Tuxemon/Tuxemon",
+    "commit": "bde9ea40592cfee278ce78b230231d38d0ea21b0",
+    "filename": "tuxemon/states/combat/combat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tuxemon-Tuxemon/tuxemon/states/combat/combat.py",
+    "file_hunks_size": 9,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tuxemon/states/combat/combat.py:591:47 Incompatible parameter type [6]: Expected `Player` for 1st positional only parameter to call `get_awake_monsters` but got `NPC`.",
+    "message": " Expected `Player` for 1st positional only parameter to call `get_awake_monsters` but got `NPC`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 591,
+    "warning_line": "                available = get_awake_monsters(player)"
+  },
+  {
+    "project": "Tuxemon/Tuxemon",
+    "commit": "bde9ea40592cfee278ce78b230231d38d0ea21b0",
+    "filename": "tuxemon/states/combat/combat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tuxemon-Tuxemon/tuxemon/states/combat/combat.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tuxemon/states/combat/combat.py:729:66 Incompatible parameter type [6]: Expected `Monster` for 3rd positional only parameter to call `EnqueuedAction.__init__` but got `Union[None, Monster, NPC]`.",
+    "message": " Expected `Monster` for 3rd positional only parameter to call `EnqueuedAction.__init__` but got `Union[None, Monster, NPC]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 729,
+    "warning_line": "        self._action_queue.append(EnqueuedAction(user, technique, target))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        technique: Technique,\n        target: Union[NPC, Monster, None] = None,\n    ) -> None:\n",
+        "source_code_len": 95,
+        "target_code": "        technique: Technique,\n        target: Monster,\n    ) -> None:\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -717,3 +720,3 @@\n         technique: Technique,\n-        target: Union[NPC, Monster, None] = None,\n+        target: Monster,\n     ) -> None:\n",
+        "source_code_with_indent": "        technique: Technique,\n        target: Union[NPC, Monster, None] = None,\n    ) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        technique: Technique,\n        target: Monster,\n    ) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Tuxemon/Tuxemon",
+    "commit": "bde9ea40592cfee278ce78b230231d38d0ea21b0",
+    "filename": "tuxemon/states/combat/combat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tuxemon-Tuxemon/tuxemon/states/combat/combat.py",
+    "file_hunks_size": 9,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tuxemon/states/combat/combat.py:849:31 Incompatible parameter type [6]: Expected `NPC` for 1st positional only parameter to call `Item.use` but got `Union[Monster, NPC]`.",
+    "message": " Expected `NPC` for 1st positional only parameter to call `Item.use` but got `Union[Monster, NPC]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 849,
+    "warning_line": "        result = technique.use(user, target)"
+  }
+]

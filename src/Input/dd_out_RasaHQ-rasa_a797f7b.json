@@ -1,0 +1,53 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "a797f7b81202c947426e5280662588d5d05341c4",
+    "filename": "rasa/server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/server.py",
+    "file_hunks_size": 8,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/server.py:230:4 Incompatible return type [7]: Expected `DialogueStateTracker` but got `Optional[DialogueStateTracker]`.",
+    "message": " Expected `DialogueStateTracker` but got `Optional[DialogueStateTracker]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 230,
+    "warning_line": "    return tracker  # pytype: disable=bad-return-type"
+  },
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "a797f7b81202c947426e5280662588d5d05341c4",
+    "filename": "rasa/server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/server.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/server.py:874:51 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `run_evaluation` but got `Optional[str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `run_evaluation` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 874,
+    "warning_line": "            evaluation = run_evaluation(data_path, nlu_model, disable_plotting=True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        try:\n",
+        "source_code_len": 14,
+        "target_code": "\n        if nlu_model is None:\n            raise ErrorResponse(\n                500, \"TestingError\", \"Missing NLU model directory.\",\n            )\n\n        try:\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -872,2 +882,7 @@\n \n+        if nlu_model is None:\n+            raise ErrorResponse(\n+                500, \"TestingError\", \"Missing NLU model directory.\",\n+            )\n+\n         try:\n",
+        "source_code_with_indent": "\n        try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        if nlu_model is None:\n            <IND>raise ErrorResponse(\n                500, \"TestingError\", \"Missing NLU model directory.\",\n            )\n\n        <DED>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "DisnakeDev/disnake",
+    "commit": "769db38401c28c69195573a3c87beda77929f6ef",
+    "filename": "discord/sticker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DisnakeDev-disnake/discord/sticker.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/sticker.py:489:104 Incompatible parameter type [6]: Expected `discord.types.sticker.EditGuildSticker` for 3rd positional only parameter to call `discord.http.HTTPClient.modify_guild_sticker` but got `typing.Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `discord.types.sticker.EditGuildSticker` for 3rd positional only parameter to call `discord.http.HTTPClient.modify_guild_sticker` but got `typing.Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 489,
+    "warning_line": "        data: GuildStickerPayload = await self._state.http.modify_guild_sticker(self.guild_id, self.id, payload, reason)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        GuildSticker as GuildStickerPayload,\n        ListPremiumStickerPacks as ListPremiumStickerPacksPayload\n    )\n",
+        "source_code_len": 117,
+        "target_code": "        GuildSticker as GuildStickerPayload,\n        ListPremiumStickerPacks as ListPremiumStickerPacksPayload,\n        EditGuildSticker,\n    )\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -53,3 +53,4 @@\n         GuildSticker as GuildStickerPayload,\n-        ListPremiumStickerPacks as ListPremiumStickerPacksPayload\n+        ListPremiumStickerPacks as ListPremiumStickerPacksPayload,\n+        EditGuildSticker,\n     )\n",
+        "source_code_with_indent": "        GuildSticker as GuildStickerPayload,\n        ListPremiumStickerPacks as ListPremiumStickerPacksPayload\n    )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        GuildSticker as GuildStickerPayload,\n        ListPremiumStickerPacks as ListPremiumStickerPacksPayload,\n        EditGuildSticker,\n    )\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        payload = {}\n\n",
+        "source_code_len": 34,
+        "target_code": "        \"\"\"\n        payload: EditGuildSticker = {}\n\n",
+        "target_code_len": 52,
+        "diff_format": "@@ -470,3 +471,3 @@\n         \"\"\"\n-        payload = {}\n+        payload: EditGuildSticker = {}\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        payload = {}\n\n",
+        "target_code_with_indent": "\n        payload: EditGuildSticker = {}\n\n"
+      }
+    ]
+  }
+]

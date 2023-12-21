@@ -1,0 +1,119 @@
+[
+  {
+    "project": "gouline/dbt-metabase",
+    "commit": "ddf245e96d9aa3e1868f0f02d69192afd0dc92eb",
+    "filename": "dbtmetabase/metabase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gouline-dbt-metabase/dbtmetabase/metabase.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dbtmetabase/metabase.py:72:12 Incompatible return type [7]: Expected `bool` but got `None`.",
+    "message": " Expected `bool` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 72,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            )\n            return\n\n",
+        "source_code_len": 34,
+        "target_code": "            )\n            return False\n\n",
+        "target_code_len": 40,
+        "diff_format": "@@ -71,3 +70,3 @@\n             )\n-            return\n+            return False\n \n",
+        "source_code_with_indent": "            )\n            return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            )\n            return False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "gouline/dbt-metabase",
+    "commit": "ddf245e96d9aa3e1868f0f02d69192afd0dc92eb",
+    "filename": "dbtmetabase/metabase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gouline-dbt-metabase/dbtmetabase/metabase.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dbtmetabase/metabase.py:77:12 Incompatible return type [7]: Expected `bool` but got `None`.",
+    "message": " Expected `bool` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 77,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            logging.critical(\"Cannot find database by name %s\", database)\n            return\n\n",
+        "source_code_len": 94,
+        "target_code": "            logging.critical(\"Cannot find database by name %s\", database)\n            return False\n\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -76,3 +75,3 @@\n             logging.critical(\"Cannot find database by name %s\", database)\n-            return\n+            return False\n \n",
+        "source_code_with_indent": "            <IND>logging.critical(\"Cannot find database by name %s\", database)\n            return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>logging.critical(\"Cannot find database by name %s\", database)\n            return False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "gouline/dbt-metabase",
+    "commit": "ddf245e96d9aa3e1868f0f02d69192afd0dc92eb",
+    "filename": "dbtmetabase/metabase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gouline-dbt-metabase/dbtmetabase/metabase.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dbtmetabase/metabase.py:258:8 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 258,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import time\nfrom typing import Any, Tuple\n\n",
+        "source_code_len": 43,
+        "target_code": "import time\nfrom typing import Any, Optional, Tuple, Dict\n\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -5,3 +4,3 @@\n import time\n-from typing import Any, Tuple\n+from typing import Any, Optional, Tuple, Dict\n \n",
+        "source_code_with_indent": "import time\nfrom typing import Any, Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import time\nfrom typing import Any, Optional, Tuple, Dict\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def find_database_id(self, name: str) -> str:\n        \"\"\"Finds Metabase database ID by name.\n",
+        "source_code_len": 98,
+        "target_code": "\n    def find_database_id(self, name: str) -> Optional[str]:\n        \"\"\"Finds Metabase database ID by name.\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -244,3 +243,3 @@\n \n-    def find_database_id(self, name: str) -> str:\n+    def find_database_id(self, name: str) -> Optional[str]:\n         \"\"\"Finds Metabase database ID by name.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def find_database_id(self, name: str) -> str:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def find_database_id(self, name: str) -> Optional[str]:\n        <IND>"
+      }
+    ]
+  }
+]

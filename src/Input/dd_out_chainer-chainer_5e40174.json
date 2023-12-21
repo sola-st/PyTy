@@ -1,0 +1,36 @@
+[
+  {
+    "project": "chainer/chainer",
+    "commit": "5e40174cc0abb2a3a450155b5fa7f70e1f843526",
+    "filename": "chainer/variable.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/chainer-chainer/chainer/variable.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chainer/variable.py:569:12 Incompatible return type [7]: Expected `Variable` but got implicit return value of `None`.",
+    "message": " Expected `Variable` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 569,
+    "warning_line": "            self._grad = grad",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    data, name, grad, requires_grad, is_chainerx_array):\n        # type: (tp.Optional[types.NdArray], tp.Optional[str], tp.Optional[types.NdArray], bool, tp.Optional[bool]) -> Variable # NOQA\n\n",
+        "source_code_len": 209,
+        "target_code": "                    data, name, grad, requires_grad, is_chainerx_array):\n        # type: (tp.Optional[types.NdArray], tp.Optional[str], tp.Optional[types.NdArray], bool, tp.Optional[bool]) -> None # NOQA\n\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -542,3 +542,3 @@\n                     data, name, grad, requires_grad, is_chainerx_array):\n-        # type: (tp.Optional[types.NdArray], tp.Optional[str], tp.Optional[types.NdArray], bool, tp.Optional[bool]) -> Variable # NOQA\n+        # type: (tp.Optional[types.NdArray], tp.Optional[str], tp.Optional[types.NdArray], bool, tp.Optional[bool]) -> None # NOQA\n \n",
+        "source_code_with_indent": "                    data, name, grad, requires_grad, is_chainerx_array):\n        # type: (tp.Optional[types.NdArray], tp.Optional[str], tp.Optional[types.NdArray], bool, tp.Optional[bool]) -> Variable # NOQA\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    data, name, grad, requires_grad, is_chainerx_array):\n        # type: (tp.Optional[types.NdArray], tp.Optional[str], tp.Optional[types.NdArray], bool, tp.Optional[bool]) -> None # NOQA\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PyTorchLightning/metrics",
+    "commit": "ced37d9ca6b536f5d1cfdc03020388a216d2607b",
+    "filename": "torchmetrics/metric.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-metrics/torchmetrics/metric.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torchmetrics/metric.py:511:8 Incompatible return type [7]: Expected `bool` but got `None`.",
+    "message": " Expected `bool` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 511,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def is_differentiable(self) -> bool:\n        # There is a bug in PyTorch that leads to properties being executed during scripting\n",
+        "source_code_len": 148,
+        "target_code": "    @property\n    def is_differentiable(self):\n        # There is a bug in PyTorch that leads to properties being executed during scripting\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -507,3 +507,3 @@\n     @property\n-    def is_differentiable(self) -> bool:\n+    def is_differentiable(self):\n         # There is a bug in PyTorch that leads to properties being executed during scripting\n",
+        "source_code_with_indent": "    <DED>@property\n    def is_differentiable(self) -> bool:\n        # There is a bug in PyTorch that leads to properties being executed during scripting\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def is_differentiable(self):\n        # There is a bug in PyTorch that leads to properties being executed during scripting\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,172 @@
+[
+  {
+    "project": "lykoss/lykos",
+    "commit": "290f6e0d75e82eb8810106b5240b033c9abbd35c",
+    "filename": "src/context.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lykoss-lykos/src/context.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/context.py:349:8 Incompatible return type [7]: Expected `typing.Tuple[str, str, str, str]` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `typing.Tuple[str, str, str, str]` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 349,
+    "warning_line": "        return tuple(modes[:4])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            modes.append(\"\")\n        return tuple(modes[:4])\n\n",
+        "source_code_len": 62,
+        "target_code": "            modes.append(\"\")\n        return tuple(modes[:4]) # type: ignore\n\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -348,3 +350,3 @@\n             modes.append(\"\")\n-        return tuple(modes[:4])\n+        return tuple(modes[:4]) # type: ignore\n \n",
+        "source_code_with_indent": "            <IND>modes.append(\"\")\n        <DED>return tuple(modes[:4])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>modes.append(\"\")\n        <DED>return tuple(modes[:4]) # type: ignore\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lykoss/lykos",
+    "commit": "290f6e0d75e82eb8810106b5240b033c9abbd35c",
+    "filename": "src/users.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lykoss-lykos/src/users.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/users.py:460:16 Incompatible variable type [9]: Bot is declared to have type `BotUser` but is used as type `User`.",
+    "message": " Bot is declared to have type `BotUser` but is used as type `User`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 460,
+    "warning_line": "                Bot = new",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if self is Bot:\n                Bot = new\n",
+        "source_code_len": 54,
+        "target_code": "            if self is Bot:\n                assert isinstance(new, BotUser)\n                Bot = new\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -459,2 +459,3 @@\n             if self is Bot:\n+                assert isinstance(new, BotUser)\n                 Bot = new\n",
+        "source_code_with_indent": "            <DED>if self is Bot:\n                <IND>Bot = new\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>if self is Bot:\n                <IND>assert isinstance(new, BotUser)\n                Bot = new\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lykoss/lykos",
+    "commit": "290f6e0d75e82eb8810106b5240b033c9abbd35c",
+    "filename": "src/users.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lykoss-lykos/src/users.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/users.py:464:32 Unsupported operand [58]: `+` is not supported for operand types `typing.List[UserList]` and `typing.List[UserSet]`.",
+    "message": " `+` is not supported for operand types `typing.List[UserList]` and `typing.List[UserSet]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 464,
+    "warning_line": "        assert not self.lists + self.sets + self.dict_keys + self.dict_values",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # So if any list is non-empty, something went terribly wrong\n        assert not self.lists + self.sets + self.dict_keys + self.dict_values\n\n",
+        "source_code_len": 148,
+        "target_code": "        # So if any list is non-empty, something went terribly wrong\n        assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -463,3 +464,3 @@\n         # So if any list is non-empty, something went terribly wrong\n-        assert not self.lists + self.sets + self.dict_keys + self.dict_values\n+        assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n \n",
+        "source_code_with_indent": "        # So if any list is non-empty, something went terribly wrong\n        <DED><DED>assert not self.lists + self.sets + self.dict_keys + self.dict_values\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # So if any list is non-empty, something went terribly wrong\n        <DED><DED>assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lykoss/lykos",
+    "commit": "290f6e0d75e82eb8810106b5240b033c9abbd35c",
+    "filename": "src/users.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lykoss-lykos/src/users.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/users.py:464:44 Unsupported operand [58]: `+` is not supported for operand types `typing.List[UserList]` and `typing.List[UserDict[typing.Any, typing.Any]]`.",
+    "message": " `+` is not supported for operand types `typing.List[UserList]` and `typing.List[UserDict[typing.Any, typing.Any]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 464,
+    "warning_line": "        assert not self.lists + self.sets + self.dict_keys + self.dict_values",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # So if any list is non-empty, something went terribly wrong\n        assert not self.lists + self.sets + self.dict_keys + self.dict_values\n\n",
+        "source_code_len": 148,
+        "target_code": "        # So if any list is non-empty, something went terribly wrong\n        assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -463,3 +464,3 @@\n         # So if any list is non-empty, something went terribly wrong\n-        assert not self.lists + self.sets + self.dict_keys + self.dict_values\n+        assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n \n",
+        "source_code_with_indent": "        # So if any list is non-empty, something went terribly wrong\n        <DED><DED>assert not self.lists + self.sets + self.dict_keys + self.dict_values\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # So if any list is non-empty, something went terribly wrong\n        <DED><DED>assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lykoss/lykos",
+    "commit": "290f6e0d75e82eb8810106b5240b033c9abbd35c",
+    "filename": "src/users.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lykoss-lykos/src/users.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/users.py:464:61 Unsupported operand [58]: `+` is not supported for operand types `typing.List[UserList]` and `typing.List[UserDict[typing.Any, typing.Any]]`.",
+    "message": " `+` is not supported for operand types `typing.List[UserList]` and `typing.List[UserDict[typing.Any, typing.Any]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 464,
+    "warning_line": "        assert not self.lists + self.sets + self.dict_keys + self.dict_values",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # So if any list is non-empty, something went terribly wrong\n        assert not self.lists + self.sets + self.dict_keys + self.dict_values\n\n",
+        "source_code_len": 148,
+        "target_code": "        # So if any list is non-empty, something went terribly wrong\n        assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -463,3 +464,3 @@\n         # So if any list is non-empty, something went terribly wrong\n-        assert not self.lists + self.sets + self.dict_keys + self.dict_values\n+        assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n \n",
+        "source_code_with_indent": "        # So if any list is non-empty, something went terribly wrong\n        <DED><DED>assert not self.lists + self.sets + self.dict_keys + self.dict_values\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # So if any list is non-empty, something went terribly wrong\n        <DED><DED>assert not self.lists and not self.sets and not self.dict_keys and not self.dict_values\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

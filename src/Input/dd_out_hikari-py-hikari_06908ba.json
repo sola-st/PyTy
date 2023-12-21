@@ -1,0 +1,233 @@
+[
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/impl/entity_factory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/impl/entity_factory.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hikari/impl/entity_factory.py:1765:12 Incompatible parameter type [6]: Expected `user_models.UserFlag` for 8th parameter `flags` to call `user_models.UserImpl.__init__` but got `int`.",
+    "message": " Expected `user_models.UserFlag` for 8th parameter `flags` to call `user_models.UserImpl.__init__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1765,
+    "warning_line": "            flags=int(payload.get(\"public_flags\", 0)),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        user_fields = self._set_user_attributes(payload)\n        return user_models.UserImpl(\n",
+        "source_code_len": 94,
+        "target_code": "        user_fields = self._set_user_attributes(payload)\n        flags = (\n            user_models.UserFlag(payload[\"public_flags\"]) if \"public_flags\" in payload else user_models.UserFlag.NONE\n        )\n        return user_models.UserImpl(\n",
+        "target_code_len": 240,
+        "diff_format": "@@ -1756,2 +1756,5 @@\n         user_fields = self._set_user_attributes(payload)\n+        flags = (\n+            user_models.UserFlag(payload[\"public_flags\"]) if \"public_flags\" in payload else user_models.UserFlag.NONE\n+        )\n         return user_models.UserImpl(\n",
+        "source_code_with_indent": "        <IND>user_fields = self._set_user_attributes(payload)\n        return user_models.UserImpl(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>user_fields = self._set_user_attributes(payload)\n        flags = (\n            user_models.UserFlag(payload[\"public_flags\"]) if \"public_flags\" in payload else user_models.UserFlag.NONE\n        )\n        return user_models.UserImpl(\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            is_system=user_fields.is_system,\n            flags=int(payload.get(\"public_flags\", 0)),\n        )\n",
+        "source_code_len": 110,
+        "target_code": "            is_system=user_fields.is_system,\n            flags=flags,\n        )\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -1764,3 +1767,3 @@\n             is_system=user_fields.is_system,\n-            flags=int(payload.get(\"public_flags\", 0)),\n+            flags=flags,\n         )\n",
+        "source_code_with_indent": "            is_system=user_fields.is_system,\n            flags=int(payload.get(\"public_flags\", 0)),\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            is_system=user_fields.is_system,\n            flags=flags,\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/impl/event_factory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/impl/event_factory.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hikari/impl/event_factory.py:322:12 Incompatible variable type [9]: flags is declared to have type `typing.Union[int, undefined.UndefinedType]` but is used as type `typing.Final[undefined.UndefinedType]`.",
+    "message": " flags is declared to have type `typing.Union[int, undefined.UndefinedType]` but is used as type `typing.Final[undefined.UndefinedType]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 322,
+    "warning_line": "            flags: undefined.UndefinedOr[int] = undefined.UNDEFINED"
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/internal/flag.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hikari/internal/flag.py:77:4 Inconsistent override [15]: `__slots__` overrides attribute defined in `object` inconsistently. Type `Flag` is not a subtype of the overridden attribute `typing.Union[typing.Iterable[str], str]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/internal/flag.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/internal/flag.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hikari/internal/flag.py:155:4 Inconsistent override [14]: `hikari.internal.flag.Flag.__add__` overrides method defined in `int` inconsistently. Could not find parameter `x` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/internal/flag.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/internal/flag.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hikari/internal/flag.py:158:4 Inconsistent override [15]: `__radd__` overrides attribute defined in `int` inconsistently. Type `Flag` is not a subtype of the overridden attribute `typing.Callable(int.__radd__)[[Named(self, int), Named(x, int)], int]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/internal/flag.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/internal/flag.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hikari/internal/flag.py:160:4 Inconsistent override [14]: `hikari.internal.flag.Flag.__sub__` overrides method defined in `int` inconsistently. Could not find parameter `x` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/internal/flag.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/internal/flag.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hikari/internal/flag.py:165:12 Incompatible return type [7]: Expected `str` but got `enum.Flag`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/internal/flag.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/internal/flag.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hikari/internal/flag.py:166:26 Incompatible parameter type [6]: Expected `typing.Iterable[str]` for 1st positional only parameter to call `str.join` but got `typing.Generator[enum.Flag, None, None]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/internal/flag.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/internal/flag.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hikari/internal/flag.py:168:4 Inconsistent override [14]: `hikari.internal.flag.Flag.__iter__` overrides method defined in `enum.EnumMeta` inconsistently. Parameter of type `Variable[FlagT (bound to Flag)]` is not a supertype of the overridden parameter `typing.Type[Variable[enum._T]]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/internal/flag.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/messages.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hikari/messages.py:379:8 Incompatible return type [7]: Expected `typing.Union[None, MessageFlag, undefined.UndefinedType]` but got `typing.Union[None, int, undefined.UndefinedType]`.",
+    "message": " Expected `typing.Union[None, MessageFlag, undefined.UndefinedType]` but got `typing.Union[None, int, undefined.UndefinedType]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 379,
+    "warning_line": "        return MessageFlag(self._flags) if isinstance(self._flags, int) else self._flags",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n\n    # Flags are lazily loaded, due to the IntFlag mechanism being overly slow\n    # to execute.\n    _flags: undefined.UndefinedNoneOr[int] = attr.ib(repr=False)\n\n    @property\n    def flags(self) -> undefined.UndefinedNoneOr[MessageFlag]:\n        \"\"\"Return flags for thge message if known.\n\n        If no flags are set, this returns `builtins.None`.\n\n        If unknown, this returns `hikari.undefined.UNDEFINED`\n\n        Returns\n        -------\n        hikari.undefined.UndefinedNoneOr[MessageFlag]\n            The message flags, if known and set.\n        \"\"\"\n        return MessageFlag(self._flags) if isinstance(self._flags, int) else self._flags\n\n",
+        "source_code_len": 660,
+        "target_code": "    \"\"\"\n\n",
+        "target_code_len": 9,
+        "diff_format": "@@ -360,21 +360,2 @@\n     \"\"\"\n-\n-    # Flags are lazily loaded, due to the IntFlag mechanism being overly slow\n-    # to execute.\n-    _flags: undefined.UndefinedNoneOr[int] = attr.ib(repr=False)\n-\n-    @property\n-    def flags(self) -> undefined.UndefinedNoneOr[MessageFlag]:\n-        \"\"\"Return flags for thge message if known.\n-\n-        If no flags are set, this returns `builtins.None`.\n-\n-        If unknown, this returns `hikari.undefined.UNDEFINED`\n-\n-        Returns\n-        -------\n-        hikari.undefined.UndefinedNoneOr[MessageFlag]\n-            The message flags, if known and set.\n-        \"\"\"\n-        return MessageFlag(self._flags) if isinstance(self._flags, int) else self._flags\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n\n    # Flags are lazily loaded, due to the IntFlag mechanism being overly slow\n    # to execute.\n    _flags: undefined.UndefinedNoneOr[int] = attr.ib(repr=False)\n\n    @property\n    def flags(self) -> undefined.UndefinedNoneOr[MessageFlag]:\n        <IND>\"\"\"Return flags for thge message if known.\n\n        If no flags are set, this returns `builtins.None`.\n\n        If unknown, this returns `hikari.undefined.UNDEFINED`\n\n        Returns\n        -------\n        hikari.undefined.UndefinedNoneOr[MessageFlag]\n            The message flags, if known and set.\n        \"\"\"\n        return MessageFlag(self._flags) if isinstance(self._flags, int) else self._flags\n\n",
+        "target_code_with_indent": "\n\n"
+      }
+    ]
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/messages.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hikari/messages.py:920:4 Inconsistent override [15]: `_flags` overrides attribute defined in `PartialMessage` inconsistently. Type `typing.Type[typing.Optional[int]]` is not a subtype of the overridden attribute `typing.Union[None, int, undefined.UndefinedType]`.",
+    "message": " `_flags` overrides attribute defined in `PartialMessage` inconsistently. Type `typing.Type[typing.Optional[int]]` is not a subtype of the overridden attribute `typing.Union[None, int, undefined.UndefinedType]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 920,
+    "warning_line": "    _flags = typing.Optional[int]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n\n    # Flags are lazily loaded, due to the IntFlag mechanism being overly slow\n    # to execute.\n    _flags: undefined.UndefinedNoneOr[int] = attr.ib(repr=False)\n\n    @property\n    def flags(self) -> undefined.UndefinedNoneOr[MessageFlag]:\n        \"\"\"Return flags for thge message if known.\n\n        If no flags are set, this returns `builtins.None`.\n\n        If unknown, this returns `hikari.undefined.UNDEFINED`\n\n        Returns\n        -------\n        hikari.undefined.UndefinedNoneOr[MessageFlag]\n            The message flags, if known and set.\n        \"\"\"\n        return MessageFlag(self._flags) if isinstance(self._flags, int) else self._flags\n\n",
+        "source_code_len": 660,
+        "target_code": "    \"\"\"\n\n",
+        "target_code_len": 9,
+        "diff_format": "@@ -360,21 +360,2 @@\n     \"\"\"\n-\n-    # Flags are lazily loaded, due to the IntFlag mechanism being overly slow\n-    # to execute.\n-    _flags: undefined.UndefinedNoneOr[int] = attr.ib(repr=False)\n-\n-    @property\n-    def flags(self) -> undefined.UndefinedNoneOr[MessageFlag]:\n-        \"\"\"Return flags for thge message if known.\n-\n-        If no flags are set, this returns `builtins.None`.\n-\n-        If unknown, this returns `hikari.undefined.UNDEFINED`\n-\n-        Returns\n-        -------\n-        hikari.undefined.UndefinedNoneOr[MessageFlag]\n-            The message flags, if known and set.\n-        \"\"\"\n-        return MessageFlag(self._flags) if isinstance(self._flags, int) else self._flags\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n\n    # Flags are lazily loaded, due to the IntFlag mechanism being overly slow\n    # to execute.\n    _flags: undefined.UndefinedNoneOr[int] = attr.ib(repr=False)\n\n    @property\n    def flags(self) -> undefined.UndefinedNoneOr[MessageFlag]:\n        <IND>\"\"\"Return flags for thge message if known.\n\n        If no flags are set, this returns `builtins.None`.\n\n        If unknown, this returns `hikari.undefined.UNDEFINED`\n\n        Returns\n        -------\n        hikari.undefined.UndefinedNoneOr[MessageFlag]\n            The message flags, if known and set.\n        \"\"\"\n        return MessageFlag(self._flags) if isinstance(self._flags, int) else self._flags\n\n",
+        "target_code_with_indent": "\n\n"
+      }
+    ]
+  },
+  {
+    "project": "hikari-py/hikari",
+    "commit": "06908ba346e1d8104c8d55dab8f306be06e65d6d",
+    "filename": "hikari/users.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/users.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hikari/users.py:363:8 Incompatible return type [7]: Expected `typing.Union[UserFlag, undefined.UndefinedType]` but got `typing.Union[typing.Final[undefined.UndefinedType], UserFlag]`.",
+    "message": " Expected `typing.Union[UserFlag, undefined.UndefinedType]` but got `typing.Union[typing.Final[undefined.UndefinedType], UserFlag]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 363,
+    "warning_line": "        return UserFlag(self._flags) if self._flags is not undefined.UNDEFINED else undefined.UNDEFINED",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    _flags: undefined.UndefinedOr[int] = attr.ib(eq=False, hash=False)\n\n    @property\n    def flags(self) -> undefined.UndefinedOr[UserFlag]:\n        \"\"\"Public flags for this user.\"\"\"\n        return UserFlag(self._flags) if self._flags is not undefined.UNDEFINED else undefined.UNDEFINED\n\n",
+        "source_code_len": 290,
+        "target_code": "\n    flags: undefined.UndefinedOr[UserFlag] = attr.ib(eq=False, hash=False)\n    \"\"\"Public flags for this user.\"\"\"\n\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -357,8 +354,4 @@\n \n-    _flags: undefined.UndefinedOr[int] = attr.ib(eq=False, hash=False)\n-\n-    @property\n-    def flags(self) -> undefined.UndefinedOr[UserFlag]:\n-        \"\"\"Public flags for this user.\"\"\"\n-        return UserFlag(self._flags) if self._flags is not undefined.UNDEFINED else undefined.UNDEFINED\n+    flags: undefined.UndefinedOr[UserFlag] = attr.ib(eq=False, hash=False)\n+    \"\"\"Public flags for this user.\"\"\"\n \n",
+        "source_code_with_indent": "\n    _flags: undefined.UndefinedOr[int] = attr.ib(eq=False, hash=False)\n\n    @property\n    def flags(self) -> undefined.UndefinedOr[UserFlag]:\n        <IND>\"\"\"Public flags for this user.\"\"\"\n        return UserFlag(self._flags) if self._flags is not undefined.UNDEFINED else undefined.UNDEFINED\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    flags: undefined.UndefinedOr[UserFlag] = attr.ib(eq=False, hash=False)\n    \"\"\"Public flags for this user.\"\"\"\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

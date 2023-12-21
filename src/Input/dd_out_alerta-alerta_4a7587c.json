@@ -1,0 +1,70 @@
+[
+  {
+    "project": "alerta/alerta",
+    "commit": "4a7587c4862dd75c801cd7a84aae9b928d00c610",
+    "filename": "alerta/app.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/alerta-alerta/alerta/app.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "alerta/app.py:56:8 Incompatible attribute type [8]: Attribute `wsgi_app` declared in class `flask.app.Flask` has type `BoundMethod[typing.Callable(flask.app.Flask.wsgi_app)[[Named(self, flask.app.Flask), Named(environ, typing.Any), Named(start_response, typing.Any)], typing.Any], flask.app.Flask]` but is used as type `ProxyFix`.",
+    "message": " Attribute `wsgi_app` declared in class `flask.app.Flask` has type `BoundMethod[typing.Callable(flask.app.Flask.wsgi_app)[[Named(self, flask.app.Flask), Named(environ, typing.Any), Named(start_response, typing.Any)], typing.Any], flask.app.Flask]` but is used as type `ProxyFix`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 56,
+    "warning_line": "        app.wsgi_app = ProxyFix(app.wsgi_app)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    if app.config['USE_PROXYFIX']:\n        app.wsgi_app = ProxyFix(app.wsgi_app)\n\n",
+        "source_code_len": 82,
+        "target_code": "    if app.config['USE_PROXYFIX']:\n        app.wsgi_app = ProxyFix(app.wsgi_app)  # type: ignore\n\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -55,3 +55,3 @@\n     if app.config['USE_PROXYFIX']:\n-        app.wsgi_app = ProxyFix(app.wsgi_app)\n+        app.wsgi_app = ProxyFix(app.wsgi_app)  # type: ignore\n \n",
+        "source_code_with_indent": "    if app.config['USE_PROXYFIX']:\n        <IND>app.wsgi_app = ProxyFix(app.wsgi_app)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if app.config['USE_PROXYFIX']:\n        <IND>app.wsgi_app = ProxyFix(app.wsgi_app)  # type: ignore\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "alerta/alerta",
+    "commit": "4a7587c4862dd75c801cd7a84aae9b928d00c610",
+    "filename": "alerta/exceptions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/alerta-alerta/alerta/exceptions.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "alerta/exceptions.py:78:7 Unsupported operand [58]: `>=` is not supported for operand types `typing.Optional[int]` and `int`.",
+    "message": " `>=` is not supported for operand types `typing.Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 78,
+    "warning_line": "    if error.code >= 500:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def handle_http_error(error: HTTPException) -> Tuple[Response, int]:\n    if error.code >= 500:\n",
+        "source_code_len": 95,
+        "target_code": "def handle_http_error(error: HTTPException) -> Tuple[Response, int]:\n    error.code = error.code or 500\n    if error.code >= 500:\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -77,2 +78,3 @@\n def handle_http_error(error: HTTPException) -> Tuple[Response, int]:\n+    error.code = error.code or 500\n     if error.code >= 500:\n",
+        "source_code_with_indent": "<DED><DED>def handle_http_error(error: HTTPException) -> Tuple[Response, int]:\n    <IND>if error.code >= 500:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>def handle_http_error(error: HTTPException) -> Tuple[Response, int]:\n    <IND>error.code = error.code or 500\n    if error.code >= 500:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

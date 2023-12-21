@@ -1,0 +1,36 @@
+[
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "906a24c439dcd372e2c3d36ba07a4ad1d2f6ba79",
+    "filename": "texar/torch/run/metric/classification.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/torch/run/metric/classification.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "texar/torch/run/metric/classification.py:174:39 Incompatible parameter type [6]: Expected `Variable[Input]` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[str]`.",
+    "message": " Expected `Variable[Input]` for 1st positional only parameter to call `typing.Mapping.get` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 174,
+    "warning_line": "            label = self._class_id.get(self.pos_label, None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                             \"set to 'binary'\")\n        self.pos_label = pos_label\n\n",
+        "source_code_len": 84,
+        "target_code": "                             \"set to 'binary'\")\n        if pos_label is not None:\n            self.pos_label = pos_label\n\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -155,3 +155,4 @@\n                              \"set to 'binary'\")\n-        self.pos_label = pos_label\n+        if pos_label is not None:\n+            self.pos_label = pos_label\n \n",
+        "source_code_with_indent": "                             \"set to 'binary'\")\n        <DED>self.pos_label = pos_label\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                             \"set to 'binary'\")\n        <DED>if pos_label is not None:\n            <IND>self.pos_label = pos_label\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

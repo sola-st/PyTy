@@ -1,0 +1,36 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "9392e989a6fa23b50df8493998543d0578856c1e",
+    "filename": "forte/data/base_pack.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/data/base_pack.py",
+    "file_hunks_size": 17,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/data/base_pack.py:125:4 Inconsistent override [14]: `forte.data.base_pack.BasePack.validate` overrides method defined in `EntryContainer` inconsistently. Could not find parameter `item` in overriding signature.",
+    "message": " `forte.data.base_pack.BasePack.validate` overrides method defined in `EntryContainer` inconsistently. Could not find parameter `item` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 125,
+    "warning_line": "    def validate(self, entry: EntryType) -> bool:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            setattr(self.meta, k, v)\n\n    def set_as_poison(self):\n        self.__poison = True\n\n    def is_poison(self) -> bool:\n        \"\"\"\n        Indicate that this is a poison (a placeholder element that indicate\n        the end of the flow).\n        Returns:\n\n        \"\"\"\n        return self.__poison\n\n    @abstractmethod\n    def validate(self, entry: EntryType) -> bool:\n        \"\"\"\n        Validate whether this type can be added.\n\n        Args:\n            entry:\n\n        Returns:\n\n        \"\"\"\n        raise NotImplementedError\n\n",
+        "source_code_len": 539,
+        "target_code": "            setattr(self.meta, k, v)\n\n",
+        "target_code_len": 38,
+        "diff_format": "@@ -110,27 +64,2 @@\n             setattr(self.meta, k, v)\n-\n-    def set_as_poison(self):\n-        self.__poison = True\n-\n-    def is_poison(self) -> bool:\n-        \"\"\"\n-        Indicate that this is a poison (a placeholder element that indicate\n-        the end of the flow).\n-        Returns:\n-\n-        \"\"\"\n-        return self.__poison\n-\n-    @abstractmethod\n-    def validate(self, entry: EntryType) -> bool:\n-        \"\"\"\n-        Validate whether this type can be added.\n-\n-        Args:\n-            entry:\n-\n-        Returns:\n-\n-        \"\"\"\n-        raise NotImplementedError\n \n",
+        "source_code_with_indent": "            <DED>setattr(self.meta, k, v)\n\n    <DED><DED>def set_as_poison(self):\n        <IND>self.__poison = True\n\n    <DED>def is_poison(self) -> bool:\n        <IND>\"\"\"\n        Indicate that this is a poison (a placeholder element that indicate\n        the end of the flow).\n        Returns:\n\n        \"\"\"\n        return self.__poison\n\n    <DED>@abstractmethod\n    def validate(self, entry: EntryType) -> bool:\n        <IND>\"\"\"\n        Validate whether this type can be added.\n\n        Args:\n            entry:\n\n        Returns:\n\n        \"\"\"\n        raise NotImplementedError\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>setattr(self.meta, k, v)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

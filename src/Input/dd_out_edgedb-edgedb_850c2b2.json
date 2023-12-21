@@ -1,0 +1,51 @@
+[
+  {
+    "project": "edgedb/edgedb",
+    "commit": "850c2b29ad819f933cb33b69cd87e4da7401f694",
+    "filename": "edb/graphql/translator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/graphql/translator.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/graphql/translator.py:1674:8 Incompatible parameter type [6]: Expected `typing.Dict[typing.Any, typing.Any]` for 3rd parameter `cache_deps_vars` to call `TranspiledOperation.__init__` but got `typing.Optional[typing.Dict[Variable[_KT], Variable[_VT]]]`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` for 3rd parameter `cache_deps_vars` to call `TranspiledOperation.__init__` but got `typing.Optional[typing.Dict[Variable[_KT], Variable[_VT]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1674,
+    "warning_line": "        cache_deps_vars=dict(op.critvars) if op.critvars else None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    cacheable: bool\n    cache_deps_vars: dict\n    variables_desc: dict\n",
+        "source_code_len": 71,
+        "target_code": "    cacheable: bool\n    cache_deps_vars: Optional[FrozenSet[str]]\n    variables_desc: dict\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -121,3 +142,3 @@\n     cacheable: bool\n-    cache_deps_vars: dict\n+    cache_deps_vars: Optional[FrozenSet[str]]\n     variables_desc: dict\n",
+        "source_code_with_indent": "    cacheable: bool\n    cache_deps_vars: dict\n    variables_desc: dict\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    cacheable: bool\n    cache_deps_vars: Optional[FrozenSet[str]]\n    variables_desc: dict\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        cacheable=True,\n        cache_deps_vars=dict(op.critvars) if op.critvars else None,\n        variables_desc=op.vars,\n",
+        "source_code_len": 124,
+        "target_code": "        cacheable=True,\n        cache_deps_vars=frozenset(op.critvars) if op.critvars else None,\n        variables_desc=op.vars,\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -1673,3 +1704,3 @@\n         cacheable=True,\n-        cache_deps_vars=dict(op.critvars) if op.critvars else None,\n+        cache_deps_vars=frozenset(op.critvars) if op.critvars else None,\n         variables_desc=op.vars,\n",
+        "source_code_with_indent": "        cacheable=True,\n        cache_deps_vars=dict(op.critvars) if op.critvars else None,\n        variables_desc=op.vars,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        cacheable=True,\n        cache_deps_vars=frozenset(op.critvars) if op.critvars else None,\n        variables_desc=op.vars,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

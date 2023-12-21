@@ -1,0 +1,36 @@
+[
+  {
+    "project": "trezor/python-trezor",
+    "commit": "d3534a15c9a59603fdaacf6d66395e850e8a067b",
+    "filename": "trezorlib/transport/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trezor-python-trezor/trezorlib/transport/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "trezorlib/transport/__init__.py:110:73 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[Transport]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[Transport]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 110,
+    "warning_line": "            LOG.info(\"Enumerating {}: found {} devices\".format(name, len(found)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        try:\n            found = transport.enumerate()\n            LOG.info(\"Enumerating {}: found {} devices\".format(name, len(found)))\n",
+        "source_code_len": 137,
+        "target_code": "        try:\n            found = list(transport.enumerate())\n            LOG.info(\"Enumerating {}: found {} devices\".format(name, len(found)))\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -108,3 +112,3 @@\n         try:\n-            found = transport.enumerate()\n+            found = list(transport.enumerate())\n             LOG.info(\"Enumerating {}: found {} devices\".format(name, len(found)))\n",
+        "source_code_with_indent": "        try:\n            <IND>found = transport.enumerate()\n            LOG.info(\"Enumerating {}: found {} devices\".format(name, len(found)))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        try:\n            <IND>found = list(transport.enumerate())\n            LOG.info(\"Enumerating {}: found {} devices\".format(name, len(found)))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

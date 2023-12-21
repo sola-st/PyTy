@@ -1,0 +1,36 @@
+[
+  {
+    "project": "numba/numba",
+    "commit": "fd139ead1c5c3c1165c8a173726efc109a29b983",
+    "filename": "numba/core/targetconfig.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/numba-numba/numba/core/targetconfig.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "numba/core/targetconfig.py:307:8 Incompatible return type [7]: Expected `str` but got `bytes`.",
+    "message": " Expected `str` but got `bytes`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 307,
+    "warning_line": "        return b''.join(buf)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        buf.append(dc.flush())\n        return b''.join(buf)\n",
+        "source_code_len": 60,
+        "target_code": "        buf.append(dc.flush())\n        return b''.join(buf).decode()\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -306,2 +306,2 @@\n         buf.append(dc.flush())\n-        return b''.join(buf)\n+        return b''.join(buf).decode()\n",
+        "source_code_with_indent": "        <DED>buf.append(dc.flush())\n        return b''.join(buf)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>buf.append(dc.flush())\n        return b''.join(buf).decode()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

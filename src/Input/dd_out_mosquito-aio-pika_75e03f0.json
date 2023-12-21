@@ -1,0 +1,104 @@
+[
+  {
+    "project": "mosquito/aio-pika",
+    "commit": "75e03f095f8cbd4fd36f917dc2d1e44ad79ff201",
+    "filename": "aio_pika/message.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mosquito-aio-pika/aio_pika/message.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aio_pika/message.py:441:8 Incompatible variable type [9]: expiration is declared to have type `time.struct_time` but is used as type `None`.",
+    "message": " expiration is declared to have type `time.struct_time` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 441,
+    "warning_line": "        expiration = None       # type: time.struct_time",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        expiration = None       # type: time.struct_time\n        if message.header.properties.expiration:\n",
+        "source_code_len": 107,
+        "target_code": "\n        expiration = None\n        if message.header.properties.expiration:\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -440,3 +448,3 @@\n \n-        expiration = None       # type: time.struct_time\n+        expiration = None\n         if message.header.properties.expiration:\n",
+        "source_code_with_indent": "\n        expiration = None       # type: time.struct_time\n        if message.header.properties.expiration:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        expiration = None\n        if message.header.properties.expiration:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mosquito/aio-pika",
+    "commit": "75e03f095f8cbd4fd36f917dc2d1e44ad79ff201",
+    "filename": "aio_pika/message.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mosquito-aio-pika/aio_pika/message.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aio_pika/message.py:443:12 Incompatible variable type [9]: expiration is declared to have type `time.struct_time` but is used as type `Optional[float]`.",
+    "message": " expiration is declared to have type `time.struct_time` but is used as type `Optional[float]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 443,
+    "warning_line": "            expiration = decode_expiration(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        expiration = None       # type: time.struct_time\n        if message.header.properties.expiration:\n",
+        "source_code_len": 107,
+        "target_code": "\n        expiration = None\n        if message.header.properties.expiration:\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -440,3 +448,3 @@\n \n-        expiration = None       # type: time.struct_time\n+        expiration = None\n         if message.header.properties.expiration:\n",
+        "source_code_with_indent": "\n        expiration = None       # type: time.struct_time\n        if message.header.properties.expiration:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        expiration = None\n        if message.header.properties.expiration:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mosquito/aio-pika",
+    "commit": "75e03f095f8cbd4fd36f917dc2d1e44ad79ff201",
+    "filename": "aio_pika/message.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mosquito-aio-pika/aio_pika/message.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aio_pika/message.py:456:23 Unsupported operand [58]: `/` is not supported for operand types `time.struct_time` and `float`.",
+    "message": " `/` is not supported for operand types `time.struct_time` and `float`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 456,
+    "warning_line": "            expiration=expiration / 1000. if expiration else None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        expiration = None       # type: time.struct_time\n        if message.header.properties.expiration:\n",
+        "source_code_len": 107,
+        "target_code": "\n        expiration = None\n        if message.header.properties.expiration:\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -440,3 +448,3 @@\n \n-        expiration = None       # type: time.struct_time\n+        expiration = None\n         if message.header.properties.expiration:\n",
+        "source_code_with_indent": "\n        expiration = None       # type: time.struct_time\n        if message.header.properties.expiration:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        expiration = None\n        if message.header.properties.expiration:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

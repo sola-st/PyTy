@@ -1,0 +1,36 @@
+[
+  {
+    "project": "spectacles-ci/spectacles",
+    "commit": "13d626c3a7eb12389be72f23aea04d06d7d97d26",
+    "filename": "spectacles/exceptions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spectacles-ci-spectacles/spectacles/exceptions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spectacles/exceptions.py:161:37 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `Optional[str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 161,
+    "warning_line": "            metadata[\"tile_title\"] = tile_title",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        }\n        if tile_type:\n            metadata[\"tile_type\"] = tile_type\n",
+        "source_code_len": 78,
+        "target_code": "        }\n        if tile_type and tile_title:\n            metadata[\"tile_type\"] = tile_type\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -158,3 +158,3 @@\n         }\n-        if tile_type:\n+        if tile_type and tile_title:\n             metadata[\"tile_type\"] = tile_type\n",
+        "source_code_with_indent": "        }\n        if tile_type:\n            <IND>metadata[\"tile_type\"] = tile_type\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        }\n        if tile_type and tile_title:\n            <IND>metadata[\"tile_type\"] = tile_type\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

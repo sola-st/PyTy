@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "7b0e8691afe74b20ae3558180ca8f2199edc9c83",
+    "filename": "rx/core/observablebase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ReactiveX-RxPY/rx/core/observablebase.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rx/core/observablebase.py:103:25 Incompatible parameter type [6]: Expected `Observable` for 1st positional only parameter to call `subscribe` but got `ObservableBase`.",
+    "message": " Expected `Observable` for 1st positional only parameter to call `subscribe` but got `ObservableBase`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 103,
+    "warning_line": "        return subscribe(source, observer, scheduler)"
+  },
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "7b0e8691afe74b20ae3558180ca8f2199edc9c83",
+    "filename": "rx/core/observablebase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ReactiveX-RxPY/rx/core/observablebase.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rx/core/observablebase.py:420:35 Incompatible parameter type [6]: Expected `Observable` for 2nd positional only parameter to call `do_while` but got `ObservableBase`.",
+    "message": " Expected `Observable` for 2nd positional only parameter to call `do_while` but got `ObservableBase`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 420,
+    "warning_line": "        return do_while(condition, source)"
+  },
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "7b0e8691afe74b20ae3558180ca8f2199edc9c83",
+    "filename": "rx/operators/observable/dowhile.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ReactiveX-RxPY/rx/operators/observable/dowhile.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rx/operators/observable/dowhile.py:16:56 Incompatible parameter type [6]: Expected `rx.core.observablebase.ObservableBase` for 2nd positional only parameter to call `rx.core.observable.Observable.while_do` but got `rx.core.observable.Observable`.",
+    "message": " Expected `rx.core.observablebase.ObservableBase` for 2nd positional only parameter to call `rx.core.observable.Observable.while_do` but got `rx.core.observable.Observable`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 16,
+    "warning_line": "    return source.concat(Observable.while_do(condition, source))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef do_while(condition: Callable[[Any], bool], source: Observable) -> ObservableBase:\n    \"\"\"Repeats source as long as condition holds emulating a do while loop.\n",
+        "source_code_len": 163,
+        "target_code": "\ndef do_while(condition: Callable[[Any], bool], source: ObservableBase) -> ObservableBase:\n    \"\"\"Repeats source as long as condition holds emulating a do while loop.\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -4,3 +4,3 @@\n \n-def do_while(condition: Callable[[Any], bool], source: Observable) -> ObservableBase:\n+def do_while(condition: Callable[[Any], bool], source: ObservableBase) -> ObservableBase:\n     \"\"\"Repeats source as long as condition holds emulating a do while loop.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef do_while(condition: Callable[[Any], bool], source: Observable) -> ObservableBase:\n    <IND>",
+        "target_code_with_indent": "\ndef do_while(condition: Callable[[Any], bool], source: ObservableBase) -> ObservableBase:\n    <IND>"
+      }
+    ]
+  }
+]

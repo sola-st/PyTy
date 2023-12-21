@@ -1,0 +1,100 @@
+[
+  {
+    "project": "ihaveamac/ninfs",
+    "commit": "1ef366514b11923976404d01db22991184913871",
+    "filename": "fuse3ds/pyctr/types/romfs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ihaveamac-ninfs/fuse3ds/pyctr/types/romfs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fuse3ds/pyctr/types/romfs.py:235:30 Incompatible parameter type [6]: Expected `typing.IO[bytes]` for 1st positional only parameter to call `TextIOWrapper.__init__` but got `_RomFSOpenFile`.",
+    "message": " Expected `typing.IO[bytes]` for 1st positional only parameter to call `TextIOWrapper.__init__` but got `_RomFSOpenFile`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 235,
+    "warning_line": "            f = TextIOWrapper(f, encoding, errors, newline)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from threading import Lock\nfrom typing import TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n\n",
+        "source_code_len": 131,
+        "target_code": "from threading import Lock\nfrom typing import overload, TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n\n",
+        "target_code_len": 141,
+        "diff_format": "@@ -3,3 +3,3 @@\n from threading import Lock\n-from typing import TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n+from typing import overload, TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n \n",
+        "source_code_with_indent": "from threading import Lock\nfrom typing import TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from threading import Lock\nfrom typing import overload, TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def open(self, path: str, encoding: 'Optional[str]' = None, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> _RomFSOpenFile:\n        \"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "source_code_len": 214,
+        "target_code": "\n    @overload\n    def open(self, path: str, encoding: str, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> TextIOWrapper: ...\n\n    @overload\n    def open(self, path: str, encoding: None = None, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> _RomFSOpenFile: ...\n\n    def open(self, path, encoding=None, errors=None, newline=None):\n        \"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "target_code_len": 450,
+        "diff_format": "@@ -229,4 +229,11 @@\n \n-    def open(self, path: str, encoding: 'Optional[str]' = None, errors: 'Optional[str]' = None,\n-             newline: 'Optional[str]' = None) -> _RomFSOpenFile:\n+    @overload\n+    def open(self, path: str, encoding: str, errors: 'Optional[str]' = None,\n+             newline: 'Optional[str]' = None) -> TextIOWrapper: ...\n+\n+    @overload\n+    def open(self, path: str, encoding: None = None, errors: 'Optional[str]' = None,\n+             newline: 'Optional[str]' = None) -> _RomFSOpenFile: ...\n+\n+    def open(self, path, encoding=None, errors=None, newline=None):\n         \"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def open(self, path: str, encoding: 'Optional[str]' = None, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> _RomFSOpenFile:\n        <IND>\"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@overload\n    def open(self, path: str, encoding: str, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> TextIOWrapper: ...\n\n    @overload\n    def open(self, path: str, encoding: None = None, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> _RomFSOpenFile: ...\n\n    def open(self, path, encoding=None, errors=None, newline=None):\n        <IND>\"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ihaveamac/ninfs",
+    "commit": "1ef366514b11923976404d01db22991184913871",
+    "filename": "fuse3ds/pyctr/types/romfs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ihaveamac-ninfs/fuse3ds/pyctr/types/romfs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fuse3ds/pyctr/types/romfs.py:236:8 Incompatible return type [7]: Expected `_RomFSOpenFile` but got `Union[TextIOWrapper, _RomFSOpenFile]`.",
+    "message": " Expected `_RomFSOpenFile` but got `Union[TextIOWrapper, _RomFSOpenFile]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 236,
+    "warning_line": "        return f",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from threading import Lock\nfrom typing import TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n\n",
+        "source_code_len": 131,
+        "target_code": "from threading import Lock\nfrom typing import overload, TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n\n",
+        "target_code_len": 141,
+        "diff_format": "@@ -3,3 +3,3 @@\n from threading import Lock\n-from typing import TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n+from typing import overload, TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n \n",
+        "source_code_with_indent": "from threading import Lock\nfrom typing import TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from threading import Lock\nfrom typing import overload, TYPE_CHECKING, NamedTuple, Tuple  # Tuple is here until I can use 3.6+ exclusively.\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def open(self, path: str, encoding: 'Optional[str]' = None, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> _RomFSOpenFile:\n        \"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "source_code_len": 214,
+        "target_code": "\n    @overload\n    def open(self, path: str, encoding: str, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> TextIOWrapper: ...\n\n    @overload\n    def open(self, path: str, encoding: None = None, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> _RomFSOpenFile: ...\n\n    def open(self, path, encoding=None, errors=None, newline=None):\n        \"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "target_code_len": 450,
+        "diff_format": "@@ -229,4 +229,11 @@\n \n-    def open(self, path: str, encoding: 'Optional[str]' = None, errors: 'Optional[str]' = None,\n-             newline: 'Optional[str]' = None) -> _RomFSOpenFile:\n+    @overload\n+    def open(self, path: str, encoding: str, errors: 'Optional[str]' = None,\n+             newline: 'Optional[str]' = None) -> TextIOWrapper: ...\n+\n+    @overload\n+    def open(self, path: str, encoding: None = None, errors: 'Optional[str]' = None,\n+             newline: 'Optional[str]' = None) -> _RomFSOpenFile: ...\n+\n+    def open(self, path, encoding=None, errors=None, newline=None):\n         \"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def open(self, path: str, encoding: 'Optional[str]' = None, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> _RomFSOpenFile:\n        <IND>\"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@overload\n    def open(self, path: str, encoding: str, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> TextIOWrapper: ...\n\n    @overload\n    def open(self, path: str, encoding: None = None, errors: 'Optional[str]' = None,\n             newline: 'Optional[str]' = None) -> _RomFSOpenFile: ...\n\n    def open(self, path, encoding=None, errors=None, newline=None):\n        <IND>\"\"\"Open a file in the RomFS for reading.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

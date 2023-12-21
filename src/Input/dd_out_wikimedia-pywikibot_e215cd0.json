@@ -1,0 +1,36 @@
+[
+  {
+    "project": "wikimedia/pywikibot",
+    "commit": "e215cd00dd96c2cec70167566af156b765f52107",
+    "filename": "pywikibot/data/api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wikimedia-pywikibot/pywikibot/data/api.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pywikibot/data/api.py:3064:60 Unsupported operand [58]: `+` is not supported for operand types `datetime.datetime` and `Union[datetime.timedelta, int]`.",
+    "message": " `+` is not supported for operand types `datetime.datetime` and `Union[datetime.timedelta, int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 3064,
+    "warning_line": "                self._waituntil = datetime.datetime.now() + delta",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    delta = datetime.timedelta(seconds=int(wait))\n                self._waituntil = datetime.datetime.now() + delta\n                break\n            else:\n                break\n        if 'error' in login_result:\n",
+        "source_code_len": 230,
+        "target_code": "                    delta = datetime.timedelta(seconds=int(wait))\n                else:\n                    match = re.search(r'(\\d+) (seconds|minutes)', fail_reason)\n                    if match:\n                        delta = datetime.timedelta(\n                            **{match.group(2): int(match.group(1))})\n                    else:\n                        delta = datetime.timedelta()\n                self._waituntil = datetime.datetime.now() + delta\n\n            break\n\n        if 'error' in login_result:\n",
+        "target_code_len": 519,
+        "diff_format": "@@ -3063,6 +3059,13 @@\n                     delta = datetime.timedelta(seconds=int(wait))\n+                else:\n+                    match = re.search(r'(\\d+) (seconds|minutes)', fail_reason)\n+                    if match:\n+                        delta = datetime.timedelta(\n+                            **{match.group(2): int(match.group(1))})\n+                    else:\n+                        delta = datetime.timedelta()\n                 self._waituntil = datetime.datetime.now() + delta\n-                break\n-            else:\n-                break\n+\n+            break\n+\n         if 'error' in login_result:\n",
+        "source_code_with_indent": "                    <IND>delta = datetime.timedelta(seconds=int(wait))\n                <DED>self._waituntil = datetime.datetime.now() + delta\n                break\n            <DED>else:\n                <IND>break\n        <DED><DED>if 'error' in login_result:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>delta = datetime.timedelta(seconds=int(wait))\n                <DED>else:\n                    <IND>match = re.search(r'(\\d+) (seconds|minutes)', fail_reason)\n                    if match:\n                        <IND>delta = datetime.timedelta(\n                            **{match.group(2): int(match.group(1))})\n                    <DED>else:\n                        <IND>delta = datetime.timedelta()\n                <DED><DED>self._waituntil = datetime.datetime.now() + delta\n\n            <DED>break\n\n        <DED>if 'error' in login_result:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

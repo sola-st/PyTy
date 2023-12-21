@@ -1,0 +1,51 @@
+[
+  {
+    "project": "netenglabs/suzieq",
+    "commit": "fa4ed6250857bf809e03ed609c8d86468ae6041c",
+    "filename": "suzieq/engines/pandas/routes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/netenglabs-suzieq/suzieq/engines/pandas/routes.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "suzieq/engines/pandas/routes.py:14:72 Invalid type [31]: Expression `(list, list)` is not a valid type.",
+    "message": " Expression `(list, list)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 14,
+    "warning_line": "    def _cons_addnl_fields(self, columns: list, addnl_fields: list) -> (list, list):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import numpy as np\nfrom ipaddress import ip_address, ip_network\n",
+        "source_code_len": 64,
+        "target_code": "import numpy as np\nfrom typing import Tuple\nfrom ipaddress import ip_address, ip_network\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -4,2 +4,3 @@\n import numpy as np\n+from typing import Tuple\n from ipaddress import ip_address, ip_network\n",
+        "source_code_with_indent": "import numpy as np\nfrom ipaddress import ip_address, ip_network\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import numpy as np\nfrom typing import Tuple\nfrom ipaddress import ip_address, ip_network\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _cons_addnl_fields(self, columns: list, addnl_fields: list) -> (list, list):\n        '''get all the additional columns we need'''\n",
+        "source_code_len": 139,
+        "target_code": "\n    def _cons_addnl_fields(self, columns: list,\n                           addnl_fields: list) -> Tuple[list, list]:\n        '''get all the additional columns we need'''\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -13,3 +14,4 @@\n \n-    def _cons_addnl_fields(self, columns: list, addnl_fields: list) -> (list, list):\n+    def _cons_addnl_fields(self, columns: list,\n+                           addnl_fields: list) -> Tuple[list, list]:\n         '''get all the additional columns we need'''\n",
+        "source_code_with_indent": "\n    <DED>def _cons_addnl_fields(self, columns: list, addnl_fields: list) -> (list, list):\n        <IND>'''get all the additional columns we need'''\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _cons_addnl_fields(self, columns: list,\n                           addnl_fields: list) -> Tuple[list, list]:\n        <IND>'''get all the additional columns we need'''\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

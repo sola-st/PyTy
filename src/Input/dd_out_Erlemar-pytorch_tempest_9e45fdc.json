@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Erlemar/pytorch_tempest",
+    "commit": "9e45fdc101cb8cf47c806a9e868e62c6f2d30ca5",
+    "filename": "src/lightning_classes/lightning_image_classification.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Erlemar-pytorch_tempest/src/lightning_classes/lightning_image_classification.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/lightning_classes/lightning_image_classification.py:47:17 Call error [29]: `LitImageClassification` is not a function.",
+    "message": " `LitImageClassification` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 47,
+    "warning_line": "        logits = self(image)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n    def training_step(\n        self, batch: Dict[str, torch.Tensor], batch_idx: int\n    ) -> Union[int, Dict[str, Union[torch.Tensor, Dict[str, torch.Tensor]]]]:  # type: ignore\n        # TODO: one method for train/val step/epoch\n",
+        "source_code_len": 231,
+        "target_code": "\n    def training_step(self, batch, *args, **kwargs):  # type: ignore\n        # TODO: one method for train/val step/epoch\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -41,5 +41,3 @@\n \n-    def training_step(\n-        self, batch: Dict[str, torch.Tensor], batch_idx: int\n-    ) -> Union[int, Dict[str, Union[torch.Tensor, Dict[str, torch.Tensor]]]]:  # type: ignore\n+    def training_step(self, batch, *args, **kwargs):  # type: ignore\n         # TODO: one method for train/val step/epoch\n",
+        "source_code_with_indent": "\n    <DED>def training_step(\n        self, batch: Dict[str, torch.Tensor], batch_idx: int\n    ) -> Union[int, Dict[str, Union[torch.Tensor, Dict[str, torch.Tensor]]]]:  # type: ignore\n        # TODO: one method for train/val step/epoch\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def training_step(self, batch, *args, **kwargs):  # type: ignore\n        # TODO: one method for train/val step/epoch\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Erlemar/pytorch_tempest",
+    "commit": "9e45fdc101cb8cf47c806a9e868e62c6f2d30ca5",
+    "filename": "src/lightning_classes/lightning_image_classification.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Erlemar-pytorch_tempest/src/lightning_classes/lightning_image_classification.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/lightning_classes/lightning_image_classification.py:82:17 Call error [29]: `LitImageClassification` is not a function.",
+    "message": " `LitImageClassification` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 82,
+    "warning_line": "        logits = self(image)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n    def validation_step(\n        self, batch: Dict[str, torch.Tensor], batch_idx: int\n    ) -> Union[int, Dict[str, Union[torch.Tensor, Dict[str, torch.Tensor]]]]:  # type: ignore\n        image = batch['image']\n",
+        "source_code_len": 212,
+        "target_code": "\n    def validation_step(self, batch, *args, **kwargs):  # type: ignore\n        image = batch['image']\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -77,5 +75,3 @@\n \n-    def validation_step(\n-        self, batch: Dict[str, torch.Tensor], batch_idx: int\n-    ) -> Union[int, Dict[str, Union[torch.Tensor, Dict[str, torch.Tensor]]]]:  # type: ignore\n+    def validation_step(self, batch, *args, **kwargs):  # type: ignore\n         image = batch['image']\n",
+        "source_code_with_indent": "\n    <DED>def validation_step(\n        self, batch: Dict[str, torch.Tensor], batch_idx: int\n    ) -> Union[int, Dict[str, Union[torch.Tensor, Dict[str, torch.Tensor]]]]:  # type: ignore\n        <IND>image = batch['image']\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def validation_step(self, batch, *args, **kwargs):  # type: ignore\n        <IND>image = batch['image']\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

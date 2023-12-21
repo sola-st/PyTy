@@ -1,0 +1,51 @@
+[
+  {
+    "project": "PyCQA/pylint",
+    "commit": "1e33631d5b46558f4df460534dac55c49fb3cd09",
+    "filename": "pylint/testutils/lint_module_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyCQA-pylint/pylint/testutils/lint_module_test.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pylint/testutils/lint_module_test.py:125:8 Incompatible return type [7]: Expected `Tuple[typing.Set[typing.Any]]` but got `Tuple[typing.Set[typing.Any], typing.Dict[typing.Any, typing.Any]]`.",
+    "message": " Expected `Tuple[typing.Set[typing.Any]]` but got `Tuple[typing.Set[typing.Any], typing.Dict[typing.Any, typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 125,
+    "warning_line": "        return missing, unexpected",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from io import StringIO\nfrom typing import Tuple\n\n",
+        "source_code_len": 50,
+        "target_code": "from io import StringIO\nfrom typing import Dict, Tuple\n\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -9,3 +9,3 @@\n from io import StringIO\n-from typing import Tuple\n+from typing import Dict, Tuple\n \n",
+        "source_code_with_indent": "from io import StringIO\nfrom typing import Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from io import StringIO\nfrom typing import Dict, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def multiset_difference(expected_entries: set, actual_entries: set) -> Tuple[set]:\n        \"\"\"Takes two multisets and compares them.\n",
+        "source_code_len": 155,
+        "target_code": "    @staticmethod\n    def multiset_difference(\n        expected_entries: Counter, actual_entries: Counter\n    ) -> Tuple[Counter, Dict[str, int]]:\n        \"\"\"Takes two multisets and compares them.\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -112,3 +112,5 @@\n     @staticmethod\n-    def multiset_difference(expected_entries: set, actual_entries: set) -> Tuple[set]:\n+    def multiset_difference(\n+        expected_entries: Counter, actual_entries: Counter\n+    ) -> Tuple[Counter, Dict[str, int]]:\n         \"\"\"Takes two multisets and compares them.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@staticmethod\n    def multiset_difference(expected_entries: set, actual_entries: set) -> Tuple[set]:\n        <IND>",
+        "target_code_with_indent": "    <DED>@staticmethod\n    def multiset_difference(\n        expected_entries: Counter, actual_entries: Counter\n    ) -> Tuple[Counter, Dict[str, int]]:\n        <IND>"
+      }
+    ]
+  }
+]

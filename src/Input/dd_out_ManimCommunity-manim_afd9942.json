@@ -1,0 +1,104 @@
+[
+  {
+    "project": "ManimCommunity/manim",
+    "commit": "afd9942670f42a54d5531e828a861fcd19a426b1",
+    "filename": "manim/mobject/graph.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ManimCommunity-manim/manim/mobject/graph.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "manim/mobject/graph.py:617:16 Incompatible parameter type [6]: Expected `Hashable` for 1st positional only parameter to call `Graph._add_vertex` but got `List[Hashable]`.",
+    "message": " Expected `Hashable` for 1st positional only parameter to call `Graph._add_vertex` but got `List[Hashable]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 617,
+    "warning_line": "                v,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self: \"Graph\",\n        *vertices: List[Hashable],\n        positions: Optional[dict] = None,\n",
+        "source_code_len": 100,
+        "target_code": "        self: \"Graph\",\n        *vertices: Hashable,\n        positions: Optional[dict] = None,\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -547,3 +547,3 @@\n         self: \"Graph\",\n-        *vertices: List[Hashable],\n+        *vertices: Hashable,\n         positions: Optional[dict] = None,\n",
+        "source_code_with_indent": "        self: \"Graph\",\n        *vertices: List[Hashable],\n        positions: Optional[dict] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self: \"Graph\",\n        *vertices: Hashable,\n        positions: Optional[dict] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ManimCommunity/manim",
+    "commit": "afd9942670f42a54d5531e828a861fcd19a426b1",
+    "filename": "manim/mobject/graph.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ManimCommunity-manim/manim/mobject/graph.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "manim/mobject/graph.py:803:20 Incompatible parameter type [6]: Expected `Tuple[Hashable, Hashable]` for 1st positional only parameter to call `Graph._add_edge` but got `List[Tuple[Hashable, Hashable]]`.",
+    "message": " Expected `Tuple[Hashable, Hashable]` for 1st positional only parameter to call `Graph._add_edge` but got `List[Tuple[Hashable, Hashable]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 803,
+    "warning_line": "                    edge,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        *edges: List[Tuple[Hashable, Hashable]],\n        edge_type: Type[\"Mobject\"] = Line,\n",
+        "source_code_len": 106,
+        "target_code": "        self,\n        *edges: Tuple[Hashable, Hashable],\n        edge_type: Type[\"Mobject\"] = Line,\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -761,3 +761,3 @@\n         self,\n-        *edges: List[Tuple[Hashable, Hashable]],\n+        *edges: Tuple[Hashable, Hashable],\n         edge_type: Type[\"Mobject\"] = Line,\n",
+        "source_code_with_indent": "        self,\n        *edges: List[Tuple[Hashable, Hashable]],\n        edge_type: Type[\"Mobject\"] = Line,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        *edges: Tuple[Hashable, Hashable],\n        edge_type: Type[\"Mobject\"] = Line,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ManimCommunity/manim",
+    "commit": "afd9942670f42a54d5531e828a861fcd19a426b1",
+    "filename": "manim/mobject/graph.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ManimCommunity-manim/manim/mobject/graph.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "manim/mobject/graph.py:865:43 Incompatible parameter type [6]: Expected `Tuple[Hashable]` for 1st positional only parameter to call `Graph._remove_edge` but got `List[Tuple[Hashable]]`.",
+    "message": " Expected `Tuple[Hashable]` for 1st positional only parameter to call `Graph._remove_edge` but got `List[Tuple[Hashable]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 865,
+    "warning_line": "        edge_mobjects = [self._remove_edge(edge) for edge in edges]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def remove_edges(self, *edges: List[Tuple[Hashable]]):\n        \"\"\"Remove several edges from the graph.\n",
+        "source_code_len": 108,
+        "target_code": "\n    def remove_edges(self, *edges: Tuple[Hashable]):\n        \"\"\"Remove several edges from the graph.\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -850,3 +850,3 @@\n \n-    def remove_edges(self, *edges: List[Tuple[Hashable]]):\n+    def remove_edges(self, *edges: Tuple[Hashable]):\n         \"\"\"Remove several edges from the graph.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def remove_edges(self, *edges: List[Tuple[Hashable]]):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def remove_edges(self, *edges: Tuple[Hashable]):\n        <IND>"
+      }
+    ]
+  }
+]

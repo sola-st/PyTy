@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "dc11d91dd02f6ac21dfe23690c86ae6c570d58e4",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:665:39 Incompatible parameter type [6]: Expected `Instance` for 1st positional only parameter to call `list.append` but got `Union[Instance, TupleType]`.",
+    "message": " Expected `Instance` for 1st positional only parameter to call `list.append` but got `Union[Instance, TupleType]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 665,
+    "warning_line": "                defn.base_types.append(base)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    self.fail(\"Tuple[...] not supported as a base class outside a stub file\", defn)\n            if isinstance(base, Instance) or isinstance(base, TupleType):\n                defn.base_types.append(base)\n            elif isinstance(base, AnyType):\n",
+        "source_code_len": 263,
+        "target_code": "                    self.fail(\"Tuple[...] not supported as a base class outside a stub file\", defn)\n            if isinstance(base, Instance):\n                defn.base_types.append(base)\n            elif isinstance(base, TupleType):\n                assert False, \"Internal error: Unexpected TupleType base class\"\n            elif isinstance(base, AnyType):\n",
+        "target_code_len": 358,
+        "diff_format": "@@ -663,4 +663,6 @@\n                     self.fail(\"Tuple[...] not supported as a base class outside a stub file\", defn)\n-            if isinstance(base, Instance) or isinstance(base, TupleType):\n+            if isinstance(base, Instance):\n                 defn.base_types.append(base)\n+            elif isinstance(base, TupleType):\n+                assert False, \"Internal error: Unexpected TupleType base class\"\n             elif isinstance(base, AnyType):\n",
+        "source_code_with_indent": "                    <IND>self.fail(\"Tuple[...] not supported as a base class outside a stub file\", defn)\n            <DED><DED>if isinstance(base, Instance) or isinstance(base, TupleType):\n                <IND>defn.base_types.append(base)\n            <DED>elif isinstance(base, AnyType):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>self.fail(\"Tuple[...] not supported as a base class outside a stub file\", defn)\n            <DED><DED>if isinstance(base, Instance):\n                <IND>defn.base_types.append(base)\n            <DED>elif isinstance(base, TupleType):\n                <IND>assert False, \"Internal error: Unexpected TupleType base class\"\n            <DED>elif isinstance(base, AnyType):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

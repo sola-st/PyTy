@@ -1,0 +1,104 @@
+[
+  {
+    "project": "bokeh/bokeh",
+    "commit": "6828be458c924193fdbed49126b56358da5b365c",
+    "filename": "tests/unit/bokeh/core/property/test_dataspec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/tests/unit/bokeh/core/property/test_dataspec.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/unit/bokeh/core/property/test_dataspec.py:93:8 Incompatible attribute type [8]: Attribute `x` declared in class `Test_AngleSpec.test_default_none.Foo` has type `bcpd.AngleSpec` but is used as type `int`.",
+    "message": " Attribute `x` declared in class `Test_AngleSpec.test_default_none.Foo` has type `bcpd.AngleSpec` but is used as type `int`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 93,
+    "warning_line": "        a.x = 14",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "class Test_AngleSpec:\n    def test_default_none(self) -> None:\n        class Foo(HasProps):\n            x = bcpd.AngleSpec(None)\n\n        a = Foo()\n\n        assert a.x is None\n        assert a.x_units == 'rad'\n        a.x = 14\n        assert a.x == 14\n        assert a.x_units == 'rad'\n\n    def test_autocreate_no_parens(self) -> None:\n",
+        "source_code_len": 336,
+        "target_code": "class Test_AngleSpec:\n    def test_autocreate_no_parens(self) -> None:\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -84,14 +85,2 @@\n class Test_AngleSpec:\n-    def test_default_none(self) -> None:\n-        class Foo(HasProps):\n-            x = bcpd.AngleSpec(None)\n-\n-        a = Foo()\n-\n-        assert a.x is None\n-        assert a.x_units == 'rad'\n-        a.x = 14\n-        assert a.x == 14\n-        assert a.x_units == 'rad'\n-\n     def test_autocreate_no_parens(self) -> None:\n",
+        "source_code_with_indent": "<DED><DED>class Test_AngleSpec:\n    <IND>def test_default_none(self) -> None:\n        <IND>class Foo(HasProps):\n            <IND>x = bcpd.AngleSpec(None)\n\n        <DED>a = Foo()\n\n        assert a.x is None\n        assert a.x_units == 'rad'\n        a.x = 14\n        assert a.x == 14\n        assert a.x_units == 'rad'\n\n    <DED>def test_autocreate_no_parens(self) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class Test_AngleSpec:\n    <IND>def test_autocreate_no_parens(self) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bokeh/bokeh",
+    "commit": "6828be458c924193fdbed49126b56358da5b365c",
+    "filename": "tests/unit/bokeh/core/property/test_dataspec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/tests/unit/bokeh/core/property/test_dataspec.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/unit/bokeh/core/property/test_dataspec.py:315:8 Incompatible attribute type [8]: Attribute `x` declared in class `Test_DistanceSpec.test_default_none.Foo` has type `bcpd.DistanceSpec` but is used as type `int`.",
+    "message": " Attribute `x` declared in class `Test_DistanceSpec.test_default_none.Foo` has type `bcpd.DistanceSpec` but is used as type `int`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 315,
+    "warning_line": "        a.x = 14",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "class Test_DistanceSpec:\n    def test_default_none(self) -> None:\n        class Foo(HasProps):\n            x = bcpd.DistanceSpec(None)\n\n        a = Foo()\n\n        assert a.x is None\n        assert a.x_units == 'data'\n        a.x = 14\n        assert a.x == 14\n        assert a.x_units == 'data'\n\n    def test_autocreate_no_parens(self) -> None:\n",
+        "source_code_len": 344,
+        "target_code": "class Test_DistanceSpec:\n    def test_autocreate_no_parens(self) -> None:\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -306,14 +296,2 @@\n class Test_DistanceSpec:\n-    def test_default_none(self) -> None:\n-        class Foo(HasProps):\n-            x = bcpd.DistanceSpec(None)\n-\n-        a = Foo()\n-\n-        assert a.x is None\n-        assert a.x_units == 'data'\n-        a.x = 14\n-        assert a.x == 14\n-        assert a.x_units == 'data'\n-\n     def test_autocreate_no_parens(self) -> None:\n",
+        "source_code_with_indent": "<DED><DED>class Test_DistanceSpec:\n    <IND>def test_default_none(self) -> None:\n        <IND>class Foo(HasProps):\n            <IND>x = bcpd.DistanceSpec(None)\n\n        <DED>a = Foo()\n\n        assert a.x is None\n        assert a.x_units == 'data'\n        a.x = 14\n        assert a.x == 14\n        assert a.x_units == 'data'\n\n    <DED>def test_autocreate_no_parens(self) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class Test_DistanceSpec:\n    <IND>def test_autocreate_no_parens(self) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bokeh/bokeh",
+    "commit": "6828be458c924193fdbed49126b56358da5b365c",
+    "filename": "tests/unit/bokeh/core/property/test_dataspec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/tests/unit/bokeh/core/property/test_dataspec.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/unit/bokeh/core/property/test_dataspec.py:456:8 Incompatible attribute type [8]: Attribute `x` declared in class `Test_NumberSpec.test_value.Foo` has type `bcpd.NumberSpec` but is used as type `None`.",
+    "message": " Attribute `x` declared in class `Test_NumberSpec.test_value.Foo` has type `bcpd.NumberSpec` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 456,
+    "warning_line": "        f.x = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        assert Foo.__dict__[\"x\"].serializable_value(f) == {\"value\": 32}\n        f.x = None\n        assert Foo.__dict__[\"x\"].serializable_value(f) is None\n\n",
+        "source_code_len": 155,
+        "target_code": "        assert Foo.__dict__[\"x\"].serializable_value(f) == {\"value\": 32}\n\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -455,4 +434,2 @@\n         assert Foo.__dict__[\"x\"].serializable_value(f) == {\"value\": 32}\n-        f.x = None\n-        assert Foo.__dict__[\"x\"].serializable_value(f) is None\n \n",
+        "source_code_with_indent": "        assert Foo.__dict__[\"x\"].serializable_value(f) == {\"value\": 32}\n        f.x = None\n        assert Foo.__dict__[\"x\"].serializable_value(f) is None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        assert Foo.__dict__[\"x\"].serializable_value(f) == {\"value\": 32}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

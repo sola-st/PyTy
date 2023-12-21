@@ -1,0 +1,36 @@
+[
+  {
+    "project": "eternnoir/pyTelegramBotAPI",
+    "commit": "e59e2ee2ee657707008a668477258d49fb83c44e",
+    "filename": "telebot/async_telebot.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/eternnoir-pyTelegramBotAPI/telebot/async_telebot.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "telebot/async_telebot.py:212:8 Incompatible return type [7]: Expected `types.Update` but got `List[typing.Any]`.",
+    "message": " Expected `types.Update` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 212,
+    "warning_line": "        return [types.Update.de_json(ju) for ju in json_updates]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    async def get_updates(self, offset: Optional[int]=None, limit: Optional[int]=None,\n        timeout: Optional[int]=None, allowed_updates: Optional[List]=None, request_timeout: Optional[int]=None) -> types.Update:\n        json_updates = await asyncio_helper.get_updates(self.token, offset, limit, timeout, allowed_updates, request_timeout)\n",
+        "source_code_len": 342,
+        "target_code": "    async def get_updates(self, offset: Optional[int]=None, limit: Optional[int]=None,\n        timeout: Optional[int]=None, allowed_updates: Optional[List]=None, request_timeout: Optional[int]=None) -> List[types.Update]:\n        json_updates = await asyncio_helper.get_updates(self.token, offset, limit, timeout, allowed_updates, request_timeout)\n",
+        "target_code_len": 348,
+        "diff_format": "@@ -209,3 +209,3 @@\n     async def get_updates(self, offset: Optional[int]=None, limit: Optional[int]=None,\n-        timeout: Optional[int]=None, allowed_updates: Optional[List]=None, request_timeout: Optional[int]=None) -> types.Update:\n+        timeout: Optional[int]=None, allowed_updates: Optional[List]=None, request_timeout: Optional[int]=None) -> List[types.Update]:\n         json_updates = await asyncio_helper.get_updates(self.token, offset, limit, timeout, allowed_updates, request_timeout)\n",
+        "source_code_with_indent": "    <DED>async def get_updates(self, offset: Optional[int]=None, limit: Optional[int]=None,\n        timeout: Optional[int]=None, allowed_updates: Optional[List]=None, request_timeout: Optional[int]=None) -> types.Update:\n        <IND>json_updates = await asyncio_helper.get_updates(self.token, offset, limit, timeout, allowed_updates, request_timeout)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>async def get_updates(self, offset: Optional[int]=None, limit: Optional[int]=None,\n        timeout: Optional[int]=None, allowed_updates: Optional[List]=None, request_timeout: Optional[int]=None) -> List[types.Update]:\n        <IND>json_updates = await asyncio_helper.get_updates(self.token, offset, limit, timeout, allowed_updates, request_timeout)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

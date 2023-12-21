@@ -1,0 +1,36 @@
+[
+  {
+    "project": "bokeh/bokeh",
+    "commit": "0ef16000dc6b6e0961101c3c191e5690d20e7fb0",
+    "filename": "bokeh/server/server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/server/server.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/server/server.py:207:38 Incompatible parameter type [6]: Expected `typing.Union[typing.Callable[[int, typing.Optional[FrameType]], typing.Any], None, int, signal.Handlers]` for 2nd positional only parameter to call `signal.signal` but got `BoundMethod[typing.Callable(BaseServer._sigterm)[[Named(self, BaseServer), Named(signum, signal.Signals), Named(frame, FrameType)], None], BaseServer]`.",
+    "message": " Expected `typing.Union[typing.Callable[[int, typing.Optional[FrameType]], typing.Any], None, int, signal.Handlers]` for 2nd positional only parameter to call `signal.signal` but got `BoundMethod[typing.Callable(BaseServer._sigterm)[[Named(self, BaseServer), Named(signum, signal.Signals), Named(frame, FrameType)], None], BaseServer]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 207,
+    "warning_line": "        signal.signal(signal.SIGTERM, self._sigterm)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _sigterm(self, signum: signal.Signals, frame: FrameType) -> None:\n        print(f\"Received signal {signum}, shutting down\")\n",
+        "source_code_len": 133,
+        "target_code": "\n    def _sigterm(self, signum: int, frame: FrameType | None) -> None:\n        print(f\"Received signal {signum}, shutting down\")\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -297,3 +297,3 @@\n \n-    def _sigterm(self, signum: signal.Signals, frame: FrameType) -> None:\n+    def _sigterm(self, signum: int, frame: FrameType | None) -> None:\n         print(f\"Received signal {signum}, shutting down\")\n",
+        "source_code_with_indent": "\n    <DED><DED>def _sigterm(self, signum: signal.Signals, frame: FrameType) -> None:\n        <IND>print(f\"Received signal {signum}, shutting down\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def _sigterm(self, signum: int, frame: FrameType | None) -> None:\n        <IND>print(f\"Received signal {signum}, shutting down\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

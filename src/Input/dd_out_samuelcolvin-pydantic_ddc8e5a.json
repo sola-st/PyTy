@@ -1,0 +1,51 @@
+[
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "ddc8e5a57b3adef610473b0baf7f190bde43675e",
+    "filename": "docs/examples/index_main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samuelcolvin-pydantic/docs/examples/index_main.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "docs/examples/index_main.py:8:4 Incompatible attribute type [8]: Attribute `signup_ts` declared in class `User` has type `datetime` but is used as type `None`.",
+    "message": " Attribute `signup_ts` declared in class `User` has type `datetime` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 8,
+    "warning_line": "    signup_ts: datetime = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from datetime import datetime\nfrom typing import List\nfrom pydantic import BaseModel\n",
+        "source_code_len": 85,
+        "target_code": "from datetime import datetime\nfrom typing import List, Optional\nfrom pydantic import BaseModel\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -1,3 +1,3 @@\n from datetime import datetime\n-from typing import List\n+from typing import List, Optional\n from pydantic import BaseModel\n",
+        "source_code_with_indent": "from datetime import datetime\nfrom typing import List\nfrom pydantic import BaseModel\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from datetime import datetime\nfrom typing import List, Optional\nfrom pydantic import BaseModel\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    name = 'John Doe'\n    signup_ts: datetime = None\n    friends: List[int] = []\n",
+        "source_code_len": 81,
+        "target_code": "    name = 'John Doe'\n    signup_ts: Optional[datetime] = None\n    friends: List[int] = []\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -7,3 +7,3 @@\n     name = 'John Doe'\n-    signup_ts: datetime = None\n+    signup_ts: Optional[datetime] = None\n     friends: List[int] = []\n",
+        "source_code_with_indent": "    name = 'John Doe'\n    signup_ts: datetime = None\n    friends: List[int] = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    name = 'John Doe'\n    signup_ts: Optional[datetime] = None\n    friends: List[int] = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

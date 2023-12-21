@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "d74a2aaf63bd2117aea9c991d79eca5b918dd9c2",
+    "filename": "qcodes/dataset/measurements.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/dataset/measurements.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/dataset/measurements.py:678:8 Incompatible return type [7]: Expected `Tuple[Tuple[ParamSpecBase, ParamSpecBase]]` but got `Tuple[typing.Tuple[typing.Any, ...], typing.Tuple[typing.Any, ...]]`.",
+    "message": " Expected `Tuple[Tuple[ParamSpecBase, ParamSpecBase]]` but got `Tuple[typing.Tuple[typing.Any, ...], typing.Tuple[typing.Any, ...]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 678,
+    "warning_line": "        return tuple(depends_on), tuple(inf_from)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            basis: Sequence[str] = None\n            ) -> Tuple[Tuple[ParamSpecBase, ParamSpecBase]]:\n        \"\"\"\n",
+        "source_code_len": 113,
+        "target_code": "            basis: Sequence[str] = None\n            ) -> Tuple[Tuple[ParamSpecBase, ...], Tuple[ParamSpecBase, ...]]:\n        \"\"\"\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -638,3 +638,3 @@\n             basis: Sequence[str] = None\n-            ) -> Tuple[Tuple[ParamSpecBase, ParamSpecBase]]:\n+            ) -> Tuple[Tuple[ParamSpecBase, ...], Tuple[ParamSpecBase, ...]]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "            basis: Sequence[str] = None\n            ) -> Tuple[Tuple[ParamSpecBase, ParamSpecBase]]:\n        <IND>",
+        "target_code_with_indent": "            basis: Sequence[str] = None\n            ) -> Tuple[Tuple[ParamSpecBase, ...], Tuple[ParamSpecBase, ...]]:\n        <IND>"
+      }
+    ]
+  }
+]

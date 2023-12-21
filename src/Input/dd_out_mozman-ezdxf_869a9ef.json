@@ -1,0 +1,53 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "869a9ef5b87d05fc7d343c491e1346c5a37bcf34",
+    "filename": "src/ezdxf/addons/drawing/matplotlib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/drawing/matplotlib.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/drawing/matplotlib.py:187:30 Incompatible variable type [9]: font is declared to have type `str` but is used as type `None`.",
+    "message": " font is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 187,
+    "warning_line": "                              font: str = None) -> FontMeasurements:"
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "869a9ef5b87d05fc7d343c491e1346c5a37bcf34",
+    "filename": "src/ezdxf/addons/drawing/matplotlib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/drawing/matplotlib.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/drawing/matplotlib.py:193:28 Incompatible variable type [9]: font is declared to have type `str` but is used as type `None`.",
+    "message": " font is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 193,
+    "warning_line": "                            font: str = None) -> float:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_text_line_width(self, text: str, cap_height: float,\n                            font: str = None) -> float:\n        if not text.strip():\n",
+        "source_code_len": 149,
+        "target_code": "    def get_text_line_width(self, text: str, cap_height: float,\n                            font: fonts.Font = None) -> float:\n        if not text.strip():\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -192,3 +192,3 @@\n     def get_text_line_width(self, text: str, cap_height: float,\n-                            font: str = None) -> float:\n+                            font: fonts.Font = None) -> float:\n         if not text.strip():\n",
+        "source_code_with_indent": "    <DED>def get_text_line_width(self, text: str, cap_height: float,\n                            font: str = None) -> float:\n        <IND>if not text.strip():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def get_text_line_width(self, text: str, cap_height: float,\n                            font: fonts.Font = None) -> float:\n        <IND>if not text.strip():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

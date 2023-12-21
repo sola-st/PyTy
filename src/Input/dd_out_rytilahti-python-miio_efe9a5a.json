@@ -1,0 +1,36 @@
+[
+  {
+    "project": "rytilahti/python-miio",
+    "commit": "efe9a5a2cb589f8ca2475040e9b74951bb25ba1f",
+    "filename": "mirobo/vacuum_cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rytilahti-python-miio/mirobo/vacuum_cli.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mirobo/vacuum_cli.py:255:30 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `mirobo.vacuum.Vacuum.manual_control` but got `float`.",
+    "message": " Expected `int` for 1st positional only parameter to call `mirobo.vacuum.Vacuum.manual_control` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 255,
+    "warning_line": "    return vac.manual_control(rotation, velocity, duration)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@click.argument('duration', type=int)\ndef move(vac: mirobo.Vacuum, rotation: float, velocity: float, duration: int):\n    \"\"\"Pass raw manual values\"\"\"\n",
+        "source_code_len": 150,
+        "target_code": "@click.argument('duration', type=int)\ndef move(vac: mirobo.Vacuum, rotation: int, velocity: float, duration: int):\n    \"\"\"Pass raw manual values\"\"\"\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -252,3 +252,3 @@\n @click.argument('duration', type=int)\n-def move(vac: mirobo.Vacuum, rotation: float, velocity: float, duration: int):\n+def move(vac: mirobo.Vacuum, rotation: int, velocity: float, duration: int):\n     \"\"\"Pass raw manual values\"\"\"\n",
+        "source_code_with_indent": "@click.argument('duration', type=int)\ndef move(vac: mirobo.Vacuum, rotation: float, velocity: float, duration: int):\n    <IND>\"\"\"Pass raw manual values\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "@click.argument('duration', type=int)\ndef move(vac: mirobo.Vacuum, rotation: int, velocity: float, duration: int):\n    <IND>\"\"\"Pass raw manual values\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

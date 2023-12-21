@@ -1,0 +1,66 @@
+[
+  {
+    "project": "suned/pfun",
+    "commit": "f6ea87f5ec51d9ccb4936263de8c3318b445bde9",
+    "filename": "pfun/dict.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/suned-pfun/pfun/dict.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pfun/dict.py:89:4 Inconsistent override [14]: `pfun.dict.Dict.__contains__` overrides method defined in `Mapping` inconsistently. Could not find parameter `o` in overriding signature.",
+    "message": " `pfun.dict.Dict.__contains__` overrides method defined in `Mapping` inconsistently. Could not find parameter `o` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 89,
+    "warning_line": "    def __contains__(self, key: K) -> bool:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Union,\n    KeysView,\n",
+        "source_code_len": 25,
+        "target_code": "    Union,\n    Mapping,\n    KeysView,\n",
+        "target_code_len": 38,
+        "diff_format": "@@ -4,2 +4,3 @@\n     Union,\n+    Mapping,\n     KeysView,\n",
+        "source_code_with_indent": "    Union,\n    KeysView,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Union,\n    Mapping,\n    KeysView,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ItemsView,\n    Mapping,\n    Iterator\n",
+        "source_code_len": 41,
+        "target_code": "    ItemsView,\n    Generic,\n    Iterator\n",
+        "target_code_len": 41,
+        "diff_format": "@@ -7,3 +8,3 @@\n     ItemsView,\n-    Mapping,\n+    Generic,\n     Iterator\n",
+        "source_code_with_indent": "    ItemsView,\n    Mapping,\n    Iterator\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ItemsView,\n    Generic,\n    Iterator\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass Dict(Immutable, Mapping[K, V], init=False):\n    \"\"\"\n",
+        "source_code_len": 59,
+        "target_code": "\nclass Dict(Immutable, Generic[K, V], init=False):\n    \"\"\"\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -18,3 +19,3 @@\n \n-class Dict(Immutable, Mapping[K, V], init=False):\n+class Dict(Immutable, Generic[K, V], init=False):\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nclass Dict(Immutable, Mapping[K, V], init=False):\n    <IND>",
+        "target_code_with_indent": "\nclass Dict(Immutable, Generic[K, V], init=False):\n    <IND>"
+      }
+    ]
+  }
+]

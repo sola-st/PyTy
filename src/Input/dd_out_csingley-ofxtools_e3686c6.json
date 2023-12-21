@@ -1,0 +1,51 @@
+[
+  {
+    "project": "csingley/ofxtools",
+    "commit": "e3686c60da3356eb836d2eb15fce5bd6de8260a9",
+    "filename": "ofxtools/Client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/csingley-ofxtools/ofxtools/Client.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ofxtools/Client.py:317:31 Call error [29]: `Union[ofxtools.models.bank.msgsets.BANKMSGSRQV1, ofxtools.models.bank.msgsets.CREDITCARDMSGSRQV1, ofxtools.models.invest.msgsets.INVSTMTMSGSRQV1]` is not a function.",
+    "message": " `Union[ofxtools.models.bank.msgsets.BANKMSGSRQV1, ofxtools.models.bank.msgsets.CREDITCARDMSGSRQV1, ofxtools.models.invest.msgsets.INVSTMTMSGSRQV1]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 317,
+    "warning_line": "            return (attr_name, msgcls(*trnrqs_))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from functools import singledispatch\nfrom typing import Dict, Union, Optional, Tuple, Iterator, NamedTuple, BinaryIO\n\n",
+        "source_code_len": 118,
+        "target_code": "from functools import singledispatch\nfrom typing import Dict, Union, Optional, Tuple, Iterator, NamedTuple, BinaryIO, Type\n\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -60,3 +60,3 @@\n from functools import singledispatch\n-from typing import Dict, Union, Optional, Tuple, Iterator, NamedTuple, BinaryIO\n+from typing import Dict, Union, Optional, Tuple, Iterator, NamedTuple, BinaryIO, Type\n \n",
+        "source_code_with_indent": "from functools import singledispatch\nfrom typing import Dict, Union, Optional, Tuple, Iterator, NamedTuple, BinaryIO\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from functools import singledispatch\nfrom typing import Dict, Union, Optional, Tuple, Iterator, NamedTuple, BinaryIO, Type\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        def msg_args(msgcls: Message, trnrqs: Iterator[Request]) -> Tuple[str, Message]:\n            trnrqs_ = list(itertools.chain.from_iterable(t[1] for t in trnrqs))\n",
+        "source_code_len": 170,
+        "target_code": "\n        # N.B. we need to annotate first arg as typing.Type here to indicate that\n        # we're passing in a class not an instance.\n        def msg_args(\n            msgcls: Union[\n                Type[BANKMSGSRQV1], Type[CREDITCARDMSGSRQV1], Type[INVSTMTMSGSRQV1]\n            ],\n            trnrqs: Iterator[Request],\n        ) -> Tuple[str, Message]:\n            trnrqs_ = list(itertools.chain.from_iterable(t[1] for t in trnrqs))\n",
+        "target_code_len": 436,
+        "diff_format": "@@ -313,3 +313,10 @@\n \n-        def msg_args(msgcls: Message, trnrqs: Iterator[Request]) -> Tuple[str, Message]:\n+        # N.B. we need to annotate first arg as typing.Type here to indicate that\n+        # we're passing in a class not an instance.\n+        def msg_args(\n+            msgcls: Union[\n+                Type[BANKMSGSRQV1], Type[CREDITCARDMSGSRQV1], Type[INVSTMTMSGSRQV1]\n+            ],\n+            trnrqs: Iterator[Request],\n+        ) -> Tuple[str, Message]:\n             trnrqs_ = list(itertools.chain.from_iterable(t[1] for t in trnrqs))\n",
+        "source_code_with_indent": "\n        def msg_args(msgcls: Message, trnrqs: Iterator[Request]) -> Tuple[str, Message]:\n            <IND>trnrqs_ = list(itertools.chain.from_iterable(t[1] for t in trnrqs))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        # N.B. we need to annotate first arg as typing.Type here to indicate that\n        # we're passing in a class not an instance.\n        def msg_args(\n            msgcls: Union[\n                Type[BANKMSGSRQV1], Type[CREDITCARDMSGSRQV1], Type[INVSTMTMSGSRQV1]\n            ],\n            trnrqs: Iterator[Request],\n        ) -> Tuple[str, Message]:\n            <IND>trnrqs_ = list(itertools.chain.from_iterable(t[1] for t in trnrqs))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

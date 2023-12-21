@@ -1,0 +1,51 @@
+[
+  {
+    "project": "lyft/cartography",
+    "commit": "672cfac1172e00dd3c306bee0b67ffc2faf613df",
+    "filename": "cartography/intel/azure/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lyft-cartography/cartography/intel/azure/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cartography/intel/azure/__init__.py:76:52 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `_sync_tenant` but got `typing.Optional[str]`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `_sync_tenant` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 76,
+    "warning_line": "        neo4j_session, credentials.get_tenant_id(), credentials.get_current_user(), config.update_tag,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import List\n\n",
+        "source_code_len": 25,
+        "target_code": "from typing import List\nfrom typing import Optional\n\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -3,2 +3,3 @@\n from typing import List\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from typing import List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import List\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _sync_tenant(\n    neo4j_session: neo4j.Session, tenant_id: str, current_user: str, update_tag: int,\n    common_job_parameters: Dict,\n",
+        "source_code_len": 137,
+        "target_code": "def _sync_tenant(\n    neo4j_session: neo4j.Session, tenant_id: str, current_user: Optional[str], update_tag: int,\n    common_job_parameters: Dict,\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -25,3 +26,3 @@\n def _sync_tenant(\n-    neo4j_session: neo4j.Session, tenant_id: str, current_user: str, update_tag: int,\n+    neo4j_session: neo4j.Session, tenant_id: str, current_user: Optional[str], update_tag: int,\n     common_job_parameters: Dict,\n",
+        "source_code_with_indent": "<DED>def _sync_tenant(\n    neo4j_session: neo4j.Session, tenant_id: str, current_user: str, update_tag: int,\n    common_job_parameters: Dict,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _sync_tenant(\n    neo4j_session: neo4j.Session, tenant_id: str, current_user: Optional[str], update_tag: int,\n    common_job_parameters: Dict,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

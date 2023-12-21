@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ufal/neuralmonkey",
+    "commit": "421e293ac6c442cde295ca74458ba399075c9cd3",
+    "filename": "neuralmonkey/learning_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ufal-neuralmonkey/neuralmonkey/learning_utils.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "neuralmonkey/learning_utils.py:341:4 Incompatible return type [7]: Expected `Tuple[Optional[int], Optional[int]]` but got `Tuple[Optional[int], float]`.",
+    "message": " Expected `Tuple[Optional[int], Optional[int]]` but got `Tuple[Optional[int], float]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 341,
+    "warning_line": "    return None, delta_seconds",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _is_logging_time(step: int, logging_period_batch: Optional[int],\n                     last_log_time: float, logging_period_time: Optional[int]):\n    if logging_period_batch is not None:\n",
+        "source_code_len": 191,
+        "target_code": "\ndef _is_logging_time(\n        step: int, logging_period_batch: Optional[int],\n        last_log_time: float, logging_period_time: Optional[float]):\n    if logging_period_batch is not None:\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -307,4 +307,5 @@\n \n-def _is_logging_time(step: int, logging_period_batch: Optional[int],\n-                     last_log_time: float, logging_period_time: Optional[int]):\n+def _is_logging_time(\n+        step: int, logging_period_batch: Optional[int],\n+        last_log_time: float, logging_period_time: Optional[float]):\n     if logging_period_batch is not None:\n",
+        "source_code_with_indent": "\n<DED><DED>def _is_logging_time(step: int, logging_period_batch: Optional[int],\n                     last_log_time: float, logging_period_time: Optional[int]):\n    <IND>if logging_period_batch is not None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def _is_logging_time(\n        step: int, logging_period_batch: Optional[int],\n        last_log_time: float, logging_period_time: Optional[float]):\n    <IND>if logging_period_batch is not None:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _resolve_period(\n        period: Union[str, int]) -> Tuple[Optional[int], Optional[int]]:\n    if isinstance(period, int):\n",
+        "source_code_len": 126,
+        "target_code": "def _resolve_period(\n        period: Union[str, int]) -> Tuple[Optional[int], Optional[float]]:\n    if isinstance(period, int):\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -317,3 +318,3 @@\n def _resolve_period(\n-        period: Union[str, int]) -> Tuple[Optional[int], Optional[int]]:\n+        period: Union[str, int]) -> Tuple[Optional[int], Optional[float]]:\n     if isinstance(period, int):\n",
+        "source_code_with_indent": "<DED>def _resolve_period(\n        period: Union[str, int]) -> Tuple[Optional[int], Optional[int]]:\n    <IND>if isinstance(period, int):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _resolve_period(\n        period: Union[str, int]) -> Tuple[Optional[int], Optional[float]]:\n    <IND>if isinstance(period, int):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

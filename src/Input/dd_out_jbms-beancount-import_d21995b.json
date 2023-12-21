@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jbms/beancount-import",
+    "commit": "d21995b74636570eca2ef7838f523fc2715350fc",
+    "filename": "beancount_import/matching.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jbms-beancount-import/beancount_import/matching.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "beancount_import/matching.py:946:8 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 946,
+    "warning_line": "        return a.number == b.number_total / b_units.number",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if not equal_or_none(a.label, b.label): return False\n    if b.number_total is not None:\n        if b_units is None or b_units.number is None:\n            return False\n        return a.number == b.number_total / b_units.number\n\n",
+        "source_code_len": 231,
+        "target_code": "    if not equal_or_none(a.label, b.label): return False\n    if b.number_total is None: return True\n    if b_units is None or b_units.number is None:\n        return False\n    return a.number == b.number_total / b_units.number\n\n",
+        "target_code_len": 227,
+        "diff_format": "@@ -942,6 +942,6 @@\n     if not equal_or_none(a.label, b.label): return False\n-    if b.number_total is not None:\n-        if b_units is None or b_units.number is None:\n-            return False\n-        return a.number == b.number_total / b_units.number\n+    if b.number_total is None: return True\n+    if b_units is None or b_units.number is None:\n+        return False\n+    return a.number == b.number_total / b_units.number\n \n",
+        "source_code_with_indent": "    if not equal_or_none(a.label, b.label): return False\n    if b.number_total is not None:\n        <IND>if b_units is None or b_units.number is None:\n            <IND>return False\n        <DED>return a.number == b.number_total / b_units.number\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if not equal_or_none(a.label, b.label): return False\n    if b.number_total is None: return True\n    if b_units is None or b_units.number is None:\n        <IND>return False\n    <DED>return a.number == b.number_total / b_units.number\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

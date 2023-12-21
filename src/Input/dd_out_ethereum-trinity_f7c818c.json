@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ethereum/trinity",
+    "commit": "f7c818c93f530d361b2001d856218fe1ab40115d",
+    "filename": "p2p/peer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/p2p/peer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "p2p/peer.py:219:65 Incompatible parameter type [6]: Expected `eth_typing.misc.BlockNumber` for 1st positional only parameter to call `AsyncChainDB.coro_lookup_block_hash` but got `int`.",
+    "message": " Expected `eth_typing.misc.BlockNumber` for 1st positional only parameter to call `AsyncChainDB.coro_lookup_block_hash` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 219,
+    "warning_line": "        genesis_hash = await self.chaindb.coro_lookup_block_hash(GENESIS_BLOCK_NUMBER)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": ")\n\n",
+        "source_code_len": 3,
+        "target_code": ")\n\nfrom eth_typing import BlockNumber\n\n",
+        "target_code_len": 39,
+        "diff_format": "@@ -26,2 +26,4 @@\n )\n+\n+from eth_typing import BlockNumber\n \n",
+        "source_code_with_indent": ")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": ")\n\nfrom eth_typing import BlockNumber\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    async def genesis(self) -> BlockHeader:\n        genesis_hash = await self.chaindb.coro_lookup_block_hash(GENESIS_BLOCK_NUMBER)\n        return await self.chaindb.coro_get_block_header_by_hash(genesis_hash)\n",
+        "source_code_len": 209,
+        "target_code": "    async def genesis(self) -> BlockHeader:\n        genesis_hash = await self.chaindb.coro_lookup_block_hash(\n            cast(BlockNumber, GENESIS_BLOCK_NUMBER),\n        )\n        return await self.chaindb.coro_get_block_header_by_hash(genesis_hash)\n",
+        "target_code_len": 251,
+        "diff_format": "@@ -218,3 +220,5 @@\n     async def genesis(self) -> BlockHeader:\n-        genesis_hash = await self.chaindb.coro_lookup_block_hash(GENESIS_BLOCK_NUMBER)\n+        genesis_hash = await self.chaindb.coro_lookup_block_hash(\n+            cast(BlockNumber, GENESIS_BLOCK_NUMBER),\n+        )\n         return await self.chaindb.coro_get_block_header_by_hash(genesis_hash)\n",
+        "source_code_with_indent": "    async def genesis(self) -> BlockHeader:\n        <IND>genesis_hash = await self.chaindb.coro_lookup_block_hash(GENESIS_BLOCK_NUMBER)\n        return await self.chaindb.coro_get_block_header_by_hash(genesis_hash)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    async def genesis(self) -> BlockHeader:\n        <IND>genesis_hash = await self.chaindb.coro_lookup_block_hash(\n            cast(BlockNumber, GENESIS_BLOCK_NUMBER),\n        )\n        return await self.chaindb.coro_get_block_header_by_hash(genesis_hash)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

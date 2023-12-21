@@ -1,0 +1,36 @@
+[
+  {
+    "project": "althonos/pronto",
+    "commit": "6d04a008dd06c1ad750fd442d055ca28099ddff4",
+    "filename": "pronto/entity/attributes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/entity/attributes.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/entity/attributes.py:100:4 Inconsistent override [15]: `pronto.entity.attributes.Relationships.__iter__` overrides method defined in `Iterable` inconsistently. Returned type `unknown` is not a subtype of the overridden return `Iterator[Relationship]`.",
+    "message": " `pronto.entity.attributes.Relationships.__iter__` overrides method defined in `Iterable` inconsistently. Returned type `unknown` is not a subtype of the overridden return `Iterator[Relationship]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 100,
+    "warning_line": "    def __iter__(self) -> Iterator[\"Relationship\"]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from . import Entity, EntitySet\n\n",
+        "source_code_len": 33,
+        "target_code": "from . import Entity, EntitySet\n\nif typing.TYPE_CHECKING:\n    from ..relationship import Relationship\n\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -5,2 +5,5 @@\n from . import Entity, EntitySet\n+\n+if typing.TYPE_CHECKING:\n+    from ..relationship import Relationship\n \n",
+        "source_code_with_indent": "from . import Entity, EntitySet\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from . import Entity, EntitySet\n\nif typing.TYPE_CHECKING:\n    <IND>from ..relationship import Relationship\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

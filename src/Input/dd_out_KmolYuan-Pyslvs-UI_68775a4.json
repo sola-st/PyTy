@@ -1,0 +1,36 @@
+[
+  {
+    "project": "KmolYuan/Pyslvs-UI",
+    "commit": "68775a4fc50dcc3d0ccf0a7dd395945d9b1e8fbd",
+    "filename": "pyslvs_ui/synthesis/collections/configure_widget.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/KmolYuan-Pyslvs-UI/pyslvs_ui/synthesis/collections/configure_widget.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyslvs_ui/synthesis/collections/configure_widget.py:364:41 Incompatible parameter type [6]: Expected `List[Tuple[int, int]]` for 1st positional only parameter to call `pyslvs_ui.graphics.canvas.PreviewCanvas.set_driver` but got `List[Tuple[Tuple[int, int], Tuple[float, float]]]`.",
+    "message": " Expected `List[Tuple[int, int]]` for 1st positional only parameter to call `pyslvs_ui.graphics.canvas.PreviewCanvas.set_driver` but got `List[Tuple[Tuple[int, int], Tuple[float, float]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 364,
+    "warning_line": "        self.configure_canvas.set_driver(input_list)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        input_list: List[Tuple[Tuple[int, int], Tuple[float, float]]] = params['input']\n        self.driver_list.addItems(f\"(P{b}, P{d})\" for b, d in input_list)\n        self.configure_canvas.set_driver(input_list)\n        _set_warning(self.driver_label, self.driver_list.count() == 0)\n",
+        "source_code_len": 286,
+        "target_code": "        input_list: List[Tuple[Tuple[int, int], Tuple[float, float]]] = params['input']\n        self.driver_list.addItems(f\"(P{b}, P{d})\" for (b, d), _ in input_list)\n        self.configure_canvas.set_driver([d for d, _ in input_list])\n        _set_warning(self.driver_label, self.driver_list.count() == 0)\n",
+        "target_code_len": 307,
+        "diff_format": "@@ -362,4 +362,4 @@\n         input_list: List[Tuple[Tuple[int, int], Tuple[float, float]]] = params['input']\n-        self.driver_list.addItems(f\"(P{b}, P{d})\" for b, d in input_list)\n-        self.configure_canvas.set_driver(input_list)\n+        self.driver_list.addItems(f\"(P{b}, P{d})\" for (b, d), _ in input_list)\n+        self.configure_canvas.set_driver([d for d, _ in input_list])\n         _set_warning(self.driver_label, self.driver_list.count() == 0)\n",
+        "source_code_with_indent": "        <DED>input_list: List[Tuple[Tuple[int, int], Tuple[float, float]]] = params['input']\n        self.driver_list.addItems(f\"(P{b}, P{d})\" for b, d in input_list)\n        self.configure_canvas.set_driver(input_list)\n        _set_warning(self.driver_label, self.driver_list.count() == 0)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>input_list: List[Tuple[Tuple[int, int], Tuple[float, float]]] = params['input']\n        self.driver_list.addItems(f\"(P{b}, P{d})\" for (b, d), _ in input_list)\n        self.configure_canvas.set_driver([d for d, _ in input_list])\n        _set_warning(self.driver_label, self.driver_list.count() == 0)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

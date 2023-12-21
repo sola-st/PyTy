@@ -1,0 +1,172 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "623a2ac0eca14a9c262fafcb988347ad91d942e1",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:284:31 Incompatible parameter type [6]: Expected `Tuple[str, List[Type]]` for 1st positional only parameter to call `list.append` but got `Tuple[str, TypeVarExpr]`.",
+    "message": " Expected `Tuple[str, List[Type]]` for 1st positional only parameter to call `list.append` but got `Tuple[str, TypeVarExpr]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 284,
+    "warning_line": "                result.append((name, cast(TypeVarExpr, node.node)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "source_code_len": 112,
+        "target_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -278,3 +278,3 @@\n         \"\"\"\n-        result = []  # type: List[Tuple[str, List[Type]]]\n+        result = []  # type: List[Tuple[str, TypeVarExpr]]\n         if isinstance(type, UnboundType):\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_with_indent": "\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n"
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "623a2ac0eca14a9c262fafcb988347ad91d942e1",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:286:30 Incompatible parameter type [6]: Expected `typing.Iterable[Tuple[str, List[Type]]]` for 1st positional only parameter to call `list.extend` but got `List[Tuple[str, TypeVarExpr]]`.",
+    "message": " Expected `typing.Iterable[Tuple[str, List[Type]]]` for 1st positional only parameter to call `list.extend` but got `List[Tuple[str, TypeVarExpr]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 286,
+    "warning_line": "                result.extend(self.find_type_variables_in_type(arg))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "source_code_len": 112,
+        "target_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -278,3 +278,3 @@\n         \"\"\"\n-        result = []  # type: List[Tuple[str, List[Type]]]\n+        result = []  # type: List[Tuple[str, TypeVarExpr]]\n         if isinstance(type, UnboundType):\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_with_indent": "\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n"
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "623a2ac0eca14a9c262fafcb988347ad91d942e1",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:289:30 Incompatible parameter type [6]: Expected `typing.Iterable[Tuple[str, List[Type]]]` for 1st positional only parameter to call `list.extend` but got `List[Tuple[str, TypeVarExpr]]`.",
+    "message": " Expected `typing.Iterable[Tuple[str, List[Type]]]` for 1st positional only parameter to call `list.extend` but got `List[Tuple[str, TypeVarExpr]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 289,
+    "warning_line": "                result.extend(self.find_type_variables_in_type(item))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "source_code_len": 112,
+        "target_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -278,3 +278,3 @@\n         \"\"\"\n-        result = []  # type: List[Tuple[str, List[Type]]]\n+        result = []  # type: List[Tuple[str, TypeVarExpr]]\n         if isinstance(type, UnboundType):\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_with_indent": "\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n"
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "623a2ac0eca14a9c262fafcb988347ad91d942e1",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:292:30 Incompatible parameter type [6]: Expected `typing.Iterable[Tuple[str, List[Type]]]` for 1st positional only parameter to call `list.extend` but got `List[Tuple[str, TypeVarExpr]]`.",
+    "message": " Expected `typing.Iterable[Tuple[str, List[Type]]]` for 1st positional only parameter to call `list.extend` but got `List[Tuple[str, TypeVarExpr]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 292,
+    "warning_line": "                result.extend(self.find_type_variables_in_type(item))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "source_code_len": 112,
+        "target_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -278,3 +278,3 @@\n         \"\"\"\n-        result = []  # type: List[Tuple[str, List[Type]]]\n+        result = []  # type: List[Tuple[str, TypeVarExpr]]\n         if isinstance(type, UnboundType):\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_with_indent": "\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n"
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "623a2ac0eca14a9c262fafcb988347ad91d942e1",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:299:8 Incompatible return type [7]: Expected `List[Tuple[str, TypeVarExpr]]` but got `List[Tuple[str, List[Type]]]`.",
+    "message": " Expected `List[Tuple[str, TypeVarExpr]]` but got `List[Tuple[str, List[Type]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 299,
+    "warning_line": "        return result",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "source_code_len": 112,
+        "target_code": "        \"\"\"\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -278,3 +278,3 @@\n         \"\"\"\n-        result = []  # type: List[Tuple[str, List[Type]]]\n+        result = []  # type: List[Tuple[str, TypeVarExpr]]\n         if isinstance(type, UnboundType):\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        result = []  # type: List[Tuple[str, List[Type]]]\n        if isinstance(type, UnboundType):\n",
+        "target_code_with_indent": "\n        result = []  # type: List[Tuple[str, TypeVarExpr]]\n        if isinstance(type, UnboundType):\n"
+      }
+    ]
+  }
+]

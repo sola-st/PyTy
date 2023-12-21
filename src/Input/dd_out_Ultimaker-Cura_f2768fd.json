@@ -1,0 +1,100 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "f2768fd761c3aef98f0546d0a8daf927e823a27b",
+    "filename": "cura/API/Backups.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/API/Backups.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/API/Backups.py:20:31 Invalid type [31]: Expression `(bytes, dict)` is not a valid type.",
+    "message": " Expression `(bytes, dict)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 20,
+    "warning_line": "    def createBackup(self) -> (bytes, dict):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom cura.Backups.BackupsManager import BackupsManager\n",
+        "source_code_len": 115,
+        "target_code": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Tuple, Optional\n\nfrom cura.Backups.BackupsManager import BackupsManager\n",
+        "target_code_len": 151,
+        "diff_format": "@@ -2,2 +2,4 @@\n # Cura is released under the terms of the LGPLv3 or higher.\n+from typing import Tuple, Optional\n+\n from cura.Backups.BackupsManager import BackupsManager\n",
+        "source_code_with_indent": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom cura.Backups.BackupsManager import BackupsManager\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Tuple, Optional\n\nfrom cura.Backups.BackupsManager import BackupsManager\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    #   with metadata about the back-up.\n    def createBackup(self) -> (bytes, dict):\n        return self.manager.createBackup()\n",
+        "source_code_len": 129,
+        "target_code": "    #   with metadata about the back-up.\n    def createBackup(self) -> Tuple[Optional[bytes], Optional[dict]]:\n        return self.manager.createBackup()\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -19,3 +21,3 @@\n     #   with metadata about the back-up.\n-    def createBackup(self) -> (bytes, dict):\n+    def createBackup(self) -> Tuple[Optional[bytes], Optional[dict]]:\n         return self.manager.createBackup()\n",
+        "source_code_with_indent": "    #   with metadata about the back-up.\n    def createBackup(self) -> (bytes, dict):\n        <IND>return self.manager.createBackup()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    #   with metadata about the back-up.\n    def createBackup(self) -> Tuple[Optional[bytes], Optional[dict]]:\n        <IND>return self.manager.createBackup()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "f2768fd761c3aef98f0546d0a8daf927e823a27b",
+    "filename": "cura/Backups/BackupsManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/Backups/BackupsManager.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/Backups/BackupsManager.py:21:31 Invalid type [31]: Expression `(typing.Optional[bytes], typing.Optional[dict])` is not a valid type.",
+    "message": " Expression `(typing.Optional[bytes], typing.Optional[dict])` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 21,
+    "warning_line": "    def createBackup(self) -> (Optional[bytes], Optional[dict]):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Optional\n\n",
+        "source_code_len": 89,
+        "target_code": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Optional, Tuple\n\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -2,3 +2,3 @@\n # Cura is released under the terms of the LGPLv3 or higher.\n-from typing import Optional\n+from typing import Optional, Tuple\n \n",
+        "source_code_with_indent": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Optional, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    #   containing some metadata (like version).\n    def createBackup(self) -> (Optional[bytes], Optional[dict]):\n        self._disableAutoSave()\n",
+        "source_code_len": 146,
+        "target_code": "    #   containing some metadata (like version).\n    def createBackup(self) -> Tuple[Optional[bytes], Optional[dict]]:\n        self._disableAutoSave()\n",
+        "target_code_len": 151,
+        "diff_format": "@@ -20,3 +20,3 @@\n     #   containing some metadata (like version).\n-    def createBackup(self) -> (Optional[bytes], Optional[dict]):\n+    def createBackup(self) -> Tuple[Optional[bytes], Optional[dict]]:\n         self._disableAutoSave()\n",
+        "source_code_with_indent": "    #   containing some metadata (like version).\n    <DED>def createBackup(self) -> (Optional[bytes], Optional[dict]):\n        <IND>self._disableAutoSave()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    #   containing some metadata (like version).\n    <DED>def createBackup(self) -> Tuple[Optional[bytes], Optional[dict]]:\n        <IND>self._disableAutoSave()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

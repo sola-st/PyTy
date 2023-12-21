@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "1d7e5e11f84e756256c4210eff4ad1566a0f978b",
+    "filename": "UM/View/View.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/View/View.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/View/View.py:50:8 Incompatible return type [7]: Expected `Renderer` but got `Optional[Renderer]`.",
+    "message": " Expected `Renderer` but got `Optional[Renderer]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 50,
+    "warning_line": "        return self._renderer",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ##  Get the Renderer instance for this View.\n    def getRenderer(self) -> \"Renderer\":\n        return self._renderer\n",
+        "source_code_len": 120,
+        "target_code": "    ##  Get the Renderer instance for this View.\n    def getRenderer(self) -> Optional[\"Renderer\"]:\n        return self._renderer\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -48,3 +48,3 @@\n     ##  Get the Renderer instance for this View.\n-    def getRenderer(self) -> \"Renderer\":\n+    def getRenderer(self) -> Optional[\"Renderer\"]:\n         return self._renderer\n",
+        "source_code_with_indent": "    ##  Get the Renderer instance for this View.\n    <DED>def getRenderer(self) -> \"Renderer\":\n        <IND>return self._renderer\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ##  Get the Renderer instance for this View.\n    <DED>def getRenderer(self) -> Optional[\"Renderer\"]:\n        <IND>return self._renderer\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

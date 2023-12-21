@@ -1,0 +1,70 @@
+[
+  {
+    "project": "browniebroke/django-codemod",
+    "commit": "b11a68c47912b3a87593b24d58302003c01d6c77",
+    "filename": "django_codemod/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/browniebroke-django-codemod/django_codemod/cli.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "django_codemod/cli.py:224:34 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `get_short_description` but got `BaseDjCodemodTransformer`.",
+    "message": " Expected `Type[typing.Any]` for 1st positional only parameter to call `get_short_description` but got `BaseDjCodemodTransformer`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 224,
+    "warning_line": "            get_short_description(codemodder),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef iter_codemodders() -> Generator[BaseDjCodemodTransformer, None, None]:\n    \"\"\"Iterator of all the codemodders classes.\"\"\"\n",
+        "source_code_len": 127,
+        "target_code": "\ndef iter_codemodders() -> Generator[Type[BaseDjCodemodTransformer], None, None]:\n    \"\"\"Iterator of all the codemodders classes.\"\"\"\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -31,3 +31,3 @@\n \n-def iter_codemodders() -> Generator[BaseDjCodemodTransformer, None, None]:\n+def iter_codemodders() -> Generator[Type[BaseDjCodemodTransformer], None, None]:\n     \"\"\"Iterator of all the codemodders classes.\"\"\"\n",
+        "source_code_with_indent": "\n<DED>def iter_codemodders() -> Generator[BaseDjCodemodTransformer, None, None]:\n    <IND>\"\"\"Iterator of all the codemodders classes.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def iter_codemodders() -> Generator[Type[BaseDjCodemodTransformer], None, None]:\n    <IND>\"\"\"Iterator of all the codemodders classes.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "browniebroke/django-codemod",
+    "commit": "b11a68c47912b3a87593b24d58302003c01d6c77",
+    "filename": "django_codemod/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/browniebroke-django-codemod/django_codemod/cli.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "django_codemod/cli.py:235:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 235,
+    "warning_line": "            return description",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return description\n\n",
+        "source_code_len": 32,
+        "target_code": "            return description\n    return \"\"\n\n",
+        "target_code_len": 46,
+        "diff_format": "@@ -235,2 +235,3 @@\n             return description\n+    return \"\"\n \n",
+        "source_code_with_indent": "            <IND>return description\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return description\n    <DED><DED>return \"\"\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "faust-streaming/faust",
+    "commit": "08e3003188557cc18bfd085315892beb1d99584c",
+    "filename": "faust/topics.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/faust-streaming-faust/faust/topics.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "faust/topics.py:345:8 Incompatible variable type [9]: timestamp is declared to have type `int` but is used as type `float`.",
+    "message": " timestamp is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 345,
+    "warning_line": "        timestamp: int = cast(float, message.timestamp)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        value: bytes = cast(bytes, message.value)\n        timestamp: int = cast(float, message.timestamp)\n        logger.debug('send: topic=%r key=%r value=%r timestamp=%r', topic, key, value, timestamp)\n",
+        "source_code_len": 204,
+        "target_code": "        value: bytes = cast(bytes, message.value)\n        timestamp: float = cast(float, message.timestamp)\n        logger.debug('send: topic=%r key=%r value=%r timestamp=%r', topic, key, value, timestamp)\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -344,3 +344,3 @@\n         value: bytes = cast(bytes, message.value)\n-        timestamp: int = cast(float, message.timestamp)\n+        timestamp: float = cast(float, message.timestamp)\n         logger.debug('send: topic=%r key=%r value=%r timestamp=%r', topic, key, value, timestamp)\n",
+        "source_code_with_indent": "        value: bytes = cast(bytes, message.value)\n        timestamp: int = cast(float, message.timestamp)\n        logger.debug('send: topic=%r key=%r value=%r timestamp=%r', topic, key, value, timestamp)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        value: bytes = cast(bytes, message.value)\n        timestamp: float = cast(float, message.timestamp)\n        logger.debug('send: topic=%r key=%r value=%r timestamp=%r', topic, key, value, timestamp)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

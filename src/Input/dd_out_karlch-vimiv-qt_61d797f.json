@@ -1,0 +1,51 @@
+[
+  {
+    "project": "karlch/vimiv-qt",
+    "commit": "61d797f69e5598a3c24e2e340483251936c59ac2",
+    "filename": "vimiv/gui/eventhandler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlch-vimiv-qt/vimiv/gui/eventhandler.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vimiv/gui/eventhandler.py:248:4 Incompatible return type [7]: Expected `str` but got `typing.List[typing.Any]`.",
+    "message": " Expected `str` but got `typing.List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 248,
+    "warning_line": "    return [",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import string\nfrom typing import Union, Tuple, cast\n\n",
+        "source_code_len": 53,
+        "target_code": "import string\nfrom typing import Union, Tuple, List, cast\n\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -9,3 +9,3 @@\n import string\n-from typing import Union, Tuple, cast\n+from typing import Union, Tuple, List, cast\n \n",
+        "source_code_with_indent": "import string\nfrom typing import Union, Tuple, cast\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import string\nfrom typing import Union, Tuple, List, cast\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_modifier_names(event: Union[QKeyEvent, QMouseEvent]) -> str:\n    \"\"\"Return the names of all modifiers pressed in the event as joined string.\"\"\"\n    modmask2str = {\n",
+        "source_code_len": 174,
+        "target_code": "\ndef _get_modifier_names(event: Union[QKeyEvent, QMouseEvent]) -> List[str]:\n    \"\"\"Return the names of all modifiers pressed in the event.\"\"\"\n    modmask2str = {\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -239,4 +239,4 @@\n \n-def _get_modifier_names(event: Union[QKeyEvent, QMouseEvent]) -> str:\n-    \"\"\"Return the names of all modifiers pressed in the event as joined string.\"\"\"\n+def _get_modifier_names(event: Union[QKeyEvent, QMouseEvent]) -> List[str]:\n+    \"\"\"Return the names of all modifiers pressed in the event.\"\"\"\n     modmask2str = {\n",
+        "source_code_with_indent": "\n<DED>def _get_modifier_names(event: Union[QKeyEvent, QMouseEvent]) -> str:\n    <IND>\"\"\"Return the names of all modifiers pressed in the event as joined string.\"\"\"\n    modmask2str = {\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _get_modifier_names(event: Union[QKeyEvent, QMouseEvent]) -> List[str]:\n    <IND>\"\"\"Return the names of all modifiers pressed in the event.\"\"\"\n    modmask2str = {\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

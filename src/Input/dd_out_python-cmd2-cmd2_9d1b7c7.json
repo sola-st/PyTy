@@ -1,0 +1,105 @@
+[
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9d1b7c7f1068ce9b55ba160ebceeadd665d1bc02",
+    "filename": "cmd2/py_bridge.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/cmd2/py_bridge.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cmd2/py_bridge.py:22:20 Invalid type [31]: Expression `cmd2.utils.namedtuple_with_defaults(\"CommandResult\", [\"stdout\", \"stderr\", \"stop\", \"data\"])` is not a valid type.",
+    "message": " Expression `cmd2.utils.namedtuple_with_defaults(\"CommandResult\", [\"stdout\", \"stderr\", \"stop\", \"data\"])` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 22,
+    "warning_line": "class CommandResult(namedtuple_with_defaults('CommandResult', ['stdout', 'stderr', 'stop', 'data'])):"
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9d1b7c7f1068ce9b55ba160ebceeadd665d1bc02",
+    "filename": "cmd2/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/cmd2/utils.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cmd2/utils.py:108:8 Incompatible variable type [9]: onchange_cb is declared to have type `typing.Callable[[str, typing.Any, typing.Any], typing.Any]` but is used as type `None`.",
+    "message": " onchange_cb is declared to have type `typing.Callable[[str, typing.Any, typing.Any], typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 108,
+    "warning_line": "        onchange_cb: Callable[[str, Any, Any], Any] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        settable_attrib_name: Optional[str] = None,\n        onchange_cb: Callable[[str, Any, Any], Any] = None,\n        choices: Iterable = None,\n        choices_provider: Optional[Callable] = None,\n        completer: Optional[Callable] = None\n    ):\n",
+        "source_code_len": 251,
+        "target_code": "        settable_attrib_name: Optional[str] = None,\n        onchange_cb: Optional[Callable[[str, Any, Any], Any]] = None,\n        choices: Optional[Iterable[Any]] = None,\n        choices_provider: Optional[Callable[[], List[str]]] = None,\n        completer: Optional[Callable[[str, str, int, int], List[str]]] = None\n    ):\n",
+        "target_code_len": 324,
+        "diff_format": "@@ -107,6 +109,6 @@\n         settable_attrib_name: Optional[str] = None,\n-        onchange_cb: Callable[[str, Any, Any], Any] = None,\n-        choices: Iterable = None,\n-        choices_provider: Optional[Callable] = None,\n-        completer: Optional[Callable] = None\n+        onchange_cb: Optional[Callable[[str, Any, Any], Any]] = None,\n+        choices: Optional[Iterable[Any]] = None,\n+        choices_provider: Optional[Callable[[], List[str]]] = None,\n+        completer: Optional[Callable[[str, str, int, int], List[str]]] = None\n     ):\n",
+        "source_code_with_indent": "        settable_attrib_name: Optional[str] = None,\n        onchange_cb: Callable[[str, Any, Any], Any] = None,\n        choices: Iterable = None,\n        choices_provider: Optional[Callable] = None,\n        completer: Optional[Callable] = None\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        settable_attrib_name: Optional[str] = None,\n        onchange_cb: Optional[Callable[[str, Any, Any], Any]] = None,\n        choices: Optional[Iterable[Any]] = None,\n        choices_provider: Optional[Callable[[], List[str]]] = None,\n        completer: Optional[Callable[[str, str, int, int], List[str]]] = None\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9d1b7c7f1068ce9b55ba160ebceeadd665d1bc02",
+    "filename": "cmd2/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/cmd2/utils.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cmd2/utils.py:109:8 Incompatible variable type [9]: choices is declared to have type `Iterable[typing.Any]` but is used as type `None`.",
+    "message": " choices is declared to have type `Iterable[typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 109,
+    "warning_line": "        choices: Iterable = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        settable_attrib_name: Optional[str] = None,\n        onchange_cb: Callable[[str, Any, Any], Any] = None,\n        choices: Iterable = None,\n        choices_provider: Optional[Callable] = None,\n        completer: Optional[Callable] = None\n    ):\n",
+        "source_code_len": 251,
+        "target_code": "        settable_attrib_name: Optional[str] = None,\n        onchange_cb: Optional[Callable[[str, Any, Any], Any]] = None,\n        choices: Optional[Iterable[Any]] = None,\n        choices_provider: Optional[Callable[[], List[str]]] = None,\n        completer: Optional[Callable[[str, str, int, int], List[str]]] = None\n    ):\n",
+        "target_code_len": 324,
+        "diff_format": "@@ -107,6 +109,6 @@\n         settable_attrib_name: Optional[str] = None,\n-        onchange_cb: Callable[[str, Any, Any], Any] = None,\n-        choices: Iterable = None,\n-        choices_provider: Optional[Callable] = None,\n-        completer: Optional[Callable] = None\n+        onchange_cb: Optional[Callable[[str, Any, Any], Any]] = None,\n+        choices: Optional[Iterable[Any]] = None,\n+        choices_provider: Optional[Callable[[], List[str]]] = None,\n+        completer: Optional[Callable[[str, str, int, int], List[str]]] = None\n     ):\n",
+        "source_code_with_indent": "        settable_attrib_name: Optional[str] = None,\n        onchange_cb: Callable[[str, Any, Any], Any] = None,\n        choices: Iterable = None,\n        choices_provider: Optional[Callable] = None,\n        completer: Optional[Callable] = None\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        settable_attrib_name: Optional[str] = None,\n        onchange_cb: Optional[Callable[[str, Any, Any], Any]] = None,\n        choices: Optional[Iterable[Any]] = None,\n        choices_provider: Optional[Callable[[], List[str]]] = None,\n        completer: Optional[Callable[[str, str, int, int], List[str]]] = None\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9d1b7c7f1068ce9b55ba160ebceeadd665d1bc02",
+    "filename": "examples/plumbum_colors.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples/plumbum_colors.py:73:0 Incompatible variable type [9]: cmd2.ansi.fg_lookup is declared to have type `typing.Callable(ansi.fg_lookup)[[Named(fg_name, typing.Union[ansi.fg, str])], str]` but is used as type `typing.Callable(get_fg)[[Named(name, str)], typing.Any]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "9d1b7c7f1068ce9b55ba160ebceeadd665d1bc02",
+    "filename": "examples/plumbum_colors.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples/plumbum_colors.py:74:0 Incompatible variable type [9]: cmd2.ansi.bg_lookup is declared to have type `typing.Callable(ansi.bg_lookup)[[Named(bg_name, typing.Union[ansi.bg, str])], str]` but is used as type `typing.Callable(get_bg)[[Named(name, str)], typing.Any]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

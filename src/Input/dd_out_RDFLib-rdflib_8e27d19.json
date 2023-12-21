@@ -1,0 +1,196 @@
+[
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "examples/sleepycat_example.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RDFLib-rdflib/examples/sleepycat_example.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/sleepycat_example.py:42:4 Incompatible variable type [9]: graph is declared to have type `rdflib.graph.ConjunctiveGraph` but is used as type `None`.",
+    "message": " graph is declared to have type `rdflib.graph.ConjunctiveGraph` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 42,
+    "warning_line": "    graph = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    graph = None\n\n    # reopen the graph\n",
+        "source_code_len": 42,
+        "target_code": "\n    # reopen the graph\n",
+        "target_code_len": 24,
+        "diff_format": "@@ -41,4 +41,2 @@\n \n-    graph = None\n-\n     # reopen the graph\n",
+        "source_code_with_indent": "\n    graph = None\n\n    # reopen the graph\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    # reopen the graph\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "rdflib/extras/infixowl.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RDFLib-rdflib/rdflib/extras/infixowl.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "rdflib/extras/infixowl.py:992:43 Incompatible parameter type [6]: Expected `typing.Optional[typing.Callable[[typing.Any, typing.Any], None]]` for 2nd positional only parameter to call `property.__init__` but got `typing.Callable[[Named(x, typing.Any)], typing.Any]`.",
+    "message": " Expected `typing.Optional[typing.Callable[[typing.Any, typing.Any], None]]` for 2nd positional only parameter to call `property.__init__` but got `typing.Callable[[Named(x, typing.Any)], typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 992,
+    "warning_line": "    annotation = property(_get_annotation, lambda x: x)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n    annotation = property(_get_annotation, lambda x: x)\n\n",
+        "source_code_len": 58,
+        "target_code": "\n    annotation = property(_get_annotation, lambda x: x)  # type: ignore[arg-type,misc]\n\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -991,3 +991,3 @@\n \n-    annotation = property(_get_annotation, lambda x: x)\n+    annotation = property(_get_annotation, lambda x: x)  # type: ignore[arg-type,misc]\n \n",
+        "source_code_with_indent": "\n    <DED><DED>annotation = property(_get_annotation, lambda x: x)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>annotation = property(_get_annotation, lambda x: x)  # type: ignore[arg-type,misc]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:37:7 Incompatible parameter type [6]: Expected `typing.Union[bytes, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `bytes.__contains__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:37:7 Unsupported operand [58]: `not in` is not supported for right operand type `typing.Union[None, bytes, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:118:7 Incompatible parameter type [6]: Expected `typing.Union[bytes, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `bytes.__contains__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:118:7 Unsupported operand [58]: `in` is not supported for right operand type `typing.Union[None, bytes, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:119:7 Incompatible parameter type [6]: Expected `typing.Union[bytes, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `bytes.__contains__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:119:7 Unsupported operand [58]: `in` is not supported for right operand type `typing.Union[None, bytes, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:120:7 Incompatible parameter type [6]: Expected `typing.Union[bytes, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `bytes.__contains__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:120:7 Unsupported operand [58]: `in` is not supported for right operand type `typing.Union[None, bytes, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:123:7 Incompatible parameter type [6]: Expected `typing.Union[bytes, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `bytes.__contains__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:123:7 Unsupported operand [58]: `not in` is not supported for right operand type `typing.Union[None, bytes, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:124:7 Incompatible parameter type [6]: Expected `typing.Union[bytes, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `bytes.__contains__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:124:7 Unsupported operand [58]: `not in` is not supported for right operand type `typing.Union[None, bytes, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:125:7 Incompatible parameter type [6]: Expected `typing.Union[bytes, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `bytes.__contains__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/rdflib",
+    "commit": "8e27d1915e3babd766c89a92109452554e568e14",
+    "filename": "test/test_issue1003.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/test_issue1003.py:125:7 Unsupported operand [58]: `in` is not supported for right operand type `typing.Union[None, bytes, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

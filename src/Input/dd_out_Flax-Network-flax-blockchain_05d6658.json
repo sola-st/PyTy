@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Flax-Network/flax-blockchain",
+    "commit": "05d6658eeb85d62859ca27fae2a150135066b2f3",
+    "filename": "src/util/config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Flax-Network-flax-blockchain/src/util/config.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/util/config.py:40:16 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.",
+    "message": " Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 40,
+    "warning_line": "    shutil.move(path.with_suffix(\".\" + str(os.getpid())), path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        yaml.safe_dump(config_data, f)\n    shutil.move(path.with_suffix(\".\" + str(os.getpid())), path)\n\n",
+        "source_code_len": 104,
+        "target_code": "        yaml.safe_dump(config_data, f)\n    shutil.move(str(path.with_suffix(\".\" + str(os.getpid()))), path)\n\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -39,3 +39,3 @@\n         yaml.safe_dump(config_data, f)\n-    shutil.move(path.with_suffix(\".\" + str(os.getpid())), path)\n+    shutil.move(str(path.with_suffix(\".\" + str(os.getpid()))), path)\n \n",
+        "source_code_with_indent": "        <IND>yaml.safe_dump(config_data, f)\n    <DED>shutil.move(path.with_suffix(\".\" + str(os.getpid())), path)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>yaml.safe_dump(config_data, f)\n    <DED>shutil.move(str(path.with_suffix(\".\" + str(os.getpid()))), path)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "OALabs/hashdb-ida",
+    "commit": "8337fc673402dbd5c1503f39fbfc9fc254917f23",
+    "filename": "hashdb.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/OALabs-hashdb-ida/hashdb.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hashdb.py:1147:32 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `int`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1147,
+    "warning_line": "        hash_string = hash_list[0].get(\"string\", {})",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#--------------------------------------------------------------------------\ndef hash_lookup_done_handler(hash_list: None | dict[str, list], hash_value: int = None):\n    global ENUM_NAME\n",
+        "source_code_len": 186,
+        "target_code": "#--------------------------------------------------------------------------\ndef hash_lookup_done_handler(hash_list: None | list, hash_value: int = None):\n    global ENUM_NAME\n",
+        "target_code_len": 175,
+        "diff_format": "@@ -1133,3 +1133,3 @@\n #--------------------------------------------------------------------------\n-def hash_lookup_done_handler(hash_list: None | dict[str, list], hash_value: int = None):\n+def hash_lookup_done_handler(hash_list: None | list, hash_value: int = None):\n     global ENUM_NAME\n",
+        "source_code_with_indent": "#--------------------------------------------------------------------------\n<DED>def hash_lookup_done_handler(hash_list: None | dict[str, list], hash_value: int = None):\n    <IND>global ENUM_NAME\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#--------------------------------------------------------------------------\n<DED>def hash_lookup_done_handler(hash_list: None | list, hash_value: int = None):\n    <IND>global ENUM_NAME\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef hash_lookup_done(hash_list: None | dict[str, list], hash_value: int = None):\n    hash_lookup_done_handler(hash_list, hash_value)\n",
+        "source_code_len": 134,
+        "target_code": "\ndef hash_lookup_done(hash_list: None | list = None, hash_value: int = None):\n    hash_lookup_done_handler(hash_list, hash_value)\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -1249,3 +1249,3 @@\n \n-def hash_lookup_done(hash_list: None | dict[str, list], hash_value: int = None):\n+def hash_lookup_done(hash_list: None | list = None, hash_value: int = None):\n     hash_lookup_done_handler(hash_list, hash_value)\n",
+        "source_code_with_indent": "\n<DED><DED>def hash_lookup_done(hash_list: None | dict[str, list], hash_value: int = None):\n    <IND>hash_lookup_done_handler(hash_list, hash_value)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def hash_lookup_done(hash_list: None | list = None, hash_value: int = None):\n    <IND>hash_lookup_done_handler(hash_list, hash_value)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

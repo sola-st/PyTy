@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PyFilesystem/pyfilesystem2",
+    "commit": "5a67c8a1bcd48d6c0153ec4ed58b2a256cf1c162",
+    "filename": "fs/ftpfs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyFilesystem-pyfilesystem2/fs/ftpfs.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fs/ftpfs.py:707:4 Inconsistent override [15]: `fs.ftpfs.FTPFS.getmodified` overrides method defined in `FS` inconsistently. Returned type `unknown` is not a subtype of the overridden return `Optional[datetime.datetime]`.",
+    "message": " `fs.ftpfs.FTPFS.getmodified` overrides method defined in `FS` inconsistently. Returned type `unknown` is not a subtype of the overridden return `Optional[datetime.datetime]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 707,
+    "warning_line": "    def getmodified(self, path):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def getmodified(self, path):\n        # type: (Text) -> Optional[datetime]\n        if self.supports_mdtm:\n",
+        "source_code_len": 109,
+        "target_code": "    def getmodified(self, path):\n        # type: (Text) -> Optional[datetime.datetime]\n        if self.supports_mdtm:\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -707,3 +705,3 @@\n     def getmodified(self, path):\n-        # type: (Text) -> Optional[datetime]\n+        # type: (Text) -> Optional[datetime.datetime]\n         if self.supports_mdtm:\n",
+        "source_code_with_indent": "    <DED>def getmodified(self, path):\n        # type: (Text) -> Optional[datetime]\n        <IND>if self.supports_mdtm:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def getmodified(self, path):\n        # type: (Text) -> Optional[datetime.datetime]\n        <IND>if self.supports_mdtm:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

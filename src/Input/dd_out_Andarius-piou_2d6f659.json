@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Andarius/piou",
+    "commit": "2d6f659202b7ec37a5a9b1fe260950363abc51d2",
+    "filename": "piou/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Andarius-piou/piou/cli.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "piou/cli.py:15:4 Incompatible attribute type [8]: Attribute `description` declared in class `Cli` has type `str` but is used as type `None`.",
+    "message": " Attribute `description` declared in class `Cli` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 15,
+    "warning_line": "    description: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class Cli:\n    description: str = None\n    formatter: Formatter = field(default_factory=RichFormatter)\n",
+        "source_code_len": 103,
+        "target_code": "class Cli:\n    description: Optional[str] = None\n    formatter: Formatter = field(default_factory=RichFormatter)\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -14,3 +14,3 @@\n class Cli:\n-    description: str = None\n+    description: Optional[str] = None\n     formatter: Formatter = field(default_factory=RichFormatter)\n",
+        "source_code_with_indent": "class Cli:\n    <IND>description: str = None\n    formatter: Formatter = field(default_factory=RichFormatter)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class Cli:\n    <IND>description: Optional[str] = None\n    formatter: Formatter = field(default_factory=RichFormatter)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Andarius/piou",
+    "commit": "2d6f659202b7ec37a5a9b1fe260950363abc51d2",
+    "filename": "piou/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Andarius-piou/piou/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "piou/utils.py:49:4 Incompatible attribute type [8]: Attribute `name` declared in class `CommandOption` has type `str` but is used as type `None`.",
+    "message": " Attribute `name` declared in class `CommandOption` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 49,
+    "warning_line": "    name: str = field(init=False, default=None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    name: str = field(init=False, default=None)\n    data_type: Any = field(init=False, default=Any)\n",
+        "source_code_len": 101,
+        "target_code": "\n    name: Optional[str] = field(init=False, default=None)\n    data_type: Any = field(init=False, default=Any)\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -48,3 +48,3 @@\n \n-    name: str = field(init=False, default=None)\n+    name: Optional[str] = field(init=False, default=None)\n     data_type: Any = field(init=False, default=Any)\n",
+        "source_code_with_indent": "\n    name: str = field(init=False, default=None)\n    data_type: Any = field(init=False, default=Any)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    name: Optional[str] = field(init=False, default=None)\n    data_type: Any = field(init=False, default=Any)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

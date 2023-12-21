@@ -1,0 +1,36 @@
+[
+  {
+    "project": "splitgraph/splitgraph",
+    "commit": "b43fb93b5df5badd6b10b3791f611ac051ad9cc8",
+    "filename": "splitgraph/splitfile/execution.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/splitgraph-splitgraph/splitgraph/splitfile/execution.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "splitgraph/splitfile/execution.py:266:4 Incompatible return type [7]: Expected `Dict[str, typing.Union[List[bool], List[str], str]]` but got `Dict[str, str]`.",
+    "message": " Expected `Dict[str, typing.Union[List[bool], List[str], str]]` but got `Dict[str, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 266,
+    "warning_line": "    return provenance",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    _checkout_or_calculate_layer(output, target_hash, _calc)\n    provenance = {\"type\": \"SQL\", \"sql\": sql_canonical}\n    provenance.update(image_mapper.get_provenance_data())\n",
+        "source_code_len": 174,
+        "target_code": "    _checkout_or_calculate_layer(output, target_hash, _calc)\n    provenance: ProvenanceLine = {\"type\": \"SQL\", \"sql\": sql_canonical}\n    provenance.update(image_mapper.get_provenance_data())\n",
+        "target_code_len": 190,
+        "diff_format": "@@ -263,3 +272,3 @@\n     _checkout_or_calculate_layer(output, target_hash, _calc)\n-    provenance = {\"type\": \"SQL\", \"sql\": sql_canonical}\n+    provenance: ProvenanceLine = {\"type\": \"SQL\", \"sql\": sql_canonical}\n     provenance.update(image_mapper.get_provenance_data())\n",
+        "source_code_with_indent": "    <DED>_checkout_or_calculate_layer(output, target_hash, _calc)\n    provenance = {\"type\": \"SQL\", \"sql\": sql_canonical}\n    provenance.update(image_mapper.get_provenance_data())\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>_checkout_or_calculate_layer(output, target_hash, _calc)\n    provenance: ProvenanceLine = {\"type\": \"SQL\", \"sql\": sql_canonical}\n    provenance.update(image_mapper.get_provenance_data())\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

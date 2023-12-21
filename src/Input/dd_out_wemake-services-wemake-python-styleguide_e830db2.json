@@ -1,0 +1,85 @@
+[
+  {
+    "project": "wemake-services/wemake-python-styleguide",
+    "commit": "e830db28598d9c68c18663bce128478cd3a24b15",
+    "filename": "wemake_python_styleguide/visitors/ast/complexity/numbers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wemake-services-wemake-python-styleguide/wemake_python_styleguide/visitors/ast/complexity/numbers.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wemake_python_styleguide/visitors/ast/complexity/numbers.py:43:41 Incompatible parameter type [6]: Expected `_ast.Num` for 1st positional only parameter to call `MagicNumberVisitor._get_real_parent` but got `_ast.UnaryOp`.",
+    "message": " Expected `_ast.Num` for 1st positional only parameter to call `MagicNumberVisitor._get_real_parent` but got `_ast.UnaryOp`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 43,
+    "warning_line": "            return self._get_real_parent(parent)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import ast\n\n",
+        "source_code_len": 12,
+        "target_code": "import ast\nfrom typing import Optional\n\n",
+        "target_code_len": 40,
+        "diff_format": "@@ -3,2 +3,3 @@\n import ast\n+from typing import Optional\n \n",
+        "source_code_with_indent": "import ast\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import ast\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _get_real_parent(self, node: ast.Num) -> ast.AST:\n        \"\"\"\n",
+        "source_code_len": 71,
+        "target_code": "\n    def _get_real_parent(self, node: Optional[ast.AST]) -> Optional[ast.AST]:\n        \"\"\"\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -30,3 +31,3 @@\n \n-    def _get_real_parent(self, node: ast.Num) -> ast.AST:\n+    def _get_real_parent(self, node: Optional[ast.AST]) -> Optional[ast.AST]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def _get_real_parent(self, node: ast.Num) -> ast.AST:\n        <IND>",
+        "target_code_with_indent": "\n    def _get_real_parent(self, node: Optional[ast.AST]) -> Optional[ast.AST]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "wemake-services/wemake-python-styleguide",
+    "commit": "e830db28598d9c68c18663bce128478cd3a24b15",
+    "filename": "wemake_python_styleguide/visitors/ast/complexity/numbers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wemake-services-wemake-python-styleguide/wemake_python_styleguide/visitors/ast/complexity/numbers.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wemake_python_styleguide/visitors/ast/complexity/numbers.py:57:50 Incompatible parameter type [6]: Expected `str` for 2nd parameter `text` to call `wemake_python_styleguide.errors.base.BaseStyleViolation.__init__` but got `complex`.",
+    "message": " Expected `str` for 2nd parameter `text` to call `wemake_python_styleguide.errors.base.BaseStyleViolation.__init__` but got `complex`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 57,
+    "warning_line": "        self.add_error(MagicNumberViolation(node, text=node.n))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self.add_error(MagicNumberViolation(node, text=node.n))\n\n",
+        "source_code_len": 66,
+        "target_code": "\n        self.add_error(MagicNumberViolation(node, text=str(node.n)))\n\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -56,3 +57,3 @@\n \n-        self.add_error(MagicNumberViolation(node, text=node.n))\n+        self.add_error(MagicNumberViolation(node, text=str(node.n)))\n \n",
+        "source_code_with_indent": "\n        <DED>self.add_error(MagicNumberViolation(node, text=node.n))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>self.add_error(MagicNumberViolation(node, text=str(node.n)))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

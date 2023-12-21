@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PaddlePaddle/PaddleSpeech",
+    "commit": "69dfc2a5faf18dc6b30bbe28cbed526ab8cae1a6",
+    "filename": "deepspeech/modules/mask.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PaddlePaddle-PaddleSpeech/deepspeech/modules/mask.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deepspeech/modules/mask.py:124:10 Unbound name [10]: Name `torch` is used but not defined in the current scope.",
+    "message": " Name `torch` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 124,
+    "warning_line": "    ret = torch.zeros([size, size], dtype=paddle.bool)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    ret = torch.zeros([size, size], dtype=paddle.bool)\n    for i in range(size):\n",
+        "source_code_len": 89,
+        "target_code": "    \"\"\"\n    ret = paddle.zeros([size, size], dtype=paddle.bool)\n    for i in range(size):\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -123,3 +123,3 @@\n     \"\"\"\n-    ret = torch.zeros([size, size], dtype=paddle.bool)\n+    ret = paddle.zeros([size, size], dtype=paddle.bool)\n     for i in range(size):\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    ret = torch.zeros([size, size], dtype=paddle.bool)\n    for i in range(size):\n",
+        "target_code_with_indent": "\n    ret = paddle.zeros([size, size], dtype=paddle.bool)\n    for i in range(size):\n"
+      }
+    ]
+  }
+]

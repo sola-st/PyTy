@@ -1,0 +1,104 @@
+[
+  {
+    "project": "DynamiteAI/dynamite-nsm",
+    "commit": "5944b95af1a7be2f90f6c9db6d09dadc8cf5a225",
+    "filename": "dynamite_nsm/services/zeek/process.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DynamiteAI-dynamite-nsm/dynamite_nsm/services/zeek/process.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dynamite_nsm/services/zeek/process.py:76:42 Incompatible parameter type [6]: Expected `bool` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.List[typing.Any]`.",
+    "message": " Expected `bool` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.List[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 76,
+    "warning_line": "            zeek_status['subprocesses'] = zeek_subprocesses",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        zeek_status = {\n            'running': False,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_len": 133,
+        "target_code": "        zeek_status = {\n            'running': systemd_info.exit == 0,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -51,3 +51,3 @@\n         zeek_status = {\n-            'running': False,\n+            'running': systemd_info.exit == 0,\n             'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_with_indent": "        zeek_status = {\n            'running': False,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        zeek_status = {\n            'running': systemd_info.exit == 0,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "DynamiteAI/dynamite-nsm",
+    "commit": "5944b95af1a7be2f90f6c9db6d09dadc8cf5a225",
+    "filename": "dynamite_nsm/services/zeek/process.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DynamiteAI-dynamite-nsm/dynamite_nsm/services/zeek/process.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dynamite_nsm/services/zeek/process.py:82:46 Incompatible parameter type [6]: Expected `bool` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "message": " Expected `bool` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 82,
+    "warning_line": "            zeek_status['subprocess_count'] = len(zeek_subprocesses)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        zeek_status = {\n            'running': False,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_len": 133,
+        "target_code": "        zeek_status = {\n            'running': systemd_info.exit == 0,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -51,3 +51,3 @@\n         zeek_status = {\n-            'running': False,\n+            'running': systemd_info.exit == 0,\n             'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_with_indent": "        zeek_status = {\n            'running': False,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        zeek_status = {\n            'running': systemd_info.exit == 0,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "DynamiteAI/dynamite-nsm",
+    "commit": "5944b95af1a7be2f90f6c9db6d09dadc8cf5a225",
+    "filename": "dynamite_nsm/services/zeek/process.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DynamiteAI-dynamite-nsm/dynamite_nsm/services/zeek/process.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dynamite_nsm/services/zeek/process.py:84:31 Incompatible parameter type [6]: Expected `typing.Mapping[str, bool]` for 1st positional only parameter to call `dict.update` but got `typing.Mapping[str, str]`.",
+    "message": " Expected `typing.Mapping[str, bool]` for 1st positional only parameter to call `dict.update` but got `typing.Mapping[str, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 84,
+    "warning_line": "            zeek_status.update({'logs': self.log_path})",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        zeek_status = {\n            'running': False,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_len": 133,
+        "target_code": "        zeek_status = {\n            'running': systemd_info.exit == 0,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -51,3 +51,3 @@\n         zeek_status = {\n-            'running': False,\n+            'running': systemd_info.exit == 0,\n             'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_with_indent": "        zeek_status = {\n            'running': False,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        zeek_status = {\n            'running': systemd_info.exit == 0,\n            'enabled_on_startup': self.sysctl.is_enabled(self.systemd_service)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

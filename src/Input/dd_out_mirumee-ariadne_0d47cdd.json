@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mirumee/ariadne",
+    "commit": "0d47cdd8cea704348f08a1c4d194ce0dd68b0e98",
+    "filename": "ariadne/asgi.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mirumee-ariadne/ariadne/asgi.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ariadne/asgi.py:132:8 Incompatible return type [7]: Expected `Tuple[str, Optional[Dict[typing.Any, typing.Any]], Optional[str]]` but got `Union[Dict[typing.Any, typing.Any], List[typing.Any]]`.",
+    "message": " Expected `Tuple[str, Optional[Dict[typing.Any, typing.Any]], Optional[str]]` but got `Union[Dict[typing.Any, typing.Any], List[typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 132,
+    "warning_line": "        return combine_multipart_data(operations, files_map, request_files)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def extract_data_from_multipart_request(\n        self, request: Request\n    ) -> Tuple[str, Optional[dict], Optional[str]]:\n        try:\n",
+        "source_code_len": 148,
+        "target_code": "\n    async def extract_data_from_multipart_request(self, request: Request):\n        try:\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -104,5 +104,3 @@\n \n-    async def extract_data_from_multipart_request(\n-        self, request: Request\n-    ) -> Tuple[str, Optional[dict], Optional[str]]:\n+    async def extract_data_from_multipart_request(self, request: Request):\n         try:\n",
+        "source_code_with_indent": "\n    <DED><DED>async def extract_data_from_multipart_request(\n        self, request: Request\n    ) -> Tuple[str, Optional[dict], Optional[str]]:\n        <IND>try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>async def extract_data_from_multipart_request(self, request: Request):\n        <IND>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

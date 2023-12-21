@@ -1,0 +1,51 @@
+[
+  {
+    "project": "WheatonCS/Lexos",
+    "commit": "2c90a62bd24bf1786e1d57ccbd4fa8eb0e81c9f8",
+    "filename": "lexos/processors/prepare/scrubber.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/WheatonCS-Lexos/lexos/processors/prepare/scrubber.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lexos/processors/prepare/scrubber.py:702:65 Invalid type [31]: Expression `(str, str, str, str, str, str, str, str)` is not a valid type.",
+    "message": " Expression `(str, str, str, str, str, str, str, str)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 702,
+    "warning_line": "                               storage_filenames: List[str]) -> (str, str, str,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                               storage_options: List[str], storage_folder: str,\n                               storage_filenames: List[str]) -> (str, str, str,\n                                                                 str, str, str,\n                                                                 str, str):\n    \"\"\"Gathers all the strings used by the \"Additional Options\" scrub section.\n",
+        "source_code_len": 395,
+        "target_code": "                               storage_options: List[str], storage_folder: str,\n                               storage_filenames: List[str]) -> List[str]:\n    \"\"\"Gathers all the strings used by the \"Additional Options\" scrub section.\n",
+        "target_code_len": 234,
+        "diff_format": "@@ -701,5 +701,3 @@\n                                storage_options: List[str], storage_folder: str,\n-                               storage_filenames: List[str]) -> (str, str, str,\n-                                                                 str, str, str,\n-                                                                 str, str):\n+                               storage_filenames: List[str]) -> List[str]:\n     \"\"\"Gathers all the strings used by the \"Additional Options\" scrub section.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                               storage_options: List[str], storage_folder: str,\n                               storage_filenames: List[str]) -> (str, str, str,\n                                                                 str, str, str,\n                                                                 str, str):\n    <IND>",
+        "target_code_with_indent": "                               storage_options: List[str], storage_folder: str,\n                               storage_filenames: List[str]) -> List[str]:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    #     cons_manual, lem_manual, sc_manual, and sw_kw_manual\n    all_options = (file_strings[0], file_strings[1], file_strings[2],\n                   file_strings[3], request.form['manualconsolidations'],\n                   request.form['manuallemmas'],\n                   request.form['manualspecialchars'],\n                   request.form['manualstopwords'])\n\n",
+        "source_code_len": 364,
+        "target_code": "    #     cons_manual, lem_manual, sc_manual, and sw_kw_manual\n\n    all_options = [file_strings[0], file_strings[1], file_strings[2],\n                   file_strings[3],  file_strings[4],  file_strings[5],\n                   file_strings[6],  file_strings[7],\n                   request.form['consfileselect[]'],\n                   request.form['lemfileselect[]'],\n                   request.form['scfileselect[]'],\n                   request.form['swfileselect[]'],\n                   request.form['manualconsolidations'],\n                   request.form['manuallemmas'],\n                   request.form['manualspecialchars'],\n                   request.form['manualstopwords']]\n\n",
+        "target_code_len": 681,
+        "diff_format": "@@ -735,7 +733,14 @@\n     #     cons_manual, lem_manual, sc_manual, and sw_kw_manual\n-    all_options = (file_strings[0], file_strings[1], file_strings[2],\n-                   file_strings[3], request.form['manualconsolidations'],\n+\n+    all_options = [file_strings[0], file_strings[1], file_strings[2],\n+                   file_strings[3],  file_strings[4],  file_strings[5],\n+                   file_strings[6],  file_strings[7],\n+                   request.form['consfileselect[]'],\n+                   request.form['lemfileselect[]'],\n+                   request.form['scfileselect[]'],\n+                   request.form['swfileselect[]'],\n+                   request.form['manualconsolidations'],\n                    request.form['manuallemmas'],\n                    request.form['manualspecialchars'],\n-                   request.form['manualstopwords'])\n+                   request.form['manualstopwords']]\n \n",
+        "source_code_with_indent": "    #     cons_manual, lem_manual, sc_manual, and sw_kw_manual\n    <DED><DED>all_options = (file_strings[0], file_strings[1], file_strings[2],\n                   file_strings[3], request.form['manualconsolidations'],\n                   request.form['manuallemmas'],\n                   request.form['manualspecialchars'],\n                   request.form['manualstopwords'])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    #     cons_manual, lem_manual, sc_manual, and sw_kw_manual\n\n    <DED><DED>all_options = [file_strings[0], file_strings[1], file_strings[2],\n                   file_strings[3],  file_strings[4],  file_strings[5],\n                   file_strings[6],  file_strings[7],\n                   request.form['consfileselect[]'],\n                   request.form['lemfileselect[]'],\n                   request.form['scfileselect[]'],\n                   request.form['swfileselect[]'],\n                   request.form['manualconsolidations'],\n                   request.form['manuallemmas'],\n                   request.form['manualspecialchars'],\n                   request.form['manualstopwords']]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

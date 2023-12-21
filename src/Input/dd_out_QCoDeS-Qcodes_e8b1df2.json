@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "e8b1df2aefd69e71217f10e14b087caa064f9a1d",
+    "filename": "qcodes/instrument_drivers/tektronix/keithley_7510.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/tektronix/keithley_7510.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/tektronix/keithley_7510.py:343:8 Incompatible attribute type [8]: Attribute `_data` declared in class `DataArray7510` has type `Tuple[Tuple[], Tuple[]]` but is used as type `typing.Tuple[typing.Tuple[typing.Any, ...], ...]`.",
+    "message": " Attribute `_data` declared in class `DataArray7510` has type `Tuple[Tuple[], Tuple[]]` but is used as type `typing.Tuple[typing.Tuple[typing.Any, ...], ...]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 343,
+    "warning_line": "        data._data = tuple(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    _data = ((), ())\n\n",
+        "source_code_len": 30,
+        "target_code": "    \"\"\"\n    _data: Tuple[Tuple[Any, ...], ...] = ((), ())\n\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -14,3 +14,3 @@\n     \"\"\"\n-    _data = ((), ())\n+    _data: Tuple[Tuple[Any, ...], ...] = ((), ())\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    _data = ((), ())\n\n",
+        "target_code_with_indent": "\n    _data: Tuple[Tuple[Any, ...], ...] = ((), ())\n\n"
+      }
+    ]
+  }
+]

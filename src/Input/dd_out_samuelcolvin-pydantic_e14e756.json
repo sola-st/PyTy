@@ -1,0 +1,132 @@
+[
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "e14e7561ede74c6cb159d2e063085a0184767e37",
+    "filename": "pydantic/env_settings.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pydantic/env_settings.py:213:22 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "e14e7561ede74c6cb159d2e063085a0184767e37",
+    "filename": "pydantic/fields.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pydantic/fields.py:602:63 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "e14e7561ede74c6cb159d2e063085a0184767e37",
+    "filename": "pydantic/fields.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pydantic/fields.py:1031:58 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "e14e7561ede74c6cb159d2e063085a0184767e37",
+    "filename": "pydantic/fields.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pydantic/fields.py:1052:49 Incompatible parameter type [6]: Expected `Union[Type[typing.Any], typing.Tuple[Type[typing.Any], ...]]` for 2nd positional only parameter to call `lenient_isinstance` but got `Optional[Type[typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "e14e7561ede74c6cb159d2e063085a0184767e37",
+    "filename": "pydantic/schema.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pydantic/schema.py:276:24 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "e14e7561ede74c6cb159d2e063085a0184767e37",
+    "filename": "pydantic/typing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samuelcolvin-pydantic/pydantic/typing.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydantic/typing.py:314:16 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "message": " Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 314,
+    "warning_line": "    if is_union(get_origin(v)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def is_union(tp: Type[Any]) -> bool:\n        return tp is Union\n",
+        "source_code_len": 69,
+        "target_code": "\n    def is_union(tp: Optional[Type[Any]]) -> bool:\n        return tp is Union\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -190,3 +190,3 @@\n \n-    def is_union(tp: Type[Any]) -> bool:\n+    def is_union(tp: Optional[Type[Any]]) -> bool:\n         return tp is Union\n",
+        "source_code_with_indent": "\n    <IND>def is_union(tp: Type[Any]) -> bool:\n        <IND>return tp is Union\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <IND>def is_union(tp: Optional[Type[Any]]) -> bool:\n        <IND>return tp is Union\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "e14e7561ede74c6cb159d2e063085a0184767e37",
+    "filename": "pydantic/typing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samuelcolvin-pydantic/pydantic/typing.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydantic/typing.py:508:18 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "message": " Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 508,
+    "warning_line": "    elif is_union(origin):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def is_union(tp: Type[Any]) -> bool:\n        return tp is Union\n",
+        "source_code_len": 69,
+        "target_code": "\n    def is_union(tp: Optional[Type[Any]]) -> bool:\n        return tp is Union\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -190,3 +190,3 @@\n \n-    def is_union(tp: Type[Any]) -> bool:\n+    def is_union(tp: Optional[Type[Any]]) -> bool:\n         return tp is Union\n",
+        "source_code_with_indent": "\n    <IND>def is_union(tp: Type[Any]) -> bool:\n        <IND>return tp is Union\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <IND>def is_union(tp: Optional[Type[Any]]) -> bool:\n        <IND>return tp is Union\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "samuelcolvin/pydantic",
+    "commit": "e14e7561ede74c6cb159d2e063085a0184767e37",
+    "filename": "pydantic/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samuelcolvin-pydantic/pydantic/utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydantic/utils.py:716:16 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "message": " Expected `Type[typing.Any]` for 1st positional only parameter to call `is_union` but got `Optional[Type[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 716,
+    "warning_line": "    if is_union(get_origin(tp)):"
+  }
+]

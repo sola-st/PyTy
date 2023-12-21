@@ -1,0 +1,104 @@
+[
+  {
+    "project": "ethereum/trinity",
+    "commit": "9246a48bf1bc59a03accb5db5493acef6faee97e",
+    "filename": "eth2/beacon/state_machines/forks/serenity/epoch_processing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/eth2/beacon/state_machines/forks/serenity/epoch_processing.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eth2/beacon/state_machines/forks/serenity/epoch_processing.py:707:4 Incompatible return type [7]: Expected `Gwei` but got `int`.",
+    "message": " Expected `Gwei` but got `int`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 707,
+    "warning_line": "    return max(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    collective_penalty = min(total_penalties * 3, total_balance) // total_balance\n    return max(\n        balance * collective_penalty,\n        balance // min_slashing_penalty_quotient\n    )\n",
+        "source_code_len": 191,
+        "target_code": "    collective_penalty = min(total_penalties * 3, total_balance) // total_balance\n    return Gwei(\n        max(\n            balance * collective_penalty,\n            balance // min_slashing_penalty_quotient\n        )\n    )\n",
+        "target_code_len": 223,
+        "diff_format": "@@ -706,5 +706,7 @@\n     collective_penalty = min(total_penalties * 3, total_balance) // total_balance\n-    return max(\n-        balance * collective_penalty,\n-        balance // min_slashing_penalty_quotient\n+    return Gwei(\n+        max(\n+            balance * collective_penalty,\n+            balance // min_slashing_penalty_quotient\n+        )\n     )\n",
+        "source_code_with_indent": "    <IND>collective_penalty = min(total_penalties * 3, total_balance) // total_balance\n    return max(\n        balance * collective_penalty,\n        balance // min_slashing_penalty_quotient\n    )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>collective_penalty = min(total_penalties * 3, total_balance) // total_balance\n    return Gwei(\n        max(\n            balance * collective_penalty,\n            balance // min_slashing_penalty_quotient\n        )\n    )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/trinity",
+    "commit": "9246a48bf1bc59a03accb5db5493acef6faee97e",
+    "filename": "eth2/beacon/tools/builder/validator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/eth2/beacon/tools/builder/validator.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eth2/beacon/tools/builder/validator.py:172:12 Incompatible parameter type [6]: Expected `Shard` for 3rd positional only parameter to call `mk_pending_attestation_from_committee` but got `int`.",
+    "message": " Expected `Shard` for 3rd positional only parameter to call `mk_pending_attestation_from_committee` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 172,
+    "warning_line": "            shard,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    for shard in range(epoch_start_shard, epoch_start_shard + number_of_shards_to_check):\n        shard = shard % config.SHARD_COUNT\n        crosslink_committee = get_crosslink_committee(\n",
+        "source_code_len": 188,
+        "target_code": "    for shard in range(epoch_start_shard, epoch_start_shard + number_of_shards_to_check):\n        shard = Shard(shard % config.SHARD_COUNT)\n        crosslink_committee = get_crosslink_committee(\n",
+        "target_code_len": 195,
+        "diff_format": "@@ -154,3 +154,3 @@\n     for shard in range(epoch_start_shard, epoch_start_shard + number_of_shards_to_check):\n-        shard = shard % config.SHARD_COUNT\n+        shard = Shard(shard % config.SHARD_COUNT)\n         crosslink_committee = get_crosslink_committee(\n",
+        "source_code_with_indent": "    <DED>for shard in range(epoch_start_shard, epoch_start_shard + number_of_shards_to_check):\n        <IND>shard = shard % config.SHARD_COUNT\n        crosslink_committee = get_crosslink_committee(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>for shard in range(epoch_start_shard, epoch_start_shard + number_of_shards_to_check):\n        <IND>shard = Shard(shard % config.SHARD_COUNT)\n        crosslink_committee = get_crosslink_committee(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/trinity",
+    "commit": "9246a48bf1bc59a03accb5db5493acef6faee97e",
+    "filename": "eth2/beacon/tools/builder/validator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/eth2/beacon/tools/builder/validator.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eth2/beacon/tools/builder/validator.py:201:4 Incompatible return type [7]: Expected `Tuple[PendingAttestation]` but got `Iterable[PendingAttestation]`.",
+    "message": " Expected `Tuple[PendingAttestation]` but got `Iterable[PendingAttestation]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 201,
+    "warning_line": "    return mk_all_pending_attestations_with_some_participation_in_epoch(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        epoch: Epoch,\n        config: Eth2Config) -> Tuple[PendingAttestation]:\n    return mk_all_pending_attestations_with_some_participation_in_epoch(\n",
+        "source_code_len": 153,
+        "target_code": "        epoch: Epoch,\n        config: Eth2Config) -> Iterable[PendingAttestation]:\n    return mk_all_pending_attestations_with_some_participation_in_epoch(\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -199,3 +199,3 @@\n         epoch: Epoch,\n-        config: Eth2Config) -> Tuple[PendingAttestation]:\n+        config: Eth2Config) -> Iterable[PendingAttestation]:\n     return mk_all_pending_attestations_with_some_participation_in_epoch(\n",
+        "source_code_with_indent": "        epoch: Epoch,\n        config: Eth2Config) -> Tuple[PendingAttestation]:\n    <IND>return mk_all_pending_attestations_with_some_participation_in_epoch(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        epoch: Epoch,\n        config: Eth2Config) -> Iterable[PendingAttestation]:\n    <IND>return mk_all_pending_attestations_with_some_participation_in_epoch(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

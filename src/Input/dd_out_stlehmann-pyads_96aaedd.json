@@ -1,0 +1,70 @@
+[
+  {
+    "project": "stlehmann/pyads",
+    "commit": "96aaedd4fa9edfae15c5251fbf15659b237e4e37",
+    "filename": "pyads/ads.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stlehmann-pyads/pyads/ads.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyads/ads.py:1044:32 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `issubclass` but got `Optional[Type[typing.Any]]`.",
+    "message": " Expected `Type[typing.Any]` for 1st positional only parameter to call `issubclass` but got `Optional[Type[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1044,
+    "warning_line": "                elif issubclass(plc_datatype, Structure):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n                elif issubclass(plc_datatype, Structure):\n                    value = plc_datatype()\n",
+        "source_code_len": 102,
+        "target_code": "\n                elif plc_datatype is not None and issubclass(plc_datatype, Structure):\n                    value = plc_datatype()\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -1043,3 +1043,3 @@\n \n-                elif issubclass(plc_datatype, Structure):\n+                elif plc_datatype is not None and issubclass(plc_datatype, Structure):\n                     value = plc_datatype()\n",
+        "source_code_with_indent": "\n                <DED>elif issubclass(plc_datatype, Structure):\n                    <IND>value = plc_datatype()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n                <DED>elif plc_datatype is not None and issubclass(plc_datatype, Structure):\n                    <IND>value = plc_datatype()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "stlehmann/pyads",
+    "commit": "96aaedd4fa9edfae15c5251fbf15659b237e4e37",
+    "filename": "pyads/ads.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stlehmann-pyads/pyads/ads.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyads/ads.py:1045:28 Call error [29]: `Optional[Type[typing.Any]]` is not a function.",
+    "message": " `Optional[Type[typing.Any]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 1045,
+    "warning_line": "                    value = plc_datatype()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n                elif issubclass(plc_datatype, Structure):\n                    value = plc_datatype()\n",
+        "source_code_len": 102,
+        "target_code": "\n                elif plc_datatype is not None and issubclass(plc_datatype, Structure):\n                    value = plc_datatype()\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -1043,3 +1043,3 @@\n \n-                elif issubclass(plc_datatype, Structure):\n+                elif plc_datatype is not None and issubclass(plc_datatype, Structure):\n                     value = plc_datatype()\n",
+        "source_code_with_indent": "\n                <DED>elif issubclass(plc_datatype, Structure):\n                    <IND>value = plc_datatype()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n                <DED>elif plc_datatype is not None and issubclass(plc_datatype, Structure):\n                    <IND>value = plc_datatype()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

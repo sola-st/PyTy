@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ibis-project/ibis",
+    "commit": "40bd8159cd4e4a6cbdefeab1081fd6a839b553b2",
+    "filename": "ibis/backends/postgres/tests/conftest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ibis-project-ibis/ibis/backends/postgres/tests/conftest.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ibis/backends/postgres/tests/conftest.py:157:8 Incompatible return type [7]: Expected `str` but got `typing.Generator[typing.Any, None, None]`.",
+    "message": " Expected `str` but got `typing.Generator[typing.Any, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 157,
+    "warning_line": "        yield name",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from pathlib import Path\nfrom typing import Optional\n\n",
+        "source_code_len": 54,
+        "target_code": "from pathlib import Path\nfrom typing import Generator, Optional\n\n",
+        "target_code_len": 65,
+        "diff_format": "@@ -17,3 +17,3 @@\n from pathlib import Path\n-from typing import Optional\n+from typing import Generator, Optional\n \n",
+        "source_code_with_indent": "from pathlib import Path\nfrom typing import Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from pathlib import Path\nfrom typing import Generator, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@pytest.fixture\ndef temp_table(con) -> str:\n    \"\"\"\n",
+        "source_code_len": 52,
+        "target_code": "@pytest.fixture\ndef temp_table(con) -> Generator[str, None, None]:\n    \"\"\"\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -141,3 +142,3 @@\n @pytest.fixture\n-def temp_table(con) -> str:\n+def temp_table(con) -> Generator[str, None, None]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED>@pytest.fixture\ndef temp_table(con) -> str:\n    <IND>",
+        "target_code_with_indent": "<DED>@pytest.fixture\ndef temp_table(con) -> Generator[str, None, None]:\n    <IND>"
+      }
+    ]
+  }
+]

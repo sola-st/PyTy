@@ -1,0 +1,51 @@
+[
+  {
+    "project": "mdolab/pyoptsparse",
+    "commit": "622d8af8e69b505f15c19c4d58814b795ff4c2d8",
+    "filename": "doc/conf.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mdolab-pyoptsparse/doc/conf.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "doc/conf.py:27:0 Unbound name [10]: Name `extensions` is used but not defined in the current scope.",
+    "message": " Name `extensions` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 27,
+    "warning_line": "extensions.extend([\"numpydoc\", \"sphinxcontrib.bibtex\"])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os\nimport sys\n",
+        "source_code_len": 21,
+        "target_code": "import os\nimport re\nimport sys\n",
+        "target_code_len": 31,
+        "diff_format": "@@ -2,2 +2,3 @@\n import os\n+import re\n import sys\n",
+        "source_code_with_indent": "import os\nimport sys\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nimport re\nimport sys\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "project = \"pyOptSparse\"\n\n# -- General configuration ---------------------------------------------------\n\n# Add any Sphinx extension module names here, as strings. They can be\n# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom\n# ones.\nextensions.extend([\"numpydoc\", \"sphinxcontrib.bibtex\"])\n\n",
+        "source_code_len": 310,
+        "target_code": "project = \"pyOptSparse\"\nversion = re.findall(\n    r\"\"\"__version__ = [\"']+([0-9\\.]*)[\"']+\"\"\",\n    open(\"../pyoptsparse/__init__.py\").read(),\n)[0]\n\n# -- General configuration ---------------------------------------------------\n\n",
+        "target_code_len": 226,
+        "diff_format": "@@ -20,9 +21,8 @@\n project = \"pyOptSparse\"\n+version = re.findall(\n+    r\"\"\"__version__ = [\"']+([0-9\\.]*)[\"']+\"\"\",\n+    open(\"../pyoptsparse/__init__.py\").read(),\n+)[0]\n \n # -- General configuration ---------------------------------------------------\n-\n-# Add any Sphinx extension module names here, as strings. They can be\n-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom\n-# ones.\n-extensions.extend([\"numpydoc\", \"sphinxcontrib.bibtex\"])\n \n",
+        "source_code_with_indent": "project = \"pyOptSparse\"\n\n# -- General configuration ---------------------------------------------------\n\n# Add any Sphinx extension module names here, as strings. They can be\n# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom\n# ones.\nextensions.extend([\"numpydoc\", \"sphinxcontrib.bibtex\"])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "project = \"pyOptSparse\"\nversion = re.findall(\n    r\"\"\"__version__ = [\"']+([0-9\\.]*)[\"']+\"\"\",\n    open(\"../pyoptsparse/__init__.py\").read(),\n)[0]\n\n# -- General configuration ---------------------------------------------------\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

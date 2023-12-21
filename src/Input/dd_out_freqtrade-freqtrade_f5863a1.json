@@ -1,0 +1,70 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "f5863a1c6fd3d8b29cde23561fb8b4dbfc86bf3d",
+    "filename": "freqtrade/rpc/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/rpc/rpc.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/rpc/rpc.py:645:8 Incompatible return type [7]: Expected `Dict[str, List[typing.Any]]` but got `Dict[str, Union[List[List[Union[datetime, float, str]]], int]]`.",
+    "message": " Expected `Dict[str, List[typing.Any]]` but got `Dict[str, Union[List[List[Union[datetime, float, str]]], int]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 645,
+    "warning_line": "        return {'log_count': len(records), 'logs': records}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _rpc_get_logs(self, limit: Optional[int]) -> Dict[str, List]:\n        \"\"\"Returns the last X logs\"\"\"\n",
+        "source_code_len": 109,
+        "target_code": "\n    def _rpc_get_logs(self, limit: Optional[int]) -> Dict[str, Any]:\n        \"\"\"Returns the last X logs\"\"\"\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -635,3 +635,3 @@\n \n-    def _rpc_get_logs(self, limit: Optional[int]) -> Dict[str, List]:\n+    def _rpc_get_logs(self, limit: Optional[int]) -> Dict[str, Any]:\n         \"\"\"Returns the last X logs\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def _rpc_get_logs(self, limit: Optional[int]) -> Dict[str, List]:\n        <IND>\"\"\"Returns the last X logs\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _rpc_get_logs(self, limit: Optional[int]) -> Dict[str, Any]:\n        <IND>\"\"\"Returns the last X logs\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "f5863a1c6fd3d8b29cde23561fb8b4dbfc86bf3d",
+    "filename": "freqtrade/rpc/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/rpc/rpc.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/rpc/rpc.py:653:8 Incompatible return type [7]: Expected `Dict[str, List[typing.Any]]` but got `List[str]`.",
+    "message": " Expected `Dict[str, List[typing.Any]]` but got `List[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 653,
+    "warning_line": "        return [bufferHandler.format(r) for r in buffer]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _rpc_get_logs_as_string(self, limit: Optional[int]) -> Dict[str, List]:\n        \"\"\"Returns the last X logs as formatted string (Using the default log format)\"\"\"\n",
+        "source_code_len": 170,
+        "target_code": "\n    def _rpc_get_logs_as_string(self, limit: Optional[int]) -> List[str]:\n        \"\"\"Returns the last X logs as formatted string (Using the default log format)\"\"\"\n",
+        "target_code_len": 164,
+        "diff_format": "@@ -646,3 +646,3 @@\n \n-    def _rpc_get_logs_as_string(self, limit: Optional[int]) -> Dict[str, List]:\n+    def _rpc_get_logs_as_string(self, limit: Optional[int]) -> List[str]:\n         \"\"\"Returns the last X logs as formatted string (Using the default log format)\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def _rpc_get_logs_as_string(self, limit: Optional[int]) -> Dict[str, List]:\n        <IND>\"\"\"Returns the last X logs as formatted string (Using the default log format)\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _rpc_get_logs_as_string(self, limit: Optional[int]) -> List[str]:\n        <IND>\"\"\"Returns the last X logs as formatted string (Using the default log format)\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

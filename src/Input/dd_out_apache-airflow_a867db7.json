@@ -1,0 +1,36 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "a867db7e3f2ef9acc1347d2c44588f520163ea29",
+    "filename": "tests/gcp/hooks/test_bigquery_dts.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/tests/gcp/hooks/test_bigquery_dts.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/gcp/hooks/test_bigquery_dts.py:64:16 Incompatible parameter type [6]: Expected `str` for 1st parameter `gcp_conn_id` to call `BiqQueryDataTransferServiceHook.__init__` but got `None`.",
+    "message": " Expected `str` for 1st parameter `gcp_conn_id` to call `BiqQueryDataTransferServiceHook.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 64,
+    "warning_line": "                gcp_conn_id=None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ):\n            self.hook = BiqQueryDataTransferServiceHook(  # type: ignore\n                gcp_conn_id=None\n            )\n            self.hook._get_credentials = mock.MagicMock(  # type: ignore\n",
+        "source_code_len": 204,
+        "target_code": "        ):\n            self.hook = BiqQueryDataTransferServiceHook()\n            self.hook._get_credentials = mock.MagicMock(  # type: ignore\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -62,5 +62,3 @@\n         ):\n-            self.hook = BiqQueryDataTransferServiceHook(  # type: ignore\n-                gcp_conn_id=None\n-            )\n+            self.hook = BiqQueryDataTransferServiceHook()\n             self.hook._get_credentials = mock.MagicMock(  # type: ignore\n",
+        "source_code_with_indent": "        ):\n            <IND>self.hook = BiqQueryDataTransferServiceHook(  # type: ignore\n                gcp_conn_id=None\n            )\n            self.hook._get_credentials = mock.MagicMock(  # type: ignore\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ):\n            <IND>self.hook = BiqQueryDataTransferServiceHook()\n            self.hook._get_credentials = mock.MagicMock(  # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

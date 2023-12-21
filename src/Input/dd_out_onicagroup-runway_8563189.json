@@ -1,0 +1,63 @@
+[
+  {
+    "project": "onicagroup/runway",
+    "commit": "8563189e4c44c9908523ceda0aaa23d76612c1cd",
+    "filename": "tests/cfngin/hooks/test_acm.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/cfngin/hooks/test_acm.py:18:22 Incompatible parameter type [6]: Expected `typing.Dict[str, typing.Any]` for 1st positional only parameter to call `MutableMap.__init__` but got `typing.Union[SubmittedStatus, runway.cfngin.status.DidNotChangeStatus, runway.cfngin.status.FailedStatus]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "onicagroup/runway",
+    "commit": "8563189e4c44c9908523ceda0aaa23d76612c1cd",
+    "filename": "tests/conftest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/onicagroup-runway/tests/conftest.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/conftest.py:45:4 Incompatible return type [7]: Expected `Dict[str, str]` but got `typing.Generator[None, None, None]`.",
+    "message": " Expected `Dict[str, str]` but got `typing.Generator[None, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 45,
+    "warning_line": "    yield",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nLOG = logging.getLogger(__name__)\nTEST_ROOT = Path(os.path.dirname(os.path.realpath(__file__)))\n\n\n@pytest.fixture(scope='session', autouse=True)\ndef aws_credentials():\n    # type: () -> Dict[str, str]\n    \"\"\"Handle change in https://github.com/spulec/moto/issues/1924.\n\n    Ensure AWS SDK finds some (bogus) credentials in the environment and\n    doesn't try to use other providers.\n\n    \"\"\"\n    overrides = {\n        'AWS_ACCESS_KEY_ID': 'testing',\n        'AWS_SECRET_ACCESS_KEY': 'testing',\n        'AWS_DEFAULT_REGION': 'us-east-1'\n    }\n    saved_env = {}\n    for key, value in overrides.items():\n        LOG.info('Overriding env var: %s=%s', key, value)\n        saved_env[key] = os.environ.get(key, None)\n        os.environ[key] = value\n\n    yield\n\n    for key, value in saved_env.items():\n        LOG.info('Restoring saved env var: %s=%s', key, value)\n        if value is None:\n            os.environ.pop(key, None)  # handle key missing\n        else:\n            os.environ[key] = value\n\n    saved_env.clear()\n\n",
+        "source_code_len": 1020,
+        "target_code": "\n\ndef pytest_addoption(parser):\n    \"\"\"Add pytest CLI options.\"\"\"\n    parser.addoption('--functional', action='store_true', default=False,\n                     help='run only functional tests')\n    parser.addoption('--integration', action='store_true', default=False,\n                     help='include integration tests in regular testing')\n    parser.addoption('--integration-only', action='store_true', default=False,\n                     help='run only integration tests')\n\n\n@pytest.fixture(scope='function')\ndef cd_tmp_path(tmp_path):\n    \"\"\"Change directory to a temporary path.\n\n    Returns:\n        Path: Temporary path object.\n\n    \"\"\"\n    prev_dir = os.getcwd()\n    os.chdir(str(tmp_path))\n    try:\n        yield tmp_path\n    finally:\n        os.chdir(prev_dir)\n\n\n@pytest.fixture(scope='function')\ndef root_dir():\n    \"\"\"Return a path object to the root directory.\"\"\"\n    return Path(__file__).parent.parent\n\n",
+        "target_code_len": 919,
+        "diff_format": "@@ -20,36 +11,33 @@\n \n-LOG = logging.getLogger(__name__)\n-TEST_ROOT = Path(os.path.dirname(os.path.realpath(__file__)))\n+\n+def pytest_addoption(parser):\n+    \"\"\"Add pytest CLI options.\"\"\"\n+    parser.addoption('--functional', action='store_true', default=False,\n+                     help='run only functional tests')\n+    parser.addoption('--integration', action='store_true', default=False,\n+                     help='include integration tests in regular testing')\n+    parser.addoption('--integration-only', action='store_true', default=False,\n+                     help='run only integration tests')\n \n \n-@pytest.fixture(scope='session', autouse=True)\n-def aws_credentials():\n-    # type: () -> Dict[str, str]\n-    \"\"\"Handle change in https://github.com/spulec/moto/issues/1924.\n+@pytest.fixture(scope='function')\n+def cd_tmp_path(tmp_path):\n+    \"\"\"Change directory to a temporary path.\n \n-    Ensure AWS SDK finds some (bogus) credentials in the environment and\n-    doesn't try to use other providers.\n+    Returns:\n+        Path: Temporary path object.\n \n     \"\"\"\n-    overrides = {\n-        'AWS_ACCESS_KEY_ID': 'testing',\n-        'AWS_SECRET_ACCESS_KEY': 'testing',\n-        'AWS_DEFAULT_REGION': 'us-east-1'\n-    }\n-    saved_env = {}\n-    for key, value in overrides.items():\n-        LOG.info('Overriding env var: %s=%s', key, value)\n-        saved_env[key] = os.environ.get(key, None)\n-        os.environ[key] = value\n+    prev_dir = os.getcwd()\n+    os.chdir(str(tmp_path))\n+    try:\n+        yield tmp_path\n+    finally:\n+        os.chdir(prev_dir)\n \n-    yield\n \n-    for key, value in saved_env.items():\n-        LOG.info('Restoring saved env var: %s=%s', key, value)\n-        if value is None:\n-            os.environ.pop(key, None)  # handle key missing\n-        else:\n-            os.environ[key] = value\n-\n-    saved_env.clear()\n+@pytest.fixture(scope='function')\n+def root_dir():\n+    \"\"\"Return a path object to the root directory.\"\"\"\n+    return Path(__file__).parent.parent\n \n",
+        "source_code_with_indent": "\n<DED>LOG = logging.getLogger(__name__)\nTEST_ROOT = Path(os.path.dirname(os.path.realpath(__file__)))\n\n\n@pytest.fixture(scope='session', autouse=True)\ndef aws_credentials():\n    # type: () -> Dict[str, str]\n    <IND>\"\"\"Handle change in https://github.com/spulec/moto/issues/1924.\n\n    Ensure AWS SDK finds some (bogus) credentials in the environment and\n    doesn't try to use other providers.\n\n    \"\"\"\n    overrides = {\n        'AWS_ACCESS_KEY_ID': 'testing',\n        'AWS_SECRET_ACCESS_KEY': 'testing',\n        'AWS_DEFAULT_REGION': 'us-east-1'\n    }\n    saved_env = {}\n    for key, value in overrides.items():\n        <IND>LOG.info('Overriding env var: %s=%s', key, value)\n        saved_env[key] = os.environ.get(key, None)\n        os.environ[key] = value\n\n    <DED>yield\n\n    for key, value in saved_env.items():\n        <IND>LOG.info('Restoring saved env var: %s=%s', key, value)\n        if value is None:\n            <IND>os.environ.pop(key, None)  # handle key missing\n        <DED>else:\n            <IND>os.environ[key] = value\n\n    <DED><DED>saved_env.clear()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n\n<DED>def pytest_addoption(parser):\n    <IND>\"\"\"Add pytest CLI options.\"\"\"\n    parser.addoption('--functional', action='store_true', default=False,\n                     help='run only functional tests')\n    parser.addoption('--integration', action='store_true', default=False,\n                     help='include integration tests in regular testing')\n    parser.addoption('--integration-only', action='store_true', default=False,\n                     help='run only integration tests')\n\n\n<DED>@pytest.fixture(scope='function')\ndef cd_tmp_path(tmp_path):\n    <IND>\"\"\"Change directory to a temporary path.\n\n    Returns:\n        Path: Temporary path object.\n\n    \"\"\"\n    prev_dir = os.getcwd()\n    os.chdir(str(tmp_path))\n    try:\n        <IND>yield tmp_path\n    <DED>finally:\n        <IND>os.chdir(prev_dir)\n\n\n<DED><DED>@pytest.fixture(scope='function')\ndef root_dir():\n    <IND>\"\"\"Return a path object to the root directory.\"\"\"\n    return Path(__file__).parent.parent\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "onicagroup/runway",
+    "commit": "8563189e4c44c9908523ceda0aaa23d76612c1cd",
+    "filename": "tests/lookups/handlers/test_var.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/lookups/handlers/test_var.py:7:25 Incompatible parameter type [6]: Expected `typing.Dict[str, typing.Any]` for 1st positional only parameter to call `MutableMap.__init__` but got `typing.Union[bool, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "onicagroup/runway",
+    "commit": "8563189e4c44c9908523ceda0aaa23d76612c1cd",
+    "filename": "tests/lookups/test_registry.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/lookups/test_registry.py:12:25 Incompatible parameter type [6]: Expected `typing.Dict[str, typing.Any]` for 1st positional only parameter to call `MutableMap.__init__` but got `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

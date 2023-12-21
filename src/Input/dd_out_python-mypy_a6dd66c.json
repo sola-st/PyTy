@@ -1,0 +1,87 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "a6dd66c991dac7ea574f8c90c89a5fb94ddaefbe",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:397:29 Incompatible parameter type [6]: Expected `Node` for 2nd positional only parameter to call `TypeChecker.check_multi_assignment` but got `List[None]`.",
+    "message": " Expected `Node` for 2nd positional only parameter to call `TypeChecker.check_multi_assignment` but got `List[None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 397,
+    "warning_line": "                        lvt, [None] * len(lvt),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    # Multiple assignment.\n                    lvt = List[Type]()\n                    for v in defn.items:\n                        lvt.append(v.type)\n                    self.check_multi_assignment(\n                        lvt, [None] * len(lvt),\n                        defn.init, defn.init)\n            else:\n",
+        "source_code_len": 327,
+        "target_code": "                    # Multiple assignment.\n                    lv = List[Node]()\n                    for v in defn.items:\n                        lv.append(self.temp_node(v.type, v))\n                    self.check_multi_assignment(lv, defn.init, defn.init)\n            else:\n",
+        "target_code_len": 275,
+        "diff_format": "@@ -392,8 +392,6 @@\n                     # Multiple assignment.\n-                    lvt = List[Type]()\n+                    lv = List[Node]()\n                     for v in defn.items:\n-                        lvt.append(v.type)\n-                    self.check_multi_assignment(\n-                        lvt, [None] * len(lvt),\n-                        defn.init, defn.init)\n+                        lv.append(self.temp_node(v.type, v))\n+                    self.check_multi_assignment(lv, defn.init, defn.init)\n             else:\n",
+        "source_code_with_indent": "                    # Multiple assignment.\n                    <IND>lvt = List[Type]()\n                    for v in defn.items:\n                        <IND>lvt.append(v.type)\n                    <DED>self.check_multi_assignment(\n                        lvt, [None] * len(lvt),\n                        defn.init, defn.init)\n            <DED><DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    # Multiple assignment.\n                    <IND>lv = List[Node]()\n                    for v in defn.items:\n                        <IND>lv.append(self.temp_node(v.type, v))\n                    <DED>self.check_multi_assignment(lv, defn.init, defn.init)\n            <DED><DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "a6dd66c991dac7ea574f8c90c89a5fb94ddaefbe",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 11,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:1077:8 Incompatible return type [7]: Expected `None` but got `Tuple[typing.Any, typing.Optional[IndexExpr], typing.Optional[Var]]`.",
+    "message": " Expected `None` but got `Tuple[typing.Any, typing.Optional[IndexExpr], typing.Optional[Var]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1077,
+    "warning_line": "        return lvalue_type, index_lvalue, inferred"
+  },
+  {
+    "project": "python/mypy",
+    "commit": "a6dd66c991dac7ea574f8c90c89a5fb94ddaefbe",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:1461:85 Incompatible parameter type [6]: Expected `Type` for 3rd positional only parameter to call `TypeChecker.check_assignment` but got `Context`.",
+    "message": " Expected `Type` for 3rd positional only parameter to call `TypeChecker.check_assignment` but got `Context`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1461,
+    "warning_line": "            self.check_assignment(node_index[0], self.temp_node(item_type, context), context)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \n        # TODO SK fix\n        \n        if len(node_index) == 1:\n            self.check_assignment(node_index[0], self.temp_node(item_type, context), context)\n        else:\n",
+        "source_code_len": 181,
+        "target_code": "        \n        if len(node_index) == 1:\n            self.check_assignment(node_index[0], self.temp_node(item_type, context))\n        else:\n",
+        "target_code_len": 141,
+        "diff_format": "@@ -1457,6 +1452,4 @@\n         \n-        # TODO SK fix\n-        \n         if len(node_index) == 1:\n-            self.check_assignment(node_index[0], self.temp_node(item_type, context), context)\n+            self.check_assignment(node_index[0], self.temp_node(item_type, context))\n         else:\n",
+        "source_code_with_indent": "        \n        # TODO SK fix\n        \n        <DED>if len(node_index) == 1:\n            <IND>self.check_assignment(node_index[0], self.temp_node(item_type, context), context)\n        <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        \n        <DED>if len(node_index) == 1:\n            <IND>self.check_assignment(node_index[0], self.temp_node(item_type, context))\n        <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

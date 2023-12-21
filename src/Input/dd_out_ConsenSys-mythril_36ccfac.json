@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "36ccfac6cb3ba0e3b740105385af4bdaf8434385",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/instructions.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:556:20 Unsupported operand [58]: `+` is not supported for operand types `typing.Set[typing.Any]` and `typing.Set[typing.Any]`.",
+    "message": " `+` is not supported for operand types `typing.Set[typing.Any]` and `typing.Set[typing.Any]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 556,
+    "warning_line": "                    base.annotations + exponent.annotations,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    256,\n                    base.annotations + exponent.annotations,\n                )\n",
+        "source_code_len": 104,
+        "target_code": "                    256,\n                    base.annotations.union(exponent.annotations),\n                )\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -555,3 +555,3 @@\n                     256,\n-                    base.annotations + exponent.annotations,\n+                    base.annotations.union(exponent.annotations),\n                 )\n",
+        "source_code_with_indent": "                    256,\n                    base.annotations + exponent.annotations,\n                )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    256,\n                    base.annotations.union(exponent.annotations),\n                )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "36ccfac6cb3ba0e3b740105385af4bdaf8434385",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/instructions.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:565:20 Incompatible parameter type [6]: Expected `typing.Optional[List[typing.Any]]` for 3rd parameter `annotations` to call `mythril.laser.smt._SmtSymbolFactory.BitVecVal` but got `typing.Set[typing.Any]`.",
+    "message": " Expected `typing.Optional[List[typing.Any]]` for 3rd parameter `annotations` to call `mythril.laser.smt._SmtSymbolFactory.BitVecVal` but got `typing.Set[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 565,
+    "warning_line": "                    annotations=base.annotations.union(exponent.annotations),"
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "36ccfac6cb3ba0e3b740105385af4bdaf8434385",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/instructions.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:940:16 Incompatible parameter type [6]: Expected `typing.Optional[List[typing.Any]]` for 5th parameter `annotations` to call `mythril.laser.smt._SmtSymbolFactory.BitVecFuncSym` but got `typing.Set[typing.Any]`.",
+    "message": " Expected `typing.Optional[List[typing.Any]]` for 5th parameter `annotations` to call `mythril.laser.smt._SmtSymbolFactory.BitVecFuncSym` but got `typing.Set[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 940,
+    "warning_line": "                annotations=annotations,"
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "zalandoresearch/pytorch-ts",
+    "commit": "d30a65e8cd8f22816dae31fa5b9ac3650764a48b",
+    "filename": "pts/dataset/common.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/zalandoresearch-pytorch-ts/pts/dataset/common.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pts/dataset/common.py:41:4 Inconsistent override [15]: `pts.dataset.common.Dataset.__iter__` overrides method defined in `Iterable` inconsistently. Returned type `Iterable[Dict[str, typing.Any]]` is not a subtype of the overridden return `typing.Iterator[Dict[str, typing.Any]]`.",
+    "message": " `pts.dataset.common.Dataset.__iter__` overrides method defined in `Iterable` inconsistently. Returned type `Iterable[Dict[str, typing.Any]]` is not a subtype of the overridden return `typing.Iterator[Dict[str, typing.Any]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 41,
+    "warning_line": "    def __iter__(self) -> Iterable[DataEntry]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from abc import ABC, abstractmethod\nfrom typing import Any, Dict, Iterable, NamedTuple, Sized, List, Optional\n\n",
+        "source_code_len": 111,
+        "target_code": "from abc import ABC, abstractmethod\nfrom typing import Any, Dict, Iterable, NamedTuple, Sized, List, Optional, Iterator\n\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -1,3 +1,3 @@\n from abc import ABC, abstractmethod\n-from typing import Any, Dict, Iterable, NamedTuple, Sized, List, Optional\n+from typing import Any, Dict, Iterable, NamedTuple, Sized, List, Optional, Iterator\n \n",
+        "source_code_with_indent": "from abc import ABC, abstractmethod\nfrom typing import Any, Dict, Iterable, NamedTuple, Sized, List, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from abc import ABC, abstractmethod\nfrom typing import Any, Dict, Iterable, NamedTuple, Sized, List, Optional, Iterator\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @abstractmethod\n    def __iter__(self) -> Iterable[DataEntry]:\n        pass\n",
+        "source_code_len": 80,
+        "target_code": "    @abstractmethod\n    def __iter__(self) -> Iterator[DataEntry]:\n        pass\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -40,3 +40,3 @@\n     @abstractmethod\n-    def __iter__(self) -> Iterable[DataEntry]:\n+    def __iter__(self) -> Iterator[DataEntry]:\n         pass\n",
+        "source_code_with_indent": "    <IND>@abstractmethod\n    def __iter__(self) -> Iterable[DataEntry]:\n        <IND>pass\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>@abstractmethod\n    def __iter__(self) -> Iterator[DataEntry]:\n        <IND>pass\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

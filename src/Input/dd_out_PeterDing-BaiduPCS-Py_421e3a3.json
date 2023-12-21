@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PeterDing/BaiduPCS-Py",
+    "commit": "421e3a3de3387cfd6317aac43991bf05e468bd58",
+    "filename": "baidupcs_py/commands/sifter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PeterDing-BaiduPCS-Py/baidupcs_py/commands/sifter.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "baidupcs_py/commands/sifter.py:92:51 Incompatible parameter type [6]: Expected `Union[baidupcs_py.baidupcs.inner.PcsFile, str]` for 1st positional only parameter to call `Sifter.__call__` but got `Variable[T]`.",
+    "message": " Expected `Union[baidupcs_py.baidupcs.inner.PcsFile, str]` for 1st positional only parameter to call `Sifter.__call__` but got `Variable[T]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 92,
+    "warning_line": "        objs = [obj for obj in objs if all([sifter(obj) for sifter in sifters])]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nT = TypeVar(\"T\")\n\n",
+        "source_code_len": 19,
+        "target_code": "\nT = TypeVar(\"T\", PcsFile, str)\n\n",
+        "target_code_len": 33,
+        "diff_format": "@@ -86,3 +86,3 @@\n \n-T = TypeVar(\"T\")\n+T = TypeVar(\"T\", PcsFile, str)\n \n",
+        "source_code_with_indent": "\n<DED><DED>T = TypeVar(\"T\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>T = TypeVar(\"T\", PcsFile, str)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

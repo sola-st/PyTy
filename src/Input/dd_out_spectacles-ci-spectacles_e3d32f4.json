@@ -1,0 +1,138 @@
+[
+  {
+    "project": "spectacles-ci/spectacles",
+    "commit": "e3d32f485e0f2a332d28f021f55a861db780ad8c",
+    "filename": "fonz/connection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spectacles-ci-spectacles/fonz/connection.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fonz/connection.py:106:8 Incompatible return type [7]: Expected `List[str]` but got `Dict[str, typing.Any]`.",
+    "message": " Expected `List[str]` but got `Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 106,
+    "warning_line": "        return explore",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        explore['dimensions'] = dimensions\n\n        return explore\n\n",
+        "source_code_len": 69,
+        "target_code": "\n        return dimensions\n\n",
+        "target_code_len": 28,
+        "diff_format": "@@ -103,5 +103,3 @@\n \n-        explore['dimensions'] = dimensions\n-\n-        return explore\n+        return dimensions\n \n",
+        "source_code_with_indent": "\n        <DED>explore['dimensions'] = dimensions\n\n        return explore\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>return dimensions\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spectacles-ci/spectacles",
+    "commit": "e3d32f485e0f2a332d28f021f55a861db780ad8c",
+    "filename": "fonz/connection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spectacles-ci-spectacles/fonz/connection.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fonz/connection.py:151:42 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `Fonz.run_query` but got `str`.",
+    "message": " Expected `int` for 1st positional only parameter to call `Fonz.run_query` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 151,
+    "warning_line": "            query_result = self.run_query(query_id)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def create_query(self, explore: JsonDict) -> str:\n        \"\"\"Build a Looker query using all the specified dimensions.\"\"\"\n",
+        "source_code_len": 126,
+        "target_code": "\n    def create_query(self, explore: JsonDict) -> int:\n        \"\"\"Build a Looker query using all the specified dimensions.\"\"\"\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -114,3 +112,3 @@\n \n-    def create_query(self, explore: JsonDict) -> str:\n+    def create_query(self, explore: JsonDict) -> int:\n         \"\"\"Build a Looker query using all the specified dimensions.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def create_query(self, explore: JsonDict) -> str:\n        <IND>\"\"\"Build a Looker query using all the specified dimensions.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def create_query(self, explore: JsonDict) -> int:\n        <IND>\"\"\"Build a Looker query using all the specified dimensions.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spectacles-ci/spectacles",
+    "commit": "e3d32f485e0f2a332d28f021f55a861db780ad8c",
+    "filename": "fonz/connection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spectacles-ci-spectacles/fonz/connection.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fonz/connection.py:153:46 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `int`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 153,
+    "warning_line": "            if 'looker_error' in query_result[0]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def run_query(self, query_id: int) -> JsonDict:\n        \"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "source_code_len": 120,
+        "target_code": "\n    def run_query(self, query_id: int) -> List[JsonDict]:\n        \"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -133,3 +131,3 @@\n \n-    def run_query(self, query_id: int) -> JsonDict:\n+    def run_query(self, query_id: int) -> List[JsonDict]:\n         \"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def run_query(self, query_id: int) -> JsonDict:\n        <IND>\"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def run_query(self, query_id: int) -> List[JsonDict]:\n        <IND>\"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spectacles-ci/spectacles",
+    "commit": "e3d32f485e0f2a332d28f021f55a861db780ad8c",
+    "filename": "fonz/connection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spectacles-ci-spectacles/fonz/connection.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fonz/connection.py:156:33 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `int`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 156,
+    "warning_line": "                    query_result[0]['looker_error'])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def run_query(self, query_id: int) -> JsonDict:\n        \"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "source_code_len": 120,
+        "target_code": "\n    def run_query(self, query_id: int) -> List[JsonDict]:\n        \"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -133,3 +131,3 @@\n \n-    def run_query(self, query_id: int) -> JsonDict:\n+    def run_query(self, query_id: int) -> List[JsonDict]:\n         \"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def run_query(self, query_id: int) -> JsonDict:\n        <IND>\"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def run_query(self, query_id: int) -> List[JsonDict]:\n        <IND>\"\"\"Run a Looker query by ID and return the JSON result.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

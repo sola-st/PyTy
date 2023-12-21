@@ -1,0 +1,53 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "35b4496ac72720ca59fed04b1b06ec3b289972b7",
+    "filename": "src/py/idom/tools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/py/idom/tools.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/py/idom/tools.py:93:12 Incompatible attribute type [8]: Attribute `_transform` declared in class `HtmlParser` has type `typing.Callable(HtmlParser._transform)[[Named(node, Dict[str, typing.Any])], None]` but is used as type `typing.Callable[[Union[Dict[str, typing.Any], str]], None]`.",
+    "message": " Attribute `_transform` declared in class `HtmlParser` has type `typing.Callable(HtmlParser._transform)[[Named(node, Dict[str, typing.Any])], None]` but is used as type `typing.Callable[[Union[Dict[str, typing.Any], str]], None]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 93,
+    "warning_line": "            self._transform = transform",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return {\"tagName\": tag, \"attributes\": attrs, \"children\": []}\n\n    @staticmethod\n    def _transform(node: Dict[str, Any]) -> None:\n        ...\n",
+        "source_code_len": 150,
+        "target_code": "        return {\"tagName\": tag, \"attributes\": attrs, \"children\": []}\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -136,5 +139,1 @@\n         return {\"tagName\": tag, \"attributes\": attrs, \"children\": []}\n-\n-    @staticmethod\n-    def _transform(node: Dict[str, Any]) -> None:\n-        ...\n",
+        "source_code_with_indent": "        <DED><DED>return {\"tagName\": tag, \"attributes\": attrs, \"children\": []}\n\n    <DED>@staticmethod\n    def _transform(node: Dict[str, Any]) -> None:\n        <IND>...\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED><DED>return {\"tagName\": tag, \"attributes\": attrs, \"children\": []}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "idom-team/idom",
+    "commit": "35b4496ac72720ca59fed04b1b06ec3b289972b7",
+    "filename": "src/py/idom/tools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/py/idom/tools.py",
+    "file_hunks_size": 8,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/py/idom/tools.py:108:4 Inconsistent override [14]: `src.py.idom.tools.HtmlParser.handle_starttag` overrides method defined in `_HTMLParser` inconsistently. Parameter of type `List[Tuple[str, str]]` is not a supertype of the overridden parameter `List[Tuple[str, Optional[str]]]`.",
+    "message": " `src.py.idom.tools.HtmlParser.handle_starttag` overrides method defined in `_HTMLParser` inconsistently. Parameter of type `List[Tuple[str, str]]` is not a supertype of the overridden parameter `List[Tuple[str, Optional[str]]]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 108,
+    "warning_line": "    def handle_starttag(self, tag: str, attrs: List[Tuple[str, str]]) -> None:"
+  }
+]

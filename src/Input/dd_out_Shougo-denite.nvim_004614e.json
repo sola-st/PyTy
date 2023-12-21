@@ -1,0 +1,119 @@
+[
+  {
+    "project": "Shougo/denite.nvim",
+    "commit": "004614eb9d658070c11e8dbb388c64e26dbf0381",
+    "filename": "rplugin/python3/denite/child.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Shougo-denite.nvim/rplugin/python3/denite/child.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rplugin/python3/denite/child.py:400:8 Incompatible return type [7]: Expected `typing.Dict[str, typing.Any]` but got `typing.Union[None, typing.Dict[str, typing.Any], typing.Dict[Variable[_KT], Variable[_VT]]]`.",
+    "message": " Expected `typing.Dict[str, typing.Any]` but got `typing.Union[None, typing.Dict[str, typing.Any], typing.Dict[Variable[_KT], Variable[_VT]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 400,
+    "warning_line": "        return action if actions else {}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                            targets: Candidates) -> Action:\n        actions = set()\n        action = None\n        for target in targets:\n",
+        "source_code_len": 137,
+        "target_code": "                            targets: Candidates) -> Action:\n        actions: typing.Set[Action] = set()\n        action: Action = {}\n        for target in targets:\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -390,4 +390,4 @@\n                             targets: Candidates) -> Action:\n-        actions = set()\n-        action = None\n+        actions: typing.Set[Action] = set()\n+        action: Action = {}\n         for target in targets:\n",
+        "source_code_with_indent": "                            targets: Candidates) -> Action:\n        <IND>actions = set()\n        action = None\n        for target in targets:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                            targets: Candidates) -> Action:\n        <IND>actions: typing.Set[Action] = set()\n        action: Action = {}\n        for target in targets:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Shougo/denite.nvim",
+    "commit": "004614eb9d658070c11e8dbb388c64e26dbf0381",
+    "filename": "rplugin/python3/denite/child.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Shougo-denite.nvim/rplugin/python3/denite/child.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rplugin/python3/denite/child.py:558:12 Incompatible return type [7]: Expected `typing.Dict[str, typing.Any]` but got `ChainMap[typing.Any, typing.Any]`.",
+    "message": " Expected `typing.Dict[str, typing.Any]` but got `ChainMap[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 558,
+    "warning_line": "            return ChainMap(user_attrs, {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _get_action_target(self, context: UserContext,\n                           action_name: str, target: Candidate) -> Action:\n        kind = self._get_kind(context, target)\n",
+        "source_code_len": 177,
+        "target_code": "    def _get_action_target(self, context: UserContext,\n                           action_name: str, target: Candidate) -> typing.Any:\n        kind = self._get_kind(context, target)\n",
+        "target_code_len": 181,
+        "diff_format": "@@ -539,3 +539,3 @@\n     def _get_action_target(self, context: UserContext,\n-                           action_name: str, target: Candidate) -> Action:\n+                           action_name: str, target: Candidate) -> typing.Any:\n         kind = self._get_kind(context, target)\n",
+        "source_code_with_indent": "    <DED>def _get_action_target(self, context: UserContext,\n                           action_name: str, target: Candidate) -> Action:\n        <IND>kind = self._get_kind(context, target)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _get_action_target(self, context: UserContext,\n                           action_name: str, target: Candidate) -> typing.Any:\n        <IND>kind = self._get_kind(context, target)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Shougo/denite.nvim",
+    "commit": "004614eb9d658070c11e8dbb388c64e26dbf0381",
+    "filename": "rplugin/python3/denite/source/menu.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Shougo-denite.nvim/rplugin/python3/denite/source/menu.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rplugin/python3/denite/source/menu.py:35:26 Incompatible variable type [9]: filetype is declared to have type `str` but is used as type `None`.",
+    "message": " filetype is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 35,
+    "warning_line": "                          filetype: str = None) -> Candidates:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# ============================================================================\n\n",
+        "source_code_len": 80,
+        "target_code": "# ============================================================================\n\nimport typing\n\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -6,2 +6,4 @@\n # ============================================================================\n+\n+import typing\n \n",
+        "source_code_with_indent": "# ============================================================================\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# ============================================================================\n\nimport typing\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def filter_candidates(self, candidates: Candidates,\n                          filetype: str = None) -> Candidates:\n        if not filetype:\n",
+        "source_code_len": 145,
+        "target_code": "\n    def filter_candidates(self, candidates: typing.Any,\n                          filetype: str = '') -> typing.Any:\n        if not filetype:\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -33,4 +35,4 @@\n \n-    def filter_candidates(self, candidates: Candidates,\n-                          filetype: str = None) -> Candidates:\n+    def filter_candidates(self, candidates: typing.Any,\n+                          filetype: str = '') -> typing.Any:\n         if not filetype:\n",
+        "source_code_with_indent": "\n    <DED><DED>def filter_candidates(self, candidates: Candidates,\n                          filetype: str = None) -> Candidates:\n        <IND>if not filetype:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def filter_candidates(self, candidates: typing.Any,\n                          filetype: str = '') -> typing.Any:\n        <IND>if not filetype:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

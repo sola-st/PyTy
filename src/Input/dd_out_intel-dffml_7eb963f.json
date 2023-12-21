@@ -1,0 +1,36 @@
+[
+  {
+    "project": "intel/dffml",
+    "commit": "7eb963f2bf46891428851dbd15bd8cbfdd58e7a3",
+    "filename": "dffml/operation/output.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/intel-dffml/dffml/operation/output.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dffml/operation/output.py:39:54 Incompatible parameter type [6]: Expected `NamedTuple` for 3rd parameter `spec` to call `Definition.__init__` but got `typing.Type[GroupBySpec]`.",
+    "message": " Expected `NamedTuple` for 3rd parameter `spec` to call `Definition.__init__` but got `typing.Type[GroupBySpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 39,
+    "warning_line": "    name=\"group_by_spec\", primitive=\"Dict[str, Any]\", spec=GroupBySpec",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ngroup_by_spec = Definition(\n    name=\"group_by_spec\", primitive=\"Dict[str, Any]\", spec=GroupBySpec\n)\n\n",
+        "source_code_len": 103,
+        "target_code": "\ngroup_by_spec = Definition(name=\"group_by_spec\", primitive=\"Dict[str, Any]\")\n\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -37,5 +37,3 @@\n \n-group_by_spec = Definition(\n-    name=\"group_by_spec\", primitive=\"Dict[str, Any]\", spec=GroupBySpec\n-)\n+group_by_spec = Definition(name=\"group_by_spec\", primitive=\"Dict[str, Any]\")\n \n",
+        "source_code_with_indent": "\n<DED><DED>group_by_spec = Definition(\n    name=\"group_by_spec\", primitive=\"Dict[str, Any]\", spec=GroupBySpec\n)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>group_by_spec = Definition(name=\"group_by_spec\", primitive=\"Dict[str, Any]\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

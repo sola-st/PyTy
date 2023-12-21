@@ -1,0 +1,51 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "f3e8e7b6680b8a3b84127814ee8cc8058eec9562",
+    "filename": "rasa/graph_components/providers/domain_provider.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/graph_components/providers/domain_provider.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/graph_components/providers/domain_provider.py:63:8 Incompatible return type [7]: Expected `Domain` but got `Optional[Domain]`.",
+    "message": " Expected `Domain` but got `Optional[Domain]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 63,
+    "warning_line": "        return self._domain",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from rasa.engine.storage.storage import ModelStorage\nfrom rasa.shared.core.domain import Domain\n",
+        "source_code_len": 96,
+        "target_code": "from rasa.engine.storage.storage import ModelStorage\nfrom rasa.nlu.config import InvalidConfigError\nfrom rasa.shared.core.domain import Domain\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -6,2 +6,3 @@\n from rasa.engine.storage.storage import ModelStorage\n+from rasa.nlu.config import InvalidConfigError\n from rasa.shared.core.domain import Domain\n",
+        "source_code_with_indent": "from rasa.engine.storage.storage import ModelStorage\nfrom rasa.shared.core.domain import Domain\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from rasa.engine.storage.storage import ModelStorage\nfrom rasa.nlu.config import InvalidConfigError\nfrom rasa.shared.core.domain import Domain\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"Provides the domain during inference.\"\"\"\n        return self._domain\n",
+        "source_code_len": 80,
+        "target_code": "        \"\"\"Provides the domain during inference.\"\"\"\n        if self._domain is None:\n            # This can't really happen but if it happens then we fail early\n            raise InvalidConfigError(\n                \"No domain was found. This is required for \"\n                \"making model predictions. Please make sure to \"\n                \"provide a valid domain during training.\"\n            )\n        return self._domain\n",
+        "target_code_len": 425,
+        "diff_format": "@@ -62,2 +63,9 @@\n         \"\"\"Provides the domain during inference.\"\"\"\n+        if self._domain is None:\n+            # This can't really happen but if it happens then we fail early\n+            raise InvalidConfigError(\n+                \"No domain was found. This is required for \"\n+                \"making model predictions. Please make sure to \"\n+                \"provide a valid domain during training.\"\n+            )\n         return self._domain\n",
+        "source_code_with_indent": "        <IND>\"\"\"Provides the domain during inference.\"\"\"\n        return self._domain\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>\"\"\"Provides the domain during inference.\"\"\"\n        if self._domain is None:\n            # This can't really happen but if it happens then we fail early\n            <IND>raise InvalidConfigError(\n                \"No domain was found. This is required for \"\n                \"making model predictions. Please make sure to \"\n                \"provide a valid domain during training.\"\n            )\n        <DED>return self._domain\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

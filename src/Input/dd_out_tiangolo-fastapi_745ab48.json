@@ -1,0 +1,36 @@
+[
+  {
+    "project": "tiangolo/fastapi",
+    "commit": "745ab48d655937ba0315083e7c0b579da47a7915",
+    "filename": "docs_src/python_types/tutorial010.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tiangolo-fastapi/docs_src/python_types/tutorial010.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "docs_src/python_types/tutorial010.py:10:4 Incompatible attribute type [8]: Attribute `signup_ts` declared in class `User` has type `datetime` but is used as type `None`.",
+    "message": " Attribute `signup_ts` declared in class `User` has type `datetime` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 10,
+    "warning_line": "    signup_ts: datetime = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from datetime import datetime\nfrom typing import List\n\nfrom pydantic import BaseModel\n\n\nclass User(BaseModel):\n    id: int\n    name = \"John Doe\"\n    signup_ts: datetime = None\n    friends: List[int] = []\n\n\nexternal_data = {\n    \"id\": \"123\",\n    \"signup_ts\": \"2017-06-01 12:22\",\n    \"friends\": [1, \"2\", b\"3\"],\n}\nuser = User(**external_data)\nprint(user)\n# > User id=123 name='John Doe' signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]\nprint(user.id)\n# > 123\n",
+        "source_code_len": 473,
+        "target_code": "class Person:\n    def __init__(self, name: str):\n        self.name = name\n\n\ndef get_person_name(one_person: Person):\n    return one_person.name\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -1,23 +1,7 @@\n-from datetime import datetime\n-from typing import List\n-\n-from pydantic import BaseModel\n+class Person:\n+    def __init__(self, name: str):\n+        self.name = name\n \n \n-class User(BaseModel):\n-    id: int\n-    name = \"John Doe\"\n-    signup_ts: datetime = None\n-    friends: List[int] = []\n-\n-\n-external_data = {\n-    \"id\": \"123\",\n-    \"signup_ts\": \"2017-06-01 12:22\",\n-    \"friends\": [1, \"2\", b\"3\"],\n-}\n-user = User(**external_data)\n-print(user)\n-# > User id=123 name='John Doe' signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]\n-print(user.id)\n-# > 123\n+def get_person_name(one_person: Person):\n+    return one_person.name\n",
+        "source_code_with_indent": "from datetime import datetime\nfrom typing import List\n\nfrom pydantic import BaseModel\n\n\nclass User(BaseModel):\n    <IND>id: int\n    name = \"John Doe\"\n    signup_ts: datetime = None\n    friends: List[int] = []\n\n\n<DED>external_data = {\n    \"id\": \"123\",\n    \"signup_ts\": \"2017-06-01 12:22\",\n    \"friends\": [1, \"2\", b\"3\"],\n}\nuser = User(**external_data)\nprint(user)\n# > User id=123 name='John Doe' signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]\nprint(user.id)\n# > 123\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class Person:\n    <IND>def __init__(self, name: str):\n        <IND>self.name = name\n\n\n<DED><DED>def get_person_name(one_person: Person):\n    <IND>return one_person.name\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

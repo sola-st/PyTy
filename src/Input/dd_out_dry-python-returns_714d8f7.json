@@ -1,0 +1,36 @@
+[
+  {
+    "project": "dry-python/returns",
+    "commit": "714d8f702f0e95004ed6ed4e60aa8d3a244998b5",
+    "filename": "returns/interfaces/specific/reader_ioresult.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dry-python-returns/returns/interfaces/specific/reader_ioresult.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "returns/interfaces/specific/reader_ioresult.py:58:8 Incompatible return type [7]: Expected `KindN[Variable[_ReaderIOResultLikeType (bound to ReaderIOResultLikeN[typing.Any, typing.Any, typing.Any])], Variable[_ValueType], Variable[_ErrorType], Variable[_EnvType]]` but got implicit return value of `None`.",
+    "message": " Expected `KindN[Variable[_ReaderIOResultLikeType (bound to ReaderIOResultLikeN[typing.Any, typing.Any, typing.Any])], Variable[_ValueType], Variable[_ErrorType], Variable[_EnvType]]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 58,
+    "warning_line": "        \"\"\"Unit method to create new containers from ``ReaderIOResult``.\"\"\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def from_ioresult_context(\n",
+        "source_code_len": 48,
+        "target_code": "    @classmethod\n    @abstractmethod\n    def from_ioresult_context(\n",
+        "target_code_len": 68,
+        "diff_format": "@@ -53,2 +53,3 @@\n     @classmethod\n+    @abstractmethod\n     def from_ioresult_context(\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def from_ioresult_context(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    @abstractmethod\n    def from_ioresult_context(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

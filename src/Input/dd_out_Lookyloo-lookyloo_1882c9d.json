@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Lookyloo/lookyloo",
+    "commit": "1882c9d71a937d9f0659d6ed0a961662965b4805",
+    "filename": "lookyloo/lookyloo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Lookyloo-lookyloo/lookyloo/lookyloo.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lookyloo/lookyloo.py:96:12 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got `None`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 96,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self.logger.warning(f'Unable to trigger the modules unless the tree ({capture_dir}) is cached.')\n            return\n        return ct.root_hartree.stats\n",
+        "source_code_len": 165,
+        "target_code": "            self.logger.warning(f'Unable to trigger the modules unless the tree ({capture_dir}) is cached.')\n            return {}\n        return ct.root_hartree.stats\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -95,3 +95,3 @@\n             self.logger.warning(f'Unable to trigger the modules unless the tree ({capture_dir}) is cached.')\n-            return\n+            return {}\n         return ct.root_hartree.stats\n",
+        "source_code_with_indent": "            <IND>self.logger.warning(f'Unable to trigger the modules unless the tree ({capture_dir}) is cached.')\n            return\n        <DED>return ct.root_hartree.stats\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>self.logger.warning(f'Unable to trigger the modules unless the tree ({capture_dir}) is cached.')\n            return {}\n        <DED>return ct.root_hartree.stats\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

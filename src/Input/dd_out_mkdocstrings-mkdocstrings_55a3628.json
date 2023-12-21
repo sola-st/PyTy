@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mkdocstrings/mkdocstrings",
+    "commit": "55a36285dc2238d1ffb0b4b8ce3ce4eba282c579",
+    "filename": "src/mkdocstrings/extension.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mkdocstrings-mkdocstrings/src/mkdocstrings/extension.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/mkdocstrings/extension.py:158:26 Incompatible parameter type [6]: Expected `Element` for 1st positional only parameter to call `Element.append` but got `typing.Optional[Element]`.",
+    "message": " Expected `Element` for 1st positional only parameter to call `Element.append` but got `typing.Optional[Element]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 158,
+    "warning_line": "            parent.append(as_xml)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef atomic_brute_cast(tree: Element) -> Union[Element, None]:\n    \"\"\"\n",
+        "source_code_len": 71,
+        "target_code": "\ndef atomic_brute_cast(tree: Element) -> Element:\n    \"\"\"\n",
+        "target_code_len": 58,
+        "diff_format": "@@ -39,3 +39,3 @@\n \n-def atomic_brute_cast(tree: Element) -> Union[Element, None]:\n+def atomic_brute_cast(tree: Element) -> Element:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef atomic_brute_cast(tree: Element) -> Union[Element, None]:\n    <IND>",
+        "target_code_with_indent": "\ndef atomic_brute_cast(tree: Element) -> Element:\n    <IND>"
+      }
+    ]
+  }
+]

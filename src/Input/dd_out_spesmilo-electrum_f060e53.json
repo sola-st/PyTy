@@ -1,0 +1,36 @@
+[
+  {
+    "project": "spesmilo/electrum",
+    "commit": "f060e53912cdbf58d0a0dbb186cd8a82d0d3068b",
+    "filename": "electrum/lnchannel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spesmilo-electrum/electrum/lnchannel.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrum/lnchannel.py:731:8 Incompatible return type [7]: Expected `Tuple[bytes, int, str]` but got `Tuple[bytes, typing.Any]`.",
+    "message": " Expected `Tuple[bytes, int, str]` but got `Tuple[bytes, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 731,
+    "warning_line": "        return sig, closing_tx",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def make_closing_tx(self, local_script: bytes, remote_script: bytes,\n                        fee_sat: int) -> Tuple[bytes, int, str]:\n        \"\"\" cooperative close \"\"\"\n",
+        "source_code_len": 172,
+        "target_code": "    def make_closing_tx(self, local_script: bytes, remote_script: bytes,\n                        fee_sat: int) -> Tuple[bytes, Transaction]:\n        \"\"\" cooperative close \"\"\"\n",
+        "target_code_len": 175,
+        "diff_format": "@@ -709,3 +709,3 @@\n     def make_closing_tx(self, local_script: bytes, remote_script: bytes,\n-                        fee_sat: int) -> Tuple[bytes, int, str]:\n+                        fee_sat: int) -> Tuple[bytes, Transaction]:\n         \"\"\" cooperative close \"\"\"\n",
+        "source_code_with_indent": "    <DED>def make_closing_tx(self, local_script: bytes, remote_script: bytes,\n                        fee_sat: int) -> Tuple[bytes, int, str]:\n        <IND>\"\"\" cooperative close \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def make_closing_tx(self, local_script: bytes, remote_script: bytes,\n                        fee_sat: int) -> Tuple[bytes, Transaction]:\n        <IND>\"\"\" cooperative close \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

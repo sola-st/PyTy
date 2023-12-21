@@ -1,0 +1,70 @@
+[
+  {
+    "project": "procrastinate-org/procrastinate",
+    "commit": "2f87ff44527a91cc7d58f608a42f7be767815727",
+    "filename": "procrastinate/jobs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/procrastinate-org-procrastinate/procrastinate/jobs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "procrastinate/jobs.py:156:8 Incompatible return type [7]: Expected `int` but got `Optional[int]`.",
+    "message": " Expected `int` but got `Optional[int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 156,
+    "warning_line": "        return job.id",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._log_after_defer_job(job=job)\n        return job.id\n",
+        "source_code_len": 65,
+        "target_code": "        self._log_after_defer_job(job=job)\n        assert job.id  # for mypy\n        return job.id\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -155,2 +155,3 @@\n         self._log_after_defer_job(job=job)\n+        assert job.id  # for mypy\n         return job.id\n",
+        "source_code_with_indent": "        self._log_after_defer_job(job=job)\n        return job.id\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._log_after_defer_job(job=job)\n        assert job.id  # for mypy\n        return job.id\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "procrastinate-org/procrastinate",
+    "commit": "2f87ff44527a91cc7d58f608a42f7be767815727",
+    "filename": "procrastinate/jobs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/procrastinate-org-procrastinate/procrastinate/jobs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "procrastinate/jobs.py:164:8 Incompatible return type [7]: Expected `int` but got `Optional[int]`.",
+    "message": " Expected `int` but got `Optional[int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 164,
+    "warning_line": "        return job.id",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._log_after_defer_job(job=job)\n        return job.id\n",
+        "source_code_len": 65,
+        "target_code": "        self._log_after_defer_job(job=job)\n        assert job.id  # for mypy\n        return job.id\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -163,2 +164,3 @@\n         self._log_after_defer_job(job=job)\n+        assert job.id  # for mypy\n         return job.id\n",
+        "source_code_with_indent": "        self._log_after_defer_job(job=job)\n        return job.id\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._log_after_defer_job(job=job)\n        assert job.id  # for mypy\n        return job.id\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

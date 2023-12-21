@@ -1,0 +1,36 @@
+[
+  {
+    "project": "vyperlang/vyper",
+    "commit": "a83e7889b7f7b71917677c6114d1b793edd0cae3",
+    "filename": "vyper/ast/natspec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vyperlang-vyper/vyper/ast/natspec.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vyper/ast/natspec.py:59:61 Incompatible parameter type [6]: Expected `Optional[typing.Dict[str, str]]` for 2nd positional only parameter to call `GlobalContext.get_global_context` but got `Union[None, typing.Dict[str, typing.Dict[str, str]], typing.Dict[str, str]]`.",
+    "message": " Expected `Optional[typing.Dict[str, str]]` for 2nd positional only parameter to call `GlobalContext.get_global_context` but got `Union[None, typing.Dict[str, typing.Dict[str, str]], typing.Dict[str, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 59,
+    "warning_line": "    global_ctx = GlobalContext.get_global_context(vyper_ast, interface_codes)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    vyper_ast: vy_ast.Module,\n    interface_codes: Union[InterfaceDict, InterfaceImports, None] = None,\n) -> Tuple[dict, dict]:\n",
+        "source_code_len": 128,
+        "target_code": "    vyper_ast: vy_ast.Module,\n    interface_codes: Optional[InterfaceImports] = None,\n) -> Tuple[dict, dict]:\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -35,3 +33,3 @@\n     vyper_ast: vy_ast.Module,\n-    interface_codes: Union[InterfaceDict, InterfaceImports, None] = None,\n+    interface_codes: Optional[InterfaceImports] = None,\n ) -> Tuple[dict, dict]:\n",
+        "source_code_with_indent": "    vyper_ast: vy_ast.Module,\n    interface_codes: Union[InterfaceDict, InterfaceImports, None] = None,\n) -> Tuple[dict, dict]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    vyper_ast: vy_ast.Module,\n    interface_codes: Optional[InterfaceImports] = None,\n) -> Tuple[dict, dict]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

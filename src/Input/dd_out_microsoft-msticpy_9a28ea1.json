@@ -1,0 +1,70 @@
+[
+  {
+    "project": "microsoft/msticpy",
+    "commit": "9a28ea1687acb5e18a44219fd090ad3ed83b0228",
+    "filename": "msticpy/sectools/tiproviders/ti_provider_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/microsoft-msticpy/msticpy/sectools/tiproviders/ti_provider_base.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "msticpy/sectools/tiproviders/ti_provider_base.py:126:4 Incompatible attribute type [8]: Attribute `safe_ioc` declared in class `LookupResult` has type `str` but is used as type `None`.",
+    "message": " Attribute `safe_ioc` declared in class `LookupResult` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 126,
+    "warning_line": "    safe_ioc: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ioc_type: str\n    safe_ioc: str = None\n    query_subtype: Optional[str] = None\n",
+        "source_code_len": 83,
+        "target_code": "    ioc_type: str\n    safe_ioc: str = \"\"\n    query_subtype: Optional[str] = None\n",
+        "target_code_len": 81,
+        "diff_format": "@@ -125,3 +125,3 @@\n     ioc_type: str\n-    safe_ioc: str = None\n+    safe_ioc: str = \"\"\n     query_subtype: Optional[str] = None\n",
+        "source_code_with_indent": "    ioc_type: str\n    safe_ioc: str = None\n    query_subtype: Optional[str] = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ioc_type: str\n    safe_ioc: str = \"\"\n    query_subtype: Optional[str] = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "microsoft/msticpy",
+    "commit": "9a28ea1687acb5e18a44219fd090ad3ed83b0228",
+    "filename": "msticpy/sectools/tiproviders/ti_provider_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/microsoft-msticpy/msticpy/sectools/tiproviders/ti_provider_base.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "msticpy/sectools/tiproviders/ti_provider_base.py:588:31 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `quote_plus` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `quote_plus` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 588,
+    "warning_line": "        clean_url = quote_plus(clean_url)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                pass\n    if require_url_encoding is True:\n        clean_url = quote_plus(clean_url)\n",
+        "source_code_len": 100,
+        "target_code": "                pass\n    if require_url_encoding and clean_url:\n        clean_url = quote_plus(clean_url)\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -586,3 +586,3 @@\n                 pass\n-    if require_url_encoding is True:\n+    if require_url_encoding and clean_url:\n         clean_url = quote_plus(clean_url)\n",
+        "source_code_with_indent": "                <IND>pass\n    <DED><DED><DED>if require_url_encoding is True:\n        <IND>clean_url = quote_plus(clean_url)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>pass\n    <DED><DED><DED>if require_url_encoding and clean_url:\n        <IND>clean_url = quote_plus(clean_url)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

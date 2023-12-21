@@ -1,0 +1,100 @@
+[
+  {
+    "project": "twisted/twisted",
+    "commit": "3a16b66f6cce817e347cf7a83a0fa9e9c8a952b8",
+    "filename": "src/twisted/python/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/twisted-twisted/src/twisted/python/util.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/twisted/python/util.py:660:31 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `getattr` but got `Union[Sequence[str], Tuple[str, typing.Callable[..., typing.Any]], str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `getattr` but got `Union[Sequence[str], Tuple[str, typing.Callable[..., typing.Any]], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 660,
+    "warning_line": "                [getattr(self, name) for name in self.compareAttributes] ==",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Callable, Mapping, MutableMapping, Sequence, Union, Tuple\n\n",
+        "source_code_len": 79,
+        "target_code": "\nfrom typing import (Callable, ClassVar, Mapping, MutableMapping, Sequence,\n                    Union, Tuple)\n\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -28,3 +28,4 @@\n \n-from typing import Callable, Mapping, MutableMapping, Sequence, Union, Tuple\n+from typing import (Callable, ClassVar, Mapping, MutableMapping, Sequence,\n+                    Union, Tuple)\n \n",
+        "source_code_with_indent": "\n<DED>from typing import Callable, Mapping, MutableMapping, Sequence, Union, Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>from typing import (Callable, ClassVar, Mapping, MutableMapping, Sequence,\n                    Union, Tuple)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    compareAttributes = ()  # type: Sequence[Union[str, Sequence[str], Tuple[str, Callable]]]  # noqa\n\n",
+        "source_code_len": 111,
+        "target_code": "    \"\"\"\n    compareAttributes = ()  # type: ClassVar[Sequence[str]]\n\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -652,3 +653,3 @@\n     \"\"\"\n-    compareAttributes = ()  # type: Sequence[Union[str, Sequence[str], Tuple[str, Callable]]]  # noqa\n+    compareAttributes = ()  # type: ClassVar[Sequence[str]]\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    compareAttributes = ()  # type: Sequence[Union[str, Sequence[str], Tuple[str, Callable]]]  # noqa\n\n",
+        "target_code_with_indent": "\n    compareAttributes = ()  # type: ClassVar[Sequence[str]]\n\n"
+      }
+    ]
+  },
+  {
+    "project": "twisted/twisted",
+    "commit": "3a16b66f6cce817e347cf7a83a0fa9e9c8a952b8",
+    "filename": "src/twisted/python/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/twisted-twisted/src/twisted/python/util.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/twisted/python/util.py:661:32 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `getattr` but got `Union[Sequence[str], Tuple[str, typing.Callable[..., typing.Any]], str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `getattr` but got `Union[Sequence[str], Tuple[str, typing.Callable[..., typing.Any]], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 661,
+    "warning_line": "                [getattr(other, name) for name in self.compareAttributes])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Callable, Mapping, MutableMapping, Sequence, Union, Tuple\n\n",
+        "source_code_len": 79,
+        "target_code": "\nfrom typing import (Callable, ClassVar, Mapping, MutableMapping, Sequence,\n                    Union, Tuple)\n\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -28,3 +28,4 @@\n \n-from typing import Callable, Mapping, MutableMapping, Sequence, Union, Tuple\n+from typing import (Callable, ClassVar, Mapping, MutableMapping, Sequence,\n+                    Union, Tuple)\n \n",
+        "source_code_with_indent": "\n<DED>from typing import Callable, Mapping, MutableMapping, Sequence, Union, Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>from typing import (Callable, ClassVar, Mapping, MutableMapping, Sequence,\n                    Union, Tuple)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    compareAttributes = ()  # type: Sequence[Union[str, Sequence[str], Tuple[str, Callable]]]  # noqa\n\n",
+        "source_code_len": 111,
+        "target_code": "    \"\"\"\n    compareAttributes = ()  # type: ClassVar[Sequence[str]]\n\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -652,3 +653,3 @@\n     \"\"\"\n-    compareAttributes = ()  # type: Sequence[Union[str, Sequence[str], Tuple[str, Callable]]]  # noqa\n+    compareAttributes = ()  # type: ClassVar[Sequence[str]]\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    compareAttributes = ()  # type: Sequence[Union[str, Sequence[str], Tuple[str, Callable]]]  # noqa\n\n",
+        "target_code_with_indent": "\n    compareAttributes = ()  # type: ClassVar[Sequence[str]]\n\n"
+      }
+    ]
+  }
+]

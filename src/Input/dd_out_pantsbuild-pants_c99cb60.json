@@ -1,0 +1,63 @@
+[
+  {
+    "project": "pantsbuild/pants",
+    "commit": "c99cb604fe7347a18c29b56d153196f2f45ca487",
+    "filename": "src/python/pants/engine/selectors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pantsbuild-pants/src/python/pants/engine/selectors.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/python/pants/engine/selectors.py:115:20 Invalid type [31]: Expression `pants.util.objects.datatype([\"product\", \"variant_key\"])` is not a valid type.",
+    "message": " Expression `pants.util.objects.datatype([\"product\", \"variant_key\"])` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 115,
+    "warning_line": "class SelectVariant(datatype(['product', 'variant_key']), Selector):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "                             ', optional=True' if self.optional else '')\n\n\nclass SelectVariant(datatype(['product', 'variant_key']), Selector):\n  \"\"\"Selects the matching Product and variant name for the Subject provided to the constructor.\n\n  For example: a SelectVariant with a variant_key of \"thrift\" and a product of type ApacheThrift\n  will only match when a consumer passes a variant value for \"thrift\" that matches the name of an\n  ApacheThrift value.\n  \"\"\"\n  optional = False\n\n  def __new__(cls, product, variant_key):\n    if not isinstance(variant_key, six.string_types):\n      raise ValueError('Expected variant_key to be a string, but was {!r}'.format(variant_key))\n    return super(SelectVariant, cls).__new__(cls, product, variant_key)\n\n  def __repr__(self):\n    return '{}({}, {})'.format(type(self).__name__,\n                               type_or_constraint_repr(self.product),\n                               repr(self.variant_key))\n",
+        "source_code_len": 948,
+        "target_code": "                             ', optional=True' if self.optional else '')\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -112,21 +110,1 @@\n                              ', optional=True' if self.optional else '')\n-\n-\n-class SelectVariant(datatype(['product', 'variant_key']), Selector):\n-  \"\"\"Selects the matching Product and variant name for the Subject provided to the constructor.\n-\n-  For example: a SelectVariant with a variant_key of \"thrift\" and a product of type ApacheThrift\n-  will only match when a consumer passes a variant value for \"thrift\" that matches the name of an\n-  ApacheThrift value.\n-  \"\"\"\n-  optional = False\n-\n-  def __new__(cls, product, variant_key):\n-    if not isinstance(variant_key, six.string_types):\n-      raise ValueError('Expected variant_key to be a string, but was {!r}'.format(variant_key))\n-    return super(SelectVariant, cls).__new__(cls, product, variant_key)\n-\n-  def __repr__(self):\n-    return '{}({}, {})'.format(type(self).__name__,\n-                               type_or_constraint_repr(self.product),\n-                               repr(self.variant_key))\n",
+        "source_code_with_indent": "                             ', optional=True' if self.optional else '')\n\n\n<DED><DED>class SelectVariant(datatype(['product', 'variant_key']), Selector):\n  <IND>\"\"\"Selects the matching Product and variant name for the Subject provided to the constructor.\n\n  For example: a SelectVariant with a variant_key of \"thrift\" and a product of type ApacheThrift\n  will only match when a consumer passes a variant value for \"thrift\" that matches the name of an\n  ApacheThrift value.\n  \"\"\"\n  optional = False\n\n  def __new__(cls, product, variant_key):\n    <IND>if not isinstance(variant_key, six.string_types):\n      <IND>raise ValueError('Expected variant_key to be a string, but was {!r}'.format(variant_key))\n    <DED>return super(SelectVariant, cls).__new__(cls, product, variant_key)\n\n  <DED>def __repr__(self):\n    <IND>return '{}({}, {})'.format(type(self).__name__,\n                               type_or_constraint_repr(self.product),\n                               repr(self.variant_key))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                             ', optional=True' if self.optional else '')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pantsbuild/pants",
+    "commit": "c99cb604fe7347a18c29b56d153196f2f45ca487",
+    "filename": "tests/python/pants_test/engine/examples/planners.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/python/pants_test/engine/examples/planners.py:96:21 Invalid type [31]: Expression `pants.util.objects.datatype([\"name\"])` is not a valid type.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/pantsbuild-pants/tests/python/pants_test/engine/examples/planners.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "pantsbuild/pants",
+    "commit": "c99cb604fe7347a18c29b56d153196f2f45ca487",
+    "filename": "tests/python/pants_test/engine/examples/planners.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/python/pants_test/engine/examples/planners.py:101:18 Invalid type [31]: Expression `pants.util.objects.datatype([\"srcroots\"])` is not a valid type.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/pantsbuild-pants/tests/python/pants_test/engine/examples/planners.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "pantsbuild/pants",
+    "commit": "c99cb604fe7347a18c29b56d153196f2f45ca487",
+    "filename": "tests/python/pants_test/engine/examples/planners.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/python/pants_test/engine/examples/planners.py:287:14 Invalid type [31]: Expression `pants.util.objects.datatype([\"tool_address\"])` is not a valid type.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/pantsbuild-pants/tests/python/pants_test/engine/examples/planners.py'",
+    "dd_fail": true
+  }
+]

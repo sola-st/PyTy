@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "3490222f361f8346944939f5c5d6d7e77bbe6df7",
+    "filename": "rasa/model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/model.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/model.py:70:35 Incompatible variable type [9]: working_directory is declared to have type `str` but is used as type `None`.",
+    "message": " working_directory is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 70,
+    "warning_line": "def unpack_model(model_file: Text, working_directory: Text = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef unpack_model(model_file: Text, working_directory: Text = None,\n                 subdirectories: bool = False\n",
+        "source_code_len": 114,
+        "target_code": "\ndef unpack_model(model_file: Text, working_directory: Optional[Text] = None,\n                 subdirectories: bool = False\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -69,3 +69,3 @@\n \n-def unpack_model(model_file: Text, working_directory: Text = None,\n+def unpack_model(model_file: Text, working_directory: Optional[Text] = None,\n                  subdirectories: bool = False\n",
+        "source_code_with_indent": "\n<DED>def unpack_model(model_file: Text, working_directory: Text = None,\n                 subdirectories: bool = False\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def unpack_model(model_file: Text, working_directory: Optional[Text] = None,\n                 subdirectories: bool = False\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

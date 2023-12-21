@@ -1,0 +1,36 @@
+[
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "058ca7f9079951a2ac1108f72b06e77583297188",
+    "filename": "nio/api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-matrix-nio/nio/api.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nio/api.py:237:8 Incompatible return type [7]: Expected `Tuple[str, str, str]` but got `Tuple[str, str]`.",
+    "message": " Expected `Tuple[str, str, str]` but got `Tuple[str, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 237,
+    "warning_line": "        return \"GET\", path",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def login_info():\n        # type: (...) -> Tuple[str, str, str]\n        \"\"\"Get the homeserver's supported login types\n",
+        "source_code_len": 122,
+        "target_code": "    def login_info():\n        # type: (...) -> Tuple[str, str]\n        \"\"\"Get the homeserver's supported login types\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -228,3 +228,3 @@\n     def login_info():\n-        # type: (...) -> Tuple[str, str, str]\n+        # type: (...) -> Tuple[str, str]\n         \"\"\"Get the homeserver's supported login types\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    def login_info():\n        # type: (...) -> Tuple[str, str, str]\n        <IND>",
+        "target_code_with_indent": "    def login_info():\n        # type: (...) -> Tuple[str, str]\n        <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "2c2873c68a02e853950b9edd6ee2b2b2cea1d1c9",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:321:4 Incompatible attribute type [8]: Attribute `weak_opts` declared in class `TypeChecker` has type `Set[str]` but is used as type `Dict[Variable[_KT], Variable[_VT]]`.",
+    "message": " Attribute `weak_opts` declared in class `TypeChecker` has type `Set[str]` but is used as type `Dict[Variable[_KT], Variable[_VT]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 321,
+    "warning_line": "    weak_opts = {}        # type: Set[str]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # Do weak type checking in this file\n    weak_opts = {}        # type: Set[str]\n\n",
+        "source_code_len": 85,
+        "target_code": "    # Do weak type checking in this file\n    weak_opts = set()        # type: Set[str]\n\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -320,3 +320,3 @@\n     # Do weak type checking in this file\n-    weak_opts = {}        # type: Set[str]\n+    weak_opts = set()        # type: Set[str]\n \n",
+        "source_code_with_indent": "    # Do weak type checking in this file\n    weak_opts = {}        # type: Set[str]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # Do weak type checking in this file\n    weak_opts = set()        # type: Set[str]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "2c2873c68a02e853950b9edd6ee2b2b2cea1d1c9",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:347:8 Incompatible attribute type [8]: Attribute `weak_opts` declared in class `TypeChecker` has type `Set[str]` but is used as type `Dict[Variable[_KT], Variable[_VT]]`.",
+    "message": " Attribute `weak_opts` declared in class `TypeChecker` has type `Set[str]` but is used as type `Dict[Variable[_KT], Variable[_VT]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 347,
+    "warning_line": "        self.weak_opts = {}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.function_stack = []\n        self.weak_opts = {}\n\n",
+        "source_code_len": 62,
+        "target_code": "        self.function_stack = []\n        self.weak_opts = set()  # type: Set[str]\n\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -346,3 +346,3 @@\n         self.function_stack = []\n-        self.weak_opts = {}\n+        self.weak_opts = set()  # type: Set[str]\n \n",
+        "source_code_with_indent": "        self.function_stack = []\n        self.weak_opts = {}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.function_stack = []\n        self.weak_opts = set()  # type: Set[str]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "2c2873c68a02e853950b9edd6ee2b2b2cea1d1c9",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:1920:12 Incompatible return type [7]: Expected `bool` but got `Set[str]`.",
+    "message": " Expected `bool` but got `Set[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1920,
+    "warning_line": "            return self.weak_opts",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if self.is_dynamic_function():\n            return self.weak_opts\n        elif self.function_stack:\n",
+        "source_code_len": 107,
+        "target_code": "        if self.is_dynamic_function():\n            return bool(self.weak_opts)\n        elif self.function_stack:\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -1919,3 +1919,3 @@\n         if self.is_dynamic_function():\n-            return self.weak_opts\n+            return bool(self.weak_opts)\n         elif self.function_stack:\n",
+        "source_code_with_indent": "        <IND>if self.is_dynamic_function():\n            <IND>return self.weak_opts\n        <DED>elif self.function_stack:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>if self.is_dynamic_function():\n            <IND>return bool(self.weak_opts)\n        <DED>elif self.function_stack:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

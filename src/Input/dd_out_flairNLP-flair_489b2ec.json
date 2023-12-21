@@ -1,0 +1,70 @@
+[
+  {
+    "project": "flairNLP/flair",
+    "commit": "489b2ec261f5db32513e21174deb0d22aefcfdb6",
+    "filename": "flair/data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/data.py",
+    "file_hunks_size": 8,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/data.py:28:15 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `flair.datasets.base.DataLoader`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `flair.datasets.base.DataLoader`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 28,
+    "warning_line": "    return len(_iter_dataset(dataset))"
+  },
+  {
+    "project": "flairNLP/flair",
+    "commit": "489b2ec261f5db32513e21174deb0d22aefcfdb6",
+    "filename": "flair/data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/data.py",
+    "file_hunks_size": 8,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/data.py:1364:48 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T1]]` for 2nd positional only parameter to call `map.__init__` but got `flair.datasets.base.DataLoader`.",
+    "message": " Expected `typing.Iterable[Variable[_T1]]` for 2nd positional only parameter to call `map.__init__` but got `flair.datasets.base.DataLoader`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1364,
+    "warning_line": "        tokens = list(map((lambda s: s.tokens), _iter_dataset(self.train)))"
+  },
+  {
+    "project": "flairNLP/flair",
+    "commit": "489b2ec261f5db32513e21174deb0d22aefcfdb6",
+    "filename": "flair/data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/data.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/data.py:1475:36 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `iter` but got `flair.datasets.base.DataLoader`.",
+    "message": " Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `iter` but got `flair.datasets.base.DataLoader`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1475,
+    "warning_line": "        for batch in Tqdm.tqdm(iter(loader)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        all_sentence_labels: List[str] = []\n        for batch in Tqdm.tqdm(iter(loader)):\n\n            for sentence in batch:\n\n                # check for labels of words\n                if isinstance(sentence, Sentence):\n                    for token in sentence.tokens:\n                        all_label_types.update(token.annotation_layers.keys())\n                        for label in token.get_labels(label_type):\n                            label_dictionary.add_item(label.value)\n                            token_labels_exist = True\n\n                # if we are looking for sentence-level labels\n                if not token_labels_exist:\n                    # check if sentence itself has labels\n                    labels = sentence.get_labels(label_type)\n                    all_label_types.update(sentence.annotation_layers.keys())\n\n                    for label in labels:\n                        if label.value not in all_sentence_labels: all_sentence_labels.append(\n                            label.value)\n\n                    if not label_dictionary.multi_label:\n                        if len(labels) > 1:\n                            label_dictionary.multi_label = True\n\n",
+        "source_code_len": 1187,
+        "target_code": "        all_sentence_labels: List[str] = []\n        for sentence in Tqdm.tqdm(_iter_dataset(data)):\n            # check for labels of words\n            if isinstance(sentence, Sentence):\n                for token in sentence.tokens:\n                    all_label_types.update(token.annotation_layers.keys())\n                    for label in token.get_labels(label_type):\n                        label_dictionary.add_item(label.value)\n                        token_labels_exist = True\n\n            # if we are looking for sentence-level labels\n            if not token_labels_exist:\n                # check if sentence itself has labels\n                labels = sentence.get_labels(label_type)\n                all_label_types.update(sentence.annotation_layers.keys())\n\n                for label in labels:\n                    if label.value not in all_sentence_labels: all_sentence_labels.append(\n                        label.value)\n\n                if not label_dictionary.multi_label:\n                    if len(labels) > 1:\n                        label_dictionary.multi_label = True\n\n",
+        "target_code_len": 1088,
+        "diff_format": "@@ -1474,27 +1462,24 @@\n         all_sentence_labels: List[str] = []\n-        for batch in Tqdm.tqdm(iter(loader)):\n-\n-            for sentence in batch:\n-\n-                # check for labels of words\n-                if isinstance(sentence, Sentence):\n-                    for token in sentence.tokens:\n-                        all_label_types.update(token.annotation_layers.keys())\n-                        for label in token.get_labels(label_type):\n-                            label_dictionary.add_item(label.value)\n-                            token_labels_exist = True\n-\n-                # if we are looking for sentence-level labels\n-                if not token_labels_exist:\n-                    # check if sentence itself has labels\n-                    labels = sentence.get_labels(label_type)\n-                    all_label_types.update(sentence.annotation_layers.keys())\n-\n-                    for label in labels:\n-                        if label.value not in all_sentence_labels: all_sentence_labels.append(\n-                            label.value)\n-\n-                    if not label_dictionary.multi_label:\n-                        if len(labels) > 1:\n-                            label_dictionary.multi_label = True\n+        for sentence in Tqdm.tqdm(_iter_dataset(data)):\n+            # check for labels of words\n+            if isinstance(sentence, Sentence):\n+                for token in sentence.tokens:\n+                    all_label_types.update(token.annotation_layers.keys())\n+                    for label in token.get_labels(label_type):\n+                        label_dictionary.add_item(label.value)\n+                        token_labels_exist = True\n+\n+            # if we are looking for sentence-level labels\n+            if not token_labels_exist:\n+                # check if sentence itself has labels\n+                labels = sentence.get_labels(label_type)\n+                all_label_types.update(sentence.annotation_layers.keys())\n+\n+                for label in labels:\n+                    if label.value not in all_sentence_labels: all_sentence_labels.append(\n+                        label.value)\n+\n+                if not label_dictionary.multi_label:\n+                    if len(labels) > 1:\n+                        label_dictionary.multi_label = True\n \n",
+        "source_code_with_indent": "        all_sentence_labels: List[str] = []\n        for batch in Tqdm.tqdm(iter(loader)):\n\n            <IND>for sentence in batch:\n\n                # check for labels of words\n                <IND>if isinstance(sentence, Sentence):\n                    <IND>for token in sentence.tokens:\n                        <IND>all_label_types.update(token.annotation_layers.keys())\n                        for label in token.get_labels(label_type):\n                            <IND>label_dictionary.add_item(label.value)\n                            token_labels_exist = True\n\n                # if we are looking for sentence-level labels\n                <DED><DED><DED>if not token_labels_exist:\n                    # check if sentence itself has labels\n                    <IND>labels = sentence.get_labels(label_type)\n                    all_label_types.update(sentence.annotation_layers.keys())\n\n                    for label in labels:\n                        <IND>if label.value not in all_sentence_labels: all_sentence_labels.append(\n                            label.value)\n\n                    <DED>if not label_dictionary.multi_label:\n                        <IND>if len(labels) > 1:\n                            <IND>label_dictionary.multi_label = True\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        all_sentence_labels: List[str] = []\n        for sentence in Tqdm.tqdm(_iter_dataset(data)):\n            # check for labels of words\n            <IND>if isinstance(sentence, Sentence):\n                <IND>for token in sentence.tokens:\n                    <IND>all_label_types.update(token.annotation_layers.keys())\n                    for label in token.get_labels(label_type):\n                        <IND>label_dictionary.add_item(label.value)\n                        token_labels_exist = True\n\n            # if we are looking for sentence-level labels\n            <DED><DED><DED>if not token_labels_exist:\n                # check if sentence itself has labels\n                <IND>labels = sentence.get_labels(label_type)\n                all_label_types.update(sentence.annotation_layers.keys())\n\n                for label in labels:\n                    <IND>if label.value not in all_sentence_labels: all_sentence_labels.append(\n                        label.value)\n\n                <DED>if not label_dictionary.multi_label:\n                    <IND>if len(labels) > 1:\n                        <IND>label_dictionary.multi_label = True\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

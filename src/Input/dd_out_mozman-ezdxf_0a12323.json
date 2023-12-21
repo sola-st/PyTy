@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "0a123233755a785516ab1126344b7ca807ca7d2d",
+    "filename": "src/ezdxf/addons/drawing/text.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/drawing/text.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/drawing/text.py:261:4 Incompatible return type [7]: Expected `Tuple[Tuple[float, float], List[float], List[float]]` but got `Tuple[Tuple[float, float], Union[List[float], List[int]], List[typing.Any]]`.",
+    "message": " Expected `Tuple[Tuple[float, float], List[float], List[float]]` but got `Tuple[Tuple[float, float], Union[List[float], List[int]], List[typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 261,
+    "warning_line": "    return (anchor_x, anchor_y), line_xs, line_ys",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if halign == HAlignment.LEFT:\n        anchor_x = 0\n        line_xs = [0] * len(line_widths)\n    elif halign == HAlignment.CENTER:\n",
+        "source_code_len": 134,
+        "target_code": "    if halign == HAlignment.LEFT:\n        anchor_x = 0.\n        line_xs = [0.] * len(line_widths)\n    elif halign == HAlignment.CENTER:\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -234,4 +234,4 @@\n     if halign == HAlignment.LEFT:\n-        anchor_x = 0\n-        line_xs = [0] * len(line_widths)\n+        anchor_x = 0.\n+        line_xs = [0.] * len(line_widths)\n     elif halign == HAlignment.CENTER:\n",
+        "source_code_with_indent": "    if halign == HAlignment.LEFT:\n        <IND>anchor_x = 0\n        line_xs = [0] * len(line_widths)\n    <DED>elif halign == HAlignment.CENTER:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if halign == HAlignment.LEFT:\n        <IND>anchor_x = 0.\n        line_xs = [0.] * len(line_widths)\n    <DED>elif halign == HAlignment.CENTER:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

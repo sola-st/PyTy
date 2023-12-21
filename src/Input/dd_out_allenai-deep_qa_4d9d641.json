@@ -1,0 +1,36 @@
+[
+  {
+    "project": "allenai/deep_qa",
+    "commit": "4d9d64113c7f87459df15ec12b258e825764d341",
+    "filename": "src/main/python/deep_qa/training/trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-deep_qa/src/main/python/deep_qa/training/trainer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/main/python/deep_qa/training/trainer.py:380:75 Unsupported operand [58]: `+` is not supported for operand types `typing.Set[str]` and `typing.Set[str]`.",
+    "message": " `+` is not supported for operand types `typing.Set[str]` and `typing.Set[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 380,
+    "warning_line": "            raise ConfigurationError(\"Unmatched debug layer names: \" + str(layer_names + mask_names))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if len(layer_names) != 0 or len(mask_names):\n            raise ConfigurationError(\"Unmatched debug layer names: \" + str(layer_names + mask_names))\n        # The outputs need to be in the same order as `debug_layer_names`, or downstream code will\n",
+        "source_code_len": 254,
+        "target_code": "        if len(layer_names) != 0 or len(mask_names):\n            raise ConfigurationError(\"Unmatched debug layer names: \" + str(layer_names | mask_names))\n        # The outputs need to be in the same order as `debug_layer_names`, or downstream code will\n",
+        "target_code_len": 254,
+        "diff_format": "@@ -379,3 +379,3 @@\n         if len(layer_names) != 0 or len(mask_names):\n-            raise ConfigurationError(\"Unmatched debug layer names: \" + str(layer_names + mask_names))\n+            raise ConfigurationError(\"Unmatched debug layer names: \" + str(layer_names | mask_names))\n         # The outputs need to be in the same order as `debug_layer_names`, or downstream code will\n",
+        "source_code_with_indent": "        <DED><DED>if len(layer_names) != 0 or len(mask_names):\n            <IND>raise ConfigurationError(\"Unmatched debug layer names: \" + str(layer_names + mask_names))\n        # The outputs need to be in the same order as `debug_layer_names`, or downstream code will\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED><DED>if len(layer_names) != 0 or len(mask_names):\n            <IND>raise ConfigurationError(\"Unmatched debug layer names: \" + str(layer_names | mask_names))\n        # The outputs need to be in the same order as `debug_layer_names`, or downstream code will\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

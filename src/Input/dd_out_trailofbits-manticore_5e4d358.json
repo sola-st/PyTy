@@ -1,0 +1,36 @@
+[
+  {
+    "project": "trailofbits/manticore",
+    "commit": "5e4d358408d6153761b9e20a72b27afda3ef48ea",
+    "filename": "manticore/core/smtlib/solver.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-manticore/manticore/core/smtlib/solver.py",
+    "file_hunks_size": 24,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "manticore/core/smtlib/solver.py:409:8 Incompatible return type [7]: Expected `Tuple[Variable[_T_co](covariant)]` but got `Tuple[Dict[typing.Any, typing.Any], str]`.",
+    "message": " Expected `Tuple[Variable[_T_co](covariant)]` but got `Tuple[Dict[typing.Any, typing.Any], str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 409,
+    "warning_line": "        return {value[0]: _convert(value[1]) for value in return_values}, ret_solver",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __getvalue_all(\n        self, expressions_str: List[str], is_bv: List[bool]\n    ) -> Tuple[Dict[str, int], str]:\n        all_expressions_str = \" \".join(expressions_str)\n        self._smtlib.send(f\"(get-value ({all_expressions_str}))\")\n        ret_solver = self._smtlib.recv()\n        return_values = re.findall(RE_GET_EXPR_VALUE_ALL, ret_solver)\n        return {value[0]: _convert(value[1]) for value in return_values}, ret_solver\n\n",
+        "source_code_len": 441,
+        "target_code": "\n    def __getvalue_all(self, expressions_str: List[str], is_bv: List[bool]) -> Dict[str, int]:\n        all_expressions_str = \" \".join(expressions_str)\n        self._smtlib.send(f\"(get-value ({all_expressions_str}))\")\n        ret_solver: Optional[str] = self._smtlib.recv()\n        assert ret_solver is not None\n        return_values = re.findall(RE_GET_EXPR_VALUE_ALL, ret_solver)\n        return {value[0]: _convert(value[1]) for value in return_values}\n\n",
+        "target_code_len": 456,
+        "diff_format": "@@ -401,10 +448,9 @@\n \n-    def __getvalue_all(\n-        self, expressions_str: List[str], is_bv: List[bool]\n-    ) -> Tuple[Dict[str, int], str]:\n+    def __getvalue_all(self, expressions_str: List[str], is_bv: List[bool]) -> Dict[str, int]:\n         all_expressions_str = \" \".join(expressions_str)\n         self._smtlib.send(f\"(get-value ({all_expressions_str}))\")\n-        ret_solver = self._smtlib.recv()\n+        ret_solver: Optional[str] = self._smtlib.recv()\n+        assert ret_solver is not None\n         return_values = re.findall(RE_GET_EXPR_VALUE_ALL, ret_solver)\n-        return {value[0]: _convert(value[1]) for value in return_values}, ret_solver\n+        return {value[0]: _convert(value[1]) for value in return_values}\n \n",
+        "source_code_with_indent": "\n    <DED>def __getvalue_all(\n        self, expressions_str: List[str], is_bv: List[bool]\n    ) -> Tuple[Dict[str, int], str]:\n        <IND>all_expressions_str = \" \".join(expressions_str)\n        self._smtlib.send(f\"(get-value ({all_expressions_str}))\")\n        ret_solver = self._smtlib.recv()\n        return_values = re.findall(RE_GET_EXPR_VALUE_ALL, ret_solver)\n        return {value[0]: _convert(value[1]) for value in return_values}, ret_solver\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __getvalue_all(self, expressions_str: List[str], is_bv: List[bool]) -> Dict[str, int]:\n        <IND>all_expressions_str = \" \".join(expressions_str)\n        self._smtlib.send(f\"(get-value ({all_expressions_str}))\")\n        ret_solver: Optional[str] = self._smtlib.recv()\n        assert ret_solver is not None\n        return_values = re.findall(RE_GET_EXPR_VALUE_ALL, ret_solver)\n        return {value[0]: _convert(value[1]) for value in return_values}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

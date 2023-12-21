@@ -1,0 +1,104 @@
+[
+  {
+    "project": "oppia/oppia",
+    "commit": "186435d09d37e210e07489a670b630f867d32b6e",
+    "filename": "utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/oppia-oppia/utils.py",
+    "file_hunks_size": 22,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "utils.py:337:33 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `base64.b64encode` but got `str`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `base64.b64encode` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 337,
+    "warning_line": "                base64.b64encode(content))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            PNG_DATA_URL_PREFIX,\n            python_utils.url_quote( # type: ignore[no-untyped-call]\n                base64.b64encode(content))\n        )\n",
+        "source_code_len": 154,
+        "target_code": "            PNG_DATA_URL_PREFIX,\n            python_utils.url_quote(base64.b64encode(content)) # type: ignore[no-untyped-call]\n        )\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -335,4 +335,3 @@\n             PNG_DATA_URL_PREFIX,\n-            python_utils.url_quote( # type: ignore[no-untyped-call]\n-                base64.b64encode(content))\n+            python_utils.url_quote(base64.b64encode(content)) # type: ignore[no-untyped-call]\n         )\n",
+        "source_code_with_indent": "            PNG_DATA_URL_PREFIX,\n            python_utils.url_quote( # type: ignore[no-untyped-call]\n                base64.b64encode(content))\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            PNG_DATA_URL_PREFIX,\n            python_utils.url_quote(base64.b64encode(content)) # type: ignore[no-untyped-call]\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "oppia/oppia",
+    "commit": "186435d09d37e210e07489a670b630f867d32b6e",
+    "filename": "utils_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/oppia-oppia/utils_test.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "utils_test.py:749:33 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `base64.b64encode` but got `str`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `base64.b64encode` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 749,
+    "warning_line": "                base64.b64encode('test123')))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            utils.PNG_DATA_URL_PREFIX,\n            python_utils.url_quote( # type: ignore[no-untyped-call]\n                base64.b64encode('test123')))\n\n",
+        "source_code_len": 154,
+        "target_code": "            utils.PNG_DATA_URL_PREFIX,\n            python_utils.url_quote(base64.b64encode('test123'))) # type: ignore[no-untyped-call]\n\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -747,4 +731,3 @@\n             utils.PNG_DATA_URL_PREFIX,\n-            python_utils.url_quote( # type: ignore[no-untyped-call]\n-                base64.b64encode('test123')))\n+            python_utils.url_quote(base64.b64encode('test123'))) # type: ignore[no-untyped-call]\n \n",
+        "source_code_with_indent": "            utils.PNG_DATA_URL_PREFIX,\n            python_utils.url_quote( # type: ignore[no-untyped-call]\n                base64.b64encode('test123')))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            utils.PNG_DATA_URL_PREFIX,\n            python_utils.url_quote(base64.b64encode('test123'))) # type: ignore[no-untyped-call]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "oppia/oppia",
+    "commit": "186435d09d37e210e07489a670b630f867d32b6e",
+    "filename": "utils_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/oppia-oppia/utils_test.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "utils_test.py:757:29 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `base64.b64encode` but got `str`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `base64.b64encode` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 757,
+    "warning_line": "            base64.b64encode('test123'))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        # type: () -> None\n        image_data_url = python_utils.url_quote( # type: ignore[no-untyped-call]\n            base64.b64encode('test123'))\n\n",
+        "source_code_len": 150,
+        "target_code": "        # type: () -> None\n        image_data_url = python_utils.url_quote(base64.b64encode('test123')) # type: ignore[no-untyped-call]\n\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -755,4 +738,3 @@\n         # type: () -> None\n-        image_data_url = python_utils.url_quote( # type: ignore[no-untyped-call]\n-            base64.b64encode('test123'))\n+        image_data_url = python_utils.url_quote(base64.b64encode('test123')) # type: ignore[no-untyped-call]\n \n",
+        "source_code_with_indent": "        # type: () -> None\n        <IND>image_data_url = python_utils.url_quote( # type: ignore[no-untyped-call]\n            base64.b64encode('test123'))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # type: () -> None\n        <IND>image_data_url = python_utils.url_quote(base64.b64encode('test123')) # type: ignore[no-untyped-call]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

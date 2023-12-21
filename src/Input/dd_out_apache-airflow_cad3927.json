@@ -1,0 +1,36 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "cad39274d9a8eceba2845dc39e8c870959746478",
+    "filename": "airflow/providers/databricks/hooks/databricks.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/databricks/hooks/databricks.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/databricks/hooks/databricks.py:232:53 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `DatabricksHook._log_request_error` but got `requests_exceptions.RequestException`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `DatabricksHook._log_request_error` but got `requests_exceptions.RequestException`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 232,
+    "warning_line": "                self._log_request_error(attempt_num, e)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n                self._log_request_error(attempt_num, e)\n\n",
+        "source_code_len": 58,
+        "target_code": "\n                self._log_request_error(attempt_num, e.strerror)\n\n",
+        "target_code_len": 67,
+        "diff_format": "@@ -231,3 +236,3 @@\n \n-                self._log_request_error(attempt_num, e)\n+                self._log_request_error(attempt_num, e.strerror)\n \n",
+        "source_code_with_indent": "\n                <DED>self._log_request_error(attempt_num, e)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n                <DED>self._log_request_error(attempt_num, e.strerror)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

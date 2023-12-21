@@ -1,0 +1,36 @@
+[
+  {
+    "project": "feast-dev/feast",
+    "commit": "f685726176db7a62e463c0a71a6f0560a50ea42e",
+    "filename": "tests/e2e/bq/bq-batch-retrieval.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/feast-dev-feast/tests/e2e/bq/bq-batch-retrieval.py",
+    "file_hunks_size": 27,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/e2e/bq/bq-batch-retrieval.py:784:8 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+    "message": " Expected `int` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 784,
+    "warning_line": "        return row[\"count\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    for row in rows:\n        return row[\"count\"]\n\n",
+        "source_code_len": 51,
+        "target_code": "\n    return list(rows)[0][\"count\"]\n\n",
+        "target_code_len": 36,
+        "diff_format": "@@ -782,4 +796,3 @@\n \n-    for row in rows:\n-        return row[\"count\"]\n+    return list(rows)[0][\"count\"]\n \n",
+        "source_code_with_indent": "\n    for row in rows:\n        <IND>return row[\"count\"]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    return list(rows)[0][\"count\"]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

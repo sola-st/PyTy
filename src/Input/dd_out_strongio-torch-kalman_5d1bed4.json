@@ -1,0 +1,36 @@
+[
+  {
+    "project": "strongio/torch-kalman",
+    "commit": "5d1bed409c26f0846ee71ee78ea5d1a3f3c36aca",
+    "filename": "torch_kalman/state_belief/families/censored_gaussian/censored_gaussian.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/strongio-torch-kalman/torch_kalman/state_belief/families/censored_gaussian/censored_gaussian.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torch_kalman/state_belief/families/censored_gaussian/censored_gaussian.py:172:53 Unbound name [10]: Name `Cens` is used but not defined in the current scope.",
+    "message": " Name `Cens` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 172,
+    "warning_line": "                                  obs: Union[Tensor, Cens],",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _log_prob_with_subsetting(self,\n                                  obs: Union[Tensor, Cens],\n                                  group_idx: Selector,\n",
+        "source_code_len": 155,
+        "target_code": "    def _log_prob_with_subsetting(self,\n                                  obs: Tensor,\n                                  group_idx: Selector,\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -171,3 +171,3 @@\n     def _log_prob_with_subsetting(self,\n-                                  obs: Union[Tensor, Cens],\n+                                  obs: Tensor,\n                                   group_idx: Selector,\n",
+        "source_code_with_indent": "    <DED>def _log_prob_with_subsetting(self,\n                                  obs: Union[Tensor, Cens],\n                                  group_idx: Selector,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _log_prob_with_subsetting(self,\n                                  obs: Tensor,\n                                  group_idx: Selector,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "sugarlabs/sugar",
+    "commit": "22689ed1dac2c99b10c7de5d8a51789f3abd4f35",
+    "filename": "services/clipboard/objecttypeservice.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sugarlabs-sugar/services/clipboard/objecttypeservice.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "services/clipboard/objecttypeservice.py:47:25 Unbound name [10]: Name `_CLIPBOARD_DBUS_INTERFACE` is used but not defined in the current scope.",
+    "message": " Name `_CLIPBOARD_DBUS_INTERFACE` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 47,
+    "warning_line": "    @dbus.service.method(_CLIPBOARD_DBUS_INTERFACE,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        for object_type in self._types.values():\n            if mime_type in object_type.mime_types:\n                return object_type\n\n    @dbus.service.method(_CLIPBOARD_DBUS_INTERFACE,\n                         in_signature=\"s\", out_signature=\"a{sv}\")\n",
+        "source_code_len": 255,
+        "target_code": "        for object_type in self._types.values():\n            if mime_type in object_type['mime_types']:\n                return object_type\n\n    @dbus.service.method(_REGISTRY_IFACE,\n                         in_signature=\"s\", out_signature=\"a{sv}\")\n",
+        "target_code_len": 248,
+        "diff_format": "@@ -43,6 +46,6 @@\n         for object_type in self._types.values():\n-            if mime_type in object_type.mime_types:\n+            if mime_type in object_type['mime_types']:\n                 return object_type\n \n-    @dbus.service.method(_CLIPBOARD_DBUS_INTERFACE,\n+    @dbus.service.method(_REGISTRY_IFACE,\n                          in_signature=\"s\", out_signature=\"a{sv}\")\n",
+        "source_code_with_indent": "        <IND>for object_type in self._types.values():\n            <IND>if mime_type in object_type.mime_types:\n                <IND>return object_type\n\n    <DED><DED><DED>@dbus.service.method(_CLIPBOARD_DBUS_INTERFACE,\n                         in_signature=\"s\", out_signature=\"a{sv}\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>for object_type in self._types.values():\n            <IND>if mime_type in object_type['mime_types']:\n                <IND>return object_type\n\n    <DED><DED><DED>@dbus.service.method(_REGISTRY_IFACE,\n                         in_signature=\"s\", out_signature=\"a{sv}\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

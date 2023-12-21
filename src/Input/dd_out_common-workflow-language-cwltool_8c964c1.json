@@ -1,0 +1,36 @@
+[
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "8c964c1b2c5eb5012630974e708a084a125ab231",
+    "filename": "cwltool/sandboxjs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/sandboxjs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/sandboxjs.py:87:40 Incompatible parameter type [6]: Expected `typing.Optional[bytes]` for 1st positional only parameter to call `bytes.split` but got `str`.",
+    "message": " Expected `typing.Optional[bytes]` for 1st positional only parameter to call `bytes.split` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 87,
+    "warning_line": "                if len(dockerimgs.split(\"\\n\")) <= 1:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if not have_node_slim:\n                dockerimgs = subprocess.check_output([\"docker\", \"images\", nodeimg])\n                if len(dockerimgs.split(\"\\n\")) <= 1:\n",
+        "source_code_len": 172,
+        "target_code": "            if not have_node_slim:\n                dockerimgs = subprocess.check_output([\"docker\", \"images\", nodeimg]).decode('utf-8')\n                if len(dockerimgs.split(\"\\n\")) <= 1:\n",
+        "target_code_len": 188,
+        "diff_format": "@@ -85,3 +85,3 @@\n             if not have_node_slim:\n-                dockerimgs = subprocess.check_output([\"docker\", \"images\", nodeimg])\n+                dockerimgs = subprocess.check_output([\"docker\", \"images\", nodeimg]).decode('utf-8')\n                 if len(dockerimgs.split(\"\\n\")) <= 1:\n",
+        "source_code_with_indent": "            if not have_node_slim:\n                <IND>dockerimgs = subprocess.check_output([\"docker\", \"images\", nodeimg])\n                if len(dockerimgs.split(\"\\n\")) <= 1:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            if not have_node_slim:\n                <IND>dockerimgs = subprocess.check_output([\"docker\", \"images\", nodeimg]).decode('utf-8')\n                if len(dockerimgs.split(\"\\n\")) <= 1:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

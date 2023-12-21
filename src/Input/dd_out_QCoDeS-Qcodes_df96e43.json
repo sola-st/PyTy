@@ -1,0 +1,70 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "df96e430264f47c192fd9503abd5c91cd0b0a5f2",
+    "filename": "qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1500.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1500.py",
+    "file_hunks_size": 22,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Keysight/keysightb1500/KeysightB1500.py:40:61 Incompatible variable type [9]: name is declared to have type `str` but is used as type `None`.",
+    "message": " name is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 40,
+    "warning_line": "            model: str, slot_nr: int, parent: KeysightB1500, name: str = None"
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "df96e430264f47c192fd9503abd5c91cd0b0a5f2",
+    "filename": "qcodes/tests/drivers/keysight_b1500/test_MessageBuilder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/tests/drivers/keysight_b1500/test_MessageBuilder.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/tests/drivers/keysight_b1500/test_MessageBuilder.py:11:4 Incompatible return type [7]: Expected `qcodes.instrument_drivers.Keysight.keysightb1500.message_builder.MessageBuilder` but got `typing.Generator[qcodes.instrument_drivers.Keysight.keysightb1500.message_builder.MessageBuilder, None, None]`.",
+    "message": " Expected `qcodes.instrument_drivers.Keysight.keysightb1500.message_builder.MessageBuilder` but got `typing.Generator[qcodes.instrument_drivers.Keysight.keysightb1500.message_builder.MessageBuilder, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 11,
+    "warning_line": "    yield MessageBuilder()"
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "df96e430264f47c192fd9503abd5c91cd0b0a5f2",
+    "filename": "qcodes/tests/drivers/keysight_b1500/test_commandList.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/tests/drivers/keysight_b1500/test_commandList.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/tests/drivers/keysight_b1500/test_commandList.py:7:4 Incompatible return type [7]: Expected `CommandList` but got `typing.Generator[CommandList, None, None]`.",
+    "message": " Expected `CommandList` but got `typing.Generator[CommandList, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 7,
+    "warning_line": "    yield CommandList()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@pytest.fixture\ndef uut() -> CommandList:\n    yield CommandList()\n",
+        "source_code_len": 66,
+        "target_code": "@pytest.fixture\ndef uut():\n    yield CommandList()\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -5,3 +7,3 @@\n @pytest.fixture\n-def uut() -> CommandList:\n+def uut():\n     yield CommandList()\n",
+        "source_code_with_indent": "@pytest.fixture\ndef uut() -> CommandList:\n    <IND>yield CommandList()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "@pytest.fixture\ndef uut():\n    <IND>yield CommandList()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

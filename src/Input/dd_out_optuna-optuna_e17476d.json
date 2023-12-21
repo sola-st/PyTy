@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "e17476d91462f955a7bb3793ab67c32fa4107afb",
+    "filename": "optuna/storages/cached_storage.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/storages/cached_storage.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/storages/cached_storage.py:182:57 Incompatible parameter type [6]: Expected `distributions.BaseDistribution` for 2nd positional only parameter to call `dict.__setitem__` but got `Dict[str, distributions.BaseDistribution]`.",
+    "message": " Expected `distributions.BaseDistribution` for 2nd positional only parameter to call `dict.__setitem__` but got `Dict[str, distributions.BaseDistribution]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 182,
+    "warning_line": "                cached_trial.distributions[param_name] = dists",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                dists[param_name] = distribution\n                cached_trial.distributions[param_name] = dists\n                updates.params[param_name] = param_value_internal\n",
+        "source_code_len": 178,
+        "target_code": "                dists[param_name] = distribution\n                cached_trial.distributions = dists\n                updates.params[param_name] = param_value_internal\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -181,3 +181,3 @@\n                 dists[param_name] = distribution\n-                cached_trial.distributions[param_name] = dists\n+                cached_trial.distributions = dists\n                 updates.params[param_name] = param_value_internal\n",
+        "source_code_with_indent": "                dists[param_name] = distribution\n                cached_trial.distributions[param_name] = dists\n                updates.params[param_name] = param_value_internal\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                dists[param_name] = distribution\n                cached_trial.distributions = dists\n                updates.params[param_name] = param_value_internal\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

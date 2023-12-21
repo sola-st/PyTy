@@ -1,0 +1,70 @@
+[
+  {
+    "project": "allenai/allennlp",
+    "commit": "58a813dc5ad727afd7ea0ec69912a31a7751271f",
+    "filename": "allennlp/data/dataset_readers/dataset_reader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/data/dataset_readers/dataset_reader.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "allennlp/data/dataset_readers/dataset_reader.py:17:17 Incompatible variable type [9]: token_indexers is declared to have type `Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` but is used as type `None`.",
+    "message": " token_indexers is declared to have type `Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 17,
+    "warning_line": "                 token_indexers: Dict[str, TokenIndexer] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    def __init__(self,\n                 token_indexers: Dict[str, TokenIndexer] = None,\n                 tokenizer: Tokenizer = None) -> None:\n        self._tokenizer = tokenizer\n        self._token_indexers = token_indexers or {\"tokens\": SingleIdTokenIndexer()}\n\n    def read(self, file_path: str) -> Dataset:\n",
+        "source_code_len": 319,
+        "target_code": "    \"\"\"\n    def read(self, file_path: str) -> Dataset:\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -15,8 +12,2 @@\n     \"\"\"\n-    def __init__(self,\n-                 token_indexers: Dict[str, TokenIndexer] = None,\n-                 tokenizer: Tokenizer = None) -> None:\n-        self._tokenizer = tokenizer\n-        self._token_indexers = token_indexers or {\"tokens\": SingleIdTokenIndexer()}\n-\n     def read(self, file_path: str) -> Dataset:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def __init__(self,\n                 token_indexers: Dict[str, TokenIndexer] = None,\n                 tokenizer: Tokenizer = None) -> None:\n        <IND>self._tokenizer = tokenizer\n        self._token_indexers = token_indexers or {\"tokens\": SingleIdTokenIndexer()}\n\n    <DED>def read(self, file_path: str) -> Dataset:\n",
+        "target_code_with_indent": "\n    def read(self, file_path: str) -> Dataset:\n"
+      }
+    ]
+  },
+  {
+    "project": "allenai/allennlp",
+    "commit": "58a813dc5ad727afd7ea0ec69912a31a7751271f",
+    "filename": "allennlp/data/dataset_readers/dataset_reader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/data/dataset_readers/dataset_reader.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "allennlp/data/dataset_readers/dataset_reader.py:18:17 Incompatible variable type [9]: tokenizer is declared to have type `allennlp.data.tokenizers.tokenizer.Tokenizer` but is used as type `None`.",
+    "message": " tokenizer is declared to have type `allennlp.data.tokenizers.tokenizer.Tokenizer` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 18,
+    "warning_line": "                 tokenizer: Tokenizer = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    def __init__(self,\n                 token_indexers: Dict[str, TokenIndexer] = None,\n                 tokenizer: Tokenizer = None) -> None:\n        self._tokenizer = tokenizer\n        self._token_indexers = token_indexers or {\"tokens\": SingleIdTokenIndexer()}\n\n    def read(self, file_path: str) -> Dataset:\n",
+        "source_code_len": 319,
+        "target_code": "    \"\"\"\n    def read(self, file_path: str) -> Dataset:\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -15,8 +12,2 @@\n     \"\"\"\n-    def __init__(self,\n-                 token_indexers: Dict[str, TokenIndexer] = None,\n-                 tokenizer: Tokenizer = None) -> None:\n-        self._tokenizer = tokenizer\n-        self._token_indexers = token_indexers or {\"tokens\": SingleIdTokenIndexer()}\n-\n     def read(self, file_path: str) -> Dataset:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def __init__(self,\n                 token_indexers: Dict[str, TokenIndexer] = None,\n                 tokenizer: Tokenizer = None) -> None:\n        <IND>self._tokenizer = tokenizer\n        self._token_indexers = token_indexers or {\"tokens\": SingleIdTokenIndexer()}\n\n    <DED>def read(self, file_path: str) -> Dataset:\n",
+        "target_code_with_indent": "\n    def read(self, file_path: str) -> Dataset:\n"
+      }
+    ]
+  }
+]

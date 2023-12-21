@@ -1,0 +1,70 @@
+[
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "eab0335db320578b9201184e0827577029682dc0",
+    "filename": "argoverse/utils/calibration.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/argoverse/utils/calibration.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "argoverse/utils/calibration.py:337:8 Incompatible parameter type [6]: Expected `int` for 3rd positional only parameter to call `CameraConfig.__init__` but got `Optional[int]`.",
+    "message": " Expected `int` for 3rd positional only parameter to call `CameraConfig.__init__` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 337,
+    "warning_line": "        img_width,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    try:\n        img_width, img_height = get_image_dims_for_camera(camera_name)\n    except:\n        raise ValueError(f\"Unknown camera name: {camera_name}\")\n\n",
+        "source_code_len": 158,
+        "target_code": "\n    img_width, img_height = get_image_dims_for_camera(camera_name)\n    if img_width is None or img_height is None:\n        raise ValueError(f\"Specified camera has unknown dimensions: {camera_name}\")\n\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -328,6 +328,5 @@\n \n-    try:\n-        img_width, img_height = get_image_dims_for_camera(camera_name)\n-    except:\n-        raise ValueError(f\"Unknown camera name: {camera_name}\")\n+    img_width, img_height = get_image_dims_for_camera(camera_name)\n+    if img_width is None or img_height is None:\n+        raise ValueError(f\"Specified camera has unknown dimensions: {camera_name}\")\n \n",
+        "source_code_with_indent": "\n    try:\n        <IND>img_width, img_height = get_image_dims_for_camera(camera_name)\n    <DED>except:\n        <IND>raise ValueError(f\"Unknown camera name: {camera_name}\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    img_width, img_height = get_image_dims_for_camera(camera_name)\n    if img_width is None or img_height is None:\n        <IND>raise ValueError(f\"Specified camera has unknown dimensions: {camera_name}\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "eab0335db320578b9201184e0827577029682dc0",
+    "filename": "argoverse/utils/calibration.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/argoverse/utils/calibration.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "argoverse/utils/calibration.py:338:8 Incompatible parameter type [6]: Expected `int` for 4th positional only parameter to call `CameraConfig.__init__` but got `Optional[int]`.",
+    "message": " Expected `int` for 4th positional only parameter to call `CameraConfig.__init__` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 338,
+    "warning_line": "        img_height,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    try:\n        img_width, img_height = get_image_dims_for_camera(camera_name)\n    except:\n        raise ValueError(f\"Unknown camera name: {camera_name}\")\n\n",
+        "source_code_len": 158,
+        "target_code": "\n    img_width, img_height = get_image_dims_for_camera(camera_name)\n    if img_width is None or img_height is None:\n        raise ValueError(f\"Specified camera has unknown dimensions: {camera_name}\")\n\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -328,6 +328,5 @@\n \n-    try:\n-        img_width, img_height = get_image_dims_for_camera(camera_name)\n-    except:\n-        raise ValueError(f\"Unknown camera name: {camera_name}\")\n+    img_width, img_height = get_image_dims_for_camera(camera_name)\n+    if img_width is None or img_height is None:\n+        raise ValueError(f\"Specified camera has unknown dimensions: {camera_name}\")\n \n",
+        "source_code_with_indent": "\n    try:\n        <IND>img_width, img_height = get_image_dims_for_camera(camera_name)\n    <DED>except:\n        <IND>raise ValueError(f\"Unknown camera name: {camera_name}\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    img_width, img_height = get_image_dims_for_camera(camera_name)\n    if img_width is None or img_height is None:\n        <IND>raise ValueError(f\"Specified camera has unknown dimensions: {camera_name}\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,181 @@
+[
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "6df1b1fefb9ea289de8d000aca76289a744b3dde",
+    "filename": "dev/noise_gen.py",
+    "min_patch_found": false,
+    "full_warning_msg": "dev/noise_gen.py:16:18 Incompatible parameter type [6]: Expected `_typeshed.SupportsKeysAndGetItem[Variable[_KT], Variable[_VT]]` for 1st positional only parameter to call `dict.__init__` but got `typing.Generator[typing.List[str], None, None]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/dev/noise_gen.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "6df1b1fefb9ea289de8d000aca76289a744b3dde",
+    "filename": "examples/samples_tcod.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/examples/samples_tcod.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "examples/samples_tcod.py:747:28 Incompatible parameter type [6]: Expected `typing.Tuple[int, int, int]` for 4th positional only parameter to call `tcod.libtcodpy.console_set_char_background` but got `tcod.color.Color`.",
+    "message": " Expected `typing.Tuple[int, int, int]` for 4th positional only parameter to call `tcod.libtcodpy.console_set_char_background` but got `tcod.color.Color`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 747,
+    "warning_line": "                            tcod.color_lerp(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                            y,\n                            tcod.color_lerp(\n                                LIGHT_GROUND,\n",
+        "source_code_len": 122,
+        "target_code": "                            y,\n                            tcod.color_lerp(  # type: ignore\n                                LIGHT_GROUND,\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -746,3 +746,3 @@\n                             y,\n-                            tcod.color_lerp(\n+                            tcod.color_lerp(  # type: ignore\n                                 LIGHT_GROUND,\n",
+        "source_code_with_indent": "                            y,\n                            tcod.color_lerp(\n                                LIGHT_GROUND,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                            y,\n                            tcod.color_lerp(  # type: ignore\n                                LIGHT_GROUND,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "6df1b1fefb9ea289de8d000aca76289a744b3dde",
+    "filename": "examples/samples_tcod.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/examples/samples_tcod.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "examples/samples_tcod.py:765:20 Incompatible attribute type [8]: Attribute `px` declared in class `PathfindingSample` has type `int` but is used as type `typing.Optional[int]`.",
+    "message": " Attribute `px` declared in class `PathfindingSample` has type `int` but is used as type `typing.Optional[int]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 765,
+    "warning_line": "                    self.px, self.py = tcod.path_walk(self.path, True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                    tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.path_walk(self.path, True)\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_len": 267,
+        "target_code": "                    tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.path_walk(self.path, True)  # type: ignore\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "target_code_len": 283,
+        "diff_format": "@@ -764,3 +764,3 @@\n                     tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n-                    self.px, self.py = tcod.path_walk(self.path, True)\n+                    self.px, self.py = tcod.path_walk(self.path, True)  # type: ignore\n                     tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_with_indent": "                    <IND>tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.path_walk(self.path, True)\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.path_walk(self.path, True)  # type: ignore\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "6df1b1fefb9ea289de8d000aca76289a744b3dde",
+    "filename": "examples/samples_tcod.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/examples/samples_tcod.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "examples/samples_tcod.py:765:29 Incompatible attribute type [8]: Attribute `py` declared in class `PathfindingSample` has type `int` but is used as type `typing.Optional[int]`.",
+    "message": " Attribute `py` declared in class `PathfindingSample` has type `int` but is used as type `typing.Optional[int]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 765,
+    "warning_line": "                    self.px, self.py = tcod.path_walk(self.path, True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                    tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.path_walk(self.path, True)\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_len": 267,
+        "target_code": "                    tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.path_walk(self.path, True)  # type: ignore\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "target_code_len": 283,
+        "diff_format": "@@ -764,3 +764,3 @@\n                     tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n-                    self.px, self.py = tcod.path_walk(self.path, True)\n+                    self.px, self.py = tcod.path_walk(self.path, True)  # type: ignore\n                     tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_with_indent": "                    <IND>tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.path_walk(self.path, True)\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.path_walk(self.path, True)  # type: ignore\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "6df1b1fefb9ea289de8d000aca76289a744b3dde",
+    "filename": "examples/samples_tcod.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/examples/samples_tcod.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "examples/samples_tcod.py:770:20 Incompatible attribute type [8]: Attribute `px` declared in class `PathfindingSample` has type `int` but is used as type `typing.Optional[int]`.",
+    "message": " Attribute `px` declared in class `PathfindingSample` has type `int` but is used as type `typing.Optional[int]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 770,
+    "warning_line": "                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                    tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_len": 270,
+        "target_code": "                    tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)  # type: ignore\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "target_code_len": 286,
+        "diff_format": "@@ -769,3 +769,3 @@\n                     tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n-                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)\n+                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)  # type: ignore\n                     tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_with_indent": "                    <IND>tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)  # type: ignore\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "6df1b1fefb9ea289de8d000aca76289a744b3dde",
+    "filename": "examples/samples_tcod.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/examples/samples_tcod.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "examples/samples_tcod.py:770:29 Incompatible attribute type [8]: Attribute `py` declared in class `PathfindingSample` has type `int` but is used as type `typing.Optional[int]`.",
+    "message": " Attribute `py` declared in class `PathfindingSample` has type `int` but is used as type `typing.Optional[int]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 770,
+    "warning_line": "                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                    tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_len": 270,
+        "target_code": "                    tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)  # type: ignore\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "target_code_len": 286,
+        "diff_format": "@@ -769,3 +769,3 @@\n                     tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n-                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)\n+                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)  # type: ignore\n                     tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_with_indent": "                    <IND>tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>tcod.console_put_char(sample_console, self.px, self.py, \" \", tcod.BKGND_NONE)\n                    self.px, self.py = tcod.dijkstra_path_walk(self.dijk)  # type: ignore\n                    tcod.console_put_char(sample_console, self.px, self.py, \"@\", tcod.BKGND_NONE)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "cython/cython",
+    "commit": "580b4817360b6ac8372f69b57a3ddcab2480ab70",
+    "filename": "docs/examples/tutorial/cython_tutorial/primes_cpp.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cython-cython/docs/examples/tutorial/cython_tutorial/primes_cpp.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "docs/examples/tutorial/cython_tutorial/primes_cpp.py:11:7 Unbound name [10]: Name `cint` is used but not defined in the current scope.",
+    "message": " Name `cint` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 11,
+    "warning_line": "    n: cint = 2",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    n: cint = 2\n    while p.size() < nb_primes:  # size() for vectors is similar to len()\n",
+        "source_code_len": 91,
+        "target_code": "\n    n: cython.int = 2\n    while p.size() < nb_primes:  # size() for vectors is similar to len()\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -10,3 +10,3 @@\n \n-    n: cint = 2\n+    n: cython.int = 2\n     while p.size() < nb_primes:  # size() for vectors is similar to len()\n",
+        "source_code_with_indent": "\n    n: cint = 2\n    while p.size() < nb_primes:  # size() for vectors is similar to len()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    n: cython.int = 2\n    while p.size() < nb_primes:  # size() for vectors is similar to len()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "e23c59b50f593ae4f77cdca897e10c2a65c4555f",
+    "filename": "idom/client/manage.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/idom/client/manage.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "idom/client/manage.py:137:12 Incompatible parameter type [6]: Expected `Union[Sequence[Union[os.PathLike[bytes], os.PathLike[str], bytes, str]], bytes, str]` for 1st positional only parameter to call `subprocess.run` but got `List[typing.Optional[str]]`.",
+    "message": " Expected `Union[Sequence[Union[os.PathLike[bytes], os.PathLike[str], bytes, str]], bytes, str]` for 1st positional only parameter to call `subprocess.run` but got `List[typing.Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 137,
+    "warning_line": "            [cmd] + args,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    cmd, *args = args\n    cmd = shutil.which(cmd)\n    try:\n",
+        "source_code_len": 59,
+        "target_code": "    cmd, *args = args\n    which_cmd = shutil.which(cmd)\n    if which_cmd is None:\n        raise RuntimeError(f\"Failed to run command - {cmd!r} is not installed.\")\n    try:\n",
+        "target_code_len": 172,
+        "diff_format": "@@ -133,3 +133,5 @@\n     cmd, *args = args\n-    cmd = shutil.which(cmd)\n+    which_cmd = shutil.which(cmd)\n+    if which_cmd is None:\n+        raise RuntimeError(f\"Failed to run command - {cmd!r} is not installed.\")\n     try:\n",
+        "source_code_with_indent": "    <IND>cmd, *args = args\n    cmd = shutil.which(cmd)\n    try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>cmd, *args = args\n    which_cmd = shutil.which(cmd)\n    if which_cmd is None:\n        <IND>raise RuntimeError(f\"Failed to run command - {cmd!r} is not installed.\")\n    <DED>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "idom-team/idom",
+    "commit": "e23c59b50f593ae4f77cdca897e10c2a65c4555f",
+    "filename": "idom/client/manage.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/idom/client/manage.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "idom/client/manage.py:137:20 Unsupported operand [58]: `+` is not supported for operand types `List[typing.Optional[str]]` and `List[str]`.",
+    "message": " `+` is not supported for operand types `List[typing.Optional[str]]` and `List[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 137,
+    "warning_line": "            [cmd] + args,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    cmd, *args = args\n    cmd = shutil.which(cmd)\n    try:\n",
+        "source_code_len": 59,
+        "target_code": "    cmd, *args = args\n    which_cmd = shutil.which(cmd)\n    if which_cmd is None:\n        raise RuntimeError(f\"Failed to run command - {cmd!r} is not installed.\")\n    try:\n",
+        "target_code_len": 172,
+        "diff_format": "@@ -133,3 +133,5 @@\n     cmd, *args = args\n-    cmd = shutil.which(cmd)\n+    which_cmd = shutil.which(cmd)\n+    if which_cmd is None:\n+        raise RuntimeError(f\"Failed to run command - {cmd!r} is not installed.\")\n     try:\n",
+        "source_code_with_indent": "    <IND>cmd, *args = args\n    cmd = shutil.which(cmd)\n    try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>cmd, *args = args\n    which_cmd = shutil.which(cmd)\n    if which_cmd is None:\n        <IND>raise RuntimeError(f\"Failed to run command - {cmd!r} is not installed.\")\n    <DED>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

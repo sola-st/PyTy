@@ -1,0 +1,36 @@
+[
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "0de54f53cd78bccb697b72ee0c3f2a9722022248",
+    "filename": "tests/unit/build_providers/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/tests/unit/build_providers/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/unit/build_providers/__init__.py:71:4 Inconsistent override [14]: `tests.unit.build_providers.ProviderImpl.setup_provider` overrides method defined in `Provider` inconsistently. Could not find parameter `echoer` in overriding signature.",
+    "message": " `tests.unit.build_providers.ProviderImpl.setup_provider` overrides method defined in `Provider` inconsistently. Could not find parameter `echoer` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 71,
+    "warning_line": "    def setup_provider(cls) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def setup_provider(cls) -> None:\n        \"\"\"Fake provider setup.\"\"\"\n",
+        "source_code_len": 89,
+        "target_code": "    @classmethod\n    def setup_provider(cls, *, echoer=None) -> None:\n        \"\"\"Fake provider setup.\"\"\"\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -70,3 +70,3 @@\n     @classmethod\n-    def setup_provider(cls) -> None:\n+    def setup_provider(cls, *, echoer=None) -> None:\n         \"\"\"Fake provider setup.\"\"\"\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def setup_provider(cls) -> None:\n        <IND>\"\"\"Fake provider setup.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def setup_provider(cls, *, echoer=None) -> None:\n        <IND>\"\"\"Fake provider setup.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "project": "Chia-Network/chia-blockchain",
+    "commit": "7dcea45926440d6db2ddc7e4c2321eb0bf25e5b0",
+    "filename": "chia/consensus/multiprocess_validation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Chia-Network-chia-blockchain/chia/consensus/multiprocess_validation.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chia/consensus/multiprocess_validation.py:262:33 Incompatible parameter type [6]: Expected `uint32` for 1st positional only parameter to call `dict.__setitem__` but got `Union[FullBlock, HeaderBlock]`.",
+    "message": " Expected `uint32` for 1st positional only parameter to call `dict.__setitem__` but got `Union[FullBlock, HeaderBlock]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 262,
+    "warning_line": "                prev_blocks_dict[curr_b.prev_header_hash] = blocks[curr_b.prev_header_hash]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    for i, block in enumerate(blocks):\n        if not block_record_was_present[i]:\n",
+        "source_code_len": 84,
+        "target_code": "\n    block_dict: Dict[bytes32, Union[FullBlock, HeaderBlock]] = {}\n    for i, block in enumerate(blocks):\n        block_dict[block.header_hash] = block\n        if not block_record_was_present[i]:\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -234,3 +234,5 @@\n \n+    block_dict: Dict[bytes32, Union[FullBlock, HeaderBlock]] = {}\n     for i, block in enumerate(blocks):\n+        block_dict[block.header_hash] = block\n         if not block_record_was_present[i]:\n",
+        "source_code_with_indent": "\n    <DED>for i, block in enumerate(blocks):\n        <IND>if not block_record_was_present[i]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>block_dict: Dict[bytes32, Union[FullBlock, HeaderBlock]] = {}\n    for i, block in enumerate(blocks):\n        <IND>block_dict[block.header_hash] = block\n        if not block_record_was_present[i]:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            curr_b: Union[FullBlock, HeaderBlock] = block\n            while curr_b.prev_header_hash in blocks:\n                prev_blocks_dict[curr_b.prev_header_hash] = blocks[curr_b.prev_header_hash]\n\n",
+        "source_code_len": 204,
+        "target_code": "            curr_b: Union[FullBlock, HeaderBlock] = block\n\n            while curr_b.prev_header_hash in block_dict:\n                curr_b = block_dict[curr_b.prev_header_hash]\n                prev_blocks_dict[curr_b.header_hash] = curr_b\n\n",
+        "target_code_len": 240,
+        "diff_format": "@@ -260,4 +262,6 @@\n             curr_b: Union[FullBlock, HeaderBlock] = block\n-            while curr_b.prev_header_hash in blocks:\n-                prev_blocks_dict[curr_b.prev_header_hash] = blocks[curr_b.prev_header_hash]\n+\n+            while curr_b.prev_header_hash in block_dict:\n+                curr_b = block_dict[curr_b.prev_header_hash]\n+                prev_blocks_dict[curr_b.header_hash] = curr_b\n \n",
+        "source_code_with_indent": "            curr_b: Union[FullBlock, HeaderBlock] = block\n            while curr_b.prev_header_hash in blocks:\n                <IND>prev_blocks_dict[curr_b.prev_header_hash] = blocks[curr_b.prev_header_hash]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            curr_b: Union[FullBlock, HeaderBlock] = block\n\n            while curr_b.prev_header_hash in block_dict:\n                <IND>curr_b = block_dict[curr_b.prev_header_hash]\n                prev_blocks_dict[curr_b.header_hash] = curr_b\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Chia-Network/chia-blockchain",
+    "commit": "7dcea45926440d6db2ddc7e4c2321eb0bf25e5b0",
+    "filename": "chia/consensus/multiprocess_validation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Chia-Network-chia-blockchain/chia/consensus/multiprocess_validation.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chia/consensus/multiprocess_validation.py:262:67 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `Sequence.__getitem__` but got `Union[FullBlock, HeaderBlock]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `Sequence.__getitem__` but got `Union[FullBlock, HeaderBlock]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 262,
+    "warning_line": "                prev_blocks_dict[curr_b.prev_header_hash] = blocks[curr_b.prev_header_hash]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    for i, block in enumerate(blocks):\n        if not block_record_was_present[i]:\n",
+        "source_code_len": 84,
+        "target_code": "\n    block_dict: Dict[bytes32, Union[FullBlock, HeaderBlock]] = {}\n    for i, block in enumerate(blocks):\n        block_dict[block.header_hash] = block\n        if not block_record_was_present[i]:\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -234,3 +234,5 @@\n \n+    block_dict: Dict[bytes32, Union[FullBlock, HeaderBlock]] = {}\n     for i, block in enumerate(blocks):\n+        block_dict[block.header_hash] = block\n         if not block_record_was_present[i]:\n",
+        "source_code_with_indent": "\n    <DED>for i, block in enumerate(blocks):\n        <IND>if not block_record_was_present[i]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>block_dict: Dict[bytes32, Union[FullBlock, HeaderBlock]] = {}\n    for i, block in enumerate(blocks):\n        <IND>block_dict[block.header_hash] = block\n        if not block_record_was_present[i]:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            curr_b: Union[FullBlock, HeaderBlock] = block\n            while curr_b.prev_header_hash in blocks:\n                prev_blocks_dict[curr_b.prev_header_hash] = blocks[curr_b.prev_header_hash]\n\n",
+        "source_code_len": 204,
+        "target_code": "            curr_b: Union[FullBlock, HeaderBlock] = block\n\n            while curr_b.prev_header_hash in block_dict:\n                curr_b = block_dict[curr_b.prev_header_hash]\n                prev_blocks_dict[curr_b.header_hash] = curr_b\n\n",
+        "target_code_len": 240,
+        "diff_format": "@@ -260,4 +262,6 @@\n             curr_b: Union[FullBlock, HeaderBlock] = block\n-            while curr_b.prev_header_hash in blocks:\n-                prev_blocks_dict[curr_b.prev_header_hash] = blocks[curr_b.prev_header_hash]\n+\n+            while curr_b.prev_header_hash in block_dict:\n+                curr_b = block_dict[curr_b.prev_header_hash]\n+                prev_blocks_dict[curr_b.header_hash] = curr_b\n \n",
+        "source_code_with_indent": "            curr_b: Union[FullBlock, HeaderBlock] = block\n            while curr_b.prev_header_hash in blocks:\n                <IND>prev_blocks_dict[curr_b.prev_header_hash] = blocks[curr_b.prev_header_hash]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            curr_b: Union[FullBlock, HeaderBlock] = block\n\n            while curr_b.prev_header_hash in block_dict:\n                <IND>curr_b = block_dict[curr_b.prev_header_hash]\n                prev_blocks_dict[curr_b.header_hash] = curr_b\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

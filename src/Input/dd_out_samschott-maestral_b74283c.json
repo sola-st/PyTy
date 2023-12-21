@@ -1,0 +1,172 @@
+[
+  {
+    "project": "samschott/maestral",
+    "commit": "b74283cd5791472bca6e5c973896254246702cb3",
+    "filename": "maestral/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/main.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/main.py:710:29 Incompatible parameter type [6]: Expected `Dict[str, Union[int, str]]` for 1st positional only parameter to call `list.append` but got `Dict[str, Union[None, bool, float, str]]`.",
+    "message": " Expected `Dict[str, Union[int, str]]` for 1st positional only parameter to call `list.append` but got `Dict[str, Union[None, bool, float, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 710,
+    "warning_line": "            uploading.append(sync_item_to_dict(item))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        uploading: List[Dict[str, Union[str, int]]] = []\n        downloading: List[Dict[str, Union[str, int]]] = []\n\n",
+        "source_code_len": 118,
+        "target_code": "\n        uploading: List[StoneType] = []\n        downloading: List[StoneType] = []\n\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -705,4 +705,4 @@\n \n-        uploading: List[Dict[str, Union[str, int]]] = []\n-        downloading: List[Dict[str, Union[str, int]]] = []\n+        uploading: List[StoneType] = []\n+        downloading: List[StoneType] = []\n \n",
+        "source_code_with_indent": "\n        uploading: List[Dict[str, Union[str, int]]] = []\n        downloading: List[Dict[str, Union[str, int]]] = []\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        uploading: List[StoneType] = []\n        downloading: List[StoneType] = []\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "samschott/maestral",
+    "commit": "b74283cd5791472bca6e5c973896254246702cb3",
+    "filename": "maestral/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/main.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/main.py:713:31 Incompatible parameter type [6]: Expected `Dict[str, Union[int, str]]` for 1st positional only parameter to call `list.append` but got `Dict[str, Union[None, bool, float, str]]`.",
+    "message": " Expected `Dict[str, Union[int, str]]` for 1st positional only parameter to call `list.append` but got `Dict[str, Union[None, bool, float, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 713,
+    "warning_line": "            downloading.append(sync_item_to_dict(item))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        uploading: List[Dict[str, Union[str, int]]] = []\n        downloading: List[Dict[str, Union[str, int]]] = []\n\n",
+        "source_code_len": 118,
+        "target_code": "\n        uploading: List[StoneType] = []\n        downloading: List[StoneType] = []\n\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -705,4 +705,4 @@\n \n-        uploading: List[Dict[str, Union[str, int]]] = []\n-        downloading: List[Dict[str, Union[str, int]]] = []\n+        uploading: List[StoneType] = []\n+        downloading: List[StoneType] = []\n \n",
+        "source_code_with_indent": "\n        uploading: List[Dict[str, Union[str, int]]] = []\n        downloading: List[Dict[str, Union[str, int]]] = []\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        uploading: List[StoneType] = []\n        downloading: List[StoneType] = []\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "samschott/maestral",
+    "commit": "b74283cd5791472bca6e5c973896254246702cb3",
+    "filename": "maestral/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/main.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/main.py:715:8 Incompatible return type [7]: Expected `Dict[str, List[Dict[str, Union[None, bool, float, str]]]]` but got `Dict[str, List[Dict[str, Union[int, str]]]]`.",
+    "message": " Expected `Dict[str, List[Dict[str, Union[None, bool, float, str]]]]` but got `Dict[str, List[Dict[str, Union[int, str]]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 715,
+    "warning_line": "        return dict(uploading=uploading, downloading=downloading)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        uploading: List[Dict[str, Union[str, int]]] = []\n        downloading: List[Dict[str, Union[str, int]]] = []\n\n",
+        "source_code_len": 118,
+        "target_code": "\n        uploading: List[StoneType] = []\n        downloading: List[StoneType] = []\n\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -705,4 +705,4 @@\n \n-        uploading: List[Dict[str, Union[str, int]]] = []\n-        downloading: List[Dict[str, Union[str, int]]] = []\n+        uploading: List[StoneType] = []\n+        downloading: List[StoneType] = []\n \n",
+        "source_code_with_indent": "\n        uploading: List[Dict[str, Union[str, int]]] = []\n        downloading: List[Dict[str, Union[str, int]]] = []\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        uploading: List[StoneType] = []\n        downloading: List[StoneType] = []\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "samschott/maestral",
+    "commit": "b74283cd5791472bca6e5c973896254246702cb3",
+    "filename": "maestral/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/main.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/main.py:731:8 Incompatible return type [7]: Expected `Dict[str, Union[bool, float, str]]` but got `Dict[str, Union[None, bool, float, str]]`.",
+    "message": " Expected `Dict[str, Union[bool, float, str]]` but got `Dict[str, Union[None, bool, float, str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 731,
+    "warning_line": "        return dropbox_stone_to_dict(res)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_account_info(self) -> Dict[str, Union[str, float, bool]]:\n        \"\"\"\n",
+        "source_code_len": 83,
+        "target_code": "\n    def get_account_info(self) -> StoneType:\n        \"\"\"\n",
+        "target_code_len": 58,
+        "diff_format": "@@ -716,3 +716,3 @@\n \n-    def get_account_info(self) -> Dict[str, Union[str, float, bool]]:\n+    def get_account_info(self) -> StoneType:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def get_account_info(self) -> Dict[str, Union[str, float, bool]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def get_account_info(self) -> StoneType:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "samschott/maestral",
+    "commit": "b74283cd5791472bca6e5c973896254246702cb3",
+    "filename": "maestral/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/main.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/main.py:747:8 Incompatible return type [7]: Expected `Dict[str, Union[bool, float, str]]` but got `Dict[str, Union[None, bool, float, str]]`.",
+    "message": " Expected `Dict[str, Union[bool, float, str]]` but got `Dict[str, Union[None, bool, float, str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 747,
+    "warning_line": "        return dropbox_stone_to_dict(res)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_space_usage(self) -> Dict[str, Union[str, float, bool]]:\n        \"\"\"\n",
+        "source_code_len": 82,
+        "target_code": "\n    def get_space_usage(self) -> StoneType:\n        \"\"\"\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -732,3 +732,3 @@\n \n-    def get_space_usage(self) -> Dict[str, Union[str, float, bool]]:\n+    def get_space_usage(self) -> StoneType:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def get_space_usage(self) -> Dict[str, Union[str, float, bool]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def get_space_usage(self) -> StoneType:\n        <IND>"
+      }
+    ]
+  }
+]

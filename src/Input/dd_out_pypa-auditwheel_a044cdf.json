@@ -1,0 +1,51 @@
+[
+  {
+    "project": "pypa/auditwheel",
+    "commit": "a044cdfadcf0dcd5bb30ee68de6d15598b39eb19",
+    "filename": "auditwheel/repair.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pypa-auditwheel/auditwheel/repair.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "auditwheel/repair.py:63:38 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Tuple[typing.Any, typing.Any]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Tuple[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 63,
+    "warning_line": "                soname_map[soname] = (new_soname, new_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from os.path import join as pjoin\nfrom typing import Dict, Optional\n\n",
+        "source_code_len": 69,
+        "target_code": "from os.path import join as pjoin\nfrom typing import Dict, Optional, Tuple\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -8,3 +8,3 @@\n from os.path import join as pjoin\n-from typing import Dict, Optional\n+from typing import Dict, Optional, Tuple\n \n",
+        "source_code_with_indent": "from os.path import join as pjoin\nfrom typing import Dict, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from os.path import join as pjoin\nfrom typing import Dict, Optional, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if not external_refs_by_fn:\n        return\n\n    soname_map = {}  # type: Dict[str, str]\n    if not isabs(out_dir):\n",
+        "source_code_len": 119,
+        "target_code": "    if not external_refs_by_fn:\n        return None\n\n    soname_map = {}  # type: Dict[str, Tuple[str, str]]\n    if not isabs(out_dir):\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -34,5 +34,5 @@\n     if not external_refs_by_fn:\n-        return\n+        return None\n \n-    soname_map = {}  # type: Dict[str, str]\n+    soname_map = {}  # type: Dict[str, Tuple[str, str]]\n     if not isabs(out_dir):\n",
+        "source_code_with_indent": "    if not external_refs_by_fn:\n        <IND>return\n\n    <DED>soname_map = {}  # type: Dict[str, str]\n    if not isabs(out_dir):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if not external_refs_by_fn:\n        <IND>return None\n\n    <DED>soname_map = {}  # type: Dict[str, Tuple[str, str]]\n    if not isabs(out_dir):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

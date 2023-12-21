@@ -1,0 +1,36 @@
+[
+  {
+    "project": "actionless/pikaur",
+    "commit": "745f186abfb295250d7130d4dab1ce3c40684c5d",
+    "filename": "pikaur/install_cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/actionless-pikaur/pikaur/install_cli.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pikaur/install_cli.py:177:4 Incompatible attribute type [8]: Attribute `news` declared in class `InstallPackagesCLI` has type `News` but is used as type `None`.",
+    "message": " Attribute `news` declared in class `InstallPackagesCLI` has type `News` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 177,
+    "warning_line": "    news: News = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    news: News = None\n\n",
+        "source_code_len": 24,
+        "target_code": "\n    news: Optional[News] = None\n\n",
+        "target_code_len": 34,
+        "diff_format": "@@ -176,3 +176,3 @@\n \n-    news: News = None\n+    news: Optional[News] = None\n \n",
+        "source_code_with_indent": "\n    news: News = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    news: Optional[News] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

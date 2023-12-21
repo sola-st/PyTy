@@ -1,0 +1,69 @@
+[
+  {
+    "project": "aws-samples/deep-learning-models",
+    "commit": "f6f74fb705d38ba94bf0e1ecf815b264fa328c9b",
+    "filename": "models/nlp/albert/run_squad.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aws-samples-deep-learning-models/models/nlp/albert/run_squad.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "models/nlp/albert/run_squad.py:249:12 Incompatible parameter type [6]: Expected `int` for 6th parameter `load_step` to call `run_squad_and_get_results` but got `None`.",
+    "message": " Expected `int` for 6th parameter `load_step` to call `run_squad_and_get_results` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 249,
+    "warning_line": "            load_step=None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            load_from=cloned_model,\n            load_step=None,\n            batch_size=per_gpu_batch_size,  # This will be less than 3, so no OOM errors\n",
+        "source_code_len": 153,
+        "target_code": "            load_from=cloned_model,\n            batch_size=per_gpu_batch_size,  # This will be less than 3, so no OOM errors\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -248,3 +253,2 @@\n             load_from=cloned_model,\n-            load_step=None,\n             batch_size=per_gpu_batch_size,  # This will be less than 3, so no OOM errors\n",
+        "source_code_with_indent": "            load_from=cloned_model,\n            load_step=None,\n            batch_size=per_gpu_batch_size,  # This will be less than 3, so no OOM errors\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            load_from=cloned_model,\n            batch_size=per_gpu_batch_size,  # This will be less than 3, so no OOM errors\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    load_from: Union[str, tf.keras.Model],\n    load_step: int,\n    batch_size: int,\n",
+        "source_code_len": 84,
+        "target_code": "    load_from: Union[str, tf.keras.Model],\n    batch_size: int,\n",
+        "target_code_len": 64,
+        "diff_format": "@@ -270,3 +274,2 @@\n     load_from: Union[str, tf.keras.Model],\n-    load_step: int,\n     batch_size: int,\n",
+        "source_code_with_indent": "    load_from: Union[str, tf.keras.Model],\n    load_step: int,\n    batch_size: int,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    load_from: Union[str, tf.keras.Model],\n    batch_size: int,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "aws-samples/deep-learning-models",
+    "commit": "f6f74fb705d38ba94bf0e1ecf815b264fa328c9b",
+    "filename": "models/nlp/albert/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "models/nlp/albert/utils.py:51:36 Invalid type [31]: Expression `\"[batch, seq_length, width]\"` is not a valid type.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "aws-samples/deep-learning-models",
+    "commit": "f6f74fb705d38ba94bf0e1ecf815b264fa328c9b",
+    "filename": "models/nlp/albert/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "models/nlp/albert/utils.py:66:39 Invalid type [31]: Expression `\"[batch, seq_length]\"` is not a valid type.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

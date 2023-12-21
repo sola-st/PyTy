@@ -1,0 +1,100 @@
+[
+  {
+    "project": "orbingol/NURBS-Python",
+    "commit": "412961e7c3def31437fddea0c69ffa4628460257",
+    "filename": "geomdl/fitting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/orbingol-NURBS-Python/geomdl/fitting.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "geomdl/fitting.py:145:38 Incompatible parameter type [6]: Expected `bool` for 2nd positional only parameter to call `compute_params_curve` but got `int`.",
+    "message": " Expected `bool` for 2nd positional only parameter to call `compute_params_curve` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 145,
+    "warning_line": "    uk = compute_params_curve(points, use_centripetal)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Sequence, List, Tuple\nimport math\nfrom . import BSpline\n",
+        "source_code_len": 76,
+        "target_code": "\nimport math\nfrom typing import Any, Sequence, List, Tuple\nfrom . import BSpline\n",
+        "target_code_len": 81,
+        "diff_format": "@@ -9,4 +9,4 @@\n \n-from typing import Sequence, List, Tuple\n import math\n+from typing import Any, Sequence, List, Tuple\n from . import BSpline\n",
+        "source_code_with_indent": "\nfrom typing import Sequence, List, Tuple\nimport math\nfrom . import BSpline\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport math\nfrom typing import Any, Sequence, List, Tuple\nfrom . import BSpline\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def approximate_curve(points, degree, **kwargs):\n    # type: (Sequence[Sequence[float]], int, **int) -> BSpline.Curve\n    \"\"\" Curve approximation using least squares method with fixed number of control points.\n",
+        "source_code_len": 210,
+        "target_code": "def approximate_curve(points, degree, **kwargs):\n    # type: (Sequence[Sequence[float]], int, **Any) -> BSpline.Curve\n    \"\"\" Curve approximation using least squares method with fixed number of control points.\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -117,3 +117,3 @@\n def approximate_curve(points, degree, **kwargs):\n-    # type: (Sequence[Sequence[float]], int, **int) -> BSpline.Curve\n+    # type: (Sequence[Sequence[float]], int, **Any) -> BSpline.Curve\n     \"\"\" Curve approximation using least squares method with fixed number of control points.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED>def approximate_curve(points, degree, **kwargs):\n    # type: (Sequence[Sequence[float]], int, **int) -> BSpline.Curve\n    <IND>",
+        "target_code_with_indent": "<DED>def approximate_curve(points, degree, **kwargs):\n    # type: (Sequence[Sequence[float]], int, **Any) -> BSpline.Curve\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "orbingol/NURBS-Python",
+    "commit": "412961e7c3def31437fddea0c69ffa4628460257",
+    "filename": "geomdl/fitting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/orbingol-NURBS-Python/geomdl/fitting.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "geomdl/fitting.py:247:60 Incompatible parameter type [6]: Expected `bool` for 4th positional only parameter to call `compute_params_surface` but got `int`.",
+    "message": " Expected `bool` for 4th positional only parameter to call `compute_params_surface` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 247,
+    "warning_line": "    uk, vl = compute_params_surface(points, size_u, size_v, use_centripetal)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Sequence, List, Tuple\nimport math\nfrom . import BSpline\n",
+        "source_code_len": 76,
+        "target_code": "\nimport math\nfrom typing import Any, Sequence, List, Tuple\nfrom . import BSpline\n",
+        "target_code_len": 81,
+        "diff_format": "@@ -9,4 +9,4 @@\n \n-from typing import Sequence, List, Tuple\n import math\n+from typing import Any, Sequence, List, Tuple\n from . import BSpline\n",
+        "source_code_with_indent": "\nfrom typing import Sequence, List, Tuple\nimport math\nfrom . import BSpline\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport math\nfrom typing import Any, Sequence, List, Tuple\nfrom . import BSpline\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def approximate_surface(points, size_u, size_v, degree_u, degree_v, **kwargs):\n    # type: (Sequence[Sequence[float]], int, int, int, int, **int) -> BSpline.Surface\n    \"\"\" Surface approximation using least squares method with fixed number of control points.\n",
+        "source_code_len": 259,
+        "target_code": "def approximate_surface(points, size_u, size_v, degree_u, degree_v, **kwargs):\n    # type: (Sequence[Sequence[float]], int, int, int, int, **Any) -> BSpline.Surface\n    \"\"\" Surface approximation using least squares method with fixed number of control points.\n",
+        "target_code_len": 259,
+        "diff_format": "@@ -213,3 +213,3 @@\n def approximate_surface(points, size_u, size_v, degree_u, degree_v, **kwargs):\n-    # type: (Sequence[Sequence[float]], int, int, int, int, **int) -> BSpline.Surface\n+    # type: (Sequence[Sequence[float]], int, int, int, int, **Any) -> BSpline.Surface\n     \"\"\" Surface approximation using least squares method with fixed number of control points.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED>def approximate_surface(points, size_u, size_v, degree_u, degree_v, **kwargs):\n    # type: (Sequence[Sequence[float]], int, int, int, int, **int) -> BSpline.Surface\n    <IND>",
+        "target_code_with_indent": "<DED>def approximate_surface(points, size_u, size_v, degree_u, degree_v, **kwargs):\n    # type: (Sequence[Sequence[float]], int, int, int, int, **Any) -> BSpline.Surface\n    <IND>"
+      }
+    ]
+  }
+]

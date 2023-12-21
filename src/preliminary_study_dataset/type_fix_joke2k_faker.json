@@ -1,0 +1,208 @@
+[
+  {
+    "isolated_code_change": "-from .. import BaseProvider, date_time\n+from .. import BaseProvider, ElementsType, date_time\n-building_number_formats = ('##', )\n+building_number_formats: ElementsType = ('##', )",
+    "type_error": "Inconsistent override [15]",
+    "code_transform": "MODIFY_ATTR_TYPE",
+    "involved_types": [
+      "Tuple",
+      "str",
+      "Union",
+      "Sequence",
+      "TypeVar(Any)",
+      "Dict",
+      "float",
+      "KeysView"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Tuple[str]",
+      "to": "Union[Sequence[T], Dict[T, float], KeysView[T]]"
+    },
+    "location": "SUPERCLASS_ATTR",
+    "full_warning_msg": "faker/providers/address/cs_CZ/__init__.py:12:4 Inconsistent override [15]: `building_number_formats` overrides attribute defined in `AddressProvider` inconsistently. Type `typing.Tuple[str, str, str]` is not a subtype of the overridden attribute `typing.Tuple[str]`.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
+    "filepath": "faker/providers/address/__init__.py"
+  }, 
+  {
+    "isolated_code_change": "-from .. import BaseProvider, date_time\n+from .. import BaseProvider, ElementsType, date_time\n-postcode_formats = ('#####', )\n+postcode_formats: ElementsType = ('#####', )",
+    "type_error": "Inconsistent override [15]",
+    "code_transform": "MODIFY_ATTR_TYPE",
+    "involved_types": [
+      "Tuple",
+      "str",
+      "Union",
+      "Sequence",
+      "TypeVar(Any)",
+      "Dict",
+      "float",
+      "KeysView"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Tuple[str]",
+      "to": "Union[Sequence[T], Dict[T, float], KeysView[T]]"
+    },
+    "location": "SUPERCLASS_ATTR",
+    "full_warning_msg": "faker/providers/address/cs_CZ/__init__.py:17:4 Inconsistent override [15]: `postcode_formats` overrides attribute defined in `AddressProvider` inconsistently. Type `typing.Tuple[str, str, str, str, str, str, str]` is not a subtype of the overridden attribute `typing.Tuple[str]`.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
+    "filepath": "faker/providers/address/__init__.py"
+  },   
+  {
+    "isolated_code_change": "-from .. import BaseProvider, date_time\n+from .. import BaseProvider, ElementsType, date_time\n-street_suffixes = ['Street']\n+street_suffixes: ElementsType = ['Street']",
+    "type_error": "Inconsistent override [15]",
+    "code_transform": "MODIFY_ATTR_TYPE",
+    "involved_types": [
+      "List",
+      "str",
+      "Union",
+      "Sequence",
+      "TypeVar(Any)",
+      "Dict",
+      "float",
+      "KeysView"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "List[str]",
+      "to": "Union[Sequence[T], Dict[T, float], KeysView[T]]"
+    },
+    "location": "SUPERCLASS_ATTR",
+    "full_warning_msg": "faker/providers/address/da_DK/__init__.py:17:4 Inconsistent override [15]: `street_suffixes` overrides attribute defined in `AddressProvider` inconsistently. Type `typing.Tuple[str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str]` is not a subtype of the overridden attribute `typing.List[str]`.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
+    "filepath": "faker/providers/address/__init__.py"
+  },
+  {
+    "isolated_code_change": "-from .. import BaseProvider, date_time\n+from .. import BaseProvider, ElementsType, date_time\n-license_formats = ()\n+license_formats: ElementsType = ()",
+    "type_error": "Inconsistent override [15]",
+    "code_transform": "MODIFY_ATTR_TYPE",
+    "involved_types": [
+      "List",
+      "Union",
+      "Sequence",
+      "TypeVar(Any)",
+      "Dict",
+      "float",
+      "KeysView"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Tuple[]",
+      "to": "Union[Sequence[T], Dict[T, float], KeysView[T]]"
+    },
+    "location": "SUPERCLASS_ATTR",
+    "full_warning_msg": "faker/providers/automotive/ar_JO/__init__.py:12:4 Inconsistent override [15]: `license_formats` overrides attribute defined in `AutomotiveProvider` inconsistently. Type `typing.Tuple[str, str]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
+    "filepath": "faker/providers/automotive/__init__.py"
+  },
+  {
+    "isolated_code_change": "+PrefixType = Tuple[Union[int, str, Tuple[Union[int, str], ...]], ...]\n-local_prefixes = ()\n+local_prefixes: PrefixType = ()",
+    "type_error": "Inconsistent override [15]",
+    "code_transform": "MODIFY_ATTR_TYPE",
+    "involved_types": [
+      "Tuple",
+      "int",
+      "str",
+      "Union"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Tuple[]",
+      "to": "Tuple[Union[int, str, Tuple[Union[int, str], ...]], ...]"
+    },
+    "location": "SUPERCLASS_ATTR",
+    "full_warning_msg": "faker/providers/barcode/es_ES/__init__.py:12:4 Inconsistent override [15]: `local_prefixes` overrides attribute defined in `BarcodeProvider` inconsistently. Type `typing.Tuple[typing.Tuple[int, int]]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE",
+    "filepath": "faker/providers/barcode/__init__.py"
+  },    
+  {
+    "isolated_code_change": "-def process_list_structure(data: list) -> dict:\n+def process_list_structure(data: Sequence[Any]) -> Any:",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "list",
+      "Sequence",
+      "Any"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "list",
+      "to": "Sequence[Any]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "faker/providers/misc/__init__.py:498:57 Incompatible parameter type [6]: Expected `typing.List[typing.Any]` for 1st positional only parameter to anonymous call but got `typing.Tuple[typing.Any, ...]`.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE"
+  },        
+  {
+    "isolated_code_change": "-available_locales: Set[str] = set():\n+available_locales = set()",
+    "type_error": "Illegal annotation target [35]",
+    "code_transform": "REMOVE_REANNOTATION",
+    "involved_types": [
+      "List",
+      "str",
+      "Set",
+      "Any"
+    ],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "List[str]",
+      "to": "Set[Any]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "faker/utils/loading.py:47:4 Illegal annotation target [35]: Target `available_locales` cannot be annotated after it is first declared.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "CANNOT_REANNOTATE"
+  },
+  {
+    "isolated_code_change": "-def process_dict_structure(data: dict) -> dict:\n +def process_dict_structure(data: Union[int, float, bool, Dict[str, Any]]) -> Any",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": [
+      "Union",
+      "Dict",
+      "int",
+      "float",
+      "bool",
+      "str",
+      "Any"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Dict[Any, Any]",
+      "to": "Union[int, float, bool, Dict[str, Any]]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "faker/providers/misc/__init__.py:518:61 Incompatible parameter type [6]: Expected `typing.Dict[typing.Any, typing.Any]` for 1st positional only parameter to anonymous call but got `typing.Union[typing.Dict[typing.Any, typing.Any], bool, float, int]`.",
+    "url": "https://github.com/joke2k/faker/commit/9a382ed",
+    "repo": "https://github.com/joke2k/faker",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUBTYPE"
+  }
+]

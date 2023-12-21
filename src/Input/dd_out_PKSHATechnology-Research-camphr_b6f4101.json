@@ -1,0 +1,109 @@
+[
+  {
+    "project": "PKSHATechnology-Research/camphr",
+    "commit": "b6f41010761245e2083fafa95abecac7ab8e98be",
+    "filename": "camphr/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PKSHATechnology-Research-camphr/camphr/models.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "camphr/models.py:156:38 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Union[str, str, str, None]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Union[str, str, str, None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 156,
+    "warning_line": "        prev = cfg.pipeline[TASK2PIPE[cfg.task]] or OmegaConf.create({})",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from pathlib import Path\nfrom typing import Any, Callable, Dict, List, Optional, Union\n\n",
+        "source_code_len": 88,
+        "target_code": "from pathlib import Path\nfrom typing import Any, Callable, Dict, List, Optional, Union, cast\n\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -5,3 +5,3 @@\n from pathlib import Path\n-from typing import Any, Callable, Dict, List, Optional, Union\n+from typing import Any, Callable, Dict, List, Optional, Union, cast\n \n",
+        "source_code_with_indent": "from pathlib import Path\nfrom typing import Any, Callable, Dict, List, Optional, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from pathlib import Path\nfrom typing import Any, Callable, Dict, List, Optional, Union, cast\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _add_pipes(cfg: NLPConfig) -> NLPConfig:\n    if cfg.task in {\"textcat\", \"ner\", \"multilabel_textcat\"}:\n        assert cfg.labels, \"`cfg.labels` required\"\n        cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n        prev = cfg.pipeline[TASK2PIPE[cfg.task]] or OmegaConf.create({})\n        cfg.pipeline[TASK2PIPE[cfg.task]] = OmegaConf.merge(\n            OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "source_code_len": 411,
+        "target_code": "\nTASKS = {\"textcat\", \"ner\", \"multilabel_textcat\"}\n\n\ndef _add_pipes(cfg: NLPConfig) -> NLPConfig:\n    if cfg.task in TASKS:\n        assert cfg.labels, \"`cfg.labels` required\"\n        cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n        # TODO https://github.com/microsoft/pyright/issues/671\n        pipe = TASK2PIPE[cast(str, cfg.task)]\n        prev = cfg.pipeline[pipe] or OmegaConf.create({})\n        cfg.pipeline[pipe] = OmegaConf.merge(\n            OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "target_code_len": 506,
+        "diff_format": "@@ -151,8 +151,13 @@\n \n+TASKS = {\"textcat\", \"ner\", \"multilabel_textcat\"}\n+\n+\n def _add_pipes(cfg: NLPConfig) -> NLPConfig:\n-    if cfg.task in {\"textcat\", \"ner\", \"multilabel_textcat\"}:\n+    if cfg.task in TASKS:\n         assert cfg.labels, \"`cfg.labels` required\"\n         cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n-        prev = cfg.pipeline[TASK2PIPE[cfg.task]] or OmegaConf.create({})\n-        cfg.pipeline[TASK2PIPE[cfg.task]] = OmegaConf.merge(\n+        # TODO https://github.com/microsoft/pyright/issues/671\n+        pipe = TASK2PIPE[cast(str, cfg.task)]\n+        prev = cfg.pipeline[pipe] or OmegaConf.create({})\n+        cfg.pipeline[pipe] = OmegaConf.merge(\n             OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "source_code_with_indent": "\ndef _add_pipes(cfg: NLPConfig) -> NLPConfig:\n    <IND>if cfg.task in {\"textcat\", \"ner\", \"multilabel_textcat\"}:\n        <IND>assert cfg.labels, \"`cfg.labels` required\"\n        cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n        prev = cfg.pipeline[TASK2PIPE[cfg.task]] or OmegaConf.create({})\n        cfg.pipeline[TASK2PIPE[cfg.task]] = OmegaConf.merge(\n            OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nTASKS = {\"textcat\", \"ner\", \"multilabel_textcat\"}\n\n\ndef _add_pipes(cfg: NLPConfig) -> NLPConfig:\n    <IND>if cfg.task in TASKS:\n        <IND>assert cfg.labels, \"`cfg.labels` required\"\n        cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n        # TODO https://github.com/microsoft/pyright/issues/671\n        pipe = TASK2PIPE[cast(str, cfg.task)]\n        prev = cfg.pipeline[pipe] or OmegaConf.create({})\n        cfg.pipeline[pipe] = OmegaConf.merge(\n            OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "PKSHATechnology-Research/camphr",
+    "commit": "b6f41010761245e2083fafa95abecac7ab8e98be",
+    "filename": "camphr/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PKSHATechnology-Research-camphr/camphr/models.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "camphr/models.py:157:31 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Union[str, str, str, None]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Union[str, str, str, None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 157,
+    "warning_line": "        cfg.pipeline[TASK2PIPE[cfg.task]] = OmegaConf.merge(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from pathlib import Path\nfrom typing import Any, Callable, Dict, List, Optional, Union\n\n",
+        "source_code_len": 88,
+        "target_code": "from pathlib import Path\nfrom typing import Any, Callable, Dict, List, Optional, Union, cast\n\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -5,3 +5,3 @@\n from pathlib import Path\n-from typing import Any, Callable, Dict, List, Optional, Union\n+from typing import Any, Callable, Dict, List, Optional, Union, cast\n \n",
+        "source_code_with_indent": "from pathlib import Path\nfrom typing import Any, Callable, Dict, List, Optional, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from pathlib import Path\nfrom typing import Any, Callable, Dict, List, Optional, Union, cast\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _add_pipes(cfg: NLPConfig) -> NLPConfig:\n    if cfg.task in {\"textcat\", \"ner\", \"multilabel_textcat\"}:\n        assert cfg.labels, \"`cfg.labels` required\"\n        cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n        prev = cfg.pipeline[TASK2PIPE[cfg.task]] or OmegaConf.create({})\n        cfg.pipeline[TASK2PIPE[cfg.task]] = OmegaConf.merge(\n            OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "source_code_len": 411,
+        "target_code": "\nTASKS = {\"textcat\", \"ner\", \"multilabel_textcat\"}\n\n\ndef _add_pipes(cfg: NLPConfig) -> NLPConfig:\n    if cfg.task in TASKS:\n        assert cfg.labels, \"`cfg.labels` required\"\n        cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n        # TODO https://github.com/microsoft/pyright/issues/671\n        pipe = TASK2PIPE[cast(str, cfg.task)]\n        prev = cfg.pipeline[pipe] or OmegaConf.create({})\n        cfg.pipeline[pipe] = OmegaConf.merge(\n            OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "target_code_len": 506,
+        "diff_format": "@@ -151,8 +151,13 @@\n \n+TASKS = {\"textcat\", \"ner\", \"multilabel_textcat\"}\n+\n+\n def _add_pipes(cfg: NLPConfig) -> NLPConfig:\n-    if cfg.task in {\"textcat\", \"ner\", \"multilabel_textcat\"}:\n+    if cfg.task in TASKS:\n         assert cfg.labels, \"`cfg.labels` required\"\n         cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n-        prev = cfg.pipeline[TASK2PIPE[cfg.task]] or OmegaConf.create({})\n-        cfg.pipeline[TASK2PIPE[cfg.task]] = OmegaConf.merge(\n+        # TODO https://github.com/microsoft/pyright/issues/671\n+        pipe = TASK2PIPE[cast(str, cfg.task)]\n+        prev = cfg.pipeline[pipe] or OmegaConf.create({})\n+        cfg.pipeline[pipe] = OmegaConf.merge(\n             OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "source_code_with_indent": "\ndef _add_pipes(cfg: NLPConfig) -> NLPConfig:\n    <IND>if cfg.task in {\"textcat\", \"ner\", \"multilabel_textcat\"}:\n        <IND>assert cfg.labels, \"`cfg.labels` required\"\n        cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n        prev = cfg.pipeline[TASK2PIPE[cfg.task]] or OmegaConf.create({})\n        cfg.pipeline[TASK2PIPE[cfg.task]] = OmegaConf.merge(\n            OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nTASKS = {\"textcat\", \"ner\", \"multilabel_textcat\"}\n\n\ndef _add_pipes(cfg: NLPConfig) -> NLPConfig:\n    <IND>if cfg.task in TASKS:\n        <IND>assert cfg.labels, \"`cfg.labels` required\"\n        cfg.pipeline = cfg.pipeline or OmegaConf.create({})\n        # TODO https://github.com/microsoft/pyright/issues/671\n        pipe = TASK2PIPE[cast(str, cfg.task)]\n        prev = cfg.pipeline[pipe] or OmegaConf.create({})\n        cfg.pipeline[pipe] = OmegaConf.merge(\n            OmegaConf.create({\"labels\": cfg.labels}), prev\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "PKSHATechnology-Research/camphr",
+    "commit": "b6f41010761245e2083fafa95abecac7ab8e98be",
+    "filename": "camphr/pipelines/regex_ruler.py",
+    "min_patch_found": false,
+    "full_warning_msg": "camphr/pipelines/regex_ruler.py:52:50 Incompatible parameter type [6]: Expected `Variable[typing.AnyStr <: [str, bytes]]` for 1st positional only parameter to call `re.finditer` but got `Union[Pattern[typing.Any], str]`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  }
+]

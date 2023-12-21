@@ -1,0 +1,45 @@
+[
+  {
+    "project": "RDFLib/pySHACL",
+    "commit": "fe2c27f51fa012f182cd8a1653104424298a5bed",
+    "filename": "pyshacl/extras/js/constraint_component.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pyshacl/extras/js/constraint_component.py:283:4 Inconsistent override [15]: `validator_cache` overrides attribute defined in `JSConstraintComponentValidator` inconsistently. See https://pyre-check.org/docs/errors#covariance-and-contravariance for mutable container errors.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "RDFLib/pySHACL",
+    "commit": "fe2c27f51fa012f182cd8a1653104424298a5bed",
+    "filename": "pyshacl/validate.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RDFLib-pySHACL/pyshacl/validate.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyshacl/validate.py:377:35 Incompatible parameter type [6]: Expected `Validator` for 1st positional only parameter to call `check_dash_result` but got `Optional[Validator]`.",
+    "message": " Expected `Validator` for 1st positional only parameter to call `check_dash_result` but got `Optional[Validator]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 377,
+    "warning_line": "        passes = check_dash_result(validator, report_graph, shacl_graph or data_graph)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        report_text = \"Validation Failure - {}\".format(e.message)\n    if do_check_dash_result:\n        passes = check_dash_result(validator, report_graph, shacl_graph or data_graph)\n",
+        "source_code_len": 182,
+        "target_code": "        report_text = \"Validation Failure - {}\".format(e.message)\n    if do_check_dash_result and validator is not None:\n        passes = check_dash_result(validator, report_graph, shacl_graph or data_graph)\n",
+        "target_code_len": 208,
+        "diff_format": "@@ -375,3 +379,3 @@\n         report_text = \"Validation Failure - {}\".format(e.message)\n-    if do_check_dash_result:\n+    if do_check_dash_result and validator is not None:\n         passes = check_dash_result(validator, report_graph, shacl_graph or data_graph)\n",
+        "source_code_with_indent": "        report_text = \"Validation Failure - {}\".format(e.message)\n    <DED>if do_check_dash_result:\n        <IND>passes = check_dash_result(validator, report_graph, shacl_graph or data_graph)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        report_text = \"Validation Failure - {}\".format(e.message)\n    <DED>if do_check_dash_result and validator is not None:\n        <IND>passes = check_dash_result(validator, report_graph, shacl_graph or data_graph)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

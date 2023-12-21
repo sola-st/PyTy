@@ -1,0 +1,36 @@
+[
+  {
+    "project": "datatheorem/strongarm",
+    "commit": "ba2a402e13f938d62fdd1956134c4cdbccbdb18b",
+    "filename": "strongarm/macho/macho_analyzer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/datatheorem-strongarm/strongarm/macho/macho_analyzer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "strongarm/macho/macho_analyzer.py:924:8 Incompatible return type [7]: Expected `List[Tuple[VirtualMemoryPointer, str]]` but got `List[Tuple[VirtualMemoryPointer, int]]`.",
+    "message": " Expected `List[Tuple[VirtualMemoryPointer, str]]` but got `List[Tuple[VirtualMemoryPointer, int]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 924,
+    "warning_line": "        return string_loads",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        c = self._db_handle.cursor()\n        xrefs: Iterable[Tuple[str, int]] = c.execute(\n            \"SELECT accessor_address, string_literal from string_xrefs WHERE accessor_func_start_address=?\",\n            (func_addr,)\n        )\n",
+        "source_code_len": 235,
+        "target_code": "        c = self._db_handle.cursor()\n        xrefs: Iterable[Tuple[int, str]] = c.execute(\n            \"SELECT accessor_address, string_literal from string_xrefs WHERE accessor_func_start_address=?\",\n            (func_addr,),\n        )\n",
+        "target_code_len": 236,
+        "diff_format": "@@ -918,5 +918,5 @@\n         c = self._db_handle.cursor()\n-        xrefs: Iterable[Tuple[str, int]] = c.execute(\n+        xrefs: Iterable[Tuple[int, str]] = c.execute(\n             \"SELECT accessor_address, string_literal from string_xrefs WHERE accessor_func_start_address=?\",\n-            (func_addr,)\n+            (func_addr,),\n         )\n",
+        "source_code_with_indent": "        c = self._db_handle.cursor()\n        xrefs: Iterable[Tuple[str, int]] = c.execute(\n            \"SELECT accessor_address, string_literal from string_xrefs WHERE accessor_func_start_address=?\",\n            (func_addr,)\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        c = self._db_handle.cursor()\n        xrefs: Iterable[Tuple[int, str]] = c.execute(\n            \"SELECT accessor_address, string_literal from string_xrefs WHERE accessor_func_start_address=?\",\n            (func_addr,),\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

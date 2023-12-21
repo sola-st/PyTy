@@ -1,0 +1,36 @@
+[
+  {
+    "project": "paul-nameless/tg",
+    "commit": "30d0d525af981f142a384921ee7680dd5b90c189",
+    "filename": "tg/update_handlers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/paul-nameless-tg/tg/update_handlers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tg/update_handlers.py:172:30 Unbound name [10]: Name `message` is used but not defined in the current scope.",
+    "message": " Name `message` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 172,
+    "warning_line": "        chat_id, last_message=message, order=order",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if controller.model.chats.update_chat(\n        chat_id, last_message=message, order=order\n    ):\n",
+        "source_code_len": 101,
+        "target_code": "    if controller.model.chats.update_chat(\n        chat_id, last_message=last_message, order=order\n    ):\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -171,3 +171,3 @@\n     if controller.model.chats.update_chat(\n-        chat_id, last_message=message, order=order\n+        chat_id, last_message=last_message, order=order\n     ):\n",
+        "source_code_with_indent": "    if controller.model.chats.update_chat(\n        chat_id, last_message=message, order=order\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if controller.model.chats.update_chat(\n        chat_id, last_message=last_message, order=order\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

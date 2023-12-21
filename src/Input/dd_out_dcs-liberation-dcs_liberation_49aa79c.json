@@ -1,0 +1,36 @@
+[
+  {
+    "project": "dcs-liberation/dcs_liberation",
+    "commit": "49aa79c612d8894f2728ed03a9df76f872458d63",
+    "filename": "gen/aircraft.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dcs-liberation-dcs_liberation/gen/aircraft.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gen/aircraft.py:671:12 Incompatible parameter type [6]: Expected `timedelta` for 6th parameter `departure_delay` to call `FlightData.__init__` but got `int`.",
+    "message": " Expected `timedelta` for 6th parameter `departure_delay` to call `FlightData.__init__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 671,
+    "warning_line": "            departure_delay=flight.scheduled_in,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            friendly=flight.from_cp.captured,\n            departure_delay=flight.scheduled_in,\n            departure=departure_runway,\n",
+        "source_code_len": 135,
+        "target_code": "            friendly=flight.from_cp.captured,\n            # Set later.\n            departure_delay=timedelta(),\n            departure=departure_runway,\n",
+        "target_code_len": 152,
+        "diff_format": "@@ -670,3 +670,4 @@\n             friendly=flight.from_cp.captured,\n-            departure_delay=flight.scheduled_in,\n+            # Set later.\n+            departure_delay=timedelta(),\n             departure=departure_runway,\n",
+        "source_code_with_indent": "            friendly=flight.from_cp.captured,\n            departure_delay=flight.scheduled_in,\n            departure=departure_runway,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            friendly=flight.from_cp.captured,\n            # Set later.\n            departure_delay=timedelta(),\n            departure=departure_runway,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

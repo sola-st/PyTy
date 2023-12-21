@@ -1,0 +1,51 @@
+[
+  {
+    "project": "graphql-python/graphql-core",
+    "commit": "809bccfa3ba965e878a870023c58c05c37d71442",
+    "filename": "graphql/pyutils/event_emitter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/graphql-python-graphql-core/graphql/pyutils/event_emitter.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "graphql/pyutils/event_emitter.py:14:23 Incompatible variable type [9]: loop is declared to have type `asyncio.events.AbstractEventLoop` but is used as type `None`.",
+    "message": " loop is declared to have type `asyncio.events.AbstractEventLoop` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 14,
+    "warning_line": "    def __init__(self, loop: AbstractEventLoop=None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import Callable, Dict, List\n\n",
+        "source_code_len": 41,
+        "target_code": "from typing import cast, Callable, Dict, List, Optional\n\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -1,2 +1,2 @@\n-from typing import Callable, Dict, List\n+from typing import cast, Callable, Dict, List, Optional\n \n",
+        "source_code_with_indent": "from typing import Callable, Dict, List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import cast, Callable, Dict, List, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, loop: AbstractEventLoop=None) -> None:\n        self.loop = loop\n",
+        "source_code_len": 88,
+        "target_code": "\n    def __init__(self, loop: Optional[AbstractEventLoop]=None) -> None:\n        self.loop = loop\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -13,3 +13,3 @@\n \n-    def __init__(self, loop: AbstractEventLoop=None) -> None:\n+    def __init__(self, loop: Optional[AbstractEventLoop]=None) -> None:\n         self.loop = loop\n",
+        "source_code_with_indent": "\n    def __init__(self, loop: AbstractEventLoop=None) -> None:\n        <IND>self.loop = loop\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, loop: Optional[AbstractEventLoop]=None) -> None:\n        <IND>self.loop = loop\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

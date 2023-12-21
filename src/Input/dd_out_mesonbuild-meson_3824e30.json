@@ -1,0 +1,70 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "3824e30f7a9851e2a61a326692f93faa1ddf32c3",
+    "filename": "mesonbuild/modules/qt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/modules/qt.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/modules/qt.py:171:41 Incompatible parameter type [6]: Expected `T.Union[QmakeQtDependency, QtPkgConfigDependency]` for 2nd positional only parameter to call `QtBaseModule.compilers_detect` but got `T.Union[mesonbuild.dependencies.base.ExternalDependency, mesonbuild.dependencies.base.NotFoundDependency]`.",
+    "message": " Expected `T.Union[QmakeQtDependency, QtPkgConfigDependency]` for 2nd positional only parameter to call `QtBaseModule.compilers_detect` but got `T.Union[mesonbuild.dependencies.base.ExternalDependency, mesonbuild.dependencies.base.NotFoundDependency]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 171,
+    "warning_line": "            self.compilers_detect(state, qt)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        kwargs = {'required': required, 'modules': 'Core', 'method': method}\n        qt = find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs)\n        if qt.found():\n",
+        "source_code_len": 189,
+        "target_code": "        kwargs = {'required': required, 'modules': 'Core', 'method': method}\n        # Just pick one to make mypy happy\n        qt = T.cast('QtPkgConfigDependency', find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs))\n        if qt.found():\n",
+        "target_code_len": 265,
+        "diff_format": "@@ -167,3 +168,4 @@\n         kwargs = {'required': required, 'modules': 'Core', 'method': method}\n-        qt = find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs)\n+        # Just pick one to make mypy happy\n+        qt = T.cast('QtPkgConfigDependency', find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs))\n         if qt.found():\n",
+        "source_code_with_indent": "        kwargs = {'required': required, 'modules': 'Core', 'method': method}\n        qt = find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs)\n        if qt.found():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        kwargs = {'required': required, 'modules': 'Core', 'method': method}\n        # Just pick one to make mypy happy\n        qt = T.cast('QtPkgConfigDependency', find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs))\n        if qt.found():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "3824e30f7a9851e2a61a326692f93faa1ddf32c3",
+    "filename": "mesonbuild/modules/qt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/modules/qt.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/modules/qt.py:172:31 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `mesonlib.universal.version_compare` but got `T.Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `mesonlib.universal.version_compare` but got `T.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 172,
+    "warning_line": "            if version_compare(qt.version, '>=5.14.0'):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        kwargs = {'required': required, 'modules': 'Core', 'method': method}\n        qt = find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs)\n        if qt.found():\n",
+        "source_code_len": 189,
+        "target_code": "        kwargs = {'required': required, 'modules': 'Core', 'method': method}\n        # Just pick one to make mypy happy\n        qt = T.cast('QtPkgConfigDependency', find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs))\n        if qt.found():\n",
+        "target_code_len": 265,
+        "diff_format": "@@ -167,3 +168,4 @@\n         kwargs = {'required': required, 'modules': 'Core', 'method': method}\n-        qt = find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs)\n+        # Just pick one to make mypy happy\n+        qt = T.cast('QtPkgConfigDependency', find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs))\n         if qt.found():\n",
+        "source_code_with_indent": "        kwargs = {'required': required, 'modules': 'Core', 'method': method}\n        qt = find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs)\n        if qt.found():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        kwargs = {'required': required, 'modules': 'Core', 'method': method}\n        # Just pick one to make mypy happy\n        qt = T.cast('QtPkgConfigDependency', find_external_dependency(f'qt{self.qt_version}', state.environment, kwargs))\n        if qt.found():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

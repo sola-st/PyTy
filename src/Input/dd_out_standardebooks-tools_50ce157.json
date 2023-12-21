@@ -1,0 +1,85 @@
+[
+  {
+    "project": "standardebooks/tools",
+    "commit": "50ce1576db7e71adcc7da291fc147bc64c9ed5b0",
+    "filename": "se/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/standardebooks-tools/se/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "se/__init__.py:275:1 Incompatible return type [7]: Expected `Set[Path]` but got `typing.List[typing.Any]`.",
+    "message": " Expected `Set[Path]` but got `typing.List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 275,
+    "warning_line": "\treturn natural_sort(target_xhtml_filenames)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> Set[Path]:\n\t\"\"\"\n",
+        "source_code_len": 119,
+        "target_code": "\ndef get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> list:\n\t\"\"\"\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -238,3 +238,3 @@\n \n-def get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> Set[Path]:\n+def get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> list:\n \t\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> Set[Path]:\n\t<IND>",
+        "target_code_with_indent": "\n<DED>def get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> list:\n\t<IND>"
+      }
+    ]
+  },
+  {
+    "project": "standardebooks/tools",
+    "commit": "50ce1576db7e71adcc7da291fc147bc64c9ed5b0",
+    "filename": "se/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/standardebooks-tools/se/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "se/__init__.py:275:21 Incompatible parameter type [6]: Expected `typing.List[typing.Any]` for 1st positional only parameter to call `natural_sort` but got `Set[typing.Any]`.",
+    "message": " Expected `typing.List[typing.Any]` for 1st positional only parameter to call `natural_sort` but got `Set[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 275,
+    "warning_line": "\treturn natural_sort(target_xhtml_filenames)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> Set[Path]:\n\t\"\"\"\n",
+        "source_code_len": 119,
+        "target_code": "\ndef get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> list:\n\t\"\"\"\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -238,3 +238,3 @@\n \n-def get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> Set[Path]:\n+def get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> list:\n \t\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> Set[Path]:\n\t<IND>",
+        "target_code_with_indent": "\n<DED>def get_target_filenames(targets: list, allowed_extensions: tuple, ignored_filenames: list = None) -> list:\n\t<IND>"
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\treturn natural_sort(target_xhtml_filenames)\n\n",
+        "source_code_len": 47,
+        "target_code": "\n\treturn natural_sort(list(target_xhtml_filenames))\n\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -274,3 +274,3 @@\n \n-\treturn natural_sort(target_xhtml_filenames)\n+\treturn natural_sort(list(target_xhtml_filenames))\n \n",
+        "source_code_with_indent": "\n <DED><DED><DED>return natural_sort(target_xhtml_filenames)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n <DED><DED><DED>return natural_sort(list(target_xhtml_filenames))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

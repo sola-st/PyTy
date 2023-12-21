@@ -1,0 +1,104 @@
+[
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "b5e44673cf5c946a9a1d21d011bae25838e8de93",
+    "filename": "argoverse/data_loading/argoverse_stereo_loader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/argoverse/data_loading/argoverse_stereo_loader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "argoverse/data_loading/argoverse_stereo_loader.py:323:8 Incompatible return type [7]: Expected `Dict[str, List[str]]` but got `List[typing.Any]`.",
+    "message": " Expected `Dict[str, List[str]]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 323,
+    "warning_line": "        return sorted(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_log_stereo_img_paths(self, camera: str, log_id: Optional[str] = None) -> Dict[str, List[str]]:\n        \"\"\"Get list of stereo image paths for specific log\n",
+        "source_code_len": 167,
+        "target_code": "\n    def get_log_stereo_img_paths(self, camera: str, log_id: Optional[str] = None) -> List[str]:\n        \"\"\"Get list of stereo image paths for specific log\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -309,3 +309,3 @@\n \n-    def get_log_stereo_img_paths(self, camera: str, log_id: Optional[str] = None) -> Dict[str, List[str]]:\n+    def get_log_stereo_img_paths(self, camera: str, log_id: Optional[str] = None) -> List[str]:\n         \"\"\"Get list of stereo image paths for specific log\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def get_log_stereo_img_paths(self, camera: str, log_id: Optional[str] = None) -> Dict[str, List[str]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def get_log_stereo_img_paths(self, camera: str, log_id: Optional[str] = None) -> List[str]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "b5e44673cf5c946a9a1d21d011bae25838e8de93",
+    "filename": "argoverse/evaluation/stereo/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/argoverse/evaluation/stereo/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "argoverse/evaluation/stereo/utils.py:98:12 Incompatible parameter type [6]: Expected `int` for 3rd positional only parameter to call `write_disparity_error_image` but got `str`.",
+    "message": " Expected `int` for 3rd positional only parameter to call `write_disparity_error_image` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 98,
+    "warning_line": "            timestamp,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if save_disparity_error_image:\n        timestamp = Path(gt_fpath).stem.split(\"_\")[-1]\n        log_id = Path(gt_fpath).parts[-3]\n        write_dir_path = f\"{figs_fpath}/{log_id}/\"\n\n",
+        "source_code_len": 184,
+        "target_code": "    if save_disparity_error_image:\n        timestamp = int(Path(gt_fpath).stem.split(\"_\")[-1])\n        log_id = Path(gt_fpath).parts[-3]\n        write_dir_path = Path(f\"{figs_fpath}/{log_id}\")\n\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -90,5 +90,5 @@\n     if save_disparity_error_image:\n-        timestamp = Path(gt_fpath).stem.split(\"_\")[-1]\n+        timestamp = int(Path(gt_fpath).stem.split(\"_\")[-1])\n         log_id = Path(gt_fpath).parts[-3]\n-        write_dir_path = f\"{figs_fpath}/{log_id}/\"\n+        write_dir_path = Path(f\"{figs_fpath}/{log_id}\")\n \n",
+        "source_code_with_indent": "    <DED>if save_disparity_error_image:\n        <IND>timestamp = Path(gt_fpath).stem.split(\"_\")[-1]\n        log_id = Path(gt_fpath).parts[-3]\n        write_dir_path = f\"{figs_fpath}/{log_id}/\"\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>if save_disparity_error_image:\n        <IND>timestamp = int(Path(gt_fpath).stem.split(\"_\")[-1])\n        log_id = Path(gt_fpath).parts[-3]\n        write_dir_path = Path(f\"{figs_fpath}/{log_id}\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "b5e44673cf5c946a9a1d21d011bae25838e8de93",
+    "filename": "argoverse/evaluation/stereo/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/argoverse/evaluation/stereo/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "argoverse/evaluation/stereo/utils.py:99:12 Incompatible parameter type [6]: Expected `Path` for 4th positional only parameter to call `write_disparity_error_image` but got `str`.",
+    "message": " Expected `Path` for 4th positional only parameter to call `write_disparity_error_image` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 99,
+    "warning_line": "            write_dir_path,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if save_disparity_error_image:\n        timestamp = Path(gt_fpath).stem.split(\"_\")[-1]\n        log_id = Path(gt_fpath).parts[-3]\n        write_dir_path = f\"{figs_fpath}/{log_id}/\"\n\n",
+        "source_code_len": 184,
+        "target_code": "    if save_disparity_error_image:\n        timestamp = int(Path(gt_fpath).stem.split(\"_\")[-1])\n        log_id = Path(gt_fpath).parts[-3]\n        write_dir_path = Path(f\"{figs_fpath}/{log_id}\")\n\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -90,5 +90,5 @@\n     if save_disparity_error_image:\n-        timestamp = Path(gt_fpath).stem.split(\"_\")[-1]\n+        timestamp = int(Path(gt_fpath).stem.split(\"_\")[-1])\n         log_id = Path(gt_fpath).parts[-3]\n-        write_dir_path = f\"{figs_fpath}/{log_id}/\"\n+        write_dir_path = Path(f\"{figs_fpath}/{log_id}\")\n \n",
+        "source_code_with_indent": "    <DED>if save_disparity_error_image:\n        <IND>timestamp = Path(gt_fpath).stem.split(\"_\")[-1]\n        log_id = Path(gt_fpath).parts[-3]\n        write_dir_path = f\"{figs_fpath}/{log_id}/\"\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>if save_disparity_error_image:\n        <IND>timestamp = int(Path(gt_fpath).stem.split(\"_\")[-1])\n        log_id = Path(gt_fpath).parts[-3]\n        write_dir_path = Path(f\"{figs_fpath}/{log_id}\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

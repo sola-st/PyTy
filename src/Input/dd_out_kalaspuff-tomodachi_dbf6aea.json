@@ -1,0 +1,36 @@
+[
+  {
+    "project": "kalaspuff/tomodachi",
+    "commit": "dbf6aea91403b0295f197f4809d7d696890fabc9",
+    "filename": "tomodachi/protocol/protobuf_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kalaspuff-tomodachi/tomodachi/protocol/protobuf_base.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tomodachi/protocol/protobuf_base.py:37:65 Incompatible variable type [9]: validator is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " validator is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 37,
+    "warning_line": "    async def parse_message(cls, payload: str, proto_class: Any, validator: Callable = None) -> Union[Dict, Tuple]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    async def parse_message(cls, payload: str, proto_class: Any, validator: Callable = None) -> Union[Dict, Tuple]:\n        message = SNSSQSMessage()\n",
+        "source_code_len": 167,
+        "target_code": "    @classmethod\n    async def parse_message(cls, payload: str, proto_class: Any, validator: Any = None) -> Union[Dict, Tuple]:\n        message = SNSSQSMessage()\n",
+        "target_code_len": 162,
+        "diff_format": "@@ -36,3 +36,3 @@\n     @classmethod\n-    async def parse_message(cls, payload: str, proto_class: Any, validator: Callable = None) -> Union[Dict, Tuple]:\n+    async def parse_message(cls, payload: str, proto_class: Any, validator: Any = None) -> Union[Dict, Tuple]:\n         message = SNSSQSMessage()\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    async def parse_message(cls, payload: str, proto_class: Any, validator: Callable = None) -> Union[Dict, Tuple]:\n        <IND>message = SNSSQSMessage()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    async def parse_message(cls, payload: str, proto_class: Any, validator: Any = None) -> Union[Dict, Tuple]:\n        <IND>message = SNSSQSMessage()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

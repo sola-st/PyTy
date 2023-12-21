@@ -1,0 +1,70 @@
+[
+  {
+    "project": "activeloopai/Hub",
+    "commit": "9153370a99ff68272f42b78543ebc27def65c7c1",
+    "filename": "hub/core/chunk_engine.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/core/chunk_engine.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "hub/core/chunk_engine.py:427:52 Incompatible parameter type [6]: Expected `Union[bytes, hub.core.storage.cachable.Cachable]` for 2nd positional only parameter to call `LRUCache.__setitem__` but got `Optional[CommitChunkSet]`.",
+    "message": " Expected `Union[bytes, hub.core.storage.cachable.Cachable]` for 2nd positional only parameter to call `LRUCache.__setitem__` but got `Optional[CommitChunkSet]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 427,
+    "warning_line": "            self.meta_cache[commit_chunk_set_key] = self.commit_chunk_set",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            commit_chunk_set_key = get_tensor_commit_chunk_set_key(self.key, commit_id)\n            self.meta_cache[commit_chunk_set_key] = self.commit_chunk_set\n\n",
+        "source_code_len": 163,
+        "target_code": "            commit_chunk_set_key = get_tensor_commit_chunk_set_key(self.key, commit_id)\n            self.meta_cache[commit_chunk_set_key] = self.commit_chunk_set  # type: ignore\n\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -426,3 +426,3 @@\n             commit_chunk_set_key = get_tensor_commit_chunk_set_key(self.key, commit_id)\n-            self.meta_cache[commit_chunk_set_key] = self.commit_chunk_set\n+            self.meta_cache[commit_chunk_set_key] = self.commit_chunk_set  # type: ignore\n \n",
+        "source_code_with_indent": "            <IND>commit_chunk_set_key = get_tensor_commit_chunk_set_key(self.key, commit_id)\n            self.meta_cache[commit_chunk_set_key] = self.commit_chunk_set\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>commit_chunk_set_key = get_tensor_commit_chunk_set_key(self.key, commit_id)\n            self.meta_cache[commit_chunk_set_key] = self.commit_chunk_set  # type: ignore\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "activeloopai/Hub",
+    "commit": "9153370a99ff68272f42b78543ebc27def65c7c1",
+    "filename": "hub/core/version_control/commit_node.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/core/version_control/commit_node.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/core/version_control/commit_node.py:9:36 Incompatible variable type [9]: commit_id is declared to have type `str` but is used as type `None`.",
+    "message": " commit_id is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 9,
+    "warning_line": "    def __init__(self, branch: str, commit_id: str = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, branch: str, commit_id: str = None):\n        self.commit_id = commit_id\n",
+        "source_code_len": 96,
+        "target_code": "\n    def __init__(self, branch: str, commit_id: str):\n        self.commit_id = commit_id\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -8,3 +8,3 @@\n \n-    def __init__(self, branch: str, commit_id: str = None):\n+    def __init__(self, branch: str, commit_id: str):\n         self.commit_id = commit_id\n",
+        "source_code_with_indent": "\n    def __init__(self, branch: str, commit_id: str = None):\n        <IND>self.commit_id = commit_id\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, branch: str, commit_id: str):\n        <IND>self.commit_id = commit_id\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "project": "angr/angr",
+    "commit": "76f879da0b317c5f4816f62a7613d7187df73d93",
+    "filename": "angr/analyses/reaching_definitions/reaching_definitions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/angr-angr/angr/analyses/reaching_definitions/reaching_definitions.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "angr/analyses/reaching_definitions/reaching_definitions.py:231:49 Incompatible parameter type [6]: Expected `angr.knowledge_plugins.key_definitions.live_definitions.LiveDefinitions` for 2nd positional only parameter to call `dict.__setitem__` but got `ReachingDefinitionsState`.",
+    "message": " Expected `angr.knowledge_plugins.key_definitions.live_definitions.LiveDefinitions` for 2nd positional only parameter to call `dict.__setitem__` but got `ReachingDefinitionsState`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 231,
+    "warning_line": "                    self.observed_results[key] = state.copy()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                        vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n                    self.observed_results[key] = state.copy()\n        elif isinstance(stmt, ailment.Stmt.Statement):\n            # it's an AIL block\n            self.observed_results[key] = state.copy()\n\n",
+        "source_code_len": 282,
+        "target_code": "                        vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n                    self.observed_results[key] = state.live_definitions.copy()\n        elif isinstance(stmt, ailment.Stmt.Statement):\n            # it's an AIL block\n            self.observed_results[key] = state.live_definitions.copy()\n\n",
+        "target_code_len": 316,
+        "diff_format": "@@ -230,6 +229,6 @@\n                         vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n-                    self.observed_results[key] = state.copy()\n+                    self.observed_results[key] = state.live_definitions.copy()\n         elif isinstance(stmt, ailment.Stmt.Statement):\n             # it's an AIL block\n-            self.observed_results[key] = state.copy()\n+            self.observed_results[key] = state.live_definitions.copy()\n \n",
+        "source_code_with_indent": "                        vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n                    <IND>self.observed_results[key] = state.copy()\n        <DED><DED><DED>elif isinstance(stmt, ailment.Stmt.Statement):\n            # it's an AIL block\n            <IND>self.observed_results[key] = state.copy()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                        vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n                    <IND>self.observed_results[key] = state.live_definitions.copy()\n        <DED><DED><DED>elif isinstance(stmt, ailment.Stmt.Statement):\n            # it's an AIL block\n            <IND>self.observed_results[key] = state.live_definitions.copy()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "angr/angr",
+    "commit": "76f879da0b317c5f4816f62a7613d7187df73d93",
+    "filename": "angr/analyses/reaching_definitions/reaching_definitions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/angr-angr/angr/analyses/reaching_definitions/reaching_definitions.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "angr/analyses/reaching_definitions/reaching_definitions.py:234:41 Incompatible parameter type [6]: Expected `angr.knowledge_plugins.key_definitions.live_definitions.LiveDefinitions` for 2nd positional only parameter to call `dict.__setitem__` but got `ReachingDefinitionsState`.",
+    "message": " Expected `angr.knowledge_plugins.key_definitions.live_definitions.LiveDefinitions` for 2nd positional only parameter to call `dict.__setitem__` but got `ReachingDefinitionsState`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 234,
+    "warning_line": "            self.observed_results[key] = state.copy()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                        vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n                    self.observed_results[key] = state.copy()\n        elif isinstance(stmt, ailment.Stmt.Statement):\n            # it's an AIL block\n            self.observed_results[key] = state.copy()\n\n",
+        "source_code_len": 282,
+        "target_code": "                        vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n                    self.observed_results[key] = state.live_definitions.copy()\n        elif isinstance(stmt, ailment.Stmt.Statement):\n            # it's an AIL block\n            self.observed_results[key] = state.live_definitions.copy()\n\n",
+        "target_code_len": 316,
+        "diff_format": "@@ -230,6 +229,6 @@\n                         vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n-                    self.observed_results[key] = state.copy()\n+                    self.observed_results[key] = state.live_definitions.copy()\n         elif isinstance(stmt, ailment.Stmt.Statement):\n             # it's an AIL block\n-            self.observed_results[key] = state.copy()\n+            self.observed_results[key] = state.live_definitions.copy()\n \n",
+        "source_code_with_indent": "                        vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n                    <IND>self.observed_results[key] = state.copy()\n        <DED><DED><DED>elif isinstance(stmt, ailment.Stmt.Statement):\n            # it's an AIL block\n            <IND>self.observed_results[key] = state.copy()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                        vex_block.statements[idx + 1]) is pyvex.IRStmt.IMark:\n                    <IND>self.observed_results[key] = state.live_definitions.copy()\n        <DED><DED><DED>elif isinstance(stmt, ailment.Stmt.Statement):\n            # it's an AIL block\n            <IND>self.observed_results[key] = state.live_definitions.copy()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "angr/angr",
+    "commit": "76f879da0b317c5f4816f62a7613d7187df73d93",
+    "filename": "angr/analyses/reaching_definitions/reaching_definitions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/angr-angr/angr/analyses/reaching_definitions/reaching_definitions.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "angr/analyses/reaching_definitions/reaching_definitions.py:288:19 Invalid type [31]: Expression `\"(angr.analyses.reaching_definitions.rd_state.ReachingDefinitionsState, set)\"` is not a valid type.",
+    "message": " Expression `\"(angr.analyses.reaching_definitions.rd_state.ReachingDefinitionsState, set)\"` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 288,
+    "warning_line": "        )  # type: ReachingDefinitionsState, set",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            visited_blocks=self._visited_blocks\n        )  # type: ReachingDefinitionsState, set\n\n",
+        "source_code_len": 98,
+        "target_code": "            visited_blocks=self._visited_blocks\n        )\n\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -287,3 +288,3 @@\n             visited_blocks=self._visited_blocks\n-        )  # type: ReachingDefinitionsState, set\n+        )\n \n",
+        "source_code_with_indent": "            visited_blocks=self._visited_blocks\n        )  # type: ReachingDefinitionsState, set\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            visited_blocks=self._visited_blocks\n        )\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

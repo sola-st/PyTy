@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Flax-Network/flax-blockchain",
+    "commit": "a6874bd2fe395b5b7c2569afbd1896bb111087d5",
+    "filename": "chia/types/generator_types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Flax-Network-flax-blockchain/chia/types/generator_types.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chia/types/generator_types.py:28:8 Incompatible return type [7]: Expected `SerializedProgram` but got implicit return value of `None`.",
+    "message": " Expected `SerializedProgram` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 28,
+    "warning_line": "        \"\"\" `make_generator_args` is consensus-critical \"\"\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from dataclasses import dataclass\nfrom typing import List, Tuple\n\nfrom chia.types.blockchain_format.program import SerializedProgram\nfrom chia.util.ints import uint32\n\n# from chia.util.streamable import Streamable, streamable\n\n",
+        "source_code_len": 227,
+        "target_code": "from dataclasses import dataclass\nfrom typing import List\nfrom chia.types.blockchain_format.program import SerializedProgram\nfrom chia.util.ints import uint32\nfrom chia.util.streamable import Streamable, streamable\n\n",
+        "target_code_len": 216,
+        "diff_format": "@@ -1,8 +1,6 @@\n from dataclasses import dataclass\n-from typing import List, Tuple\n-\n+from typing import List\n from chia.types.blockchain_format.program import SerializedProgram\n from chia.util.ints import uint32\n-\n-# from chia.util.streamable import Streamable, streamable\n+from chia.util.streamable import Streamable, streamable\n \n",
+        "source_code_with_indent": "from dataclasses import dataclass\nfrom typing import List, Tuple\n\nfrom chia.types.blockchain_format.program import SerializedProgram\nfrom chia.util.ints import uint32\n\n# from chia.util.streamable import Streamable, streamable\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from dataclasses import dataclass\nfrom typing import List\nfrom chia.types.blockchain_format.program import SerializedProgram\nfrom chia.util.ints import uint32\nfrom chia.util.streamable import Streamable, streamable\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@dataclass(frozen=True)\nclass BlockGenerator:\n    generator: SerializedProgram\n    generator_args: List[GeneratorArg]\n\n    def make_generator_args(self) -> SerializedProgram:\n        \"\"\" `make_generator_args` is consensus-critical \"\"\"\n\n    def run(self) -> Tuple[int, SerializedProgram]:\n        pass\n",
+        "source_code_len": 301,
+        "target_code": "@dataclass(frozen=True)\n@streamable\nclass CompressorArg(Streamable):\n    \"\"\"`CompressorArg` is used as input to the Block Compressor\"\"\"\n\n    block_height: uint32\n    generator: SerializedProgram\n    start: int\n    end: int\n\n\n@dataclass(frozen=True)\n@streamable\nclass BlockGenerator(Streamable):\n    program: SerializedProgram\n    generator_args: List[GeneratorArg]\n\n    def block_height_list(self) -> List[uint32]:\n        return [a.block_height for a in self.generator_args]\n\n    def generator_refs(self) -> List[SerializedProgram]:\n        return [a.generator for a in self.generator_args]\n",
+        "target_code_len": 592,
+        "diff_format": "@@ -22,10 +23,22 @@\n @dataclass(frozen=True)\n-class BlockGenerator:\n+@streamable\n+class CompressorArg(Streamable):\n+    \"\"\"`CompressorArg` is used as input to the Block Compressor\"\"\"\n+\n+    block_height: uint32\n     generator: SerializedProgram\n+    start: int\n+    end: int\n+\n+\n+@dataclass(frozen=True)\n+@streamable\n+class BlockGenerator(Streamable):\n+    program: SerializedProgram\n     generator_args: List[GeneratorArg]\n \n-    def make_generator_args(self) -> SerializedProgram:\n-        \"\"\" `make_generator_args` is consensus-critical \"\"\"\n+    def block_height_list(self) -> List[uint32]:\n+        return [a.block_height for a in self.generator_args]\n \n-    def run(self) -> Tuple[int, SerializedProgram]:\n-        pass\n+    def generator_refs(self) -> List[SerializedProgram]:\n+        return [a.generator for a in self.generator_args]\n",
+        "source_code_with_indent": "<DED>@dataclass(frozen=True)\nclass BlockGenerator:\n    <IND>generator: SerializedProgram\n    generator_args: List[GeneratorArg]\n\n    def make_generator_args(self) -> SerializedProgram:\n        <IND>\"\"\" `make_generator_args` is consensus-critical \"\"\"\n\n    <DED>def run(self) -> Tuple[int, SerializedProgram]:\n        <IND>pass\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>@dataclass(frozen=True)\n@streamable\nclass CompressorArg(Streamable):\n    <IND>\"\"\"`CompressorArg` is used as input to the Block Compressor\"\"\"\n\n    block_height: uint32\n    generator: SerializedProgram\n    start: int\n    end: int\n\n\n<DED>@dataclass(frozen=True)\n@streamable\nclass BlockGenerator(Streamable):\n    <IND>program: SerializedProgram\n    generator_args: List[GeneratorArg]\n\n    def block_height_list(self) -> List[uint32]:\n        <IND>return [a.block_height for a in self.generator_args]\n\n    <DED>def generator_refs(self) -> List[SerializedProgram]:\n        <IND>return [a.generator for a in self.generator_args]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

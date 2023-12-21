@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Chia-Network/chia-blockchain",
+    "commit": "13a49c7a2ebec0e76eaaa367fcc36f210f5d5db9",
+    "filename": "chia/server/node_discovery.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Chia-Network-chia-blockchain/chia/server/node_discovery.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chia/server/node_discovery.py:237:16 Incompatible parameter type [6]: Expected `typing.Callable[..., typing.Any]` for 2nd parameter `on_connect` to call `ChiaServer.start_client` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "message": " Expected `typing.Callable[..., typing.Any]` for 2nd parameter `on_connect` to call `ChiaServer.start_client` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 237,
+    "warning_line": "                on_connect=self.server.on_connect,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def start_client_async(self, addr: PeerInfo, is_feeler: bool) -> None:\n",
+        "source_code_len": 82,
+        "target_code": "\n    async def on_connect_callback(self, peer: ws.WSChiaConnection):\n        if self.server.on_connect is not None:\n            await self.server.on_connect(peer)\n        else:\n            await self.on_connect(peer)\n\n    async def start_client_async(self, addr: PeerInfo, is_feeler: bool) -> None:\n",
+        "target_code_len": 299,
+        "diff_format": "@@ -229,2 +229,8 @@\n \n+    async def on_connect_callback(self, peer: ws.WSChiaConnection):\n+        if self.server.on_connect is not None:\n+            await self.server.on_connect(peer)\n+        else:\n+            await self.on_connect(peer)\n+\n     async def start_client_async(self, addr: PeerInfo, is_feeler: bool) -> None:\n",
+        "source_code_with_indent": "\n    <DED><DED>async def start_client_async(self, addr: PeerInfo, is_feeler: bool) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>async def on_connect_callback(self, peer: ws.WSChiaConnection):\n        <IND>if self.server.on_connect is not None:\n            <IND>await self.server.on_connect(peer)\n        <DED>else:\n            <IND>await self.on_connect(peer)\n\n    <DED><DED>async def start_client_async(self, addr: PeerInfo, is_feeler: bool) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                addr,\n                on_connect=self.server.on_connect,\n                is_feeler=is_feeler,\n",
+        "source_code_len": 110,
+        "target_code": "                addr,\n                on_connect=self.on_connect_callback,\n                is_feeler=is_feeler,\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -236,3 +242,3 @@\n                 addr,\n-                on_connect=self.server.on_connect,\n+                on_connect=self.on_connect_callback,\n                 is_feeler=is_feeler,\n",
+        "source_code_with_indent": "                addr,\n                on_connect=self.server.on_connect,\n                is_feeler=is_feeler,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                addr,\n                on_connect=self.on_connect_callback,\n                is_feeler=is_feeler,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

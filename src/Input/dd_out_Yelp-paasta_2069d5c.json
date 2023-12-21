@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Yelp/paasta",
+    "commit": "2069d5cbf0c7b04cc9a039247384545a4ad88aec",
+    "filename": "paasta_tools/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/utils.py:1533:8 Incompatible return type [7]: Expected `bool` but got `Union[bool, Dict[str, str]]`.",
+    "message": " Expected `bool` but got `Union[bool, Dict[str, str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1533,
+    "warning_line": "        return self.config_dict.get('cluster_autoscaling_draining_enabled', True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        'deployd_startup_oracle_enabled': bool,\n    },\n",
+        "source_code_len": 55,
+        "target_code": "        'deployd_startup_oracle_enabled': bool,\n        'cluster_autoscaling_draining_enabled': bool,\n    },\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -1329,2 +1329,3 @@\n         'deployd_startup_oracle_enabled': bool,\n+        'cluster_autoscaling_draining_enabled': bool,\n     },\n",
+        "source_code_with_indent": "        'deployd_startup_oracle_enabled': bool,\n    },\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        'deployd_startup_oracle_enabled': bool,\n        'cluster_autoscaling_draining_enabled': bool,\n    },\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

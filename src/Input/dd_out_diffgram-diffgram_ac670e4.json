@@ -1,0 +1,182 @@
+[
+  {
+    "project": "diffgram/diffgram",
+    "commit": "ac670e4e86c662a87a1f4bfae1d4b4aa2508066f",
+    "filename": "default/methods/report/report_runner.py",
+    "min_patch_found": false,
+    "full_warning_msg": "default/methods/report/report_runner.py:369:16 Incompatible parameter type [6]: Expected `shared.permissions.project_permissions.Project_permissions` for 3rd parameter `Roles` to call `shared.permissions.project_permissions.Project_permissions.check_permissions` but got `typing.List[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "diffgram/diffgram",
+    "commit": "ac670e4e86c662a87a1f4bfae1d4b4aa2508066f",
+    "filename": "default/methods/task/task/task_update.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/diffgram-diffgram/default/methods/task/task/task_update.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "default/methods/task/task/task_update.py:70:1 Unbound name [10]: Name `dataclass` is used but not defined in the current scope.",
+    "message": " Name `dataclass` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 70,
+    "warning_line": "@dataclass",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return jsonify(log = task_update.log), 200\n\n\n@dataclass\nclass Task_Update():\n    session: Any\n    task: Task\n    mode: str = None\n    status: str = None\n\n    \"\"\"\n    This is clearly over burdening for setting flag,\n    but the point is more that we want to expand along this axis as \n    other types of task update stuff get added.\n\n    \"\"\"\n\n    def __post_init__(self):\n\n        self.session.add(self.task)\n        self.try_to_commit = regular_methods.try_to_commit\n\n        # TODO clarify if this needs to use factory thing\n        self.log = regular_log.default()\n\n    def main(self):\n\n        if self.mode == 'toggle_deferred':\n            self.defer()\n        if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n            self.change_status()\n        regular_methods.try_to_commit(self)\n        self.task.job.refresh_stat_count_tasks(self.session)\n        return\n\n    def change_status(self):\n        if self.task.status != 'archived' and self.status == 'archived':\n            self.task.job.stat_count_tasks -= 1\n            self.session.add(self.task.job)\n        self.task.status = self.status\n\n    def defer(self):\n\n        # Don't defer twice\n        if self.task.status == 'deferred':\n            self.log['error']['deferred'] = \"Task has already been deferred.\"\n            return\n\n        # Future feature? in theory could defer again...\n        # note this is task_type not Status\n        if self.task.task_type == 'review':\n            self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n            return\n\n        self.task.status = 'deferred'\n\n        review_task = create_review_sub_task(\n            session = self.session,\n            job = self.task.job,\n            root_task = self.task,\n            guide_id = self.task.job.guide_review_id,\n            create_new_file = False\n        )\n\n        self.log['success'] = True\n",
+        "source_code_len": 1928,
+        "target_code": "        return jsonify(log = task_update.log), 200\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -67,65 +72,1 @@\n         return jsonify(log = task_update.log), 200\n-\n-\n-@dataclass\n-class Task_Update():\n-    session: Any\n-    task: Task\n-    mode: str = None\n-    status: str = None\n-\n-    \"\"\"\n-    This is clearly over burdening for setting flag,\n-    but the point is more that we want to expand along this axis as \n-    other types of task update stuff get added.\n-\n-    \"\"\"\n-\n-    def __post_init__(self):\n-\n-        self.session.add(self.task)\n-        self.try_to_commit = regular_methods.try_to_commit\n-\n-        # TODO clarify if this needs to use factory thing\n-        self.log = regular_log.default()\n-\n-    def main(self):\n-\n-        if self.mode == 'toggle_deferred':\n-            self.defer()\n-        if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n-            self.change_status()\n-        regular_methods.try_to_commit(self)\n-        self.task.job.refresh_stat_count_tasks(self.session)\n-        return\n-\n-    def change_status(self):\n-        if self.task.status != 'archived' and self.status == 'archived':\n-            self.task.job.stat_count_tasks -= 1\n-            self.session.add(self.task.job)\n-        self.task.status = self.status\n-\n-    def defer(self):\n-\n-        # Don't defer twice\n-        if self.task.status == 'deferred':\n-            self.log['error']['deferred'] = \"Task has already been deferred.\"\n-            return\n-\n-        # Future feature? in theory could defer again...\n-        # note this is task_type not Status\n-        if self.task.task_type == 'review':\n-            self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n-            return\n-\n-        self.task.status = 'deferred'\n-\n-        review_task = create_review_sub_task(\n-            session = self.session,\n-            job = self.task.job,\n-            root_task = self.task,\n-            guide_id = self.task.job.guide_review_id,\n-            create_new_file = False\n-        )\n-\n-        self.log['success'] = True\n",
+        "source_code_with_indent": "        <DED>return jsonify(log = task_update.log), 200\n\n\n<DED><DED>@dataclass\nclass Task_Update():\n    <IND>session: Any\n    task: Task\n    mode: str = None\n    status: str = None\n\n    \"\"\"\n    This is clearly over burdening for setting flag,\n    but the point is more that we want to expand along this axis as \n    other types of task update stuff get added.\n\n    \"\"\"\n\n    def __post_init__(self):\n\n        <IND>self.session.add(self.task)\n        self.try_to_commit = regular_methods.try_to_commit\n\n        # TODO clarify if this needs to use factory thing\n        self.log = regular_log.default()\n\n    <DED>def main(self):\n\n        <IND>if self.mode == 'toggle_deferred':\n            <IND>self.defer()\n        <DED>if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n            <IND>self.change_status()\n        <DED>regular_methods.try_to_commit(self)\n        self.task.job.refresh_stat_count_tasks(self.session)\n        return\n\n    <DED>def change_status(self):\n        <IND>if self.task.status != 'archived' and self.status == 'archived':\n            <IND>self.task.job.stat_count_tasks -= 1\n            self.session.add(self.task.job)\n        <DED>self.task.status = self.status\n\n    <DED>def defer(self):\n\n        # Don't defer twice\n        <IND>if self.task.status == 'deferred':\n            <IND>self.log['error']['deferred'] = \"Task has already been deferred.\"\n            return\n\n        # Future feature? in theory could defer again...\n        # note this is task_type not Status\n        <DED>if self.task.task_type == 'review':\n            <IND>self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n            return\n\n        <DED>self.task.status = 'deferred'\n\n        review_task = create_review_sub_task(\n            session = self.session,\n            job = self.task.job,\n            root_task = self.task,\n            guide_id = self.task.job.guide_review_id,\n            create_new_file = False\n        )\n\n        self.log['success'] = True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>return jsonify(log = task_update.log), 200\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "diffgram/diffgram",
+    "commit": "ac670e4e86c662a87a1f4bfae1d4b4aa2508066f",
+    "filename": "default/methods/task/task/task_update.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/diffgram-diffgram/default/methods/task/task/task_update.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "default/methods/task/task/task_update.py:72:13 Unbound name [10]: Name `Any` is used but not defined in the current scope.",
+    "message": " Name `Any` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 72,
+    "warning_line": "    session: Any",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return jsonify(log = task_update.log), 200\n\n\n@dataclass\nclass Task_Update():\n    session: Any\n    task: Task\n    mode: str = None\n    status: str = None\n\n    \"\"\"\n    This is clearly over burdening for setting flag,\n    but the point is more that we want to expand along this axis as \n    other types of task update stuff get added.\n\n    \"\"\"\n\n    def __post_init__(self):\n\n        self.session.add(self.task)\n        self.try_to_commit = regular_methods.try_to_commit\n\n        # TODO clarify if this needs to use factory thing\n        self.log = regular_log.default()\n\n    def main(self):\n\n        if self.mode == 'toggle_deferred':\n            self.defer()\n        if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n            self.change_status()\n        regular_methods.try_to_commit(self)\n        self.task.job.refresh_stat_count_tasks(self.session)\n        return\n\n    def change_status(self):\n        if self.task.status != 'archived' and self.status == 'archived':\n            self.task.job.stat_count_tasks -= 1\n            self.session.add(self.task.job)\n        self.task.status = self.status\n\n    def defer(self):\n\n        # Don't defer twice\n        if self.task.status == 'deferred':\n            self.log['error']['deferred'] = \"Task has already been deferred.\"\n            return\n\n        # Future feature? in theory could defer again...\n        # note this is task_type not Status\n        if self.task.task_type == 'review':\n            self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n            return\n\n        self.task.status = 'deferred'\n\n        review_task = create_review_sub_task(\n            session = self.session,\n            job = self.task.job,\n            root_task = self.task,\n            guide_id = self.task.job.guide_review_id,\n            create_new_file = False\n        )\n\n        self.log['success'] = True\n",
+        "source_code_len": 1928,
+        "target_code": "        return jsonify(log = task_update.log), 200\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -67,65 +72,1 @@\n         return jsonify(log = task_update.log), 200\n-\n-\n-@dataclass\n-class Task_Update():\n-    session: Any\n-    task: Task\n-    mode: str = None\n-    status: str = None\n-\n-    \"\"\"\n-    This is clearly over burdening for setting flag,\n-    but the point is more that we want to expand along this axis as \n-    other types of task update stuff get added.\n-\n-    \"\"\"\n-\n-    def __post_init__(self):\n-\n-        self.session.add(self.task)\n-        self.try_to_commit = regular_methods.try_to_commit\n-\n-        # TODO clarify if this needs to use factory thing\n-        self.log = regular_log.default()\n-\n-    def main(self):\n-\n-        if self.mode == 'toggle_deferred':\n-            self.defer()\n-        if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n-            self.change_status()\n-        regular_methods.try_to_commit(self)\n-        self.task.job.refresh_stat_count_tasks(self.session)\n-        return\n-\n-    def change_status(self):\n-        if self.task.status != 'archived' and self.status == 'archived':\n-            self.task.job.stat_count_tasks -= 1\n-            self.session.add(self.task.job)\n-        self.task.status = self.status\n-\n-    def defer(self):\n-\n-        # Don't defer twice\n-        if self.task.status == 'deferred':\n-            self.log['error']['deferred'] = \"Task has already been deferred.\"\n-            return\n-\n-        # Future feature? in theory could defer again...\n-        # note this is task_type not Status\n-        if self.task.task_type == 'review':\n-            self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n-            return\n-\n-        self.task.status = 'deferred'\n-\n-        review_task = create_review_sub_task(\n-            session = self.session,\n-            job = self.task.job,\n-            root_task = self.task,\n-            guide_id = self.task.job.guide_review_id,\n-            create_new_file = False\n-        )\n-\n-        self.log['success'] = True\n",
+        "source_code_with_indent": "        <DED>return jsonify(log = task_update.log), 200\n\n\n<DED><DED>@dataclass\nclass Task_Update():\n    <IND>session: Any\n    task: Task\n    mode: str = None\n    status: str = None\n\n    \"\"\"\n    This is clearly over burdening for setting flag,\n    but the point is more that we want to expand along this axis as \n    other types of task update stuff get added.\n\n    \"\"\"\n\n    def __post_init__(self):\n\n        <IND>self.session.add(self.task)\n        self.try_to_commit = regular_methods.try_to_commit\n\n        # TODO clarify if this needs to use factory thing\n        self.log = regular_log.default()\n\n    <DED>def main(self):\n\n        <IND>if self.mode == 'toggle_deferred':\n            <IND>self.defer()\n        <DED>if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n            <IND>self.change_status()\n        <DED>regular_methods.try_to_commit(self)\n        self.task.job.refresh_stat_count_tasks(self.session)\n        return\n\n    <DED>def change_status(self):\n        <IND>if self.task.status != 'archived' and self.status == 'archived':\n            <IND>self.task.job.stat_count_tasks -= 1\n            self.session.add(self.task.job)\n        <DED>self.task.status = self.status\n\n    <DED>def defer(self):\n\n        # Don't defer twice\n        <IND>if self.task.status == 'deferred':\n            <IND>self.log['error']['deferred'] = \"Task has already been deferred.\"\n            return\n\n        # Future feature? in theory could defer again...\n        # note this is task_type not Status\n        <DED>if self.task.task_type == 'review':\n            <IND>self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n            return\n\n        <DED>self.task.status = 'deferred'\n\n        review_task = create_review_sub_task(\n            session = self.session,\n            job = self.task.job,\n            root_task = self.task,\n            guide_id = self.task.job.guide_review_id,\n            create_new_file = False\n        )\n\n        self.log['success'] = True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>return jsonify(log = task_update.log), 200\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "diffgram/diffgram",
+    "commit": "ac670e4e86c662a87a1f4bfae1d4b4aa2508066f",
+    "filename": "default/methods/task/task/task_update.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/diffgram-diffgram/default/methods/task/task/task_update.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "default/methods/task/task/task_update.py:74:4 Incompatible attribute type [8]: Attribute `mode` declared in class `Task_Update` has type `str` but is used as type `None`.",
+    "message": " Attribute `mode` declared in class `Task_Update` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 74,
+    "warning_line": "    mode: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return jsonify(log = task_update.log), 200\n\n\n@dataclass\nclass Task_Update():\n    session: Any\n    task: Task\n    mode: str = None\n    status: str = None\n\n    \"\"\"\n    This is clearly over burdening for setting flag,\n    but the point is more that we want to expand along this axis as \n    other types of task update stuff get added.\n\n    \"\"\"\n\n    def __post_init__(self):\n\n        self.session.add(self.task)\n        self.try_to_commit = regular_methods.try_to_commit\n\n        # TODO clarify if this needs to use factory thing\n        self.log = regular_log.default()\n\n    def main(self):\n\n        if self.mode == 'toggle_deferred':\n            self.defer()\n        if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n            self.change_status()\n        regular_methods.try_to_commit(self)\n        self.task.job.refresh_stat_count_tasks(self.session)\n        return\n\n    def change_status(self):\n        if self.task.status != 'archived' and self.status == 'archived':\n            self.task.job.stat_count_tasks -= 1\n            self.session.add(self.task.job)\n        self.task.status = self.status\n\n    def defer(self):\n\n        # Don't defer twice\n        if self.task.status == 'deferred':\n            self.log['error']['deferred'] = \"Task has already been deferred.\"\n            return\n\n        # Future feature? in theory could defer again...\n        # note this is task_type not Status\n        if self.task.task_type == 'review':\n            self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n            return\n\n        self.task.status = 'deferred'\n\n        review_task = create_review_sub_task(\n            session = self.session,\n            job = self.task.job,\n            root_task = self.task,\n            guide_id = self.task.job.guide_review_id,\n            create_new_file = False\n        )\n\n        self.log['success'] = True\n",
+        "source_code_len": 1928,
+        "target_code": "        return jsonify(log = task_update.log), 200\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -67,65 +72,1 @@\n         return jsonify(log = task_update.log), 200\n-\n-\n-@dataclass\n-class Task_Update():\n-    session: Any\n-    task: Task\n-    mode: str = None\n-    status: str = None\n-\n-    \"\"\"\n-    This is clearly over burdening for setting flag,\n-    but the point is more that we want to expand along this axis as \n-    other types of task update stuff get added.\n-\n-    \"\"\"\n-\n-    def __post_init__(self):\n-\n-        self.session.add(self.task)\n-        self.try_to_commit = regular_methods.try_to_commit\n-\n-        # TODO clarify if this needs to use factory thing\n-        self.log = regular_log.default()\n-\n-    def main(self):\n-\n-        if self.mode == 'toggle_deferred':\n-            self.defer()\n-        if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n-            self.change_status()\n-        regular_methods.try_to_commit(self)\n-        self.task.job.refresh_stat_count_tasks(self.session)\n-        return\n-\n-    def change_status(self):\n-        if self.task.status != 'archived' and self.status == 'archived':\n-            self.task.job.stat_count_tasks -= 1\n-            self.session.add(self.task.job)\n-        self.task.status = self.status\n-\n-    def defer(self):\n-\n-        # Don't defer twice\n-        if self.task.status == 'deferred':\n-            self.log['error']['deferred'] = \"Task has already been deferred.\"\n-            return\n-\n-        # Future feature? in theory could defer again...\n-        # note this is task_type not Status\n-        if self.task.task_type == 'review':\n-            self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n-            return\n-\n-        self.task.status = 'deferred'\n-\n-        review_task = create_review_sub_task(\n-            session = self.session,\n-            job = self.task.job,\n-            root_task = self.task,\n-            guide_id = self.task.job.guide_review_id,\n-            create_new_file = False\n-        )\n-\n-        self.log['success'] = True\n",
+        "source_code_with_indent": "        <DED>return jsonify(log = task_update.log), 200\n\n\n<DED><DED>@dataclass\nclass Task_Update():\n    <IND>session: Any\n    task: Task\n    mode: str = None\n    status: str = None\n\n    \"\"\"\n    This is clearly over burdening for setting flag,\n    but the point is more that we want to expand along this axis as \n    other types of task update stuff get added.\n\n    \"\"\"\n\n    def __post_init__(self):\n\n        <IND>self.session.add(self.task)\n        self.try_to_commit = regular_methods.try_to_commit\n\n        # TODO clarify if this needs to use factory thing\n        self.log = regular_log.default()\n\n    <DED>def main(self):\n\n        <IND>if self.mode == 'toggle_deferred':\n            <IND>self.defer()\n        <DED>if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n            <IND>self.change_status()\n        <DED>regular_methods.try_to_commit(self)\n        self.task.job.refresh_stat_count_tasks(self.session)\n        return\n\n    <DED>def change_status(self):\n        <IND>if self.task.status != 'archived' and self.status == 'archived':\n            <IND>self.task.job.stat_count_tasks -= 1\n            self.session.add(self.task.job)\n        <DED>self.task.status = self.status\n\n    <DED>def defer(self):\n\n        # Don't defer twice\n        <IND>if self.task.status == 'deferred':\n            <IND>self.log['error']['deferred'] = \"Task has already been deferred.\"\n            return\n\n        # Future feature? in theory could defer again...\n        # note this is task_type not Status\n        <DED>if self.task.task_type == 'review':\n            <IND>self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n            return\n\n        <DED>self.task.status = 'deferred'\n\n        review_task = create_review_sub_task(\n            session = self.session,\n            job = self.task.job,\n            root_task = self.task,\n            guide_id = self.task.job.guide_review_id,\n            create_new_file = False\n        )\n\n        self.log['success'] = True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>return jsonify(log = task_update.log), 200\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "diffgram/diffgram",
+    "commit": "ac670e4e86c662a87a1f4bfae1d4b4aa2508066f",
+    "filename": "default/methods/task/task/task_update.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/diffgram-diffgram/default/methods/task/task/task_update.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "default/methods/task/task/task_update.py:75:4 Incompatible attribute type [8]: Attribute `status` declared in class `Task_Update` has type `str` but is used as type `None`.",
+    "message": " Attribute `status` declared in class `Task_Update` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 75,
+    "warning_line": "    status: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return jsonify(log = task_update.log), 200\n\n\n@dataclass\nclass Task_Update():\n    session: Any\n    task: Task\n    mode: str = None\n    status: str = None\n\n    \"\"\"\n    This is clearly over burdening for setting flag,\n    but the point is more that we want to expand along this axis as \n    other types of task update stuff get added.\n\n    \"\"\"\n\n    def __post_init__(self):\n\n        self.session.add(self.task)\n        self.try_to_commit = regular_methods.try_to_commit\n\n        # TODO clarify if this needs to use factory thing\n        self.log = regular_log.default()\n\n    def main(self):\n\n        if self.mode == 'toggle_deferred':\n            self.defer()\n        if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n            self.change_status()\n        regular_methods.try_to_commit(self)\n        self.task.job.refresh_stat_count_tasks(self.session)\n        return\n\n    def change_status(self):\n        if self.task.status != 'archived' and self.status == 'archived':\n            self.task.job.stat_count_tasks -= 1\n            self.session.add(self.task.job)\n        self.task.status = self.status\n\n    def defer(self):\n\n        # Don't defer twice\n        if self.task.status == 'deferred':\n            self.log['error']['deferred'] = \"Task has already been deferred.\"\n            return\n\n        # Future feature? in theory could defer again...\n        # note this is task_type not Status\n        if self.task.task_type == 'review':\n            self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n            return\n\n        self.task.status = 'deferred'\n\n        review_task = create_review_sub_task(\n            session = self.session,\n            job = self.task.job,\n            root_task = self.task,\n            guide_id = self.task.job.guide_review_id,\n            create_new_file = False\n        )\n\n        self.log['success'] = True\n",
+        "source_code_len": 1928,
+        "target_code": "        return jsonify(log = task_update.log), 200\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -67,65 +72,1 @@\n         return jsonify(log = task_update.log), 200\n-\n-\n-@dataclass\n-class Task_Update():\n-    session: Any\n-    task: Task\n-    mode: str = None\n-    status: str = None\n-\n-    \"\"\"\n-    This is clearly over burdening for setting flag,\n-    but the point is more that we want to expand along this axis as \n-    other types of task update stuff get added.\n-\n-    \"\"\"\n-\n-    def __post_init__(self):\n-\n-        self.session.add(self.task)\n-        self.try_to_commit = regular_methods.try_to_commit\n-\n-        # TODO clarify if this needs to use factory thing\n-        self.log = regular_log.default()\n-\n-    def main(self):\n-\n-        if self.mode == 'toggle_deferred':\n-            self.defer()\n-        if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n-            self.change_status()\n-        regular_methods.try_to_commit(self)\n-        self.task.job.refresh_stat_count_tasks(self.session)\n-        return\n-\n-    def change_status(self):\n-        if self.task.status != 'archived' and self.status == 'archived':\n-            self.task.job.stat_count_tasks -= 1\n-            self.session.add(self.task.job)\n-        self.task.status = self.status\n-\n-    def defer(self):\n-\n-        # Don't defer twice\n-        if self.task.status == 'deferred':\n-            self.log['error']['deferred'] = \"Task has already been deferred.\"\n-            return\n-\n-        # Future feature? in theory could defer again...\n-        # note this is task_type not Status\n-        if self.task.task_type == 'review':\n-            self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n-            return\n-\n-        self.task.status = 'deferred'\n-\n-        review_task = create_review_sub_task(\n-            session = self.session,\n-            job = self.task.job,\n-            root_task = self.task,\n-            guide_id = self.task.job.guide_review_id,\n-            create_new_file = False\n-        )\n-\n-        self.log['success'] = True\n",
+        "source_code_with_indent": "        <DED>return jsonify(log = task_update.log), 200\n\n\n<DED><DED>@dataclass\nclass Task_Update():\n    <IND>session: Any\n    task: Task\n    mode: str = None\n    status: str = None\n\n    \"\"\"\n    This is clearly over burdening for setting flag,\n    but the point is more that we want to expand along this axis as \n    other types of task update stuff get added.\n\n    \"\"\"\n\n    def __post_init__(self):\n\n        <IND>self.session.add(self.task)\n        self.try_to_commit = regular_methods.try_to_commit\n\n        # TODO clarify if this needs to use factory thing\n        self.log = regular_log.default()\n\n    <DED>def main(self):\n\n        <IND>if self.mode == 'toggle_deferred':\n            <IND>self.defer()\n        <DED>if self.status and self.status != 'complete':  # We don't allow to completed tasks here, use task_complete.\n            <IND>self.change_status()\n        <DED>regular_methods.try_to_commit(self)\n        self.task.job.refresh_stat_count_tasks(self.session)\n        return\n\n    <DED>def change_status(self):\n        <IND>if self.task.status != 'archived' and self.status == 'archived':\n            <IND>self.task.job.stat_count_tasks -= 1\n            self.session.add(self.task.job)\n        <DED>self.task.status = self.status\n\n    <DED>def defer(self):\n\n        # Don't defer twice\n        <IND>if self.task.status == 'deferred':\n            <IND>self.log['error']['deferred'] = \"Task has already been deferred.\"\n            return\n\n        # Future feature? in theory could defer again...\n        # note this is task_type not Status\n        <DED>if self.task.task_type == 'review':\n            <IND>self.log['error']['deferred'] = \"Review tasks cannot be deferred\"\n            return\n\n        <DED>self.task.status = 'deferred'\n\n        review_task = create_review_sub_task(\n            session = self.session,\n            job = self.task.job,\n            root_task = self.task,\n            guide_id = self.task.job.guide_review_id,\n            create_new_file = False\n        )\n\n        self.log['success'] = True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>return jsonify(log = task_update.log), 200\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "diffgram/diffgram",
+    "commit": "ac670e4e86c662a87a1f4bfae1d4b4aa2508066f",
+    "filename": "shared/connection/connection_operations.py",
+    "min_patch_found": false,
+    "full_warning_msg": "shared/connection/connection_operations.py:205:7 Incompatible parameter type [6]: Expected `shared.permissions.project_permissions.Project_permissions` for 3rd parameter `Roles` to call `shared.permissions.project_permissions.Project_permissions.check_permissions` but got `typing.List[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "diffgram/diffgram",
+    "commit": "ac670e4e86c662a87a1f4bfae1d4b4aa2508066f",
+    "filename": "shared/permissions/project_permissions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/diffgram-diffgram/shared/permissions/project_permissions.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "shared/permissions/project_permissions.py:127:4 Incompatible parameter type [6]: Expected `Project_permissions` for 5th parameter `Roles` to call `Project_permissions.check_permissions` but got `typing.List[typing.Any]`.",
+    "message": " Expected `Project_permissions` for 5th parameter `Roles` to call `Project_permissions.check_permissions` but got `typing.List[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 127,
+    "warning_line": "\t\t\t\tRoles = Roles,"
+  },
+  {
+    "project": "diffgram/diffgram",
+    "commit": "ac670e4e86c662a87a1f4bfae1d4b4aa2508066f",
+    "filename": "shared/permissions/task_permissions.py",
+    "min_patch_found": false,
+    "full_warning_msg": "shared/permissions/task_permissions.py:100:17 Incompatible parameter type [6]: Expected `Project_permissions` for 3rd parameter `Roles` to call `Project_permissions.check_permissions` but got `typing.List[str]`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  }
+]

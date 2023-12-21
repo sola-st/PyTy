@@ -1,0 +1,70 @@
+[
+  {
+    "project": "RasaHQ/rasa-sdk",
+    "commit": "4a38d410e64acadd817d3e0396f722da18aee3c8",
+    "filename": "rasa_sdk/forms.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa-sdk/rasa_sdk/forms.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa_sdk/forms.py:627:34 Incompatible parameter type [6]: Expected `typing.Iterable[Dict[str, typing.Any]]` for 1st positional only parameter to call `list.extend` but got `typing.Coroutine[typing.Any, typing.Any, List[Dict[str, typing.Any]]]`.",
+    "message": " Expected `typing.Iterable[Dict[str, typing.Any]]` for 1st positional only parameter to call `list.extend` but got `typing.Coroutine[typing.Any, typing.Any, List[Dict[str, typing.Any]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 627,
+    "warning_line": "                    events.extend(self.submit(dispatcher, temp_tracker, domain))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                else:\n                    events.extend(self.submit(dispatcher, temp_tracker, domain))\n                # deactivate the form after submission\n",
+        "source_code_len": 158,
+        "target_code": "                else:\n                    # see https://github.com/python/mypy/issues/5206\n                    events.extend(\n                        cast(\n                            List[EventType],\n                            self.submit(dispatcher, temp_tracker, domain),\n                        )\n                    )\n                # deactivate the form after submission\n",
+        "target_code_len": 379,
+        "diff_format": "@@ -626,3 +627,9 @@\n                 else:\n-                    events.extend(self.submit(dispatcher, temp_tracker, domain))\n+                    # see https://github.com/python/mypy/issues/5206\n+                    events.extend(\n+                        cast(\n+                            List[EventType],\n+                            self.submit(dispatcher, temp_tracker, domain),\n+                        )\n+                    )\n                 # deactivate the form after submission\n",
+        "source_code_with_indent": "                <DED>else:\n                    <IND>events.extend(self.submit(dispatcher, temp_tracker, domain))\n                # deactivate the form after submission\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <DED>else:\n                    # see https://github.com/python/mypy/issues/5206\n                    <IND>events.extend(\n                        cast(\n                            List[EventType],\n                            self.submit(dispatcher, temp_tracker, domain),\n                        )\n                    )\n                # deactivate the form after submission\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "RasaHQ/rasa-sdk",
+    "commit": "4a38d410e64acadd817d3e0396f722da18aee3c8",
+    "filename": "rasa_sdk/knowledge_base/storage.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa-sdk/rasa_sdk/knowledge_base/storage.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa_sdk/knowledge_base/storage.py:201:4 Inconsistent override [15]: `rasa_sdk.knowledge_base.storage.InMemoryKnowledgeBase.get_object` overrides method defined in `KnowledgeBase` inconsistently. Returned type `typing.Coroutine[typing.Any, typing.Any, Optional[Dict[str, typing.Any]]]` is not a subtype of the overridden return `typing.Coroutine[typing.Any, typing.Any, Dict[str, typing.Any]]`.",
+    "message": " `rasa_sdk.knowledge_base.storage.InMemoryKnowledgeBase.get_object` overrides method defined in `KnowledgeBase` inconsistently. Returned type `typing.Coroutine[typing.Any, typing.Any, Optional[Dict[str, typing.Any]]]` is not a subtype of the overridden return `typing.Coroutine[typing.Any, typing.Any, Dict[str, typing.Any]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 201,
+    "warning_line": "    async def get_object(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self, object_type: Text, object_identifier: Text\n    ) -> Dict[Text, Any]:\n        \"\"\"\n",
+        "source_code_len": 95,
+        "target_code": "        self, object_type: Text, object_identifier: Text\n    ) -> Optional[Dict[Text, Any]]:\n        \"\"\"\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -99,3 +99,3 @@\n         self, object_type: Text, object_identifier: Text\n-    ) -> Dict[Text, Any]:\n+    ) -> Optional[Dict[Text, Any]]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        self, object_type: Text, object_identifier: Text\n    ) -> Dict[Text, Any]:\n        <IND>",
+        "target_code_with_indent": "        self, object_type: Text, object_identifier: Text\n    ) -> Optional[Dict[Text, Any]]:\n        <IND>"
+      }
+    ]
+  }
+]

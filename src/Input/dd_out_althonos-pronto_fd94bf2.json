@@ -1,0 +1,36 @@
+[
+  {
+    "project": "althonos/pronto",
+    "commit": "fd94bf253cb652741fe685b2148e3c357b762c72",
+    "filename": "pronto/term.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/term.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/term.py:300:8 Incompatible return type [7]: Expected `pronto.logic.lineage.SubclassesIterator` but got `SubclassesHandler`.",
+    "message": " Expected `pronto.logic.lineage.SubclassesIterator` but got `SubclassesHandler`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 300,
+    "warning_line": "        return SubclassesHandler(self, distance=distance, with_self=with_self)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self, distance: Optional[int] = None, with_self: bool = True,\n    ) -> \"SubclassesIterator\":\n        \"\"\"Get an handle over the subclasses of this `Term`.\n",
+        "source_code_len": 162,
+        "target_code": "        self, distance: Optional[int] = None, with_self: bool = True,\n    ) -> \"SubclassesHandler\":\n        \"\"\"Get an handle over the subclasses of this `Term`.\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -257,3 +257,3 @@\n         self, distance: Optional[int] = None, with_self: bool = True,\n-    ) -> \"SubclassesIterator\":\n+    ) -> \"SubclassesHandler\":\n         \"\"\"Get an handle over the subclasses of this `Term`.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        self, distance: Optional[int] = None, with_self: bool = True,\n    ) -> \"SubclassesIterator\":\n        <IND>",
+        "target_code_with_indent": "        self, distance: Optional[int] = None, with_self: bool = True,\n    ) -> \"SubclassesHandler\":\n        <IND>"
+      }
+    ]
+  }
+]

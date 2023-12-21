@@ -1,0 +1,138 @@
+[
+  {
+    "project": "bee-san/pyWhat",
+    "commit": "611628724aa518c03c94f383d1387c2bd6111740",
+    "filename": "pywhat/identifier.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bee-san-pyWhat/pywhat/identifier.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pywhat/identifier.py:16:8 Incompatible variable type [9]: key is declared to have type `typing.Callable[..., typing.Any]` but is used as type `Keys`.",
+    "message": " key is declared to have type `typing.Callable[..., typing.Any]` but is used as type `Keys`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 16,
+    "warning_line": "        key: Callable = Keys.NONE,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        dist: Optional[Distribution] = None,\n        key: Callable = Keys.NONE,\n        reverse=False,\n",
+        "source_code_len": 103,
+        "target_code": "        dist: Optional[Distribution] = None,\n        key=Keys.NONE,\n        reverse=False,\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -15,3 +15,3 @@\n         dist: Optional[Distribution] = None,\n-        key: Callable = Keys.NONE,\n+        key=Keys.NONE,\n         reverse=False,\n",
+        "source_code_with_indent": "        dist: Optional[Distribution] = None,\n        key: Callable = Keys.NONE,\n        reverse=False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        dist: Optional[Distribution] = None,\n        key=Keys.NONE,\n        reverse=False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bee-san/pyWhat",
+    "commit": "611628724aa518c03c94f383d1387c2bd6111740",
+    "filename": "pywhat/identifier.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bee-san-pyWhat/pywhat/identifier.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pywhat/identifier.py:94:37 Incompatible parameter type [6]: Expected `typing.Dict[typing.Any, typing.Any]` for 2nd positional only parameter to call `dict.__setitem__` but got `None`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` for 2nd positional only parameter to call `dict.__setitem__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 94,
+    "warning_line": "                identify_obj[key_] = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        identify_obj = {\"File Signatures\": {}, \"Regexes\": {}}\n        search = []\n",
+        "source_code_len": 83,
+        "target_code": "\n        identify_obj: dict = {\"File Signatures\": {}, \"Regexes\": {}}\n        search = []\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -47,3 +47,3 @@\n \n-        identify_obj = {\"File Signatures\": {}, \"Regexes\": {}}\n+        identify_obj: dict = {\"File Signatures\": {}, \"Regexes\": {}}\n         search = []\n",
+        "source_code_with_indent": "\n        <DED>identify_obj = {\"File Signatures\": {}, \"Regexes\": {}}\n        search = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>identify_obj: dict = {\"File Signatures\": {}, \"Regexes\": {}}\n        search = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bee-san/pyWhat",
+    "commit": "611628724aa518c03c94f383d1387c2bd6111740",
+    "filename": "pywhat/printer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bee-san-pyWhat/pywhat/printer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pywhat/printer.py:179:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 179,
+    "warning_line": "            self.console.print(output_str.rstrip())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _check_if_exploit_in_json(self, text: dict) -> bool:\n",
+        "source_code_len": 62,
+        "target_code": "\n        return output_str\n\n    def _check_if_exploit_in_json(self, text: dict) -> bool:\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -180,2 +180,4 @@\n \n+        return output_str\n+\n     def _check_if_exploit_in_json(self, text: dict) -> bool:\n",
+        "source_code_with_indent": "\n    <DED><DED>def _check_if_exploit_in_json(self, text: dict) -> bool:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>return output_str\n\n    <DED>def _check_if_exploit_in_json(self, text: dict) -> bool:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bee-san/pyWhat",
+    "commit": "611628724aa518c03c94f383d1387c2bd6111740",
+    "filename": "pywhat/printer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bee-san-pyWhat/pywhat/printer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pywhat/printer.py:191:20 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 191,
+    "warning_line": "                    self.bug_bounty_mode = True",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _check_if_directory(self, text_input):\n",
+        "source_code_len": 48,
+        "target_code": "\n        return self.bug_bounty_mode\n\n    def _check_if_directory(self, text_input):\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -192,2 +194,4 @@\n \n+        return self.bug_bounty_mode\n+\n     def _check_if_directory(self, text_input):\n",
+        "source_code_with_indent": "\n    <DED><DED><DED><DED>def _check_if_directory(self, text_input):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED><DED><DED>return self.bug_bounty_mode\n\n    <DED>def _check_if_directory(self, text_input):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

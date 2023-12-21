@@ -1,0 +1,54 @@
+[
+  {
+    "project": "LeapBeyond/scrubadub",
+    "commit": "c130c363c8330adfa52d49c64df469071ace8efa",
+    "filename": "scrubadub/__init__.py",
+    "min_patch_found": false,
+    "full_warning_msg": "scrubadub/__init__.py:68:4 Incompatible return type [7]: Expected `Union[Dict[Optional[str], str], Sequence[str]]` but got `Union[Dict[str, str], Sequence[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "LeapBeyond/scrubadub",
+    "commit": "c130c363c8330adfa52d49c64df469071ace8efa",
+    "filename": "scrubadub/__init__.py",
+    "min_patch_found": false,
+    "full_warning_msg": "scrubadub/__init__.py:68:36 Incompatible parameter type [6]: Expected `Union[Dict[str, str], Sequence[str]]` for 1st positional only parameter to call `Scrubber.clean_documents` but got `Union[Dict[Optional[str], str], Sequence[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "LeapBeyond/scrubadub",
+    "commit": "c130c363c8330adfa52d49c64df469071ace8efa",
+    "filename": "scrubadub/scrubbers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/LeapBeyond-scrubadub/scrubadub/scrubbers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scrubadub/scrubbers.py:268:56 Incompatible parameter type [6]: Expected `Union[Dict[Optional[str], str], Sequence[str]]` for 1st parameter `documents` to call `Scrubber.iter_filth_documents` but got `Dict[str, str]`.",
+    "message": " Expected `Union[Dict[Optional[str], str], Sequence[str]]` for 1st parameter `documents` to call `Scrubber.iter_filth_documents` but got `Dict[str, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 268,
+    "warning_line": "            filth_list = list(self.iter_filth_documents(documents=documents, run_post_processors=True))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def clean_documents(self, documents: Union[Sequence[str], Dict[str, str]], **kwargs) -> \\\n            Union[Dict[str, str], Sequence[str]]:\n        \"\"\"This is the master method that cleans all of the filth out of the\n",
+        "source_code_len": 222,
+        "target_code": "\n    def clean_documents(self, documents: Union[Sequence[str], Dict[Optional[str], str]], **kwargs) -> \\\n            Union[Dict[Optional[str], str], Sequence[str]]:\n        \"\"\"This is the master method that cleans all of the filth out of the\n",
+        "target_code_len": 242,
+        "diff_format": "@@ -252,4 +252,4 @@\n \n-    def clean_documents(self, documents: Union[Sequence[str], Dict[str, str]], **kwargs) -> \\\n-            Union[Dict[str, str], Sequence[str]]:\n+    def clean_documents(self, documents: Union[Sequence[str], Dict[Optional[str], str]], **kwargs) -> \\\n+            Union[Dict[Optional[str], str], Sequence[str]]:\n         \"\"\"This is the master method that cleans all of the filth out of the\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def clean_documents(self, documents: Union[Sequence[str], Dict[str, str]], **kwargs) ->            Union[Dict[str, str], Sequence[str]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def clean_documents(self, documents: Union[Sequence[str], Dict[Optional[str], str]], **kwargs) ->            Union[Dict[Optional[str], str], Sequence[str]]:\n        <IND>"
+      }
+    ]
+  }
+]

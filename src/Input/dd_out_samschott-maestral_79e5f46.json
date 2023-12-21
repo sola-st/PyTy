@@ -1,0 +1,70 @@
+[
+  {
+    "project": "samschott/maestral",
+    "commit": "79e5f46885de75b022513de6598e8baf4ea66f97",
+    "filename": "maestral/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/cli.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/cli.py:550:46 Incompatible parameter type [6]: Expected `typing.Tuple[str, ...]` for 1st parameter `extras` to call `pkg_resources.Distribution.requires` but got `List[str]`.",
+    "message": " Expected `typing.Tuple[str, ...]` for 1st parameter `extras` to call `pkg_resources.Distribution.requires` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 550,
+    "warning_line": "        requirements = maestral_dist.requires(extras=[\"gui\"])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        maestral_dist = pkg_resources.get_distribution(\"maestral\")\n        requirements = maestral_dist.requires(extras=[\"gui\"])\n\n",
+        "source_code_len": 130,
+        "target_code": "        maestral_dist = pkg_resources.get_distribution(\"maestral\")\n        requirements = maestral_dist.requires(extras=(\"gui\",))\n\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -549,3 +549,3 @@\n         maestral_dist = pkg_resources.get_distribution(\"maestral\")\n-        requirements = maestral_dist.requires(extras=[\"gui\"])\n+        requirements = maestral_dist.requires(extras=(\"gui\",))\n \n",
+        "source_code_with_indent": "        <IND>maestral_dist = pkg_resources.get_distribution(\"maestral\")\n        requirements = maestral_dist.requires(extras=[\"gui\"])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>maestral_dist = pkg_resources.get_distribution(\"maestral\")\n        requirements = maestral_dist.requires(extras=(\"gui\",))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "samschott/maestral",
+    "commit": "79e5f46885de75b022513de6598e8baf4ea66f97",
+    "filename": "maestral/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/maestral/cli.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maestral/cli.py:559:36 Incompatible parameter type [6]: Expected `typing.Iterator[Variable[_T]]` for 1st positional only parameter to call `next` but got `List[typing.Any]`.",
+    "message": " Expected `typing.Iterator[Variable[_T]]` for 1st positional only parameter to call `next` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 559,
+    "warning_line": "        fallback_entry_point = next(entry_points)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    else:\n        fallback_entry_point = next(entry_points)\n        run = fallback_entry_point.load()\n",
+        "source_code_len": 102,
+        "target_code": "    else:\n        fallback_entry_point = next(iter(entry_points))\n        run = fallback_entry_point.load()\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -558,3 +558,3 @@\n     else:\n-        fallback_entry_point = next(entry_points)\n+        fallback_entry_point = next(iter(entry_points))\n         run = fallback_entry_point.load()\n",
+        "source_code_with_indent": "    <DED>else:\n        <IND>fallback_entry_point = next(entry_points)\n        run = fallback_entry_point.load()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>else:\n        <IND>fallback_entry_point = next(iter(entry_points))\n        run = fallback_entry_point.load()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

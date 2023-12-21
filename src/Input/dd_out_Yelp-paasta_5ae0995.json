@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Yelp/paasta",
+    "commit": "5ae099508bdc6984e024c3495a49ad1012c2a4f4",
+    "filename": "paasta_tools/setup_kubernetes_cr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/setup_kubernetes_cr.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/setup_kubernetes_cr.py:144:8 Incompatible parameter type [6]: Expected `KubeClient` for 1st parameter `kube_client` to call `setup_all_custom_resources` but got `typing.Union[KubeClient, StdoutKubeClient]`.",
+    "message": " Expected `KubeClient` for 1st parameter `kube_client` to call `setup_all_custom_resources` but got `typing.Union[KubeClient, StdoutKubeClient]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 144,
+    "warning_line": "        kube_client=kube_client,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    kube_client = KubeClient()\n    if args.dry_run:\n",
+        "source_code_len": 53,
+        "target_code": "\n    kube_client: Any = KubeClient()\n    if args.dry_run:\n",
+        "target_code_len": 58,
+        "diff_format": "@@ -135,3 +135,3 @@\n \n-    kube_client = KubeClient()\n+    kube_client: Any = KubeClient()\n     if args.dry_run:\n",
+        "source_code_with_indent": "\n    <DED>kube_client = KubeClient()\n    if args.dry_run:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>kube_client: Any = KubeClient()\n    if args.dry_run:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Yelp/paasta",
+    "commit": "5ae099508bdc6984e024c3495a49ad1012c2a4f4",
+    "filename": "paasta_tools/setup_kubernetes_cr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/setup_kubernetes_cr.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/setup_kubernetes_cr.py:147:8 Incompatible parameter type [6]: Expected `Sequence[KubeCustomResource]` for 4th parameter `custom_resources` to call `setup_all_custom_resources` but got `Sequence[CustomResource]`.",
+    "message": " Expected `Sequence[KubeCustomResource]` for 4th parameter `custom_resources` to call `setup_all_custom_resources` but got `Sequence[CustomResource]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 147,
+    "warning_line": "        custom_resources=custom_resources,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    cluster: str,\n    custom_resources: Sequence[KubeCustomResource],\n    service: str = None,\n",
+        "source_code_len": 95,
+        "target_code": "    cluster: str,\n    custom_resources: Sequence[CustomResource],\n    service: str = None,\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -157,3 +157,3 @@\n     cluster: str,\n-    custom_resources: Sequence[KubeCustomResource],\n+    custom_resources: Sequence[CustomResource],\n     service: str = None,\n",
+        "source_code_with_indent": "    cluster: str,\n    custom_resources: Sequence[KubeCustomResource],\n    service: str = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    cluster: str,\n    custom_resources: Sequence[CustomResource],\n    service: str = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

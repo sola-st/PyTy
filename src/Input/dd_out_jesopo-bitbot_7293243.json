@@ -1,0 +1,66 @@
+[
+  {
+    "project": "jesopo/bitbot",
+    "commit": "729324342998ffb0ed68204be48164cbd9865f5c",
+    "filename": "src/IRCChannel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jesopo-bitbot/src/IRCChannel.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/IRCChannel.py:235:43 Incompatible parameter type [6]: Expected `typing.List[typing.Tuple[str, str]]` for 2nd positional only parameter to call `Channel._chunks` but got `typing.List[str]`.",
+    "message": " Expected `typing.List[typing.Tuple[str, str]]` for 2nd positional only parameter to call `Channel._chunks` but got `typing.List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 235,
+    "warning_line": "        for chunk in self._chunks(chunk_n, targets):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _chunks(self, n: int, l: typing.List[typing.Tuple[str, str]]):\n        return [l[i:i+n] for i in range(0, len(l), n)]\n\n",
+        "source_code_len": 128,
+        "target_code": "\n    def _chunks(self, chunk: int, n: int) -> typing.List[typing.List[int]]:\n        return [list(range(i, i+chunk)) for i in range(0, n, chunk)]\n\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -217,4 +217,4 @@\n \n-    def _chunks(self, n: int, l: typing.List[typing.Tuple[str, str]]):\n-        return [l[i:i+n] for i in range(0, len(l), n)]\n+    def _chunks(self, chunk: int, n: int) -> typing.List[typing.List[int]]:\n+        return [list(range(i, i+chunk)) for i in range(0, n, chunk)]\n \n",
+        "source_code_with_indent": "\n    <DED>def _chunks(self, n: int, l: typing.List[typing.Tuple[str, str]]):\n        <IND>return [l[i:i+n] for i in range(0, len(l), n)]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _chunks(self, chunk: int, n: int) -> typing.List[typing.List[int]]:\n        <IND>return [list(range(i, i+chunk)) for i in range(0, n, chunk)]\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            int(self.server.isupport.get(\"MODES\", \"3\") or \"6\"))\n        for chunk in self._chunks(chunk_n, modes):\n            modes, args = list(zip(*chunk))\n            mode_str = \"%s%s\" % (\"+\" if add else \"-\", \"\".join(modes))\n            self.server.send_mode(self.name, mode_str, args)\n\n",
+        "source_code_len": 291,
+        "target_code": "            int(self.server.isupport.get(\"MODES\", \"3\") or \"6\"))\n\n        for chunk in self._chunks(chunk_n, len(modes)):\n            chunk_items = modes[chunk[0]:chunk[0]+len(chunk)]\n            chunk_modes = [i[0] for i in chunk_items]\n            chunk_args = [i[1] for i in chunk_items]\n            mode_str = \"%s%s\" % (\"+\" if add else \"-\", \"\".join(chunk_modes))\n            self.server.send_mode(self.name, mode_str, chunk_args)\n\n",
+        "target_code_len": 434,
+        "diff_format": "@@ -225,6 +225,9 @@\n             int(self.server.isupport.get(\"MODES\", \"3\") or \"6\"))\n-        for chunk in self._chunks(chunk_n, modes):\n-            modes, args = list(zip(*chunk))\n-            mode_str = \"%s%s\" % (\"+\" if add else \"-\", \"\".join(modes))\n-            self.server.send_mode(self.name, mode_str, args)\n+\n+        for chunk in self._chunks(chunk_n, len(modes)):\n+            chunk_items = modes[chunk[0]:chunk[0]+len(chunk)]\n+            chunk_modes = [i[0] for i in chunk_items]\n+            chunk_args = [i[1] for i in chunk_items]\n+            mode_str = \"%s%s\" % (\"+\" if add else \"-\", \"\".join(chunk_modes))\n+            self.server.send_mode(self.name, mode_str, chunk_args)\n \n",
+        "source_code_with_indent": "            int(self.server.isupport.get(\"MODES\", \"3\") or \"6\"))\n        for chunk in self._chunks(chunk_n, modes):\n            <IND>modes, args = list(zip(*chunk))\n            mode_str = \"%s%s\" % (\"+\" if add else \"-\", \"\".join(modes))\n            self.server.send_mode(self.name, mode_str, args)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            int(self.server.isupport.get(\"MODES\", \"3\") or \"6\"))\n\n        for chunk in self._chunks(chunk_n, len(modes)):\n            <IND>chunk_items = modes[chunk[0]:chunk[0]+len(chunk)]\n            chunk_modes = [i[0] for i in chunk_items]\n            chunk_args = [i[1] for i in chunk_items]\n            mode_str = \"%s%s\" % (\"+\" if add else \"-\", \"\".join(chunk_modes))\n            self.server.send_mode(self.name, mode_str, chunk_args)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        chunk_n = min(4, self.server.targmax.get(\"KICK\", 1))\n        for chunk in self._chunks(chunk_n, targets):\n            chan_str = \",\".join([self.name]*len(chunk))\n            self.server.send_kick(chan_str, \",\".join(chunk), reason)\n\n",
+        "source_code_len": 240,
+        "target_code": "        chunk_n = min(4, self.server.targmax.get(\"KICK\", 1))\n        for chunk in self._chunks(chunk_n, len(targets)):\n            chan_str = \",\".join([self.name]*len(chunk))\n            nicks = targets[chunk[0]:chunk[0]+len(chunk)]\n            self.server.send_kick(chan_str, \",\".join(nicks), reason)\n\n",
+        "target_code_len": 303,
+        "diff_format": "@@ -234,5 +237,6 @@\n         chunk_n = min(4, self.server.targmax.get(\"KICK\", 1))\n-        for chunk in self._chunks(chunk_n, targets):\n+        for chunk in self._chunks(chunk_n, len(targets)):\n             chan_str = \",\".join([self.name]*len(chunk))\n-            self.server.send_kick(chan_str, \",\".join(chunk), reason)\n+            nicks = targets[chunk[0]:chunk[0]+len(chunk)]\n+            self.server.send_kick(chan_str, \",\".join(nicks), reason)\n \n",
+        "source_code_with_indent": "        <IND>chunk_n = min(4, self.server.targmax.get(\"KICK\", 1))\n        for chunk in self._chunks(chunk_n, targets):\n            <IND>chan_str = \",\".join([self.name]*len(chunk))\n            self.server.send_kick(chan_str, \",\".join(chunk), reason)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>chunk_n = min(4, self.server.targmax.get(\"KICK\", 1))\n        for chunk in self._chunks(chunk_n, len(targets)):\n            <IND>chan_str = \",\".join([self.name]*len(chunk))\n            nicks = targets[chunk[0]:chunk[0]+len(chunk)]\n            self.server.send_kick(chan_str, \",\".join(nicks), reason)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

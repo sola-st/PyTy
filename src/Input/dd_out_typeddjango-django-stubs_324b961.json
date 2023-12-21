@@ -1,0 +1,66 @@
+[
+  {
+    "project": "typeddjango/django-stubs",
+    "commit": "324b961d7464d7419e5886da9401a3f35481218d",
+    "filename": "django-stubs/db/models/query.pyi",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/typeddjango-django-stubs/django-stubs/db/models/query.pyi",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "django-stubs/db/models/query.pyi:61:4 Inconsistent override [15]: `django-stubs.db.models.query.QuerySet.__iter__` overrides method defined in `Iterable` inconsistently. Returned type `unknown` is not a subtype of the overridden return `Iterator[_T]`.",
+    "message": " `django-stubs.db.models.query.QuerySet.__iter__` overrides method defined in `Iterable` inconsistently. Returned type `unknown` is not a subtype of the overridden return `Iterator[_T]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 61,
+    "warning_line": "    def __iter__(self) -> Iterator[_T]: ...",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    overload,\n)\n",
+        "source_code_len": 16,
+        "target_code": "    overload,\n    Generic,\n    NamedTuple,\n    Collection,\n)\n",
+        "target_code_len": 61,
+        "diff_format": "@@ -15,2 +16,5 @@\n     overload,\n+    Generic,\n+    NamedTuple,\n+    Collection,\n )\n",
+        "source_code_with_indent": "    overload,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    overload,\n    Generic,\n    NamedTuple,\n    Collection,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass QuerySet(Iterable[_T], Sized):\n    query: Query\n",
+        "source_code_len": 55,
+        "target_code": "\nclass QuerySet(Generic[_T, _Row], Collection[_Row], Sized):\n    query: Query\n",
+        "target_code_len": 78,
+        "diff_format": "@@ -48,3 +52,3 @@\n \n-class QuerySet(Iterable[_T], Sized):\n+class QuerySet(Generic[_T, _Row], Collection[_Row], Sized):\n     query: Query\n",
+        "source_code_with_indent": "\nclass QuerySet(Iterable[_T], Sized):\n    <IND>query: Query\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nclass QuerySet(Generic[_T, _Row], Collection[_Row], Sized):\n    <IND>query: Query\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __len__(self) -> int: ...\n    def __iter__(self) -> Iterator[_T]: ...\n    def __bool__(self) -> bool: ...\n",
+        "source_code_len": 114,
+        "target_code": "    def __len__(self) -> int: ...\n    def __iter__(self) -> Iterator[_Row]: ...\n    def __contains__(self, x: object) -> bool: ...\n    @overload\n    def __getitem__(self, i: int) -> _Row: ...\n    @overload\n    def __getitem__(self, s: slice) -> QuerySet[_T, _Row]: ...\n    def __bool__(self) -> bool: ...\n",
+        "target_code_len": 305,
+        "diff_format": "@@ -60,3 +64,8 @@\n     def __len__(self) -> int: ...\n-    def __iter__(self) -> Iterator[_T]: ...\n+    def __iter__(self) -> Iterator[_Row]: ...\n+    def __contains__(self, x: object) -> bool: ...\n+    @overload\n+    def __getitem__(self, i: int) -> _Row: ...\n+    @overload\n+    def __getitem__(self, s: slice) -> QuerySet[_T, _Row]: ...\n     def __bool__(self) -> bool: ...\n",
+        "source_code_with_indent": "    def __len__(self) -> int: ...\n    def __iter__(self) -> Iterator[_T]: ...\n    def __bool__(self) -> bool: ...\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def __len__(self) -> int: ...\n    def __iter__(self) -> Iterator[_Row]: ...\n    def __contains__(self, x: object) -> bool: ...\n    @overload\n    def __getitem__(self, i: int) -> _Row: ...\n    @overload\n    def __getitem__(self, s: slice) -> QuerySet[_T, _Row]: ...\n    def __bool__(self) -> bool: ...\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

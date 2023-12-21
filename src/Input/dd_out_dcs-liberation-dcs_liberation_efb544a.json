@@ -1,0 +1,36 @@
+[
+  {
+    "project": "dcs-liberation/dcs_liberation",
+    "commit": "efb544a303b82841e075032f862921ed55b080bc",
+    "filename": "qt_ui/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dcs-liberation-dcs_liberation/qt_ui/models.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qt_ui/models.py:128:35 Incompatible parameter type [6]: Expected `float` for 1st parameter `seconds` to call `datetime.timedelta.__new__` but got `datetime.timedelta`.",
+    "message": " Expected `float` for 1st parameter `seconds` to call `datetime.timedelta.__new__` but got `datetime.timedelta`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 128,
+    "warning_line": "        delay = datetime.timedelta(seconds=estimator.mission_start_time(flight))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        estimator = TotEstimator(self.package)\n        delay = datetime.timedelta(seconds=estimator.mission_start_time(flight))\n        origin = flight.from_cp.name\n",
+        "source_code_len": 165,
+        "target_code": "        estimator = TotEstimator(self.package)\n        delay = datetime.timedelta(\n            seconds=int(estimator.mission_start_time(flight).total_seconds()))\n        origin = flight.from_cp.name\n",
+        "target_code_len": 199,
+        "diff_format": "@@ -127,3 +127,4 @@\n         estimator = TotEstimator(self.package)\n-        delay = datetime.timedelta(seconds=estimator.mission_start_time(flight))\n+        delay = datetime.timedelta(\n+            seconds=int(estimator.mission_start_time(flight).total_seconds()))\n         origin = flight.from_cp.name\n",
+        "source_code_with_indent": "        estimator = TotEstimator(self.package)\n        delay = datetime.timedelta(seconds=estimator.mission_start_time(flight))\n        origin = flight.from_cp.name\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        estimator = TotEstimator(self.package)\n        delay = datetime.timedelta(\n            seconds=int(estimator.mission_start_time(flight).total_seconds()))\n        origin = flight.from_cp.name\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "acbull/pyHGT",
+    "commit": "ef1bf5e7bbbe873110391a34f12943ca88ffd7b1",
+    "filename": "ogbn-mag/eval_ogbn_mag.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/acbull-pyHGT/ogbn-mag/eval_ogbn_mag.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ogbn-mag/eval_ogbn_mag.py:25:39 Unbound name [10]: Name `sre` is used but not defined in the current scope.",
+    "message": " Name `sre` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 25,
+    "warning_line": "parser.add_argument('--data_dir', type=sre, default='/datadrive/dataset/OGB_MAG.pk',",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nparser.add_argument('--data_dir', type=sre, default='/datadrive/dataset/OGB_MAG.pk',\n                    help='The address of preprocessed graph.')\nparser.add_argument('--model_dir', type=sre, default='./hgt_4layer',\n                    help='The address for storing the trained models.')\n",
+        "source_code_len": 290,
+        "target_code": "\nparser.add_argument('--data_dir', type=str, default='/datadrive/dataset/OGB_MAG.pk',\n                    help='The address of preprocessed graph.')\nparser.add_argument('--model_dir', type=str, default='./hgt_4layer',\n                    help='The address for storing the trained models.')\n",
+        "target_code_len": 290,
+        "diff_format": "@@ -24,5 +24,5 @@\n \n-parser.add_argument('--data_dir', type=sre, default='/datadrive/dataset/OGB_MAG.pk',\n+parser.add_argument('--data_dir', type=str, default='/datadrive/dataset/OGB_MAG.pk',\n                     help='The address of preprocessed graph.')\n-parser.add_argument('--model_dir', type=sre, default='./hgt_4layer',\n+parser.add_argument('--model_dir', type=str, default='./hgt_4layer',\n                     help='The address for storing the trained models.')\n",
+        "source_code_with_indent": "\nparser.add_argument('--data_dir', type=sre, default='/datadrive/dataset/OGB_MAG.pk',\n                    help='The address of preprocessed graph.')\nparser.add_argument('--model_dir', type=sre, default='./hgt_4layer',\n                    help='The address for storing the trained models.')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nparser.add_argument('--data_dir', type=str, default='/datadrive/dataset/OGB_MAG.pk',\n                    help='The address of preprocessed graph.')\nparser.add_argument('--model_dir', type=str, default='./hgt_4layer',\n                    help='The address for storing the trained models.')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

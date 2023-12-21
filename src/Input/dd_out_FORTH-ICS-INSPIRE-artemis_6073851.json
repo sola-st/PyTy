@@ -1,0 +1,104 @@
+[
+  {
+    "project": "FORTH-ICS-INSPIRE/artemis",
+    "commit": "6073851166fdf6abcfe616940bdee542549c30a4",
+    "filename": "backend/core/detection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/FORTH-ICS-INSPIRE-artemis/backend/core/detection.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backend/core/detection.py:365:58 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `Detection.Worker.commit_hijack` but got `int`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `Detection.Worker.commit_hijack` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 365,
+    "warning_line": "            self.commit_hijack(monitor_event, origin_asn, 0)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    return False\n            self.commit_hijack(monitor_event, origin_asn, 0)\n            return True\n",
+        "source_code_len": 118,
+        "target_code": "                    return False\n            self.commit_hijack(monitor_event, origin_asn, '0')\n            return True\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -364,3 +364,3 @@\n                     return False\n-            self.commit_hijack(monitor_event, origin_asn, 0)\n+            self.commit_hijack(monitor_event, origin_asn, '0')\n             return True\n",
+        "source_code_with_indent": "                    <IND>return False\n            <DED><DED>self.commit_hijack(monitor_event, origin_asn, 0)\n            return True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>return False\n            <DED><DED>self.commit_hijack(monitor_event, origin_asn, '0')\n            return True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "FORTH-ICS-INSPIRE/artemis",
+    "commit": "6073851166fdf6abcfe616940bdee542549c30a4",
+    "filename": "backend/core/detection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/FORTH-ICS-INSPIRE-artemis/backend/core/detection.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backend/core/detection.py:380:66 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `Detection.Worker.commit_hijack` but got `int`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `Detection.Worker.commit_hijack` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 380,
+    "warning_line": "            self.commit_hijack(monitor_event, first_neighbor_asn, 1)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    return False\n            self.commit_hijack(monitor_event, first_neighbor_asn, 1)\n            return True\n",
+        "source_code_len": 126,
+        "target_code": "                    return False\n            self.commit_hijack(monitor_event, first_neighbor_asn, '1')\n            return True\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -379,3 +379,3 @@\n                     return False\n-            self.commit_hijack(monitor_event, first_neighbor_asn, 1)\n+            self.commit_hijack(monitor_event, first_neighbor_asn, '1')\n             return True\n",
+        "source_code_with_indent": "                    <IND>return False\n            <DED><DED>self.commit_hijack(monitor_event, first_neighbor_asn, 1)\n            return True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>return False\n            <DED><DED>self.commit_hijack(monitor_event, first_neighbor_asn, '1')\n            return True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "FORTH-ICS-INSPIRE/artemis",
+    "commit": "6073851166fdf6abcfe616940bdee542549c30a4",
+    "filename": "backend/core/detection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/FORTH-ICS-INSPIRE-artemis/backend/core/detection.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backend/core/detection.py:444:45 Unsupported operand [58]: `+` is not supported for operand types `str` and `int`.",
+    "message": " `+` is not supported for operand types `str` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 444,
+    "warning_line": "                    monitor_event['path'][:-(hij_type + 1)])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                hijack_value['asns_inf'] = set(\n                    monitor_event['path'][:-(hij_type + 1)])\n\n",
+        "source_code_len": 110,
+        "target_code": "                hijack_value['asns_inf'] = set(\n                    monitor_event['path'][:-(int(hij_type) + 1)])\n\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -443,3 +443,3 @@\n                 hijack_value['asns_inf'] = set(\n-                    monitor_event['path'][:-(hij_type + 1)])\n+                    monitor_event['path'][:-(int(hij_type) + 1)])\n \n",
+        "source_code_with_indent": "                <IND>hijack_value['asns_inf'] = set(\n                    monitor_event['path'][:-(hij_type + 1)])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>hijack_value['asns_inf'] = set(\n                    monitor_event['path'][:-(int(hij_type) + 1)])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

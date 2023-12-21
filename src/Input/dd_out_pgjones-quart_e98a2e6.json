@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pgjones/quart",
+    "commit": "e98a2e65f36877b62887f37906e8de7608abfb04",
+    "filename": "src/quart/wrappers/response.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pgjones-quart/src/quart/wrappers/response.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/quart/wrappers/response.py:173:8 Incompatible attribute type [8]: Attribute `file` declared in class `FileBody` has type `Optional[aiofiles.threadpool.binary.AsyncFileIO]` but is used as type `aiofiles.threadpool.binary.AsyncBufferedReader`.",
+    "message": " Attribute `file` declared in class `FileBody` has type `Optional[aiofiles.threadpool.binary.AsyncFileIO]` but is used as type `aiofiles.threadpool.binary.AsyncBufferedReader`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 173,
+    "warning_line": "        self.file = await self.file_manager.__aenter__()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        self.file_manager = async_open(self.file_path, mode=\"rb\")\n        self.file = await self.file_manager.__aenter__()\n        await self.file.seek(self.begin)\n        return self\n",
+        "source_code_len": 184,
+        "target_code": "        self.file_manager = async_open(self.file_path, mode=\"rb\")\n        self.file = await self.file_manager.__aenter__()  # type: ignore\n        await self.file.seek(self.begin)  # type: ignore\n        return self\n",
+        "target_code_len": 216,
+        "diff_format": "@@ -172,4 +177,4 @@\n         self.file_manager = async_open(self.file_path, mode=\"rb\")\n-        self.file = await self.file_manager.__aenter__()\n-        await self.file.seek(self.begin)\n+        self.file = await self.file_manager.__aenter__()  # type: ignore\n+        await self.file.seek(self.begin)  # type: ignore\n         return self\n",
+        "source_code_with_indent": "        <IND>self.file_manager = async_open(self.file_path, mode=\"rb\")\n        self.file = await self.file_manager.__aenter__()\n        await self.file.seek(self.begin)\n        return self\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>self.file_manager = async_open(self.file_path, mode=\"rb\")\n        self.file = await self.file_manager.__aenter__()  # type: ignore\n        await self.file.seek(self.begin)  # type: ignore\n        return self\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

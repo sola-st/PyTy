@@ -1,0 +1,70 @@
+[
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "3cf3c602295ec73781f5096d1ea61a613353661d",
+    "filename": "tensorhive/core/managers/TensorHiveManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/core/managers/TensorHiveManager.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/core/managers/TensorHiveManager.py:75:32 Incompatible parameter type [6]: Expected `CPUMonitor` for 1st positional only parameter to call `list.append` but got `GPUMonitor`.",
+    "message": " Expected `CPUMonitor` for 1st positional only parameter to call `list.append` but got `GPUMonitor`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 75,
+    "warning_line": "                monitors.append(GPUMonitor())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if MONITORING_SERVICE.ENABLED:\n            monitors = [CPUMonitor()]\n            if MONITORING_SERVICE.ENABLE_GPU_MONITOR:\n",
+        "source_code_len": 131,
+        "target_code": "        if MONITORING_SERVICE.ENABLED:\n            monitors = [CPUMonitor()]  # type: List[Monitor]\n            if MONITORING_SERVICE.ENABLE_GPU_MONITOR:\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -72,3 +72,3 @@\n         if MONITORING_SERVICE.ENABLED:\n-            monitors = [CPUMonitor()]\n+            monitors = [CPUMonitor()]  # type: List[Monitor]\n             if MONITORING_SERVICE.ENABLE_GPU_MONITOR:\n",
+        "source_code_with_indent": "        if MONITORING_SERVICE.ENABLED:\n            <IND>monitors = [CPUMonitor()]\n            if MONITORING_SERVICE.ENABLE_GPU_MONITOR:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if MONITORING_SERVICE.ENABLED:\n            <IND>monitors = [CPUMonitor()]  # type: List[Monitor]\n            if MONITORING_SERVICE.ENABLE_GPU_MONITOR:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "roscisz/TensorHive",
+    "commit": "3cf3c602295ec73781f5096d1ea61a613353661d",
+    "filename": "tensorhive/core/monitors/GPUMonitor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/roscisz-TensorHive/tensorhive/core/monitors/GPUMonitor.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorhive/core/monitors/GPUMonitor.py:242:16 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got implicit return value of `None`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 242,
+    "warning_line": "                infrastructure_manager.infrastructure[hostname]['GPU'][uuid]['processes'].append(process)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _update_processes(self, infrastructure_manager, processes: Dict) -> Dict:\n        '''\n",
+        "source_code_len": 95,
+        "target_code": "\n    def _update_processes(self, infrastructure_manager, processes: Dict):\n        '''\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -194,3 +194,3 @@\n \n-    def _update_processes(self, infrastructure_manager, processes: Dict) -> Dict:\n+    def _update_processes(self, infrastructure_manager, processes: Dict):\n         '''\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def _update_processes(self, infrastructure_manager, processes: Dict) -> Dict:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def _update_processes(self, infrastructure_manager, processes: Dict):\n        <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "goodboy/tractor",
+    "commit": "ac22b4a875ded5f87d69eb76be19645153e2e0a7",
+    "filename": "tractor/trionics/_mngrs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/trionics/_mngrs.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/trionics/_mngrs.py:156:6 Invalid type [31]: Expression `(bool, $local_tractor?trionics?_mngrs$T)` is not a valid type.",
+    "message": " Expression `(bool, $local_tractor?trionics?_mngrs$T)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 156,
+    "warning_line": ") -> (bool, T):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    AsyncGenerator,\n    Hashable,\n",
+        "source_code_len": 34,
+        "target_code": "    AsyncGenerator,\n    AsyncIterator,\n    Hashable,\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -25,2 +25,3 @@\n     AsyncGenerator,\n+    AsyncIterator,\n     Hashable,\n",
+        "source_code_with_indent": "    AsyncGenerator,\n    Hashable,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    AsyncGenerator,\n    AsyncIterator,\n    Hashable,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n) -> (bool, T):\n    '''\n",
+        "source_code_len": 25,
+        "target_code": "\n) -> AsyncIterator[tuple[bool, T]]:\n    '''\n",
+        "target_code_len": 45,
+        "diff_format": "@@ -155,3 +156,3 @@\n \n-) -> (bool, T):\n+) -> AsyncIterator[tuple[bool, T]]:\n     '''\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n) -> (bool, T):\n    <IND>",
+        "target_code_with_indent": "\n) -> AsyncIterator[tuple[bool, T]]:\n    <IND>"
+      }
+    ]
+  }
+]

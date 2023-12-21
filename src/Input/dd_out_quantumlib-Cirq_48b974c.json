@@ -1,0 +1,51 @@
+[
+  {
+    "project": "quantumlib/Cirq",
+    "commit": "48b974c038a1776d0ec4a0c2b104a6121007706a",
+    "filename": "cirq/testing/random_circuit.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-Cirq/cirq/testing/random_circuit.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cirq/testing/random_circuit.py:42:19 Incompatible variable type [9]: gate_domain is declared to have type `Dict[ops.raw_types.Gate, int]` but is used as type `None`.",
+    "message": " gate_domain is declared to have type `Dict[ops.raw_types.Gate, int]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 42,
+    "warning_line": "                   gate_domain: Dict[ops.Gate, int]= None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from random import choice, sample, random\nfrom typing import Union, Sequence, TYPE_CHECKING, Dict\n\n",
+        "source_code_len": 99,
+        "target_code": "from random import choice, sample, random\nfrom typing import Union, Sequence, TYPE_CHECKING, Dict, Optional\n\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -15,3 +15,3 @@\n from random import choice, sample, random\n-from typing import Union, Sequence, TYPE_CHECKING, Dict\n+from typing import Union, Sequence, TYPE_CHECKING, Dict, Optional\n \n",
+        "source_code_with_indent": "from random import choice, sample, random\nfrom typing import Union, Sequence, TYPE_CHECKING, Dict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from random import choice, sample, random\nfrom typing import Union, Sequence, TYPE_CHECKING, Dict, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                   op_density: float,\n                   gate_domain: Dict[ops.Gate, int]= None\n                   ) -> Circuit:\n",
+        "source_code_len": 129,
+        "target_code": "                   op_density: float,\n                   gate_domain: Optional[Dict[ops.Gate, int]] = None\n                   ) -> Circuit:\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -41,3 +42,3 @@\n                    op_density: float,\n-                   gate_domain: Dict[ops.Gate, int]= None\n+                   gate_domain: Optional[Dict[ops.Gate, int]] = None\n                    ) -> Circuit:\n",
+        "source_code_with_indent": "                   op_density: float,\n                   gate_domain: Dict[ops.Gate, int]= None\n                   ) -> Circuit:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                   op_density: float,\n                   gate_domain: Optional[Dict[ops.Gate, int]] = None\n                   ) -> Circuit:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "etesync/server",
+    "commit": "151bec0d9e683a0c8da93796a7468c999c6aecd0",
+    "filename": "etebase_fastapi/authentication.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/etesync-server/etebase_fastapi/authentication.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "etebase_fastapi/authentication.py:264:4 Incompatible variable type [9]: data is declared to have type `SignupIn` but is used as type `LoginOut`.",
+    "message": " data is declared to have type `SignupIn` but is used as type `LoginOut`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 264,
+    "warning_line": "    data = LoginOut.from_orm(user)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    user = signup_save(data, request)\n    data = LoginOut.from_orm(user)\n    user_signed_up.send(sender=user.__class__, request=None, user=user)\n    return data\n",
+        "source_code_len": 161,
+        "target_code": "    user = signup_save(data, request)\n    ret = LoginOut.from_orm(user)\n    user_signed_up.send(sender=user.__class__, request=None, user=user)\n    return ret\n",
+        "target_code_len": 159,
+        "diff_format": "@@ -263,4 +263,4 @@\n     user = signup_save(data, request)\n-    data = LoginOut.from_orm(user)\n+    ret = LoginOut.from_orm(user)\n     user_signed_up.send(sender=user.__class__, request=None, user=user)\n-    return data\n+    return ret\n",
+        "source_code_with_indent": "    <IND>user = signup_save(data, request)\n    data = LoginOut.from_orm(user)\n    user_signed_up.send(sender=user.__class__, request=None, user=user)\n    return data\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>user = signup_save(data, request)\n    ret = LoginOut.from_orm(user)\n    user_signed_up.send(sender=user.__class__, request=None, user=user)\n    return ret\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

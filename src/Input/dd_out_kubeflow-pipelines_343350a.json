@@ -1,0 +1,51 @@
+[
+  {
+    "project": "kubeflow/pipelines",
+    "commit": "343350a5f3ac85843a35c181fcde33cb61922455",
+    "filename": "sdk/python/kfp/compiler/_op_to_template.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kubeflow-pipelines/sdk/python/kfp/compiler/_op_to_template.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sdk/python/kfp/compiler/_op_to_template.py:333:67 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "message": " Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 333,
+    "warning_line": "                        podSpecPatch['containers'][0]['resources'][setting][",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    if not 'containers' in podSpecPatch:\n                        podSpecPatch = {\n                            'containers': [{\n                                'name': 'main',\n",
+        "source_code_len": 191,
+        "target_code": "                    if not 'containers' in podSpecPatch:\n                        podSpecPatch['containers'] = [{\n                                'name': 'main',\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -320,4 +320,3 @@\n                     if not 'containers' in podSpecPatch:\n-                        podSpecPatch = {\n-                            'containers': [{\n+                        podSpecPatch['containers'] = [{\n                                 'name': 'main',\n",
+        "source_code_with_indent": "                    <IND>if not 'containers' in podSpecPatch:\n                        <IND>podSpecPatch = {\n                            'containers': [{\n                                'name': 'main',\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>if not 'containers' in podSpecPatch:\n                        <IND>podSpecPatch['containers'] = [{\n                                'name': 'main',\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "                            }]\n                        }\n                    if setting not in podSpecPatch['containers'][0][\n",
+        "source_code_len": 126,
+        "target_code": "                            }]\n                    if setting not in podSpecPatch['containers'][0][\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -325,3 +324,2 @@\n                             }]\n-                        }\n                     if setting not in podSpecPatch['containers'][0][\n",
+        "source_code_with_indent": "                            }]\n                        }\n                    <DED>if setting not in podSpecPatch['containers'][0][\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                            }]\n                    <DED>if setting not in podSpecPatch['containers'][0][\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

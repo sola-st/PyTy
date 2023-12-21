@@ -1,0 +1,171 @@
+[
+  {
+    "project": "rotki/rotki",
+    "commit": "01d0eab11c067358e47e75c5d4f572542b4c83b5",
+    "filename": "rotkehlchen/data/importer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/data/importer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/data/importer.py:108:16 Incompatible parameter type [6]: Expected `rotkehlchen.typing.Price` for 6th parameter `rate` to call `Trade.__init__` but got `rotkehlchen.fval.FVal`.",
+    "message": " Expected `rotkehlchen.typing.Price` for 6th parameter `rate` to call `Trade.__init__` but got `rotkehlchen.fval.FVal`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 108,
+    "warning_line": "                rate=rate,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": ")\nfrom rotkehlchen.typing import Fee, Location, TradePair, TradeType\n\n",
+        "source_code_len": 70,
+        "target_code": ")\nfrom rotkehlchen.typing import AssetAmount, Fee, Location, Price, TradePair, TradeType\n\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -15,3 +15,3 @@\n )\n-from rotkehlchen.typing import Fee, Location, TradePair, TradeType\n+from rotkehlchen.typing import AssetAmount, Fee, Location, Price, TradePair, TradeType\n \n",
+        "source_code_with_indent": ")\nfrom rotkehlchen.typing import Fee, Location, TradePair, TradeType\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": ")\nfrom rotkehlchen.typing import AssetAmount, Fee, Location, Price, TradePair, TradeType\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            else:\n                quote_amount_sold = ZERO\n            rate = quote_amount_sold / base_amount_bought\n\n",
+        "source_code_len": 118,
+        "target_code": "            else:\n                quote_amount_sold = AssetAmount(ZERO)\n            rate = Price(quote_amount_sold / base_amount_bought)\n\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -98,4 +98,4 @@\n             else:\n-                quote_amount_sold = ZERO\n-            rate = quote_amount_sold / base_amount_bought\n+                quote_amount_sold = AssetAmount(ZERO)\n+            rate = Price(quote_amount_sold / base_amount_bought)\n \n",
+        "source_code_with_indent": "            <DED>else:\n                <IND>quote_amount_sold = ZERO\n            <DED>rate = quote_amount_sold / base_amount_bought\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>else:\n                <IND>quote_amount_sold = AssetAmount(ZERO)\n            <DED>rate = Price(quote_amount_sold / base_amount_bought)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rotki/rotki",
+    "commit": "01d0eab11c067358e47e75c5d4f572542b4c83b5",
+    "filename": "rotkehlchen/db/dbhandler.py",
+    "min_patch_found": false,
+    "full_warning_msg": "rotkehlchen/db/dbhandler.py:1669:16 Incompatible parameter type [6]: Expected `HexColorCode` for 3rd parameter `background_color` to call `Tag.__init__` but got `rotkehlchen.typing.TradeType`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "rotki/rotki",
+    "commit": "01d0eab11c067358e47e75c5d4f572542b4c83b5",
+    "filename": "rotkehlchen/db/dbhandler.py",
+    "min_patch_found": false,
+    "full_warning_msg": "rotkehlchen/db/dbhandler.py:1670:16 Incompatible parameter type [6]: Expected `HexColorCode` for 4th parameter `foreground_color` to call `Tag.__init__` but got `rotkehlchen.typing.TradeType`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "rotki/rotki",
+    "commit": "01d0eab11c067358e47e75c5d4f572542b4c83b5",
+    "filename": "rotkehlchen/db/upgrades/v5_v6.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/db/upgrades/v5_v6.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/db/upgrades/v5_v6.py:149:8 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 149,
+    "warning_line": "        return 'J'",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\n",
+        "source_code_len": 2,
+        "target_code": "\n    raise DBUpgradeError(f'Invalid location {location} encountered during DB v5->v6 upgrade')\n\n\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -150,2 +150,4 @@\n \n+    raise DBUpgradeError(f'Invalid location {location} encountered during DB v5->v6 upgrade')\n+\n \n",
+        "source_code_with_indent": "\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>raise DBUpgradeError(f'Invalid location {location} encountered during DB v5->v6 upgrade')\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rotki/rotki",
+    "commit": "01d0eab11c067358e47e75c5d4f572542b4c83b5",
+    "filename": "rotkehlchen/serialization/deserialize.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/serialization/deserialize.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/serialization/deserialize.py:334:24 Incompatible parameter type [6]: Expected `TradePair` for 1st positional only parameter to call `pair_get_assets` but got `str`.",
+    "message": " Expected `TradePair` for 1st positional only parameter to call `pair_get_assets` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 334,
+    "warning_line": "        pair_get_assets(pair)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    try:\n        pair_get_assets(pair)\n    except UnprocessableTradePair as e:\n",
+        "source_code_len": 79,
+        "target_code": "    try:\n        pair_get_assets(TradePair(pair))\n    except UnprocessableTradePair as e:\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -333,3 +333,3 @@\n     try:\n-        pair_get_assets(pair)\n+        pair_get_assets(TradePair(pair))\n     except UnprocessableTradePair as e:\n",
+        "source_code_with_indent": "    try:\n        <IND>pair_get_assets(pair)\n    <DED>except UnprocessableTradePair as e:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    try:\n        <IND>pair_get_assets(TradePair(pair))\n    <DED>except UnprocessableTradePair as e:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rotki/rotki",
+    "commit": "01d0eab11c067358e47e75c5d4f572542b4c83b5",
+    "filename": "rotkehlchen/serialization/deserialize.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/serialization/deserialize.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/serialization/deserialize.py:458:4 Incompatible return type [7]: Expected `TradeType` but got `HexColorCode`.",
+    "message": " Expected `TradeType` but got `HexColorCode`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 458,
+    "warning_line": "    return HexColorCode(symbol)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef deserialize_hex_color_code(symbol: str) -> TradeType:\n    \"\"\"Takes a string either from the API or the DB and deserializes it into\n",
+        "source_code_len": 136,
+        "target_code": "\ndef deserialize_hex_color_code(symbol: str) -> HexColorCode:\n    \"\"\"Takes a string either from the API or the DB and deserializes it into\n",
+        "target_code_len": 139,
+        "diff_format": "@@ -429,3 +429,3 @@\n \n-def deserialize_hex_color_code(symbol: str) -> TradeType:\n+def deserialize_hex_color_code(symbol: str) -> HexColorCode:\n     \"\"\"Takes a string either from the API or the DB and deserializes it into\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def deserialize_hex_color_code(symbol: str) -> TradeType:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def deserialize_hex_color_code(symbol: str) -> HexColorCode:\n    <IND>"
+      }
+    ]
+  }
+]

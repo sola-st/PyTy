@@ -1,0 +1,138 @@
+[
+  {
+    "project": "hydralabs/pyamf",
+    "commit": "d5b99b613a8299820b23e37925f8c7e9d08501e9",
+    "filename": "pyamf/amf0.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hydralabs-pyamf/pyamf/amf0.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyamf/amf0.py:430:14 Unbound name [10]: Name `long` is used but not defined in the current scope.",
+    "message": " Name `long` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 430,
+    "warning_line": "        ((int,long,float), \"writeNumber\"),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    type_map = [\n        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n            types.FunctionType, types.GeneratorType, types.ModuleType,\n            types.LambdaType, types.MethodType), \"writeFunc\"),\n        ((types.NoneType,), \"writeNull\"),\n        ((bool,), \"writeBoolean\"),\n        ((int,long,float), \"writeNumber\"),\n        ((str,), \"writeString\"),\n        ((unicode,), \"writeUnicode\"),\n        ((pyamf.ASObject,), \"writeObject\"),\n        ((pyamf.MixedArray,), \"writeMixedArray\"),\n        ((types.ListType, types.TupleType,), \"writeArray\"),\n        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n        ((util.is_ET_element,), \"writeXML\"),\n        ((lambda x: x is pyamf.Undefined,), \"writeUndefined\"),\n        ((types.ClassType, types.TypeType), \"writeClass\"),\n        ((types.InstanceType,types.ObjectType,), \"writeObject\"),\n    ]\n\n    def __init__(self, *args, **kwargs):\n",
+        "source_code_len": 913,
+        "target_code": "\n    def __init__(self, *args, **kwargs):\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -423,21 +423,2 @@\n \n-    type_map = [\n-        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n-            types.FunctionType, types.GeneratorType, types.ModuleType,\n-            types.LambdaType, types.MethodType), \"writeFunc\"),\n-        ((types.NoneType,), \"writeNull\"),\n-        ((bool,), \"writeBoolean\"),\n-        ((int,long,float), \"writeNumber\"),\n-        ((str,), \"writeString\"),\n-        ((unicode,), \"writeUnicode\"),\n-        ((pyamf.ASObject,), \"writeObject\"),\n-        ((pyamf.MixedArray,), \"writeMixedArray\"),\n-        ((types.ListType, types.TupleType,), \"writeArray\"),\n-        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n-        ((util.is_ET_element,), \"writeXML\"),\n-        ((lambda x: x is pyamf.Undefined,), \"writeUndefined\"),\n-        ((types.ClassType, types.TypeType), \"writeClass\"),\n-        ((types.InstanceType,types.ObjectType,), \"writeObject\"),\n-    ]\n-\n     def __init__(self, *args, **kwargs):\n",
+        "source_code_with_indent": "\n    type_map = [\n        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n            types.FunctionType, types.GeneratorType, types.ModuleType,\n            types.LambdaType, types.MethodType), \"writeFunc\"),\n        ((types.NoneType,), \"writeNull\"),\n        ((bool,), \"writeBoolean\"),\n        ((int,long,float), \"writeNumber\"),\n        ((str,), \"writeString\"),\n        ((unicode,), \"writeUnicode\"),\n        ((pyamf.ASObject,), \"writeObject\"),\n        ((pyamf.MixedArray,), \"writeMixedArray\"),\n        ((types.ListType, types.TupleType,), \"writeArray\"),\n        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n        ((util.is_ET_element,), \"writeXML\"),\n        ((lambda x: x is pyamf.Undefined,), \"writeUndefined\"),\n        ((types.ClassType, types.TypeType), \"writeClass\"),\n        ((types.InstanceType,types.ObjectType,), \"writeObject\"),\n    ]\n\n    def __init__(self, *args, **kwargs):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, *args, **kwargs):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "hydralabs/pyamf",
+    "commit": "d5b99b613a8299820b23e37925f8c7e9d08501e9",
+    "filename": "pyamf/amf0.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hydralabs-pyamf/pyamf/amf0.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyamf/amf0.py:432:10 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 432,
+    "warning_line": "        ((unicode,), \"writeUnicode\"),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    type_map = [\n        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n            types.FunctionType, types.GeneratorType, types.ModuleType,\n            types.LambdaType, types.MethodType), \"writeFunc\"),\n        ((types.NoneType,), \"writeNull\"),\n        ((bool,), \"writeBoolean\"),\n        ((int,long,float), \"writeNumber\"),\n        ((str,), \"writeString\"),\n        ((unicode,), \"writeUnicode\"),\n        ((pyamf.ASObject,), \"writeObject\"),\n        ((pyamf.MixedArray,), \"writeMixedArray\"),\n        ((types.ListType, types.TupleType,), \"writeArray\"),\n        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n        ((util.is_ET_element,), \"writeXML\"),\n        ((lambda x: x is pyamf.Undefined,), \"writeUndefined\"),\n        ((types.ClassType, types.TypeType), \"writeClass\"),\n        ((types.InstanceType,types.ObjectType,), \"writeObject\"),\n    ]\n\n    def __init__(self, *args, **kwargs):\n",
+        "source_code_len": 913,
+        "target_code": "\n    def __init__(self, *args, **kwargs):\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -423,21 +423,2 @@\n \n-    type_map = [\n-        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n-            types.FunctionType, types.GeneratorType, types.ModuleType,\n-            types.LambdaType, types.MethodType), \"writeFunc\"),\n-        ((types.NoneType,), \"writeNull\"),\n-        ((bool,), \"writeBoolean\"),\n-        ((int,long,float), \"writeNumber\"),\n-        ((str,), \"writeString\"),\n-        ((unicode,), \"writeUnicode\"),\n-        ((pyamf.ASObject,), \"writeObject\"),\n-        ((pyamf.MixedArray,), \"writeMixedArray\"),\n-        ((types.ListType, types.TupleType,), \"writeArray\"),\n-        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n-        ((util.is_ET_element,), \"writeXML\"),\n-        ((lambda x: x is pyamf.Undefined,), \"writeUndefined\"),\n-        ((types.ClassType, types.TypeType), \"writeClass\"),\n-        ((types.InstanceType,types.ObjectType,), \"writeObject\"),\n-    ]\n-\n     def __init__(self, *args, **kwargs):\n",
+        "source_code_with_indent": "\n    type_map = [\n        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n            types.FunctionType, types.GeneratorType, types.ModuleType,\n            types.LambdaType, types.MethodType), \"writeFunc\"),\n        ((types.NoneType,), \"writeNull\"),\n        ((bool,), \"writeBoolean\"),\n        ((int,long,float), \"writeNumber\"),\n        ((str,), \"writeString\"),\n        ((unicode,), \"writeUnicode\"),\n        ((pyamf.ASObject,), \"writeObject\"),\n        ((pyamf.MixedArray,), \"writeMixedArray\"),\n        ((types.ListType, types.TupleType,), \"writeArray\"),\n        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n        ((util.is_ET_element,), \"writeXML\"),\n        ((lambda x: x is pyamf.Undefined,), \"writeUndefined\"),\n        ((types.ClassType, types.TypeType), \"writeClass\"),\n        ((types.InstanceType,types.ObjectType,), \"writeObject\"),\n    ]\n\n    def __init__(self, *args, **kwargs):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, *args, **kwargs):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "hydralabs/pyamf",
+    "commit": "d5b99b613a8299820b23e37925f8c7e9d08501e9",
+    "filename": "pyamf/amf3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hydralabs-pyamf/pyamf/amf3.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyamf/amf3.py:1116:14 Unbound name [10]: Name `long` is used but not defined in the current scope.",
+    "message": " Name `long` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 1116,
+    "warning_line": "        ((int,long), \"writeInteger\"),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    type_map = [\n        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n            types.FunctionType, types.GeneratorType, types.ModuleType,\n            types.LambdaType, types.MethodType), \"writeFunc\"),\n        ((bool,), \"writeBoolean\"),\n        ((types.NoneType,), \"writeNull\"),\n        ((int,long), \"writeInteger\"),\n        ((float,), \"writeNumber\"),\n        ((str,), \"writeString\"),\n        ((unicode,), \"writeUnicode\"),\n        ((ByteArray,), \"writeByteArray\"),\n        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n        ((util.is_ET_element,), \"writeXML\"),\n        ((pyamf.UndefinedType,), \"writeUndefined\"),\n        ((types.ClassType, types.TypeType), \"writeClass\"),\n        ((types.InstanceType, types.ObjectType,), \"writeInstance\"),\n    ]\n\n    def __init__(self, *args, **kwargs):\n",
+        "source_code_len": 823,
+        "target_code": "\n    def __init__(self, *args, **kwargs):\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -1109,20 +1103,2 @@\n \n-    type_map = [\n-        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n-            types.FunctionType, types.GeneratorType, types.ModuleType,\n-            types.LambdaType, types.MethodType), \"writeFunc\"),\n-        ((bool,), \"writeBoolean\"),\n-        ((types.NoneType,), \"writeNull\"),\n-        ((int,long), \"writeInteger\"),\n-        ((float,), \"writeNumber\"),\n-        ((str,), \"writeString\"),\n-        ((unicode,), \"writeUnicode\"),\n-        ((ByteArray,), \"writeByteArray\"),\n-        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n-        ((util.is_ET_element,), \"writeXML\"),\n-        ((pyamf.UndefinedType,), \"writeUndefined\"),\n-        ((types.ClassType, types.TypeType), \"writeClass\"),\n-        ((types.InstanceType, types.ObjectType,), \"writeInstance\"),\n-    ]\n-\n     def __init__(self, *args, **kwargs):\n",
+        "source_code_with_indent": "\n    type_map = [\n        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n            types.FunctionType, types.GeneratorType, types.ModuleType,\n            types.LambdaType, types.MethodType), \"writeFunc\"),\n        ((bool,), \"writeBoolean\"),\n        ((types.NoneType,), \"writeNull\"),\n        ((int,long), \"writeInteger\"),\n        ((float,), \"writeNumber\"),\n        ((str,), \"writeString\"),\n        ((unicode,), \"writeUnicode\"),\n        ((ByteArray,), \"writeByteArray\"),\n        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n        ((util.is_ET_element,), \"writeXML\"),\n        ((pyamf.UndefinedType,), \"writeUndefined\"),\n        ((types.ClassType, types.TypeType), \"writeClass\"),\n        ((types.InstanceType, types.ObjectType,), \"writeInstance\"),\n    ]\n\n    def __init__(self, *args, **kwargs):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, *args, **kwargs):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "hydralabs/pyamf",
+    "commit": "d5b99b613a8299820b23e37925f8c7e9d08501e9",
+    "filename": "pyamf/amf3.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hydralabs-pyamf/pyamf/amf3.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyamf/amf3.py:1119:10 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 1119,
+    "warning_line": "        ((unicode,), \"writeUnicode\"),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    type_map = [\n        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n            types.FunctionType, types.GeneratorType, types.ModuleType,\n            types.LambdaType, types.MethodType), \"writeFunc\"),\n        ((bool,), \"writeBoolean\"),\n        ((types.NoneType,), \"writeNull\"),\n        ((int,long), \"writeInteger\"),\n        ((float,), \"writeNumber\"),\n        ((str,), \"writeString\"),\n        ((unicode,), \"writeUnicode\"),\n        ((ByteArray,), \"writeByteArray\"),\n        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n        ((util.is_ET_element,), \"writeXML\"),\n        ((pyamf.UndefinedType,), \"writeUndefined\"),\n        ((types.ClassType, types.TypeType), \"writeClass\"),\n        ((types.InstanceType, types.ObjectType,), \"writeInstance\"),\n    ]\n\n    def __init__(self, *args, **kwargs):\n",
+        "source_code_len": 823,
+        "target_code": "\n    def __init__(self, *args, **kwargs):\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -1109,20 +1103,2 @@\n \n-    type_map = [\n-        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n-            types.FunctionType, types.GeneratorType, types.ModuleType,\n-            types.LambdaType, types.MethodType), \"writeFunc\"),\n-        ((bool,), \"writeBoolean\"),\n-        ((types.NoneType,), \"writeNull\"),\n-        ((int,long), \"writeInteger\"),\n-        ((float,), \"writeNumber\"),\n-        ((str,), \"writeString\"),\n-        ((unicode,), \"writeUnicode\"),\n-        ((ByteArray,), \"writeByteArray\"),\n-        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n-        ((util.is_ET_element,), \"writeXML\"),\n-        ((pyamf.UndefinedType,), \"writeUndefined\"),\n-        ((types.ClassType, types.TypeType), \"writeClass\"),\n-        ((types.InstanceType, types.ObjectType,), \"writeInstance\"),\n-    ]\n-\n     def __init__(self, *args, **kwargs):\n",
+        "source_code_with_indent": "\n    type_map = [\n        ((types.BuiltinFunctionType, types.BuiltinMethodType,\n            types.FunctionType, types.GeneratorType, types.ModuleType,\n            types.LambdaType, types.MethodType), \"writeFunc\"),\n        ((bool,), \"writeBoolean\"),\n        ((types.NoneType,), \"writeNull\"),\n        ((int,long), \"writeInteger\"),\n        ((float,), \"writeNumber\"),\n        ((str,), \"writeString\"),\n        ((unicode,), \"writeUnicode\"),\n        ((ByteArray,), \"writeByteArray\"),\n        ((datetime.date, datetime.datetime, datetime.time), \"writeDate\"),\n        ((util.is_ET_element,), \"writeXML\"),\n        ((pyamf.UndefinedType,), \"writeUndefined\"),\n        ((types.ClassType, types.TypeType), \"writeClass\"),\n        ((types.InstanceType, types.ObjectType,), \"writeInstance\"),\n    ]\n\n    def __init__(self, *args, **kwargs):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, *args, **kwargs):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

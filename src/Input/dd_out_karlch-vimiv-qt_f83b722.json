@@ -1,0 +1,36 @@
+[
+  {
+    "project": "karlch/vimiv-qt",
+    "commit": "f83b72227227c4304412420638bc6ca28e4d8394",
+    "filename": "vimiv/utils/log.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlch-vimiv-qt/vimiv/utils/log.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vimiv/utils/log.py:200:4 Inconsistent override [15]: `vimiv.utils.log.StatusbarLogHandler.handle` overrides method defined in `logging.Handler` inconsistently. Returned type `None` is not a subtype of the overridden return `bool`.",
+    "message": " `vimiv.utils.log.StatusbarLogHandler.handle` overrides method defined in `logging.Handler` inconsistently. Returned type `None` is not a subtype of the overridden return `bool`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 200,
+    "warning_line": "    def handle(self, record: logging.LogRecord) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def handle(self, record: logging.LogRecord) -> None:\n        if record.levelno >= logging.INFO:  # Debug in the statusbar makes no sense\n            self.message.emit(record.levelname.lower(), record.message)\n\n",
+        "source_code_len": 215,
+        "target_code": "\n    def handle(self, record: logging.LogRecord) -> bool:\n        if record.levelno >= logging.INFO:  # Debug in the statusbar makes no sense\n            self.message.emit(record.levelname.lower(), record.message)\n            return True\n        return False\n\n",
+        "target_code_len": 260,
+        "diff_format": "@@ -199,5 +199,7 @@\n \n-    def handle(self, record: logging.LogRecord) -> None:\n+    def handle(self, record: logging.LogRecord) -> bool:\n         if record.levelno >= logging.INFO:  # Debug in the statusbar makes no sense\n             self.message.emit(record.levelname.lower(), record.message)\n+            return True\n+        return False\n \n",
+        "source_code_with_indent": "\n    def handle(self, record: logging.LogRecord) -> None:\n        <IND>if record.levelno >= logging.INFO:  # Debug in the statusbar makes no sense\n            <IND>self.message.emit(record.levelname.lower(), record.message)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def handle(self, record: logging.LogRecord) -> bool:\n        <IND>if record.levelno >= logging.INFO:  # Debug in the statusbar makes no sense\n            <IND>self.message.emit(record.levelname.lower(), record.message)\n            return True\n        <DED>return False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

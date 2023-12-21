@@ -1,0 +1,70 @@
+[
+  {
+    "project": "algoo/preview-generator",
+    "commit": "2426a0d353c61b3970d8930eafd8f9f3a9be90c2",
+    "filename": "preview_generator/manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/algoo-preview-generator/preview_generator/manager.py",
+    "file_hunks_size": 10,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "preview_generator/manager.py:318:8 Incompatible return type [7]: Expected `typing.List[str]` but got `typing.Optional[str]`.",
+    "message": " Expected `typing.List[str]` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 318,
+    "warning_line": "        return mimetypes.guess_extension(mime)"
+  },
+  {
+    "project": "algoo/preview-generator",
+    "commit": "2426a0d353c61b3970d8930eafd8f9f3a9be90c2",
+    "filename": "preview_generator/manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/algoo-preview-generator/preview_generator/manager.py",
+    "file_hunks_size": 10,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "preview_generator/manager.py:322:53 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `mimetypes.guess_extension` but got `typing.List[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `mimetypes.guess_extension` but got `typing.List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 322,
+    "warning_line": "            ext for ext in mimetypes.guess_extension(self.get_supported_mimetypes())"
+  },
+  {
+    "project": "algoo/preview-generator",
+    "commit": "2426a0d353c61b3970d8930eafd8f9f3a9be90c2",
+    "filename": "preview_generator/preview/generic_preview.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/algoo-preview-generator/preview_generator/preview/generic_preview.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "preview_generator/preview/generic_preview.py:39:15 Unbound name [10]: Name `self` is used but not defined in the current scope.",
+    "message": " Name `self` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 39,
+    "warning_line": "        return self.__name__  #\u00a0default label is the class name",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_label(cls) -> str:\n        return self.__name__  #\u00a0default label is the class name\n\n",
+        "source_code_len": 96,
+        "target_code": "    def get_label(cls) -> str:\n        return cls.__name__  # default label is the class name\n\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -38,3 +37,3 @@\n     def get_label(cls) -> str:\n-        return self.__name__  #\u00a0default label is the class name\n+        return cls.__name__  # default label is the class name\n \n",
+        "source_code_with_indent": "    def get_label(cls) -> str:\n        <IND>return self.__name__  #\u00a0default label is the class name\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def get_label(cls) -> str:\n        <IND>return cls.__name__  # default label is the class name\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

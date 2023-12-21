@@ -1,0 +1,70 @@
+[
+  {
+    "project": "flairNLP/flair",
+    "commit": "2e2eda8ca1c55e51a07974f74309c5c4b4a1833c",
+    "filename": "flair/tokenization.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/tokenization.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/tokenization.py:438:20 Incompatible parameter type [6]: Expected `int` for 3rd parameter `start_position` to call `Sentence.__init__` but got `Optional[int]`.",
+    "message": " Expected `int` for 3rd parameter `start_position` to call `Sentence.__init__` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 438,
+    "warning_line": "                    start_position=sentence_offset",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            offset: int = sentence_offset + len(sentence)\n            try:\n                sentence_offset = text.index(next_sentence, offset) if next_sentence is not None else None\n            except ValueError as error:\n                raise AssertionError(f\"Can't find the sentence offset for sentence {repr(sentence)} \"\n                                     f\"starting from position {repr(offset)}\") from error\n\n",
+        "source_code_len": 416,
+        "target_code": "\n            sentence_offset += len(sentence)\n\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -441,8 +437,3 @@\n \n-            offset: int = sentence_offset + len(sentence)\n-            try:\n-                sentence_offset = text.index(next_sentence, offset) if next_sentence is not None else None\n-            except ValueError as error:\n-                raise AssertionError(f\"Can't find the sentence offset for sentence {repr(sentence)} \"\n-                                     f\"starting from position {repr(offset)}\") from error\n+            sentence_offset += len(sentence)\n \n",
+        "source_code_with_indent": "\n            offset: int = sentence_offset + len(sentence)\n            try:\n                <IND>sentence_offset = text.index(next_sentence, offset) if next_sentence is not None else None\n            <DED>except ValueError as error:\n                <IND>raise AssertionError(f\"Can't find the sentence offset for sentence {repr(sentence)} \"\n                                     f\"starting from position {repr(offset)}\") from error\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            sentence_offset += len(sentence)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "flairNLP/flair",
+    "commit": "2e2eda8ca1c55e51a07974f74309c5c4b4a1833c",
+    "filename": "flair/tokenization.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/tokenization.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/tokenization.py:442:26 Unsupported operand [58]: `+` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `+` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 442,
+    "warning_line": "            offset: int = sentence_offset + len(sentence)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            offset: int = sentence_offset + len(sentence)\n            try:\n                sentence_offset = text.index(next_sentence, offset) if next_sentence is not None else None\n            except ValueError as error:\n                raise AssertionError(f\"Can't find the sentence offset for sentence {repr(sentence)} \"\n                                     f\"starting from position {repr(offset)}\") from error\n\n",
+        "source_code_len": 416,
+        "target_code": "\n            sentence_offset += len(sentence)\n\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -441,8 +437,3 @@\n \n-            offset: int = sentence_offset + len(sentence)\n-            try:\n-                sentence_offset = text.index(next_sentence, offset) if next_sentence is not None else None\n-            except ValueError as error:\n-                raise AssertionError(f\"Can't find the sentence offset for sentence {repr(sentence)} \"\n-                                     f\"starting from position {repr(offset)}\") from error\n+            sentence_offset += len(sentence)\n \n",
+        "source_code_with_indent": "\n            offset: int = sentence_offset + len(sentence)\n            try:\n                <IND>sentence_offset = text.index(next_sentence, offset) if next_sentence is not None else None\n            <DED>except ValueError as error:\n                <IND>raise AssertionError(f\"Can't find the sentence offset for sentence {repr(sentence)} \"\n                                     f\"starting from position {repr(offset)}\") from error\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            sentence_offset += len(sentence)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

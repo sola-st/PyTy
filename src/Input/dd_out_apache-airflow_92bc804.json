@@ -1,0 +1,70 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "92bc8047cf822bcedfecb8cbdc82a83dc7ea43ad",
+    "filename": "airflow/providers/salesforce/operators/salesforce_apex_rest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/salesforce/operators/salesforce_apex_rest.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/salesforce/operators/salesforce_apex_rest.py:44:8 Incompatible variable type [9]: payload is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "message": " payload is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 44,
+    "warning_line": "        payload: dict = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        method: str = 'GET',\n        payload: dict = None,\n        salesforce_conn_id: str = 'salesforce_default',\n",
+        "source_code_len": 115,
+        "target_code": "        method: str = 'GET',\n        payload: dict,\n        salesforce_conn_id: str = 'salesforce_default',\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -43,3 +43,3 @@\n         method: str = 'GET',\n-        payload: dict = None,\n+        payload: dict,\n         salesforce_conn_id: str = 'salesforce_default',\n",
+        "source_code_with_indent": "        method: str = 'GET',\n        payload: dict = None,\n        salesforce_conn_id: str = 'salesforce_default',\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        method: str = 'GET',\n        payload: dict,\n        salesforce_conn_id: str = 'salesforce_default',\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "92bc8047cf822bcedfecb8cbdc82a83dc7ea43ad",
+    "filename": "airflow/providers/salesforce/operators/salesforce_apex_rest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/salesforce/operators/salesforce_apex_rest.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/salesforce/operators/salesforce_apex_rest.py:66:12 Incompatible return type [7]: Expected `typing.Dict[typing.Any, typing.Any]` but got implicit return value of `None`.",
+    "message": " Expected `typing.Dict[typing.Any, typing.Any]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 66,
+    "warning_line": "            return result",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        sf_hook = SalesforceHook(salesforce_conn_id=self.salesforce_conn_id)\n        conn = sf_hook.get_conn()\n        result = conn.apexecute(action=self.endpoint, method=self.method, data=self.payload)\n        if self.do_xcom_push:\n            return result\n",
+        "source_code_len": 272,
+        "target_code": "        \"\"\"\n        result: dict = {}\n        sf_hook = SalesforceHook(salesforce_conn_id=self.salesforce_conn_id)\n        conn = sf_hook.get_conn()\n        execution_result = conn.apexecute(action=self.endpoint, method=self.method, data=self.payload)\n        if self.do_xcom_push:\n            result = execution_result\n\n        return result\n",
+        "target_code_len": 343,
+        "diff_format": "@@ -61,6 +61,9 @@\n         \"\"\"\n+        result: dict = {}\n         sf_hook = SalesforceHook(salesforce_conn_id=self.salesforce_conn_id)\n         conn = sf_hook.get_conn()\n-        result = conn.apexecute(action=self.endpoint, method=self.method, data=self.payload)\n+        execution_result = conn.apexecute(action=self.endpoint, method=self.method, data=self.payload)\n         if self.do_xcom_push:\n-            return result\n+            result = execution_result\n+\n+        return result\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        sf_hook = SalesforceHook(salesforce_conn_id=self.salesforce_conn_id)\n        conn = sf_hook.get_conn()\n        result = conn.apexecute(action=self.endpoint, method=self.method, data=self.payload)\n        if self.do_xcom_push:\n            <IND>return result\n",
+        "target_code_with_indent": "\n        result: dict = {}\n        sf_hook = SalesforceHook(salesforce_conn_id=self.salesforce_conn_id)\n        conn = sf_hook.get_conn()\n        execution_result = conn.apexecute(action=self.endpoint, method=self.method, data=self.payload)\n        if self.do_xcom_push:\n            <IND>result = execution_result\n\n        <DED>return result\n"
+      }
+    ]
+  }
+]

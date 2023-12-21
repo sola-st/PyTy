@@ -1,0 +1,36 @@
+[
+  {
+    "project": "scrapy/scrapy",
+    "commit": "b6f77806b0ec414a28cfcbac3fa2d928040548d6",
+    "filename": "tests/test_engine.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/scrapy-scrapy/tests/test_engine.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_engine.py:96:4 Incompatible variable type [9]: DataClassItemsSpider is declared to have type `typing.Type[DataClassItemsSpider]` but is used as type `None`.",
+    "message": " DataClassItemsSpider is declared to have type `typing.Type[DataClassItemsSpider]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 96,
+    "warning_line": "    DataClassItemsSpider = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    class DataClassItemsSpider(DictItemsSpider):\n        def parse_item(self, response):\n            item = super().parse_item(response)\n            return TestDataClass(\n                name=item.get('name'),\n                url=item.get('url'),\n                price=item.get('price'),\n            )\n\n",
+        "source_code_len": 304,
+        "target_code": "\n    class _dataclass_spider(DictItemsSpider):\n        def parse_item(self, response):\n            item = super().parse_item(response)\n            return TestDataClass(**item)\n\n    DataClassItemsSpider = _dataclass_spider\n\n",
+        "target_code_len": 223,
+        "diff_format": "@@ -99,10 +99,8 @@\n \n-    class DataClassItemsSpider(DictItemsSpider):\n+    class _dataclass_spider(DictItemsSpider):\n         def parse_item(self, response):\n             item = super().parse_item(response)\n-            return TestDataClass(\n-                name=item.get('name'),\n-                url=item.get('url'),\n-                price=item.get('price'),\n-            )\n+            return TestDataClass(**item)\n+\n+    DataClassItemsSpider = _dataclass_spider\n \n",
+        "source_code_with_indent": "\n    class DataClassItemsSpider(DictItemsSpider):\n        <IND>def parse_item(self, response):\n            <IND>item = super().parse_item(response)\n            return TestDataClass(\n                name=item.get('name'),\n                url=item.get('url'),\n                price=item.get('price'),\n            )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    class _dataclass_spider(DictItemsSpider):\n        <IND>def parse_item(self, response):\n            <IND>item = super().parse_item(response)\n            return TestDataClass(**item)\n\n    <DED><DED>DataClassItemsSpider = _dataclass_spider\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

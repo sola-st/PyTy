@@ -1,0 +1,51 @@
+[
+  {
+    "project": "openforcefield/openff-toolkit",
+    "commit": "fa18468b79b3f4ec074d538ae1388f6d878cfb88",
+    "filename": "openff/toolkit/typing/engines/smirnoff/parameters.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openforcefield-openff-toolkit/openff/toolkit/typing/engines/smirnoff/parameters.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "openff/toolkit/typing/engines/smirnoff/parameters.py:5312:8 Inconsistent override [15]: `transformed_dict_cls` overrides attribute defined in `VirtualSiteHandler.VirtualSiteType` inconsistently. Type `typing.Type[openff.toolkit.topology.topology.ImproperDict]` is not a subtype of the overridden attribute `typing.Type[openff.toolkit.topology.topology.ValenceDict]`.",
+    "message": " `transformed_dict_cls` overrides attribute defined in `VirtualSiteHandler.VirtualSiteType` inconsistently. Type `typing.Type[openff.toolkit.topology.topology.ImproperDict]` is not a subtype of the overridden attribute `typing.Type[openff.toolkit.topology.topology.ValenceDict]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 5312,
+    "warning_line": "        transformed_dict_cls = ImproperDict",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from itertools import combinations\n\n",
+        "source_code_len": 36,
+        "target_code": "from itertools import combinations\nfrom typing import Any, List, Optional, Type, Union\n\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -59,2 +58,3 @@\n from itertools import combinations\n+from typing import Any, List, Optional, Type, Union\n \n",
+        "source_code_with_indent": "from itertools import combinations\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from itertools import combinations\nfrom typing import Any, List, Optional, Type, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # atom key into a canonical ordering\n        transformed_dict_cls = ValenceDict\n\n",
+        "source_code_len": 89,
+        "target_code": "        # atom key into a canonical ordering\n        transformed_dict_cls: Union[Type[ValenceDict], Type[ImproperDict]] = ValenceDict\n\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -5010,3 +5012,3 @@\n         # atom key into a canonical ordering\n-        transformed_dict_cls = ValenceDict\n+        transformed_dict_cls: Union[Type[ValenceDict], Type[ImproperDict]] = ValenceDict\n \n",
+        "source_code_with_indent": "        # atom key into a canonical ordering\n        transformed_dict_cls = ValenceDict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # atom key into a canonical ordering\n        transformed_dict_cls: Union[Type[ValenceDict], Type[ImproperDict]] = ValenceDict\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

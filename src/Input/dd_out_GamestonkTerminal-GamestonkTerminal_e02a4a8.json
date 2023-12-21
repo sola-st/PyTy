@@ -1,0 +1,68 @@
+[
+  {
+    "project": "GamestonkTerminal/GamestonkTerminal",
+    "commit": "e02a4a8baaa0c7cbfedb679e501a03512ca5b559",
+    "filename": "gamestonk_terminal/due_diligence/finra_view.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GamestonkTerminal-GamestonkTerminal/gamestonk_terminal/due_diligence/finra_view.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gamestonk_terminal/due_diligence/finra_view.py:60:57 Invalid type [31]: Expression `[int, typing.List]` is not a valid type.",
+    "message": " Expression `[int, typing.List]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 60,
+    "warning_line": "def getFINRAdata(weekStartDate, tier, ticker, is_ats) -> [int, List]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import argparse\nfrom typing import List\nimport requests\n",
+        "source_code_len": 56,
+        "target_code": "import argparse\nfrom typing import List, Tuple\nimport requests\n",
+        "target_code_len": 63,
+        "diff_format": "@@ -4,3 +4,3 @@\n import argparse\n-from typing import List\n+from typing import List, Tuple\n import requests\n",
+        "source_code_with_indent": "import argparse\nfrom typing import List\nimport requests\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import argparse\nfrom typing import List, Tuple\nimport requests\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef getFINRAdata(weekStartDate, tier, ticker, is_ats) -> [int, List]:\n    \"\"\"Get FINRA data\n",
+        "source_code_len": 93,
+        "target_code": "\ndef getFINRAdata(weekStartDate, tier, ticker, is_ats) -> Tuple[int, List]:\n    \"\"\"Get FINRA data\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -59,3 +59,3 @@\n \n-def getFINRAdata(weekStartDate, tier, ticker, is_ats) -> [int, List]:\n+def getFINRAdata(weekStartDate, tier, ticker, is_ats) -> Tuple[int, List]:\n     \"\"\"Get FINRA data\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def getFINRAdata(weekStartDate, tier, ticker, is_ats) -> [int, List]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def getFINRAdata(weekStartDate, tier, ticker, is_ats) -> Tuple[int, List]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "GamestonkTerminal/GamestonkTerminal",
+    "commit": "e02a4a8baaa0c7cbfedb679e501a03512ca5b559",
+    "filename": "gamestonk_terminal/due_diligence/finra_view.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GamestonkTerminal-GamestonkTerminal/gamestonk_terminal/due_diligence/finra_view.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gamestonk_terminal/due_diligence/finra_view.py:133:34 Invalid type [31]: Expression `[pandas.DataFrame, pandas.DataFrame]` is not a valid type.",
+    "message": " Expression `[pandas.DataFrame, pandas.DataFrame]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 133,
+    "warning_line": "def getTickerFINRAdata(ticker) -> [pd.DataFrame, pd.DataFrame]:"
+  }
+]

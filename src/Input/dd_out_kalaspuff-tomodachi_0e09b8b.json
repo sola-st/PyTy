@@ -1,0 +1,36 @@
+[
+  {
+    "project": "kalaspuff/tomodachi",
+    "commit": "0e09b8b7efc965d792447329f463f4f5a91d70b3",
+    "filename": "tomodachi/protocol/protobuf_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kalaspuff-tomodachi/tomodachi/protocol/protobuf_base.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tomodachi/protocol/protobuf_base.py:33:8 Incompatible return type [7]: Expected `str` but got `bytes`.",
+    "message": " Expected `str` but got `bytes`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 33,
+    "warning_line": "        return base64.b64encode(message.SerializeToString())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    async def build_message(cls, service: Any, topic: str, data: Any) -> str:\n        message = SNSSQSMessage()\n",
+        "source_code_len": 129,
+        "target_code": "    @classmethod\n    async def build_message(cls, service: Any, topic: str, data: Any) -> bytes:\n        message = SNSSQSMessage()\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -21,3 +21,3 @@\n     @classmethod\n-    async def build_message(cls, service: Any, topic: str, data: Any) -> str:\n+    async def build_message(cls, service: Any, topic: str, data: Any) -> bytes:\n         message = SNSSQSMessage()\n",
+        "source_code_with_indent": "    <DED><DED>@classmethod\n    async def build_message(cls, service: Any, topic: str, data: Any) -> str:\n        <IND>message = SNSSQSMessage()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@classmethod\n    async def build_message(cls, service: Any, topic: str, data: Any) -> bytes:\n        <IND>message = SNSSQSMessage()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

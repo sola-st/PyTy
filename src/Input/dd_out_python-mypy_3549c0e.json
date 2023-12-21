@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "3549c0e5e229c8e44ab2e9d541a0e5c1d8121aca",
+    "filename": "mypy/newsemanal/semanal_typeargs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/newsemanal/semanal_typeargs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/newsemanal/semanal_typeargs.py:77:22 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `TypeArgumentAnalyzer.fail` but got `typing_extensions.Final`.",
+    "message": " Expected `str` for 1st positional only parameter to call `TypeArgumentAnalyzer.fail` but got `typing_extensions.Final`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 77,
+    "warning_line": "            self.fail(message_registry.BARE_GENERIC, t)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def visit_any(self, t: AnyType) -> None:\n        if not self.options.disallow_any_generics or self.is_typeshed_file:\n            return\n\n        if t.type_of_any == TypeOfAny.from_omitted_generics:\n            self.fail(message_registry.BARE_GENERIC, t)\n\n    def check_type_var_values(self, type: TypeInfo, actuals: List[Type], arg_name: str,\n",
+        "source_code_len": 348,
+        "target_code": "\n    def check_type_var_values(self, type: TypeInfo, actuals: List[Type], arg_name: str,\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -71,9 +71,2 @@\n \n-    def visit_any(self, t: AnyType) -> None:\n-        if not self.options.disallow_any_generics or self.is_typeshed_file:\n-            return\n-\n-        if t.type_of_any == TypeOfAny.from_omitted_generics:\n-            self.fail(message_registry.BARE_GENERIC, t)\n-\n     def check_type_var_values(self, type: TypeInfo, actuals: List[Type], arg_name: str,\n",
+        "source_code_with_indent": "\n    <DED>def visit_any(self, t: AnyType) -> None:\n        <IND>if not self.options.disallow_any_generics or self.is_typeshed_file:\n            <IND>return\n\n        <DED>if t.type_of_any == TypeOfAny.from_omitted_generics:\n            <IND>self.fail(message_registry.BARE_GENERIC, t)\n\n    <DED><DED>def check_type_var_values(self, type: TypeInfo, actuals: List[Type], arg_name: str,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def check_type_var_values(self, type: TypeInfo, actuals: List[Type], arg_name: str,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "kornia/kornia",
+    "commit": "488945b0a03843dc46953f801c6824d716d8fe9c",
+    "filename": "kornia/contrib/extract_patches.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kornia-kornia/kornia/contrib/extract_patches.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kornia/contrib/extract_patches.py:136:11 Call error [29]: `ExtractTensorPatches` is not a function.",
+    "message": " `ExtractTensorPatches` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 136,
+    "warning_line": "    return ExtractTensorPatches(window_size, stride, padding)(input)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\ndef extract_tensor_patches(\n        input: torch.Tensor,\n        window_size: Union[int, Tuple[int, int]],\n        stride: Optional[Union[int, Tuple[int, int]]] = 1,\n        padding: Optional[Union[int, Tuple[int, int]]] = 0) -> torch.Tensor:\n    r\"\"\"Function that extract patches from tensors and stack them.\n",
+        "source_code_len": 312,
+        "target_code": "\ndef _extract_tensor_patchesnd(\n    input: torch.Tensor, window_sizes: Tuple[int, ...], strides: Tuple[int, ...]\n) -> torch.Tensor:\n    batch_size, num_channels = input.size()[:2]\n    dims = range(2, input.dim())\n    for dim, patch_size, stride in zip(dims, window_sizes, strides):\n        input = input.unfold(dim, patch_size, stride)\n    input = input.permute(0, *dims, 1, *[dim + len(dims) for dim in dims]).contiguous()\n    return input.view(batch_size, -1, num_channels, *window_sizes)\n\n\ndef extract_tensor_patches(\n    input: torch.Tensor,\n    window_size: Union[int, Tuple[int, int]],\n    stride: Union[int, Tuple[int, int]] = 1,\n    padding: Union[int, Tuple[int, int]] = 0\n) -> torch.Tensor:\n    r\"\"\"Function that extract patches from tensors and stack them.\n",
+        "target_code_len": 768,
+        "diff_format": "@@ -125,8 +84,19 @@\n \n+def _extract_tensor_patchesnd(\n+    input: torch.Tensor, window_sizes: Tuple[int, ...], strides: Tuple[int, ...]\n+) -> torch.Tensor:\n+    batch_size, num_channels = input.size()[:2]\n+    dims = range(2, input.dim())\n+    for dim, patch_size, stride in zip(dims, window_sizes, strides):\n+        input = input.unfold(dim, patch_size, stride)\n+    input = input.permute(0, *dims, 1, *[dim + len(dims) for dim in dims]).contiguous()\n+    return input.view(batch_size, -1, num_channels, *window_sizes)\n+\n \n def extract_tensor_patches(\n-        input: torch.Tensor,\n-        window_size: Union[int, Tuple[int, int]],\n-        stride: Optional[Union[int, Tuple[int, int]]] = 1,\n-        padding: Optional[Union[int, Tuple[int, int]]] = 0) -> torch.Tensor:\n+    input: torch.Tensor,\n+    window_size: Union[int, Tuple[int, int]],\n+    stride: Union[int, Tuple[int, int]] = 1,\n+    padding: Union[int, Tuple[int, int]] = 0\n+) -> torch.Tensor:\n     r\"\"\"Function that extract patches from tensors and stack them.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n\n<DED><DED>def extract_tensor_patches(\n        input: torch.Tensor,\n        window_size: Union[int, Tuple[int, int]],\n        stride: Optional[Union[int, Tuple[int, int]]] = 1,\n        padding: Optional[Union[int, Tuple[int, int]]] = 0) -> torch.Tensor:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def _extract_tensor_patchesnd(\n    input: torch.Tensor, window_sizes: Tuple[int, ...], strides: Tuple[int, ...]\n) -> torch.Tensor:\n    <IND>batch_size, num_channels = input.size()[:2]\n    dims = range(2, input.dim())\n    for dim, patch_size, stride in zip(dims, window_sizes, strides):\n        <IND>input = input.unfold(dim, patch_size, stride)\n    <DED>input = input.permute(0, *dims, 1, *[dim + len(dims) for dim in dims]).contiguous()\n    return input.view(batch_size, -1, num_channels, *window_sizes)\n\n\n<DED>def extract_tensor_patches(\n    input: torch.Tensor,\n    window_size: Union[int, Tuple[int, int]],\n    stride: Union[int, Tuple[int, int]] = 1,\n    padding: Union[int, Tuple[int, int]] = 0\n) -> torch.Tensor:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    return ExtractTensorPatches(window_size, stride, padding)(input)\n",
+        "source_code_len": 77,
+        "target_code": "    \"\"\"\n    if not torch.is_tensor(input):\n        raise TypeError(\"Input input type is not a torch.Tensor. Got {}\"\n                        .format(type(input)))\n    if not len(input.shape) == 4:\n        raise ValueError(\"Invalid input shape, we expect BxCxHxW. Got: {}\"\n                         .format(input.shape))\n\n    if padding:\n        pad_vert, pad_horz = _pair(padding)\n        input = F.pad(input, [pad_horz, pad_horz, pad_vert, pad_vert])\n\n    return _extract_tensor_patchesnd(input, _pair(window_size), _pair(stride))\n",
+        "target_code_len": 530,
+        "diff_format": "@@ -135,2 +105,13 @@\n     \"\"\"\n-    return ExtractTensorPatches(window_size, stride, padding)(input)\n+    if not torch.is_tensor(input):\n+        raise TypeError(\"Input input type is not a torch.Tensor. Got {}\"\n+                        .format(type(input)))\n+    if not len(input.shape) == 4:\n+        raise ValueError(\"Invalid input shape, we expect BxCxHxW. Got: {}\"\n+                         .format(input.shape))\n+\n+    if padding:\n+        pad_vert, pad_horz = _pair(padding)\n+        input = F.pad(input, [pad_horz, pad_horz, pad_vert, pad_vert])\n+\n+    return _extract_tensor_patchesnd(input, _pair(window_size), _pair(stride))\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    return ExtractTensorPatches(window_size, stride, padding)(input)\n",
+        "target_code_with_indent": "\n    if not torch.is_tensor(input):\n        <IND>raise TypeError(\"Input input type is not a torch.Tensor. Got {}\"\n                        .format(type(input)))\n    <DED>if not len(input.shape) == 4:\n        <IND>raise ValueError(\"Invalid input shape, we expect BxCxHxW. Got: {}\"\n                         .format(input.shape))\n\n    <DED>if padding:\n        <IND>pad_vert, pad_horz = _pair(padding)\n        input = F.pad(input, [pad_horz, pad_horz, pad_vert, pad_vert])\n\n    <DED>return _extract_tensor_patchesnd(input, _pair(window_size), _pair(stride))\n"
+      }
+    ]
+  }
+]

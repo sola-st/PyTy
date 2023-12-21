@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Tishka17/aiogram_dialog",
+    "commit": "9b3c742fad83efd61fd9ed5c3b38a822bdd487f0",
+    "filename": "aiogram_dialog/dialog.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tishka17-aiogram_dialog/aiogram_dialog/dialog.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiogram_dialog/dialog.py:122:49 Incompatible parameter type [6]: Expected `DialogManager` for 2nd positional only parameter to anonymous call but got `DialogManagerProto`.",
+    "message": " Expected `DialogManager` for 2nd positional only parameter to anonymous call but got `DialogManagerProto`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 122,
+    "warning_line": "            await self.on_process_result(result, manager)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "ChatEvent = Union[CallbackQuery, Message]\nOnProcessResult = Callable[[Any, DialogManager], Awaitable]\n\n",
+        "source_code_len": 103,
+        "target_code": "ChatEvent = Union[CallbackQuery, Message]\nOnProcessResult = Callable[[Any, DialogManagerProto], Awaitable]\n\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -17,3 +17,3 @@\n ChatEvent = Union[CallbackQuery, Message]\n-OnProcessResult = Callable[[Any, DialogManager], Awaitable]\n+OnProcessResult = Callable[[Any, DialogManagerProto], Awaitable]\n \n",
+        "source_code_with_indent": "ChatEvent = Union[CallbackQuery, Message]\nOnProcessResult = Callable[[Any, DialogManager], Awaitable]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "ChatEvent = Union[CallbackQuery, Message]\nOnProcessResult = Callable[[Any, DialogManagerProto], Awaitable]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

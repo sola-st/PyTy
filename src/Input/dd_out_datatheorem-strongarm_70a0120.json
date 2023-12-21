@@ -1,0 +1,36 @@
+[
+  {
+    "project": "datatheorem/strongarm",
+    "commit": "70a0120da6e21a4bacda1bc39337ca2dc02e2d4b",
+    "filename": "strongarm/macho/macho_analyzer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/datatheorem-strongarm/strongarm/macho/macho_analyzer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "strongarm/macho/macho_analyzer.py:367:16 Incompatible return type [7]: Expected `Optional[Tuple[VirtualMemoryPointer, str]]` but got `Tuple[Optional[VirtualMemoryPointer], str]`.",
+    "message": " Expected `Optional[Tuple[VirtualMemoryPointer, str]]` but got `Tuple[Optional[VirtualMemoryPointer], str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 367,
+    "warning_line": "                return candidate_load_addr, cfstring",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            cfstring = self.binary.read_string_at_address(candidate_cfstring_addr)\n            if cfstring:\n                return candidate_load_addr, cfstring\n",
+        "source_code_len": 161,
+        "target_code": "            cfstring = self.binary.read_string_at_address(candidate_cfstring_addr)\n            if cfstring and candidate_load_addr:\n                return candidate_load_addr, cfstring\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -365,3 +365,3 @@\n             cfstring = self.binary.read_string_at_address(candidate_cfstring_addr)\n-            if cfstring:\n+            if cfstring and candidate_load_addr:\n                 return candidate_load_addr, cfstring\n",
+        "source_code_with_indent": "            <IND>cfstring = self.binary.read_string_at_address(candidate_cfstring_addr)\n            if cfstring:\n                <IND>return candidate_load_addr, cfstring\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>cfstring = self.binary.read_string_at_address(candidate_cfstring_addr)\n            if cfstring and candidate_load_addr:\n                <IND>return candidate_load_addr, cfstring\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

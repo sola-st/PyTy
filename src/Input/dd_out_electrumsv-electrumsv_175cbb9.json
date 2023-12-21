@@ -1,0 +1,36 @@
+[
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "175cbb983ccd2937cabbdb500ec64090fab5c393",
+    "filename": "electrumsv/wallet.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/wallet.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/wallet.py:1303:46 Unsupported operand [58]: `-` is not supported for operand types `Optional[int]` and `typing.Any`.",
+    "message": " `-` is not supported for operand types `Optional[int]` and `typing.Any`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 1303,
+    "warning_line": "            outputs[all_index].value = max(0, sendable - tx.output_value() - fee)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else:\n            sendable = sum(txin.value for txin in inputs)\n            outputs[all_index].value = 0\n",
+        "source_code_len": 113,
+        "target_code": "        else:\n            assert all(txin.value is not None for txin in inputs)\n            sendable = cast(int, sum(txin.value for txin in inputs))\n            outputs[all_index].value = 0\n",
+        "target_code_len": 190,
+        "diff_format": "@@ -1298,3 +1298,4 @@\n         else:\n-            sendable = sum(txin.value for txin in inputs)\n+            assert all(txin.value is not None for txin in inputs)\n+            sendable = cast(int, sum(txin.value for txin in inputs))\n             outputs[all_index].value = 0\n",
+        "source_code_with_indent": "        <DED>else:\n            <IND>sendable = sum(txin.value for txin in inputs)\n            outputs[all_index].value = 0\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>else:\n            <IND>assert all(txin.value is not None for txin in inputs)\n            sendable = cast(int, sum(txin.value for txin in inputs))\n            outputs[all_index].value = 0\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

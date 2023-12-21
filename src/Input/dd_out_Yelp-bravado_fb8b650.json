@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Yelp/bravado",
+    "commit": "fb8b6503630103f369d5be5be1ed65e1b114925a",
+    "filename": "bravado/requests_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-bravado/bravado/requests_client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bravado/requests_client.py:272:8 Incompatible return type [7]: Expected `Variable[T]` but got `requests.models.Response`.",
+    "message": " Expected `Variable[T]` but got `requests.models.Response`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 272,
+    "warning_line": "        return response",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def result(self, timeout=None):\n        # type: (typing.Optional[float]) -> T\n        \"\"\"Blocking call to wait for API response\n",
+        "source_code_len": 132,
+        "target_code": "    def result(self, timeout=None):\n        # type: (typing.Optional[float]) -> requests.Response\n        \"\"\"Blocking call to wait for API response\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -239,3 +239,3 @@\n     def result(self, timeout=None):\n-        # type: (typing.Optional[float]) -> T\n+        # type: (typing.Optional[float]) -> requests.Response\n         \"\"\"Blocking call to wait for API response\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>def result(self, timeout=None):\n        # type: (typing.Optional[float]) -> T\n        <IND>",
+        "target_code_with_indent": "    <DED>def result(self, timeout=None):\n        # type: (typing.Optional[float]) -> requests.Response\n        <IND>"
+      }
+    ]
+  }
+]

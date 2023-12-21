@@ -1,0 +1,104 @@
+[
+  {
+    "project": "facebookresearch/CompilerGym",
+    "commit": "3c1f8b602bbf0fc59402ba7881ab13e4f4824eaf",
+    "filename": "compiler_gym/util/executor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-CompilerGym/compiler_gym/util/executor.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "compiler_gym/util/executor.py:94:8 Incompatible variable type [9]: timeout_hours is declared to have type `Optional[int]` but is used as type `float`.",
+    "message": " timeout_hours is declared to have type `Optional[int]` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 94,
+    "warning_line": "        timeout_hours = timeout_hours or self.timeout_hours",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "source_code_len": 120,
+        "target_code": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -90,3 +90,3 @@\n     def get_executor(\n-        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n+        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n     ) -> \"Executor\":\n",
+        "source_code_with_indent": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/CompilerGym",
+    "commit": "3c1f8b602bbf0fc59402ba7881ab13e4f4824eaf",
+    "filename": "compiler_gym/util/executor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-CompilerGym/compiler_gym/util/executor.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "compiler_gym/util/executor.py:105:38 Unsupported operand [58]: `*` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `*` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 105,
+    "warning_line": "                timeout_min=int(round(timeout_hours * 60)),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "source_code_len": 120,
+        "target_code": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -90,3 +90,3 @@\n     def get_executor(\n-        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n+        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n     ) -> \"Executor\":\n",
+        "source_code_with_indent": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/CompilerGym",
+    "commit": "3c1f8b602bbf0fc59402ba7881ab13e4f4824eaf",
+    "filename": "compiler_gym/util/executor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-CompilerGym/compiler_gym/util/executor.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "compiler_gym/util/executor.py:116:46 Unsupported operand [58]: `*` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `*` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 116,
+    "warning_line": "                    timeout_seconds=int(round(timeout_hours * 3600)),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "source_code_len": 120,
+        "target_code": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -90,3 +90,3 @@\n     def get_executor(\n-        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n+        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n     ) -> \"Executor\":\n",
+        "source_code_with_indent": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[int] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def get_executor(\n        self, logs_dir: Path, timeout_hours: Optional[float] = None, cpus=None\n    ) -> \"Executor\":\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

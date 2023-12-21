@@ -1,0 +1,66 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "dd285059ef6277954eb0c08ef0a4fdcfeb9d5cae",
+    "filename": "src/idom/core/dispatcher.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/idom/core/dispatcher.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/idom/core/dispatcher.py:113:4 Incompatible return type [7]: Expected `Tuple[asyncio.futures.Future[typing.Any], typing.Callable[[typing.Callable[[typing.Any], Awaitable[None]], typing.Callable[[], Awaitable[LayoutEvent]]], asyncio.futures.Future[typing.Any]]]` but got `Tuple[asyncio.tasks.Task[typing.Any], typing.Callable[[Named(send, typing.Callable[[typing.Any], Awaitable[None]]), Named(recv, typing.Callable[[], Awaitable[LayoutEvent]])], typing.Coroutine[typing.Any, typing.Any, None]]]`.",
+    "message": " Expected `Tuple[asyncio.futures.Future[typing.Any], typing.Callable[[typing.Callable[[typing.Any], Awaitable[None]], typing.Callable[[], Awaitable[LayoutEvent]]], asyncio.futures.Future[typing.Any]]]` but got `Tuple[asyncio.tasks.Task[typing.Any], typing.Callable[[Named(send, typing.Callable[[typing.Any], Awaitable[None]]), Named(recv, typing.Callable[[], Awaitable[LayoutEvent]])], typing.Coroutine[typing.Any, typing.Any, None]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 113,
+    "warning_line": "    return ensure_future(dispatch_shared_view_forever()), dispatch",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n_SharedDispatchFuture = Callable[[SendCoroutine, RecvCoroutine], Future]\n\n",
+        "source_code_len": 75,
+        "target_code": "\n_SharedViewDispatcherFuture = Callable[[SendCoroutine, RecvCoroutine], Future[None]]\n_SharedViewDispatcherCoro = Callable[[SendCoroutine, RecvCoroutine], Awaitable[None]]\n\n",
+        "target_code_len": 173,
+        "diff_format": "@@ -39,3 +39,4 @@\n \n-_SharedDispatchFuture = Callable[[SendCoroutine, RecvCoroutine], Future]\n+_SharedViewDispatcherFuture = Callable[[SendCoroutine, RecvCoroutine], Future[None]]\n+_SharedViewDispatcherCoro = Callable[[SendCoroutine, RecvCoroutine], Awaitable[None]]\n \n",
+        "source_code_with_indent": "\n<DED><DED><DED>_SharedDispatchFuture = Callable[[SendCoroutine, RecvCoroutine], Future]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>_SharedViewDispatcherFuture = Callable[[SendCoroutine, RecvCoroutine], Future[None]]\n_SharedViewDispatcherCoro = Callable[[SendCoroutine, RecvCoroutine], Awaitable[None]]\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    layout: Layout, run_forever: bool = False\n) -> AsyncIterator[_SharedDispatchFuture]:\n    with layout:\n",
+        "source_code_len": 106,
+        "target_code": "    layout: Layout, run_forever: bool = False\n) -> AsyncIterator[_SharedViewDispatcherFuture]:\n    with layout:\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -45,3 +46,3 @@\n     layout: Layout, run_forever: bool = False\n-) -> AsyncIterator[_SharedDispatchFuture]:\n+) -> AsyncIterator[_SharedViewDispatcherFuture]:\n     with layout:\n",
+        "source_code_with_indent": "    layout: Layout, run_forever: bool = False\n) -> AsyncIterator[_SharedDispatchFuture]:\n    <IND>with layout:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    layout: Layout, run_forever: bool = False\n) -> AsyncIterator[_SharedViewDispatcherFuture]:\n    <IND>with layout:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    layout: Layout,\n) -> Tuple[Future, _SharedDispatchFuture]:\n    dispatcher_future = Future()\n\n    async def dispatch_shared_view_forever():\n        with layout:\n",
+        "source_code_len": 164,
+        "target_code": "    layout: Layout,\n) -> Tuple[Future[None], _SharedViewDispatcherCoro]:\n    dispatcher_future: Future[_SharedViewDispatcherCoro] = Future()\n\n    async def dispatch_shared_view_forever() -> None:\n        with layout:\n",
+        "target_code_len": 217,
+        "diff_format": "@@ -89,6 +90,6 @@\n     layout: Layout,\n-) -> Tuple[Future, _SharedDispatchFuture]:\n-    dispatcher_future = Future()\n+) -> Tuple[Future[None], _SharedViewDispatcherCoro]:\n+    dispatcher_future: Future[_SharedViewDispatcherCoro] = Future()\n \n-    async def dispatch_shared_view_forever():\n+    async def dispatch_shared_view_forever() -> None:\n         with layout:\n",
+        "source_code_with_indent": "    layout: Layout,\n) -> Tuple[Future, _SharedDispatchFuture]:\n    <IND>dispatcher_future = Future()\n\n    async def dispatch_shared_view_forever():\n        <IND>with layout:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    layout: Layout,\n) -> Tuple[Future[None], _SharedViewDispatcherCoro]:\n    <IND>dispatcher_future: Future[_SharedViewDispatcherCoro] = Future()\n\n    async def dispatch_shared_view_forever() -> None:\n        <IND>with layout:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

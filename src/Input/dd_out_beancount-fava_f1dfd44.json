@@ -1,0 +1,51 @@
+[
+  {
+    "project": "beancount/fava",
+    "commit": "f1dfd44e2bb5ba52832f2a09e147aab47b435433",
+    "filename": "src/fava/application.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/beancount-fava/src/fava/application.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/fava/application.py:142:4 Incompatible return type [7]: Expected `str` but got `typing.Optional[str]`.",
+    "message": " Expected `str` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 142,
+    "warning_line": "    return request.accept_languages.best_match([\"en\"] + LANGUAGES)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import List\n\n",
+        "source_code_len": 25,
+        "target_code": "from typing import List\nfrom typing import Optional\n\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -20,2 +20,3 @@\n from typing import List\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from typing import List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import List\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@BABEL.localeselector\ndef get_locale() -> str:\n    \"\"\"Get locale.\n",
+        "source_code_len": 66,
+        "target_code": "@BABEL.localeselector\ndef get_locale() -> Optional[str]:\n    \"\"\"Get locale.\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -131,3 +132,3 @@\n @BABEL.localeselector\n-def get_locale() -> str:\n+def get_locale() -> Optional[str]:\n     \"\"\"Get locale.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "@BABEL.localeselector\ndef get_locale() -> str:\n    <IND>",
+        "target_code_with_indent": "@BABEL.localeselector\ndef get_locale() -> Optional[str]:\n    <IND>"
+      }
+    ]
+  }
+]

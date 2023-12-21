@@ -1,0 +1,36 @@
+[
+  {
+    "project": "hsahovic/poke-env",
+    "commit": "4ad14884c40f1f276b1366ac07b7bf153abb14bb",
+    "filename": "src/poke_env/player/player.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hsahovic-poke-env/src/poke_env/player/player.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/poke_env/player/player.py:182:16 Incompatible return type [7]: Expected `Battle` but got `AbstractBattle`.",
+    "message": " Expected `Battle` but got `AbstractBattle`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 182,
+    "warning_line": "                return self._battles[battle_tag]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def _get_battle(self, battle_tag: str) -> Battle:\n        if battle_tag.startswith(\">\"):\n",
+        "source_code_len": 100,
+        "target_code": "\n    async def _get_battle(self, battle_tag: str) -> AbstractBattle:\n        if battle_tag.startswith(\">\"):\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -173,3 +173,3 @@\n \n-    async def _get_battle(self, battle_tag: str) -> Battle:\n+    async def _get_battle(self, battle_tag: str) -> AbstractBattle:\n         if battle_tag.startswith(\">\"):\n",
+        "source_code_with_indent": "\n    <DED><DED>async def _get_battle(self, battle_tag: str) -> Battle:\n        <IND>if battle_tag.startswith(\">\"):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>async def _get_battle(self, battle_tag: str) -> AbstractBattle:\n        <IND>if battle_tag.startswith(\">\"):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

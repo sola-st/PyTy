@@ -1,0 +1,36 @@
+[
+  {
+    "project": "YosefLab/scvi-tools",
+    "commit": "25835a43ab7d35b35133b1022c838ee438082368",
+    "filename": "scvi/inference/autotune.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/YosefLab-scvi-tools/scvi/inference/autotune.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scvi/inference/autotune.py:755:29 Incompatible parameter type [6]: Expected `Union[Popen[typing.Any], multiprocessing.context.Process]` for 1st positional only parameter to call `list.append` but got `QueueListener`.",
+    "message": " Expected `Union[Popen[typing.Any], multiprocessing.context.Process]` for 1st positional only parameter to call `list.append` but got `QueueListener`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 755,
+    "warning_line": "    started_processes.append(listener)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# register running process and open files to terminate/close at exit\nstarted_processes: List[Union[multiprocessing.Process, Popen]] = []\nstarted_threads: List[threading.Thread] = []\n",
+        "source_code_len": 182,
+        "target_code": "# register running process and open files to terminate/close at exit\nstarted_processes: List[Union[multiprocessing.Process, Popen, QueueListener]] = []\nstarted_threads: List[threading.Thread] = []\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -44,3 +44,3 @@\n # register running process and open files to terminate/close at exit\n-started_processes: List[Union[multiprocessing.Process, Popen]] = []\n+started_processes: List[Union[multiprocessing.Process, Popen, QueueListener]] = []\n started_threads: List[threading.Thread] = []\n",
+        "source_code_with_indent": "# register running process and open files to terminate/close at exit\nstarted_processes: List[Union[multiprocessing.Process, Popen]] = []\nstarted_threads: List[threading.Thread] = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# register running process and open files to terminate/close at exit\nstarted_processes: List[Union[multiprocessing.Process, Popen, QueueListener]] = []\nstarted_threads: List[threading.Thread] = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

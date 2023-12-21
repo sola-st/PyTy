@@ -1,0 +1,45 @@
+[
+  {
+    "project": "benedekrozemberczki/karateclub",
+    "commit": "7dfd91e1c3f290c528fde5381ff51749bbff49e2",
+    "filename": "examples.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples.py:437:0 Incompatible variable type [9]: model is declared to have type `karateclub.node_embedding.attributed.feathernode.FeatherNode` but is used as type `karateclub.community_detection.overlapping.danmf.DANMF`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "benedekrozemberczki/karateclub",
+    "commit": "7dfd91e1c3f290c528fde5381ff51749bbff49e2",
+    "filename": "karateclub/community_detection/overlapping/danmf.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/benedekrozemberczki-karateclub/karateclub/community_detection/overlapping/danmf.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "karateclub/community_detection/overlapping/danmf.py:21:31 Unbound name [10]: Name `List` is used but not defined in the current scope.",
+    "message": " Name `List` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 21,
+    "warning_line": "    def __init__(self, layers: List[int]=[32, 8], pre_iterations: int=100,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import networkx as nx\nfrom sklearn.decomposition import NMF\n",
+        "source_code_len": 60,
+        "target_code": "import networkx as nx\nfrom typing import List, Dict\nfrom sklearn.decomposition import NMF\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -2,2 +2,3 @@\n import networkx as nx\n+from typing import List, Dict\n from sklearn.decomposition import NMF\n",
+        "source_code_with_indent": "import networkx as nx\nfrom sklearn.decomposition import NMF\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import networkx as nx\nfrom typing import List, Dict\nfrom sklearn.decomposition import NMF\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "project": "reata/sqllineage",
+    "commit": "6d7cbecc817db5145df0d0082cdd646ef2bdd495",
+    "filename": "sqllineage/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/reata-sqllineage/sqllineage/core.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sqllineage/core.py:32:8 Incompatible attribute type [8]: Attribute `read` declared in class `LineageResult` has type `Set[Table]` but is used as type `None`.",
+    "message": " Attribute `read` declared in class `LineageResult` has type `Set[Table]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 32,
+    "warning_line": "        read = None  # type: Set[Table]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n    if TYPE_CHECKING:\n        read = None  # type: Set[Table]\n        write = None  # type: Set[Table]\n        rename = None  # type: Set[Tuple[Table, Table]]\n        drop = None  # type: Set[Table]\n\n",
+        "source_code_len": 253,
+        "target_code": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n    if TYPE_CHECKING:\n        read = write = drop = with_ = set()  # type: Set[Table]\n        rename = set()  # type: Set[Tuple[Table, Table]]\n\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -29,8 +29,6 @@\n \n-    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n+    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n     if TYPE_CHECKING:\n-        read = None  # type: Set[Table]\n-        write = None  # type: Set[Table]\n-        rename = None  # type: Set[Tuple[Table, Table]]\n-        drop = None  # type: Set[Table]\n+        read = write = drop = with_ = set()  # type: Set[Table]\n+        rename = set()  # type: Set[Tuple[Table, Table]]\n \n",
+        "source_code_with_indent": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n    if TYPE_CHECKING:\n        <IND>read = None  # type: Set[Table]\n        write = None  # type: Set[Table]\n        rename = None  # type: Set[Tuple[Table, Table]]\n        drop = None  # type: Set[Table]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n    if TYPE_CHECKING:\n        <IND>read = write = drop = with_ = set()  # type: Set[Table]\n        rename = set()  # type: Set[Tuple[Table, Table]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "reata/sqllineage",
+    "commit": "6d7cbecc817db5145df0d0082cdd646ef2bdd495",
+    "filename": "sqllineage/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/reata-sqllineage/sqllineage/core.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sqllineage/core.py:33:8 Incompatible attribute type [8]: Attribute `write` declared in class `LineageResult` has type `Set[Table]` but is used as type `None`.",
+    "message": " Attribute `write` declared in class `LineageResult` has type `Set[Table]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 33,
+    "warning_line": "        write = None  # type: Set[Table]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n    if TYPE_CHECKING:\n        read = None  # type: Set[Table]\n        write = None  # type: Set[Table]\n        rename = None  # type: Set[Tuple[Table, Table]]\n        drop = None  # type: Set[Table]\n\n",
+        "source_code_len": 253,
+        "target_code": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n    if TYPE_CHECKING:\n        read = write = drop = with_ = set()  # type: Set[Table]\n        rename = set()  # type: Set[Tuple[Table, Table]]\n\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -29,8 +29,6 @@\n \n-    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n+    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n     if TYPE_CHECKING:\n-        read = None  # type: Set[Table]\n-        write = None  # type: Set[Table]\n-        rename = None  # type: Set[Tuple[Table, Table]]\n-        drop = None  # type: Set[Table]\n+        read = write = drop = with_ = set()  # type: Set[Table]\n+        rename = set()  # type: Set[Tuple[Table, Table]]\n \n",
+        "source_code_with_indent": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n    if TYPE_CHECKING:\n        <IND>read = None  # type: Set[Table]\n        write = None  # type: Set[Table]\n        rename = None  # type: Set[Tuple[Table, Table]]\n        drop = None  # type: Set[Table]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n    if TYPE_CHECKING:\n        <IND>read = write = drop = with_ = set()  # type: Set[Table]\n        rename = set()  # type: Set[Tuple[Table, Table]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "reata/sqllineage",
+    "commit": "6d7cbecc817db5145df0d0082cdd646ef2bdd495",
+    "filename": "sqllineage/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/reata-sqllineage/sqllineage/core.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sqllineage/core.py:34:8 Incompatible attribute type [8]: Attribute `rename` declared in class `LineageResult` has type `Set[Tuple[Table, Table]]` but is used as type `None`.",
+    "message": " Attribute `rename` declared in class `LineageResult` has type `Set[Tuple[Table, Table]]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 34,
+    "warning_line": "        rename = None  # type: Set[Tuple[Table, Table]]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n    if TYPE_CHECKING:\n        read = None  # type: Set[Table]\n        write = None  # type: Set[Table]\n        rename = None  # type: Set[Tuple[Table, Table]]\n        drop = None  # type: Set[Table]\n\n",
+        "source_code_len": 253,
+        "target_code": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n    if TYPE_CHECKING:\n        read = write = drop = with_ = set()  # type: Set[Table]\n        rename = set()  # type: Set[Tuple[Table, Table]]\n\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -29,8 +29,6 @@\n \n-    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n+    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n     if TYPE_CHECKING:\n-        read = None  # type: Set[Table]\n-        write = None  # type: Set[Table]\n-        rename = None  # type: Set[Tuple[Table, Table]]\n-        drop = None  # type: Set[Table]\n+        read = write = drop = with_ = set()  # type: Set[Table]\n+        rename = set()  # type: Set[Tuple[Table, Table]]\n \n",
+        "source_code_with_indent": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n    if TYPE_CHECKING:\n        <IND>read = None  # type: Set[Table]\n        write = None  # type: Set[Table]\n        rename = None  # type: Set[Tuple[Table, Table]]\n        drop = None  # type: Set[Table]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n    if TYPE_CHECKING:\n        <IND>read = write = drop = with_ = set()  # type: Set[Table]\n        rename = set()  # type: Set[Tuple[Table, Table]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "reata/sqllineage",
+    "commit": "6d7cbecc817db5145df0d0082cdd646ef2bdd495",
+    "filename": "sqllineage/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/reata-sqllineage/sqllineage/core.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sqllineage/core.py:35:8 Incompatible attribute type [8]: Attribute `drop` declared in class `LineageResult` has type `Set[Table]` but is used as type `None`.",
+    "message": " Attribute `drop` declared in class `LineageResult` has type `Set[Table]` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 35,
+    "warning_line": "        drop = None  # type: Set[Table]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n    if TYPE_CHECKING:\n        read = None  # type: Set[Table]\n        write = None  # type: Set[Table]\n        rename = None  # type: Set[Tuple[Table, Table]]\n        drop = None  # type: Set[Table]\n\n",
+        "source_code_len": 253,
+        "target_code": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n    if TYPE_CHECKING:\n        read = write = drop = with_ = set()  # type: Set[Table]\n        rename = set()  # type: Set[Tuple[Table, Table]]\n\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -29,8 +29,6 @@\n \n-    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n+    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n     if TYPE_CHECKING:\n-        read = None  # type: Set[Table]\n-        write = None  # type: Set[Table]\n-        rename = None  # type: Set[Tuple[Table, Table]]\n-        drop = None  # type: Set[Table]\n+        read = write = drop = with_ = set()  # type: Set[Table]\n+        rename = set()  # type: Set[Tuple[Table, Table]]\n \n",
+        "source_code_with_indent": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\"]\n    if TYPE_CHECKING:\n        <IND>read = None  # type: Set[Table]\n        write = None  # type: Set[Table]\n        rename = None  # type: Set[Tuple[Table, Table]]\n        drop = None  # type: Set[Table]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    __slots__ = [\"read\", \"write\", \"rename\", \"drop\", \"with_\"]\n    if TYPE_CHECKING:\n        <IND>read = write = drop = with_ = set()  # type: Set[Table]\n        rename = set()  # type: Set[Tuple[Table, Table]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

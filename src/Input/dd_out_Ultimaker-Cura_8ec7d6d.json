@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "8ec7d6dba3b79dc88c9496185c6e49000740018a",
+    "filename": "plugins/VersionUpgrade/VersionUpgrade21to22/MachineInstance.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/VersionUpgrade/VersionUpgrade21to22/MachineInstance.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/VersionUpgrade/VersionUpgrade21to22/MachineInstance.py:63:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 63,
+    "warning_line": "            self._machine_setting_overrides[key] = value",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    #   \\param filename The supposed file name of this machine instance.\n    def __init__(self, serialised: str, filename: str) -> str:\n        self._filename = filename\n",
+        "source_code_len": 170,
+        "target_code": "    #   \\param filename The supposed file name of this machine instance.\n    def __init__(self, serialised: str, filename: str) -> None:\n        self._filename = filename\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -35,3 +35,3 @@\n     #   \\param filename The supposed file name of this machine instance.\n-    def __init__(self, serialised: str, filename: str) -> str:\n+    def __init__(self, serialised: str, filename: str) -> None:\n         self._filename = filename\n",
+        "source_code_with_indent": "    #   \\param filename The supposed file name of this machine instance.\n    <IND>def __init__(self, serialised: str, filename: str) -> str:\n        <IND>self._filename = filename\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    #   \\param filename The supposed file name of this machine instance.\n    <IND>def __init__(self, serialised: str, filename: str) -> None:\n        <IND>self._filename = filename\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

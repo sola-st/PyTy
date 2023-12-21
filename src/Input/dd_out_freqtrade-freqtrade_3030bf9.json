@@ -1,0 +1,36 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "3030bf9778f4d23d2237432e5c840c6e5c74f374",
+    "filename": "freqtrade/tests/test_configuration.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/tests/test_configuration.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/tests/test_configuration.py:65:38 Incompatible parameter type [6]: Expected `Namespace` for 1st positional only parameter to call `Configuration.__init__` but got `typing.List[Variable[_T]]`.",
+    "message": " Expected `Namespace` for 1st positional only parameter to call `Configuration.__init__` but got `typing.List[Variable[_T]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 65,
+    "warning_line": "        configuration = Configuration([])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    with pytest.raises(ValidationError, match=r'.*\\'fake\\' does not match \\'unlimited\\'.*'):\n        configuration = Configuration([])\n        configuration._validate_config(conf)\n",
+        "source_code_len": 180,
+        "target_code": "    with pytest.raises(ValidationError, match=r'.*\\'fake\\' does not match \\'unlimited\\'.*'):\n        configuration = Configuration(Namespace())\n        configuration._validate_config(conf)\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -64,3 +64,3 @@\n     with pytest.raises(ValidationError, match=r'.*\\'fake\\' does not match \\'unlimited\\'.*'):\n-        configuration = Configuration([])\n+        configuration = Configuration(Namespace())\n         configuration._validate_config(conf)\n",
+        "source_code_with_indent": "    with pytest.raises(ValidationError, match=r'.*\\'fake\\' does not match \\'unlimited\\'.*'):\n        <IND>configuration = Configuration([])\n        configuration._validate_config(conf)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    with pytest.raises(ValidationError, match=r'.*\\'fake\\' does not match \\'unlimited\\'.*'):\n        <IND>configuration = Configuration(Namespace())\n        configuration._validate_config(conf)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

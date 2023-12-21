@@ -1,0 +1,36 @@
+[
+  {
+    "project": "plastex/plastex",
+    "commit": "c45a3b227cbb718cacc84c9f6854e8ef3a5748ad",
+    "filename": "plasTeX/Logging.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plastex-plastex/plasTeX/Logging.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plasTeX/Logging.py:143:0 Incompatible variable type [9]: root is declared to have type `Logger` but is used as type `Logger`.",
+    "message": " root is declared to have type `Logger` but is used as type `Logger`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 143,
+    "warning_line": "root = Logger()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import textwrap\nfrom logging import CRITICAL, DEBUG, INFO, Logger, StreamHandler, Formatter\nfrom logging import addLevelName, setLoggerClass, FileHandler, Filter\n",
+        "source_code_len": 162,
+        "target_code": "import textwrap\nfrom logging import CRITICAL, DEBUG, INFO, Formatter\nfrom logging import Logger as _Logger\nfrom logging import StreamHandler as _StreamHandler\nfrom logging import addLevelName, setLoggerClass, FileHandler, Filter\n",
+        "target_code_len": 229,
+        "diff_format": "@@ -3,3 +3,5 @@\n import textwrap\n-from logging import CRITICAL, DEBUG, INFO, Logger, StreamHandler, Formatter\n+from logging import CRITICAL, DEBUG, INFO, Formatter\n+from logging import Logger as _Logger\n+from logging import StreamHandler as _StreamHandler\n from logging import addLevelName, setLoggerClass, FileHandler, Filter\n",
+        "source_code_with_indent": "import textwrap\nfrom logging import CRITICAL, DEBUG, INFO, Logger, StreamHandler, Formatter\nfrom logging import addLevelName, setLoggerClass, FileHandler, Filter\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import textwrap\nfrom logging import CRITICAL, DEBUG, INFO, Formatter\nfrom logging import Logger as _Logger\nfrom logging import StreamHandler as _StreamHandler\nfrom logging import addLevelName, setLoggerClass, FileHandler, Filter\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

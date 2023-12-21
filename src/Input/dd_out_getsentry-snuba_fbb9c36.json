@@ -1,0 +1,51 @@
+[
+  {
+    "project": "getsentry/snuba",
+    "commit": "fbb9c36157196096eb55935d4266c655bd9a5741",
+    "filename": "snuba/datasets/events_format.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/snuba/datasets/events_format.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snuba/datasets/events_format.py:46:4 Incompatible return type [7]: Expected `Tuple[Sequence[str], Sequence[str]]` but got `Tuple[Sequence[str], Sequence[typing.Optional[str]]]`.",
+    "message": " Expected `Tuple[Sequence[str], Sequence[str]]` but got `Tuple[Sequence[str], Sequence[typing.Optional[str]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 46,
+    "warning_line": "    return extract_nested(nested_col, lambda s: _unicodify(s) or None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from datetime import datetime, timedelta\nfrom typing import Any, Callable, Mapping, MutableMapping, Sequence, Tuple, TypeVar\n\n",
+        "source_code_len": 126,
+        "target_code": "from datetime import datetime, timedelta\nfrom typing import (\n    Any,\n    Callable,\n    Mapping,\n    MutableMapping,\n    Optional,\n    Sequence,\n    Tuple,\n    TypeVar,\n)\n\n",
+        "target_code_len": 173,
+        "diff_format": "@@ -1,3 +1,12 @@\n from datetime import datetime, timedelta\n-from typing import Any, Callable, Mapping, MutableMapping, Sequence, Tuple, TypeVar\n+from typing import (\n+    Any,\n+    Callable,\n+    Mapping,\n+    MutableMapping,\n+    Optional,\n+    Sequence,\n+    Tuple,\n+    TypeVar,\n+)\n \n",
+        "source_code_with_indent": "from datetime import datetime, timedelta\nfrom typing import Any, Callable, Mapping, MutableMapping, Sequence, Tuple, TypeVar\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from datetime import datetime, timedelta\nfrom typing import (\n    Any,\n    Callable,\n    Mapping,\n    MutableMapping,\n    Optional,\n    Sequence,\n    Tuple,\n    TypeVar,\n)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def extract_nested(\n    nested_col: Mapping[str, Any], val_processor: Callable[[Any], TVal]\n) -> Tuple[Sequence[str], Sequence[TVal]]:\n",
+        "source_code_len": 135,
+        "target_code": "def extract_nested(\n    nested_col: Mapping[str, Any], val_processor: Callable[[Any], Optional[TVal]]\n) -> Tuple[Sequence[str], Sequence[TVal]]:\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -49,3 +60,3 @@\n def extract_nested(\n-    nested_col: Mapping[str, Any], val_processor: Callable[[Any], TVal]\n+    nested_col: Mapping[str, Any], val_processor: Callable[[Any], Optional[TVal]]\n ) -> Tuple[Sequence[str], Sequence[TVal]]:\n",
+        "source_code_with_indent": "<DED>def extract_nested(\n    nested_col: Mapping[str, Any], val_processor: Callable[[Any], TVal]\n) -> Tuple[Sequence[str], Sequence[TVal]]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def extract_nested(\n    nested_col: Mapping[str, Any], val_processor: Callable[[Any], Optional[TVal]]\n) -> Tuple[Sequence[str], Sequence[TVal]]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

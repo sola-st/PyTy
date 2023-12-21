@@ -1,0 +1,70 @@
+[
+  {
+    "project": "bokeh/bokeh",
+    "commit": "e739f4af7f6af260bea9317fed564ecf87b36172",
+    "filename": "bokeh/embed/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/embed/util.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/embed/util.py:352:4 Incompatible return type [7]: Expected `bool` but got `typing.Optional[typing.Match[str]]`.",
+    "message": " Expected `bool` but got `typing.Optional[typing.Match[str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 352,
+    "warning_line": "    return pat.match(text)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    pat = re.compile(f\"{dollars}|{braces}|{parens}\")\n    return pat.match(text)\n\n",
+        "source_code_len": 82,
+        "target_code": "\n    pat = re.compile(f\"{dollars}|{braces}|{parens}\", flags=re.S)\n    return pat.match(text) is not None\n\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -350,4 +350,4 @@\n \n-    pat = re.compile(f\"{dollars}|{braces}|{parens}\")\n-    return pat.match(text)\n+    pat = re.compile(f\"{dollars}|{braces}|{parens}\", flags=re.S)\n+    return pat.match(text) is not None\n \n",
+        "source_code_with_indent": "\n    pat = re.compile(f\"{dollars}|{braces}|{parens}\")\n    return pat.match(text)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    pat = re.compile(f\"{dollars}|{braces}|{parens}\", flags=re.S)\n    return pat.match(text) is not None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bokeh/bokeh",
+    "commit": "e739f4af7f6af260bea9317fed564ecf87b36172",
+    "filename": "bokeh/embed/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/embed/util.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/embed/util.py:367:4 Incompatible return type [7]: Expected `bool` but got `typing.Optional[typing.Match[str]]`.",
+    "message": " Expected `bool` but got `typing.Optional[typing.Match[str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 367,
+    "warning_line": "    return pat.match(text)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    pat = re.compile(f\"{dollars}|{braces}|{parens}\")\n    return pat.match(text)\n\n",
+        "source_code_len": 82,
+        "target_code": "\n    pat = re.compile(f\"{dollars}|{braces}|{parens}\", flags=re.S)\n    return pat.search(text) is not None\n\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -365,4 +365,4 @@\n \n-    pat = re.compile(f\"{dollars}|{braces}|{parens}\")\n-    return pat.match(text)\n+    pat = re.compile(f\"{dollars}|{braces}|{parens}\", flags=re.S)\n+    return pat.search(text) is not None\n \n",
+        "source_code_with_indent": "\n    pat = re.compile(f\"{dollars}|{braces}|{parens}\")\n    return pat.match(text)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    pat = re.compile(f\"{dollars}|{braces}|{parens}\", flags=re.S)\n    return pat.search(text) is not None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

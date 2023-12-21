@@ -1,0 +1,122 @@
+[
+  {
+    "project": "GPflow/GPflow",
+    "commit": "f4688ba9cb5d6ecd8cd712faeddd800e3ac18afb",
+    "filename": "gpflow/models/gpr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GPflow-GPflow/gpflow/models/gpr.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gpflow/models/gpr.py:44:17 Incompatible variable type [9]: noise_variance is declared to have type `int` but is used as type `float`.",
+    "message": " noise_variance is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 44,
+    "warning_line": "                 noise_variance: int = 1.0):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, data: Data, kernel: Kernel, mean_function: Optional[MeanFunction] = None,\n                 noise_variance: int = 1.0):\n        likelihood = gpflow.likelihoods.Gaussian(noise_variance)\n",
+        "source_code_len": 207,
+        "target_code": "    def __init__(self, data: Data, kernel: Kernel, mean_function: Optional[MeanFunction] = None,\n                 noise_variance: float = 1.0):\n        likelihood = gpflow.likelihoods.Gaussian(noise_variance)\n",
+        "target_code_len": 209,
+        "diff_format": "@@ -43,3 +43,3 @@\n     def __init__(self, data: Data, kernel: Kernel, mean_function: Optional[MeanFunction] = None,\n-                 noise_variance: int = 1.0):\n+                 noise_variance: float = 1.0):\n         likelihood = gpflow.likelihoods.Gaussian(noise_variance)\n",
+        "source_code_with_indent": "    def __init__(self, data: Data, kernel: Kernel, mean_function: Optional[MeanFunction] = None,\n                 noise_variance: int = 1.0):\n        <IND>likelihood = gpflow.likelihoods.Gaussian(noise_variance)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def __init__(self, data: Data, kernel: Kernel, mean_function: Optional[MeanFunction] = None,\n                 noise_variance: float = 1.0):\n        <IND>likelihood = gpflow.likelihoods.Gaussian(noise_variance)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "GPflow/GPflow",
+    "commit": "f4688ba9cb5d6ecd8cd712faeddd800e3ac18afb",
+    "filename": "gpflow/models/sgpr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GPflow-GPflow/gpflow/models/sgpr.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gpflow/models/sgpr.py:120:17 Incompatible variable type [9]: noise_variance is declared to have type `int` but is used as type `float`.",
+    "message": " noise_variance is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 120,
+    "warning_line": "                 noise_variance: int = 1.0,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 num_latent: Optional[int] = None,\n                 noise_variance: int = 1.0,\n                 ):\n",
+        "source_code_len": 115,
+        "target_code": "                 num_latent: Optional[int] = None,\n                 noise_variance: float = 1.0,\n                 ):\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -119,3 +119,3 @@\n                  num_latent: Optional[int] = None,\n-                 noise_variance: int = 1.0,\n+                 noise_variance: float = 1.0,\n                  ):\n",
+        "source_code_with_indent": "                 num_latent: Optional[int] = None,\n                 noise_variance: int = 1.0,\n                 ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 num_latent: Optional[int] = None,\n                 noise_variance: float = 1.0,\n                 ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "GPflow/GPflow",
+    "commit": "f4688ba9cb5d6ecd8cd712faeddd800e3ac18afb",
+    "filename": "gpflow/models/sgpr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GPflow-GPflow/gpflow/models/sgpr.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gpflow/models/sgpr.py:221:17 Incompatible variable type [9]: noise_variance is declared to have type `int` but is used as type `float`.",
+    "message": " noise_variance is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 221,
+    "warning_line": "                 noise_variance: int = 1.0,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 inducing_variable: Optional[InducingPoints] = None,\n                 noise_variance: int = 1.0,\n                 ):\n",
+        "source_code_len": 133,
+        "target_code": "                 inducing_variable: Optional[InducingPoints] = None,\n                 noise_variance: float = 1.0,\n                 ):\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -220,3 +220,3 @@\n                  inducing_variable: Optional[InducingPoints] = None,\n-                 noise_variance: int = 1.0,\n+                 noise_variance: float = 1.0,\n                  ):\n",
+        "source_code_with_indent": "                 inducing_variable: Optional[InducingPoints] = None,\n                 noise_variance: int = 1.0,\n                 ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 inducing_variable: Optional[InducingPoints] = None,\n                 noise_variance: float = 1.0,\n                 ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "GPflow/GPflow",
+    "commit": "f4688ba9cb5d6ecd8cd712faeddd800e3ac18afb",
+    "filename": "notebooks/advanced/mcmc.pct.py",
+    "min_patch_found": false,
+    "full_warning_msg": "notebooks/advanced/mcmc.pct.py:107:55 Incompatible parameter type [6]: Expected `int` for 4th parameter `noise_variance` to call `gpflow.models.gpr.GPR.__init__` but got `float`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/GPflow-GPflow/notebooks/advanced/mcmc.pct.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "GPflow/GPflow",
+    "commit": "f4688ba9cb5d6ecd8cd712faeddd800e3ac18afb",
+    "filename": "notebooks/basics/monitoring.pct.py",
+    "min_patch_found": false,
+    "full_warning_msg": "notebooks/basics/monitoring.pct.py:67:42 Incompatible parameter type [6]: Expected `int` for 3rd parameter `noise_variance` to call `gpflow.models.gpr.GPR.__init__` but got `float`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/GPflow-GPflow/notebooks/basics/monitoring.pct.py'",
+    "dd_fail": true
+  }
+]

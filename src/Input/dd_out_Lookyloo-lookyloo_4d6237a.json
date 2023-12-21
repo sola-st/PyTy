@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Lookyloo/lookyloo",
+    "commit": "4d6237aae506db8d8ee7ba3045f3e79b3393caec",
+    "filename": "lookyloo/lookyloo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Lookyloo-lookyloo/lookyloo/lookyloo.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lookyloo/lookyloo.py:215:12 Incompatible return type [7]: Expected `Optional[Tuple[bool, Optional[List[str]]]]` but got `bool`.",
+    "message": " Expected `Optional[Tuple[bool, Optional[List[str]]]]` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 215,
+    "warning_line": "            return False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if urlnode.hostname in hostnames:\n                return (True, hostnames)\n            else:\n                return (False, hostnames)\n        elif self.redis.sismember('bh|malicious', urlnode.body_hash):\n            return False\n        return None\n",
+        "source_code_len": 262,
+        "target_code": "            if urlnode.hostname in hostnames:\n                return True, hostnames\n            else:\n                return False, hostnames\n        elif self.redis.sismember('bh|malicious', urlnode.body_hash):\n            return False, None\n        return None\n",
+        "target_code_len": 264,
+        "diff_format": "@@ -210,7 +210,7 @@\n             if urlnode.hostname in hostnames:\n-                return (True, hostnames)\n+                return True, hostnames\n             else:\n-                return (False, hostnames)\n+                return False, hostnames\n         elif self.redis.sismember('bh|malicious', urlnode.body_hash):\n-            return False\n+            return False, None\n         return None\n",
+        "source_code_with_indent": "            <IND>if urlnode.hostname in hostnames:\n                <IND>return (True, hostnames)\n            <DED>else:\n                <IND>return (False, hostnames)\n        <DED><DED>elif self.redis.sismember('bh|malicious', urlnode.body_hash):\n            <IND>return False\n        <DED>return None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>if urlnode.hostname in hostnames:\n                <IND>return True, hostnames\n            <DED>else:\n                <IND>return False, hostnames\n        <DED><DED>elif self.redis.sismember('bh|malicious', urlnode.body_hash):\n            <IND>return False, None\n        <DED>return None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

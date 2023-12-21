@@ -1,0 +1,100 @@
+[
+  {
+    "project": "python-attrs/attrs",
+    "commit": "08bbaabaca29a7fd245f78736cc76f83082bf53b",
+    "filename": "src/attr/validators.pyi",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-attrs-attrs/src/attr/validators.pyi",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/attr/validators.pyi:17:0 Invalid type [31]: Expression `Variable[_I (bound to typing.Iterable[Variable[src.attr.validators._T]])]` is not a valid type. Type variables cannot contain other type variables in their constraints.",
+    "message": " Expression `Variable[_I (bound to typing.Iterable[Variable[src.attr.validators._T]])]` is not a valid type. Type variables cannot contain other type variables in their constraints.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 17,
+    "warning_line": "_I = TypeVar(\"_I\", bound=Iterable[_T])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Callable,\n)\n",
+        "source_code_len": 16,
+        "target_code": "    Callable,\n    Match,\n    AnyStr,\n    overload,\n)\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -12,2 +12,5 @@\n     Callable,\n+    Match,\n+    AnyStr,\n+    overload,\n )\n",
+        "source_code_with_indent": "    Callable,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Callable,\n    Match,\n    AnyStr,\n    overload,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "_T = TypeVar(\"_T\")\n_I = TypeVar(\"_I\", bound=Iterable[_T])\n_K = TypeVar(\"_K\")\n_V = TypeVar(\"_V\")\n_M = TypeVar(\"_V\", bound=Mapping[_K, _V])\n\ndef instance_of(\n    type: Union[Tuple[Type[_T], ...], Type[_T]]\n) -> _ValidatorType[_T]: ...\ndef provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "source_code_len": 290,
+        "target_code": "_T = TypeVar(\"_T\")\n_T1 = TypeVar(\"_T1\")\n_T2 = TypeVar(\"_T2\")\n_T3 = TypeVar(\"_T3\")\n_I = TypeVar(\"_I\", bound=Iterable)\n_K = TypeVar(\"_K\")\n_V = TypeVar(\"_V\")\n_M = TypeVar(\"_M\", bound=Mapping)\n\n# To be more precise on instance_of use some overloads.\n# If there are more than 3 items in the tuple then we fall back to Any\n@overload\ndef instance_of(type: Type[_T]) -> _ValidatorType[_T]: ...\n@overload\ndef instance_of(type: Tuple[Type[_T]]) -> _ValidatorType[_T]: ...\n@overload\ndef instance_of(\n    type: Tuple[Type[_T1], Type[_T2]]\n) -> _ValidatorType[Union[_T1, _T2]]: ...\n@overload\ndef instance_of(\n    type: Tuple[Type[_T1], Type[_T2], Type[_T3]]\n) -> _ValidatorType[Union[_T1, _T2, _T3]]: ...\n@overload\ndef instance_of(type: Tuple[type, ...]) -> _ValidatorType[Any]: ...\ndef provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "target_code_len": 827,
+        "diff_format": "@@ -16,10 +19,26 @@\n _T = TypeVar(\"_T\")\n-_I = TypeVar(\"_I\", bound=Iterable[_T])\n+_T1 = TypeVar(\"_T1\")\n+_T2 = TypeVar(\"_T2\")\n+_T3 = TypeVar(\"_T3\")\n+_I = TypeVar(\"_I\", bound=Iterable)\n _K = TypeVar(\"_K\")\n _V = TypeVar(\"_V\")\n-_M = TypeVar(\"_V\", bound=Mapping[_K, _V])\n+_M = TypeVar(\"_M\", bound=Mapping)\n \n+# To be more precise on instance_of use some overloads.\n+# If there are more than 3 items in the tuple then we fall back to Any\n+@overload\n+def instance_of(type: Type[_T]) -> _ValidatorType[_T]: ...\n+@overload\n+def instance_of(type: Tuple[Type[_T]]) -> _ValidatorType[_T]: ...\n+@overload\n def instance_of(\n-    type: Union[Tuple[Type[_T], ...], Type[_T]]\n-) -> _ValidatorType[_T]: ...\n+    type: Tuple[Type[_T1], Type[_T2]]\n+) -> _ValidatorType[Union[_T1, _T2]]: ...\n+@overload\n+def instance_of(\n+    type: Tuple[Type[_T1], Type[_T2], Type[_T3]]\n+) -> _ValidatorType[Union[_T1, _T2, _T3]]: ...\n+@overload\n+def instance_of(type: Tuple[type, ...]) -> _ValidatorType[Any]: ...\n def provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "source_code_with_indent": "_T = TypeVar(\"_T\")\n_I = TypeVar(\"_I\", bound=Iterable[_T])\n_K = TypeVar(\"_K\")\n_V = TypeVar(\"_V\")\n_M = TypeVar(\"_V\", bound=Mapping[_K, _V])\n\ndef instance_of(\n    type: Union[Tuple[Type[_T], ...], Type[_T]]\n) -> _ValidatorType[_T]: ...\ndef provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "_T = TypeVar(\"_T\")\n_T1 = TypeVar(\"_T1\")\n_T2 = TypeVar(\"_T2\")\n_T3 = TypeVar(\"_T3\")\n_I = TypeVar(\"_I\", bound=Iterable)\n_K = TypeVar(\"_K\")\n_V = TypeVar(\"_V\")\n_M = TypeVar(\"_M\", bound=Mapping)\n\n# To be more precise on instance_of use some overloads.\n# If there are more than 3 items in the tuple then we fall back to Any\n@overload\ndef instance_of(type: Type[_T]) -> _ValidatorType[_T]: ...\n@overload\ndef instance_of(type: Tuple[Type[_T]]) -> _ValidatorType[_T]: ...\n@overload\ndef instance_of(\n    type: Tuple[Type[_T1], Type[_T2]]\n) -> _ValidatorType[Union[_T1, _T2]]: ...\n@overload\ndef instance_of(\n    type: Tuple[Type[_T1], Type[_T2], Type[_T3]]\n) -> _ValidatorType[Union[_T1, _T2, _T3]]: ...\n@overload\ndef instance_of(type: Tuple[type, ...]) -> _ValidatorType[Any]: ...\ndef provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python-attrs/attrs",
+    "commit": "08bbaabaca29a7fd245f78736cc76f83082bf53b",
+    "filename": "src/attr/validators.pyi",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-attrs-attrs/src/attr/validators.pyi",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/attr/validators.pyi:20:0 Invalid type [31]: Expression `Variable[_V (bound to typing.Mapping[Variable[src.attr.validators._K], Variable[src.attr.validators._V]])]` is not a valid type. Type variables cannot contain other type variables in their constraints.",
+    "message": " Expression `Variable[_V (bound to typing.Mapping[Variable[src.attr.validators._K], Variable[src.attr.validators._V]])]` is not a valid type. Type variables cannot contain other type variables in their constraints.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 20,
+    "warning_line": "_M = TypeVar(\"_V\", bound=Mapping[_K, _V])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Callable,\n)\n",
+        "source_code_len": 16,
+        "target_code": "    Callable,\n    Match,\n    AnyStr,\n    overload,\n)\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -12,2 +12,5 @@\n     Callable,\n+    Match,\n+    AnyStr,\n+    overload,\n )\n",
+        "source_code_with_indent": "    Callable,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Callable,\n    Match,\n    AnyStr,\n    overload,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "_T = TypeVar(\"_T\")\n_I = TypeVar(\"_I\", bound=Iterable[_T])\n_K = TypeVar(\"_K\")\n_V = TypeVar(\"_V\")\n_M = TypeVar(\"_V\", bound=Mapping[_K, _V])\n\ndef instance_of(\n    type: Union[Tuple[Type[_T], ...], Type[_T]]\n) -> _ValidatorType[_T]: ...\ndef provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "source_code_len": 290,
+        "target_code": "_T = TypeVar(\"_T\")\n_T1 = TypeVar(\"_T1\")\n_T2 = TypeVar(\"_T2\")\n_T3 = TypeVar(\"_T3\")\n_I = TypeVar(\"_I\", bound=Iterable)\n_K = TypeVar(\"_K\")\n_V = TypeVar(\"_V\")\n_M = TypeVar(\"_M\", bound=Mapping)\n\n# To be more precise on instance_of use some overloads.\n# If there are more than 3 items in the tuple then we fall back to Any\n@overload\ndef instance_of(type: Type[_T]) -> _ValidatorType[_T]: ...\n@overload\ndef instance_of(type: Tuple[Type[_T]]) -> _ValidatorType[_T]: ...\n@overload\ndef instance_of(\n    type: Tuple[Type[_T1], Type[_T2]]\n) -> _ValidatorType[Union[_T1, _T2]]: ...\n@overload\ndef instance_of(\n    type: Tuple[Type[_T1], Type[_T2], Type[_T3]]\n) -> _ValidatorType[Union[_T1, _T2, _T3]]: ...\n@overload\ndef instance_of(type: Tuple[type, ...]) -> _ValidatorType[Any]: ...\ndef provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "target_code_len": 827,
+        "diff_format": "@@ -16,10 +19,26 @@\n _T = TypeVar(\"_T\")\n-_I = TypeVar(\"_I\", bound=Iterable[_T])\n+_T1 = TypeVar(\"_T1\")\n+_T2 = TypeVar(\"_T2\")\n+_T3 = TypeVar(\"_T3\")\n+_I = TypeVar(\"_I\", bound=Iterable)\n _K = TypeVar(\"_K\")\n _V = TypeVar(\"_V\")\n-_M = TypeVar(\"_V\", bound=Mapping[_K, _V])\n+_M = TypeVar(\"_M\", bound=Mapping)\n \n+# To be more precise on instance_of use some overloads.\n+# If there are more than 3 items in the tuple then we fall back to Any\n+@overload\n+def instance_of(type: Type[_T]) -> _ValidatorType[_T]: ...\n+@overload\n+def instance_of(type: Tuple[Type[_T]]) -> _ValidatorType[_T]: ...\n+@overload\n def instance_of(\n-    type: Union[Tuple[Type[_T], ...], Type[_T]]\n-) -> _ValidatorType[_T]: ...\n+    type: Tuple[Type[_T1], Type[_T2]]\n+) -> _ValidatorType[Union[_T1, _T2]]: ...\n+@overload\n+def instance_of(\n+    type: Tuple[Type[_T1], Type[_T2], Type[_T3]]\n+) -> _ValidatorType[Union[_T1, _T2, _T3]]: ...\n+@overload\n+def instance_of(type: Tuple[type, ...]) -> _ValidatorType[Any]: ...\n def provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "source_code_with_indent": "_T = TypeVar(\"_T\")\n_I = TypeVar(\"_I\", bound=Iterable[_T])\n_K = TypeVar(\"_K\")\n_V = TypeVar(\"_V\")\n_M = TypeVar(\"_V\", bound=Mapping[_K, _V])\n\ndef instance_of(\n    type: Union[Tuple[Type[_T], ...], Type[_T]]\n) -> _ValidatorType[_T]: ...\ndef provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "_T = TypeVar(\"_T\")\n_T1 = TypeVar(\"_T1\")\n_T2 = TypeVar(\"_T2\")\n_T3 = TypeVar(\"_T3\")\n_I = TypeVar(\"_I\", bound=Iterable)\n_K = TypeVar(\"_K\")\n_V = TypeVar(\"_V\")\n_M = TypeVar(\"_M\", bound=Mapping)\n\n# To be more precise on instance_of use some overloads.\n# If there are more than 3 items in the tuple then we fall back to Any\n@overload\ndef instance_of(type: Type[_T]) -> _ValidatorType[_T]: ...\n@overload\ndef instance_of(type: Tuple[Type[_T]]) -> _ValidatorType[_T]: ...\n@overload\ndef instance_of(\n    type: Tuple[Type[_T1], Type[_T2]]\n) -> _ValidatorType[Union[_T1, _T2]]: ...\n@overload\ndef instance_of(\n    type: Tuple[Type[_T1], Type[_T2], Type[_T3]]\n) -> _ValidatorType[Union[_T1, _T2, _T3]]: ...\n@overload\ndef instance_of(type: Tuple[type, ...]) -> _ValidatorType[Any]: ...\ndef provides(interface: Any) -> _ValidatorType[Any]: ...\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "covid-projections/covid-data-model",
+    "commit": "e3e333f6222cb5bd95711dcaf46f54e33f6ff4ff",
+    "filename": "libs/pipelines/api_pipeline.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/covid-projections-covid-data-model/libs/pipelines/api_pipeline.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libs/pipelines/api_pipeline.py:84:4 Incompatible variable type [9]: latest is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "message": " latest is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 84,
+    "warning_line": "    latest = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n    latest = None\n    if metrics_for_fips:\n        latest = top_level_metrics.calculate_latest_metrics(metrics_results)\n\n    return metrics_for_fips, latest\n",
+        "source_code_len": 254,
+        "target_code": "    metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n    return metrics_for_fips, latest\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -83,6 +83,2 @@\n     metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n-    latest = None\n-    if metrics_for_fips:\n-        latest = top_level_metrics.calculate_latest_metrics(metrics_results)\n-\n     return metrics_for_fips, latest\n",
+        "source_code_with_indent": "    metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n    latest = None\n    if metrics_for_fips:\n        <IND>latest = top_level_metrics.calculate_latest_metrics(metrics_results)\n\n    <DED>return metrics_for_fips, latest\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n    return metrics_for_fips, latest\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "covid-projections/covid-data-model",
+    "commit": "e3e333f6222cb5bd95711dcaf46f54e33f6ff4ff",
+    "filename": "libs/pipelines/api_pipeline.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/covid-projections-covid-data-model/libs/pipelines/api_pipeline.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libs/pipelines/api_pipeline.py:86:8 Incompatible variable type [9]: latest is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `Metrics`.",
+    "message": " latest is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `Metrics`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 86,
+    "warning_line": "        latest = top_level_metrics.calculate_latest_metrics(metrics_results)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n    latest = None\n    if metrics_for_fips:\n        latest = top_level_metrics.calculate_latest_metrics(metrics_results)\n\n    return metrics_for_fips, latest\n",
+        "source_code_len": 254,
+        "target_code": "    metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n    return metrics_for_fips, latest\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -83,6 +83,2 @@\n     metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n-    latest = None\n-    if metrics_for_fips:\n-        latest = top_level_metrics.calculate_latest_metrics(metrics_results)\n-\n     return metrics_for_fips, latest\n",
+        "source_code_with_indent": "    metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n    latest = None\n    if metrics_for_fips:\n        <IND>latest = top_level_metrics.calculate_latest_metrics(metrics_results)\n\n    <DED>return metrics_for_fips, latest\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    metrics_for_fips = [MetricsTimeseriesRow(**metric_row) for metric_row in metrics_timeseries]\n    return metrics_for_fips, latest\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

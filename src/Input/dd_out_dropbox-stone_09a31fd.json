@@ -1,0 +1,102 @@
+[
+  {
+    "project": "dropbox/stone",
+    "commit": "09a31fd2b158d91c429da4efdb7d4d510d572465",
+    "filename": "example/generator/ex3/ex3.stoneg.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dropbox-stone/example/generator/ex3/ex3.stoneg.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "example/generator/ex3/ex3.stoneg.py:13:11 Unbound name [10]: Name `PythonTargetLanguage` is used but not defined in the current scope.",
+    "message": " Name `PythonTargetLanguage` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 13,
+    "warning_line": "    lang = PythonTargetLanguage()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from stone.data_type import is_struct_type\nfrom stone.generator import CodeGeneratorMonolingual\nfrom stone.target.python import (\n    fmt_class,\n",
+        "source_code_len": 145,
+        "target_code": "from stone.data_type import is_struct_type\nfrom stone.generator import CodeGenerator\nfrom stone.target.python_helpers import (\n    fmt_class,\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -1,4 +1,4 @@\n from stone.data_type import is_struct_type\n-from stone.generator import CodeGeneratorMonolingual\n-from stone.target.python import (\n+from stone.generator import CodeGenerator\n+from stone.target.python_helpers import (\n     fmt_class,\n",
+        "source_code_with_indent": "from stone.data_type import is_struct_type\nfrom stone.generator import CodeGeneratorMonolingual\nfrom stone.target.python import (\n    fmt_class,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from stone.data_type import is_struct_type\nfrom stone.generator import CodeGenerator\nfrom stone.target.python_helpers import (\n    fmt_class,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass ExamplePythonGenerator(CodeGeneratorMonolingual):\n\n    # PythonTargetLanguage has helper methods for formatting class, obj\n    # and variable names (some languages use underscores to separate words,\n    # others use camelcase).\n    lang = PythonTargetLanguage()\n\n",
+        "source_code_len": 270,
+        "target_code": "\nclass ExamplePythonGenerator(CodeGenerator):\n\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -7,8 +7,3 @@\n \n-class ExamplePythonGenerator(CodeGeneratorMonolingual):\n-\n-    # PythonTargetLanguage has helper methods for formatting class, obj\n-    # and variable names (some languages use underscores to separate words,\n-    # others use camelcase).\n-    lang = PythonTargetLanguage()\n+class ExamplePythonGenerator(CodeGenerator):\n \n",
+        "source_code_with_indent": "\nclass ExamplePythonGenerator(CodeGeneratorMonolingual):\n\n    # PythonTargetLanguage has helper methods for formatting class, obj\n    # and variable names (some languages use underscores to separate words,\n    # others use camelcase).\n    <IND>lang = PythonTargetLanguage()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nclass ExamplePythonGenerator(CodeGenerator):\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dropbox/stone",
+    "commit": "09a31fd2b158d91c429da4efdb7d4d510d572465",
+    "filename": "stone/api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dropbox-stone/stone/api.py",
+    "file_hunks_size": 16,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "stone/api.py:51:8 Incompatible return type [7]: Expected `ApiNamespace` but got `Optional[ApiNamespace]`.",
+    "message": " Expected `ApiNamespace` but got `Optional[ApiNamespace]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 51,
+    "warning_line": "        return self.namespaces.get(name)"
+  },
+  {
+    "project": "dropbox/stone",
+    "commit": "09a31fd2b158d91c429da4efdb7d4d510d572465",
+    "filename": "stone/api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dropbox-stone/stone/api.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "stone/api.py:229:8 Incompatible return type [7]: Expected `List[UserDefined]` but got `List[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]`.",
+    "message": " Expected `List[UserDefined]` but got `List[Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 229,
+    "warning_line": "        return sorted(data_types, key=lambda dt: dt.name)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        data_types = set()  # type: Set[UserDefined]\n        for route in self.routes:\n",
+        "source_code_len": 99,
+        "target_code": "        \"\"\"\n        data_types = set()  # type: typing.Set[UserDefined]\n        for route in self.routes:\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -218,3 +223,3 @@\n         \"\"\"\n-        data_types = set()  # type: Set[UserDefined]\n+        data_types = set()  # type: typing.Set[UserDefined]\n         for route in self.routes:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        data_types = set()  # type: Set[UserDefined]\n        for route in self.routes:\n",
+        "target_code_with_indent": "\n        data_types = set()  # type: typing.Set[UserDefined]\n        for route in self.routes:\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "678535b5c83302ee25b8a135b977c7e48b8f8668",
+    "filename": "data_structures/binary_tree/non_recursive_segment_tree.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/data_structures/binary_tree/non_recursive_segment_tree.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "data_structures/binary_tree/non_recursive_segment_tree.py:59:52 Unsupported operand [58]: `+` is not supported for operand types `typing.List[None]` and `typing.List[Variable[T]]`.",
+    "message": " `+` is not supported for operand types `typing.List[None]` and `typing.List[Variable[T]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 59,
+    "warning_line": "        self.st = [None for _ in range(len(arr))] + arr",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Callable, TypeVar\n\n",
+        "source_code_len": 39,
+        "target_code": "\nfrom typing import Any, Callable, Generic, TypeVar\n\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -39,3 +39,3 @@\n \n-from typing import Callable, TypeVar\n+from typing import Any, Callable, Generic, TypeVar\n \n",
+        "source_code_with_indent": "\nfrom typing import Callable, TypeVar\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Any, Callable, Generic, TypeVar\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        self.N = len(arr)\n        self.st = [None for _ in range(len(arr))] + arr\n        self.fn = fnc\n",
+        "source_code_len": 116,
+        "target_code": "        \"\"\"\n        any_type: Any | T = None\n\n        self.N: int = len(arr)\n        self.st: list[T] = [any_type for _ in range(self.N)] + arr\n        self.fn = fnc\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -57,4 +57,6 @@\n         \"\"\"\n-        self.N = len(arr)\n-        self.st = [None for _ in range(len(arr))] + arr\n+        any_type: Any | T = None\n+\n+        self.N: int = len(arr)\n+        self.st: list[T] = [any_type for _ in range(self.N)] + arr\n         self.fn = fnc\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        self.N = len(arr)\n        self.st = [None for _ in range(len(arr))] + arr\n        self.fn = fnc\n",
+        "target_code_with_indent": "\n        any_type: Any | T = None\n\n        self.N: int = len(arr)\n        self.st: list[T] = [any_type for _ in range(self.N)] + arr\n        self.fn = fnc\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "2f4648341ced317b88b4144ace6b2f0f9c0ac1bc",
+    "filename": "mythril/analysis/modules/integer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/analysis/modules/integer.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/analysis/modules/integer.py:51:8 Incompatible attribute type [8]: Attribute `ostates_seen` declared in class `OverUnderflowStateAnnotation` has type `List[GlobalState]` but is used as type `typing.Set[Variable[_T]]`.",
+    "message": " Attribute `ostates_seen` declared in class `OverUnderflowStateAnnotation` has type `List[GlobalState]` but is used as type `typing.Set[Variable[_T]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 51,
+    "warning_line": "        self.ostates_seen = set()  # type: List[GlobalState]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from math import log2, ceil\nfrom typing import cast, List, Dict\nfrom mythril.analysis import solver\n",
+        "source_code_len": 100,
+        "target_code": "from math import log2, ceil\nfrom typing import cast, List, Dict, Set\nfrom mythril.analysis import solver\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -6,3 +6,3 @@\n from math import log2, ceil\n-from typing import cast, List, Dict\n+from typing import cast, List, Dict, Set\n from mythril.analysis import solver\n",
+        "source_code_with_indent": "from math import log2, ceil\nfrom typing import cast, List, Dict\nfrom mythril.analysis import solver\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from math import log2, ceil\nfrom typing import cast, List, Dict, Set\nfrom mythril.analysis import solver\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.overflowing_state_annotations = []  # type: List[OverUnderflowAnnotation]\n        self.ostates_seen = set()  # type: List[GlobalState]\n\n",
+        "source_code_len": 149,
+        "target_code": "        self.overflowing_state_annotations = []  # type: List[OverUnderflowAnnotation]\n        self.ostates_seen = set()  # type: Set[GlobalState]\n\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -50,3 +50,3 @@\n         self.overflowing_state_annotations = []  # type: List[OverUnderflowAnnotation]\n-        self.ostates_seen = set()  # type: List[GlobalState]\n+        self.ostates_seen = set()  # type: Set[GlobalState]\n \n",
+        "source_code_with_indent": "        <IND>self.overflowing_state_annotations = []  # type: List[OverUnderflowAnnotation]\n        self.ostates_seen = set()  # type: List[GlobalState]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>self.overflowing_state_annotations = []  # type: List[OverUnderflowAnnotation]\n        self.ostates_seen = set()  # type: Set[GlobalState]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

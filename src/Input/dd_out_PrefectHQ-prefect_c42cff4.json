@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PrefectHQ/prefect",
+    "commit": "c42cff497ed76fded07d641c4db6c497dc9388e0",
+    "filename": "src/prefect/agent/agent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PrefectHQ-prefect/src/prefect/agent/agent.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/prefect/agent/agent.py:153:42 Incompatible parameter type [6]: Expected `typing.List[typing.Any]` for 1st positional only parameter to call `Agent._log_flow_run_exceptions` but got `None`.",
+    "message": " Expected `typing.List[typing.Any]` for 1st positional only parameter to call `Agent._log_flow_run_exceptions` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 153,
+    "warning_line": "            self._log_flow_run_exceptions(flow_runs, exc)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            self.logger.error(exc)\n            self._log_flow_run_exceptions(flow_runs, exc)\n\n",
+        "source_code_len": 94,
+        "target_code": "            self.logger.error(exc)\n            self._log_flow_run_exceptions(flow_runs, exc)  # type: ignore\n\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -152,3 +153,3 @@\n             self.logger.error(exc)\n-            self._log_flow_run_exceptions(flow_runs, exc)\n+            self._log_flow_run_exceptions(flow_runs, exc)  # type: ignore\n \n",
+        "source_code_with_indent": "            <IND>self.logger.error(exc)\n            self._log_flow_run_exceptions(flow_runs, exc)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>self.logger.error(exc)\n            self._log_flow_run_exceptions(flow_runs, exc)  # type: ignore\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

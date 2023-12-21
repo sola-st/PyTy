@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/typing",
+    "commit": "20d1f1b99fe56da3c631031d379a4beabd7914d0",
+    "filename": "typing_extensions/src_py3/typing_extensions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-typing/typing_extensions/src_py3/typing_extensions.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "typing_extensions/src_py3/typing_extensions.py:362:4 Incompatible variable type [9]: Final is declared to have type `typing.Type[Final]` but is used as type `_FinalForm`.",
+    "message": " Final is declared to have type `typing.Type[Final]` but is used as type `_FinalForm`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 362,
+    "warning_line": "    Final = _FinalForm('Final', doc=",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nif sys.version_info[:2] >= (3, 7):\n    class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "source_code_len": 91,
+        "target_code": "\n# On older versions of typing there is an internal class named \"Final\".\nif hasattr(typing, 'Final') and sys.version_info[:2] >= (3, 7):\n    Final = typing.Final\nelif sys.version_info[:2] >= (3, 7):\n    class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "target_code_len": 254,
+        "diff_format": "@@ -350,3 +351,6 @@\n \n-if sys.version_info[:2] >= (3, 7):\n+# On older versions of typing there is an internal class named \"Final\".\n+if hasattr(typing, 'Final') and sys.version_info[:2] >= (3, 7):\n+    Final = typing.Final\n+elif sys.version_info[:2] >= (3, 7):\n     class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "source_code_with_indent": "\n<DED><DED>if sys.version_info[:2] >= (3, 7):\n    <IND>class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n# On older versions of typing there is an internal class named \"Final\".\n<DED><DED>if hasattr(typing, 'Final') and sys.version_info[:2] >= (3, 7):\n    <IND>Final = typing.Final\n<DED>elif sys.version_info[:2] >= (3, 7):\n    <IND>class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/typing",
+    "commit": "20d1f1b99fe56da3c631031d379a4beabd7914d0",
+    "filename": "typing_extensions/src_py3/typing_extensions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-typing/typing_extensions/src_py3/typing_extensions.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "typing_extensions/src_py3/typing_extensions.py:430:4 Incompatible variable type [9]: Final is declared to have type `typing.Type[Final]` but is used as type `_Final`.",
+    "message": " Final is declared to have type `typing.Type[Final]` but is used as type `_Final`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 430,
+    "warning_line": "    Final = _Final(_root=True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nif sys.version_info[:2] >= (3, 7):\n    class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "source_code_len": 91,
+        "target_code": "\n# On older versions of typing there is an internal class named \"Final\".\nif hasattr(typing, 'Final') and sys.version_info[:2] >= (3, 7):\n    Final = typing.Final\nelif sys.version_info[:2] >= (3, 7):\n    class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "target_code_len": 254,
+        "diff_format": "@@ -350,3 +351,6 @@\n \n-if sys.version_info[:2] >= (3, 7):\n+# On older versions of typing there is an internal class named \"Final\".\n+if hasattr(typing, 'Final') and sys.version_info[:2] >= (3, 7):\n+    Final = typing.Final\n+elif sys.version_info[:2] >= (3, 7):\n     class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "source_code_with_indent": "\n<DED><DED>if sys.version_info[:2] >= (3, 7):\n    <IND>class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n# On older versions of typing there is an internal class named \"Final\".\n<DED><DED>if hasattr(typing, 'Final') and sys.version_info[:2] >= (3, 7):\n    <IND>Final = typing.Final\n<DED>elif sys.version_info[:2] >= (3, 7):\n    <IND>class _FinalForm(typing._SpecialForm, _root=True):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

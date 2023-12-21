@@ -1,0 +1,53 @@
+[
+  {
+    "project": "plone/guillotina",
+    "commit": "d722d58132eca879fea1211d8badf534774dfa9a",
+    "filename": "guillotina/catalog/catalog.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plone-guillotina/guillotina/catalog/catalog.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "guillotina/catalog/catalog.py:82:42 Incompatible parameter type [6]: Expected `IBaseObject` for 1st positional only parameter to call `DefaultSearchUtility.aggregation` but got `guillotina.interfaces.content.IContainer`.",
+    "message": " Expected `IBaseObject` for 1st positional only parameter to call `DefaultSearchUtility.aggregation` but got `guillotina.interfaces.content.IContainer`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 82,
+    "warning_line": "            return await self.aggregation(container, parsed_query)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def aggregation(self, container: IBaseObject, parsed_query: typing.Any):\n        \"\"\"\n",
+        "source_code_len": 96,
+        "target_code": "\n    async def aggregation(self, container: IContainer, parsed_query: typing.Any):\n        \"\"\"\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -65,3 +65,3 @@\n \n-    async def aggregation(self, container: IBaseObject, parsed_query: typing.Any):\n+    async def aggregation(self, container: IContainer, parsed_query: typing.Any):\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>async def aggregation(self, container: IBaseObject, parsed_query: typing.Any):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>async def aggregation(self, container: IContainer, parsed_query: typing.Any):\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "plone/guillotina",
+    "commit": "d722d58132eca879fea1211d8badf534774dfa9a",
+    "filename": "guillotina/contrib/catalog/pg.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plone-guillotina/guillotina/contrib/catalog/pg.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "guillotina/contrib/catalog/pg.py:534:4 Inconsistent override [14]: `guillotina.contrib.catalog.pg.PGSearchUtility.aggregation` overrides method defined in `DefaultSearchUtility` inconsistently. Parameter of type `guillotina.interfaces.content.IContainer` is not a supertype of the overridden parameter `guillotina.db.orm.interfaces.IBaseObject`.",
+    "message": " `guillotina.contrib.catalog.pg.PGSearchUtility.aggregation` overrides method defined in `DefaultSearchUtility` inconsistently. Parameter of type `guillotina.interfaces.content.IContainer` is not a supertype of the overridden parameter `guillotina.db.orm.interfaces.IBaseObject`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 534,
+    "warning_line": "    async def aggregation(self, container: IContainer, query: ParsedQueryInfo):"
+  }
+]

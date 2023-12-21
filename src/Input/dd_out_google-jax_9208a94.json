@@ -1,0 +1,70 @@
+[
+  {
+    "project": "google/jax",
+    "commit": "9208a940a92efeab848b46d7be7b4f41af355e5b",
+    "filename": "jax/numpy/lax_numpy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-jax/jax/numpy/lax_numpy.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "jax/numpy/lax_numpy.py:1157:16 Incompatible parameter type [6]: Expected `Union[_SupportsTrunc, bytes, str, typing.SupportsInt, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `int.__new__` but got `Union[int, typing.Tuple[int, ...]]`.",
+    "message": " Expected `Union[_SupportsTrunc, bytes, str, typing.SupportsInt, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `int.__new__` but got `Union[int, typing.Tuple[int, ...]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1157,
+    "warning_line": "    axis = (int(axis),)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "  try:\n    axis = (int(axis),)\n  except TypeError:\n    pass\n  return lax.expand_dims(a, axis)\n\n",
+        "source_code_len": 95,
+        "target_code": "  try:\n    axis = (int(axis),)  # type: ignore[arg-type]\n  except TypeError:\n    pass\n  return lax.expand_dims(a, axis)  # type: ignore[arg-type]\n\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -1156,6 +1156,6 @@\n   try:\n-    axis = (int(axis),)\n+    axis = (int(axis),)  # type: ignore[arg-type]\n   except TypeError:\n     pass\n-  return lax.expand_dims(a, axis)\n+  return lax.expand_dims(a, axis)  # type: ignore[arg-type]\n \n",
+        "source_code_with_indent": "  <IND>try:\n    <IND>axis = (int(axis),)\n  <DED>except TypeError:\n    <IND>pass\n  <DED>return lax.expand_dims(a, axis)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "  <IND>try:\n    <IND>axis = (int(axis),)  # type: ignore[arg-type]\n  <DED>except TypeError:\n    <IND>pass\n  <DED>return lax.expand_dims(a, axis)  # type: ignore[arg-type]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "google/jax",
+    "commit": "9208a940a92efeab848b46d7be7b4f41af355e5b",
+    "filename": "jax/numpy/lax_numpy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-jax/jax/numpy/lax_numpy.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "jax/numpy/lax_numpy.py:1160:28 Incompatible parameter type [6]: Expected `typing.Tuple[int, ...]` for 2nd positional only parameter to call `lax.lax.expand_dims` but got `Union[int, typing.Tuple[int, ...]]`.",
+    "message": " Expected `typing.Tuple[int, ...]` for 2nd positional only parameter to call `lax.lax.expand_dims` but got `Union[int, typing.Tuple[int, ...]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1160,
+    "warning_line": "  return lax.expand_dims(a, axis)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "  try:\n    axis = (int(axis),)\n  except TypeError:\n    pass\n  return lax.expand_dims(a, axis)\n\n",
+        "source_code_len": 95,
+        "target_code": "  try:\n    axis = (int(axis),)  # type: ignore[arg-type]\n  except TypeError:\n    pass\n  return lax.expand_dims(a, axis)  # type: ignore[arg-type]\n\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -1156,6 +1156,6 @@\n   try:\n-    axis = (int(axis),)\n+    axis = (int(axis),)  # type: ignore[arg-type]\n   except TypeError:\n     pass\n-  return lax.expand_dims(a, axis)\n+  return lax.expand_dims(a, axis)  # type: ignore[arg-type]\n \n",
+        "source_code_with_indent": "  <IND>try:\n    <IND>axis = (int(axis),)\n  <DED>except TypeError:\n    <IND>pass\n  <DED>return lax.expand_dims(a, axis)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "  <IND>try:\n    <IND>axis = (int(axis),)  # type: ignore[arg-type]\n  <DED>except TypeError:\n    <IND>pass\n  <DED>return lax.expand_dims(a, axis)  # type: ignore[arg-type]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,105 @@
+[
+  {
+    "project": "cmdmnt/commandment",
+    "commit": "dbc1af7e823bf40629a5873423fa7ae276098b4b",
+    "filename": "commandment/mdm/commands.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cmdmnt-commandment/commandment/mdm/commands.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "commandment/mdm/commands.py:26:4 Incompatible attribute type [8]: Attribute `request_type` declared in class `Command` has type `str` but is used as type `None`.",
+    "message": " Attribute `request_type` declared in class `Command` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 26,
+    "warning_line": "    request_type: ClassVar[str] = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    request_type: ClassVar[str] = None\n    \"\"\"request_type (str): The MDM RequestType, as specified in the MDM Specification.\"\"\"\n\n    require_access: ClassVar[AccessRightsSet] = set()\n    \"\"\"require_access (Set[AccessRights]): Access required for the MDM to execute the command on this device.\"\"\"\n\n    require_platforms: ClassVar[PlatformRequirements] = dict()\n    \"\"\"require_platforms (PlatformRequirements): A dict of Platform : version predicate string, to indicate which \n",
+        "source_code_len": 477,
+        "target_code": "\n    # request_type: ClassVar[str] = None\n    \"\"\"request_type (str): The MDM RequestType, as specified in the MDM Specification.\"\"\"\n\n    # require_access: ClassVar[AccessRightsSet] = set()\n    \"\"\"require_access (Set[AccessRights]): Access required for the MDM to execute the command on this device.\"\"\"\n\n    # require_platforms: ClassVar[PlatformRequirements] = dict()\n    \"\"\"require_platforms (PlatformRequirements): A dict of Platform : version predicate string, to indicate which \n",
+        "target_code_len": 483,
+        "diff_format": "@@ -25,9 +25,9 @@\n \n-    request_type: ClassVar[str] = None\n+    # request_type: ClassVar[str] = None\n     \"\"\"request_type (str): The MDM RequestType, as specified in the MDM Specification.\"\"\"\n \n-    require_access: ClassVar[AccessRightsSet] = set()\n+    # require_access: ClassVar[AccessRightsSet] = set()\n     \"\"\"require_access (Set[AccessRights]): Access required for the MDM to execute the command on this device.\"\"\"\n \n-    require_platforms: ClassVar[PlatformRequirements] = dict()\n+    # require_platforms: ClassVar[PlatformRequirements] = dict()\n     \"\"\"require_platforms (PlatformRequirements): A dict of Platform : version predicate string, to indicate which \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <IND>request_type: ClassVar[str] = None\n    \"\"\"request_type (str): The MDM RequestType, as specified in the MDM Specification.\"\"\"\n\n    require_access: ClassVar[AccessRightsSet] = set()\n    \"\"\"require_access (Set[AccessRights]): Access required for the MDM to execute the command on this device.\"\"\"\n\n    require_platforms: ClassVar[PlatformRequirements] = dict()\n",
+        "target_code_with_indent": "\n    # request_type: ClassVar[str] = None\n    <IND>\"\"\"request_type (str): The MDM RequestType, as specified in the MDM Specification.\"\"\"\n\n    # require_access: ClassVar[AccessRightsSet] = set()\n    \"\"\"require_access (Set[AccessRights]): Access required for the MDM to execute the command on this device.\"\"\"\n\n    # require_platforms: ClassVar[PlatformRequirements] = dict()\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._attrs: Dict[str, Any] = {}\n\n",
+        "source_code_len": 42,
+        "target_code": "        self._attrs: Dict[str, Any] = {}\n        self.request_type: Optional[str] = None\n        self.require_access: AccessRightsSet = set()\n        self.require_platforms: PlatformRequirements = dict()\n        self.require_supervised: bool = False\n\n",
+        "target_code_len": 251,
+        "diff_format": "@@ -52,2 +52,6 @@\n         self._attrs: Dict[str, Any] = {}\n+        self.request_type: Optional[str] = None\n+        self.require_access: AccessRightsSet = set()\n+        self.require_platforms: PlatformRequirements = dict()\n+        self.require_supervised: bool = False\n \n",
+        "source_code_with_indent": "        self._attrs: Dict[str, Any] = {}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._attrs: Dict[str, Any] = {}\n        self.request_type: Optional[str] = None\n        self.require_access: AccessRightsSet = set()\n        self.require_platforms: PlatformRequirements = dict()\n        self.require_supervised: bool = False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "cmdmnt/commandment",
+    "commit": "dbc1af7e823bf40629a5873423fa7ae276098b4b",
+    "filename": "commandment/vpp/__init__.py",
+    "min_patch_found": false,
+    "full_warning_msg": "commandment/vpp/__init__.py:9:8 Incompatible return type [7]: Expected `VPP` but got `None`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "cmdmnt/commandment",
+    "commit": "dbc1af7e823bf40629a5873423fa7ae276098b4b",
+    "filename": "commandment/vpp/__init__.py",
+    "min_patch_found": false,
+    "full_warning_msg": "commandment/vpp/__init__.py:9:8 Incompatible return type [7]: Expected `VPP` but got implicit return value of `None`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "cmdmnt/commandment",
+    "commit": "dbc1af7e823bf40629a5873423fa7ae276098b4b",
+    "filename": "commandment/vpp/vpp.py",
+    "min_patch_found": false,
+    "full_warning_msg": "commandment/vpp/vpp.py:153:8 Incompatible return type [7]: Expected `Tuple[LicenseAssociationType, List[Tuple[LicenseAssociationType, int]]]` but got `Tuple[Optional[LicenseAssociationType], List[Tuple[LicenseAssociationType, int]]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "cmdmnt/commandment",
+    "commit": "dbc1af7e823bf40629a5873423fa7ae276098b4b",
+    "filename": "commandment/vpp/vpp.py",
+    "min_patch_found": false,
+    "full_warning_msg": "commandment/vpp/vpp.py:157:8 Incompatible return type [7]: Expected `Tuple[LicenseDisassociationType, List[Tuple[LicenseDisassociationType, int]]]` but got `Tuple[Optional[LicenseDisassociationType], List[Tuple[LicenseDisassociationType, int]]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "cmdmnt/commandment",
+    "commit": "dbc1af7e823bf40629a5873423fa7ae276098b4b",
+    "filename": "commandment/vpp/vpp.py",
+    "min_patch_found": false,
+    "full_warning_msg": "commandment/vpp/vpp.py:175:32 Incompatible parameter type [6]: Expected `Tuple[LicenseAssociationType, int]` for 1st positional only parameter to call `list.append` but got `Tuple[LicenseAssociationType, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "cmdmnt/commandment",
+    "commit": "dbc1af7e823bf40629a5873423fa7ae276098b4b",
+    "filename": "commandment/vpp/vpp.py",
+    "min_patch_found": false,
+    "full_warning_msg": "commandment/vpp/vpp.py:186:35 Incompatible parameter type [6]: Expected `Tuple[LicenseDisassociationType, int]` for 1st positional only parameter to call `list.append` but got `Tuple[LicenseDisassociationType, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

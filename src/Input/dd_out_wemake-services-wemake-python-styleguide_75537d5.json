@@ -1,0 +1,51 @@
+[
+  {
+    "project": "wemake-services/wemake-python-styleguide",
+    "commit": "75537d548aa926055da0ea98b057e183f5bbbee2",
+    "filename": "wemake_python_styleguide/visitors/decorators.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wemake-services-wemake-python-styleguide/wemake_python_styleguide/visitors/decorators.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wemake_python_styleguide/visitors/decorators.py:20:11 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[str]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 20,
+    "warning_line": "    if len(aliases) != len(set(aliases)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Callable, Iterable\n\n",
+        "source_code_len": 40,
+        "target_code": "\nfrom typing import Callable, Tuple\n\n",
+        "target_code_len": 37,
+        "diff_format": "@@ -2,3 +2,3 @@\n \n-from typing import Callable, Iterable\n+from typing import Callable, Tuple\n \n",
+        "source_code_with_indent": "\nfrom typing import Callable, Iterable\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Callable, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    original: str,\n    aliases: Iterable[str],\n) -> Callable[[type], type]:\n",
+        "source_code_len": 76,
+        "target_code": "    original: str,\n    aliases: Tuple[str, ...],\n) -> Callable[[type], type]:\n",
+        "target_code_len": 78,
+        "diff_format": "@@ -7,3 +7,3 @@\n     original: str,\n-    aliases: Iterable[str],\n+    aliases: Tuple[str, ...],\n ) -> Callable[[type], type]:\n",
+        "source_code_with_indent": "    original: str,\n    aliases: Iterable[str],\n) -> Callable[[type], type]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    original: str,\n    aliases: Tuple[str, ...],\n) -> Callable[[type], type]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "tensorflow/tfx",
+    "commit": "aca280dd8737feb02fc05e5e8c35e22126755ed4",
+    "filename": "tfx/components/example_gen/component.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-tfx/tfx/components/example_gen/component.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tfx/components/example_gen/component.py:144:26 Invalid type [31]: Expression `typing.Optional[type(tfx.proto.example_gen_pb2.PayloadFormat)]` is not a valid type.",
+    "message": " Expression `typing.Optional[type(tfx.proto.example_gen_pb2.PayloadFormat)]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 144,
+    "warning_line": "      output_data_format: Optional[type(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                                    Dict[Text, Any]]] = None,\n      output_data_format: Optional[type(\n          example_gen_pb2.PayloadFormat)] = example_gen_pb2.FORMAT_TF_EXAMPLE,  # pylint: disable=bad-whitespace\n      example_artifacts: Optional[types.Channel] = None,\n",
+        "source_code_len": 273,
+        "target_code": "                                    Dict[Text, Any]]] = None,\n      output_data_format: Optional[int] = example_gen_pb2.FORMAT_TF_EXAMPLE,\n      example_artifacts: Optional[types.Channel] = None,\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -143,4 +143,3 @@\n                                     Dict[Text, Any]]] = None,\n-      output_data_format: Optional[type(\n-          example_gen_pb2.PayloadFormat)] = example_gen_pb2.FORMAT_TF_EXAMPLE,  # pylint: disable=bad-whitespace\n+      output_data_format: Optional[int] = example_gen_pb2.FORMAT_TF_EXAMPLE,\n       example_artifacts: Optional[types.Channel] = None,\n",
+        "source_code_with_indent": "                                    Dict[Text, Any]]] = None,\n      output_data_format: Optional[type(\n          example_gen_pb2.PayloadFormat)] = example_gen_pb2.FORMAT_TF_EXAMPLE,  # pylint: disable=bad-whitespace\n      example_artifacts: Optional[types.Channel] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                                    Dict[Text, Any]]] = None,\n      output_data_format: Optional[int] = example_gen_pb2.FORMAT_TF_EXAMPLE,\n      example_artifacts: Optional[types.Channel] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "tensorflow/tfx",
+    "commit": "aca280dd8737feb02fc05e5e8c35e22126755ed4",
+    "filename": "tfx/components/example_gen/import_example_gen/component.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-tfx/tfx/components/example_gen/import_example_gen/component.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tfx/components/example_gen/import_example_gen/component.py:52:22 Invalid type [31]: Expression `typing.Optional[type(tfx.proto.example_gen_pb2.PayloadFormat)]` is not a valid type.",
+    "message": " Expression `typing.Optional[type(tfx.proto.example_gen_pb2.PayloadFormat)]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 52,
+    "warning_line": "      payload_format: Optional[type(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                                                                 Any]]] = None,\n      payload_format: Optional[type(\n          example_gen_pb2.PayloadFormat)] = example_gen_pb2.FORMAT_TF_EXAMPLE,  # pylint: disable=bad-whitespace\n      example_artifacts: Optional[types.Channel] = None,\n",
+        "source_code_len": 287,
+        "target_code": "                                                                 Any]]] = None,\n      payload_format: Optional[int] = example_gen_pb2.FORMAT_TF_EXAMPLE,\n      example_artifacts: Optional[types.Channel] = None,\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -51,4 +51,3 @@\n                                                                  Any]]] = None,\n-      payload_format: Optional[type(\n-          example_gen_pb2.PayloadFormat)] = example_gen_pb2.FORMAT_TF_EXAMPLE,  # pylint: disable=bad-whitespace\n+      payload_format: Optional[int] = example_gen_pb2.FORMAT_TF_EXAMPLE,\n       example_artifacts: Optional[types.Channel] = None,\n",
+        "source_code_with_indent": "                                                                 Any]]] = None,\n      payload_format: Optional[type(\n          example_gen_pb2.PayloadFormat)] = example_gen_pb2.FORMAT_TF_EXAMPLE,  # pylint: disable=bad-whitespace\n      example_artifacts: Optional[types.Channel] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                                                                 Any]]] = None,\n      payload_format: Optional[int] = example_gen_pb2.FORMAT_TF_EXAMPLE,\n      example_artifacts: Optional[types.Channel] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

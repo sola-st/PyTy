@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python-poetry/poetry-core",
+    "commit": "60a94ac041a95c1b50eb007469cf7dcaa93a1328",
+    "filename": "poetry/core/factory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-poetry-poetry-core/poetry/core/factory.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poetry/core/factory.py:35:34 Incompatible parameter type [6]: Expected `Path` for 1st positional only parameter to call `Factory.locate` but got `Optional[Path]`.",
+    "message": " Expected `Path` for 1st positional only parameter to call `Factory.locate` but got `Optional[Path]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 35,
+    "warning_line": "        poetry_file = self.locate(cwd)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def locate(cls, cwd: Path) -> Path:\n        candidates = [Path(cwd)]\n        candidates.extend(Path(cwd).parents)\n\n",
+        "source_code_len": 136,
+        "target_code": "    @classmethod\n    def locate(cls, cwd: Optional[Path] = None) -> Path:\n        cwd = Path(cwd or Path.cwd())\n        candidates = [cwd]\n        candidates.extend(cwd.parents)\n\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -424,5 +427,6 @@\n     @classmethod\n-    def locate(cls, cwd: Path) -> Path:\n-        candidates = [Path(cwd)]\n-        candidates.extend(Path(cwd).parents)\n+    def locate(cls, cwd: Optional[Path] = None) -> Path:\n+        cwd = Path(cwd or Path.cwd())\n+        candidates = [cwd]\n+        candidates.extend(cwd.parents)\n \n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def locate(cls, cwd: Path) -> Path:\n        <IND>candidates = [Path(cwd)]\n        candidates.extend(Path(cwd).parents)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def locate(cls, cwd: Optional[Path] = None) -> Path:\n        <IND>cwd = Path(cwd or Path.cwd())\n        candidates = [cwd]\n        candidates.extend(cwd.parents)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

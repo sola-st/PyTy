@@ -1,0 +1,36 @@
+[
+  {
+    "project": "trailofbits/manticore",
+    "commit": "5c14e47d8be1ce1d01113079957b248bad73b436",
+    "filename": "examples/evm/reentrancy_concrete.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-manticore/examples/evm/reentrancy_concrete.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/evm/reentrancy_concrete.py:97:17 Unbound name [10]: Name `function_selector` is used but not defined in the current scope.",
+    "message": " Name `function_selector` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 97,
+    "warning_line": "reentry_string = function_selector('withdrawBalance()')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#'\\x9d\\x15\\xfd\\x17'+pack_msb(32)+pack_msb(4)+'\\x5f\\xd8\\xc7\\x10',\nreentry_string = function_selector('withdrawBalance()')\nexploit_account.set_reentry_attack_string(reentry_string)\n",
+        "source_code_len": 179,
+        "target_code": "#'\\x9d\\x15\\xfd\\x17'+pack_msb(32)+pack_msb(4)+'\\x5f\\xd8\\xc7\\x10',\nreentry_string = ABI.function_selector('withdrawBalance()')\nexploit_account.set_reentry_attack_string(reentry_string)\n",
+        "target_code_len": 183,
+        "diff_format": "@@ -96,3 +96,3 @@\n #'\\x9d\\x15\\xfd\\x17'+pack_msb(32)+pack_msb(4)+'\\x5f\\xd8\\xc7\\x10',\n-reentry_string = function_selector('withdrawBalance()')\n+reentry_string = ABI.function_selector('withdrawBalance()')\n exploit_account.set_reentry_attack_string(reentry_string)\n",
+        "source_code_with_indent": "#'\\x9d\\x15\\xfd\\x17'+pack_msb(32)+pack_msb(4)+'\\x5f\\xd8\\xc7\\x10',\nreentry_string = function_selector('withdrawBalance()')\nexploit_account.set_reentry_attack_string(reentry_string)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#'\\x9d\\x15\\xfd\\x17'+pack_msb(32)+pack_msb(4)+'\\x5f\\xd8\\xc7\\x10',\nreentry_string = ABI.function_selector('withdrawBalance()')\nexploit_account.set_reentry_attack_string(reentry_string)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

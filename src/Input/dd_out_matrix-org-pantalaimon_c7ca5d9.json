@@ -1,0 +1,104 @@
+[
+  {
+    "project": "matrix-org/pantalaimon",
+    "commit": "c7ca5d9851943b1e2d24aa0968d623a014fee965",
+    "filename": "pantalaimon/config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-pantalaimon/pantalaimon/config.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pantalaimon/config.py:56:4 Incompatible variable type [9]: value is declared to have type `str` but is used as type `ParseResult`.",
+    "message": " value is declared to have type `str` but is used as type `ParseResult`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 56,
+    "warning_line": "    value = urlparse(value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef parse_url(value):\n    # type: (str) -> ParseResult\n    value = urlparse(value)\n\n",
+        "source_code_len": 85,
+        "target_code": "\ndef parse_url(v):\n    # type: (str) -> ParseResult\n    value = urlparse(v)\n\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -53,5 +53,5 @@\n \n-def parse_url(value):\n+def parse_url(v):\n     # type: (str) -> ParseResult\n-    value = urlparse(value)\n+    value = urlparse(v)\n \n",
+        "source_code_with_indent": "\n<DED>def parse_url(value):\n    # type: (str) -> ParseResult\n    <IND>value = urlparse(value)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def parse_url(v):\n    # type: (str) -> ParseResult\n    <IND>value = urlparse(v)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "matrix-org/pantalaimon",
+    "commit": "c7ca5d9851943b1e2d24aa0968d623a014fee965",
+    "filename": "pantalaimon/config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-pantalaimon/pantalaimon/config.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pantalaimon/config.py:63:4 Incompatible return type [7]: Expected `ParseResult` but got `str`.",
+    "message": " Expected `ParseResult` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 63,
+    "warning_line": "    return value",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef parse_url(value):\n    # type: (str) -> ParseResult\n    value = urlparse(value)\n\n",
+        "source_code_len": 85,
+        "target_code": "\ndef parse_url(v):\n    # type: (str) -> ParseResult\n    value = urlparse(v)\n\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -53,5 +53,5 @@\n \n-def parse_url(value):\n+def parse_url(v):\n     # type: (str) -> ParseResult\n-    value = urlparse(value)\n+    value = urlparse(v)\n \n",
+        "source_code_with_indent": "\n<DED>def parse_url(value):\n    # type: (str) -> ParseResult\n    <IND>value = urlparse(value)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def parse_url(v):\n    # type: (str) -> ParseResult\n    <IND>value = urlparse(v)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "matrix-org/pantalaimon",
+    "commit": "c7ca5d9851943b1e2d24aa0968d623a014fee965",
+    "filename": "pantalaimon/store.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-pantalaimon/pantalaimon/store.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pantalaimon/store.py:217:12 Incompatible return type [7]: Expected `Union[List[Dict[typing.Any, typing.Any]], List[Tuple[Dict[typing.Any, typing.Any], Dict[typing.Any, typing.Any]]]]` but got `None`.",
+    "message": " Expected `Union[List[Dict[typing.Any, typing.Any]], List[Tuple[Dict[typing.Any, typing.Any], Dict[typing.Any, typing.Any]]]]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 217,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ):\n        # type: (...) -> Union[List[Dict[Any, Any]], List[Tuple[Dict, Dict]]]\n        server = Servers.get(name=server)\n",
+        "source_code_len": 127,
+        "target_code": "    ):\n        # type: (...) -> Optional[Dict]\n        server = Servers.get(name=server)\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -209,3 +207,3 @@\n     ):\n-        # type: (...) -> Union[List[Dict[Any, Any]], List[Tuple[Dict, Dict]]]\n+        # type: (...) -> Optional[Dict]\n         server = Servers.get(name=server)\n",
+        "source_code_with_indent": "    ):\n        # type: (...) -> Union[List[Dict[Any, Any]], List[Tuple[Dict, Dict]]]\n        <IND>server = Servers.get(name=server)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ):\n        # type: (...) -> Optional[Dict]\n        <IND>server = Servers.get(name=server)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

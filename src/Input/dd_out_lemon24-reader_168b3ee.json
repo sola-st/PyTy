@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lemon24/reader",
+    "commit": "168b3eee338e29666fb8a9cfd005064d738554b7",
+    "filename": "src/reader/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lemon24-reader/src/reader/types.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/reader/types.py:263:8 Incompatible return type [7]: Expected `datetime` but got `Optional[datetime]`.",
+    "message": " Expected `datetime` but got `Optional[datetime]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 263,
+    "warning_line": "        return self.updated",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        return self.updated\n",
+        "source_code_len": 40,
+        "target_code": "        \"\"\"\n        # for mypy\n        assert self.updated is not None\n        return self.updated\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -262,2 +270,4 @@\n         \"\"\"\n+        # for mypy\n+        assert self.updated is not None\n         return self.updated\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        return self.updated\n",
+        "target_code_with_indent": "\n        # for mypy\n        assert self.updated is not None\n        return self.updated\n"
+      }
+    ]
+  }
+]

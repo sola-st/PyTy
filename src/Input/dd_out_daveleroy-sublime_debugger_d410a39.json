@@ -1,0 +1,96 @@
+[
+  {
+    "project": "daveleroy/sublime_debugger",
+    "commit": "d410a39c5313babd215d70bc996303648cf639fe",
+    "filename": "modules/debugger/breakpoints/__init__.py",
+    "min_patch_found": false,
+    "full_warning_msg": "modules/debugger/breakpoints/__init__.py:14:19 Unbound name [10]: Name `Protocol` is used but not defined in the current scope.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "daveleroy/sublime_debugger",
+    "commit": "d410a39c5313babd215d70bc996303648cf639fe",
+    "filename": "modules/debugger/debugger_interface.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/daveleroy-sublime_debugger/modules/debugger/debugger_interface.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "modules/debugger/debugger_interface.py:68:23 Invalid type [31]: Expression `[modules.components.pages_panel.TabbedPanelItem]` is not a valid type.",
+    "message": " Expression `[modules.components.pages_panel.TabbedPanelItem]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 68,
+    "warning_line": "\tdef add(self, panels: [TabbedPanelItem]):"
+  },
+  {
+    "project": "daveleroy/sublime_debugger",
+    "commit": "d410a39c5313babd215d70bc996303648cf639fe",
+    "filename": "modules/debugger/debugger_interface.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/daveleroy-sublime_debugger/modules/debugger/debugger_interface.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "modules/debugger/debugger_interface.py:169:11 Unbound name [10]: Name `Error` is used but not defined in the current scope.",
+    "message": " Name `Error` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 169,
+    "warning_line": "\t\t\t\t\traise Error(True, \"Debugger must be run inside a sublime project\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\t\t\t\telse:\n\t\t\t\t\traise Error(True, \"Debugger must be run inside a sublime project\")\n\n",
+        "source_code_len": 83,
+        "target_code": "\t\t\t\telse:\n\t\t\t\t\traise core.Error(\"Debugger must be run inside a sublime project\")\n\n",
+        "target_code_len": 82,
+        "diff_format": "@@ -168,3 +169,3 @@\n \t\t\t\telse:\n-\t\t\t\t\traise Error(True, \"Debugger must be run inside a sublime project\")\n+\t\t\t\t\traise core.Error(\"Debugger must be run inside a sublime project\")\n \n",
+        "source_code_with_indent": "    <DED>else:\n\t\t\t\t\t<IND>raise Error(True, \"Debugger must be run inside a sublime project\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>else:\n\t\t\t\t\t<IND>raise core.Error(\"Debugger must be run inside a sublime project\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "daveleroy/sublime_debugger",
+    "commit": "d410a39c5313babd215d70bc996303648cf639fe",
+    "filename": "modules/debugger/debugger_terminal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/daveleroy-sublime_debugger/modules/debugger/debugger_terminal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "modules/debugger/debugger_terminal.py:31:78 Invalid type [31]: Expression `[[modules.dap.Source, Optional[int]], None]` is not a valid type.",
+    "message": " Expression `[[modules.dap.Source, Optional[int]], None]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 31,
+    "warning_line": "\tdef __init__(self, on_run_command: Callable[[str], None], on_clicked_source: [[dap.Source, Optional[int]], None]):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class DebuggerTerminal (TerminalStandard):\n\tdef __init__(self, on_run_command: Callable[[str], None], on_clicked_source: [[dap.Source, Optional[int]], None]):\n\t\tsuper().__init__(\"Debugger Console\")\n",
+        "source_code_len": 198,
+        "target_code": "class DebuggerTerminal (TerminalStandard):\n\tdef __init__(self, on_run_command: Callable[[str], None], on_clicked_source: Callable[[dap.Source, Optional[int]], None]):\n\t\tsuper().__init__(\"Debugger Console\")\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -30,3 +30,3 @@\n class DebuggerTerminal (TerminalStandard):\n-\tdef __init__(self, on_run_command: Callable[[str], None], on_clicked_source: [[dap.Source, Optional[int]], None]):\n+\tdef __init__(self, on_run_command: Callable[[str], None], on_clicked_source: Callable[[dap.Source, Optional[int]], None]):\n \t\tsuper().__init__(\"Debugger Console\")\n",
+        "source_code_with_indent": "<DED><DED>class DebuggerTerminal (TerminalStandard):\n\t<IND>def __init__(self, on_run_command: Callable[[str], None], on_clicked_source: [[dap.Source, Optional[int]], None]):\n\t\t<IND>super().__init__(\"Debugger Console\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class DebuggerTerminal (TerminalStandard):\n\t<IND>def __init__(self, on_run_command: Callable[[str], None], on_clicked_source: Callable[[dap.Source, Optional[int]], None]):\n\t\t<IND>super().__init__(\"Debugger Console\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

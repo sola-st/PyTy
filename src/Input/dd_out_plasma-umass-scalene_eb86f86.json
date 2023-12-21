@@ -1,0 +1,70 @@
+[
+  {
+    "project": "plasma-umass/scalene",
+    "commit": "eb86f8606cb3325d001c2eb68176159f0751390e",
+    "filename": "scalene/scalene_statistics.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plasma-umass-scalene/scalene/scalene_statistics.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scalene/scalene_statistics.py:35:8 Incompatible attribute type [8]: Attribute `start_time` declared in class `ScaleneStatistics` has type `float` but is used as type `None`.",
+    "message": " Attribute `start_time` declared in class `ScaleneStatistics` has type `float` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 35,
+    "warning_line": "        self.start_time: float = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # time the profiling started\n        self.start_time: float = None\n\n",
+        "source_code_len": 76,
+        "target_code": "        # time the profiling started\n        self.start_time: float = 0\n\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -34,3 +34,3 @@\n         # time the profiling started\n-        self.start_time: float = None\n+        self.start_time: float = 0\n \n",
+        "source_code_with_indent": "        # time the profiling started\n        <IND>self.start_time: float = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # time the profiling started\n        <IND>self.start_time: float = 0\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "plasma-umass/scalene",
+    "commit": "eb86f8606cb3325d001c2eb68176159f0751390e",
+    "filename": "scalene/scalene_statistics.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plasma-umass-scalene/scalene/scalene_statistics.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scalene/scalene_statistics.py:197:8 Incompatible attribute type [8]: Attribute `start_time` declared in class `ScaleneStatistics` has type `float` but is used as type `None`.",
+    "message": " Attribute `start_time` declared in class `ScaleneStatistics` has type `float` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 197,
+    "warning_line": "        self.start_time = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.elapsed_time += time.perf_counter() - self.start_time\n        self.start_time = None\n\n",
+        "source_code_len": 99,
+        "target_code": "        self.elapsed_time += time.perf_counter() - self.start_time\n        self.start_time = 0\n\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -196,3 +196,3 @@\n         self.elapsed_time += time.perf_counter() - self.start_time\n-        self.start_time = None\n+        self.start_time = 0\n \n",
+        "source_code_with_indent": "        <IND>self.elapsed_time += time.perf_counter() - self.start_time\n        self.start_time = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>self.elapsed_time += time.perf_counter() - self.start_time\n        self.start_time = 0\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

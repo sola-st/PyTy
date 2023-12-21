@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "3f6dbacd9d02569f0fd071452efddbeb6b267c2f",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/instructions.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:748:11 Unsupported operand [58]: `>` is not supported for operand types `Union[int, mythril.laser.smt.expression.Expression]` and `int`.",
+    "message": " `>` is not supported for operand types `Union[int, mythril.laser.smt.expression.Expression]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 748,
+    "warning_line": "        if size > 0:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return [global_state]\n\n        if size > 0:\n",
+        "source_code_len": 56,
+        "target_code": "            return [global_state]\n        size = cast(int, size)\n        if size > 0:\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -746,3 +746,3 @@\n             return [global_state]\n-\n+        size = cast(int, size)\n         if size > 0:\n",
+        "source_code_with_indent": "            return [global_state]\n\n        <DED>if size > 0:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            return [global_state]\n        <DED>size = cast(int, size)\n        if size > 0:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "3f6dbacd9d02569f0fd071452efddbeb6b267c2f",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/instructions.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:774:31 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `Union[int, mythril.laser.smt.expression.Expression]`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `Union[int, mythril.laser.smt.expression.Expression]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 774,
+    "warning_line": "                for i in range(size):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return [global_state]\n\n        if size > 0:\n",
+        "source_code_len": 56,
+        "target_code": "            return [global_state]\n        size = cast(int, size)\n        if size > 0:\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -746,3 +746,3 @@\n             return [global_state]\n-\n+        size = cast(int, size)\n         if size > 0:\n",
+        "source_code_with_indent": "            return [global_state]\n\n        <DED>if size > 0:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            return [global_state]\n        <DED>size = cast(int, size)\n        if size > 0:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

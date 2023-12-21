@@ -1,0 +1,36 @@
+[
+  {
+    "project": "bashtage/arch",
+    "commit": "af91046046e9191b88925d791a3edb14dbce366a",
+    "filename": "arch/univariate/volatility.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bashtage-arch/arch/univariate/volatility.py",
+    "file_hunks_size": 52,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arch/univariate/volatility.py:2179:4 Inconsistent override [15]: `arch.univariate.volatility.RiskMetrics2006.backcast` overrides method defined in `VolatilityProcess` inconsistently. Returned type `unknown` is not a subtype of the overridden return `float`.",
+    "message": " `arch.univariate.volatility.RiskMetrics2006.backcast` overrides method defined in `VolatilityProcess` inconsistently. Returned type `unknown` is not a subtype of the overridden return `float`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 2179,
+    "warning_line": "    def backcast(self, resids: NDArray) -> NDArray:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def backcast(self, resids: NDArray) -> float:\n        \"\"\"\n",
+        "source_code_len": 63,
+        "target_code": "\n    def backcast(self, resids: NDArray) -> Union[float, NDArray]:\n        \"\"\"\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -479,3 +479,3 @@\n \n-    def backcast(self, resids: NDArray) -> float:\n+    def backcast(self, resids: NDArray) -> Union[float, NDArray]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def backcast(self, resids: NDArray) -> float:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def backcast(self, resids: NDArray) -> Union[float, NDArray]:\n        <IND>"
+      }
+    ]
+  }
+]

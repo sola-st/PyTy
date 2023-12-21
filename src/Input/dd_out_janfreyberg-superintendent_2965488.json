@@ -1,0 +1,107 @@
+[
+  {
+    "project": "janfreyberg/superintendent",
+    "commit": "29654881cb393f43df63221b9fa234d52482854c",
+    "filename": "superintendent/base.py",
+    "min_patch_found": false,
+    "full_warning_msg": "superintendent/base.py:64:8 Incompatible variable type [9]: display_func is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/janfreyberg-superintendent/superintendent/base.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "janfreyberg/superintendent",
+    "commit": "29654881cb393f43df63221b9fa234d52482854c",
+    "filename": "superintendent/controls/buttongroup.py",
+    "min_patch_found": false,
+    "full_warning_msg": "superintendent/controls/buttongroup.py:90:52 Unsupported operand [58]: `<=` is not supported for operand types `Union[float, int, str]` and `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "janfreyberg/superintendent",
+    "commit": "29654881cb393f43df63221b9fa234d52482854c",
+    "filename": "superintendent/controls/buttongroup.py",
+    "min_patch_found": false,
+    "full_warning_msg": "superintendent/controls/buttongroup.py:91:42 Unsupported operand [58]: `*` is not supported for operand types `int` and `Union[float, int, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "janfreyberg/superintendent",
+    "commit": "29654881cb393f43df63221b9fa234d52482854c",
+    "filename": "superintendent/controls/togglebuttongroup.py",
+    "min_patch_found": false,
+    "full_warning_msg": "superintendent/controls/togglebuttongroup.py:81:52 Unsupported operand [58]: `<=` is not supported for operand types `Union[float, int, str]` and `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "janfreyberg/superintendent",
+    "commit": "29654881cb393f43df63221b9fa234d52482854c",
+    "filename": "superintendent/controls/togglebuttongroup.py",
+    "min_patch_found": false,
+    "full_warning_msg": "superintendent/controls/togglebuttongroup.py:82:42 Unsupported operand [58]: `*` is not supported for operand types `int` and `Union[float, int, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "janfreyberg/superintendent",
+    "commit": "29654881cb393f43df63221b9fa234d52482854c",
+    "filename": "superintendent/distributed/dbqueue.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/janfreyberg-superintendent/src/superintendent/distributed/queueing.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "superintendent/distributed/dbqueue.py:209:4 Inconsistent override [14]: `superintendent.distributed.dbqueue.DatabaseQueue.reorder` overrides method defined in `BaseLabellingQueue` inconsistently. Could not find parameter `new_order` in overriding signature.",
+    "message": " `superintendent.distributed.dbqueue.DatabaseQueue.reorder` overrides method defined in `BaseLabellingQueue` inconsistently. Could not find parameter `new_order` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 209,
+    "warning_line": "    def reorder(self, priorities: Dict[int, int]) -> None:"
+  },
+  {
+    "project": "janfreyberg/superintendent",
+    "commit": "29654881cb393f43df63221b9fa234d52482854c",
+    "filename": "superintendent/distributed/semisupervisor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/janfreyberg-superintendent/src/superintendent/distributed/mixin.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "superintendent/distributed/semisupervisor.py:197:25 Unsupported operand [58]: `<` is not supported for operand types `int` and `Union[float, int]`.",
+    "message": " `<` is not supported for operand types `int` and `Union[float, int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 197,
+    "warning_line": "            while runs < max_runs:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        shuffle_prop: float = 0.1,\n        max_runs: Union[int, float] = inf,\n    ):\n",
+        "source_code_len": 85,
+        "target_code": "        shuffle_prop: float = 0.1,\n        max_runs: float = inf,\n    ):\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -160,3 +76,3 @@\n         shuffle_prop: float = 0.1,\n-        max_runs: Union[int, float] = inf,\n+        max_runs: float = inf,\n     ):\n",
+        "source_code_with_indent": "        shuffle_prop: float = 0.1,\n        max_runs: Union[int, float] = inf,\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        shuffle_prop: float = 0.1,\n        max_runs: float = inf,\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "janfreyberg/superintendent",
+    "commit": "29654881cb393f43df63221b9fa234d52482854c",
+    "filename": "superintendent/queueing.py",
+    "min_patch_found": false,
+    "full_warning_msg": "superintendent/queueing.py:385:44 Incompatible parameter type [6]: Expected `typing.Callable[[Variable[_T1]], Variable[_S]]` for 1st positional only parameter to call `map.__init__` but got `typing.Type[set]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/janfreyberg-superintendent/superintendent/queueing.py'",
+    "dd_fail": true
+  }
+]

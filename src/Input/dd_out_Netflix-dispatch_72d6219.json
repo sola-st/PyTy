@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Netflix/dispatch",
+    "commit": "72d621923cf7781775d152e3dcfc71bafb164ec8",
+    "filename": "src/dispatch/plugin/service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Netflix-dispatch/src/dispatch/plugin/service.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/dispatch/plugin/service.py:133:4 Incompatible return type [7]: Expected `Plugin` but got `PluginInstance`.",
+    "message": " Expected `Plugin` but got `PluginInstance`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 133,
+    "warning_line": "    return plugin_instance",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    *, db_session, plugin_instance: PluginInstance, plugin_instance_in: PluginInstanceUpdate\n) -> Plugin:\n    \"\"\"Updates a plugin instance.\"\"\"\n    plugin_data = jsonable_encoder(plugin_instance)\n    update_data = plugin_instance_in.dict(skip_defaults=True)\n",
+        "source_code_len": 257,
+        "target_code": "    *, db_session, plugin_instance: PluginInstance, plugin_instance_in: PluginInstanceUpdate\n) -> PluginInstance:\n    \"\"\"Updates a plugin instance.\"\"\"\n    plugin_instance_data = jsonable_encoder(plugin_instance)\n    update_data = plugin_instance_in.dict(skip_defaults=True)\n",
+        "target_code_len": 274,
+        "diff_format": "@@ -101,5 +101,5 @@\n     *, db_session, plugin_instance: PluginInstance, plugin_instance_in: PluginInstanceUpdate\n-) -> Plugin:\n+) -> PluginInstance:\n     \"\"\"Updates a plugin instance.\"\"\"\n-    plugin_data = jsonable_encoder(plugin_instance)\n+    plugin_instance_data = jsonable_encoder(plugin_instance)\n     update_data = plugin_instance_in.dict(skip_defaults=True)\n",
+        "source_code_with_indent": "    *, db_session, plugin_instance: PluginInstance, plugin_instance_in: PluginInstanceUpdate\n) -> Plugin:\n    <IND>\"\"\"Updates a plugin instance.\"\"\"\n    plugin_data = jsonable_encoder(plugin_instance)\n    update_data = plugin_instance_in.dict(skip_defaults=True)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    *, db_session, plugin_instance: PluginInstance, plugin_instance_in: PluginInstanceUpdate\n) -> PluginInstance:\n    <IND>\"\"\"Updates a plugin instance.\"\"\"\n    plugin_instance_data = jsonable_encoder(plugin_instance)\n    update_data = plugin_instance_in.dict(skip_defaults=True)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    for field in plugin_data:\n        if field in update_data:\n",
+        "source_code_len": 64,
+        "target_code": "\n    for field in plugin_instance_data:\n        if field in update_data:\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -126,3 +126,3 @@\n \n-    for field in plugin_data:\n+    for field in plugin_instance_data:\n         if field in update_data:\n",
+        "source_code_with_indent": "\n    <DED><DED><DED>for field in plugin_data:\n        <IND>if field in update_data:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED><DED>for field in plugin_instance_data:\n        <IND>if field in update_data:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

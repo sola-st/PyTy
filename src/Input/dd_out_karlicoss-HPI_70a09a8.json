@@ -1,0 +1,100 @@
+[
+  {
+    "project": "karlicoss/HPI",
+    "commit": "70a09a80ba1dd948b81e28f88848baca14b12036",
+    "filename": "location/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlicoss-HPI/location/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "location/__init__.py:87:18 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[Location]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[Location]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 87,
+    "warning_line": "    while i < len(locs):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import NamedTuple, Iterator, List, Iterable\nfrom datetime import datetime\n",
+        "source_code_len": 86,
+        "target_code": "from typing import NamedTuple, Iterator, List, Iterable, Collection, Sequence\nfrom datetime import datetime\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -1,2 +1,2 @@\n-from typing import NamedTuple, Iterator, List, Iterable\n+from typing import NamedTuple, Iterator, List, Iterable, Collection, Sequence\n from datetime import datetime\n",
+        "source_code_with_indent": "from typing import NamedTuple, Iterator, List, Iterable\nfrom datetime import datetime\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import NamedTuple, Iterator, List, Iterable, Collection, Sequence\nfrom datetime import datetime\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_locations(cached: bool=False) -> Iterable[Location]:\n    import dill # type: ignore\n",
+        "source_code_len": 93,
+        "target_code": "\ndef get_locations(cached: bool=False) -> Sequence[Location]:\n    import dill # type: ignore\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -54,3 +54,3 @@\n \n-def get_locations(cached: bool=False) -> Iterable[Location]:\n+def get_locations(cached: bool=False) -> Sequence[Location]:\n     import dill # type: ignore\n",
+        "source_code_with_indent": "\n<DED><DED><DED>def get_locations(cached: bool=False) -> Iterable[Location]:\n    <IND>import dill # type: ignore\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>def get_locations(cached: bool=False) -> Sequence[Location]:\n    <IND>import dill # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "karlicoss/HPI",
+    "commit": "70a09a80ba1dd948b81e28f88848baca14b12036",
+    "filename": "location/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlicoss-HPI/location/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "location/__init__.py:92:36 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[Location]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[Location]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 92,
+    "warning_line": "        while not match and j < len(locs) and j < i + 10: # TODO FIXME time distance here... e.g. half an hour?",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import NamedTuple, Iterator, List, Iterable\nfrom datetime import datetime\n",
+        "source_code_len": 86,
+        "target_code": "from typing import NamedTuple, Iterator, List, Iterable, Collection, Sequence\nfrom datetime import datetime\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -1,2 +1,2 @@\n-from typing import NamedTuple, Iterator, List, Iterable\n+from typing import NamedTuple, Iterator, List, Iterable, Collection, Sequence\n from datetime import datetime\n",
+        "source_code_with_indent": "from typing import NamedTuple, Iterator, List, Iterable\nfrom datetime import datetime\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import NamedTuple, Iterator, List, Iterable, Collection, Sequence\nfrom datetime import datetime\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_locations(cached: bool=False) -> Iterable[Location]:\n    import dill # type: ignore\n",
+        "source_code_len": 93,
+        "target_code": "\ndef get_locations(cached: bool=False) -> Sequence[Location]:\n    import dill # type: ignore\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -54,3 +54,3 @@\n \n-def get_locations(cached: bool=False) -> Iterable[Location]:\n+def get_locations(cached: bool=False) -> Sequence[Location]:\n     import dill # type: ignore\n",
+        "source_code_with_indent": "\n<DED><DED><DED>def get_locations(cached: bool=False) -> Iterable[Location]:\n    <IND>import dill # type: ignore\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>def get_locations(cached: bool=False) -> Sequence[Location]:\n    <IND>import dill # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

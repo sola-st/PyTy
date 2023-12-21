@@ -1,0 +1,85 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "a0b36df280d806c64ad59ba8206e81443d04acee",
+    "filename": "forte/data/readers/multipack_terminal_reader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/data/readers/multipack_terminal_reader.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/data/readers/multipack_terminal_reader.py:90:4 Inconsistent override [14]: `forte.data.readers.multipack_terminal_reader.MultiPackTerminalReader.default_configs` overrides method defined in `forte.data.readers.base_reader.BaseReader` inconsistently. Could not find parameter `cls` in overriding signature.",
+    "message": " `forte.data.readers.multipack_terminal_reader.MultiPackTerminalReader.default_configs` overrides method defined in `forte.data.readers.base_reader.BaseReader` inconsistently. Could not find parameter `cls` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 90,
+    "warning_line": "    def default_configs() -> Dict[str, Any]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    @staticmethod\n    def default_configs() -> Dict[str, Any]:\n        return {\n            \"pack_name\": \"query\"\n        }\n",
+        "source_code_len": 124,
+        "target_code": "\n    @classmethod\n    def default_configs(cls) -> Dict[str, Any]:\n        configs = super().default_configs()\n        configs[\"pack_name\"] = \"query\"\n        return configs\n",
+        "target_code_len": 172,
+        "diff_format": "@@ -88,6 +88,6 @@\n \n-    @staticmethod\n-    def default_configs() -> Dict[str, Any]:\n-        return {\n-            \"pack_name\": \"query\"\n-        }\n+    @classmethod\n+    def default_configs(cls) -> Dict[str, Any]:\n+        configs = super().default_configs()\n+        configs[\"pack_name\"] = \"query\"\n+        return configs\n",
+        "source_code_with_indent": "\n    <DED>@staticmethod\n    def default_configs() -> Dict[str, Any]:\n        <IND>return {\n            \"pack_name\": \"query\"\n        }\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@classmethod\n    def default_configs(cls) -> Dict[str, Any]:\n        <IND>configs = super().default_configs()\n        configs[\"pack_name\"] = \"query\"\n        return configs\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "a0b36df280d806c64ad59ba8206e81443d04acee",
+    "filename": "forte/processors/ir/bert_reranking_processor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/processors/ir/bert_reranking_processor.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/processors/ir/bert_reranking_processor.py:67:4 Inconsistent override [14]: `forte.processors.ir.bert_reranking_processor.BertRerankingProcessor.default_configs` overrides method defined in `forte.processors.base.base_processor.BaseProcessor` inconsistently. Could not find parameter `cls` in overriding signature.",
+    "message": " `forte.processors.ir.bert_reranking_processor.BertRerankingProcessor.default_configs` overrides method defined in `forte.processors.base.base_processor.BaseProcessor` inconsistently. Could not find parameter `cls` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 67,
+    "warning_line": "    def default_configs() -> Dict[str, Any]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    @staticmethod\n    def default_configs() -> Dict[str, Any]:\n        pretrained_model_name = \"bert-large-uncased\"\n        return {\n            \"size\": 5,\n",
+        "source_code_len": 157,
+        "target_code": "\n    @classmethod\n    def default_configs(cls) -> Dict[str, Any]:\n        configs = super().default_configs()\n        pretrained_model_name = \"bert-large-uncased\"\n        configs.update({\n            \"size\": 5,\n",
+        "target_code_len": 211,
+        "diff_format": "@@ -65,6 +65,7 @@\n \n-    @staticmethod\n-    def default_configs() -> Dict[str, Any]:\n+    @classmethod\n+    def default_configs(cls) -> Dict[str, Any]:\n+        configs = super().default_configs()\n         pretrained_model_name = \"bert-large-uncased\"\n-        return {\n+        configs.update({\n             \"size\": 5,\n",
+        "source_code_with_indent": "\n    <DED>@staticmethod\n    def default_configs() -> Dict[str, Any]:\n        <IND>pretrained_model_name = \"bert-large-uncased\"\n        return {\n            \"size\": 5,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@classmethod\n    def default_configs(cls) -> Dict[str, Any]:\n        <IND>configs = super().default_configs()\n        pretrained_model_name = \"bert-large-uncased\"\n        configs.update({\n            \"size\": 5,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            \"max_seq_length\": 512\n        }\n\n",
+        "source_code_len": 45,
+        "target_code": "            \"max_seq_length\": 512\n        })\n        return configs\n\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -75,3 +76,4 @@\n             \"max_seq_length\": 512\n-        }\n+        })\n+        return configs\n \n",
+        "source_code_with_indent": "            \"max_seq_length\": 512\n        }\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            \"max_seq_length\": 512\n        })\n        return configs\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

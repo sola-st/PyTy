@@ -1,0 +1,51 @@
+[
+  {
+    "project": "PrefectHQ/prefect",
+    "commit": "4a024761180e6ff9f1ffd60ed22ed1dd7e2b2ba9",
+    "filename": "src/prefect/agent/agent.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PrefectHQ-prefect/src/prefect/agent/agent.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/prefect/agent/agent.py:125:8 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 125,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import logging\nimport pendulum\n",
+        "source_code_len": 31,
+        "target_code": "import logging\nfrom typing import Union\n\nimport pendulum\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -1,2 +1,4 @@\n import logging\n+from typing import Union\n+\n import pendulum\n",
+        "source_code_with_indent": "import logging\nimport pendulum\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\nfrom typing import Union\n\nimport pendulum\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def query_tenant_id(self) -> str:\n        \"\"\"\n",
+        "source_code_len": 51,
+        "target_code": "\n    def query_tenant_id(self) -> Union[str, None]:\n        \"\"\"\n",
+        "target_code_len": 64,
+        "diff_format": "@@ -111,3 +113,3 @@\n \n-    def query_tenant_id(self) -> str:\n+    def query_tenant_id(self) -> Union[str, None]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def query_tenant_id(self) -> str:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def query_tenant_id(self) -> Union[str, None]:\n        <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "explosion/catalogue",
+    "commit": "659a62dda572e1876803cab612ef85e986c16593",
+    "filename": "catalogue.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/explosion-catalogue/catalogue.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "catalogue.py:153:42 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `inspect.cleandoc` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `inspect.cleandoc` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 153,
+    "warning_line": "            \"docstring\": inspect.cleandoc(inspect.getdoc(func)),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def find(self, name: str) -> Dict[str, Union[str, int]]:\n        \"\"\"Find the information about a registered function, including the\n",
+        "source_code_len": 137,
+        "target_code": "\n    def find(self, name: str) -> Dict[str, Optional[Union[str, int]]]:\n        \"\"\"Find the information about a registered function, including the\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -138,3 +138,3 @@\n \n-    def find(self, name: str) -> Dict[str, Union[str, int]]:\n+    def find(self, name: str) -> Dict[str, Optional[Union[str, int]]]:\n         \"\"\"Find the information about a registered function, including the\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def find(self, name: str) -> Dict[str, Union[str, int]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def find(self, name: str) -> Dict[str, Optional[Union[str, int]]]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        _, line_no = inspect.getsourcelines(func)\n        return {\n            \"module\": inspect.getmodule(func).__name__,\n            \"file\": inspect.getfile(func),\n            \"line_no\": line_no,\n            \"docstring\": inspect.cleandoc(inspect.getdoc(func)),\n        }\n",
+        "source_code_len": 273,
+        "target_code": "        _, line_no = inspect.getsourcelines(func)\n        module = inspect.getmodule(func)\n        docstring = inspect.getdoc(func)\n        return {\n            \"module\": module.__name__ if module else None,\n            \"file\": inspect.getfile(func),\n            \"line_no\": line_no,\n            \"docstring\": inspect.cleandoc(docstring) if docstring else None,\n        }\n",
+        "target_code_len": 370,
+        "diff_format": "@@ -148,7 +148,9 @@\n         _, line_no = inspect.getsourcelines(func)\n+        module = inspect.getmodule(func)\n+        docstring = inspect.getdoc(func)\n         return {\n-            \"module\": inspect.getmodule(func).__name__,\n+            \"module\": module.__name__ if module else None,\n             \"file\": inspect.getfile(func),\n             \"line_no\": line_no,\n-            \"docstring\": inspect.cleandoc(inspect.getdoc(func)),\n+            \"docstring\": inspect.cleandoc(docstring) if docstring else None,\n         }\n",
+        "source_code_with_indent": "        _, line_no = inspect.getsourcelines(func)\n        return {\n            \"module\": inspect.getmodule(func).__name__,\n            \"file\": inspect.getfile(func),\n            \"line_no\": line_no,\n            \"docstring\": inspect.cleandoc(inspect.getdoc(func)),\n        }\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        _, line_no = inspect.getsourcelines(func)\n        module = inspect.getmodule(func)\n        docstring = inspect.getdoc(func)\n        return {\n            \"module\": module.__name__ if module else None,\n            \"file\": inspect.getfile(func),\n            \"line_no\": line_no,\n            \"docstring\": inspect.cleandoc(docstring) if docstring else None,\n        }\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

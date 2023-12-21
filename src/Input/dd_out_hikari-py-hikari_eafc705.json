@@ -1,0 +1,36 @@
+[
+  {
+    "project": "hikari-py/hikari",
+    "commit": "eafc705e74ba2785766ff5f85292f75a4effdfab",
+    "filename": "hikari/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/messages.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hikari/messages.py:343:16 Incompatible parameter type [6]: Expected `typing.Iterable[snowflakes.Snowflake]` for 1st positional only parameter to call `Mentions._map_cache_maybe_discover` but got `typing.Union[typing.Mapping[snowflakes.Snowflake, users_.User], undefined.UndefinedType]`.",
+    "message": " Expected `typing.Iterable[snowflakes.Snowflake]` for 1st positional only parameter to call `Mentions._map_cache_maybe_discover` but got `typing.Union[typing.Mapping[snowflakes.Snowflake, users_.User], undefined.UndefinedType]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 343,
+    "warning_line": "                self.users,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if self._ensure_cache(intents.Intents.GUILDS, True):\n            guild_id = typing.cast(snowflakes.Snowflake, self._message.guild_id)\n            app = typing.cast(traits.CacheAware, self._message.app)\n\n            return self._map_cache_maybe_discover(\n",
+        "source_code_len": 263,
+        "target_code": "\n        if isinstance(self._message.app, traits.CacheAware) and self._message.guild_id is not None:\n            app = self._message.app\n            guild_id = self._message.guild_id\n            return self._map_cache_maybe_discover(\n",
+        "target_code_len": 234,
+        "diff_format": "@@ -337,6 +336,5 @@\n \n-        if self._ensure_cache(intents.Intents.GUILDS, True):\n-            guild_id = typing.cast(snowflakes.Snowflake, self._message.guild_id)\n-            app = typing.cast(traits.CacheAware, self._message.app)\n-\n+        if isinstance(self._message.app, traits.CacheAware) and self._message.guild_id is not None:\n+            app = self._message.app\n+            guild_id = self._message.guild_id\n             return self._map_cache_maybe_discover(\n",
+        "source_code_with_indent": "\n        <DED>if self._ensure_cache(intents.Intents.GUILDS, True):\n            <IND>guild_id = typing.cast(snowflakes.Snowflake, self._message.guild_id)\n            app = typing.cast(traits.CacheAware, self._message.app)\n\n            return self._map_cache_maybe_discover(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>if isinstance(self._message.app, traits.CacheAware) and self._message.guild_id is not None:\n            <IND>app = self._message.app\n            guild_id = self._message.guild_id\n            return self._map_cache_maybe_discover(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

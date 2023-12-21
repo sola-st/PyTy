@@ -1,0 +1,51 @@
+[
+  {
+    "project": "keras-team/keras-tuner",
+    "commit": "d55c7e453cec94860a93e41b75d3e188b0f30af5",
+    "filename": "kerastuner/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/keras-team-keras-tuner/kerastuner/utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kerastuner/utils.py:22:17 Unbound name [10]: Name `get_ipython` is used but not defined in the current scope.",
+    "message": " Name `get_ipython` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 22,
+    "warning_line": "    class_name = get_ipython().__class__.__name__",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom packaging.version import parse\n",
+        "source_code_len": 37,
+        "target_code": "\nimport IPython\nfrom packaging.version import parse\n",
+        "target_code_len": 52,
+        "diff_format": "@@ -15,2 +15,3 @@\n \n+import IPython\n from packaging.version import parse\n",
+        "source_code_with_indent": "\nfrom packaging.version import parse\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport IPython\nfrom packaging.version import parse\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "try:\n    class_name = get_ipython().__class__.__name__\n    if \"Terminal\" in class_name:\n",
+        "source_code_len": 88,
+        "target_code": "try:\n    class_name = IPython.get_ipython().__class__.__name__\n    if \"Terminal\" in class_name:\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -21,3 +22,3 @@\n try:\n-    class_name = get_ipython().__class__.__name__\n+    class_name = IPython.get_ipython().__class__.__name__\n     if \"Terminal\" in class_name:\n",
+        "source_code_with_indent": "try:\n    <IND>class_name = get_ipython().__class__.__name__\n    if \"Terminal\" in class_name:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "try:\n    <IND>class_name = IPython.get_ipython().__class__.__name__\n    if \"Terminal\" in class_name:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

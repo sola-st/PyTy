@@ -1,0 +1,36 @@
+[
+  {
+    "project": "activeloopai/Hub",
+    "commit": "49f1001dc08b3fd445d21b646103c31ca2b26a5e",
+    "filename": "hub/core/tests/common.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/core/tests/common.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "hub/core/tests/common.py:27:20 Unsupported operand [58]: `+` is not supported for operand types `typing.List[str]` and `typing.List[typing.Union[typing.Tuple[str, str], typing.Tuple[str, str, str]]]`.",
+    "message": " `+` is not supported for operand types `typing.List[str]` and `typing.List[typing.Union[typing.Tuple[str, str], typing.Tuple[str, str, str]]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 27,
+    "warning_line": "    ALL_PROVIDERS + ALL_CACHES,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    STORAGE_FIXTURE_NAME,\n    ALL_PROVIDERS + ALL_CACHES,\n    indirect=True,\n",
+        "source_code_len": 77,
+        "target_code": "    STORAGE_FIXTURE_NAME,\n    ALL_PROVIDERS + ALL_CACHES,  # type: ignore\n    indirect=True,\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -26,3 +26,3 @@\n     STORAGE_FIXTURE_NAME,\n-    ALL_PROVIDERS + ALL_CACHES,\n+    ALL_PROVIDERS + ALL_CACHES,  # type: ignore\n     indirect=True,\n",
+        "source_code_with_indent": "    STORAGE_FIXTURE_NAME,\n    ALL_PROVIDERS + ALL_CACHES,\n    indirect=True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    STORAGE_FIXTURE_NAME,\n    ALL_PROVIDERS + ALL_CACHES,  # type: ignore\n    indirect=True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

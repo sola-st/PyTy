@@ -1,0 +1,53 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "97df442077160ae9fba3d770234e702c07e15aa4",
+    "filename": "airflow/www/fab_security/sqla/manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/www/fab_security/sqla/manager.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/www/fab_security/sqla/manager.py:342:4 Inconsistent override [15]: `airflow.www.fab_security.sqla.manager.SecurityManager.get_role_permissions_from_db` overrides method defined in `BaseSecurityManager` inconsistently. Returned type `List[Permission]` is not a subtype of the overridden return `List[object]`.",
+    "message": " `airflow.www.fab_security.sqla.manager.SecurityManager.get_role_permissions_from_db` overrides method defined in `BaseSecurityManager` inconsistently. Returned type `List[Permission]` is not a subtype of the overridden return `List[object]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 342,
+    "warning_line": "    def get_role_permissions_from_db(self, role_id: int) -> List[Permission]:"
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "97df442077160ae9fba3d770234e702c07e15aa4",
+    "filename": "airflow/www/fab_security/sqla/manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/www/fab_security/sqla/manager.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/www/fab_security/sqla/manager.py:495:12 Incompatible return type [7]: Expected `Permission` but got implicit return value of `None`.",
+    "message": " Expected `Permission` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 495,
+    "warning_line": "            return (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_permission(self, action_name: str, resource_name: str) -> Permission:\n        \"\"\"\n",
+        "source_code_len": 95,
+        "target_code": "\n    def get_permission(self, action_name: str, resource_name: str) -> Optional[Permission]:\n        \"\"\"\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -480,3 +481,3 @@\n \n-    def get_permission(self, action_name: str, resource_name: str) -> Permission:\n+    def get_permission(self, action_name: str, resource_name: str) -> Optional[Permission]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def get_permission(self, action_name: str, resource_name: str) -> Permission:\n        <IND>",
+        "target_code_with_indent": "\n    def get_permission(self, action_name: str, resource_name: str) -> Optional[Permission]:\n        <IND>"
+      }
+    ]
+  }
+]

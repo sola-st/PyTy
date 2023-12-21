@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "e1137a756caeddc835ec150ab6c2848cc3c82a1a",
+    "filename": "tests/test_study.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/test_study.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_study.py:40:12 Incompatible attribute type [8]: Attribute `x_max` declared in class `Func` has type `int` but is used as type `float`.",
+    "message": " Attribute `x_max` declared in class `Func` has type `int` but is used as type `float`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 40,
+    "warning_line": "            self.x_max *= 0.9",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.lock = threading.Lock()\n        self.x_max = 10\n\n",
+        "source_code_len": 62,
+        "target_code": "        self.lock = threading.Lock()\n        self.x_max = 10.0\n\n",
+        "target_code_len": 64,
+        "diff_format": "@@ -32,3 +32,3 @@\n         self.lock = threading.Lock()\n-        self.x_max = 10\n+        self.x_max = 10.0\n \n",
+        "source_code_with_indent": "        self.lock = threading.Lock()\n        self.x_max = 10\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.lock = threading.Lock()\n        self.x_max = 10.0\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

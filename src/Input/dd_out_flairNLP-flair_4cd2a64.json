@@ -1,0 +1,70 @@
+[
+  {
+    "project": "flairNLP/flair",
+    "commit": "4cd2a644ab2310a254f0b187f5312bb468503915",
+    "filename": "flair/file_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/file_utils.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/file_utils.py:73:4 Incompatible return type [7]: Expected `Tuple[str, str]` but got `Tuple[str, Optional[str]]`.",
+    "message": " Expected `Tuple[str, str]` but got `Tuple[str, Optional[str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 73,
+    "warning_line": "    return url_bytes.decode(\"utf-8\"), etag",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef filename_to_url(filename: str) -> Tuple[str, str]:\n    \"\"\"\n",
+        "source_code_len": 64,
+        "target_code": "\ndef filename_to_url(filename: str) -> Tuple[str, Optional[str]]:\n    \"\"\"\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -58,3 +59,3 @@\n \n-def filename_to_url(filename: str) -> Tuple[str, str]:\n+def filename_to_url(filename: str) -> Tuple[str, Optional[str]]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>def filename_to_url(filename: str) -> Tuple[str, str]:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def filename_to_url(filename: str) -> Tuple[str, Optional[str]]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "flairNLP/flair",
+    "commit": "4cd2a644ab2310a254f0b187f5312bb468503915",
+    "filename": "flair/file_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/flair/file_utils.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flair/file_utils.py:203:29 Incompatible variable type [9]: cache_dir is declared to have type `Path` but is used as type `None`.",
+    "message": " cache_dir is declared to have type `Path` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 203,
+    "warning_line": "def get_from_cache(url: str, cache_dir: Path = None) -> Path:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# TODO(joelgrus): do we want to do checksums or anything like that?\ndef get_from_cache(url: str, cache_dir: Path = None) -> Path:\n    \"\"\"\n",
+        "source_code_len": 138,
+        "target_code": "# TODO(joelgrus): do we want to do checksums or anything like that?\ndef get_from_cache(url: str, cache_dir: Path) -> Path:\n    \"\"\"\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -202,3 +203,3 @@\n # TODO(joelgrus): do we want to do checksums or anything like that?\n-def get_from_cache(url: str, cache_dir: Path = None) -> Path:\n+def get_from_cache(url: str, cache_dir: Path) -> Path:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "# TODO(joelgrus): do we want to do checksums or anything like that?\n<DED>def get_from_cache(url: str, cache_dir: Path = None) -> Path:\n    <IND>",
+        "target_code_with_indent": "# TODO(joelgrus): do we want to do checksums or anything like that?\n<DED>def get_from_cache(url: str, cache_dir: Path) -> Path:\n    <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python-telegram-bot/python-telegram-bot",
+    "commit": "25506f131d22812b6b0edb4d4d9f6b71d7d73c13",
+    "filename": "setup.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-telegram-bot-python-telegram-bot/setup.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "setup.py:39:18 Unbound name [10]: Name `__version__` is used but not defined in the current scope.",
+    "message": " Name `__version__` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 39,
+    "warning_line": "          version=__version__,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\npackages = find_packages(exclude=['tests*'])\nrequirements = requirements()\n\n# Allow for a package install to not use the vendored urllib3\nUPSTREAM_URLLIB3_FLAG = '--with-upstream-urllib3'\nif UPSTREAM_URLLIB3_FLAG in sys.argv:\n    sys.argv.remove(UPSTREAM_URLLIB3_FLAG)\n    requirements.append('urllib3 >= 1.19.1')\n    packages = [x for x in packages if not x.startswith('telegram.vendor.ptb_urllib3')]\n\nwith codecs.open('README.rst', 'r', 'utf-8') as fd:\n    fn = os.path.join('telegram', 'version.py')\n",
+        "source_code_len": 504,
+        "target_code": "\ndef get_packages_requirements(raw=False):\n    \"\"\"Build the package & requirements list for this project\"\"\"\n    reqs = get_requirements(raw=raw)\n\n    exclude = ['tests*']\n    if raw:\n        exclude.append('telegram.ext*')\n\n    packs = find_packages(exclude=exclude)\n    # Allow for a package install to not use the vendored urllib3\n    if UPSTREAM_URLLIB3_FLAG in sys.argv:\n        sys.argv.remove(UPSTREAM_URLLIB3_FLAG)\n        reqs.append('urllib3 >= 1.19.1')\n        packs = [x for x in packs if not x.startswith('telegram.vendor.ptb_urllib3')]\n\n    return packs, reqs\n\n\ndef get_setup_kwargs(raw=False):\n    \"\"\"Builds a dictionary of kwargs for the setup function\"\"\"\n    packages, requirements = get_packages_requirements(raw=raw)\n\n    raw_ext = \"-raw\" if raw else \"\"\n    readme = f'README{\"_RAW\" if raw else \"\"}.rst'\n\n    fn = os.path.join('telegram', 'version.py')\n",
+        "target_code_len": 871,
+        "diff_format": "@@ -21,13 +28,27 @@\n \n-packages = find_packages(exclude=['tests*'])\n-requirements = requirements()\n+def get_packages_requirements(raw=False):\n+    \"\"\"Build the package & requirements list for this project\"\"\"\n+    reqs = get_requirements(raw=raw)\n \n-# Allow for a package install to not use the vendored urllib3\n-UPSTREAM_URLLIB3_FLAG = '--with-upstream-urllib3'\n-if UPSTREAM_URLLIB3_FLAG in sys.argv:\n-    sys.argv.remove(UPSTREAM_URLLIB3_FLAG)\n-    requirements.append('urllib3 >= 1.19.1')\n-    packages = [x for x in packages if not x.startswith('telegram.vendor.ptb_urllib3')]\n+    exclude = ['tests*']\n+    if raw:\n+        exclude.append('telegram.ext*')\n \n-with codecs.open('README.rst', 'r', 'utf-8') as fd:\n+    packs = find_packages(exclude=exclude)\n+    # Allow for a package install to not use the vendored urllib3\n+    if UPSTREAM_URLLIB3_FLAG in sys.argv:\n+        sys.argv.remove(UPSTREAM_URLLIB3_FLAG)\n+        reqs.append('urllib3 >= 1.19.1')\n+        packs = [x for x in packs if not x.startswith('telegram.vendor.ptb_urllib3')]\n+\n+    return packs, reqs\n+\n+\n+def get_setup_kwargs(raw=False):\n+    \"\"\"Builds a dictionary of kwargs for the setup function\"\"\"\n+    packages, requirements = get_packages_requirements(raw=raw)\n+\n+    raw_ext = \"-raw\" if raw else \"\"\n+    readme = f'README{\"_RAW\" if raw else \"\"}.rst'\n+\n     fn = os.path.join('telegram', 'version.py')\n",
+        "source_code_with_indent": "\n<DED>packages = find_packages(exclude=['tests*'])\nrequirements = requirements()\n\n# Allow for a package install to not use the vendored urllib3\nUPSTREAM_URLLIB3_FLAG = '--with-upstream-urllib3'\nif UPSTREAM_URLLIB3_FLAG in sys.argv:\n    <IND>sys.argv.remove(UPSTREAM_URLLIB3_FLAG)\n    requirements.append('urllib3 >= 1.19.1')\n    packages = [x for x in packages if not x.startswith('telegram.vendor.ptb_urllib3')]\n\n<DED>with codecs.open('README.rst', 'r', 'utf-8') as fd:\n    <IND>fn = os.path.join('telegram', 'version.py')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_packages_requirements(raw=False):\n    <IND>\"\"\"Build the package & requirements list for this project\"\"\"\n    reqs = get_requirements(raw=raw)\n\n    exclude = ['tests*']\n    if raw:\n        <IND>exclude.append('telegram.ext*')\n\n    <DED>packs = find_packages(exclude=exclude)\n    # Allow for a package install to not use the vendored urllib3\n    if UPSTREAM_URLLIB3_FLAG in sys.argv:\n        <IND>sys.argv.remove(UPSTREAM_URLLIB3_FLAG)\n        reqs.append('urllib3 >= 1.19.1')\n        packs = [x for x in packs if not x.startswith('telegram.vendor.ptb_urllib3')]\n\n    <DED>return packs, reqs\n\n\n<DED>def get_setup_kwargs(raw=False):\n    <IND>\"\"\"Builds a dictionary of kwargs for the setup function\"\"\"\n    packages, requirements = get_packages_requirements(raw=raw)\n\n    raw_ext = \"-raw\" if raw else \"\"\n    readme = f'README{\"_RAW\" if raw else \"\"}.rst'\n\n    fn = os.path.join('telegram', 'version.py')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python-telegram-bot/python-telegram-bot",
+    "commit": "25506f131d22812b6b0edb4d4d9f6b71d7d73c13",
+    "filename": "telegram/utils/promise.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-telegram-bot-python-telegram-bot/telegram/utils/promise.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "telegram/utils/promise.py:90:21 Incompatible variable type [9]: timeout is declared to have type `float` but is used as type `None`.",
+    "message": " timeout is declared to have type `float` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 90,
+    "warning_line": "    def result(self, timeout: float = None) -> Optional[RT]:"
+  },
+  {
+    "project": "python-telegram-bot/python-telegram-bot",
+    "commit": "25506f131d22812b6b0edb4d4d9f6b71d7d73c13",
+    "filename": "telegram/utils/webhookhandler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-telegram-bot-python-telegram-bot/telegram/utils/webhookhandler.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "telegram/utils/webhookhandler.py:60:60 Incompatible variable type [9]: ready is declared to have type `Event` but is used as type `None`.",
+    "message": " ready is declared to have type `Event` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 60,
+    "warning_line": "    def serve_forever(self, force_event_loop: bool = False, ready: Event = None) -> None:"
+  }
+]

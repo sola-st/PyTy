@@ -1,0 +1,100 @@
+[
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "a02c2f2026db4ae61c96043ed96b509ae50f225f",
+    "filename": "cfgrib/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/dataset.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/dataset.py:480:24 Unsupported operand [58]: `+` is not supported for operand types `T.Sequence[str]` and `T.List[str]`.",
+    "message": " `+` is not supported for operand types `T.Sequence[str]` and `T.List[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 480,
+    "warning_line": "    extra_keys = sorted(read_keys + EXTRA_DATA_ATTRIBUTES_KEYS)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n    extra_keys = sorted(read_keys + EXTRA_DATA_ATTRIBUTES_KEYS)\n    extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "source_code_len": 212,
+        "target_code": "    data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n    extra_keys = sorted(list(read_keys) + EXTRA_DATA_ATTRIBUTES_KEYS)\n    extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "target_code_len": 218,
+        "diff_format": "@@ -479,3 +474,3 @@\n     data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n-    extra_keys = sorted(read_keys + EXTRA_DATA_ATTRIBUTES_KEYS)\n+    extra_keys = sorted(list(read_keys) + EXTRA_DATA_ATTRIBUTES_KEYS)\n     extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "source_code_with_indent": "    data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n    extra_keys = sorted(read_keys + EXTRA_DATA_ATTRIBUTES_KEYS)\n    extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n    extra_keys = sorted(list(read_keys) + EXTRA_DATA_ATTRIBUTES_KEYS)\n    extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "a02c2f2026db4ae61c96043ed96b509ae50f225f",
+    "filename": "cfgrib/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/dataset.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/dataset.py:676:52 Incompatible parameter type [6]: Expected `T.Sequence[str]` for 2nd parameter `read_keys` to call `build_dataset_components` but got `T.Iterable[str]`.",
+    "message": " Expected `T.Sequence[str]` for 2nd parameter `read_keys` to call `build_dataset_components` but got `T.Iterable[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 676,
+    "warning_line": "    return Dataset(*build_dataset_components(index, read_keys=read_keys, **kwargs))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    squeeze: bool = True,\n    read_keys: T.Sequence[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "source_code_len": 114,
+        "target_code": "    squeeze: bool = True,\n    read_keys: T.Iterable[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -473,3 +468,3 @@\n     squeeze: bool = True,\n-    read_keys: T.Sequence[str] = (),\n+    read_keys: T.Iterable[str] = (),\n     time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "source_code_with_indent": "    squeeze: bool = True,\n    read_keys: T.Sequence[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    squeeze: bool = True,\n    read_keys: T.Iterable[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n    extra_keys = sorted(read_keys + EXTRA_DATA_ATTRIBUTES_KEYS)\n    extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "source_code_len": 212,
+        "target_code": "    data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n    extra_keys = sorted(list(read_keys) + EXTRA_DATA_ATTRIBUTES_KEYS)\n    extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "target_code_len": 218,
+        "diff_format": "@@ -479,3 +474,3 @@\n     data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n-    extra_keys = sorted(read_keys + EXTRA_DATA_ATTRIBUTES_KEYS)\n+    extra_keys = sorted(list(read_keys) + EXTRA_DATA_ATTRIBUTES_KEYS)\n     extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "source_code_with_indent": "    data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n    extra_keys = sorted(read_keys + EXTRA_DATA_ATTRIBUTES_KEYS)\n    extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)\n    extra_keys = sorted(list(read_keys) + EXTRA_DATA_ATTRIBUTES_KEYS)\n    extra_attrs = read_data_var_attrs(index, extra_keys)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    log: logging.Logger = LOG,\n    read_keys: T.Sequence[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "source_code_len": 119,
+        "target_code": "    log: logging.Logger = LOG,\n    read_keys: T.Iterable[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -589,3 +584,3 @@\n     log: logging.Logger = LOG,\n-    read_keys: T.Sequence[str] = (),\n+    read_keys: T.Iterable[str] = (),\n     time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "source_code_with_indent": "    log: logging.Logger = LOG,\n    read_keys: T.Sequence[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    log: logging.Logger = LOG,\n    read_keys: T.Iterable[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

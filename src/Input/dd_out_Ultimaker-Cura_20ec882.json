@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "20ec8828ed826b843d18a83f607b14034b1d5635",
+    "filename": "cura/Settings/MachineManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/Settings/MachineManager.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/Settings/MachineManager.py:388:39 Incompatible variable type [9]: metadata_filter is declared to have type `Dict[str, str]` but is used as type `None`.",
+    "message": " metadata_filter is declared to have type `Dict[str, str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 388,
+    "warning_line": "    def getMachine(definition_id: str, metadata_filter: Dict[str, str] = None) -> Optional[\"GlobalStack\"]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def getMachine(definition_id: str, metadata_filter: Dict[str, str] = None) -> Optional[\"GlobalStack\"]:\n        machines = CuraContainerRegistry.getInstance().findContainerStacks(type = \"machine\", **metadata_filter)\n",
+        "source_code_len": 237,
+        "target_code": "    @staticmethod\n    def getMachine(definition_id: str, metadata_filter: Optional[Dict[str, str]] = None) -> Optional[\"GlobalStack\"]:\n        if metadata_filter is None:\n            metadata_filter = {}\n        machines = CuraContainerRegistry.getInstance().findContainerStacks(type = \"machine\", **metadata_filter)\n",
+        "target_code_len": 316,
+        "diff_format": "@@ -387,3 +387,5 @@\n     @staticmethod\n-    def getMachine(definition_id: str, metadata_filter: Dict[str, str] = None) -> Optional[\"GlobalStack\"]:\n+    def getMachine(definition_id: str, metadata_filter: Optional[Dict[str, str]] = None) -> Optional[\"GlobalStack\"]:\n+        if metadata_filter is None:\n+            metadata_filter = {}\n         machines = CuraContainerRegistry.getInstance().findContainerStacks(type = \"machine\", **metadata_filter)\n",
+        "source_code_with_indent": "    <DED>@staticmethod\n    def getMachine(definition_id: str, metadata_filter: Dict[str, str] = None) -> Optional[\"GlobalStack\"]:\n        <IND>machines = CuraContainerRegistry.getInstance().findContainerStacks(type = \"machine\", **metadata_filter)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@staticmethod\n    def getMachine(definition_id: str, metadata_filter: Optional[Dict[str, str]] = None) -> Optional[\"GlobalStack\"]:\n        <IND>if metadata_filter is None:\n            <IND>metadata_filter = {}\n        <DED>machines = CuraContainerRegistry.getInstance().findContainerStacks(type = \"machine\", **metadata_filter)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

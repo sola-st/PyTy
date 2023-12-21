@@ -1,0 +1,36 @@
+[
+  {
+    "project": "joke2k/faker",
+    "commit": "8d1a2bd0159de38533c5262a60be2eacf564852d",
+    "filename": "faker/utils/loading.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/joke2k-faker/faker/utils/loading.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "faker/utils/loading.py:25:4 Incompatible return type [7]: Expected `str` but got `Path`.",
+    "message": " Expected `str` but got `Path`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 25,
+    "warning_line": "    return path",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        path = Path(module.__file__).parent\n    return path\n\n",
+        "source_code_len": 61,
+        "target_code": "        path = Path(module.__file__).parent\n    return str(path)\n\n",
+        "target_code_len": 66,
+        "diff_format": "@@ -24,3 +24,3 @@\n         path = Path(module.__file__).parent\n-    return path\n+    return str(path)\n \n",
+        "source_code_with_indent": "        <IND>path = Path(module.__file__).parent\n    <DED>return path\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>path = Path(module.__file__).parent\n    <DED>return str(path)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

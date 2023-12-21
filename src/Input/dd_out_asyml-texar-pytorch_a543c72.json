@@ -1,0 +1,70 @@
+[
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "a543c724c0ea5f5cd4eac663ef2e78177677601a",
+    "filename": "texar/data/data/data_iterators_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/data/data/data_iterators_test.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "texar/data/data/data_iterators_test.py:44:8 Inconsistent override [14]: `texar.data.data.data_iterators_test.SamplerTest.MockDataBase._prefetch_source` overrides method defined in `DataBase` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `Optional[int]`.",
+    "message": " `texar.data.data.data_iterators_test.SamplerTest.MockDataBase._prefetch_source` overrides method defined in `DataBase` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `Optional[int]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 44,
+    "warning_line": "        def _prefetch_source(self, index: int) -> Optional[int]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n        def _prefetch_source(self, index: int) -> Optional[int]:\n            if self._unknown_size:\n",
+        "source_code_len": 101,
+        "target_code": "\n        def _prefetch_source(self, index: int) -> Optional[int]:  # type: ignore\n            if self._unknown_size:\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -43,3 +44,3 @@\n \n-        def _prefetch_source(self, index: int) -> Optional[int]:\n+        def _prefetch_source(self, index: int) -> Optional[int]:  # type: ignore\n             if self._unknown_size:\n",
+        "source_code_with_indent": "\n        <DED>def _prefetch_source(self, index: int) -> Optional[int]:\n            <IND>if self._unknown_size:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>def _prefetch_source(self, index: int) -> Optional[int]:  # type: ignore\n            <IND>if self._unknown_size:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "a543c724c0ea5f5cd4eac663ef2e78177677601a",
+    "filename": "texar/data/data/data_iterators_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/data/data/data_iterators_test.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "texar/data/data/data_iterators_test.py:296:28 Incompatible parameter type [6]: Expected `texar.data.data.data_base.DataSource[Tuple[List[int], str]]` for 1st positional only parameter to call `DataBase.__init__` but got `ZipDataSource[List[int]]`.",
+    "message": " Expected `texar.data.data.data_base.DataSource[Tuple[List[int], str]]` for 1st positional only parameter to call `DataBase.__init__` but got `ZipDataSource[List[int]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 296,
+    "warning_line": "        data = MockDataBase(source, hparams)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                                for _ in range(self.size)]))\n        data = MockDataBase(source, hparams)\n        iterator = DataIterator(data)\n",
+        "source_code_len": 144,
+        "target_code": "                                for _ in range(self.size)]))\n        data = MockDataBase(source, hparams)  # type: ignore\n        iterator = DataIterator(data)\n",
+        "target_code_len": 160,
+        "diff_format": "@@ -295,3 +297,3 @@\n                                 for _ in range(self.size)]))\n-        data = MockDataBase(source, hparams)\n+        data = MockDataBase(source, hparams)  # type: ignore\n         iterator = DataIterator(data)\n",
+        "source_code_with_indent": "                                for _ in range(self.size)]))\n        data = MockDataBase(source, hparams)\n        iterator = DataIterator(data)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                                for _ in range(self.size)]))\n        data = MockDataBase(source, hparams)  # type: ignore\n        iterator = DataIterator(data)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

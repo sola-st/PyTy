@@ -1,0 +1,100 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "2a8a6bb8814bbeeea7b52d1871ed49562fe4575f",
+    "filename": "mesonbuild/modules/qt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/modules/qt.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/modules/qt.py:354:33 Incompatible parameter type [6]: Expected `T.Union[None, T.Dict[str, typing.Any], T.List[typing.Any], mesonbuild.interpreterbase.baseobjects.ObjectHolder[typing.Any], bool, float, int, mesonbuild.interpreterbase.baseobjects.InterpreterObject, str]` for 1st positional only parameter to call `ModuleReturnValue.__init__` but got `build.GeneratedList`.",
+    "message": " Expected `T.Union[None, T.Dict[str, typing.Any], T.List[typing.Any], mesonbuild.interpreterbase.baseobjects.ObjectHolder[typing.Any], bool, float, int, mesonbuild.interpreterbase.baseobjects.InterpreterObject, str]` for 1st positional only parameter to call `ModuleReturnValue.__init__` but got `build.GeneratedList`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 354,
+    "warning_line": "        return ModuleReturnValue(out, [out])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from ..programs import NonExistingExternalProgram\nfrom ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder\n\n",
+        "source_code_len": 176,
+        "target_code": "from ..programs import NonExistingExternalProgram\nfrom ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder, GeneratedListHolder\n\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -28,3 +28,3 @@\n from ..programs import NonExistingExternalProgram\n-from ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder\n+from ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder, GeneratedListHolder\n \n",
+        "source_code_with_indent": "from ..programs import NonExistingExternalProgram\nfrom ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from ..programs import NonExistingExternalProgram\nfrom ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder, GeneratedListHolder\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            name=f'Qt{self.qt_version} ui')\n        out = gen.process_files(kwargs['sources'], state)\n        return ModuleReturnValue(out, [out])\n",
+        "source_code_len": 147,
+        "target_code": "            name=f'Qt{self.qt_version} ui')\n        out = GeneratedListHolder(gen.process_files(kwargs['sources'], state))\n        return ModuleReturnValue(out, [out])\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -352,3 +352,3 @@\n             name=f'Qt{self.qt_version} ui')\n-        out = gen.process_files(kwargs['sources'], state)\n+        out = GeneratedListHolder(gen.process_files(kwargs['sources'], state))\n         return ModuleReturnValue(out, [out])\n",
+        "source_code_with_indent": "            name=f'Qt{self.qt_version} ui')\n        out = gen.process_files(kwargs['sources'], state)\n        return ModuleReturnValue(out, [out])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            name=f'Qt{self.qt_version} ui')\n        out = GeneratedListHolder(gen.process_files(kwargs['sources'], state))\n        return ModuleReturnValue(out, [out])\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "2a8a6bb8814bbeeea7b52d1871ed49562fe4575f",
+    "filename": "mesonbuild/modules/qt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/modules/qt.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/modules/qt.py:354:38 Incompatible parameter type [6]: Expected `T.List[T.Union[T.Dict[str, typing.Any], T.List[typing.Any], mesonbuild.interpreterbase.baseobjects.ObjectHolder[typing.Any], bool, float, int, mesonbuild.interpreterbase.baseobjects.InterpreterObject, str]]` for 2nd positional only parameter to call `ModuleReturnValue.__init__` but got `T.List[build.GeneratedList]`.",
+    "message": " Expected `T.List[T.Union[T.Dict[str, typing.Any], T.List[typing.Any], mesonbuild.interpreterbase.baseobjects.ObjectHolder[typing.Any], bool, float, int, mesonbuild.interpreterbase.baseobjects.InterpreterObject, str]]` for 2nd positional only parameter to call `ModuleReturnValue.__init__` but got `T.List[build.GeneratedList]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 354,
+    "warning_line": "        return ModuleReturnValue(out, [out])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from ..programs import NonExistingExternalProgram\nfrom ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder\n\n",
+        "source_code_len": 176,
+        "target_code": "from ..programs import NonExistingExternalProgram\nfrom ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder, GeneratedListHolder\n\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -28,3 +28,3 @@\n from ..programs import NonExistingExternalProgram\n-from ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder\n+from ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder, GeneratedListHolder\n \n",
+        "source_code_with_indent": "from ..programs import NonExistingExternalProgram\nfrom ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from ..programs import NonExistingExternalProgram\nfrom ..interpreter.interpreterobjects import DependencyHolder, ExternalLibraryHolder, IncludeDirsHolder, FeatureOptionHolder, GeneratedListHolder\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            name=f'Qt{self.qt_version} ui')\n        out = gen.process_files(kwargs['sources'], state)\n        return ModuleReturnValue(out, [out])\n",
+        "source_code_len": 147,
+        "target_code": "            name=f'Qt{self.qt_version} ui')\n        out = GeneratedListHolder(gen.process_files(kwargs['sources'], state))\n        return ModuleReturnValue(out, [out])\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -352,3 +352,3 @@\n             name=f'Qt{self.qt_version} ui')\n-        out = gen.process_files(kwargs['sources'], state)\n+        out = GeneratedListHolder(gen.process_files(kwargs['sources'], state))\n         return ModuleReturnValue(out, [out])\n",
+        "source_code_with_indent": "            name=f'Qt{self.qt_version} ui')\n        out = gen.process_files(kwargs['sources'], state)\n        return ModuleReturnValue(out, [out])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            name=f'Qt{self.qt_version} ui')\n        out = GeneratedListHolder(gen.process_files(kwargs['sources'], state))\n        return ModuleReturnValue(out, [out])\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

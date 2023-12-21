@@ -1,0 +1,36 @@
+[
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "29b05758b39eef17457cd616fcccd3ee8cf05d00",
+    "filename": "electrumsv/gui/qt/receive_view.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/gui/qt/receive_view.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "electrumsv/gui/qt/receive_view.py:39:8 Incompatible attribute type [8]: Attribute `_dialogs` declared in class `ReceiveView` has type `Dict[int, ReceiveDialog]` but is used as type `weakref.WeakValueDictionary[Variable[weakref._KT], Variable[weakref._VT]]`.",
+    "message": " Attribute `_dialogs` declared in class `ReceiveView` has type `Dict[int, ReceiveDialog]` but is used as type `weakref.WeakValueDictionary[Variable[weakref._KT], Variable[weakref._VT]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 39,
+    "warning_line": "        self._dialogs: Dict[int, ReceiveDialog] = weakref.WeakValueDictionary()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n        self._dialogs: Dict[int, ReceiveDialog] = weakref.WeakValueDictionary()\n\n        self._request_list_toolbar_layout = TableTopButtonLayout()\n        self._request_list_toolbar_layout.refresh_signal.connect(\n            self._main_window.refresh_wallet_display)\n        self._request_list_toolbar_layout.filter_signal.connect(self._filter_request_list)\n\n",
+        "source_code_len": 361,
+        "target_code": "\n        self._dialogs: weakref.WeakValueDictionary[int, ReceiveDialog] = \\\n            weakref.WeakValueDictionary()\n\n        self._request_list_toolbar_layout = TableTopButtonLayout()\n        # NOTE(typing) pylance does not recognise `connect` on signals.\n        self._request_list_toolbar_layout.refresh_signal.connect( # type: ignore\n            self._main_window.refresh_wallet_display)\n        self._request_list_toolbar_layout.filter_signal.connect( # type: ignore\n            self._filter_request_list)\n\n",
+        "target_code_len": 513,
+        "diff_format": "@@ -38,8 +38,11 @@\n \n-        self._dialogs: Dict[int, ReceiveDialog] = weakref.WeakValueDictionary()\n+        self._dialogs: weakref.WeakValueDictionary[int, ReceiveDialog] = \\\n+            weakref.WeakValueDictionary()\n \n         self._request_list_toolbar_layout = TableTopButtonLayout()\n-        self._request_list_toolbar_layout.refresh_signal.connect(\n+        # NOTE(typing) pylance does not recognise `connect` on signals.\n+        self._request_list_toolbar_layout.refresh_signal.connect( # type: ignore\n             self._main_window.refresh_wallet_display)\n-        self._request_list_toolbar_layout.filter_signal.connect(self._filter_request_list)\n+        self._request_list_toolbar_layout.filter_signal.connect( # type: ignore\n+            self._filter_request_list)\n \n",
+        "source_code_with_indent": "\n        self._dialogs: Dict[int, ReceiveDialog] = weakref.WeakValueDictionary()\n\n        self._request_list_toolbar_layout = TableTopButtonLayout()\n        self._request_list_toolbar_layout.refresh_signal.connect(\n            self._main_window.refresh_wallet_display)\n        self._request_list_toolbar_layout.filter_signal.connect(self._filter_request_list)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n        self._dialogs: weakref.WeakValueDictionary[int, ReceiveDialog] =            weakref.WeakValueDictionary()\n\n        self._request_list_toolbar_layout = TableTopButtonLayout()\n        # NOTE(typing) pylance does not recognise `connect` on signals.\n        self._request_list_toolbar_layout.refresh_signal.connect( # type: ignore\n            self._main_window.refresh_wallet_display)\n        self._request_list_toolbar_layout.filter_signal.connect( # type: ignore\n            self._filter_request_list)\n\n"
+      }
+    ]
+  }
+]

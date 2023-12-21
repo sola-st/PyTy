@@ -1,0 +1,36 @@
+[
+  {
+    "project": "IBCNServices/pyRDF2Vec",
+    "commit": "0d19913da66fe91d9fa7f4263e61b8175fdd0ab0",
+    "filename": "pyrdf2vec/samplers/pagerank.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/IBCNServices-pyRDF2Vec/pyrdf2vec/samplers/pagerank.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyrdf2vec/samplers/pagerank.py:58:4 Inconsistent override [15]: `pyrdf2vec.samplers.pagerank.PageRankSampler.get_weight` overrides method defined in `pyrdf2vec.samplers.sampler.Sampler` inconsistently. Returned type `float` is not a subtype of the overridden return `int`.",
+    "message": " `pyrdf2vec.samplers.pagerank.PageRankSampler.get_weight` overrides method defined in `pyrdf2vec.samplers.sampler.Sampler` inconsistently. Returned type `float` is not a subtype of the overridden return `int`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 58,
+    "warning_line": "    def get_weight(self, hop: Tuple[Vertex, Vertex]) -> float:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_weight(self, hop: Tuple[Vertex, Vertex]) -> float:\n        \"\"\"Gets the weights to the edge of the Knowledge Graph.\n\n",
+        "source_code_len": 129,
+        "target_code": "\n    def get_weight(self, hop: Tuple[Vertex, Vertex]):\n        \"\"\"Gets the weight of a hop in the Knowledge Graph.\n\n",
+        "target_code_len": 116,
+        "diff_format": "@@ -57,4 +59,4 @@\n \n-    def get_weight(self, hop: Tuple[Vertex, Vertex]) -> float:\n-        \"\"\"Gets the weights to the edge of the Knowledge Graph.\n+    def get_weight(self, hop: Tuple[Vertex, Vertex]):\n+        \"\"\"Gets the weight of a hop in the Knowledge Graph.\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def get_weight(self, hop: Tuple[Vertex, Vertex]) -> float:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def get_weight(self, hop: Tuple[Vertex, Vertex]):\n        <IND>"
+      }
+    ]
+  }
+]

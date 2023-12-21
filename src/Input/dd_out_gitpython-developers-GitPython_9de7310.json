@@ -1,0 +1,36 @@
+[
+  {
+    "project": "gitpython-developers/GitPython",
+    "commit": "9de7310f1a2bfcb90ca5c119321037d5ea97b24e",
+    "filename": "git/remote.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gitpython-developers-GitPython/git/remote.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "git/remote.py:645:32 Incompatible parameter type [6]: Expected `git.refs.remote.RemoteReference` for 1st positional only parameter to call `list.append` but got `Union[git.refs.head.Head, git.refs.reference.Reference, git.refs.tag.TagReference]`.",
+    "message": " Expected `git.refs.remote.RemoteReference` for 1st positional only parameter to call `list.append` but got `Union[git.refs.head.Head, git.refs.reference.Reference, git.refs.tag.TagReference]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 645,
+    "warning_line": "                out_refs.append(SymbolicReference.from_path(self.repo, ref_name))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            \"\"\"\n        out_refs: IterableList[RemoteReference] = IterableList(RemoteReference._id_attribute_, \"%s/\" % self.name)\n        for line in self.repo.git.remote(\"prune\", \"--dry-run\", self).splitlines()[2:]:\n",
+        "source_code_len": 217,
+        "target_code": "            \"\"\"\n        out_refs: IterableList[Reference] = IterableList(RemoteReference._id_attribute_, \"%s/\" % self.name)\n        for line in self.repo.git.remote(\"prune\", \"--dry-run\", self).splitlines()[2:]:\n",
+        "target_code_len": 211,
+        "diff_format": "@@ -634,3 +634,3 @@\n             \"\"\"\n-        out_refs: IterableList[RemoteReference] = IterableList(RemoteReference._id_attribute_, \"%s/\" % self.name)\n+        out_refs: IterableList[Reference] = IterableList(RemoteReference._id_attribute_, \"%s/\" % self.name)\n         for line in self.repo.git.remote(\"prune\", \"--dry-run\", self).splitlines()[2:]:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        out_refs: IterableList[RemoteReference] = IterableList(RemoteReference._id_attribute_, \"%s/\" % self.name)\n        for line in self.repo.git.remote(\"prune\", \"--dry-run\", self).splitlines()[2:]:\n",
+        "target_code_with_indent": "\n        out_refs: IterableList[Reference] = IterableList(RemoteReference._id_attribute_, \"%s/\" % self.name)\n        for line in self.repo.git.remote(\"prune\", \"--dry-run\", self).splitlines()[2:]:\n"
+      }
+    ]
+  }
+]

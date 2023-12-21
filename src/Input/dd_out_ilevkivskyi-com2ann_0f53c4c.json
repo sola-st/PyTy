@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ilevkivskyi/com2ann",
+    "commit": "0f53c4c0c624b454af3c1755a89c89361b866125",
+    "filename": "src/com2ann.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ilevkivskyi-com2ann/src/com2ann.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/com2ann.py:372:32 Unsupported operand [58]: `*` is not supported for operand types `str` and `Optional[int]`.",
+    "message": " `*` is not supported for operand types `str` and `Optional[int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 372,
+    "warning_line": "    parts = [parts[0]] + [' ' * indent + p.lstrip(' \\t') for p in parts[1:]]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # Indent all the wrapped lines.\n    parts = [parts[0]] + [' ' * indent + p.lstrip(' \\t') for p in parts[1:]]\n",
+        "source_code_len": 113,
+        "target_code": "    # Indent all the wrapped lines.\n    assert indent is not None\n    parts = [parts[0]] + [' ' * indent + p.lstrip(' \\t') for p in parts[1:]]\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -371,2 +396,3 @@\n     # Indent all the wrapped lines.\n+    assert indent is not None\n     parts = [parts[0]] + [' ' * indent + p.lstrip(' \\t') for p in parts[1:]]\n",
+        "source_code_with_indent": "    # Indent all the wrapped lines.\n    <DED>parts = [parts[0]] + [' ' * indent + p.lstrip(' \\t') for p in parts[1:]]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # Indent all the wrapped lines.\n    <DED>assert indent is not None\n    parts = [parts[0]] + [' ' * indent + p.lstrip(' \\t') for p in parts[1:]]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "edgedb/edgedb",
+    "commit": "ee5ecc207ac96c517aaafe8b1232898640608418",
+    "filename": "edb/edgeql/compiler/stmt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/edgeql/compiler/stmt.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/edgeql/compiler/stmt.py:462:24 Incompatible parameter type [6]: Expected `typing.Tuple[s_obj.ObjectMeta, ...]` for 2nd parameter `item_types` to call `schemactx.get_schema_object` but got `typing.Optional[typing.Tuple[s_obj.ObjectMeta]]`.",
+    "message": " Expected `typing.Tuple[s_obj.ObjectMeta, ...]` for 2nd parameter `item_types` to call `schemactx.get_schema_object` but got `typing.Optional[typing.Tuple[s_obj.ObjectMeta]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 462,
+    "warning_line": "                        item_types=itemtypes,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            else:\n                itemtypes = None\n                found = False\n",
+        "source_code_len": 81,
+        "target_code": "            else:\n                itemtypes: Tuple[s_obj.ObjectMeta, ...] = ()\n                found = False\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -428,3 +428,3 @@\n             else:\n-                itemtypes = None\n+                itemtypes: Tuple[s_obj.ObjectMeta, ...] = ()\n                 found = False\n",
+        "source_code_with_indent": "            <DED>else:\n                <IND>itemtypes = None\n                found = False\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>else:\n                <IND>itemtypes: Tuple[s_obj.ObjectMeta, ...] = ()\n                found = False\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

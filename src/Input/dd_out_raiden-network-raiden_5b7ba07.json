@@ -1,0 +1,36 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "5b7ba076219984ddac9e6592cc2cd995962cbdb5",
+    "filename": "raiden/tests/integration/network/proxies/test_token_network_registry.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/tests/integration/network/proxies/test_token_network_registry.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/tests/integration/network/proxies/test_token_network_registry.py:121:8 Incompatible parameter type [6]: Expected `TokenAddress` for 1st positional only parameter to call `raiden.network.proxies.token_network_registry.TokenNetworkRegistry.get_token_network` but got `raiden.utils.typing.TokenNetworkAddress`.",
+    "message": " Expected `TokenAddress` for 1st positional only parameter to call `raiden.network.proxies.token_network_registry.TokenNetworkRegistry.get_token_network` but got `raiden.utils.typing.TokenNetworkAddress`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 121,
+    "warning_line": "        token_network_address, \"latest\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    assert token_network_registry_proxy.get_token_network(test_token_address, \"latest\") is not None\n    address = token_network_registry_proxy.get_token_network(  # type: ignore\n        token_network_address, \"latest\"\n    )\n",
+        "source_code_len": 224,
+        "target_code": "    assert token_network_registry_proxy.get_token_network(test_token_address, \"latest\") is not None\n    address = token_network_registry_proxy.get_token_network(\n        TokenAddress(token_network_address), \"latest\"\n    )\n",
+        "target_code_len": 222,
+        "diff_format": "@@ -119,4 +119,4 @@\n     assert token_network_registry_proxy.get_token_network(test_token_address, \"latest\") is not None\n-    address = token_network_registry_proxy.get_token_network(  # type: ignore\n-        token_network_address, \"latest\"\n+    address = token_network_registry_proxy.get_token_network(\n+        TokenAddress(token_network_address), \"latest\"\n     )\n",
+        "source_code_with_indent": "    assert token_network_registry_proxy.get_token_network(test_token_address, \"latest\") is not None\n    address = token_network_registry_proxy.get_token_network(  # type: ignore\n        token_network_address, \"latest\"\n    )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    assert token_network_registry_proxy.get_token_network(test_token_address, \"latest\") is not None\n    address = token_network_registry_proxy.get_token_network(\n        TokenAddress(token_network_address), \"latest\"\n    )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

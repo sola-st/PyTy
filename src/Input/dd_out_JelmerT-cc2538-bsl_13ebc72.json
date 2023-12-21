@@ -1,0 +1,36 @@
+[
+  {
+    "project": "JelmerT/cc2538-bsl",
+    "commit": "13ebc72db0657aecf5ecbd0e5ad98306cd837b12",
+    "filename": "cc2538-bsl.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/JelmerT-cc2538-bsl/cc2538-bsl.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cc2538-bsl.py:876:30 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 2nd positional only parameter to call `range.__init__` but got `float`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 2nd positional only parameter to call `range.__init__` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 876,
+    "warning_line": "            for i in range(0,(length/4)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            f = file(args[0], 'w').close() #delete previous file\n            for i in range(0,(length/4)):\n                rdata = cmd.cmdMemRead(conf['address']+(i*4)) #reading 4 bytes at a time\n",
+        "source_code_len": 196,
+        "target_code": "            f = file(args[0], 'w').close() #delete previous file\n            for i in range(0, length >> 2):\n                rdata = cmd.cmdMemRead(conf['address']+(i*4)) #reading 4 bytes at a time\n",
+        "target_code_len": 198,
+        "diff_format": "@@ -875,3 +875,3 @@\n             f = file(args[0], 'w').close() #delete previous file\n-            for i in range(0,(length/4)):\n+            for i in range(0, length >> 2):\n                 rdata = cmd.cmdMemRead(conf['address']+(i*4)) #reading 4 bytes at a time\n",
+        "source_code_with_indent": "            f = file(args[0], 'w').close() #delete previous file\n            for i in range(0,(length/4)):\n                <IND>rdata = cmd.cmdMemRead(conf['address']+(i*4)) #reading 4 bytes at a time\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            f = file(args[0], 'w').close() #delete previous file\n            for i in range(0, length >> 2):\n                <IND>rdata = cmd.cmdMemRead(conf['address']+(i*4)) #reading 4 bytes at a time\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "d5487dcebdd32b5e7b2c32931bff6cceaea2e016",
+    "filename": "cfgrib/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/dataset.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/dataset.py:678:62 Incompatible parameter type [6]: Expected `T.Sequence[str]` for 3rd parameter `time_dims` to call `build_dataset_components` but got `T.Iterable[typing.Any]`.",
+    "message": " Expected `T.Sequence[str]` for 3rd parameter `time_dims` to call `build_dataset_components` but got `T.Iterable[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 678,
+    "warning_line": "        *build_dataset_components(index, read_keys=read_keys, time_dims=time_dims, **kwargs)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    filter_by_keys: T.Dict[str, T.Any] = {},\n    read_keys: T.Iterable[str] = (),\n    time_dims: T.Iterable = [\"time\", \"step\"],\n    **kwargs: T.Any\n",
+        "source_code_len": 148,
+        "target_code": "    filter_by_keys: T.Dict[str, T.Any] = {},\n    read_keys: T.Sequence[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n    **kwargs: T.Any\n",
+        "target_code_len": 153,
+        "diff_format": "@@ -669,4 +670,4 @@\n     filter_by_keys: T.Dict[str, T.Any] = {},\n-    read_keys: T.Iterable[str] = (),\n-    time_dims: T.Iterable = [\"time\", \"step\"],\n+    read_keys: T.Sequence[str] = (),\n+    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n     **kwargs: T.Any\n",
+        "source_code_with_indent": "    filter_by_keys: T.Dict[str, T.Any] = {},\n    read_keys: T.Iterable[str] = (),\n    time_dims: T.Iterable = [\"time\", \"step\"],\n    **kwargs: T.Any\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    filter_by_keys: T.Dict[str, T.Any] = {},\n    read_keys: T.Sequence[str] = (),\n    time_dims: T.Sequence[str] = (\"time\", \"step\"),\n    **kwargs: T.Any\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

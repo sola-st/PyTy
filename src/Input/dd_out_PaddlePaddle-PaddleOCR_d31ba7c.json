@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PaddlePaddle/PaddleOCR",
+    "commit": "d31ba7cc1b5a5bfbce59214d006f05a087db2ec3",
+    "filename": "configs/rec/multi_language/generate_multi_language_configs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PaddlePaddle-PaddleOCR/configs/rec/multi_language/generate_multi_language_configs.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "configs/rec/multi_language/generate_multi_language_configs.py:134:18 Unbound name [10]: Name `Eval_label_path` is used but not defined in the current scope.",
+    "message": " Name `Eval_label_path` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 134,
+    "warning_line": "        loss_file(Eval_label_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        eval_label_path = os.path.join(project_path,FLAGS.val)\n        loss_file(Eval_label_path)\n    if FLAGS.dict:\n",
+        "source_code_len": 117,
+        "target_code": "        eval_label_path = os.path.join(project_path,FLAGS.val)\n        loss_file(eval_label_path)\n    if FLAGS.dict:\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -133,3 +133,3 @@\n         eval_label_path = os.path.join(project_path,FLAGS.val)\n-        loss_file(Eval_label_path)\n+        loss_file(eval_label_path)\n     if FLAGS.dict:\n",
+        "source_code_with_indent": "        eval_label_path = os.path.join(project_path,FLAGS.val)\n        loss_file(Eval_label_path)\n    <DED>if FLAGS.dict:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        eval_label_path = os.path.join(project_path,FLAGS.val)\n        loss_file(eval_label_path)\n    <DED>if FLAGS.dict:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

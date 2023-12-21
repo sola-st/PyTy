@@ -1,0 +1,36 @@
+[
+  {
+    "project": "k2-fsa/snowfall",
+    "commit": "057630f6fe673479a45f1d42388ab2bbc5c67aad",
+    "filename": "snowfall/common.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/k2-fsa-snowfall/snowfall/common.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snowfall/common.py:458:4 Incompatible return type [7]: Expected `float` but got `str`.",
+    "message": " Expected `float` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 458,
+    "warning_line": "    return tot_err_rate",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        print(f\"{word}   {corr} {tot_errs} {ref_count} {hyp_count}\", file=f)\n    return tot_err_rate\n",
+        "source_code_len": 101,
+        "target_code": "        print(f\"{word}   {corr} {tot_errs} {ref_count} {hyp_count}\", file=f)\n    return float(tot_err_rate)\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -457,2 +457,2 @@\n         print(f\"{word}   {corr} {tot_errs} {ref_count} {hyp_count}\", file=f)\n-    return tot_err_rate\n+    return float(tot_err_rate)\n",
+        "source_code_with_indent": "        print(f\"{word}   {corr} {tot_errs} {ref_count} {hyp_count}\", file=f)\n    <DED>return tot_err_rate\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        print(f\"{word}   {corr} {tot_errs} {ref_count} {hyp_count}\", file=f)\n    <DED>return float(tot_err_rate)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

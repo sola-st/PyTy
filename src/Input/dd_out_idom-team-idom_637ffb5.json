@@ -1,0 +1,66 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "637ffb50065bc427515c2fa7915745f838155d2d",
+    "filename": "idom/core/layout.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/idom/core/layout.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "idom/core/layout.py:136:69 Incompatible parameter type [6]: Expected `Dict[str, typing.Any]` for 2nd positional only parameter to call `Layout._render_model` but got `idom.core.vdom.VdomDict`.",
+    "message": " Expected `Dict[str, typing.Any]` for 2nd positional only parameter to call `Layout._render_model` but got `idom.core.vdom.VdomDict`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 136,
+    "warning_line": "            resolved_model = await self._render_model(element_state, raw_model)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Tuple,\n    NamedTuple,\n",
+        "source_code_len": 27,
+        "target_code": "    Tuple,\n    Mapping,\n    NamedTuple,\n",
+        "target_code_len": 40,
+        "diff_format": "@@ -6,2 +6,3 @@\n     Tuple,\n+    Mapping,\n     NamedTuple,\n",
+        "source_code_with_indent": "    Tuple,\n    NamedTuple,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Tuple,\n    Mapping,\n    NamedTuple,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    async def _render_model(\n        self, element_state: ElementState, model: Dict[str, Any]\n    ) -> Dict[str, Any]:\n        event_handlers = self._render_model_event_targets(element_state, model)\n        if event_handlers:\n            model[\"eventHandlers\"] = event_handlers\n        if \"children\" in model:\n            model[\"children\"] = await self._render_model_children(\n                element_state, model[\"children\"]\n            )\n        return model\n\n",
+        "source_code_len": 462,
+        "target_code": "    async def _render_model(\n        self, element_state: ElementState, model: Mapping[str, Any]\n    ) -> Dict[str, Any]:\n        serialized_model: Dict[str, Any] = {}\n        event_handlers = self._render_model_event_targets(element_state, model)\n        if event_handlers:\n            serialized_model[\"eventHandlers\"] = event_handlers\n        if \"children\" in model:\n            serialized_model[\"children\"] = await self._render_model_children(\n                element_state, model[\"children\"]\n            )\n        return {**model, **serialized_model}\n\n",
+        "target_code_len": 557,
+        "diff_format": "@@ -147,12 +148,13 @@\n     async def _render_model(\n-        self, element_state: ElementState, model: Dict[str, Any]\n+        self, element_state: ElementState, model: Mapping[str, Any]\n     ) -> Dict[str, Any]:\n+        serialized_model: Dict[str, Any] = {}\n         event_handlers = self._render_model_event_targets(element_state, model)\n         if event_handlers:\n-            model[\"eventHandlers\"] = event_handlers\n+            serialized_model[\"eventHandlers\"] = event_handlers\n         if \"children\" in model:\n-            model[\"children\"] = await self._render_model_children(\n+            serialized_model[\"children\"] = await self._render_model_children(\n                 element_state, model[\"children\"]\n             )\n-        return model\n+        return {**model, **serialized_model}\n \n",
+        "source_code_with_indent": "    <DED>async def _render_model(\n        self, element_state: ElementState, model: Dict[str, Any]\n    ) -> Dict[str, Any]:\n        <IND>event_handlers = self._render_model_event_targets(element_state, model)\n        if event_handlers:\n            <IND>model[\"eventHandlers\"] = event_handlers\n        <DED>if \"children\" in model:\n            <IND>model[\"children\"] = await self._render_model_children(\n                element_state, model[\"children\"]\n            )\n        <DED>return model\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>async def _render_model(\n        self, element_state: ElementState, model: Mapping[str, Any]\n    ) -> Dict[str, Any]:\n        <IND>serialized_model: Dict[str, Any] = {}\n        event_handlers = self._render_model_event_targets(element_state, model)\n        if event_handlers:\n            <IND>serialized_model[\"eventHandlers\"] = event_handlers\n        <DED>if \"children\" in model:\n            <IND>serialized_model[\"children\"] = await self._render_model_children(\n                element_state, model[\"children\"]\n            )\n        <DED>return {**model, **serialized_model}\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _render_model_event_targets(\n        self, element_state: ElementState, model: Dict[str, Any]\n    ) -> Dict[str, EventTarget]:\n",
+        "source_code_len": 135,
+        "target_code": "    def _render_model_event_targets(\n        self, element_state: ElementState, model: Mapping[str, Any]\n    ) -> Dict[str, EventTarget]:\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -178,3 +180,3 @@\n     def _render_model_event_targets(\n-        self, element_state: ElementState, model: Dict[str, Any]\n+        self, element_state: ElementState, model: Mapping[str, Any]\n     ) -> Dict[str, EventTarget]:\n",
+        "source_code_with_indent": "    <DED>def _render_model_event_targets(\n        self, element_state: ElementState, model: Dict[str, Any]\n    ) -> Dict[str, EventTarget]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _render_model_event_targets(\n        self, element_state: ElementState, model: Mapping[str, Any]\n    ) -> Dict[str, EventTarget]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

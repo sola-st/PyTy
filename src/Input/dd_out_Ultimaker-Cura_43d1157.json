@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "43d1157aa18bb0a24fcb8f396f43b2d105bd38cb",
+    "filename": "plugins/3MFReader/ThreeMFWorkspaceReader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/3MFReader/ThreeMFWorkspaceReader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/3MFReader/ThreeMFWorkspaceReader.py:1075:8 Incompatible return type [7]: Expected `Dict[str, str]` but got `configparser.SectionProxy`.",
+    "message": " Expected `Dict[str, str]` but got `configparser.SectionProxy`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1075,
+    "warning_line": "        return parser[\"metadata\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        parser.read_string(serialized)\n        return parser[\"metadata\"]\n\n",
+        "source_code_len": 74,
+        "target_code": "        parser.read_string(serialized)\n        return dict(parser[\"metadata\"])\n\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -1074,3 +1074,3 @@\n         parser.read_string(serialized)\n-        return parser[\"metadata\"]\n+        return dict(parser[\"metadata\"])\n \n",
+        "source_code_with_indent": "        parser.read_string(serialized)\n        return parser[\"metadata\"]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        parser.read_string(serialized)\n        return dict(parser[\"metadata\"])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

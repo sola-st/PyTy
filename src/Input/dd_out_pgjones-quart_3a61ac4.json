@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pgjones/quart",
+    "commit": "3a61ac4e777d3adeabf559b8e42ffe899309e05d",
+    "filename": "tests/serving/test_upgrade.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pgjones-quart/tests/serving/test_upgrade.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/serving/test_upgrade.py:65:27 Incompatible parameter type [6]: Expected `Exception` for 1st positional only parameter to call `Server.connection_lost` but got `None`.",
+    "message": " Expected `Exception` for 1st positional only parameter to call `Server.connection_lost` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 65,
+    "warning_line": "    server.connection_lost(None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    )\n    server.connection_lost(None)\n    await transport.closed.wait()\n",
+        "source_code_len": 73,
+        "target_code": "    )\n    server.connection_lost(Exception())\n    await transport.closed.wait()\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -64,3 +64,3 @@\n     )\n-    server.connection_lost(None)\n+    server.connection_lost(Exception())\n     await transport.closed.wait()\n",
+        "source_code_with_indent": "    )\n    server.connection_lost(None)\n    await transport.closed.wait()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    )\n    server.connection_lost(Exception())\n    await transport.closed.wait()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

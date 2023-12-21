@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Dineshkarthik/telegram_media_downloader",
+    "commit": "464c446bc1bc9f7d28af57cf9aa9c23a77c8c175",
+    "filename": "media_downloader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Dineshkarthik-telegram_media_downloader/media_downloader.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "media_downloader.py:68:4 Incompatible return type [7]: Expected `Tuple[str, str]` but got `Tuple[str, typing.Any, typing.Any]`.",
+    "message": " Expected `Tuple[str, str]` but got `Tuple[str, typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 68,
+    "warning_line": "    return file_ref, file_name, file_format",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import logging\nfrom typing import List, Tuple\nfrom datetime import datetime as dt\n",
+        "source_code_len": 82,
+        "target_code": "import logging\nfrom typing import List, Tuple, Optional\nfrom datetime import datetime as dt\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -3,3 +3,3 @@\n import logging\n-from typing import List, Tuple\n+from typing import List, Tuple, Optional\n from datetime import datetime as dt\n",
+        "source_code_with_indent": "import logging\nfrom typing import List, Tuple\nfrom datetime import datetime as dt\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\nfrom typing import List, Tuple, Optional\nfrom datetime import datetime as dt\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    media_obj: pyrogram.client.types.messages_and_media, _type: str\n) -> Tuple[str, str]:\n    \"\"\"Extract file name and file id.\n",
+        "source_code_len": 128,
+        "target_code": "    media_obj: pyrogram.client.types.messages_and_media, _type: str\n) -> Tuple[str, str, Optional[str]]:\n    \"\"\"Extract file name and file id.\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -32,3 +32,3 @@\n     media_obj: pyrogram.client.types.messages_and_media, _type: str\n-) -> Tuple[str, str]:\n+) -> Tuple[str, str, Optional[str]]:\n     \"\"\"Extract file name and file id.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    media_obj: pyrogram.client.types.messages_and_media, _type: str\n) -> Tuple[str, str]:\n    <IND>",
+        "target_code_with_indent": "    media_obj: pyrogram.client.types.messages_and_media, _type: str\n) -> Tuple[str, str, Optional[str]]:\n    <IND>"
+      }
+    ]
+  }
+]

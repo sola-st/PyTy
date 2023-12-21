@@ -1,0 +1,36 @@
+[
+  {
+    "project": "relekang/python-semantic-release",
+    "commit": "5c37d477053f3bf25b858c80ef176dada8110e7e",
+    "filename": "semantic_release/vcs_helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/relekang-python-semantic-release/semantic_release/vcs_helpers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "semantic_release/vcs_helpers.py:57:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 57,
+    "warning_line": "            return i.commit.hexsha",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return i.name[1:]\n\n\ndef get_version_from_tag(tag_name: str) -> str:\n    \"\"\"Get version from tag\n",
+        "source_code_len": 108,
+        "target_code": "            return i.name[1:]\n    return None\n\n\ndef get_version_from_tag(tag_name: str) -> Optional[str]:\n    \"\"\"Get version from tag\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -46,5 +46,6 @@\n             return i.name[1:]\n+    return None\n \n \n-def get_version_from_tag(tag_name: str) -> str:\n+def get_version_from_tag(tag_name: str) -> Optional[str]:\n     \"\"\"Get version from tag\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "            <DED>return i.name[1:]\n\n\n<DED><DED><DED>def get_version_from_tag(tag_name: str) -> str:\n    <IND>",
+        "target_code_with_indent": "            <DED>return i.name[1:]\n    <DED><DED>return None\n\n\n<DED>def get_version_from_tag(tag_name: str) -> Optional[str]:\n    <IND>"
+      }
+    ]
+  }
+]

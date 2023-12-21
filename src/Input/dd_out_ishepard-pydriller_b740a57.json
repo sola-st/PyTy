@@ -1,0 +1,87 @@
+[
+  {
+    "project": "ishepard/pydriller",
+    "commit": "b740a57d5969695270075fc818021f7c0b668bf1",
+    "filename": "pydriller/git_repository.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ishepard-pydriller/pydriller/git_repository.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydriller/git_repository.py:287:59 Incompatible parameter type [6]: Expected `List[str]` for 3rd positional only parameter to call `GitRepository._get_blame` but got `str`.",
+    "message": " Expected `List[str]` for 3rd positional only parameter to call `GitRepository._get_blame` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 287,
+    "warning_line": "                blame = self._get_blame(commit.hash, path, hashes_to_ignore_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: List[str] = None):\n        args = ['-w', commit_hash + '^']\n",
+        "source_code_len": 138,
+        "target_code": "\n    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: str = None):\n        args = ['-w', commit_hash + '^']\n",
+        "target_code_len": 132,
+        "diff_format": "@@ -306,3 +306,3 @@\n \n-    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: List[str] = None):\n+    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: str = None):\n         args = ['-w', commit_hash + '^']\n",
+        "source_code_with_indent": "\n    <DED>def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: List[str] = None):\n        <IND>args = ['-w', commit_hash + '^']\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: str = None):\n        <IND>args = ['-w', commit_hash + '^']\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ishepard/pydriller",
+    "commit": "b740a57d5969695270075fc818021f7c0b668bf1",
+    "filename": "pydriller/git_repository.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ishepard-pydriller/pydriller/git_repository.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydriller/git_repository.py:307:54 Incompatible variable type [9]: hashes_to_ignore_path is declared to have type `List[str]` but is used as type `None`.",
+    "message": " hashes_to_ignore_path is declared to have type `List[str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 307,
+    "warning_line": "    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: List[str] = None):"
+  },
+  {
+    "project": "ishepard/pydriller",
+    "commit": "b740a57d5969695270075fc818021f7c0b668bf1",
+    "filename": "pydriller/git_repository.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ishepard-pydriller/pydriller/git_repository.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydriller/git_repository.py:311:24 Incompatible parameter type [6]: Expected `typing.Iterable[str]` for 1st positional only parameter to call `list.__iadd__` but got `typing.Iterable[typing.Union[List[str], str]]`.",
+    "message": " Expected `typing.Iterable[str]` for 1st positional only parameter to call `list.__iadd__` but got `typing.Iterable[typing.Union[List[str], str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 311,
+    "warning_line": "                args += [\"--ignore-revs-file\", hashes_to_ignore_path]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: List[str] = None):\n        args = ['-w', commit_hash + '^']\n",
+        "source_code_len": 138,
+        "target_code": "\n    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: str = None):\n        args = ['-w', commit_hash + '^']\n",
+        "target_code_len": 132,
+        "diff_format": "@@ -306,3 +306,3 @@\n \n-    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: List[str] = None):\n+    def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: str = None):\n         args = ['-w', commit_hash + '^']\n",
+        "source_code_with_indent": "\n    <DED>def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: List[str] = None):\n        <IND>args = ['-w', commit_hash + '^']\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _get_blame(self, commit_hash: str, path: str, hashes_to_ignore_path: str = None):\n        <IND>args = ['-w', commit_hash + '^']\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

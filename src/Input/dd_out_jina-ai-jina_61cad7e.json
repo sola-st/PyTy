@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jina-ai/jina",
+    "commit": "61cad7e2e5e68b2b5cf8f54e8577b2f5ed5b9b36",
+    "filename": "jina/types/document/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jina-ai-jina/jina/types/document/__init__.py",
+    "file_hunks_size": 15,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jina/types/document/__init__.py:1160:8 Incompatible return type [7]: Expected `Tuple[str]` but got `typing.Tuple[Variable[_T_co](covariant), ...]`.",
+    "message": " Expected `Tuple[str]` but got `typing.Tuple[Variable[_T_co](covariant), ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1160,
+    "warning_line": "        return tuple(field[0].name for field in self.ListFields())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    @property\n    def non_empty_fields(self) -> Tuple[str]:\n        \"\"\"Return the set fields of the current document that are not empty\n\n        :return: the tuple of non-empty fields\n        \"\"\"\n        return tuple(field[0].name for field in self.ListFields())\n\n    @staticmethod\n",
+        "source_code_len": 283,
+        "target_code": "\n    @staticmethod\n",
+        "target_code_len": 19,
+        "diff_format": "@@ -1153,10 +1090,2 @@\n \n-    @property\n-    def non_empty_fields(self) -> Tuple[str]:\n-        \"\"\"Return the set fields of the current document that are not empty\n-\n-        :return: the tuple of non-empty fields\n-        \"\"\"\n-        return tuple(field[0].name for field in self.ListFields())\n-\n     @staticmethod\n",
+        "source_code_with_indent": "\n    <DED><DED>@property\n    def non_empty_fields(self) -> Tuple[str]:\n        <IND>\"\"\"Return the set fields of the current document that are not empty\n\n        :return: the tuple of non-empty fields\n        \"\"\"\n        return tuple(field[0].name for field in self.ListFields())\n\n    <DED>@staticmethod\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>@staticmethod\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "679a5e2a4ec2ceb858ca632da55b4489c5a62172",
+    "filename": "raiden/blockchain_events_handler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/blockchain_events_handler.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/blockchain_events_handler.py:90:12 Incompatible parameter type [6]: Expected `typing.TokenAddress` for 1st parameter `token_address` to call `get_channel_state` but got `typing.Address`.",
+    "message": " Expected `typing.TokenAddress` for 1st parameter `token_address` to call `get_channel_state` but got `typing.Address`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 90,
+    "warning_line": "            token_address=token_address,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        channel_state = get_channel_state(\n            token_address=token_address,\n            payment_network_identifier=raiden.default_registry.address,\n",
+        "source_code_len": 156,
+        "target_code": "        channel_state = get_channel_state(\n            token_address=typing.TokenAddress(token_address),\n            payment_network_identifier=raiden.default_registry.address,\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -89,3 +89,3 @@\n         channel_state = get_channel_state(\n-            token_address=token_address,\n+            token_address=typing.TokenAddress(token_address),\n             payment_network_identifier=raiden.default_registry.address,\n",
+        "source_code_with_indent": "        channel_state = get_channel_state(\n            token_address=token_address,\n            payment_network_identifier=raiden.default_registry.address,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        channel_state = get_channel_state(\n            token_address=typing.TokenAddress(token_address),\n            payment_network_identifier=raiden.default_registry.address,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

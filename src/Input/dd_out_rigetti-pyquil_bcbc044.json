@@ -1,0 +1,172 @@
+[
+  {
+    "project": "rigetti/pyquil",
+    "commit": "bcbc044e160b21d3870c42e45262819b9e8c59dc",
+    "filename": "pyquil/_parser/PyQuilListener.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rigetti-pyquil/pyquil/_parser/PyQuilListener.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyquil/_parser/PyQuilListener.py:373:12 Incompatible return type [7]: Expected `Addr` but got `MemoryReference`.",
+    "message": " Expected `Addr` but got `MemoryReference`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 373,
+    "warning_line": "            return MemoryReference(str(classical.IDENTIFIER()), int(classical.INT().getText()))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _addr(classical):\n    # type: (QuilParser.AddrContext) -> Addr\n    if classical.IDENTIFIER() is not None:\n",
+        "source_code_len": 110,
+        "target_code": "def _addr(classical):\n    # type: (QuilParser.AddrContext) -> MemoryReference\n    if classical.IDENTIFIER() is not None:\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -369,3 +370,3 @@\n def _addr(classical):\n-    # type: (QuilParser.AddrContext) -> Addr\n+    # type: (QuilParser.AddrContext) -> MemoryReference\n     if classical.IDENTIFIER() is not None:\n",
+        "source_code_with_indent": "<DED>def _addr(classical):\n    # type: (QuilParser.AddrContext) -> Addr\n    <IND>if classical.IDENTIFIER() is not None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _addr(classical):\n    # type: (QuilParser.AddrContext) -> MemoryReference\n    <IND>if classical.IDENTIFIER() is not None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rigetti/pyquil",
+    "commit": "bcbc044e160b21d3870c42e45262819b9e8c59dc",
+    "filename": "pyquil/_parser/PyQuilListener.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rigetti-pyquil/pyquil/_parser/PyQuilListener.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyquil/_parser/PyQuilListener.py:375:12 Incompatible return type [7]: Expected `Addr` but got `MemoryReference`.",
+    "message": " Expected `Addr` but got `MemoryReference`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 375,
+    "warning_line": "            return MemoryReference(str(classical.IDENTIFIER()), 0)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _addr(classical):\n    # type: (QuilParser.AddrContext) -> Addr\n    if classical.IDENTIFIER() is not None:\n",
+        "source_code_len": 110,
+        "target_code": "def _addr(classical):\n    # type: (QuilParser.AddrContext) -> MemoryReference\n    if classical.IDENTIFIER() is not None:\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -369,3 +370,3 @@\n def _addr(classical):\n-    # type: (QuilParser.AddrContext) -> Addr\n+    # type: (QuilParser.AddrContext) -> MemoryReference\n     if classical.IDENTIFIER() is not None:\n",
+        "source_code_with_indent": "<DED>def _addr(classical):\n    # type: (QuilParser.AddrContext) -> Addr\n    <IND>if classical.IDENTIFIER() is not None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _addr(classical):\n    # type: (QuilParser.AddrContext) -> MemoryReference\n    <IND>if classical.IDENTIFIER() is not None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rigetti/pyquil",
+    "commit": "bcbc044e160b21d3870c42e45262819b9e8c59dc",
+    "filename": "pyquil/api/_qvm.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rigetti-pyquil/pyquil/api/_qvm.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyquil/api/_qvm.py:125:12 Incompatible variable type [9]: classical_addresses is declared to have type `List[int]` but is used as type `typing.Dict[str, List[int]]`.",
+    "message": " classical_addresses is declared to have type `List[int]` but is used as type `typing.Dict[str, List[int]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 125,
+    "warning_line": "            classical_addresses = get_classical_addresses_from_program(quil_program)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if classical_addresses is None:\n            classical_addresses = get_classical_addresses_from_program(quil_program)\n\n        else:\n            classical_addresses = {'ro': classical_addresses}\n\n        buffers = self._connection._qvm_run(quil_program, classical_addresses, trials,\n                                            self.measurement_noise, self.gate_noise,\n",
+        "source_code_len": 375,
+        "target_code": "        if classical_addresses is None:\n            caddresses = get_classical_addresses_from_program(quil_program)\n\n        else:\n            caddresses = {'ro': classical_addresses}\n\n        buffers = self._connection._qvm_run(quil_program, caddresses, trials,\n                                            self.measurement_noise, self.gate_noise,\n",
+        "target_code_len": 348,
+        "diff_format": "@@ -124,8 +125,8 @@\n         if classical_addresses is None:\n-            classical_addresses = get_classical_addresses_from_program(quil_program)\n+            caddresses = get_classical_addresses_from_program(quil_program)\n \n         else:\n-            classical_addresses = {'ro': classical_addresses}\n-\n-        buffers = self._connection._qvm_run(quil_program, classical_addresses, trials,\n+            caddresses = {'ro': classical_addresses}\n+\n+        buffers = self._connection._qvm_run(quil_program, caddresses, trials,\n                                             self.measurement_noise, self.gate_noise,\n",
+        "source_code_with_indent": "        if classical_addresses is None:\n            <IND>classical_addresses = get_classical_addresses_from_program(quil_program)\n\n        <DED>else:\n            <IND>classical_addresses = {'ro': classical_addresses}\n\n        <DED>buffers = self._connection._qvm_run(quil_program, classical_addresses, trials,\n                                            self.measurement_noise, self.gate_noise,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if classical_addresses is None:\n            <IND>caddresses = get_classical_addresses_from_program(quil_program)\n\n        <DED>else:\n            <IND>caddresses = {'ro': classical_addresses}\n\n        <DED>buffers = self._connection._qvm_run(quil_program, caddresses, trials,\n                                            self.measurement_noise, self.gate_noise,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rigetti/pyquil",
+    "commit": "bcbc044e160b21d3870c42e45262819b9e8c59dc",
+    "filename": "pyquil/api/_qvm.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rigetti-pyquil/pyquil/api/_qvm.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyquil/api/_qvm.py:128:12 Incompatible variable type [9]: classical_addresses is declared to have type `List[int]` but is used as type `typing.Dict[str, List[int]]`.",
+    "message": " classical_addresses is declared to have type `List[int]` but is used as type `typing.Dict[str, List[int]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 128,
+    "warning_line": "            classical_addresses = {'ro': classical_addresses}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if classical_addresses is None:\n            classical_addresses = get_classical_addresses_from_program(quil_program)\n\n        else:\n            classical_addresses = {'ro': classical_addresses}\n\n        buffers = self._connection._qvm_run(quil_program, classical_addresses, trials,\n                                            self.measurement_noise, self.gate_noise,\n",
+        "source_code_len": 375,
+        "target_code": "        if classical_addresses is None:\n            caddresses = get_classical_addresses_from_program(quil_program)\n\n        else:\n            caddresses = {'ro': classical_addresses}\n\n        buffers = self._connection._qvm_run(quil_program, caddresses, trials,\n                                            self.measurement_noise, self.gate_noise,\n",
+        "target_code_len": 348,
+        "diff_format": "@@ -124,8 +125,8 @@\n         if classical_addresses is None:\n-            classical_addresses = get_classical_addresses_from_program(quil_program)\n+            caddresses = get_classical_addresses_from_program(quil_program)\n \n         else:\n-            classical_addresses = {'ro': classical_addresses}\n-\n-        buffers = self._connection._qvm_run(quil_program, classical_addresses, trials,\n+            caddresses = {'ro': classical_addresses}\n+\n+        buffers = self._connection._qvm_run(quil_program, caddresses, trials,\n                                             self.measurement_noise, self.gate_noise,\n",
+        "source_code_with_indent": "        if classical_addresses is None:\n            <IND>classical_addresses = get_classical_addresses_from_program(quil_program)\n\n        <DED>else:\n            <IND>classical_addresses = {'ro': classical_addresses}\n\n        <DED>buffers = self._connection._qvm_run(quil_program, classical_addresses, trials,\n                                            self.measurement_noise, self.gate_noise,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if classical_addresses is None:\n            <IND>caddresses = get_classical_addresses_from_program(quil_program)\n\n        <DED>else:\n            <IND>caddresses = {'ro': classical_addresses}\n\n        <DED>buffers = self._connection._qvm_run(quil_program, caddresses, trials,\n                                            self.measurement_noise, self.gate_noise,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rigetti/pyquil",
+    "commit": "bcbc044e160b21d3870c42e45262819b9e8c59dc",
+    "filename": "pyquil/device.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rigetti-pyquil/pyquil/device.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "pyquil/device.py:491:8 Incompatible return type [7]: Expected `List[Tuple[int, int]]` but got `List[typing.Tuple[typing.Any, ...]]`.",
+    "message": " Expected `List[Tuple[int, int]]` but got `List[typing.Tuple[typing.Any, ...]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 491,
+    "warning_line": "        return sorted(tuple(sorted(pair)) for pair in self.topology.edges)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    def edges(self) -> List[Tuple[int, int]]:\n        return sorted(tuple(sorted(pair)) for pair in self.topology.edges)\n",
+        "source_code_len": 121,
+        "target_code": "    def edges(self) -> List[Tuple[int, int]]:\n        return sorted(tuple(sorted(pair)) for pair in self.topology.edges)  # type: ignore\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -490,2 +490,2 @@\n     def edges(self) -> List[Tuple[int, int]]:\n-        return sorted(tuple(sorted(pair)) for pair in self.topology.edges)\n+        return sorted(tuple(sorted(pair)) for pair in self.topology.edges)  # type: ignore\n",
+        "source_code_with_indent": "    <DED>def edges(self) -> List[Tuple[int, int]]:\n        <IND>return sorted(tuple(sorted(pair)) for pair in self.topology.edges)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def edges(self) -> List[Tuple[int, int]]:\n        <IND>return sorted(tuple(sorted(pair)) for pair in self.topology.edges)  # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

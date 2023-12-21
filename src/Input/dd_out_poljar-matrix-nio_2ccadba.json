@@ -1,0 +1,36 @@
+[
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "2ccadbac96c2d51dc60f64542986df8247d1ac25",
+    "filename": "nio/events.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-matrix-nio/nio/events.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nio/events.py:655:8 Incompatible return type [7]: Expected `Union[BadEvent, RoomCreateEvent, UnknownBadEvent]` but got `RoomGuestAccessEvent`.",
+    "message": " Expected `Union[BadEvent, RoomCreateEvent, UnknownBadEvent]` but got `RoomGuestAccessEvent`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 655,
+    "warning_line": "        return cls(event_id, sender, timestamp, guest_access)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def from_dict(cls, parsed_dict):\n        # type: (Dict[Any, Any]) -> Union[RoomCreateEvent, BadEventType]\n        event_id = parsed_dict[\"event_id\"]\n",
+        "source_code_len": 153,
+        "target_code": "    def from_dict(cls, parsed_dict):\n        # type: (Dict[Any, Any]) -> Union[RoomGuestAccessEvent, BadEventType]\n        event_id = parsed_dict[\"event_id\"]\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -647,3 +647,3 @@\n     def from_dict(cls, parsed_dict):\n-        # type: (Dict[Any, Any]) -> Union[RoomCreateEvent, BadEventType]\n+        # type: (Dict[Any, Any]) -> Union[RoomGuestAccessEvent, BadEventType]\n         event_id = parsed_dict[\"event_id\"]\n",
+        "source_code_with_indent": "    def from_dict(cls, parsed_dict):\n        # type: (Dict[Any, Any]) -> Union[RoomCreateEvent, BadEventType]\n        <IND>event_id = parsed_dict[\"event_id\"]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def from_dict(cls, parsed_dict):\n        # type: (Dict[Any, Any]) -> Union[RoomGuestAccessEvent, BadEventType]\n        <IND>event_id = parsed_dict[\"event_id\"]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

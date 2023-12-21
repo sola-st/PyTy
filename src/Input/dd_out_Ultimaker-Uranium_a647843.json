@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "a64784386b1e6fb02f70b8b7f7d4ec58198dc648",
+    "filename": "UM/Application.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Application.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Application.py:96:8 Incompatible attribute type [8]: Attribute `_global_container_stack` declared in class `Application` has type `ContainerStack` but is used as type `None`.",
+    "message": " Attribute `_global_container_stack` declared in class `Application` has type `ContainerStack` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 96,
+    "warning_line": "        self._global_container_stack = None  # type: ContainerStack",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._container_registry = None  # type: ContainerRegistry\n        self._global_container_stack = None  # type: ContainerStack\n\n",
+        "source_code_len": 136,
+        "target_code": "        self._container_registry = None  # type: ContainerRegistry\n        self._global_container_stack = None  # type: Optional[ContainerStack]\n\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -95,3 +95,3 @@\n         self._container_registry = None  # type: ContainerRegistry\n-        self._global_container_stack = None  # type: ContainerStack\n+        self._global_container_stack = None  # type: Optional[ContainerStack]\n \n",
+        "source_code_with_indent": "        self._container_registry = None  # type: ContainerRegistry\n        self._global_container_stack = None  # type: ContainerStack\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._container_registry = None  # type: ContainerRegistry\n        self._global_container_stack = None  # type: Optional[ContainerStack]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "a64784386b1e6fb02f70b8b7f7d4ec58198dc648",
+    "filename": "UM/Application.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Application.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Application.py:263:12 Incompatible attribute type [8]: Attribute `_global_container_stack` declared in class `Application` has type `ContainerStack` but is used as type `Optional[ContainerStack]`.",
+    "message": " Attribute `_global_container_stack` declared in class `Application` has type `ContainerStack` but is used as type `Optional[ContainerStack]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 263,
+    "warning_line": "            self._global_container_stack = stack",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._container_registry = None  # type: ContainerRegistry\n        self._global_container_stack = None  # type: ContainerStack\n\n",
+        "source_code_len": 136,
+        "target_code": "        self._container_registry = None  # type: ContainerRegistry\n        self._global_container_stack = None  # type: Optional[ContainerStack]\n\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -95,3 +95,3 @@\n         self._container_registry = None  # type: ContainerRegistry\n-        self._global_container_stack = None  # type: ContainerStack\n+        self._global_container_stack = None  # type: Optional[ContainerStack]\n \n",
+        "source_code_with_indent": "        self._container_registry = None  # type: ContainerRegistry\n        self._global_container_stack = None  # type: ContainerStack\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._container_registry = None  # type: ContainerRegistry\n        self._global_container_stack = None  # type: Optional[ContainerStack]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

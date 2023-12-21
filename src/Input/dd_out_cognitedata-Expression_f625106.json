@@ -1,0 +1,104 @@
+[
+  {
+    "project": "cognitedata/Expression",
+    "commit": "f625106ed8ab48247d80253af5ff7190055856ab",
+    "filename": "oryx/handler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cognitedata-Expression/oryx/handler.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "oryx/handler.py:36:4 Incompatible return type [7]: Expected `expression.core.result.Result[Context[Variable[TResult]], Variable[TError]]` but got `expression.core.result.Ok[Variable[expression.core.result.TError], Context[Variable[TNext]]]`.",
+    "message": " Expected `expression.core.result.Result[Context[Variable[TResult]], Variable[TError]]` but got `expression.core.result.Ok[Variable[expression.core.result.TError], Context[Variable[TNext]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 36,
+    "warning_line": "    return Ok(ctx)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n    def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult, TError],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult, TError]:\n        return with_url_builder(lambda _: url)(next, context)\n\n",
+        "source_code_len": 321,
+        "target_code": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n    def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult]:\n        fn = with_url_builder(lambda _: url)\n        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n        return ret\n\n",
+        "target_code_len": 361,
+        "diff_format": "@@ -64,8 +62,10 @@\n     url: str,\n-) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n+) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n     def _with_url(\n-        next: HttpFunc[Option[ClientResponse], TResult, TError],\n+        next: HttpFunc[Option[ClientResponse], TResult],\n         context: HttpContext,\n-    ) -> HttpFuncResultAsync[TResult, TError]:\n-        return with_url_builder(lambda _: url)(next, context)\n+    ) -> HttpFuncResultAsync[TResult]:\n+        fn = with_url_builder(lambda _: url)\n+        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n+        return ret\n \n",
+        "source_code_with_indent": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n    <IND>def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult, TError],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult, TError]:\n        <IND>return with_url_builder(lambda _: url)(next, context)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n    <IND>def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult]:\n        <IND>fn = with_url_builder(lambda _: url)\n        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n        return ret\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "cognitedata/Expression",
+    "commit": "f625106ed8ab48247d80253af5ff7190055856ab",
+    "filename": "oryx/handler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cognitedata-Expression/oryx/handler.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "oryx/handler.py:48:4 Incompatible return type [7]: Expected `expression.core.result.Result[Variable[TResult], Variable[TError]]` but got `expression.core.result.Result[Variable[expression.core.result.TResult], Context[Variable[TResult]]]`.",
+    "message": " Expected `expression.core.result.Result[Variable[TResult], Variable[TError]]` but got `expression.core.result.Result[Variable[expression.core.result.TResult], Context[Variable[TResult]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 48,
+    "warning_line": "    return result.map(mapper)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n    def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult, TError],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult, TError]:\n        return with_url_builder(lambda _: url)(next, context)\n\n",
+        "source_code_len": 321,
+        "target_code": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n    def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult]:\n        fn = with_url_builder(lambda _: url)\n        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n        return ret\n\n",
+        "target_code_len": 361,
+        "diff_format": "@@ -64,8 +62,10 @@\n     url: str,\n-) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n+) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n     def _with_url(\n-        next: HttpFunc[Option[ClientResponse], TResult, TError],\n+        next: HttpFunc[Option[ClientResponse], TResult],\n         context: HttpContext,\n-    ) -> HttpFuncResultAsync[TResult, TError]:\n-        return with_url_builder(lambda _: url)(next, context)\n+    ) -> HttpFuncResultAsync[TResult]:\n+        fn = with_url_builder(lambda _: url)\n+        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n+        return ret\n \n",
+        "source_code_with_indent": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n    <IND>def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult, TError],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult, TError]:\n        <IND>return with_url_builder(lambda _: url)(next, context)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n    <IND>def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult]:\n        <IND>fn = with_url_builder(lambda _: url)\n        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n        return ret\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "cognitedata/Expression",
+    "commit": "f625106ed8ab48247d80253af5ff7190055856ab",
+    "filename": "oryx/handler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cognitedata-Expression/oryx/handler.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "oryx/handler.py:48:22 Incompatible parameter type [6]: Expected `typing.Callable[[Variable[TError]], Variable[expression.core.result.TResult]]` for 1st positional only parameter to call `expression.core.result.Result.map` but got `typing.Callable[[Named(x, Context[Variable[TResult]])], Variable[TResult]]`.",
+    "message": " Expected `typing.Callable[[Variable[TError]], Variable[expression.core.result.TResult]]` for 1st positional only parameter to call `expression.core.result.Result.map` but got `typing.Callable[[Named(x, Context[Variable[TResult]])], Variable[TResult]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 48,
+    "warning_line": "    return result.map(mapper)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n    def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult, TError],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult, TError]:\n        return with_url_builder(lambda _: url)(next, context)\n\n",
+        "source_code_len": 321,
+        "target_code": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n    def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult]:\n        fn = with_url_builder(lambda _: url)\n        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n        return ret\n\n",
+        "target_code_len": 361,
+        "diff_format": "@@ -64,8 +62,10 @@\n     url: str,\n-) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n+) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n     def _with_url(\n-        next: HttpFunc[Option[ClientResponse], TResult, TError],\n+        next: HttpFunc[Option[ClientResponse], TResult],\n         context: HttpContext,\n-    ) -> HttpFuncResultAsync[TResult, TError]:\n-        return with_url_builder(lambda _: url)(next, context)\n+    ) -> HttpFuncResultAsync[TResult]:\n+        fn = with_url_builder(lambda _: url)\n+        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n+        return ret\n \n",
+        "source_code_with_indent": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, TError, Option[ClientResponse]]:\n    <IND>def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult, TError],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult, TError]:\n        <IND>return with_url_builder(lambda _: url)(next, context)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    url: str,\n) -> HttpHandler[Option[ClientResponse], TResult, Option[ClientResponse]]:\n    <IND>def _with_url(\n        next: HttpFunc[Option[ClientResponse], TResult],\n        context: HttpContext,\n    ) -> HttpFuncResultAsync[TResult]:\n        <IND>fn = with_url_builder(lambda _: url)\n        ret: HttpFuncResultAsync[TResult] = fn(next, context)\n        return ret\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

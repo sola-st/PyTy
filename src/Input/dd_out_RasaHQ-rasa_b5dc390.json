@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "b5dc390c666fb16a4a917d4b3f6b968c69fe74ca",
+    "filename": "rasa/nlu/featurizers/regex_featurizer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/nlu/featurizers/regex_featurizer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/nlu/featurizers/regex_featurizer.py:103:39 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `list.__getitem__` but got `str`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `list.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 103,
+    "warning_line": "        lookup_elements = lookup_table[\"elements\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _generate_lookup_regex(self, lookup_table: Union[Text, List]) -> Text:\n        \"\"\"creates a regex out of the contents of a lookup table file\"\"\"\n",
+        "source_code_len": 153,
+        "target_code": "\n    def _generate_lookup_regex(\n        self, lookup_table: Dict[Text, Union[Text, List[Text]]]\n    ) -> Text:\n        \"\"\"creates a regex out of the contents of a lookup table file\"\"\"\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -100,3 +100,5 @@\n \n-    def _generate_lookup_regex(self, lookup_table: Union[Text, List]) -> Text:\n+    def _generate_lookup_regex(\n+        self, lookup_table: Dict[Text, Union[Text, List[Text]]]\n+    ) -> Text:\n         \"\"\"creates a regex out of the contents of a lookup table file\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def _generate_lookup_regex(self, lookup_table: Union[Text, List]) -> Text:\n        <IND>\"\"\"creates a regex out of the contents of a lookup table file\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _generate_lookup_regex(\n        self, lookup_table: Dict[Text, Union[Text, List[Text]]]\n    ) -> Text:\n        <IND>\"\"\"creates a regex out of the contents of a lookup table file\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

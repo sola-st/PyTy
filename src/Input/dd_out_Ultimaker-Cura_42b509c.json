@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "42b509cd4a5eb51d66ee6474817b6a78ed97ce2b",
+    "filename": "cura/Settings/MachineManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/Settings/MachineManager.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/Settings/MachineManager.py:539:8 Incompatible return type [7]: Expected `Optional[ExtruderStack]` but got `Optional[ExtruderManager]`.",
+    "message": " Expected `Optional[ExtruderStack]` but got `Optional[ExtruderManager]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 539,
+    "warning_line": "        return self._active_container_stack",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self._active_container_stack = None     # type: Optional[ExtruderManager]\n        self._global_container_stack = None     # type: Optional[GlobalStack]\n",
+        "source_code_len": 161,
+        "target_code": "\n        self._active_container_stack = None     # type: Optional[ExtruderStack]\n        self._global_container_stack = None     # type: Optional[GlobalStack]\n",
+        "target_code_len": 159,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-        self._active_container_stack = None     # type: Optional[ExtruderManager]\n+        self._active_container_stack = None     # type: Optional[ExtruderStack]\n         self._global_container_stack = None     # type: Optional[GlobalStack]\n",
+        "source_code_with_indent": "\n        self._active_container_stack = None     # type: Optional[ExtruderManager]\n        self._global_container_stack = None     # type: Optional[GlobalStack]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        self._active_container_stack = None     # type: Optional[ExtruderStack]\n        self._global_container_stack = None     # type: Optional[GlobalStack]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

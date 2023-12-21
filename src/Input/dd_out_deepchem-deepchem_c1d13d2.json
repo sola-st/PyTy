@@ -1,0 +1,70 @@
+[
+  {
+    "project": "deepchem/deepchem",
+    "commit": "c1d13d23aa6fb2e19e584eb376ceb4f99bde39dc",
+    "filename": "deepchem/splits/splitters.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepchem-deepchem/deepchem/splits/splitters.py",
+    "file_hunks_size": 32,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "deepchem/splits/splitters.py:628:2 Inconsistent override [15]: `deepchem.splits.splitters.SingletaskStratifiedSplitter.k_fold_split` overrides method defined in `Splitter` inconsistently. Returned type `List[dc.data.datasets.Dataset]` is not a subtype of the overridden return `List[Tuple[dc.data.datasets.Dataset, dc.data.datasets.Dataset]]`.",
+    "message": " `deepchem.splits.splitters.SingletaskStratifiedSplitter.k_fold_split` overrides method defined in `Splitter` inconsistently. Returned type `List[dc.data.datasets.Dataset]` is not a subtype of the overridden return `List[Tuple[dc.data.datasets.Dataset, dc.data.datasets.Dataset]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 628,
+    "warning_line": "  def k_fold_split(self,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n  def k_fold_split(self,\n                   dataset: Dataset,\n                   k: int,\n                   directories: Optional[List[str]] = None,\n                   seed: Optional[int] = None,\n                   log_every_n: Optional[int] = None,\n                   **kwargs) -> List[Dataset]:\n    \"\"\"\n",
+        "source_code_len": 306,
+        "target_code": "\n  # FIXME: Signature of \"k_fold_split\" incompatible with supertype \"Splitter\"\n  def k_fold_split(  # type: ignore [override]\n      self,\n      dataset: Dataset,\n      k: int,\n      directories: Optional[List[str]] = None,\n      seed: Optional[int] = None,\n      log_every_n: Optional[int] = None,\n      **kwargs) -> List[Dataset]:\n    \"\"\"\n",
+        "target_code_len": 340,
+        "diff_format": "@@ -627,9 +660,11 @@\n \n-  def k_fold_split(self,\n-                   dataset: Dataset,\n-                   k: int,\n-                   directories: Optional[List[str]] = None,\n-                   seed: Optional[int] = None,\n-                   log_every_n: Optional[int] = None,\n-                   **kwargs) -> List[Dataset]:\n+  # FIXME: Signature of \"k_fold_split\" incompatible with supertype \"Splitter\"\n+  def k_fold_split(  # type: ignore [override]\n+      self,\n+      dataset: Dataset,\n+      k: int,\n+      directories: Optional[List[str]] = None,\n+      seed: Optional[int] = None,\n+      log_every_n: Optional[int] = None,\n+      **kwargs) -> List[Dataset]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n  <DED>def k_fold_split(self,\n                   dataset: Dataset,\n                   k: int,\n                   directories: Optional[List[str]] = None,\n                   seed: Optional[int] = None,\n                   log_every_n: Optional[int] = None,\n                   **kwargs) -> List[Dataset]:\n    <IND>",
+        "target_code_with_indent": "\n  # FIXME: Signature of \"k_fold_split\" incompatible with supertype \"Splitter\"\n  <DED>def k_fold_split(  # type: ignore [override]\n      self,\n      dataset: Dataset,\n      k: int,\n      directories: Optional[List[str]] = None,\n      seed: Optional[int] = None,\n      log_every_n: Optional[int] = None,\n      **kwargs) -> List[Dataset]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "deepchem/deepchem",
+    "commit": "c1d13d23aa6fb2e19e584eb376ceb4f99bde39dc",
+    "filename": "deepchem/splits/splitters.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepchem-deepchem/deepchem/splits/splitters.py",
+    "file_hunks_size": 32,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deepchem/splits/splitters.py:1186:2 Inconsistent override [14]: `deepchem.splits.splitters.ScaffoldSplitter.split` overrides method defined in `Splitter` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `Optional[int]`.",
+    "message": " `deepchem.splits.splitters.ScaffoldSplitter.split` overrides method defined in `Splitter` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `Optional[int]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 1186,
+    "warning_line": "  def split(self,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            seed: Optional[int] = None,\n            log_every_n: int = 1000) -> Tuple[List[int], List[int], List[int]]:\n    \"\"\"\n",
+        "source_code_len": 128,
+        "target_code": "            seed: Optional[int] = None,\n            log_every_n: Optional[int] = 1000\n           ) -> Tuple[List[int], List[int], List[int]]:\n    \"\"\"\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -1191,3 +1226,4 @@\n             seed: Optional[int] = None,\n-            log_every_n: int = 1000) -> Tuple[List[int], List[int], List[int]]:\n+            log_every_n: Optional[int] = 1000\n+           ) -> Tuple[List[int], List[int], List[int]]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "            seed: Optional[int] = None,\n            log_every_n: int = 1000) -> Tuple[List[int], List[int], List[int]]:\n    <IND>",
+        "target_code_with_indent": "            seed: Optional[int] = None,\n            log_every_n: Optional[int] = 1000\n           ) -> Tuple[List[int], List[int], List[int]]:\n    <IND>"
+      }
+    ]
+  }
+]

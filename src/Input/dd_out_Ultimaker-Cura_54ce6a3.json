@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "54ce6a3676a22afc6068ba4f127ade921f9a8fca",
+    "filename": "cura/LayerDataDecorator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/LayerDataDecorator.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/LayerDataDecorator.py:22:38 Incompatible parameter type [6]: Expected `LayerData` for 1st positional only parameter to call `LayerDataDecorator.setLayerData` but got `Optional[LayerData]`.",
+    "message": " Expected `LayerData` for 1st positional only parameter to call `LayerDataDecorator.setLayerData` but got `Optional[LayerData]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 22,
+    "warning_line": "        copied_decorator.setLayerData(self.getLayerData())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._layer_data = None  # type: Optional[LayerData]\n        \n    def getLayerData(self) -> Optional[LayerData]:\n        return self._layer_data\n    \n    def setLayerData(self, layer_data: LayerData) -> None:\n        self._layer_data = layer_data\n",
+        "source_code_len": 255,
+        "target_code": "        self._layer_data = None  # type: Optional[LayerData]\n\n    def getLayerData(self) -> Optional[\"LayerData\"]:\n        return self._layer_data\n\n    def setLayerData(self, layer_data: Optional[\"LayerData\"]) -> None:\n        self._layer_data = layer_data\n",
+        "target_code_len": 257,
+        "diff_format": "@@ -12,7 +13,7 @@\n         self._layer_data = None  # type: Optional[LayerData]\n-        \n-    def getLayerData(self) -> Optional[LayerData]:\n+\n+    def getLayerData(self) -> Optional[\"LayerData\"]:\n         return self._layer_data\n-    \n-    def setLayerData(self, layer_data: LayerData) -> None:\n+\n+    def setLayerData(self, layer_data: Optional[\"LayerData\"]) -> None:\n         self._layer_data = layer_data\n",
+        "source_code_with_indent": "        self._layer_data = None  # type: Optional[LayerData]\n        \n    <DED>def getLayerData(self) -> Optional[LayerData]:\n        <IND>return self._layer_data\n    \n    <DED>def setLayerData(self, layer_data: LayerData) -> None:\n        <IND>self._layer_data = layer_data\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._layer_data = None  # type: Optional[LayerData]\n\n    <DED>def getLayerData(self) -> Optional[\"LayerData\"]:\n        <IND>return self._layer_data\n\n    <DED>def setLayerData(self, layer_data: Optional[\"LayerData\"]) -> None:\n        <IND>self._layer_data = layer_data\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

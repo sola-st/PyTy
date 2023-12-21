@@ -1,0 +1,36 @@
+[
+  {
+    "project": "layday/instawow",
+    "commit": "ed5f8880a6843cc4b5d8400a142869ab6630bd92",
+    "filename": "instawow/manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/layday-instawow/instawow/manager.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "instawow/manager.py:368:8 Incompatible return type [7]: Expected `typing.Optional[typing.Tuple[str, str]]` but got `typing.Optional[typing.Tuple[str, typing.Optional[str]]]`.",
+    "message": " Expected `typing.Optional[typing.Tuple[str, str]]` but got `typing.Optional[typing.Tuple[str, typing.Optional[str]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 368,
+    "warning_line": "        return next(chain(url_pairs, from_urn()), None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        url_pairs: Iterator[tuple[str, Any]] = filter(\n            all, ((r.source, r.get_alias_from_url(value)) for r in self.resolvers.values())\n        )\n        return next(chain(url_pairs, from_urn()), None)\n\n",
+        "source_code_len": 215,
+        "target_code": "\n        aliases_from_url = (\n            (r.source, a)\n            for r in self.resolvers.values()\n            for a in (r.get_alias_from_url(value),)\n            if a\n        )\n        return next(chain(aliases_from_url, from_urn(), (None,)))\n\n",
+        "target_code_len": 247,
+        "diff_format": "@@ -364,6 +364,9 @@\n \n-        url_pairs: Iterator[tuple[str, Any]] = filter(\n-            all, ((r.source, r.get_alias_from_url(value)) for r in self.resolvers.values())\n-        )\n-        return next(chain(url_pairs, from_urn()), None)\n+        aliases_from_url = (\n+            (r.source, a)\n+            for r in self.resolvers.values()\n+            for a in (r.get_alias_from_url(value),)\n+            if a\n+        )\n+        return next(chain(aliases_from_url, from_urn(), (None,)))\n \n",
+        "source_code_with_indent": "\n        <DED><DED>url_pairs: Iterator[tuple[str, Any]] = filter(\n            all, ((r.source, r.get_alias_from_url(value)) for r in self.resolvers.values())\n        )\n        return next(chain(url_pairs, from_urn()), None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED><DED>aliases_from_url = (\n            (r.source, a)\n            for r in self.resolvers.values()\n            for a in (r.get_alias_from_url(value),)\n            if a\n        )\n        return next(chain(aliases_from_url, from_urn(), (None,)))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

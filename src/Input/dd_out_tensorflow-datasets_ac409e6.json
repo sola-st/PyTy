@@ -1,0 +1,36 @@
+[
+  {
+    "project": "tensorflow/datasets",
+    "commit": "ac409e6f390bdaf18de6a72acd00ccd032352e2a",
+    "filename": "tensorflow_datasets/core/naming.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-datasets/tensorflow_datasets/core/naming.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_datasets/core/naming.py:311:2 Incompatible return type [7]: Expected `typing.Match[typing.Any]` but got `Optional[typing.Match[str]]`.",
+    "message": " Expected `typing.Match[typing.Any]` but got `Optional[typing.Match[str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 311,
+    "warning_line": "  return re.fullmatch(pattern, filename)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _parse_filename(filename: str) -> 're.Match':  # pytype: disable=module-attr\n  \"\"\"Parse the tf-record filename.\"\"\"\n",
+        "source_code_len": 120,
+        "target_code": "\ndef _parse_filename(filename: str) -> Optional['re.Match']:  # pytype: disable=module-attr\n  \"\"\"Parse the tf-record filename.\"\"\"\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -305,3 +305,3 @@\n \n-def _parse_filename(filename: str) -> 're.Match':  # pytype: disable=module-attr\n+def _parse_filename(filename: str) -> Optional['re.Match']:  # pytype: disable=module-attr\n   \"\"\"Parse the tf-record filename.\"\"\"\n",
+        "source_code_with_indent": "\n<DED><DED>def _parse_filename(filename: str) -> 're.Match':  # pytype: disable=module-attr\n  <IND>\"\"\"Parse the tf-record filename.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def _parse_filename(filename: str) -> Optional['re.Match']:  # pytype: disable=module-attr\n  <IND>\"\"\"Parse the tf-record filename.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

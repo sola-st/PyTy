@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jamesoff/simplemonitor",
+    "commit": "ebf14585452f9ca5db63aad3fb5c88bf313732bd",
+    "filename": "simplemonitor/Loggers/network.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jamesoff-simplemonitor/simplemonitor/Loggers/network.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "simplemonitor/Loggers/network.py:189:36 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `json_loads` but got `bytearray`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `json_loads` but got `bytearray`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 189,
+    "warning_line": "                result = json_loads(serialized)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    )\n                result = json_loads(serialized)\n                self.simplemonitor.update_remote_monitor(result, addr[0])\n",
+        "source_code_len": 144,
+        "target_code": "                    )\n                result = json_loads(bytes(serialized))\n                self.simplemonitor.update_remote_monitor(result, addr[0])\n",
+        "target_code_len": 151,
+        "diff_format": "@@ -188,3 +188,3 @@\n                     )\n-                result = json_loads(serialized)\n+                result = json_loads(bytes(serialized))\n                 self.simplemonitor.update_remote_monitor(result, addr[0])\n",
+        "source_code_with_indent": "                    )\n                <DED>result = json_loads(serialized)\n                self.simplemonitor.update_remote_monitor(result, addr[0])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    )\n                <DED>result = json_loads(bytes(serialized))\n                self.simplemonitor.update_remote_monitor(result, addr[0])\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

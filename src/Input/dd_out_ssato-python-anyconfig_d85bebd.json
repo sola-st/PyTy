@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ssato/python-anyconfig",
+    "commit": "d85bebdc65b731f05a2f9246ecf14d50a7718899",
+    "filename": "src/anyconfig/schema/default.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ssato-python-anyconfig/src/anyconfig/schema/default.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/anyconfig/schema/default.py:29:4 Incompatible return type [7]: Expected `None` but got `bool`.",
+    "message": " Expected `None` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 29,
+    "warning_line": "    return True",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def is_valid(data: DataT, schema: DataT, ac_schema_safe: bool = True,\n             ac_schema_errors: bool = False, **options) -> None:\n    \"\"\"\n",
+        "source_code_len": 143,
+        "target_code": "def is_valid(data: DataT, schema: DataT, ac_schema_safe: bool = True,\n             ac_schema_errors: bool = False, **options) -> bool:\n    \"\"\"\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -24,3 +24,3 @@\n def is_valid(data: DataT, schema: DataT, ac_schema_safe: bool = True,\n-             ac_schema_errors: bool = False, **options) -> None:\n+             ac_schema_errors: bool = False, **options) -> bool:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED>def is_valid(data: DataT, schema: DataT, ac_schema_safe: bool = True,\n             ac_schema_errors: bool = False, **options) -> None:\n    <IND>",
+        "target_code_with_indent": "<DED>def is_valid(data: DataT, schema: DataT, ac_schema_safe: bool = True,\n             ac_schema_errors: bool = False, **options) -> bool:\n    <IND>"
+      }
+    ]
+  }
+]

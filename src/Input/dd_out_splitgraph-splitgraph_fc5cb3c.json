@@ -1,0 +1,51 @@
+[
+  {
+    "project": "splitgraph/splitgraph",
+    "commit": "fc5cb3c36678f49d0284836535eb9c3985621ce6",
+    "filename": "splitgraph/hooks/data_source.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/splitgraph-splitgraph/splitgraph/hooks/data_source.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "splitgraph/hooks/data_source.py:152:12 Incompatible parameter type [6]: Expected `Optional[Dict[str, Optional[str]]]` for 4th positional only parameter to call `init_fdw` but got `Dict[str, str]`.",
+    "message": " Expected `Optional[Dict[str, Optional[str]]]` for 4th positional only parameter to call `init_fdw` but got `Dict[str, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 152,
+    "warning_line": "            self.get_server_options(),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from copy import deepcopy\nfrom typing import Dict, Any, Optional, Union, List, TYPE_CHECKING\n\n",
+        "source_code_len": 94,
+        "target_code": "from copy import deepcopy\nfrom typing import Dict, Any, Optional, Union, List, TYPE_CHECKING, Mapping, cast\n\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -3,3 +3,3 @@\n from copy import deepcopy\n-from typing import Dict, Any, Optional, Union, List, TYPE_CHECKING\n+from typing import Dict, Any, Optional, Union, List, TYPE_CHECKING, Mapping, cast\n \n",
+        "source_code_with_indent": "from copy import deepcopy\nfrom typing import Dict, Any, Optional, Union, List, TYPE_CHECKING\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from copy import deepcopy\nfrom typing import Dict, Any, Optional, Union, List, TYPE_CHECKING, Mapping, cast\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    wrapper: str,\n    server_options: Optional[Dict[str, Union[str, None]]] = None,\n    user_options: Optional[Dict[str, str]] = None,\n    overwrite: bool = True,\n",
+        "source_code_len": 163,
+        "target_code": "    wrapper: str,\n    server_options: Optional[Mapping[str, Optional[str]]] = None,\n    user_options: Optional[Mapping[str, str]] = None,\n    overwrite: bool = True,\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -420,4 +422,4 @@\n     wrapper: str,\n-    server_options: Optional[Dict[str, Union[str, None]]] = None,\n-    user_options: Optional[Dict[str, str]] = None,\n+    server_options: Optional[Mapping[str, Optional[str]]] = None,\n+    user_options: Optional[Mapping[str, str]] = None,\n     overwrite: bool = True,\n",
+        "source_code_with_indent": "    wrapper: str,\n    server_options: Optional[Dict[str, Union[str, None]]] = None,\n    user_options: Optional[Dict[str, str]] = None,\n    overwrite: bool = True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    wrapper: str,\n    server_options: Optional[Mapping[str, Optional[str]]] = None,\n    user_options: Optional[Mapping[str, str]] = None,\n    overwrite: bool = True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

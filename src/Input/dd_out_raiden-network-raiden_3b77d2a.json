@@ -1,0 +1,36 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "3b77d2acc1087dc4c119b636332af3f28553e3b3",
+    "filename": "raiden/network/proxies/token.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/network/proxies/token.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/network/proxies/token.py:57:35 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `pex` but got `typing.AddressHex`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `pex` but got `typing.AddressHex`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 57,
+    "warning_line": "            'allowed_address': pex(allowed_address),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def approve(self, allowed_address: typing.AddressHex, allowance: typing.TokenAmount):\n        \"\"\" Aprove `allowed_address` to transfer up to `deposit` amount of token.\n",
+        "source_code_len": 173,
+        "target_code": "\n    def approve(self, allowed_address: typing.Address, allowance: typing.TokenAmount):\n        \"\"\" Aprove `allowed_address` to transfer up to `deposit` amount of token.\n",
+        "target_code_len": 170,
+        "diff_format": "@@ -44,3 +44,3 @@\n \n-    def approve(self, allowed_address: typing.AddressHex, allowance: typing.TokenAmount):\n+    def approve(self, allowed_address: typing.Address, allowance: typing.TokenAmount):\n         \"\"\" Aprove `allowed_address` to transfer up to `deposit` amount of token.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def approve(self, allowed_address: typing.AddressHex, allowance: typing.TokenAmount):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def approve(self, allowed_address: typing.Address, allowance: typing.TokenAmount):\n        <IND>"
+      }
+    ]
+  }
+]

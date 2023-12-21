@@ -1,0 +1,121 @@
+[
+  {
+    "project": "dbrattli/aioreactive",
+    "commit": "c375249260f52c635174d209ab69b50b058d30d4",
+    "filename": "aioreactive/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbrattli-aioreactive/aioreactive/__init__.py",
+    "file_hunks_size": 30,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioreactive/__init__.py:174:56 Incompatible parameter type [6]: Expected `types.AsyncObservable[Variable[combine.TOther]]` for 1st positional only parameter to call `combine_latest` but got `Variable[TOther]`.",
+    "message": " Expected `types.AsyncObservable[Variable[combine.TOther]]` for 1st positional only parameter to call `combine_latest` but got `Variable[TOther]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 174,
+    "warning_line": "        return AsyncRx.create(pipe(self, combine_latest(other)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def combine_latest(self, other: TOther) -> \"AsyncRx[Tuple[TSource, TOther]]\":\n        from .combine import combine_latest\n\n        return AsyncRx.create(pipe(self, combine_latest(other)))\n\n",
+        "source_code_len": 194,
+        "target_code": "\n    def combine_latest(self, other: AsyncObservable[TOther]) -> \"AsyncRx[Tuple[TSource, TOther]]\":\n        from .combine import combine_latest\n\n        xs = pipe(self, combine_latest(other))\n        return AsyncRx.create(xs)\n\n",
+        "target_code_len": 227,
+        "diff_format": "@@ -170,6 +173,7 @@\n \n-    def combine_latest(self, other: TOther) -> \"AsyncRx[Tuple[TSource, TOther]]\":\n+    def combine_latest(self, other: AsyncObservable[TOther]) -> \"AsyncRx[Tuple[TSource, TOther]]\":\n         from .combine import combine_latest\n \n-        return AsyncRx.create(pipe(self, combine_latest(other)))\n+        xs = pipe(self, combine_latest(other))\n+        return AsyncRx.create(xs)\n \n",
+        "source_code_with_indent": "\n    <DED>def combine_latest(self, other: TOther) -> \"AsyncRx[Tuple[TSource, TOther]]\":\n        <IND>from .combine import combine_latest\n\n        return AsyncRx.create(pipe(self, combine_latest(other)))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def combine_latest(self, other: AsyncObservable[TOther]) -> \"AsyncRx[Tuple[TSource, TOther]]\":\n        <IND>from .combine import combine_latest\n\n        xs = pipe(self, combine_latest(other))\n        return AsyncRx.create(xs)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dbrattli/aioreactive",
+    "commit": "c375249260f52c635174d209ab69b50b058d30d4",
+    "filename": "aioreactive/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbrattli-aioreactive/aioreactive/__init__.py",
+    "file_hunks_size": 30,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioreactive/__init__.py:722:4 Incompatible return type [7]: Expected `Projection[types.AsyncObservable[Variable[TSource]], Variable[TSource]]` but got `typing.Callable[[Named(source, types.AsyncObservable[types.AsyncObservable[Variable[TSource]]])], types.AsyncObservable[Variable[TSource]]]`.",
+    "message": " Expected `Projection[types.AsyncObservable[Variable[TSource]], Variable[TSource]]` but got `typing.Callable[[Named(source, types.AsyncObservable[types.AsyncObservable[Variable[TSource]]])], types.AsyncObservable[Variable[TSource]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 722,
+    "warning_line": "    return _merge_inner"
+  },
+  {
+    "project": "dbrattli/aioreactive",
+    "commit": "c375249260f52c635174d209ab69b50b058d30d4",
+    "filename": "aioreactive/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbrattli-aioreactive/aioreactive/__init__.py",
+    "file_hunks_size": 30,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioreactive/__init__.py:815:4 Incompatible return type [7]: Expected `Projection[Variable[TSource], typing.Tuple[typing.Any, ...]]` but got `Projection[Iterable[typing.Any], Iterable[typing.Any]]`.",
+    "message": " Expected `Projection[Variable[TSource], typing.Tuple[typing.Any, ...]]` but got `Projection[Iterable[typing.Any], Iterable[typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 815,
+    "warning_line": "    return starfilter(predicate)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef starfilter(predicate: Callable[..., bool]) -> Projection[TSource, Tuple[Any, ...]]:\n    \"\"\"Filter and spread the arguments to the predicate.\n",
+        "source_code_len": 146,
+        "target_code": "\ndef starfilter(predicate: Callable[..., bool]) -> Projection[Iterable[Any], Iterable[Any]]:\n    \"\"\"Filter and spread the arguments to the predicate.\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -804,3 +820,3 @@\n \n-def starfilter(predicate: Callable[..., bool]) -> Projection[TSource, Tuple[Any, ...]]:\n+def starfilter(predicate: Callable[..., bool]) -> Projection[Iterable[Any], Iterable[Any]]:\n     \"\"\"Filter and spread the arguments to the predicate.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def starfilter(predicate: Callable[..., bool]) -> Projection[TSource, Tuple[Any, ...]]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def starfilter(predicate: Callable[..., bool]) -> Projection[Iterable[Any], Iterable[Any]]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "dbrattli/aioreactive",
+    "commit": "c375249260f52c635174d209ab69b50b058d30d4",
+    "filename": "aioreactive/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dbrattli-aioreactive/aioreactive/__init__.py",
+    "file_hunks_size": 30,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aioreactive/__init__.py:826:4 Incompatible return type [7]: Expected `Projection[Variable[TSource], Variable[TResult]]` but got `Projection[Iterable[typing.Any], Variable[TResult]]`.",
+    "message": " Expected `Projection[Variable[TSource], Variable[TResult]]` but got `Projection[Iterable[typing.Any], Variable[TResult]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 826,
+    "warning_line": "    return starmap(mapper)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef starmap(mapper: Callable[..., TResult]) -> Projection[TSource, TResult]:\n    \"\"\"Map and spread the arguments to the mapper.\n",
+        "source_code_len": 129,
+        "target_code": "\ndef starmap(mapper: Callable[..., TResult]) -> Projection[Any, TResult]:\n    \"\"\"Map and spread the arguments to the mapper.\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -817,3 +833,3 @@\n \n-def starmap(mapper: Callable[..., TResult]) -> Projection[TSource, TResult]:\n+def starmap(mapper: Callable[..., TResult]) -> Projection[Any, TResult]:\n     \"\"\"Map and spread the arguments to the mapper.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def starmap(mapper: Callable[..., TResult]) -> Projection[TSource, TResult]:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def starmap(mapper: Callable[..., TResult]) -> Projection[Any, TResult]:\n    <IND>"
+      }
+    ]
+  }
+]

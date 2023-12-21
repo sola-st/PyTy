@@ -1,0 +1,51 @@
+[
+  {
+    "project": "morganstanley/treadmill",
+    "commit": "5e26320d31eac5fa4ec4101aa30f21e4f0c38a3a",
+    "filename": "lib/python/treadmill/syscall/inotify.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/morganstanley-treadmill/lib/python/treadmill/syscall/inotify.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lib/python/treadmill/syscall/inotify.py:243:16 Unbound name [10]: Name `reduce` is used but not defined in the current scope.",
+    "message": " Name `reduce` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 243,
+    "warning_line": "IN_ALL_EVENTS = reduce(operator.or_, [",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import enum\n\n",
+        "source_code_len": 13,
+        "target_code": "import enum\nimport six\n\n",
+        "target_code_len": 24,
+        "diff_format": "@@ -19,2 +23,3 @@\n import enum\n+import six\n \n",
+        "source_code_with_indent": "import enum\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import enum\nimport six\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# All user-space events.\nIN_ALL_EVENTS = reduce(operator.or_, [\n    IN_ACCESS,\n",
+        "source_code_len": 79,
+        "target_code": "# All user-space events.\nIN_ALL_EVENTS = six.moves.reduce(operator.or_, [\n    IN_ACCESS,\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -242,3 +262,3 @@\n # All user-space events.\n-IN_ALL_EVENTS = reduce(operator.or_, [\n+IN_ALL_EVENTS = six.moves.reduce(operator.or_, [\n     IN_ACCESS,\n",
+        "source_code_with_indent": "# All user-space events.\nIN_ALL_EVENTS = reduce(operator.or_, [\n    IN_ACCESS,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# All user-space events.\nIN_ALL_EVENTS = six.moves.reduce(operator.or_, [\n    IN_ACCESS,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

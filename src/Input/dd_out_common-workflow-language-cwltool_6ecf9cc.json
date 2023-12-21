@@ -1,0 +1,138 @@
+[
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "6ecf9cc58e092dc6d590bad781e0ca923a62faba",
+    "filename": "cwltool/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/main.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/main.py:449:33 Incompatible parameter type [6]: Expected `Union[bool, str]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.List[Dict[str, str]]`.",
+    "message": " Expected `Union[bool, str]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.List[Dict[str, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 449,
+    "warning_line": "        deps[\"secondaryFiles\"] = sf",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def printdeps(obj, document_loader, stdout, relative_deps, uri, basedir=None):\n    # type: (Dict[unicode, Any], Loader, IO[Any], bool, str) -> None\n    deps = {\"class\": \"File\",\n            \"location\": uri}\n\n    def loadref(b, u):\n        return document_loader.resolve_ref(u, base_url=b)[0]\n\n",
+        "source_code_len": 292,
+        "target_code": "def printdeps(obj, document_loader, stdout, relative_deps, uri, basedir=None):\n    # type: (Dict[unicode, Any], Loader, IO[Any], bool, unicode, str) -> None\n    deps = {\"class\": \"File\",\n            \"location\": uri}  # type: Dict[unicode, Any]\n\n    def loadref(b, u):\n        return document_loader.fetch(urlparse.urljoin(b, u))\n\n",
+        "target_code_len": 329,
+        "diff_format": "@@ -437,8 +442,8 @@\n def printdeps(obj, document_loader, stdout, relative_deps, uri, basedir=None):\n-    # type: (Dict[unicode, Any], Loader, IO[Any], bool, str) -> None\n+    # type: (Dict[unicode, Any], Loader, IO[Any], bool, unicode, str) -> None\n     deps = {\"class\": \"File\",\n-            \"location\": uri}\n+            \"location\": uri}  # type: Dict[unicode, Any]\n \n     def loadref(b, u):\n-        return document_loader.resolve_ref(u, base_url=b)[0]\n+        return document_loader.fetch(urlparse.urljoin(b, u))\n \n",
+        "source_code_with_indent": "<DED>def printdeps(obj, document_loader, stdout, relative_deps, uri, basedir=None):\n    # type: (Dict[unicode, Any], Loader, IO[Any], bool, str) -> None\n    <IND>deps = {\"class\": \"File\",\n            \"location\": uri}\n\n    def loadref(b, u):\n        <IND>return document_loader.resolve_ref(u, base_url=b)[0]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def printdeps(obj, document_loader, stdout, relative_deps, uri, basedir=None):\n    # type: (Dict[unicode, Any], Loader, IO[Any], bool, unicode, str) -> None\n    <IND>deps = {\"class\": \"File\",\n            \"location\": uri}  # type: Dict[unicode, Any]\n\n    def loadref(b, u):\n        <IND>return document_loader.fetch(urlparse.urljoin(b, u))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "6ecf9cc58e092dc6d590bad781e0ca923a62faba",
+    "filename": "cwltool/workflow.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/workflow.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/workflow.py:311:15 Unsupported operand [58]: `in` is not supported for right operand type `typing.Callable[[typing.Any, typing.Any], typing.Any]`.",
+    "message": " `in` is not supported for right operand type `typing.Callable[[typing.Any, typing.Any], typing.Any]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 311,
+    "warning_line": "            if iid in joborder:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n        self.state = {}\n",
+        "source_code_len": 195,
+        "target_code": "    def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n        self.state = {}\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -301,3 +304,3 @@\n     def job(self, joborder, output_callback, **kwargs):\n-        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n+        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n         self.state = {}\n",
+        "source_code_with_indent": "    <DED>def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n        <IND>self.state = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n        <IND>self.state = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "6ecf9cc58e092dc6d590bad781e0ca923a62faba",
+    "filename": "cwltool/workflow.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/workflow.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/workflow.py:352:8 Call error [29]: `bool` is not a function.",
+    "message": " `bool` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 352,
+    "warning_line": "        output_callback(wo, self.processStatus)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n        self.state = {}\n",
+        "source_code_len": 195,
+        "target_code": "    def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n        self.state = {}\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -301,3 +304,3 @@\n     def job(self, joborder, output_callback, **kwargs):\n-        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n+        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n         self.state = {}\n",
+        "source_code_with_indent": "    <DED>def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n        <IND>self.state = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n        <IND>self.state = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "6ecf9cc58e092dc6d590bad781e0ca923a62faba",
+    "filename": "cwltool/workflow.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/workflow.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/workflow.py:377:37 Incompatible parameter type [6]: Expected `bool` for 2nd positional only parameter to call `WorkflowJob.job` but got `typing.Callable[[typing.Any, typing.Any], typing.Any]`.",
+    "message": " Expected `bool` for 2nd positional only parameter to call `WorkflowJob.job` but got `typing.Callable[[typing.Any, typing.Any], typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 377,
+    "warning_line": "        for w in wj.job(builder.job, output_callback, **kwargs):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n        self.state = {}\n",
+        "source_code_len": 195,
+        "target_code": "    def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n        self.state = {}\n",
+        "target_code_len": 189,
+        "diff_format": "@@ -301,3 +304,3 @@\n     def job(self, joborder, output_callback, **kwargs):\n-        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n+        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n         self.state = {}\n",
+        "source_code_with_indent": "    <DED>def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], bool, **Any) -> Generator[WorkflowJob, None, None]\n        <IND>self.state = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def job(self, joborder, output_callback, **kwargs):\n        # type: (Dict[unicode, Any], Callable[[Any, Any], Any], **Any) -> Generator[WorkflowJob, None, None]\n        <IND>self.state = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

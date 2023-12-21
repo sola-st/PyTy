@@ -1,0 +1,24 @@
+[
+  {
+    "isolated_code_change": "-    package_folders = ()\n-    package_files = ()\n+    package_folders = {}\n+    package_files = {}\n",
+    "type_error": "Inconsistent override [15]",
+    "code_transform": "MODIFY_ATTR_TYPE",
+    "involved_types": [
+      "Set",
+      "Tuple",
+      "str"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Tuple[]",
+      "to": "Set[str]"
+    },
+    "location": "CLASS_ATTR",
+    "full_warning_msg": "stream_alert_cli/package.py:207:4 Inconsistent override [15]: `package_folders` overrides attribute defined in `LambdaPackage` inconsistently. Type `typing.Set[str]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "url": "https://github.com/airbnb/streamalert/commit/cf2423b",
+    "repo": "https://github.com/airbnb/streamalert",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  }
+]

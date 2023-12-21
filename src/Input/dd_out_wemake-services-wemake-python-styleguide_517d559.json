@@ -1,0 +1,36 @@
+[
+  {
+    "project": "wemake-services/wemake-python-styleguide",
+    "commit": "517d559339597cd5cb598f230bd270ccd22c1a3a",
+    "filename": "wemake_python_styleguide/transformations/ast/enhancements.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wemake-services-wemake-python-styleguide/wemake_python_styleguide/transformations/ast/enhancements.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wemake_python_styleguide/transformations/ast/enhancements.py:70:51 Incompatible parameter type [6]: Expected `Tuple[Type[_ast.AST]]` for 2nd positional only parameter to call `_find_context` but got `Tuple[Type[_ast.Module], Type[_ast.ClassDef], Type[_ast.FunctionDef], Type[_ast.AsyncFunctionDef]]`.",
+    "message": " Expected `Tuple[Type[_ast.AST]]` for 2nd positional only parameter to call `_find_context` but got `Tuple[Type[_ast.Module], Type[_ast.ClassDef], Type[_ast.FunctionDef], Type[_ast.AsyncFunctionDef]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 70,
+    "warning_line": "        current_context = _find_context(statement, contexts)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    node: ast.AST,\n    contexts: Tuple[Type[ast.AST]],\n) -> Optional[ast.AST]:\n",
+        "source_code_len": 79,
+        "target_code": "    node: ast.AST,\n    contexts: Tuple[Type[ast.AST], ...],\n) -> Optional[ast.AST]:\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -76,3 +76,3 @@\n     node: ast.AST,\n-    contexts: Tuple[Type[ast.AST]],\n+    contexts: Tuple[Type[ast.AST], ...],\n ) -> Optional[ast.AST]:\n",
+        "source_code_with_indent": "    node: ast.AST,\n    contexts: Tuple[Type[ast.AST]],\n) -> Optional[ast.AST]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    node: ast.AST,\n    contexts: Tuple[Type[ast.AST], ...],\n) -> Optional[ast.AST]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

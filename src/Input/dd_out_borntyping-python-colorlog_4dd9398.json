@@ -1,0 +1,70 @@
+[
+  {
+    "project": "borntyping/python-colorlog",
+    "commit": "4dd9398e41c48e47dfdb2bfe9589096c5d555736",
+    "filename": "colorlog/colorlog.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/borntyping-python-colorlog/colorlog/colorlog.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "colorlog/colorlog.py:130:62 Incompatible parameter type [6]: Expected `logging.LogRecord` for 1st positional only parameter to call `logging.Formatter.formatMessage` but got `ColoredRecord`.",
+    "message": " Expected `logging.LogRecord` for 1st positional only parameter to call `logging.Formatter.formatMessage` but got `ColoredRecord`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 130,
+    "warning_line": "        message = super(ColoredFormatter, self).formatMessage(wrapper)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        wrapper = ColoredRecord(record, escapes)\n        message = super(ColoredFormatter, self).formatMessage(wrapper)\n        message = self._append_reset(message, escapes)\n",
+        "source_code_len": 175,
+        "target_code": "        wrapper = ColoredRecord(record, escapes)\n        message = super(ColoredFormatter, self).formatMessage(wrapper)  # type: ignore\n        message = self._append_reset(message, escapes)\n",
+        "target_code_len": 191,
+        "diff_format": "@@ -129,3 +129,3 @@\n         wrapper = ColoredRecord(record, escapes)\n-        message = super(ColoredFormatter, self).formatMessage(wrapper)\n+        message = super(ColoredFormatter, self).formatMessage(wrapper)  # type: ignore\n         message = self._append_reset(message, escapes)\n",
+        "source_code_with_indent": "        wrapper = ColoredRecord(record, escapes)\n        message = super(ColoredFormatter, self).formatMessage(wrapper)\n        message = self._append_reset(message, escapes)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        wrapper = ColoredRecord(record, escapes)\n        message = super(ColoredFormatter, self).formatMessage(wrapper)  # type: ignore\n        message = self._append_reset(message, escapes)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "borntyping/python-colorlog",
+    "commit": "4dd9398e41c48e47dfdb2bfe9589096c5d555736",
+    "filename": "colorlog/colorlog.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/borntyping-python-colorlog/colorlog/colorlog.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "colorlog/colorlog.py:204:36 Incompatible parameter type [6]: Expected `typing.Optional[str]` for 1st parameter `fmt` to call `ColoredFormatter.__init__` but got `typing.Mapping[str, str]`.",
+    "message": " Expected `typing.Optional[str]` for 1st parameter `fmt` to call `ColoredFormatter.__init__` but got `typing.Mapping[str, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 204,
+    "warning_line": "            level: ColoredFormatter(fmt=fmt, **kwargs) for level, fmt in fmt.items()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(\n        self, fmt: typing.Mapping[str, typing.Mapping[str, str]], **kwargs: typing.Any\n    ) -> None:\n        \"\"\"\n",
+        "source_code_len": 133,
+        "target_code": "\n    def __init__(self, fmt: typing.Mapping[str, str], **kwargs: typing.Any) -> None:\n        \"\"\"\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -175,5 +175,3 @@\n \n-    def __init__(\n-        self, fmt: typing.Mapping[str, typing.Mapping[str, str]], **kwargs: typing.Any\n-    ) -> None:\n+    def __init__(self, fmt: typing.Mapping[str, str], **kwargs: typing.Any) -> None:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    def __init__(\n        self, fmt: typing.Mapping[str, typing.Mapping[str, str]], **kwargs: typing.Any\n    ) -> None:\n        <IND>",
+        "target_code_with_indent": "\n    def __init__(self, fmt: typing.Mapping[str, str], **kwargs: typing.Any) -> None:\n        <IND>"
+      }
+    ]
+  }
+]

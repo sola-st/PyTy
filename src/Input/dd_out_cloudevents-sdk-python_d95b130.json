@@ -1,0 +1,36 @@
+[
+  {
+    "project": "cloudevents/sdk-python",
+    "commit": "d95b1303a9b3bf81c7d8231a25748790aa67f27d",
+    "filename": "cloudevents/sdk/converters/structured.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cloudevents-sdk-python/cloudevents/sdk/converters/structured.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cloudevents/sdk/converters/structured.py:30:8 Incompatible variable type [9]: headers is declared to have type `typing.Dict[str, str]` but is used as type `typing.Dict[str, None]`.",
+    "message": " headers is declared to have type `typing.Dict[str, str]` but is used as type `typing.Dict[str, None]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 30,
+    "warning_line": "        headers: typing.Dict[str, str] = {\"ce-specversion\": None},",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def can_read(\n        self,\n        content_type: str,\n        headers: typing.Dict[str, str] = {\"ce-specversion\": None},\n    ) -> bool:\n",
+        "source_code_len": 141,
+        "target_code": "    def can_read(\n        self, content_type: str, headers: typing.Dict[str, str] = {},\n    ) -> bool:\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -27,5 +29,3 @@\n     def can_read(\n-        self,\n-        content_type: str,\n-        headers: typing.Dict[str, str] = {\"ce-specversion\": None},\n+        self, content_type: str, headers: typing.Dict[str, str] = {},\n     ) -> bool:\n",
+        "source_code_with_indent": "    def can_read(\n        self,\n        content_type: str,\n        headers: typing.Dict[str, str] = {\"ce-specversion\": None},\n    ) -> bool:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def can_read(\n        self, content_type: str, headers: typing.Dict[str, str] = {},\n    ) -> bool:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

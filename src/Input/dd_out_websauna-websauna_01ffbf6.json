@@ -1,0 +1,36 @@
+[
+  {
+    "project": "websauna/websauna",
+    "commit": "01ffbf64868ab83213836fc8809a9eea8718c42b",
+    "filename": "websauna/system/core/sitemap.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/websauna-websauna/websauna/system/core/sitemap.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "websauna/system/core/sitemap.py:405:53 Incompatible variable type [9]: condition is declared to have type `typing.Callable[[typing.Optional[Resource], Request], bool]` but is used as type `None`.",
+    "message": " condition is declared to have type `typing.Callable[[typing.Optional[Resource], Request], bool]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 405,
+    "warning_line": "def include_in_sitemap(include: Optional[bool]=None, condition: Callable[[Optional[Resource], Request], bool]=None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef include_in_sitemap(include: Optional[bool]=None, condition: Callable[[Optional[Resource], Request], bool]=None):\n    \"\"\"A function decorator to determine if a view should be included in the automatically generated sitemap.\n",
+        "source_code_len": 228,
+        "target_code": "\ndef include_in_sitemap(include: Optional[bool]=None, condition: Optional[Callable]=None):\n    \"\"\"A function decorator to determine if a view should be included in the automatically generated sitemap.\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -404,3 +404,3 @@\n \n-def include_in_sitemap(include: Optional[bool]=None, condition: Callable[[Optional[Resource], Request], bool]=None):\n+def include_in_sitemap(include: Optional[bool]=None, condition: Optional[Callable]=None):\n     \"\"\"A function decorator to determine if a view should be included in the automatically generated sitemap.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED><DED>def include_in_sitemap(include: Optional[bool]=None, condition: Callable[[Optional[Resource], Request], bool]=None):\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED><DED>def include_in_sitemap(include: Optional[bool]=None, condition: Optional[Callable]=None):\n    <IND>"
+      }
+    ]
+  }
+]

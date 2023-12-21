@@ -1,0 +1,104 @@
+[
+  {
+    "project": "edgedb/edgedb",
+    "commit": "fca6abc164660d58f2c92a97d41bb109dd47d6f2",
+    "filename": "edb/pgsql/compiler/astutils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/pgsql/compiler/astutils.py",
+    "file_hunks_size": 20,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/pgsql/compiler/astutils.py:269:37 Incompatible parameter type [6]: Expected `pgast.OutputVar` for 2nd positional only parameter to call `get_rvar_var` but got `typing.Union[None, pgast.OutputVar, str]`.",
+    "message": " Expected `pgast.OutputVar` for 2nd positional only parameter to call `get_rvar_var` but got `typing.Union[None, pgast.OutputVar, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 269,
+    "warning_line": "            val = get_rvar_var(rvar, el.name)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        for el in var.elements:\n            val = get_rvar_var(rvar, el.name)\n",
+        "source_code_len": 78,
+        "target_code": "        for el in var.elements:\n            assert isinstance(el.name, pgast.OutputVar)\n            val = get_rvar_var(rvar, el.name)\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -268,2 +315,3 @@\n         for el in var.elements:\n+            assert isinstance(el.name, pgast.OutputVar)\n             val = get_rvar_var(rvar, el.name)\n",
+        "source_code_with_indent": "        for el in var.elements:\n            <IND>val = get_rvar_var(rvar, el.name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        for el in var.elements:\n            <IND>assert isinstance(el.name, pgast.OutputVar)\n            val = get_rvar_var(rvar, el.name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "fca6abc164660d58f2c92a97d41bb109dd47d6f2",
+    "filename": "edb/pgsql/compiler/astutils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/pgsql/compiler/astutils.py",
+    "file_hunks_size": 20,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/pgsql/compiler/astutils.py:276:36 Incompatible parameter type [6]: Expected `typing.Union[pgast.ColumnRef, str]` for 2nd positional only parameter to call `get_column` but got `pgast.OutputVar`.",
+    "message": " Expected `typing.Union[pgast.ColumnRef, str]` for 2nd positional only parameter to call `get_column` but got `pgast.OutputVar`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 276,
+    "warning_line": "        fieldref = get_column(rvar, var)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        fieldref = pgast.TupleVar(elements, named=var.named)\n    else:\n        fieldref = get_column(rvar, var)\n\n",
+        "source_code_len": 113,
+        "target_code": "        fieldref = pgast.TupleVar(elements, named=var.named)\n\n    elif isinstance(var, pgast.ColumnRef):\n        fieldref = get_column(rvar, var)\n\n    else:\n        raise AssertionError(f'unexpected OutputVar subclass: {var!r}')\n\n",
+        "target_code_len": 230,
+        "diff_format": "@@ -274,4 +322,8 @@\n         fieldref = pgast.TupleVar(elements, named=var.named)\n-    else:\n+\n+    elif isinstance(var, pgast.ColumnRef):\n         fieldref = get_column(rvar, var)\n+\n+    else:\n+        raise AssertionError(f'unexpected OutputVar subclass: {var!r}')\n \n",
+        "source_code_with_indent": "        <DED>fieldref = pgast.TupleVar(elements, named=var.named)\n    <DED>else:\n        <IND>fieldref = get_column(rvar, var)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>fieldref = pgast.TupleVar(elements, named=var.named)\n\n    <DED>elif isinstance(var, pgast.ColumnRef):\n        <IND>fieldref = get_column(rvar, var)\n\n    <DED>else:\n        <IND>raise AssertionError(f'unexpected OutputVar subclass: {var!r}')\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "fca6abc164660d58f2c92a97d41bb109dd47d6f2",
+    "filename": "edb/pgsql/compiler/astutils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/pgsql/compiler/astutils.py",
+    "file_hunks_size": 20,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/pgsql/compiler/astutils.py:293:39 Incompatible parameter type [6]: Expected `pgast.OutputVar` for 1st positional only parameter to call `strip_output_var` but got `typing.Union[None, pgast.OutputVar, str]`.",
+    "message": " Expected `pgast.OutputVar` for 1st positional only parameter to call `strip_output_var` but got `typing.Union[None, pgast.OutputVar, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 293,
+    "warning_line": "                val = strip_output_var(el.name)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        for el in var.elements:\n            if isinstance(el.name, str):\n                val = pgast.ColumnRef(name=[el.name])\n            else:\n                val = strip_output_var(el.name)\n\n",
+        "source_code_len": 194,
+        "target_code": "        for el in var.elements:\n            val: pgast.OutputVar\n            el_name = el.name\n\n            if isinstance(el_name, str):\n                val = pgast.ColumnRef(name=[el_name])\n            elif isinstance(el_name, pgast.OutputVar):\n                val = strip_output_var(el_name)\n            else:\n                raise AssertionError(\n                    f'unexpected tuple element class: {el_name!r}')\n\n",
+        "target_code_len": 419,
+        "diff_format": "@@ -289,6 +343,12 @@\n         for el in var.elements:\n-            if isinstance(el.name, str):\n-                val = pgast.ColumnRef(name=[el.name])\n+            val: pgast.OutputVar\n+            el_name = el.name\n+\n+            if isinstance(el_name, str):\n+                val = pgast.ColumnRef(name=[el_name])\n+            elif isinstance(el_name, pgast.OutputVar):\n+                val = strip_output_var(el_name)\n             else:\n-                val = strip_output_var(el.name)\n+                raise AssertionError(\n+                    f'unexpected tuple element class: {el_name!r}')\n \n",
+        "source_code_with_indent": "        for el in var.elements:\n            <IND>if isinstance(el.name, str):\n                <IND>val = pgast.ColumnRef(name=[el.name])\n            <DED>else:\n                <IND>val = strip_output_var(el.name)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        for el in var.elements:\n            <IND>val: pgast.OutputVar\n            el_name = el.name\n\n            if isinstance(el_name, str):\n                <IND>val = pgast.ColumnRef(name=[el_name])\n            <DED>elif isinstance(el_name, pgast.OutputVar):\n                <IND>val = strip_output_var(el_name)\n            <DED>else:\n                <IND>raise AssertionError(\n                    f'unexpected tuple element class: {el_name!r}')\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

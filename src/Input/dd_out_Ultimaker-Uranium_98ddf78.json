@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "98ddf782616f3ffbf381f0e329eb1106f03d7809",
+    "filename": "UM/Trust.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Trust.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Trust.py:46:16 Incompatible return type [7]: Expected `str` but got `bytes`.",
+    "message": " Expected `str` but got `bytes`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 46,
+    "warning_line": "                return base64.b64encode(hasher.finalize())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                hasher.update(file.read())\n                return base64.b64encode(hasher.finalize())\n        except:  # Yes, we  do really want this on _every_ exception that might occur.\n",
+        "source_code_len": 189,
+        "target_code": "                hasher.update(file.read())\n                return base64.b64encode(hasher.finalize()).decode(\"utf-8\")\n        except:  # Yes, we  do really want this on _every_ exception that might occur.\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -45,3 +45,3 @@\n                 hasher.update(file.read())\n-                return base64.b64encode(hasher.finalize())\n+                return base64.b64encode(hasher.finalize()).decode(\"utf-8\")\n         except:  # Yes, we  do really want this on _every_ exception that might occur.\n",
+        "source_code_with_indent": "                <IND>hasher.update(file.read())\n                return base64.b64encode(hasher.finalize())\n        <DED><DED>except:  # Yes, we  do really want this on _every_ exception that might occur.\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>hasher.update(file.read())\n                return base64.b64encode(hasher.finalize()).decode(\"utf-8\")\n        <DED><DED>except:  # Yes, we  do really want this on _every_ exception that might occur.\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "98ddf782616f3ffbf381f0e329eb1106f03d7809",
+    "filename": "UM/Trust.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Trust.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Trust.py:96:12 Incompatible return type [7]: Expected `str` but got `bytes`.",
+    "message": " Expected `str` but got `bytes`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 96,
+    "warning_line": "            return base64.b64encode(signature_bytes)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            )\n            return base64.b64encode(signature_bytes)\n        except:\n",
+        "source_code_len": 83,
+        "target_code": "            )\n            return base64.b64encode(signature_bytes).decode(\"utf-8\")\n        except:\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -95,3 +95,3 @@\n             )\n-            return base64.b64encode(signature_bytes)\n+            return base64.b64encode(signature_bytes).decode(\"utf-8\")\n         except:\n",
+        "source_code_with_indent": "            )\n            return base64.b64encode(signature_bytes)\n        <DED>except:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            )\n            return base64.b64encode(signature_bytes).decode(\"utf-8\")\n        <DED>except:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

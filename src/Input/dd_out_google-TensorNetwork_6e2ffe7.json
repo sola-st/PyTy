@@ -1,0 +1,51 @@
+[
+  {
+    "project": "google/TensorNetwork",
+    "commit": "6e2ffe7ad6bc29729b3b452d1f2bcd7bcde09a20",
+    "filename": "tensornetwork/ncon_interface.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-TensorNetwork/tensornetwork/ncon_interface.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensornetwork/ncon_interface.py:196:60 Incompatible parameter type [6]: Expected `str` for 3rd positional only parameter to call `_build_network` but got `Optional[str]`.",
+    "message": " Expected `str` for 3rd positional only parameter to call `_build_network` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 196,
+    "warning_line": "  nodes, edges = _build_network(tensors, network_structure, backend)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from tensornetwork.backends import backend_factory\nTensor = Any\n",
+        "source_code_len": 64,
+        "target_code": "from tensornetwork.backends import backend_factory\nfrom tensornetwork.backends.base_backend import BaseBackend\n\nTensor = Any\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -20,2 +20,4 @@\n from tensornetwork.backends import backend_factory\n+from tensornetwork.backends.base_backend import BaseBackend\n+\n Tensor = Any\n",
+        "source_code_with_indent": "from tensornetwork.backends import backend_factory\nTensor = Any\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from tensornetwork.backends import backend_factory\nfrom tensornetwork.backends.base_backend import BaseBackend\n\nTensor = Any\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _build_network(\n    tensors: Sequence[Tensor], network_structure: Sequence[Sequence],\n    backend: Text\n) -> Tuple[List[network_components.BaseNode], Dict[Any,\n",
+        "source_code_len": 164,
+        "target_code": "def _build_network(\n    tensors: Sequence[Tensor],\n    network_structure: Sequence[Sequence],\n    backend: Optional[Union[BaseBackend, Text]] = None,\n) -> Tuple[List[network_components.BaseNode], Dict[Any,\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -249,4 +252,5 @@\n def _build_network(\n-    tensors: Sequence[Tensor], network_structure: Sequence[Sequence],\n-    backend: Text\n+    tensors: Sequence[Tensor],\n+    network_structure: Sequence[Sequence],\n+    backend: Optional[Union[BaseBackend, Text]] = None,\n ) -> Tuple[List[network_components.BaseNode], Dict[Any,\n",
+        "source_code_with_indent": "<DED>def _build_network(\n    tensors: Sequence[Tensor], network_structure: Sequence[Sequence],\n    backend: Text\n) -> Tuple[List[network_components.BaseNode], Dict[Any,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _build_network(\n    tensors: Sequence[Tensor],\n    network_structure: Sequence[Sequence],\n    backend: Optional[Union[BaseBackend, Text]] = None,\n) -> Tuple[List[network_components.BaseNode], Dict[Any,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

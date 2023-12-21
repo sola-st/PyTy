@@ -1,0 +1,36 @@
+[
+  {
+    "project": "willmcgugan/rich",
+    "commit": "1b5dbae4ac36683f30ac4319e5cbf33b9e9daf25",
+    "filename": "rich/color.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/color.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/color.py:301:36 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `rich.palette.Palette.__getitem__` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `rich.palette.Palette.__getitem__` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 301,
+    "warning_line": "            return STANDARD_PALETTE[self.number]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        elif self.type == ColorType.WINDOWS:\n            return STANDARD_PALETTE[self.number]\n",
+        "source_code_len": 94,
+        "target_code": "        elif self.type == ColorType.WINDOWS:\n            assert self.number is not None\n            return STANDARD_PALETTE[self.number]\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -300,2 +300,3 @@\n         elif self.type == ColorType.WINDOWS:\n+            assert self.number is not None\n             return STANDARD_PALETTE[self.number]\n",
+        "source_code_with_indent": "        <DED>elif self.type == ColorType.WINDOWS:\n            <IND>return STANDARD_PALETTE[self.number]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>elif self.type == ColorType.WINDOWS:\n            <IND>assert self.number is not None\n            return STANDARD_PALETTE[self.number]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

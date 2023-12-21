@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pythonarcade/arcade",
+    "commit": "c88c4d0be67b538b2b5c1150f2846f2b8f467387",
+    "filename": "arcade/shader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pythonarcade-arcade/arcade/shader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arcade/shader.py:1484:12 Incompatible parameter type [6]: Expected `str` for 1st parameter `vertex_shader` to call `Context.program` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st parameter `vertex_shader` to call `Context.program` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1484,
+    "warning_line": "            vertex_shader=vertex_shader_src,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # TODO: Cache these files using absolute path as key\n        if vertex_shader:\n            with open(vertex_shader, \"r\") as fd:\n                vertex_shader_src = fd.read()\n\n",
+        "source_code_len": 183,
+        "target_code": "        # TODO: Cache these files using absolute path as key\n        with open(vertex_shader, \"r\") as fd:\n            vertex_shader_src = fd.read()\n\n",
+        "target_code_len": 149,
+        "diff_format": "@@ -1470,5 +1470,4 @@\n         # TODO: Cache these files using absolute path as key\n-        if vertex_shader:\n-            with open(vertex_shader, \"r\") as fd:\n-                vertex_shader_src = fd.read()\n+        with open(vertex_shader, \"r\") as fd:\n+            vertex_shader_src = fd.read()\n \n",
+        "source_code_with_indent": "        # TODO: Cache these files using absolute path as key\n        if vertex_shader:\n            <IND>with open(vertex_shader, \"r\") as fd:\n                <IND>vertex_shader_src = fd.read()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # TODO: Cache these files using absolute path as key\n        with open(vertex_shader, \"r\") as fd:\n            <IND>vertex_shader_src = fd.read()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "openstack/horizon",
+    "commit": "fe9da9b5c9f4e9f2e49e4286a3e3682ab61d541b",
+    "filename": "horizon/utils/functions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openstack-horizon/horizon/utils/functions.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "horizon/utils/functions.py:31:29 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 31,
+    "warning_line": "lazy_join = lazy(_lazy_join, unicode)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from oslo_utils import units\n\n",
+        "source_code_len": 30,
+        "target_code": "from oslo_utils import units\nimport six\n\n",
+        "target_code_len": 41,
+        "diff_format": "@@ -17,2 +17,3 @@\n from oslo_utils import units\n+import six\n \n",
+        "source_code_with_indent": "from oslo_utils import units\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from oslo_utils import units\nimport six\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nlazy_join = lazy(_lazy_join, unicode)\n\n",
+        "source_code_len": 40,
+        "target_code": "\nlazy_join = lazy(_lazy_join, six.text_type)\n\n",
+        "target_code_len": 46,
+        "diff_format": "@@ -30,3 +31,3 @@\n \n-lazy_join = lazy(_lazy_join, unicode)\n+lazy_join = lazy(_lazy_join, six.text_type)\n \n",
+        "source_code_with_indent": "\n<DED>lazy_join = lazy(_lazy_join, unicode)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>lazy_join = lazy(_lazy_join, six.text_type)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

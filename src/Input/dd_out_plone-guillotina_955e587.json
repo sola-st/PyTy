@@ -1,0 +1,70 @@
+[
+  {
+    "project": "plone/guillotina",
+    "commit": "955e587ce5fde757ac7ac7045199142a3d184470",
+    "filename": "guillotina/catalog/catalog.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plone-guillotina/guillotina/catalog/catalog.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "guillotina/catalog/catalog.py:49:37 Incompatible parameter type [6]: Expected `guillotina.interfaces.content.IContainer` for 1st positional only parameter to call `DefaultSearchUtility.search_raw` but got `IBaseObject`.",
+    "message": " Expected `guillotina.interfaces.content.IContainer` for 1st positional only parameter to call `DefaultSearchUtility.search_raw` but got `IBaseObject`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 49,
+    "warning_line": "        return await self.search_raw(context, parsed_query)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def search_raw(self, container: IContainer, query: typing.Any):\n        \"\"\"\n",
+        "source_code_len": 87,
+        "target_code": "\n    async def search_raw(self, context: IBaseObject, query: typing.Any):\n        \"\"\"\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -50,3 +50,3 @@\n \n-    async def search_raw(self, container: IContainer, query: typing.Any):\n+    async def search_raw(self, context: IBaseObject, query: typing.Any):\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>async def search_raw(self, container: IContainer, query: typing.Any):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>async def search_raw(self, context: IBaseObject, query: typing.Any):\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "plone/guillotina",
+    "commit": "955e587ce5fde757ac7ac7045199142a3d184470",
+    "filename": "guillotina/catalog/catalog.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plone-guillotina/guillotina/catalog/catalog.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "guillotina/catalog/catalog.py:68:38 Incompatible parameter type [6]: Expected `guillotina.interfaces.content.IContainer` for 1st positional only parameter to call `DefaultSearchUtility.aggregation` but got `IBaseObject`.",
+    "message": " Expected `guillotina.interfaces.content.IContainer` for 1st positional only parameter to call `DefaultSearchUtility.aggregation` but got `IBaseObject`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 68,
+    "warning_line": "        return await self.aggregation(context, parsed_query)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def aggregation(self, container: IContainer, parsed_query: typing.Any):\n        \"\"\"\n",
+        "source_code_len": 95,
+        "target_code": "\n    async def aggregation(self, context: IBaseObject, parsed_query: typing.Any):\n        \"\"\"\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -56,3 +56,3 @@\n \n-    async def aggregation(self, container: IContainer, parsed_query: typing.Any):\n+    async def aggregation(self, context: IBaseObject, parsed_query: typing.Any):\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>async def aggregation(self, container: IContainer, parsed_query: typing.Any):\n        <IND>",
+        "target_code_with_indent": "\n    <DED>async def aggregation(self, context: IBaseObject, parsed_query: typing.Any):\n        <IND>"
+      }
+    ]
+  }
+]

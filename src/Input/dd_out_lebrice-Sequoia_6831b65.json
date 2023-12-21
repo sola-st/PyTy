@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lebrice/Sequoia",
+    "commit": "6831b65efe01f3f4a9e477fd4311ee6cb01ebfb4",
+    "filename": "sequoia/methods/baseline_method.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lebrice-Sequoia/sequoia/methods/baseline_method.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sequoia/methods/baseline_method.py:276:12 Incompatible variable type [9]: train_env is declared to have type `Environment[Observations, Actions, Rewards]` but is used as type `sequoia.common.gym_wrappers.utils.RenderEnvWrapper`.",
+    "message": " train_env is declared to have type `Environment[Observations, Actions, Rewards]` but is used as type `sequoia.common.gym_wrappers.utils.RenderEnvWrapper`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 276,
+    "warning_line": "            train_env = RenderEnvWrapper(train_env)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        )\n        if self.config.render:\n            train_env = RenderEnvWrapper(train_env)\n\n        # TODO: Figure out if there is a smarter way to reset the state of the Trainer,\n",
+        "source_code_len": 182,
+        "target_code": "        )\n        # TODO: Figure out if there is a smarter way to reset the state of the Trainer,\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -274,5 +273,2 @@\n         )\n-        if self.config.render:\n-            train_env = RenderEnvWrapper(train_env)\n-\n         # TODO: Figure out if there is a smarter way to reset the state of the Trainer,\n",
+        "source_code_with_indent": "        )\n        if self.config.render:\n            <IND>train_env = RenderEnvWrapper(train_env)\n\n        # TODO: Figure out if there is a smarter way to reset the state of the Trainer,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n        # TODO: Figure out if there is a smarter way to reset the state of the Trainer,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

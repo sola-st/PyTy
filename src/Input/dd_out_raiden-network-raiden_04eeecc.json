@@ -1,0 +1,70 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "04eeecce9ee875bdbed96fe7db85c2a1ece57803",
+    "filename": "raiden/tests/utils/smartcontracts.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/tests/utils/smartcontracts.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/tests/utils/smartcontracts.py:34:12 Incompatible parameter type [6]: Expected `typing.Tuple[typing.Any]` for 4th parameter `constructor_arguments` to call `deploy_contract_web3` but got `typing.Tuple[int, int, str, str]`.",
+    "message": " Expected `typing.Tuple[typing.Any]` for 4th parameter `constructor_arguments` to call `deploy_contract_web3` but got `typing.Tuple[int, int, str, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 34,
+    "warning_line": "            constructor_arguments=("
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "04eeecce9ee875bdbed96fe7db85c2a1ece57803",
+    "filename": "raiden/tests/utils/smartcontracts.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/tests/utils/smartcontracts.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/tests/utils/smartcontracts.py:59:8 Incompatible variable type [9]: constructor_arguments is declared to have type `typing.Tuple[typing.Any]` but is used as type `typing.Tuple[]`.",
+    "message": " constructor_arguments is declared to have type `typing.Tuple[typing.Any]` but is used as type `typing.Tuple[]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 59,
+    "warning_line": "        constructor_arguments: typing.Tuple[typing.Any] = (),"
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "04eeecce9ee875bdbed96fe7db85c2a1ece57803",
+    "filename": "raiden/tests/utils/smartcontracts.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/tests/utils/smartcontracts.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/tests/utils/smartcontracts.py:85:4 Incompatible return type [7]: Expected `typing.Address` but got `bytes`.",
+    "message": " Expected `typing.Address` but got `bytes`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 85,
+    "warning_line": "    return unhexlify(remove_0x_prefix(receipt['contractAddress']))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    return unhexlify(remove_0x_prefix(receipt['contractAddress']))\n",
+        "source_code_len": 68,
+        "target_code": "\n    return typing.Address(\n        unhexlify(remove_0x_prefix(receipt['contractAddress'])),\n    )\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -84,2 +84,4 @@\n \n-    return unhexlify(remove_0x_prefix(receipt['contractAddress']))\n+    return typing.Address(\n+        unhexlify(remove_0x_prefix(receipt['contractAddress'])),\n+    )\n",
+        "source_code_with_indent": "\n    <DED>return unhexlify(remove_0x_prefix(receipt['contractAddress']))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>return typing.Address(\n        unhexlify(remove_0x_prefix(receipt['contractAddress'])),\n    )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

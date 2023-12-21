@@ -1,0 +1,36 @@
+[
+  {
+    "project": "karlch/vimiv-qt",
+    "commit": "a0fe2c9e08c7f1780cf293b7fc66a87adc48cba5",
+    "filename": "vimiv/utils/log.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlch-vimiv-qt/vimiv/utils/log.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vimiv/utils/log.py:130:28 Incompatible parameter type [6]: Expected `logging.Logger` for 2nd positional only parameter to call `dict.__setitem__` but got `LazyLogger`.",
+    "message": " Expected `logging.Logger` for 2nd positional only parameter to call `dict.__setitem__` but got `LazyLogger`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 130,
+    "warning_line": "    _module_loggers[name] = logger",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n_module_loggers: Dict[str, logging.Logger] = {}\nformatter = logging.Formatter(\n",
+        "source_code_len": 80,
+        "target_code": "\n_module_loggers: Dict[str, \"LazyLogger\"] = {}\nformatter = logging.Formatter(\n",
+        "target_code_len": 78,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-_module_loggers: Dict[str, logging.Logger] = {}\n+_module_loggers: Dict[str, \"LazyLogger\"] = {}\n formatter = logging.Formatter(\n",
+        "source_code_with_indent": "\n_module_loggers: Dict[str, logging.Logger] = {}\nformatter = logging.Formatter(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n_module_loggers: Dict[str, \"LazyLogger\"] = {}\nformatter = logging.Formatter(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "lbryio/lbry-sdk",
+    "commit": "3c46c6cbb966051530f1004ac27c7c2a1ea539f6",
+    "filename": "torba/torba/client/basedatabase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lbryio-lbry-sdk/torba/torba/client/basedatabase.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torba/torba/client/basedatabase.py:219:4 Incompatible attribute type [8]: Attribute `SCHEMA_VERSION` declared in class `SQLiteMixin` has type `str` but is used as type `None`.",
+    "message": " Attribute `SCHEMA_VERSION` declared in class `SQLiteMixin` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 219,
+    "warning_line": "    SCHEMA_VERSION: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Tuple, List, Union, Callable, Any, Awaitable, Iterable\n\n",
+        "source_code_len": 76,
+        "target_code": "\nfrom typing import Tuple, List, Union, Callable, Any, Awaitable, Iterable, Optional\n\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -5,3 +5,3 @@\n \n-from typing import Tuple, List, Union, Callable, Any, Awaitable, Iterable\n+from typing import Tuple, List, Union, Callable, Any, Awaitable, Iterable, Optional\n \n",
+        "source_code_with_indent": "\nfrom typing import Tuple, List, Union, Callable, Any, Awaitable, Iterable\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Tuple, List, Union, Callable, Any, Awaitable, Iterable, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    SCHEMA_VERSION: str = None\n    CREATE_TABLES_QUERY: str\n",
+        "source_code_len": 61,
+        "target_code": "\n    SCHEMA_VERSION: Optional[str] = None\n    CREATE_TABLES_QUERY: str\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -218,3 +218,3 @@\n \n-    SCHEMA_VERSION: str = None\n+    SCHEMA_VERSION: Optional[str] = None\n     CREATE_TABLES_QUERY: str\n",
+        "source_code_with_indent": "\n    <IND>SCHEMA_VERSION: str = None\n    CREATE_TABLES_QUERY: str\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <IND>SCHEMA_VERSION: Optional[str] = None\n    CREATE_TABLES_QUERY: str\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "project": "quantumlib/Cirq",
+    "commit": "224334895d3007716d1413e0ac3a31f91c9fc7b1",
+    "filename": "cirq/ops/pauli_interaction_gate.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-Cirq/cirq/ops/pauli_interaction_gate.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cirq/ops/pauli_interaction_gate.py:110:20 Incompatible parameter type [6]: Expected `Union[pauli_gates._PauliX, pauli_gates._PauliY, pauli_gates._PauliZ]` for 1st positional only parameter to call `dict.__getitem__` but got `pauli_gates.Pauli`.",
+    "message": " Expected `Union[pauli_gates._PauliX, pauli_gates._PauliY, pauli_gates._PauliZ]` for 1st positional only parameter to call `dict.__getitem__` but got `pauli_gates.Pauli`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 110,
+    "warning_line": "        l0 = labels[self.pauli0]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import List, Sequence, Tuple, Union\n\n",
+        "source_code_len": 50,
+        "target_code": "\nfrom typing import List, Sequence, Tuple, Union, cast, Dict\n\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -14,3 +14,3 @@\n \n-from typing import List, Sequence, Tuple, Union\n+from typing import List, Sequence, Tuple, Union, cast, Dict\n \n",
+        "source_code_with_indent": "\nfrom typing import List, Sequence, Tuple, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import List, Sequence, Tuple, Union, cast, Dict\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                               ) -> protocols.CircuitDiagramInfo:\n        labels = {pauli_gates.X: 'X', pauli_gates.Y: 'Y', pauli_gates.Z: '@'}\n        l0 = labels[self.pauli0]\n",
+        "source_code_len": 177,
+        "target_code": "                               ) -> protocols.CircuitDiagramInfo:\n        labels = cast(Dict[pauli_gates.Pauli, np.ndarray], {\n            pauli_gates.X: 'X',\n            pauli_gates.Y: 'Y',\n            pauli_gates.Z: '@'\n        })\n        l0 = labels[self.pauli0]\n",
+        "target_code_len": 266,
+        "diff_format": "@@ -108,3 +108,7 @@\n                                ) -> protocols.CircuitDiagramInfo:\n-        labels = {pauli_gates.X: 'X', pauli_gates.Y: 'Y', pauli_gates.Z: '@'}\n+        labels = cast(Dict[pauli_gates.Pauli, np.ndarray], {\n+            pauli_gates.X: 'X',\n+            pauli_gates.Y: 'Y',\n+            pauli_gates.Z: '@'\n+        })\n         l0 = labels[self.pauli0]\n",
+        "source_code_with_indent": "                               ) -> protocols.CircuitDiagramInfo:\n        <IND>labels = {pauli_gates.X: 'X', pauli_gates.Y: 'Y', pauli_gates.Z: '@'}\n        l0 = labels[self.pauli0]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                               ) -> protocols.CircuitDiagramInfo:\n        <IND>labels = cast(Dict[pauli_gates.Pauli, np.ndarray], {\n            pauli_gates.X: 'X',\n            pauli_gates.Y: 'Y',\n            pauli_gates.Z: '@'\n        })\n        l0 = labels[self.pauli0]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "quantumlib/Cirq",
+    "commit": "224334895d3007716d1413e0ac3a31f91c9fc7b1",
+    "filename": "cirq/ops/pauli_interaction_gate.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-Cirq/cirq/ops/pauli_interaction_gate.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cirq/ops/pauli_interaction_gate.py:111:20 Incompatible parameter type [6]: Expected `Union[pauli_gates._PauliX, pauli_gates._PauliY, pauli_gates._PauliZ]` for 1st positional only parameter to call `dict.__getitem__` but got `pauli_gates.Pauli`.",
+    "message": " Expected `Union[pauli_gates._PauliX, pauli_gates._PauliY, pauli_gates._PauliZ]` for 1st positional only parameter to call `dict.__getitem__` but got `pauli_gates.Pauli`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 111,
+    "warning_line": "        l1 = labels[self.pauli1]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import List, Sequence, Tuple, Union\n\n",
+        "source_code_len": 50,
+        "target_code": "\nfrom typing import List, Sequence, Tuple, Union, cast, Dict\n\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -14,3 +14,3 @@\n \n-from typing import List, Sequence, Tuple, Union\n+from typing import List, Sequence, Tuple, Union, cast, Dict\n \n",
+        "source_code_with_indent": "\nfrom typing import List, Sequence, Tuple, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import List, Sequence, Tuple, Union, cast, Dict\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                               ) -> protocols.CircuitDiagramInfo:\n        labels = {pauli_gates.X: 'X', pauli_gates.Y: 'Y', pauli_gates.Z: '@'}\n        l0 = labels[self.pauli0]\n",
+        "source_code_len": 177,
+        "target_code": "                               ) -> protocols.CircuitDiagramInfo:\n        labels = cast(Dict[pauli_gates.Pauli, np.ndarray], {\n            pauli_gates.X: 'X',\n            pauli_gates.Y: 'Y',\n            pauli_gates.Z: '@'\n        })\n        l0 = labels[self.pauli0]\n",
+        "target_code_len": 266,
+        "diff_format": "@@ -108,3 +108,7 @@\n                                ) -> protocols.CircuitDiagramInfo:\n-        labels = {pauli_gates.X: 'X', pauli_gates.Y: 'Y', pauli_gates.Z: '@'}\n+        labels = cast(Dict[pauli_gates.Pauli, np.ndarray], {\n+            pauli_gates.X: 'X',\n+            pauli_gates.Y: 'Y',\n+            pauli_gates.Z: '@'\n+        })\n         l0 = labels[self.pauli0]\n",
+        "source_code_with_indent": "                               ) -> protocols.CircuitDiagramInfo:\n        <IND>labels = {pauli_gates.X: 'X', pauli_gates.Y: 'Y', pauli_gates.Z: '@'}\n        l0 = labels[self.pauli0]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                               ) -> protocols.CircuitDiagramInfo:\n        <IND>labels = cast(Dict[pauli_gates.Pauli, np.ndarray], {\n            pauli_gates.X: 'X',\n            pauli_gates.Y: 'Y',\n            pauli_gates.Z: '@'\n        })\n        l0 = labels[self.pauli0]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

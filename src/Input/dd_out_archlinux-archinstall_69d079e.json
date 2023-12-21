@@ -1,0 +1,100 @@
+[
+  {
+    "project": "archlinux/archinstall",
+    "commit": "69d079e63a00caf9268575a6ca4789962776761b",
+    "filename": "archinstall/lib/disk.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/archlinux-archinstall/archinstall/lib/disk.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "archinstall/lib/disk.py:216:3 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 216,
+    "warning_line": "\t\t\treturn partition.get('partuuid', None)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import glob, re, os, json, time, hashlib\n",
+        "source_code_len": 41,
+        "target_code": "from typing import Optional\nimport glob, re, os, json, time, hashlib\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -1,1 +1,2 @@\n+from typing import Optional\n import glob, re, os, json, time, hashlib\n",
+        "source_code_with_indent": "import glob, re, os, json, time, hashlib\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Optional\nimport glob, re, os, json, time, hashlib\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\t@property\n\tdef uuid(self) -> str:\n\t\t\"\"\"\n",
+        "source_code_len": 41,
+        "target_code": "\t@property\n\tdef uuid(self) -> Optional[str]:\n\t\t\"\"\"\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -207,3 +208,3 @@\n \t@property\n-\tdef uuid(self) -> str:\n+\tdef uuid(self) -> Optional[str]:\n \t\t\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": " <DED><DED>@property\n def uuid(self) -> str:\n\t\t<IND>",
+        "target_code_with_indent": " <DED><DED>@property\n def uuid(self) -> Optional[str]:\n\t\t<IND>"
+      }
+    ]
+  },
+  {
+    "project": "archlinux/archinstall",
+    "commit": "69d079e63a00caf9268575a6ca4789962776761b",
+    "filename": "archinstall/lib/profiles.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/archlinux-archinstall/archinstall/lib/profiles.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "archinstall/lib/profiles.py:236:2 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got `None`.",
+    "message": " Expected `typing.List[typing.Any]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 236,
+    "warning_line": "\t\treturn None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os, urllib.request, urllib.parse, ssl, json, re\n",
+        "source_code_len": 55,
+        "target_code": "from typing import Optional\nimport os, urllib.request, urllib.parse, ssl, json, re\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -1,1 +1,2 @@\n+from typing import Optional\n import os, urllib.request, urllib.parse, ssl, json, re\n",
+        "source_code_with_indent": "import os, urllib.request, urllib.parse, ssl, json, re\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Optional\nimport os, urllib.request, urllib.parse, ssl, json, re\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\t@property\n\tdef packages(self) -> list:\n\t\t\"\"\"\n",
+        "source_code_len": 46,
+        "target_code": "\t@property\n\tdef packages(self) -> Optional[list]:\n\t\t\"\"\"\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -217,3 +218,3 @@\n \t@property\n-\tdef packages(self) -> list:\n+\tdef packages(self) -> Optional[list]:\n \t\t\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": " <DED>@property\n def packages(self) -> list:\n\t\t<IND>",
+        "target_code_with_indent": " <DED>@property\n def packages(self) -> Optional[list]:\n\t\t<IND>"
+      }
+    ]
+  }
+]

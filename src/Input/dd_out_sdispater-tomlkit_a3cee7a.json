@@ -1,0 +1,121 @@
+[
+  {
+    "project": "sdispater/tomlkit",
+    "commit": "a3cee7a059faecbd366596bd2be2ed79de400203",
+    "filename": "tomlkit/parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sdispater-tomlkit/tomlkit/parser.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tomlkit/parser.py:103:36 Incompatible parameter type [6]: Expected `Exception` for 2nd parameter `exception` to call `Source.inc_n` but got `Optional[ParseError]`.",
+    "message": " Expected `Exception` for 2nd parameter `exception` to call `Source.inc_n` but got `Optional[ParseError]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 103,
+    "warning_line": "        return self._src.inc_n(n=n, exception=exception)"
+  },
+  {
+    "project": "sdispater/tomlkit",
+    "commit": "a3cee7a059faecbd366596bd2be2ed79de400203",
+    "filename": "tomlkit/source.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sdispater-tomlkit/tomlkit/source.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tomlkit/source.py:41:8 Incompatible return type [7]: Expected `None` but got `_State`.",
+    "message": " Expected `None` but got `_State`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 41,
+    "warning_line": "        return self",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __enter__(self):  # type: () -> None\n        # Entering this context manager - save the state\n",
+        "source_code_len": 103,
+        "target_code": "\n    def __enter__(self):  # type: () -> _State\n        # Entering this context manager - save the state\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -27,3 +27,3 @@\n \n-    def __enter__(self):  # type: () -> None\n+    def __enter__(self):  # type: () -> _State\n         # Entering this context manager - save the state\n",
+        "source_code_with_indent": "\n    <DED>def __enter__(self):  # type: () -> None\n        # Entering this context manager - save the state\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __enter__(self):  # type: () -> _State\n        # Entering this context manager - save the state\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sdispater/tomlkit",
+    "commit": "a3cee7a059faecbd366596bd2be2ed79de400203",
+    "filename": "tomlkit/source.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sdispater-tomlkit/tomlkit/source.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tomlkit/source.py:138:23 Incompatible variable type [9]: exception is declared to have type `Exception` but is used as type `None`.",
+    "message": " exception is declared to have type `Exception` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 138,
+    "warning_line": "    def inc_n(self, n, exception=None):  # type: (int, Exception) -> bool",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def inc_n(self, n, exception=None):  # type: (int, Exception) -> bool\n        \"\"\"\n",
+        "source_code_len": 87,
+        "target_code": "\n    def inc_n(\n        self, n, exception=None\n    ):  # type: (int, Optional[Type[ParseError]]) -> bool\n        \"\"\"\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -137,3 +137,5 @@\n \n-    def inc_n(self, n, exception=None):  # type: (int, Exception) -> bool\n+    def inc_n(\n+        self, n, exception=None\n+    ):  # type: (int, Optional[Type[ParseError]]) -> bool\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def inc_n(self, n, exception=None):  # type: (int, Exception) -> bool\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def inc_n(\n        self, n, exception=None\n    ):  # type: (int, Optional[Type[ParseError]]) -> bool\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "sdispater/tomlkit",
+    "commit": "a3cee7a059faecbd366596bd2be2ed79de400203",
+    "filename": "tomlkit/source.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sdispater-tomlkit/tomlkit/source.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tomlkit/source.py:144:28 Incompatible parameter type [6]: Expected `Optional[Type[ParseError]]` for 1st parameter `exception` to call `Source.inc` but got `Exception`.",
+    "message": " Expected `Optional[Type[ParseError]]` for 1st parameter `exception` to call `Source.inc` but got `Exception`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 144,
+    "warning_line": "            if not self.inc(exception=exception):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def inc_n(self, n, exception=None):  # type: (int, Exception) -> bool\n        \"\"\"\n",
+        "source_code_len": 87,
+        "target_code": "\n    def inc_n(\n        self, n, exception=None\n    ):  # type: (int, Optional[Type[ParseError]]) -> bool\n        \"\"\"\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -137,3 +137,5 @@\n \n-    def inc_n(self, n, exception=None):  # type: (int, Exception) -> bool\n+    def inc_n(\n+        self, n, exception=None\n+    ):  # type: (int, Optional[Type[ParseError]]) -> bool\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def inc_n(self, n, exception=None):  # type: (int, Exception) -> bool\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def inc_n(\n        self, n, exception=None\n    ):  # type: (int, Optional[Type[ParseError]]) -> bool\n        <IND>"
+      }
+    ]
+  }
+]

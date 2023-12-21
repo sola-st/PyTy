@@ -1,0 +1,36 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "14df243661f817fb7ade4155cbb91e97e3e89cc6",
+    "filename": "freqtrade/rpc/telegram.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/rpc/telegram.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/rpc/telegram.py:429:49 Incompatible parameter type [6]: Expected `float` for 1st parameter `days` to call `timedelta.__new__` but got `typing.Optional[int]`.",
+    "message": " Expected `float` for 1st parameter `days` to call `timedelta.__new__` but got `typing.Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 429,
+    "warning_line": "            start_date = today_start - timedelta(days=timescale)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        try:\n            timescale = int(context.args[0]) if context.args else None\n            today_start = datetime.combine(date.today(), datetime.min.time())\n            start_date = today_start - timedelta(days=timescale)\n        except (TypeError, ValueError, IndexError):\n",
+        "source_code_len": 279,
+        "target_code": "        try:\n            if context.args:\n                timescale = int(context.args[0])\n                today_start = datetime.combine(date.today(), datetime.min.time())\n                start_date = today_start - timedelta(days=timescale)\n        except (TypeError, ValueError, IndexError):\n",
+        "target_code_len": 294,
+        "diff_format": "@@ -426,5 +426,6 @@\n         try:\n-            timescale = int(context.args[0]) if context.args else None\n-            today_start = datetime.combine(date.today(), datetime.min.time())\n-            start_date = today_start - timedelta(days=timescale)\n+            if context.args:\n+                timescale = int(context.args[0])\n+                today_start = datetime.combine(date.today(), datetime.min.time())\n+                start_date = today_start - timedelta(days=timescale)\n         except (TypeError, ValueError, IndexError):\n",
+        "source_code_with_indent": "        try:\n            <IND>timescale = int(context.args[0]) if context.args else None\n            today_start = datetime.combine(date.today(), datetime.min.time())\n            start_date = today_start - timedelta(days=timescale)\n        <DED>except (TypeError, ValueError, IndexError):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        try:\n            <IND>if context.args:\n                <IND>timescale = int(context.args[0])\n                today_start = datetime.combine(date.today(), datetime.min.time())\n                start_date = today_start - timedelta(days=timescale)\n        <DED><DED>except (TypeError, ValueError, IndexError):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

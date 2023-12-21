@@ -1,0 +1,100 @@
+[
+  {
+    "project": "explodinglabs/jsonrpcserver",
+    "commit": "fb49efd0cd63ae123fc892b869760b8e5ba4ac47",
+    "filename": "jsonrpcserver/dispatcher.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/explodinglabs-jsonrpcserver/jsonrpcserver/dispatcher.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jsonrpcserver/dispatcher.py:237:12 Incompatible parameter type [6]: Expected `Request` for 1st positional only parameter to call `safe_call` but got `Union[Iterable[Request], Request]`.",
+    "message": " Expected `Request` for 1st positional only parameter to call `safe_call` but got `Union[Iterable[Request], Request]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 237,
+    "warning_line": "            requests, methods=methods, debug=debug, extra=extra, serialize=serialize",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Optional,\n    Set,\n    Tuple,\n    Union,\n)\n",
+        "source_code_len": 47,
+        "target_code": "    Optional,\n    Tuple,\n    Union,\n    cast,\n)\n",
+        "target_code_len": 48,
+        "diff_format": "@@ -24,5 +24,5 @@\n     Optional,\n-    Set,\n     Tuple,\n     Union,\n+    cast,\n )\n",
+        "source_code_with_indent": "    Optional,\n    Set,\n    Tuple,\n    Union,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Optional,\n    Tuple,\n    Union,\n    cast,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else safe_call(\n            requests, methods=methods, debug=debug, extra=extra, serialize=serialize\n        )\n",
+        "source_code_len": 119,
+        "target_code": "        else safe_call(\n            cast(Request, requests),\n            methods=methods,\n            debug=debug,\n            extra=extra,\n            serialize=serialize,\n        )\n",
+        "target_code_len": 183,
+        "diff_format": "@@ -236,3 +236,7 @@\n         else safe_call(\n-            requests, methods=methods, debug=debug, extra=extra, serialize=serialize\n+            cast(Request, requests),\n+            methods=methods,\n+            debug=debug,\n+            extra=extra,\n+            serialize=serialize,\n         )\n",
+        "source_code_with_indent": "        else safe_call(\n            requests, methods=methods, debug=debug, extra=extra, serialize=serialize\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        else safe_call(\n            cast(Request, requests),\n            methods=methods,\n            debug=debug,\n            extra=extra,\n            serialize=serialize,\n        )\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    requests: Union[Dict, List[Dict]],\n) -> Union[Request, Set[Request]]:\n    \"\"\"\n",
+        "source_code_len": 82,
+        "target_code": "    requests: Union[Dict, List[Dict]],\n) -> Union[Request, List[Request]]:\n    \"\"\"\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -243,3 +247,3 @@\n     requests: Union[Dict, List[Dict]],\n-) -> Union[Request, Set[Request]]:\n+) -> Union[Request, List[Request]]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    requests: Union[Dict, List[Dict]],\n) -> Union[Request, Set[Request]]:\n    <IND>",
+        "target_code_with_indent": "    requests: Union[Dict, List[Dict]],\n) -> Union[Request, List[Request]]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "explodinglabs/jsonrpcserver",
+    "commit": "fb49efd0cd63ae123fc892b869760b8e5ba4ac47",
+    "filename": "jsonrpcserver/dispatcher.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/explodinglabs-jsonrpcserver/jsonrpcserver/dispatcher.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jsonrpcserver/dispatcher.py:254:4 Incompatible return type [7]: Expected `Union[Set[Request], Request]` but got `Union[List[Request], Request]`.",
+    "message": " Expected `Union[Set[Request], Request]` but got `Union[List[Request], Request]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 254,
+    "warning_line": "    return (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    requests: Union[Dict, List[Dict]],\n) -> Union[Request, Set[Request]]:\n    \"\"\"\n",
+        "source_code_len": 82,
+        "target_code": "    requests: Union[Dict, List[Dict]],\n) -> Union[Request, List[Request]]:\n    \"\"\"\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -243,3 +247,3 @@\n     requests: Union[Dict, List[Dict]],\n-) -> Union[Request, Set[Request]]:\n+) -> Union[Request, List[Request]]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    requests: Union[Dict, List[Dict]],\n) -> Union[Request, Set[Request]]:\n    <IND>",
+        "target_code_with_indent": "    requests: Union[Dict, List[Dict]],\n) -> Union[Request, List[Request]]:\n    <IND>"
+      }
+    ]
+  }
+]

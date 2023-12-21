@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pythonarcade/arcade",
+    "commit": "ad6342a78d8b9d114f65c0e5fdd301850da73ee2",
+    "filename": "arcade/texture.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pythonarcade-arcade/arcade/texture.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arcade/texture.py:127:12 Incompatible parameter type [6]: Expected `str` for 3rd parameter `hit_box_algorithm` to call `Texture.__init__` but got `None`.",
+    "message": " Expected `str` for 3rd parameter `hit_box_algorithm` to call `Texture.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 127,
+    "warning_line": "            hit_box_algorithm=None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 image: PIL.Image.Image = None,\n                 hit_box_algorithm: str = \"Simple\",\n                 hit_box_detail: float = 4.5):\n",
+        "source_code_len": 147,
+        "target_code": "                 image: PIL.Image.Image = None,\n                 hit_box_algorithm: Optional[str] = \"Simple\",\n                 hit_box_detail: float = 4.5):\n",
+        "target_code_len": 157,
+        "diff_format": "@@ -48,3 +48,3 @@\n                  image: PIL.Image.Image = None,\n-                 hit_box_algorithm: str = \"Simple\",\n+                 hit_box_algorithm: Optional[str] = \"Simple\",\n                  hit_box_detail: float = 4.5):\n",
+        "source_code_with_indent": "                 image: PIL.Image.Image = None,\n                 hit_box_algorithm: str = \"Simple\",\n                 hit_box_detail: float = 4.5):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 image: PIL.Image.Image = None,\n                 hit_box_algorithm: Optional[str] = \"Simple\",\n                 hit_box_detail: float = 4.5):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

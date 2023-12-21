@@ -1,0 +1,70 @@
+[
+  {
+    "project": "cyverse/atmosphere",
+    "commit": "d8f8caa69f3b76619119aa5a8336834cea381470",
+    "filename": "api/v2/views/allocation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cyverse-atmosphere/api/v2/views/allocation.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "api/v2/views/allocation.py:7:24 Unbound name [10]: Name `viewsets` is used but not defined in the current scope.",
+    "message": " Name `viewsets` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 7,
+    "warning_line": "class AllocationViewSet(viewsets.ReadOnlyModelViewSet):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom api.v2.base import AuthViewSet\nfrom api.v2.serializers.details import AllocationSerializer\n\n\nclass AllocationViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"\n",
+        "source_code_len": 163,
+        "target_code": "\nfrom api.v2.serializers.details import AllocationSerializer\nfrom api.v2.views.base import AuthReadOnlyViewSet\n\n\nclass AllocationViewSet(AuthReadOnlyViewSet):\n    \"\"\"\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -2,7 +2,7 @@\n \n-from api.v2.base import AuthViewSet\n from api.v2.serializers.details import AllocationSerializer\n+from api.v2.views.base import AuthReadOnlyViewSet\n \n \n-class AllocationViewSet(viewsets.ReadOnlyModelViewSet):\n+class AllocationViewSet(AuthReadOnlyViewSet):\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nfrom api.v2.base import AuthViewSet\nfrom api.v2.serializers.details import AllocationSerializer\n\n\nclass AllocationViewSet(viewsets.ReadOnlyModelViewSet):\n    <IND>",
+        "target_code_with_indent": "\nfrom api.v2.serializers.details import AllocationSerializer\nfrom api.v2.views.base import AuthReadOnlyViewSet\n\n\nclass AllocationViewSet(AuthReadOnlyViewSet):\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "cyverse/atmosphere",
+    "commit": "d8f8caa69f3b76619119aa5a8336834cea381470",
+    "filename": "api/v2/views/platform_type.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cyverse-atmosphere/api/v2/views/platform_type.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "api/v2/views/platform_type.py:7:26 Unbound name [10]: Name `viewsets` is used but not defined in the current scope.",
+    "message": " Name `viewsets` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 7,
+    "warning_line": "class PlatformTypeViewSet(viewsets.ReadOnlyModelViewSet):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from api.v2.serializers.details import PlatformTypeSerializer\nfrom api.v2.base import AuthViewSet\n\n\nclass PlatformTypeViewSet(viewsets.ReadOnlyModelViewSet):\n    \"\"\"\n",
+        "source_code_len": 166,
+        "target_code": "from api.v2.serializers.details import PlatformTypeSerializer\nfrom api.v2.views.base import AuthReadOnlyViewSet\n\n\nclass PlatformTypeViewSet(AuthReadOnlyViewSet):\n    \"\"\"\n",
+        "target_code_len": 170,
+        "diff_format": "@@ -3,6 +3,6 @@\n from api.v2.serializers.details import PlatformTypeSerializer\n-from api.v2.base import AuthViewSet\n+from api.v2.views.base import AuthReadOnlyViewSet\n \n \n-class PlatformTypeViewSet(viewsets.ReadOnlyModelViewSet):\n+class PlatformTypeViewSet(AuthReadOnlyViewSet):\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "from api.v2.serializers.details import PlatformTypeSerializer\nfrom api.v2.base import AuthViewSet\n\n\nclass PlatformTypeViewSet(viewsets.ReadOnlyModelViewSet):\n    <IND>",
+        "target_code_with_indent": "from api.v2.serializers.details import PlatformTypeSerializer\nfrom api.v2.views.base import AuthReadOnlyViewSet\n\n\nclass PlatformTypeViewSet(AuthReadOnlyViewSet):\n    <IND>"
+      }
+    ]
+  }
+]

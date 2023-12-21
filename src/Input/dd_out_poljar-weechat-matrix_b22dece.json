@@ -1,0 +1,36 @@
+[
+  {
+    "project": "poljar/weechat-matrix",
+    "commit": "b22deceb00e8901c90b3c4799856d7cf609e852e",
+    "filename": "main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-weechat-matrix/main.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "main.py:153:4 Incompatible return type [7]: Expected `socket.socket` but got implicit return value of `None`.",
+    "message": " Expected `socket.socket` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 153,
+    "warning_line": "    try_ssl_handshake(server)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def wrap_socket(server, file_descriptor):\n    # type: (MatrixServer, int) -> socket.socket\n    sock = None  # type: socket.socket\n",
+        "source_code_len": 130,
+        "target_code": "def wrap_socket(server, file_descriptor):\n    # type: (MatrixServer, int) -> None\n    sock = None  # type: socket.socket\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -117,3 +117,3 @@\n def wrap_socket(server, file_descriptor):\n-    # type: (MatrixServer, int) -> socket.socket\n+    # type: (MatrixServer, int) -> None\n     sock = None  # type: socket.socket\n",
+        "source_code_with_indent": "def wrap_socket(server, file_descriptor):\n    # type: (MatrixServer, int) -> socket.socket\n    <IND>sock = None  # type: socket.socket\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def wrap_socket(server, file_descriptor):\n    # type: (MatrixServer, int) -> None\n    <IND>sock = None  # type: socket.socket\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

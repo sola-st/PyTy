@@ -1,0 +1,51 @@
+[
+  {
+    "project": "internetarchive/openlibrary-client",
+    "commit": "7ed59da5ed6e88f39420256ed5b877492fdad292",
+    "filename": "olclient/bots.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/internetarchive-openlibrary-client/olclient/bots.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "olclient/bots.py:62:45 Invalid type [31]: Expression `(list, dict)` is not a valid type.",
+    "message": " Expression `(list, dict)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 62,
+    "warning_line": "    def process_row(row, delimiter='\\t') -> (list, dict):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom olclient.openlibrary import OpenLibrary\n",
+        "source_code_len": 46,
+        "target_code": "\nfrom typing import Tuple\nfrom olclient.openlibrary import OpenLibrary\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -15,2 +15,3 @@\n \n+from typing import Tuple\n from olclient.openlibrary import OpenLibrary\n",
+        "source_code_with_indent": "\nfrom olclient.openlibrary import OpenLibrary\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Tuple\nfrom olclient.openlibrary import OpenLibrary\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def process_row(row, delimiter='\\t') -> (list, dict):\n        \"\"\"\n",
+        "source_code_len": 88,
+        "target_code": "    @staticmethod\n    def process_row(row, delimiter='\\t') -> Tuple[list, dict]:\n        \"\"\"\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -61,3 +62,3 @@\n     @staticmethod\n-    def process_row(row, delimiter='\\t') -> (list, dict):\n+    def process_row(row, delimiter='\\t') -> Tuple[list, dict]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED><DED>@staticmethod\n    def process_row(row, delimiter='\\t') -> (list, dict):\n        <IND>",
+        "target_code_with_indent": "    <DED><DED>@staticmethod\n    def process_row(row, delimiter='\\t') -> Tuple[list, dict]:\n        <IND>"
+      }
+    ]
+  }
+]

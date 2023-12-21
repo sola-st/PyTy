@@ -1,0 +1,172 @@
+[
+  {
+    "project": "theacodes/nox",
+    "commit": "1bd08bc7d85f7276b07a72b720c673a5df384188",
+    "filename": "nox/_option_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theacodes-nox/nox/_option_set.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nox/_option_set.py:64:8 Incompatible variable type [9]: help is declared to have type `str` but is used as type `None`.",
+    "message": " help is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 64,
+    "warning_line": "        help: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_len": 518,
+        "target_code": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_len": 555,
+        "diff_format": "@@ -62,15 +62,15 @@\n         name: str,\n-        *flags,\n-        help: str = None,\n-        group: str = None,\n+        *flags: str,\n+        help: Optional[str] = None,\n+        group: Optional[str] = None,\n         noxfile: bool = False,\n-        merge_func: Callable[[Namespace, Namespace], Any] = None,\n-        finalizer_func: Callable[[Any, Namespace], Any] = None,\n+        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n+        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n         default: Union[Any, Callable[[], Any]] = None,\n         hidden: bool = False,\n-        completer: Callable[..., List[str]] = None,\n-        **kwargs\n+        completer: Optional[Callable[..., List[str]]] = None,\n+        **kwargs: Any\n     ) -> None:\n         self.name = name\n-        self.flags = flags  # type: Sequence[str]\n+        self.flags = flags\n         self.help = help\n",
+        "source_code_with_indent": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "theacodes/nox",
+    "commit": "1bd08bc7d85f7276b07a72b720c673a5df384188",
+    "filename": "nox/_option_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theacodes-nox/nox/_option_set.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nox/_option_set.py:65:8 Incompatible variable type [9]: group is declared to have type `str` but is used as type `None`.",
+    "message": " group is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 65,
+    "warning_line": "        group: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_len": 518,
+        "target_code": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_len": 555,
+        "diff_format": "@@ -62,15 +62,15 @@\n         name: str,\n-        *flags,\n-        help: str = None,\n-        group: str = None,\n+        *flags: str,\n+        help: Optional[str] = None,\n+        group: Optional[str] = None,\n         noxfile: bool = False,\n-        merge_func: Callable[[Namespace, Namespace], Any] = None,\n-        finalizer_func: Callable[[Any, Namespace], Any] = None,\n+        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n+        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n         default: Union[Any, Callable[[], Any]] = None,\n         hidden: bool = False,\n-        completer: Callable[..., List[str]] = None,\n-        **kwargs\n+        completer: Optional[Callable[..., List[str]]] = None,\n+        **kwargs: Any\n     ) -> None:\n         self.name = name\n-        self.flags = flags  # type: Sequence[str]\n+        self.flags = flags\n         self.help = help\n",
+        "source_code_with_indent": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "theacodes/nox",
+    "commit": "1bd08bc7d85f7276b07a72b720c673a5df384188",
+    "filename": "nox/_option_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theacodes-nox/nox/_option_set.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nox/_option_set.py:67:8 Incompatible variable type [9]: merge_func is declared to have type `typing.Callable[[Namespace, Namespace], typing.Any]` but is used as type `None`.",
+    "message": " merge_func is declared to have type `typing.Callable[[Namespace, Namespace], typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 67,
+    "warning_line": "        merge_func: Callable[[Namespace, Namespace], Any] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_len": 518,
+        "target_code": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_len": 555,
+        "diff_format": "@@ -62,15 +62,15 @@\n         name: str,\n-        *flags,\n-        help: str = None,\n-        group: str = None,\n+        *flags: str,\n+        help: Optional[str] = None,\n+        group: Optional[str] = None,\n         noxfile: bool = False,\n-        merge_func: Callable[[Namespace, Namespace], Any] = None,\n-        finalizer_func: Callable[[Any, Namespace], Any] = None,\n+        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n+        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n         default: Union[Any, Callable[[], Any]] = None,\n         hidden: bool = False,\n-        completer: Callable[..., List[str]] = None,\n-        **kwargs\n+        completer: Optional[Callable[..., List[str]]] = None,\n+        **kwargs: Any\n     ) -> None:\n         self.name = name\n-        self.flags = flags  # type: Sequence[str]\n+        self.flags = flags\n         self.help = help\n",
+        "source_code_with_indent": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "theacodes/nox",
+    "commit": "1bd08bc7d85f7276b07a72b720c673a5df384188",
+    "filename": "nox/_option_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theacodes-nox/nox/_option_set.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nox/_option_set.py:68:8 Incompatible variable type [9]: finalizer_func is declared to have type `typing.Callable[[typing.Any, Namespace], typing.Any]` but is used as type `None`.",
+    "message": " finalizer_func is declared to have type `typing.Callable[[typing.Any, Namespace], typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 68,
+    "warning_line": "        finalizer_func: Callable[[Any, Namespace], Any] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_len": 518,
+        "target_code": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_len": 555,
+        "diff_format": "@@ -62,15 +62,15 @@\n         name: str,\n-        *flags,\n-        help: str = None,\n-        group: str = None,\n+        *flags: str,\n+        help: Optional[str] = None,\n+        group: Optional[str] = None,\n         noxfile: bool = False,\n-        merge_func: Callable[[Namespace, Namespace], Any] = None,\n-        finalizer_func: Callable[[Any, Namespace], Any] = None,\n+        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n+        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n         default: Union[Any, Callable[[], Any]] = None,\n         hidden: bool = False,\n-        completer: Callable[..., List[str]] = None,\n-        **kwargs\n+        completer: Optional[Callable[..., List[str]]] = None,\n+        **kwargs: Any\n     ) -> None:\n         self.name = name\n-        self.flags = flags  # type: Sequence[str]\n+        self.flags = flags\n         self.help = help\n",
+        "source_code_with_indent": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "theacodes/nox",
+    "commit": "1bd08bc7d85f7276b07a72b720c673a5df384188",
+    "filename": "nox/_option_set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theacodes-nox/nox/_option_set.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nox/_option_set.py:71:8 Incompatible variable type [9]: completer is declared to have type `typing.Callable[..., List[str]]` but is used as type `None`.",
+    "message": " completer is declared to have type `typing.Callable[..., List[str]]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 71,
+    "warning_line": "        completer: Callable[..., List[str]] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_len": 518,
+        "target_code": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_len": 555,
+        "diff_format": "@@ -62,15 +62,15 @@\n         name: str,\n-        *flags,\n-        help: str = None,\n-        group: str = None,\n+        *flags: str,\n+        help: Optional[str] = None,\n+        group: Optional[str] = None,\n         noxfile: bool = False,\n-        merge_func: Callable[[Namespace, Namespace], Any] = None,\n-        finalizer_func: Callable[[Any, Namespace], Any] = None,\n+        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n+        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n         default: Union[Any, Callable[[], Any]] = None,\n         hidden: bool = False,\n-        completer: Callable[..., List[str]] = None,\n-        **kwargs\n+        completer: Optional[Callable[..., List[str]]] = None,\n+        **kwargs: Any\n     ) -> None:\n         self.name = name\n-        self.flags = flags  # type: Sequence[str]\n+        self.flags = flags\n         self.help = help\n",
+        "source_code_with_indent": "        name: str,\n        *flags,\n        help: str = None,\n        group: str = None,\n        noxfile: bool = False,\n        merge_func: Callable[[Namespace, Namespace], Any] = None,\n        finalizer_func: Callable[[Any, Namespace], Any] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Callable[..., List[str]] = None,\n        **kwargs\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags  # type: Sequence[str]\n        self.help = help\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        name: str,\n        *flags: str,\n        help: Optional[str] = None,\n        group: Optional[str] = None,\n        noxfile: bool = False,\n        merge_func: Optional[Callable[[Namespace, Namespace], Any]] = None,\n        finalizer_func: Optional[Callable[[Any, Namespace], Any]] = None,\n        default: Union[Any, Callable[[], Any]] = None,\n        hidden: bool = False,\n        completer: Optional[Callable[..., List[str]]] = None,\n        **kwargs: Any\n    ) -> None:\n        <IND>self.name = name\n        self.flags = flags\n        self.help = help\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

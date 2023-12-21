@@ -1,0 +1,85 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "568388727114a2a7fa661634fcd6fad73e95bfd2",
+    "filename": "tests/samplers_tests/test_samplers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/samplers_tests/test_samplers.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/samplers_tests/test_samplers.py:189:8 Incompatible parameter type [6]: Expected `Dict[str, BaseDistribution]` for 1st positional only parameter to call `FixedSampler.__init__` but got `Dict[str, typing.Union[CategoricalDistribution, IntUniformDistribution, UniformDistribution]]`.",
+    "message": " Expected `Dict[str, BaseDistribution]` for 1st positional only parameter to call `FixedSampler.__init__` but got `Dict[str, typing.Union[CategoricalDistribution, IntUniformDistribution, UniformDistribution]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 189,
+    "warning_line": "        relative_search_space, relative_params, unknown_param_value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        'c': IntUniformDistribution(low=20, high=50),  # Not exist in `relative_params`.\n    }\n    relative_params = {\n",
+        "source_code_len": 119,
+        "target_code": "        'c': IntUniformDistribution(low=20, high=50),  # Not exist in `relative_params`.\n    }  # type: Dict[str, BaseDistribution]\n    relative_params = {\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -180,3 +181,3 @@\n         'c': IntUniformDistribution(low=20, high=50),  # Not exist in `relative_params`.\n-    }\n+    }  # type: Dict[str, BaseDistribution]\n     relative_params = {\n",
+        "source_code_with_indent": "        'c': IntUniformDistribution(low=20, high=50),  # Not exist in `relative_params`.\n    }\n    relative_params = {\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        'c': IntUniformDistribution(low=20, high=50),  # Not exist in `relative_params`.\n    }  # type: Dict[str, BaseDistribution]\n    relative_params = {\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "optuna/optuna",
+    "commit": "568388727114a2a7fa661634fcd6fad73e95bfd2",
+    "filename": "tests/samplers_tests/test_samplers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/samplers_tests/test_samplers.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/samplers_tests/test_samplers.py:189:31 Incompatible parameter type [6]: Expected `Dict[str, float]` for 2nd positional only parameter to call `FixedSampler.__init__` but got `Dict[str, typing.Union[float, str]]`.",
+    "message": " Expected `Dict[str, float]` for 2nd positional only parameter to call `FixedSampler.__init__` but got `Dict[str, typing.Union[float, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 189,
+    "warning_line": "        relative_search_space, relative_params, unknown_param_value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    import typing  # NOQA\n    from typing import Dict  # NOQA\n",
+        "source_code_len": 62,
+        "target_code": "    import typing  # NOQA\n    from typing import Any  # NOQA\n    from typing import Dict  # NOQA\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -13,2 +13,3 @@\n     import typing  # NOQA\n+    from typing import Any  # NOQA\n     from typing import Dict  # NOQA\n",
+        "source_code_with_indent": "    <IND>import typing  # NOQA\n    from typing import Dict  # NOQA\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>import typing  # NOQA\n    from typing import Any  # NOQA\n    from typing import Dict  # NOQA\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, relative_search_space, relative_params, unknown_param_value):\n        # type: (Dict[str, BaseDistribution], Dict[str, float], float) -> None\n\n",
+        "source_code_len": 165,
+        "target_code": "    def __init__(self, relative_search_space, relative_params, unknown_param_value):\n        # type: (Dict[str, BaseDistribution], Dict[str, Any], Any) -> None\n\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -151,3 +152,3 @@\n     def __init__(self, relative_search_space, relative_params, unknown_param_value):\n-        # type: (Dict[str, BaseDistribution], Dict[str, float], float) -> None\n+        # type: (Dict[str, BaseDistribution], Dict[str, Any], Any) -> None\n \n",
+        "source_code_with_indent": "    <IND>def __init__(self, relative_search_space, relative_params, unknown_param_value):\n        # type: (Dict[str, BaseDistribution], Dict[str, float], float) -> None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>def __init__(self, relative_search_space, relative_params, unknown_param_value):\n        # type: (Dict[str, BaseDistribution], Dict[str, Any], Any) -> None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

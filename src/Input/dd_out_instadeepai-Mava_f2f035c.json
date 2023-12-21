@@ -1,0 +1,100 @@
+[
+  {
+    "project": "instadeepai/Mava",
+    "commit": "f2f035cbaf6811b8545b1c6ab1326d783a106389",
+    "filename": "mava/systems/tf/qmix/builder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/systems/tf/qmix/builder.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/systems/tf/qmix/builder.py:86:4 Inconsistent override [14]: `mava.systems.tf.qmix.builder.QMIXBuilder.make_trainer` overrides method defined in `MADQNBuilder` inconsistently. Could not find parameter `communication_module` in overriding signature.",
+    "message": " `mava.systems.tf.qmix.builder.QMIXBuilder.make_trainer` overrides method defined in `MADQNBuilder` inconsistently. Could not find parameter `communication_module` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 86,
+    "warning_line": "    def make_trainer(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from mava import core, types\nfrom mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "source_code_len": 105,
+        "target_code": "from mava import core, types\nfrom mava.components.tf.modules.communication import BaseCommunicationModule\nfrom mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "target_code_len": 182,
+        "diff_format": "@@ -23,2 +23,3 @@\n from mava import core, types\n+from mava.components.tf.modules.communication import BaseCommunicationModule\n from mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "source_code_with_indent": "from mava import core, types\nfrom mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from mava import core, types\nfrom mava.components.tf.modules.communication import BaseCommunicationModule\nfrom mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        logger: Optional[types.NestedLogger] = None,\n    ) -> core.Trainer:\n",
+        "source_code_len": 76,
+        "target_code": "        logger: Optional[types.NestedLogger] = None,\n        communication_module: Optional[BaseCommunicationModule] = None,\n    ) -> core.Trainer:\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -91,2 +92,3 @@\n         logger: Optional[types.NestedLogger] = None,\n+        communication_module: Optional[BaseCommunicationModule] = None,\n     ) -> core.Trainer:\n",
+        "source_code_with_indent": "        logger: Optional[types.NestedLogger] = None,\n    ) -> core.Trainer:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        logger: Optional[types.NestedLogger] = None,\n        communication_module: Optional[BaseCommunicationModule] = None,\n    ) -> core.Trainer:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "instadeepai/Mava",
+    "commit": "f2f035cbaf6811b8545b1c6ab1326d783a106389",
+    "filename": "mava/systems/tf/vdn/builder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/systems/tf/vdn/builder.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/systems/tf/vdn/builder.py:87:4 Inconsistent override [14]: `mava.systems.tf.vdn.builder.VDNBuilder.make_trainer` overrides method defined in `MADQNBuilder` inconsistently. Could not find parameter `communication_module` in overriding signature.",
+    "message": " `mava.systems.tf.vdn.builder.VDNBuilder.make_trainer` overrides method defined in `MADQNBuilder` inconsistently. Could not find parameter `communication_module` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 87,
+    "warning_line": "    def make_trainer(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from mava import core, types\nfrom mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "source_code_len": 105,
+        "target_code": "from mava import core, types\nfrom mava.components.tf.modules.communication import BaseCommunicationModule\nfrom mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "target_code_len": 182,
+        "diff_format": "@@ -23,2 +23,3 @@\n from mava import core, types\n+from mava.components.tf.modules.communication import BaseCommunicationModule\n from mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "source_code_with_indent": "from mava import core, types\nfrom mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from mava import core, types\nfrom mava.components.tf.modules.communication import BaseCommunicationModule\nfrom mava.components.tf.modules.exploration.exploration_scheduling import (\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        logger: Optional[types.NestedLogger] = None,\n    ) -> core.Trainer:\n",
+        "source_code_len": 76,
+        "target_code": "        logger: Optional[types.NestedLogger] = None,\n        communication_module: Optional[BaseCommunicationModule] = None,\n    ) -> core.Trainer:\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -92,2 +93,3 @@\n         logger: Optional[types.NestedLogger] = None,\n+        communication_module: Optional[BaseCommunicationModule] = None,\n     ) -> core.Trainer:\n",
+        "source_code_with_indent": "        logger: Optional[types.NestedLogger] = None,\n    ) -> core.Trainer:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        logger: Optional[types.NestedLogger] = None,\n        communication_module: Optional[BaseCommunicationModule] = None,\n    ) -> core.Trainer:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ilius/pyglossary",
+    "commit": "66446d602a2b2be627eae7108ffcdcefa40c3c8e",
+    "filename": "pyglossary/option.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ilius-pyglossary/pyglossary/option.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyglossary/option.py:59:2 Incompatible return type [7]: Expected `Tuple[bool, bool]` but got `Tuple[None, bool]`.",
+    "message": " Expected `Tuple[bool, bool]` but got `Tuple[None, bool]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 59,
+    "warning_line": "\t\treturn None, False # not valid",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\tdef evaluate(self, raw: str) -> Tuple[bool, bool]:\n\t\tif raw.lower() in (\"yes\", \"true\", \"1\"):\n",
+        "source_code_len": 95,
+        "target_code": "\n\tdef evaluate(self, raw: str) -> Tuple[Optional[bool], bool]:\n\t\tif raw.lower() in (\"yes\", \"true\", \"1\"):\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -53,3 +53,3 @@\n \n-\tdef evaluate(self, raw: str) -> Tuple[bool, bool]:\n+\tdef evaluate(self, raw: str) -> Tuple[Optional[bool], bool]:\n \t\tif raw.lower() in (\"yes\", \"true\", \"1\"):\n",
+        "source_code_with_indent": "\n <DED>def evaluate(self, raw: str) -> Tuple[bool, bool]:\n\t\t<IND>if raw.lower() in (\"yes\", \"true\", \"1\"):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n <DED>def evaluate(self, raw: str) -> Tuple[Optional[bool], bool]:\n\t\t<IND>if raw.lower() in (\"yes\", \"true\", \"1\"):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

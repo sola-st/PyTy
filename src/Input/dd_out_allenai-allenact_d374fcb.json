@@ -1,0 +1,36 @@
+[
+  {
+    "project": "allenai/allenact",
+    "commit": "d374fcb517ce8499ade03af9ac1be398c20535f7",
+    "filename": "onpolicy_sync/trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allenact/onpolicy_sync/trainer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "onpolicy_sync/trainer.py:225:16 Incompatible parameter type [6]: Expected `bool` for 5th parameter `deterministic_cudnn` to call `ExperimentConfig.test_task_sampler_args` but got `Optional[bool]`.",
+    "message": " Expected `bool` for 5th parameter `deterministic_cudnn` to call `ExperimentConfig.test_task_sampler_args` but got `Optional[bool]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 225,
+    "warning_line": "                deterministic_cudnn=self.deterministic_cudnn,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        self.teacher_forcing: Optional[LinearDecay] = None\n        self.deterministic_cudnn: Optional[bool] = None\n        self.local_start_time_str: Optional[str] = None\n",
+        "source_code_len": 171,
+        "target_code": "        self.teacher_forcing: Optional[LinearDecay] = None\n        self.local_start_time_str: Optional[str] = None\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -157,3 +157,2 @@\n         self.teacher_forcing: Optional[LinearDecay] = None\n-        self.deterministic_cudnn: Optional[bool] = None\n         self.local_start_time_str: Optional[str] = None\n",
+        "source_code_with_indent": "        self.teacher_forcing: Optional[LinearDecay] = None\n        self.deterministic_cudnn: Optional[bool] = None\n        self.local_start_time_str: Optional[str] = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.teacher_forcing: Optional[LinearDecay] = None\n        self.local_start_time_str: Optional[str] = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

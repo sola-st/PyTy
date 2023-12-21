@@ -1,0 +1,70 @@
+[
+  {
+    "project": "crytic/slither",
+    "commit": "a3daeebfc8e8d5e44b689b028dc98b0688bced3b",
+    "filename": "slither/core/declarations/contract.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/crytic-slither/slither/core/declarations/contract.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "slither/core/declarations/contract.py:812:8 Incompatible return type [7]: Expected `Tuple[str, List[str], List[str], List[str], List[str]]` but got `Tuple[str, List[str], List[str], List[Tuple[str, str, str, List[str], List[str], List[str], List[str], List[str]]], List[Tuple[str, str, str, List[str], List[str], List[str], List[str], List[str]]]]`.",
+    "message": " Expected `Tuple[str, List[str], List[str], List[str], List[str]]` but got `Tuple[str, List[str], List[str], List[Tuple[str, str, str, List[str], List[str], List[str], List[str], List[str]]], List[Tuple[str, str, str, List[str], List[str], List[str], List[str], List[str]]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 812,
+    "warning_line": "        return (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_summary(\n        self, include_shadowed=True\n    ) -> Tuple[str, List[str], List[str], List[str], List[str]]:\n        \"\"\"Return the function summary\n",
+        "source_code_len": 162,
+        "target_code": "\n    def get_summary(self, include_shadowed=True) -> Tuple[str, List[str], List[str], List, List]:\n        \"\"\"Return the function summary\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -796,5 +796,3 @@\n \n-    def get_summary(\n-        self, include_shadowed=True\n-    ) -> Tuple[str, List[str], List[str], List[str], List[str]]:\n+    def get_summary(self, include_shadowed=True) -> Tuple[str, List[str], List[str], List, List]:\n         \"\"\"Return the function summary\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def get_summary(\n        self, include_shadowed=True\n    ) -> Tuple[str, List[str], List[str], List[str], List[str]]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def get_summary(self, include_shadowed=True) -> Tuple[str, List[str], List[str], List, List]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "crytic/slither",
+    "commit": "a3daeebfc8e8d5e44b689b028dc98b0688bced3b",
+    "filename": "slither/core/solidity_types/elementary_type.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/crytic-slither/slither/core/solidity_types/elementary_type.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "slither/core/solidity_types/elementary_type.py:180:19 Unsupported operand [58]: `/` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `/` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 180,
+    "warning_line": "        return int(self.size / 8), False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return 32, True\n\n        return int(self.size / 8), False\n",
+        "source_code_len": 70,
+        "target_code": "            return 32, True\n        if self.size is None:\n            return 32, True\n        return int(self.size / 8), False\n",
+        "target_code_len": 127,
+        "diff_format": "@@ -178,3 +178,4 @@\n             return 32, True\n-\n+        if self.size is None:\n+            return 32, True\n         return int(self.size / 8), False\n",
+        "source_code_with_indent": "            <IND>return 32, True\n\n        <DED>return int(self.size / 8), False\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return 32, True\n        <DED>if self.size is None:\n            <IND>return 32, True\n        <DED>return int(self.size / 8), False\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

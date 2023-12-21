@@ -1,0 +1,36 @@
+[
+  {
+    "project": "klen/aioauth-client",
+    "commit": "e06b90f5eda874333ccf8c2e9e72a53bf37cd67a",
+    "filename": "aioauth_client/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/klen-aioauth-client/aioauth_client/__init__.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "aioauth_client/__init__.py:310:48 Incompatible variable type [9]: redirect_uri is declared to have type `str` but is used as type `None`.",
+    "message": " redirect_uri is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 310,
+    "warning_line": "    async def get_access_token(self, code: str, redirect_uri: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n    async def get_access_token(self, code: str, redirect_uri: str = None,\n                               headers: t.Dict = None, **payload) -> t.Tuple[str, t.Any]:\n",
+        "source_code_len": 165,
+        "target_code": "\n    async def get_access_token(self, code: str, redirect_uri: str = None,  # type: ignore\n                               headers: t.Dict = None, **payload) -> t.Tuple[str, t.Any]:\n",
+        "target_code_len": 181,
+        "diff_format": "@@ -309,3 +322,3 @@\n \n-    async def get_access_token(self, code: str, redirect_uri: str = None,\n+    async def get_access_token(self, code: str, redirect_uri: str = None,  # type: ignore\n                                headers: t.Dict = None, **payload) -> t.Tuple[str, t.Any]:\n",
+        "source_code_with_indent": "\n    <DED>async def get_access_token(self, code: str, redirect_uri: str = None,\n                               headers: t.Dict = None, **payload) -> t.Tuple[str, t.Any]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>async def get_access_token(self, code: str, redirect_uri: str = None,  # type: ignore\n                               headers: t.Dict = None, **payload) -> t.Tuple[str, t.Any]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

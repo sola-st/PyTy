@@ -1,0 +1,36 @@
+[
+  {
+    "project": "uriyyo/fastapi-pagination",
+    "commit": "0e1e8542a9ab36f16b6c0ab7af2125b4a03dd095",
+    "filename": "fastapi_pagination/paginator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/uriyyo-fastapi-pagination/fastapi_pagination/paginator.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fastapi_pagination/paginator.py:12:21 Invalid type [31]: Expression `typing.Callable[(typing.Sequence[$local_fastapi_pagination?paginator$T], int)]` is not a valid type.",
+    "message": " Expression `typing.Callable[(typing.Sequence[$local_fastapi_pagination?paginator$T], int)]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 12,
+    "warning_line": "    length_function: Callable[Sequence[T], int] = len,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    params: Optional[AbstractParams] = None,\n    length_function: Callable[Sequence[T], int] = len,\n) -> AbstractPage[T]:\n",
+        "source_code_len": 122,
+        "target_code": "    params: Optional[AbstractParams] = None,\n    length_function: Callable[[Sequence[T]], int] = len,\n) -> AbstractPage[T]:\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -11,3 +11,3 @@\n     params: Optional[AbstractParams] = None,\n-    length_function: Callable[Sequence[T], int] = len,\n+    length_function: Callable[[Sequence[T]], int] = len,\n ) -> AbstractPage[T]:\n",
+        "source_code_with_indent": "    params: Optional[AbstractParams] = None,\n    length_function: Callable[Sequence[T], int] = len,\n) -> AbstractPage[T]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    params: Optional[AbstractParams] = None,\n    length_function: Callable[[Sequence[T]], int] = len,\n) -> AbstractPage[T]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

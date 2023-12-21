@@ -1,0 +1,70 @@
+[
+  {
+    "project": "pgjones/hypercorn",
+    "commit": "3714b5c7cee1d8564e6c9e7220fd89569f696c73",
+    "filename": "tests/protocol/test_h2.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pgjones-hypercorn/tests/protocol/test_h2.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/protocol/test_h2.py:27:8 Incompatible return type [7]: Expected `None` but got `bool`.",
+    "message": " Expected `None` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 27,
+    "warning_line": "        return True",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def _push_over_limit() -> None:\n        await stream_buffer.push(b\"a\" * (BUFFER_HIGH_WATER + 1))\n",
+        "source_code_len": 108,
+        "target_code": "\n    async def _push_over_limit() -> bool:\n        await stream_buffer.push(b\"a\" * (BUFFER_HIGH_WATER + 1))\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -24,3 +24,3 @@\n \n-    async def _push_over_limit() -> None:\n+    async def _push_over_limit() -> bool:\n         await stream_buffer.push(b\"a\" * (BUFFER_HIGH_WATER + 1))\n",
+        "source_code_with_indent": "\n    async def _push_over_limit() -> None:\n        <IND>await stream_buffer.push(b\"a\" * (BUFFER_HIGH_WATER + 1))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    async def _push_over_limit() -> bool:\n        <IND>await stream_buffer.push(b\"a\" * (BUFFER_HIGH_WATER + 1))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pgjones/hypercorn",
+    "commit": "3714b5c7cee1d8564e6c9e7220fd89569f696c73",
+    "filename": "tests/protocol/test_h2.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pgjones-hypercorn/tests/protocol/test_h2.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/protocol/test_h2.py:44:8 Incompatible return type [7]: Expected `None` but got `bool`.",
+    "message": " Expected `None` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 44,
+    "warning_line": "        return True",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def _drain() -> None:\n        await stream_buffer.drain()\n",
+        "source_code_len": 69,
+        "target_code": "\n    async def _drain() -> bool:\n        await stream_buffer.drain()\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -41,3 +41,3 @@\n \n-    async def _drain() -> None:\n+    async def _drain() -> bool:\n         await stream_buffer.drain()\n",
+        "source_code_with_indent": "\n    async def _drain() -> None:\n        <IND>await stream_buffer.drain()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    async def _drain() -> bool:\n        <IND>await stream_buffer.drain()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

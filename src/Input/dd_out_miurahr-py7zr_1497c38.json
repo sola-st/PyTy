@@ -1,0 +1,70 @@
+[
+  {
+    "project": "miurahr/py7zr",
+    "commit": "1497c3813f6d5e85dfe848948dde914cd9564653",
+    "filename": "py7zr/compression.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/miurahr-py7zr/py7zr/compression.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "py7zr/compression.py:208:35 Incompatible parameter type [6]: Expected `Optional[pathlib.Path]` for 2nd positional only parameter to call `dict.__setitem__` but got `Union[None, MemIO, pathlib.Path]`.",
+    "message": " Expected `Optional[pathlib.Path]` for 2nd positional only parameter to call `dict.__setitem__` but got `Union[None, MemIO, pathlib.Path]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 208,
+    "warning_line": "        self.target_filepath[id] = fileish",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, files, src_start: int, header) -> None:\n        self.target_filepath = {}  # type: Dict[int, Optional[pathlib.Path]]\n        self.files = files\n",
+        "source_code_len": 167,
+        "target_code": "    def __init__(self, files, src_start: int, header) -> None:\n        self.target_filepath = {}  # type: Dict[int, Union[MemIO, pathlib.Path, None]]\n        self.files = files\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -46,3 +46,3 @@\n     def __init__(self, files, src_start: int, header) -> None:\n-        self.target_filepath = {}  # type: Dict[int, Optional[pathlib.Path]]\n+        self.target_filepath = {}  # type: Dict[int, Union[MemIO, pathlib.Path, None]]\n         self.files = files\n",
+        "source_code_with_indent": "    def __init__(self, files, src_start: int, header) -> None:\n        <IND>self.target_filepath = {}  # type: Dict[int, Optional[pathlib.Path]]\n        self.files = files\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def __init__(self, files, src_start: int, header) -> None:\n        <IND>self.target_filepath = {}  # type: Dict[int, Union[MemIO, pathlib.Path, None]]\n        self.files = files\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "miurahr/py7zr",
+    "commit": "1497c3813f6d5e85dfe848948dde914cd9564653",
+    "filename": "py7zr/helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/miurahr-py7zr/py7zr/helpers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "py7zr/helpers.py:243:30 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `typing.IO.read` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `typing.IO.read` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 243,
+    "warning_line": "        return self._buf.read(length)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def read(self, length: Optional[int] = None) -> bytes:\n        return self._buf.read(length)\n\n",
+        "source_code_len": 98,
+        "target_code": "    def read(self, length: Optional[int] = None) -> bytes:\n        if length is not None:\n            return self._buf.read(length)\n        else:\n            return self._buf.read()\n\n",
+        "target_code_len": 183,
+        "diff_format": "@@ -242,3 +242,6 @@\n     def read(self, length: Optional[int] = None) -> bytes:\n-        return self._buf.read(length)\n+        if length is not None:\n+            return self._buf.read(length)\n+        else:\n+            return self._buf.read()\n \n",
+        "source_code_with_indent": "    <DED>def read(self, length: Optional[int] = None) -> bytes:\n        <IND>return self._buf.read(length)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def read(self, length: Optional[int] = None) -> bytes:\n        <IND>if length is not None:\n            <IND>return self._buf.read(length)\n        <DED>else:\n            <IND>return self._buf.read()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "snapcore/snapcraft",
+    "commit": "c59592d847e98cc6a943420c9f8f8cd7404da271",
+    "filename": "snapcraft/internal/build_providers/_lxd/_lxd.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snapcore-snapcraft/snapcraft/internal/build_providers/_lxd/_lxd.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snapcraft/internal/build_providers/_lxd/_lxd.py:154:8 Incompatible return type [7]: Expected `Optional[bytes]` but got `typing.Union[bytes, int]`.",
+    "message": " Expected `Optional[bytes]` but got `typing.Union[bytes, int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 154,
+    "warning_line": "        return output",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        try:\n",
+        "source_code_len": 14,
+        "target_code": "\n        output = None\n        try:\n",
+        "target_code_len": 36,
+        "diff_format": "@@ -140,2 +140,3 @@\n \n+        output = None\n         try:\n",
+        "source_code_with_indent": "\n        try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        output = None\n        try:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            else:\n                # output here will be None, and that is OK.\n                output = subprocess.check_call(cmd)\n        except subprocess.CalledProcessError as process_error:\n",
+        "source_code_len": 193,
+        "target_code": "            else:\n                subprocess.check_call(cmd)\n        except subprocess.CalledProcessError as process_error:\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -144,4 +145,3 @@\n             else:\n-                # output here will be None, and that is OK.\n-                output = subprocess.check_call(cmd)\n+                subprocess.check_call(cmd)\n         except subprocess.CalledProcessError as process_error:\n",
+        "source_code_with_indent": "            <DED>else:\n                # output here will be None, and that is OK.\n                <IND>output = subprocess.check_call(cmd)\n        <DED><DED>except subprocess.CalledProcessError as process_error:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>else:\n                <IND>subprocess.check_call(cmd)\n        <DED><DED>except subprocess.CalledProcessError as process_error:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

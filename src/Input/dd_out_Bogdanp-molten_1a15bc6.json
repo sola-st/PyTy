@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Bogdanp/molten",
+    "commit": "1a15bc6ae29210f0156ffd512dfaa539e419c9dc",
+    "filename": "molten/testing/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Bogdanp-molten/molten/testing/client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "molten/testing/client.py:113:8 Incompatible return type [7]: Expected `Response` but got `TestResponse`.",
+    "message": " Expected `Response` but got `TestResponse`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 113,
+    "warning_line": "        return TestResponse(response)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            auth: Optional[Callable[[Request], Request]] = None,\n    ) -> Response:\n        \"\"\"Simulate a request against the application.\n",
+        "source_code_len": 139,
+        "target_code": "            auth: Optional[Callable[[Request], Request]] = None,\n    ) -> TestResponse:\n        \"\"\"Simulate a request against the application.\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -70,3 +70,3 @@\n             auth: Optional[Callable[[Request], Request]] = None,\n-    ) -> Response:\n+    ) -> TestResponse:\n         \"\"\"Simulate a request against the application.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "            auth: Optional[Callable[[Request], Request]] = None,\n    ) -> Response:\n        <IND>",
+        "target_code_with_indent": "            auth: Optional[Callable[[Request], Request]] = None,\n    ) -> TestResponse:\n        <IND>"
+      }
+    ]
+  }
+]

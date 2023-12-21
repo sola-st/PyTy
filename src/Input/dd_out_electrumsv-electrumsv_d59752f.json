@@ -1,0 +1,100 @@
+[
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "d59752f9bc5d840a820e0e7abff7a9c8689fd7fb",
+    "filename": "electrumsv/paymentrequest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/paymentrequest.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/paymentrequest.py:377:8 Incompatible return type [7]: Expected `Output` but got `Payment`.",
+    "message": " Expected `Output` but got `Payment`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 377,
+    "warning_line": "        return klass.from_dict(data)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class Payment:\n    def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "source_code_len": 110,
+        "target_code": "class Payment:\n    MAXIMUM_JSON_LENGTH = 10 * 1024 * 1024\n\n    def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -331,2 +334,4 @@\n class Payment:\n+    MAXIMUM_JSON_LENGTH = 10 * 1024 * 1024\n+\n     def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "source_code_with_indent": "<DED><DED><DED>class Payment:\n    <IND>def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED><DED>class Payment:\n    <IND>MAXIMUM_JSON_LENGTH = 10 * 1024 * 1024\n\n    def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def from_json(klass, s: str) -> 'Output':\n        data = json.loads(s)\n",
+        "source_code_len": 92,
+        "target_code": "    @classmethod\n    def from_json(klass, s: str) -> 'Payment':\n        if len(s) > klass.MAXIMUM_JSON_LENGTH:\n            raise Bip270Exception(f\"Invalid payment, too large\")\n        data = json.loads(s)\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -374,3 +379,5 @@\n     @classmethod\n-    def from_json(klass, s: str) -> 'Output':\n+    def from_json(klass, s: str) -> 'Payment':\n+        if len(s) > klass.MAXIMUM_JSON_LENGTH:\n+            raise Bip270Exception(f\"Invalid payment, too large\")\n         data = json.loads(s)\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def from_json(klass, s: str) -> 'Output':\n        <IND>data = json.loads(s)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def from_json(klass, s: str) -> 'Payment':\n        <IND>if len(s) > klass.MAXIMUM_JSON_LENGTH:\n            <IND>raise Bip270Exception(f\"Invalid payment, too large\")\n        <DED>data = json.loads(s)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "d59752f9bc5d840a820e0e7abff7a9c8689fd7fb",
+    "filename": "electrumsv/paymentrequest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/paymentrequest.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/paymentrequest.py:406:21 Incompatible parameter type [6]: Expected `Payment` for 1st positional only parameter to call `PaymentACK.__init__` but got `Output`.",
+    "message": " Expected `Payment` for 1st positional only parameter to call `PaymentACK.__init__` but got `Output`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 406,
+    "warning_line": "        return klass(payment, memo)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class Payment:\n    def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "source_code_len": 110,
+        "target_code": "class Payment:\n    MAXIMUM_JSON_LENGTH = 10 * 1024 * 1024\n\n    def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "target_code_len": 154,
+        "diff_format": "@@ -331,2 +334,4 @@\n class Payment:\n+    MAXIMUM_JSON_LENGTH = 10 * 1024 * 1024\n+\n     def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "source_code_with_indent": "<DED><DED><DED>class Payment:\n    <IND>def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED><DED>class Payment:\n    <IND>MAXIMUM_JSON_LENGTH = 10 * 1024 * 1024\n\n    def __init__(self, merchant_data: Any, transaction_hex: str, refund_outputs: List[Output],\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def from_json(klass, s: str) -> 'Output':\n        data = json.loads(s)\n",
+        "source_code_len": 92,
+        "target_code": "    @classmethod\n    def from_json(klass, s: str) -> 'Payment':\n        if len(s) > klass.MAXIMUM_JSON_LENGTH:\n            raise Bip270Exception(f\"Invalid payment, too large\")\n        data = json.loads(s)\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -374,3 +379,5 @@\n     @classmethod\n-    def from_json(klass, s: str) -> 'Output':\n+    def from_json(klass, s: str) -> 'Payment':\n+        if len(s) > klass.MAXIMUM_JSON_LENGTH:\n+            raise Bip270Exception(f\"Invalid payment, too large\")\n         data = json.loads(s)\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def from_json(klass, s: str) -> 'Output':\n        <IND>data = json.loads(s)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def from_json(klass, s: str) -> 'Payment':\n        <IND>if len(s) > klass.MAXIMUM_JSON_LENGTH:\n            <IND>raise Bip270Exception(f\"Invalid payment, too large\")\n        <DED>data = json.loads(s)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

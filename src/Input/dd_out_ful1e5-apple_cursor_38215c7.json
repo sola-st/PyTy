@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ful1e5/apple_cursor",
+    "commit": "38215c75c3f28c9653775f34479a136ff7244adb",
+    "filename": "builder/applbuild/symlinks.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ful1e5-apple_cursor/builder/applbuild/symlinks.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "builder/applbuild/symlinks.py:166:27 Incompatible parameter type [6]: Expected `Union[os.PathLike[bytes], os.PathLike[str], bytes, str]` for 1st positional only parameter to call `os.symlink` but got `Union[None, List[str], str]`.",
+    "message": " Expected `Union[os.PathLike[bytes], os.PathLike[str], bytes, str]` for 1st positional only parameter to call `os.symlink` but got `Union[None, List[str], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 166,
+    "warning_line": "                os.symlink(src, link)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        for item in symlinks:\n            src = item.get(\"src\")\n            for link in item.get(\"links\"):\n",
+        "source_code_len": 107,
+        "target_code": "        for item in symlinks:\n            src: str = str(item[\"src\"])\n            for link in item.get(\"links\"):\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -162,3 +164,3 @@\n         for item in symlinks:\n-            src = item.get(\"src\")\n+            src: str = str(item[\"src\"])\n             for link in item.get(\"links\"):\n",
+        "source_code_with_indent": "        <IND>for item in symlinks:\n            <IND>src = item.get(\"src\")\n            for link in item.get(\"links\"):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>for item in symlinks:\n            <IND>src: str = str(item[\"src\"])\n            for link in item.get(\"links\"):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

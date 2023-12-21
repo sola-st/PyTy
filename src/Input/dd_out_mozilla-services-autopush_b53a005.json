@@ -1,0 +1,53 @@
+[
+  {
+    "project": "mozilla-services/autopush",
+    "commit": "b53a00585863076f30eaeb85edb17a3531a52cc7",
+    "filename": "autopush/webpush_server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozilla-services-autopush/autopush/webpush_server.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "autopush/webpush_server.py:244:8 Incompatible return type [7]: Expected `WebPushServer` but got implicit return value of `None`.",
+    "message": " Expected `WebPushServer` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 244,
+    "warning_line": "        self.running = False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, conf, db, num_threads=10):\n        # type: (AutopushConfig, DatabaseManager, int) -> WebPushServer\n        self.conf = conf\n",
+        "source_code_len": 147,
+        "target_code": "    def __init__(self, conf, db, num_threads=10):\n        # type: (AutopushConfig, DatabaseManager, int) -> None\n        self.conf = conf\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -234,3 +234,3 @@\n     def __init__(self, conf, db, num_threads=10):\n-        # type: (AutopushConfig, DatabaseManager, int) -> WebPushServer\n+        # type: (AutopushConfig, DatabaseManager, int) -> None\n         self.conf = conf\n",
+        "source_code_with_indent": "    <IND>def __init__(self, conf, db, num_threads=10):\n        # type: (AutopushConfig, DatabaseManager, int) -> WebPushServer\n        <IND>self.conf = conf\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>def __init__(self, conf, db, num_threads=10):\n        # type: (AutopushConfig, DatabaseManager, int) -> None\n        <IND>self.conf = conf\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mozilla-services/autopush",
+    "commit": "b53a00585863076f30eaeb85edb17a3531a52cc7",
+    "filename": "autopush/webpush_server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozilla-services-autopush/autopush/webpush_server.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "autopush/webpush_server.py:317:8 Incompatible return type [7]: Expected `CommandProcessor` but got implicit return value of `None`.",
+    "message": " Expected `CommandProcessor` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 317,
+    "warning_line": "        self.command_dict = dict("
+  }
+]

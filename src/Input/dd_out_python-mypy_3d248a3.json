@@ -1,0 +1,51 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "3d248a3474c911117b29c5af40690edc119da0cd",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:1918:8 Incompatible variable type [9]: value is declared to have type `Union[bool, int, str]` but is used as type `None`.",
+    "message": " value is declared to have type `Union[bool, int, str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1918,
+    "warning_line": "        value = None  # type: LiteralValue",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        value = None  # type: LiteralValue\n        type_name = None  # type: Optional[str]\n",
+        "source_code_len": 92,
+        "target_code": "\n        value = None  # type: Optional[LiteralValue]\n        type_name = None  # type: Optional[str]\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -1917,3 +1917,3 @@\n \n-        value = None  # type: LiteralValue\n+        value = None  # type: Optional[LiteralValue]\n         type_name = None  # type: Optional[str]\n",
+        "source_code_with_indent": "\n        <DED>value = None  # type: LiteralValue\n        type_name = None  # type: Optional[str]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>value = None  # type: Optional[LiteralValue]\n        type_name = None  # type: Optional[str]\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if type_name is not None:\n            typ = self.named_type_or_none(type_name)\n",
+        "source_code_len": 87,
+        "target_code": "        if type_name is not None:\n            assert value is not None\n            typ = self.named_type_or_none(type_name)\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -1929,2 +1929,3 @@\n         if type_name is not None:\n+            assert value is not None\n             typ = self.named_type_or_none(type_name)\n",
+        "source_code_with_indent": "        <DED>if type_name is not None:\n            <IND>typ = self.named_type_or_none(type_name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>if type_name is not None:\n            <IND>assert value is not None\n            typ = self.named_type_or_none(type_name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ethereum/trinity",
+    "commit": "ad61361109f7df88eb807a543191d491e76eed0c",
+    "filename": "trinity/protocol/eth/monitors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/trinity/protocol/eth/monitors.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "trinity/protocol/eth/monitors.py:6:4 Inconsistent override [15]: `subscription_msg_types` overrides attribute defined in `p2p.peer.PeerSubscriber` inconsistently. Type `typing.Set[typing.Type[commands.NewBlock]]` is not a subtype of the overridden attribute `typing.Set[typing.Type[p2p.protocol.Command]]`.",
+    "message": " `subscription_msg_types` overrides attribute defined in `p2p.peer.PeerSubscriber` inconsistently. Type `typing.Set[typing.Type[commands.NewBlock]]` is not a subtype of the overridden attribute `typing.Set[typing.Type[p2p.protocol.Command]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 6,
+    "warning_line": "    subscription_msg_types = {commands.NewBlock}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class ETHChainTipMonitor(BaseChainTipMonitor):\n    subscription_msg_types = {commands.NewBlock}\n",
+        "source_code_len": 96,
+        "target_code": "class ETHChainTipMonitor(BaseChainTipMonitor):\n    subscription_msg_types = frozenset({commands.NewBlock})\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -5,2 +5,2 @@\n class ETHChainTipMonitor(BaseChainTipMonitor):\n-    subscription_msg_types = {commands.NewBlock}\n+    subscription_msg_types = frozenset({commands.NewBlock})\n",
+        "source_code_with_indent": "class ETHChainTipMonitor(BaseChainTipMonitor):\n    <IND>subscription_msg_types = {commands.NewBlock}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class ETHChainTipMonitor(BaseChainTipMonitor):\n    <IND>subscription_msg_types = frozenset({commands.NewBlock})\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/trinity",
+    "commit": "ad61361109f7df88eb807a543191d491e76eed0c",
+    "filename": "trinity/protocol/les/monitors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/trinity/protocol/les/monitors.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "trinity/protocol/les/monitors.py:6:4 Inconsistent override [15]: `subscription_msg_types` overrides attribute defined in `p2p.peer.PeerSubscriber` inconsistently. Type `typing.Set[typing.Type[commands.Announce]]` is not a subtype of the overridden attribute `typing.Set[typing.Type[p2p.protocol.Command]]`.",
+    "message": " `subscription_msg_types` overrides attribute defined in `p2p.peer.PeerSubscriber` inconsistently. Type `typing.Set[typing.Type[commands.Announce]]` is not a subtype of the overridden attribute `typing.Set[typing.Type[p2p.protocol.Command]]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 6,
+    "warning_line": "    subscription_msg_types = {commands.Announce}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class LightChainTipMonitor(BaseChainTipMonitor):\n    subscription_msg_types = {commands.Announce}\n",
+        "source_code_len": 98,
+        "target_code": "class LightChainTipMonitor(BaseChainTipMonitor):\n    subscription_msg_types = frozenset({commands.Announce})\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -5,2 +5,2 @@\n class LightChainTipMonitor(BaseChainTipMonitor):\n-    subscription_msg_types = {commands.Announce}\n+    subscription_msg_types = frozenset({commands.Announce})\n",
+        "source_code_with_indent": "class LightChainTipMonitor(BaseChainTipMonitor):\n    <IND>subscription_msg_types = {commands.Announce}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class LightChainTipMonitor(BaseChainTipMonitor):\n    <IND>subscription_msg_types = frozenset({commands.Announce})\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

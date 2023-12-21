@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "c194c9b6c2371c27cf81a9dfd419ebcff7520367",
+    "filename": "UM/Scene/Selection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Scene/Selection.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Scene/Selection.py:52:23 Incompatible variable type [9]: object is declared to have type `SceneNode` but is used as type `None`.",
+    "message": " object is declared to have type `SceneNode` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 52,
+    "warning_line": "    def unsetFace(cls, object: SceneNode = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def unsetFace(cls, object: SceneNode = None) -> None:\n        if not object or not cls.__selected_face or object is cls.__selected_face[0]:\n",
+        "source_code_len": 161,
+        "target_code": "    @classmethod\n    def unsetFace(cls, object: Optional[\"SceneNode\"] = None) -> None:\n        if not object or not cls.__selected_face or object is cls.__selected_face[0]:\n",
+        "target_code_len": 173,
+        "diff_format": "@@ -51,3 +51,3 @@\n     @classmethod\n-    def unsetFace(cls, object: SceneNode = None) -> None:\n+    def unsetFace(cls, object: Optional[\"SceneNode\"] = None) -> None:\n         if not object or not cls.__selected_face or object is cls.__selected_face[0]:\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def unsetFace(cls, object: SceneNode = None) -> None:\n        <IND>if not object or not cls.__selected_face or object is cls.__selected_face[0]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def unsetFace(cls, object: Optional[\"SceneNode\"] = None) -> None:\n        <IND>if not object or not cls.__selected_face or object is cls.__selected_face[0]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "c194c9b6c2371c27cf81a9dfd419ebcff7520367",
+    "filename": "UM/Scene/Selection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Scene/Selection.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Scene/Selection.py:72:25 Incompatible variable type [9]: object is declared to have type `SceneNode` but is used as type `None`.",
+    "message": " object is declared to have type `SceneNode` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 72,
+    "warning_line": "    def unhoverFace(cls, object: SceneNode = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def unhoverFace(cls, object: SceneNode = None) -> None:\n        if not object or not cls.__hover_face or object is cls.__hover_face[0]:\n",
+        "source_code_len": 157,
+        "target_code": "    @classmethod\n    def unhoverFace(cls, object: Optional[\"SceneNode\"] = None) -> None:\n        if not object or not cls.__hover_face or object is cls.__hover_face[0]:\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -71,3 +71,3 @@\n     @classmethod\n-    def unhoverFace(cls, object: SceneNode = None) -> None:\n+    def unhoverFace(cls, object: Optional[\"SceneNode\"] = None) -> None:\n         if not object or not cls.__hover_face or object is cls.__hover_face[0]:\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def unhoverFace(cls, object: SceneNode = None) -> None:\n        <IND>if not object or not cls.__hover_face or object is cls.__hover_face[0]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def unhoverFace(cls, object: Optional[\"SceneNode\"] = None) -> None:\n        <IND>if not object or not cls.__hover_face or object is cls.__hover_face[0]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

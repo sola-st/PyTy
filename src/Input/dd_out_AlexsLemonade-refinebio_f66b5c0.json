@@ -1,0 +1,51 @@
+[
+  {
+    "project": "AlexsLemonade/refinebio",
+    "commit": "f66b5c0548db0d5e1acb88a43089e39ab0f314da",
+    "filename": "common/data_refinery_common/message_queue.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/AlexsLemonade-refinebio/common/data_refinery_common/message_queue.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "common/data_refinery_common/message_queue.py:89:4 Incompatible return type [7]: Expected `int` but got `typing.Tuple[int, int]`.",
+    "message": " Expected `int` but got `typing.Tuple[int, int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 89,
+    "warning_line": "    return num_jobs, num_downloader_jobs",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef count_jobs_in_queue(batch_job_queue) -> int:\n    \"\"\"Counts how many jobs are in the job queue that aren't finished.\n",
+        "source_code_len": 121,
+        "target_code": "\ndef count_jobs_in_queue(batch_job_queue) -> dict:\n    \"\"\"Counts how many jobs are in the job queue that aren't finished.\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -52,3 +52,3 @@\n \n-def count_jobs_in_queue(batch_job_queue) -> int:\n+def count_jobs_in_queue(batch_job_queue) -> dict:\n     \"\"\"Counts how many jobs are in the job queue that aren't finished.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def count_jobs_in_queue(batch_job_queue) -> int:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def count_jobs_in_queue(batch_job_queue) -> dict:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    return num_jobs, num_downloader_jobs\n\n",
+        "source_code_len": 43,
+        "target_code": "\n    return {\"all_jobs\": num_jobs, \"downloader_jobs\": num_downloader_jobs}\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -88,3 +88,3 @@\n \n-    return num_jobs, num_downloader_jobs\n+    return {\"all_jobs\": num_jobs, \"downloader_jobs\": num_downloader_jobs}\n \n",
+        "source_code_with_indent": "\n    <DED>return num_jobs, num_downloader_jobs\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>return {\"all_jobs\": num_jobs, \"downloader_jobs\": num_downloader_jobs}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

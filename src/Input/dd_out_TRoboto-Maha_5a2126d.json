@@ -1,0 +1,36 @@
+[
+  {
+    "project": "TRoboto/Maha",
+    "commit": "5a2126d9551f4695a3dfe2186723f77976898f1d",
+    "filename": "maha/cleaners/functions/contains.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TRoboto-Maha/maha/cleaners/functions/contains.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maha/cleaners/functions/contains.py:265:4 Incompatible return type [7]: Expected `str` but got `bool`.",
+    "message": " Expected `str` but got `bool`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 265,
+    "warning_line": "    return contains_patterns(text, f\"[{chars}]\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef contains_characters(text: str, chars: Union[List[str], str]) -> str:\n\n",
+        "source_code_len": 75,
+        "target_code": "\ndef contains_characters(text: str, chars: Union[List[str], str]) -> bool:\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -235,3 +235,3 @@\n \n-def contains_characters(text: str, chars: Union[List[str], str]) -> str:\n+def contains_characters(text: str, chars: Union[List[str], str]) -> bool:\n \n",
+        "source_code_with_indent": "\n<DED>def contains_characters(text: str, chars: Union[List[str], str]) -> str:\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def contains_characters(text: str, chars: Union[List[str], str]) -> bool:\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

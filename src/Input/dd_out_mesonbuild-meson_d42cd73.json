@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "d42cd735a4dc894d8e898a5f9e81029f6eb5364c",
+    "filename": "mesonbuild/arglist.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/arglist.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/arglist.py:315:38 Invalid type [31]: Expression `T.Union[(bool, type(NotImplemented))]` is not a valid type.",
+    "message": " Expression `T.Union[(bool, type(NotImplemented))]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 315,
+    "warning_line": "    def __eq__(self, other: T.Any) -> T.Union[bool, type(NotImplemented)]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __eq__(self, other: T.Any) -> T.Union[bool, type(NotImplemented)]:\n        self.flush_pre_post()\n",
+        "source_code_len": 106,
+        "target_code": "\n    def __eq__(self, other: T.Any) -> T.Union[bool]:\n        self.flush_pre_post()\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -314,3 +313,3 @@\n \n-    def __eq__(self, other: T.Any) -> T.Union[bool, type(NotImplemented)]:\n+    def __eq__(self, other: T.Any) -> T.Union[bool]:\n         self.flush_pre_post()\n",
+        "source_code_with_indent": "\n    <DED>def __eq__(self, other: T.Any) -> T.Union[bool, type(NotImplemented)]:\n        <IND>self.flush_pre_post()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __eq__(self, other: T.Any) -> T.Union[bool]:\n        <IND>self.flush_pre_post()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

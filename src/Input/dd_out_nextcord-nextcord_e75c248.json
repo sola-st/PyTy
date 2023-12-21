@@ -1,0 +1,70 @@
+[
+  {
+    "project": "nextcord/nextcord",
+    "commit": "e75c248a9a41e14639dc4c032cea47867c886ec0",
+    "filename": "discord/user.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nextcord-nextcord/discord/user.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/user.py:297:4 Inconsistent override [15]: `__slots__` overrides attribute defined in `BaseUser` inconsistently. Type `typing.Tuple[str, str, str, str, str, str, str, str, str]` is not a subtype of the overridden attribute `typing.Tuple[str, str, str, str, str, str]`.",
+    "message": " `__slots__` overrides attribute defined in `BaseUser` inconsistently. Type `typing.Tuple[str, str, str, str, str, str, str, str, str]` is not a subtype of the overridden attribute `typing.Tuple[str, str, str, str, str, str]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 297,
+    "warning_line": "    __slots__ = ('email', 'locale', '_flags', 'verified', 'mfa_enabled',",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    __slots__ = ('email', 'locale', '_flags', 'verified', 'mfa_enabled',\n                 'premium', 'premium_type', '_relationships', '__weakref__')\n",
+        "source_code_len": 158,
+        "target_code": "    \"\"\"\n    __slots__ = BaseUser.__slots__ + \\\n                ('email', 'locale', '_flags', 'verified', 'mfa_enabled',\n                 'premium', 'premium_type', '_relationships', '__weakref__')\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -296,3 +296,4 @@\n     \"\"\"\n-    __slots__ = ('email', 'locale', '_flags', 'verified', 'mfa_enabled',\n+    __slots__ = BaseUser.__slots__ + \\\n+                ('email', 'locale', '_flags', 'verified', 'mfa_enabled',\n                  'premium', 'premium_type', '_relationships', '__weakref__')\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    __slots__ = ('email', 'locale', '_flags', 'verified', 'mfa_enabled',\n                 'premium', 'premium_type', '_relationships', '__weakref__')\n",
+        "target_code_with_indent": "\n    __slots__ = BaseUser.__slots__ +                ('email', 'locale', '_flags', 'verified', 'mfa_enabled',\n                 'premium', 'premium_type', '_relationships', '__weakref__')\n"
+      }
+    ]
+  },
+  {
+    "project": "nextcord/nextcord",
+    "commit": "e75c248a9a41e14639dc4c032cea47867c886ec0",
+    "filename": "discord/user.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nextcord-nextcord/discord/user.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/user.py:653:4 Inconsistent override [15]: `__slots__` overrides attribute defined in `BaseUser` inconsistently. Type `typing.Tuple[str]` is not a subtype of the overridden attribute `typing.Tuple[str, str, str, str, str, str]`.",
+    "message": " `__slots__` overrides attribute defined in `BaseUser` inconsistently. Type `typing.Tuple[str]` is not a subtype of the overridden attribute `typing.Tuple[str, str, str, str, str, str]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 653,
+    "warning_line": "    __slots__ = ('__weakref__',)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    __slots__ = ('__weakref__',)\n\n",
+        "source_code_len": 35,
+        "target_code": "\n    __slots__ = BaseUser.__slots__ + ('__weakref__',)\n\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -652,3 +653,3 @@\n \n-    __slots__ = ('__weakref__',)\n+    __slots__ = BaseUser.__slots__ + ('__weakref__',)\n \n",
+        "source_code_with_indent": "\n    __slots__ = ('__weakref__',)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    __slots__ = BaseUser.__slots__ + ('__weakref__',)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

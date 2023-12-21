@@ -1,0 +1,94 @@
+[
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "71dea1dec1d3bd1cf63af41b52f6ce70eb2c73e6",
+    "filename": "texar/data/data/data_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/data/data/data_base.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "texar/data/data/data_base.py:121:15 Call error [29]: `Optional[typing.Callable[[Variable[RawExample]], bool]]` is not a function.",
+    "message": " `Optional[typing.Callable[[Variable[RawExample]], bool]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 121,
+    "warning_line": "            if self._filter_fn(sentence):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, source: DataSource[RawExample],\n                 filter_fn: Optional[Callable[[RawExample], bool]] = None):\n        self._source = source\n",
+        "source_code_len": 161,
+        "target_code": "    def __init__(self, source: DataSource[RawExample],\n                 filter_fn: Callable[[RawExample], bool]):\n        self._source = source\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -114,3 +116,3 @@\n     def __init__(self, source: DataSource[RawExample],\n-                 filter_fn: Optional[Callable[[RawExample], bool]] = None):\n+                 filter_fn: Callable[[RawExample], bool]):\n         self._source = source\n",
+        "source_code_with_indent": "    def __init__(self, source: DataSource[RawExample],\n                 filter_fn: Optional[Callable[[RawExample], bool]] = None):\n        <IND>self._source = source\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def __init__(self, source: DataSource[RawExample],\n                 filter_fn: Callable[[RawExample], bool]):\n        <IND>self._source = source\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "71dea1dec1d3bd1cf63af41b52f6ce70eb2c73e6",
+    "filename": "texar/data/data/data_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-texar-pytorch/texar/data/data/data_base.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "texar/data/data/data_base.py:122:16 Incompatible return type [7]: Expected `Iterator[typing.Tuple[Variable[RawExample], ...]]` but got `typing.Generator[Variable[RawExample], None, None]`.",
+    "message": " Expected `Iterator[typing.Tuple[Variable[RawExample], ...]]` but got `typing.Generator[Variable[RawExample], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 122,
+    "warning_line": "                yield sentence",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass FilterDataSource(DataSource[Tuple[RawExample, ...]]):\n    r\"\"\"Data source for filtering raw example with user specified filter\n    \"\"\"\n",
+        "source_code_len": 142,
+        "target_code": "\nclass FilterDataSource(DataSource[RawExample]):\n    r\"\"\"Data source for filtering raw example with user-specified filter\n    function. Only those examples for which the filter functions returns\n    ``True`` are returned.\n    \"\"\"\n",
+        "target_code_len": 230,
+        "diff_format": "@@ -109,4 +109,6 @@\n \n-class FilterDataSource(DataSource[Tuple[RawExample, ...]]):\n-    r\"\"\"Data source for filtering raw example with user specified filter\n+class FilterDataSource(DataSource[RawExample]):\n+    r\"\"\"Data source for filtering raw example with user-specified filter\n+    function. Only those examples for which the filter functions returns\n+    ``True`` are returned.\n     \"\"\"\n",
+        "source_code_with_indent": "\n<DED><DED>class FilterDataSource(DataSource[Tuple[RawExample, ...]]):\n    <IND>r\"\"\"Data source for filtering raw example with user specified filter\n    \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class FilterDataSource(DataSource[RawExample]):\n    <IND>r\"\"\"Data source for filtering raw example with user-specified filter\n    function. Only those examples for which the filter functions returns\n    ``True`` are returned.\n    \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __iter__(self) -> Iterator[Tuple[RawExample, ...]]:\n        for sentence in self._source:\n",
+        "source_code_len": 99,
+        "target_code": "\n    def __iter__(self) -> Iterator[RawExample]:\n        for sentence in self._source:\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -118,3 +120,3 @@\n \n-    def __iter__(self) -> Iterator[Tuple[RawExample, ...]]:\n+    def __iter__(self) -> Iterator[RawExample]:\n         for sentence in self._source:\n",
+        "source_code_with_indent": "\n    <DED>def __iter__(self) -> Iterator[Tuple[RawExample, ...]]:\n        <IND>for sentence in self._source:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __iter__(self) -> Iterator[RawExample]:\n        <IND>for sentence in self._source:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/texar-pytorch",
+    "commit": "71dea1dec1d3bd1cf63af41b52f6ce70eb2c73e6",
+    "filename": "texar/data/data/paired_text_data.py",
+    "min_patch_found": false,
+    "full_warning_msg": "texar/data/data/paired_text_data.py:226:25 Incompatible parameter type [6]: Expected `texar.data.data.data_base.DataSource[Variable[texar.data.data.text_data_base.RawExample]]` for 1st positional only parameter to call `TextDataBase.__init__` but got `Union[FilterDataSource[typing.Tuple[str, ...]], ZipDataSource[str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

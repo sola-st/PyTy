@@ -1,0 +1,36 @@
+[
+  {
+    "project": "hikari-py/hikari",
+    "commit": "3891970b5751f1ca98710447199236a3867a9703",
+    "filename": "hikari/net/gateway.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hikari-py-hikari/hikari/net/gateway.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hikari/net/gateway.py:210:8 Incompatible variable type [9]: intents is declared to have type `typing.Union[GatewayIntent, hikari.internal_utilities.unspecified.Unspecified]` but is used as type `None`.",
+    "message": " intents is declared to have type `typing.Union[GatewayIntent, hikari.internal_utilities.unspecified.Unspecified]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 210,
+    "warning_line": "        intents: type_hints.NotRequired[GatewayIntent] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        initial_presence=None,\n        intents: type_hints.NotRequired[GatewayIntent] = None,\n        json_deserialize=json.loads,\n        json_serialize=json.dumps,\n        large_threshold=1_000,\n        proxy_auth=None,\n",
+        "source_code_len": 222,
+        "target_code": "        initial_presence=None,\n        intents: type_hints.Nullable[GatewayIntent] = None,\n        json_deserialize=json.loads,\n        json_serialize=json.dumps,\n        large_threshold=250,\n        proxy_auth=None,\n",
+        "target_code_len": 217,
+        "diff_format": "@@ -209,6 +209,6 @@\n         initial_presence=None,\n-        intents: type_hints.NotRequired[GatewayIntent] = None,\n+        intents: type_hints.Nullable[GatewayIntent] = None,\n         json_deserialize=json.loads,\n         json_serialize=json.dumps,\n-        large_threshold=1_000,\n+        large_threshold=250,\n         proxy_auth=None,\n",
+        "source_code_with_indent": "        initial_presence=None,\n        intents: type_hints.NotRequired[GatewayIntent] = None,\n        json_deserialize=json.loads,\n        json_serialize=json.dumps,\n        large_threshold=1_000,\n        proxy_auth=None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        initial_presence=None,\n        intents: type_hints.Nullable[GatewayIntent] = None,\n        json_deserialize=json.loads,\n        json_serialize=json.dumps,\n        large_threshold=250,\n        proxy_auth=None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

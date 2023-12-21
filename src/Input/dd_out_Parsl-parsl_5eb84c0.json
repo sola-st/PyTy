@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Parsl/parsl",
+    "commit": "5eb84c0859929110b06e72d4843d45a9633157a2",
+    "filename": "parsl/executors/high_throughput/executor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Parsl-parsl/parsl/executors/high_throughput/executor.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "parsl/executors/high_throughput/executor.py:718:8 Incompatible return type [7]: Expected `List[object]` but got `List[str]`.",
+    "message": " Expected `List[object]` but got `List[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 718,
+    "warning_line": "        return list(self.blocks.values())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # Potential issue with multiple threads trying to remove the same blocks\n        to_kill = [self.blocks.pop(bid) for bid in block_ids_to_kill if bid in self.blocks]\n        for bid in to_kill:\n            self.removed_block_mapping[bid] = self.block_mapping.pop(bid)\n\n        r = self.provider.cancel(to_kill)\n\n        return self._filter_scale_in_ids(to_kill, r)\n\n    def _get_job_ids(self) -> List[object]:\n        return list(self.blocks.values())\n\n",
+        "source_code_len": 460,
+        "target_code": "        # Potential issue with multiple threads trying to remove the same blocks\n        to_kill = [self.blocks[bid] for bid in block_ids_to_kill if bid in self.blocks]\n\n        r = self.provider.cancel(to_kill)\n        job_ids = self._filter_scale_in_ids(to_kill, r)\n\n        # to_kill block_ids are fetched from self.blocks\n        # If a block_id is in self.block, it must exist in self.block_mapping\n        block_ids_killed = [self.block_mapping[jid] for jid in job_ids]\n\n        return block_ids_killed\n\n    def _get_block_and_job_ids(self) -> Tuple[List[str], List[Any]]:\n        # Not using self.blocks.keys() and self.blocks.values() simultaneously\n        # The dictionary may be changed during invoking this function\n        # As scale_in and scale_out are invoked in multiple threads\n        block_ids = list(self.blocks.keys())\n        job_ids = []  # types: List[Any]\n        for bid in block_ids:\n            job_ids.append(self.blocks[bid])\n        return block_ids, job_ids\n\n",
+        "target_code_len": 992,
+        "diff_format": "@@ -708,12 +698,22 @@\n         # Potential issue with multiple threads trying to remove the same blocks\n-        to_kill = [self.blocks.pop(bid) for bid in block_ids_to_kill if bid in self.blocks]\n-        for bid in to_kill:\n-            self.removed_block_mapping[bid] = self.block_mapping.pop(bid)\n+        to_kill = [self.blocks[bid] for bid in block_ids_to_kill if bid in self.blocks]\n \n         r = self.provider.cancel(to_kill)\n-\n-        return self._filter_scale_in_ids(to_kill, r)\n-\n-    def _get_job_ids(self) -> List[object]:\n-        return list(self.blocks.values())\n+        job_ids = self._filter_scale_in_ids(to_kill, r)\n+\n+        # to_kill block_ids are fetched from self.blocks\n+        # If a block_id is in self.block, it must exist in self.block_mapping\n+        block_ids_killed = [self.block_mapping[jid] for jid in job_ids]\n+\n+        return block_ids_killed\n+\n+    def _get_block_and_job_ids(self) -> Tuple[List[str], List[Any]]:\n+        # Not using self.blocks.keys() and self.blocks.values() simultaneously\n+        # The dictionary may be changed during invoking this function\n+        # As scale_in and scale_out are invoked in multiple threads\n+        block_ids = list(self.blocks.keys())\n+        job_ids = []  # types: List[Any]\n+        for bid in block_ids:\n+            job_ids.append(self.blocks[bid])\n+        return block_ids, job_ids\n \n",
+        "source_code_with_indent": "        # Potential issue with multiple threads trying to remove the same blocks\n        <DED>to_kill = [self.blocks.pop(bid) for bid in block_ids_to_kill if bid in self.blocks]\n        for bid in to_kill:\n            <IND>self.removed_block_mapping[bid] = self.block_mapping.pop(bid)\n\n        <DED>r = self.provider.cancel(to_kill)\n\n        return self._filter_scale_in_ids(to_kill, r)\n\n    <DED>def _get_job_ids(self) -> List[object]:\n        <IND>return list(self.blocks.values())\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # Potential issue with multiple threads trying to remove the same blocks\n        <DED>to_kill = [self.blocks[bid] for bid in block_ids_to_kill if bid in self.blocks]\n\n        r = self.provider.cancel(to_kill)\n        job_ids = self._filter_scale_in_ids(to_kill, r)\n\n        # to_kill block_ids are fetched from self.blocks\n        # If a block_id is in self.block, it must exist in self.block_mapping\n        block_ids_killed = [self.block_mapping[jid] for jid in job_ids]\n\n        return block_ids_killed\n\n    <DED>def _get_block_and_job_ids(self) -> Tuple[List[str], List[Any]]:\n        # Not using self.blocks.keys() and self.blocks.values() simultaneously\n        # The dictionary may be changed during invoking this function\n        # As scale_in and scale_out are invoked in multiple threads\n        <IND>block_ids = list(self.blocks.keys())\n        job_ids = []  # types: List[Any]\n        for bid in block_ids:\n            <IND>job_ids.append(self.blocks[bid])\n        <DED>return block_ids, job_ids\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

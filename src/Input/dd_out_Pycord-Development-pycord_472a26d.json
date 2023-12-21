@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Pycord-Development/pycord",
+    "commit": "472a26d1550c080ee897a0ae07791ed00083c17e",
+    "filename": "discord/app/context.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Pycord-Development-pycord/discord/app/context.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/app/context.py:80:8 Incompatible return type [7]: Expected `Message` but got `Optional[Message]`.",
+    "message": " Expected `Message` but got `Optional[Message]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 80,
+    "warning_line": "        return self.interaction.message",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @cached_property\n    def message(self) -> Message:\n        return self.interaction.message\n",
+        "source_code_len": 95,
+        "target_code": "    @cached_property\n    def message(self) -> Optional[Message]:\n        return self.interaction.message\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -78,3 +78,3 @@\n     @cached_property\n-    def message(self) -> Message:\n+    def message(self) -> Optional[Message]:\n         return self.interaction.message\n",
+        "source_code_with_indent": "    <DED>@cached_property\n    def message(self) -> Message:\n        <IND>return self.interaction.message\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@cached_property\n    def message(self) -> Optional[Message]:\n        <IND>return self.interaction.message\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

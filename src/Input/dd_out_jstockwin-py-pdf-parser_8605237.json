@@ -1,0 +1,85 @@
+[
+  {
+    "project": "jstockwin/py-pdf-parser",
+    "commit": "8605237f7faa80fa0d0d5921ad01cb9c59ed709b",
+    "filename": "py_pdf_parser/components.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jstockwin-py-pdf-parser/py_pdf_parser/components.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "py_pdf_parser/components.py:171:16 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+    "message": " Expected `int` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 171,
+    "warning_line": "                return page_number",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                return page_number\n\n",
+        "source_code_len": 36,
+        "target_code": "                return page_number\n        raise Exception(\"Something went wrong\")\n\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -171,2 +171,3 @@\n                 return page_number\n+        raise Exception(\"Something went wrong\")\n \n",
+        "source_code_with_indent": "                <IND>return page_number\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>return page_number\n        <DED><DED>raise Exception(\"Something went wrong\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jstockwin/py-pdf-parser",
+    "commit": "8605237f7faa80fa0d0d5921ad01cb9c59ed709b",
+    "filename": "py_pdf_parser/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jstockwin-py-pdf-parser/py_pdf_parser/utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "py_pdf_parser/utils.py:20:34 Incompatible parameter type [6]: Expected `List[PDFElement]` for 1st positional only parameter to call `Utils.tag_elements_by_font` but got `py_pdf_parser.filtering.ElementList`.",
+    "message": " Expected `List[PDFElement]` for 1st positional only parameter to call `Utils.tag_elements_by_font` but got `py_pdf_parser.filtering.ElementList`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 20,
+    "warning_line": "        self.tag_elements_by_font(self.document.elements, config)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import List, Dict, TYPE_CHECKING\n\nif TYPE_CHECKING:\n    from .components import PDFDocument, PDFElement\n\n",
+        "source_code_len": 117,
+        "target_code": "from typing import Dict, TYPE_CHECKING\n\nif TYPE_CHECKING:\n    from .components import PDFDocument\n    from .filtering import ElementList\n\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -1,5 +1,6 @@\n-from typing import List, Dict, TYPE_CHECKING\n+from typing import Dict, TYPE_CHECKING\n \n if TYPE_CHECKING:\n-    from .components import PDFDocument, PDFElement\n+    from .components import PDFDocument\n+    from .filtering import ElementList\n \n",
+        "source_code_with_indent": "from typing import List, Dict, TYPE_CHECKING\n\nif TYPE_CHECKING:\n    <IND>from .components import PDFDocument, PDFElement\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Dict, TYPE_CHECKING\n\nif TYPE_CHECKING:\n    <IND>from .components import PDFDocument\n    from .filtering import ElementList\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def tag_elements_by_font(\n        self, elements: List[\"PDFElement\"], config: Dict[str, str]\n    ):\n        for element in elements:\n",
+        "source_code_len": 138,
+        "target_code": "\n    def tag_elements_by_font(self, elements: \"ElementList\", config: Dict[str, str]):\n        for element in elements:\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -10,5 +11,3 @@\n \n-    def tag_elements_by_font(\n-        self, elements: List[\"PDFElement\"], config: Dict[str, str]\n-    ):\n+    def tag_elements_by_font(self, elements: \"ElementList\", config: Dict[str, str]):\n         for element in elements:\n",
+        "source_code_with_indent": "\n    <DED>def tag_elements_by_font(\n        self, elements: List[\"PDFElement\"], config: Dict[str, str]\n    ):\n        <IND>for element in elements:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def tag_elements_by_font(self, elements: \"ElementList\", config: Dict[str, str]):\n        <IND>for element in elements:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

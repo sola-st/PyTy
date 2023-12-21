@@ -1,0 +1,172 @@
+[
+  {
+    "project": "lozuwa/impy",
+    "commit": "6f084c7ae341c2e91b75dcf93dd07cdf6c3354f9",
+    "filename": "impy/ApplyAugmentation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/ApplyAugmentation.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "impy/ApplyAugmentation.py:12:18 Unbound name [10]: Name `BoundingBoxAugmenters` is used but not defined in the current scope.",
+    "message": " Name `BoundingBoxAugmenters` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 12,
+    "warning_line": "bndboxAugmenter = BoundingBoxAugmenters()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import numpy as np\nfrom BoundingBoxAugmenters import *\nfrom ColorAugmenters import *\nfrom GeometricAugmenters import *\n\n",
+        "source_code_len": 120,
+        "target_code": "import numpy as np\ntry:\n\tfrom .BoundingBoxAugmenters import *\nexcept:\n\tfrom BoundingBoxAugmenters import *\n\ntry:\n\tfrom .ColorAugmenters import *\nexcept:\n\tfrom ColorAugmenters import *\n\ntry:\n\tfrom .GeometricAugmenters import *\nexcept:\n\tfrom GeometricAugmenters import *\n\n",
+        "target_code_len": 270,
+        "diff_format": "@@ -7,5 +7,16 @@\n import numpy as np\n-from BoundingBoxAugmenters import *\n-from ColorAugmenters import *\n-from GeometricAugmenters import *\n+try:\n+\tfrom .BoundingBoxAugmenters import *\n+except:\n+\tfrom BoundingBoxAugmenters import *\n+\n+try:\n+\tfrom .ColorAugmenters import *\n+except:\n+\tfrom ColorAugmenters import *\n+\n+try:\n+\tfrom .GeometricAugmenters import *\n+except:\n+\tfrom GeometricAugmenters import *\n \n",
+        "source_code_with_indent": "import numpy as np\nfrom BoundingBoxAugmenters import *\nfrom ColorAugmenters import *\nfrom GeometricAugmenters import *\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import numpy as np\ntry:\n\t<IND>from .BoundingBoxAugmenters import *\n<DED>except:\n\t<IND>from BoundingBoxAugmenters import *\n\n<DED>try:\n\t<IND>from .ColorAugmenters import *\n<DED>except:\n\t<IND>from ColorAugmenters import *\n\n<DED>try:\n\t<IND>from .GeometricAugmenters import *\n<DED>except:\n\t<IND>from GeometricAugmenters import *\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lozuwa/impy",
+    "commit": "6f084c7ae341c2e91b75dcf93dd07cdf6c3354f9",
+    "filename": "impy/ApplyAugmentation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/ApplyAugmentation.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "impy/ApplyAugmentation.py:13:17 Unbound name [10]: Name `ColorAugmenters` is used but not defined in the current scope.",
+    "message": " Name `ColorAugmenters` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 13,
+    "warning_line": "colorAugmenter = ColorAugmenters()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import numpy as np\nfrom BoundingBoxAugmenters import *\nfrom ColorAugmenters import *\nfrom GeometricAugmenters import *\n\n",
+        "source_code_len": 120,
+        "target_code": "import numpy as np\ntry:\n\tfrom .BoundingBoxAugmenters import *\nexcept:\n\tfrom BoundingBoxAugmenters import *\n\ntry:\n\tfrom .ColorAugmenters import *\nexcept:\n\tfrom ColorAugmenters import *\n\ntry:\n\tfrom .GeometricAugmenters import *\nexcept:\n\tfrom GeometricAugmenters import *\n\n",
+        "target_code_len": 270,
+        "diff_format": "@@ -7,5 +7,16 @@\n import numpy as np\n-from BoundingBoxAugmenters import *\n-from ColorAugmenters import *\n-from GeometricAugmenters import *\n+try:\n+\tfrom .BoundingBoxAugmenters import *\n+except:\n+\tfrom BoundingBoxAugmenters import *\n+\n+try:\n+\tfrom .ColorAugmenters import *\n+except:\n+\tfrom ColorAugmenters import *\n+\n+try:\n+\tfrom .GeometricAugmenters import *\n+except:\n+\tfrom GeometricAugmenters import *\n \n",
+        "source_code_with_indent": "import numpy as np\nfrom BoundingBoxAugmenters import *\nfrom ColorAugmenters import *\nfrom GeometricAugmenters import *\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import numpy as np\ntry:\n\t<IND>from .BoundingBoxAugmenters import *\n<DED>except:\n\t<IND>from BoundingBoxAugmenters import *\n\n<DED>try:\n\t<IND>from .ColorAugmenters import *\n<DED>except:\n\t<IND>from ColorAugmenters import *\n\n<DED>try:\n\t<IND>from .GeometricAugmenters import *\n<DED>except:\n\t<IND>from GeometricAugmenters import *\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lozuwa/impy",
+    "commit": "6f084c7ae341c2e91b75dcf93dd07cdf6c3354f9",
+    "filename": "impy/ApplyAugmentation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/ApplyAugmentation.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "impy/ApplyAugmentation.py:14:21 Unbound name [10]: Name `GeometricAugmenters` is used but not defined in the current scope.",
+    "message": " Name `GeometricAugmenters` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 14,
+    "warning_line": "geometricAugmenter = GeometricAugmenters()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import numpy as np\nfrom BoundingBoxAugmenters import *\nfrom ColorAugmenters import *\nfrom GeometricAugmenters import *\n\n",
+        "source_code_len": 120,
+        "target_code": "import numpy as np\ntry:\n\tfrom .BoundingBoxAugmenters import *\nexcept:\n\tfrom BoundingBoxAugmenters import *\n\ntry:\n\tfrom .ColorAugmenters import *\nexcept:\n\tfrom ColorAugmenters import *\n\ntry:\n\tfrom .GeometricAugmenters import *\nexcept:\n\tfrom GeometricAugmenters import *\n\n",
+        "target_code_len": 270,
+        "diff_format": "@@ -7,5 +7,16 @@\n import numpy as np\n-from BoundingBoxAugmenters import *\n-from ColorAugmenters import *\n-from GeometricAugmenters import *\n+try:\n+\tfrom .BoundingBoxAugmenters import *\n+except:\n+\tfrom BoundingBoxAugmenters import *\n+\n+try:\n+\tfrom .ColorAugmenters import *\n+except:\n+\tfrom ColorAugmenters import *\n+\n+try:\n+\tfrom .GeometricAugmenters import *\n+except:\n+\tfrom GeometricAugmenters import *\n \n",
+        "source_code_with_indent": "import numpy as np\nfrom BoundingBoxAugmenters import *\nfrom ColorAugmenters import *\nfrom GeometricAugmenters import *\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import numpy as np\ntry:\n\t<IND>from .BoundingBoxAugmenters import *\n<DED>except:\n\t<IND>from BoundingBoxAugmenters import *\n\n<DED>try:\n\t<IND>from .ColorAugmenters import *\n<DED>except:\n\t<IND>from ColorAugmenters import *\n\n<DED>try:\n\t<IND>from .GeometricAugmenters import *\n<DED>except:\n\t<IND>from GeometricAugmenters import *\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lozuwa/impy",
+    "commit": "6f084c7ae341c2e91b75dcf93dd07cdf6c3354f9",
+    "filename": "impy/ObjectDetectionDataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/ObjectDetectionDataset.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "impy/ObjectDetectionDataset.py:24:7 Unbound name [10]: Name `ImagePreprocess` is used but not defined in the current scope.",
+    "message": " Name `ImagePreprocess` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 24,
+    "warning_line": "prep = ImagePreprocess()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom ObjectDetectionDatasetPreprocessMethods import *\nfrom ObjectDetectionDatasetStatisticsMethods import *\nfrom ImagePreprocess import *\nfrom ImageAnnotation import *\nfrom VectorOperations import *\nfrom Util import *\nfrom AssertDataTypes import *\nfrom AugmentationConfigurationFile import *\nfrom ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n\n",
+        "source_code_len": 377,
+        "target_code": "\ntry:\n\tfrom .ObjectDetectionDatasetPreprocessMethods import *\nexcept:\n\tfrom ObjectDetectionDatasetPreprocessMethods import *\n\ntry:\n\tfrom .ObjectDetectionDatasetStatisticsMethods import *\nexcept:\n\tfrom ObjectDetectionDatasetStatisticsMethods import *\n\ntry:\n\tfrom .ImagePreprocess import *\nexcept:\n\tfrom ImagePreprocess import *\n\ntry:\n\tfrom .ImageAnnotation import *\nexcept:\n\tfrom ImageAnnotation import *\n\ntry:\n\tfrom .VectorOperations import *\nexcept:\n\tfrom VectorOperations import *\n\ntry:\n\tfrom .Util import *\nexcept:\n\tfrom Util import *\n\ntry:\n\tfrom .AssertDataTypes import *\nexcept:\n\tfrom AssertDataTypes import *\n\ntry:\n\tfrom .AugmentationConfigurationFile import *\nexcept:\n\tfrom AugmentationConfigurationFile import *\n\ntry:\n\tfrom .ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\nexcept:\n\tfrom ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n\n",
+        "target_code_len": 904,
+        "diff_format": "@@ -13,11 +13,46 @@\n \n-from ObjectDetectionDatasetPreprocessMethods import *\n-from ObjectDetectionDatasetStatisticsMethods import *\n-from ImagePreprocess import *\n-from ImageAnnotation import *\n-from VectorOperations import *\n-from Util import *\n-from AssertDataTypes import *\n-from AugmentationConfigurationFile import *\n-from ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n+try:\n+\tfrom .ObjectDetectionDatasetPreprocessMethods import *\n+except:\n+\tfrom ObjectDetectionDatasetPreprocessMethods import *\n+\n+try:\n+\tfrom .ObjectDetectionDatasetStatisticsMethods import *\n+except:\n+\tfrom ObjectDetectionDatasetStatisticsMethods import *\n+\n+try:\n+\tfrom .ImagePreprocess import *\n+except:\n+\tfrom ImagePreprocess import *\n+\n+try:\n+\tfrom .ImageAnnotation import *\n+except:\n+\tfrom ImageAnnotation import *\n+\n+try:\n+\tfrom .VectorOperations import *\n+except:\n+\tfrom VectorOperations import *\n+\n+try:\n+\tfrom .Util import *\n+except:\n+\tfrom Util import *\n+\n+try:\n+\tfrom .AssertDataTypes import *\n+except:\n+\tfrom AssertDataTypes import *\n+\n+try:\n+\tfrom .AugmentationConfigurationFile import *\n+except:\n+\tfrom AugmentationConfigurationFile import *\n+\n+try:\n+\tfrom .ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n+except:\n+\tfrom ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n \n",
+        "source_code_with_indent": "\nfrom ObjectDetectionDatasetPreprocessMethods import *\nfrom ObjectDetectionDatasetStatisticsMethods import *\nfrom ImagePreprocess import *\nfrom ImageAnnotation import *\nfrom VectorOperations import *\nfrom Util import *\nfrom AssertDataTypes import *\nfrom AugmentationConfigurationFile import *\nfrom ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ntry:\n\t<IND>from .ObjectDetectionDatasetPreprocessMethods import *\n<DED>except:\n\t<IND>from ObjectDetectionDatasetPreprocessMethods import *\n\n<DED>try:\n\t<IND>from .ObjectDetectionDatasetStatisticsMethods import *\n<DED>except:\n\t<IND>from ObjectDetectionDatasetStatisticsMethods import *\n\n<DED>try:\n\t<IND>from .ImagePreprocess import *\n<DED>except:\n\t<IND>from ImagePreprocess import *\n\n<DED>try:\n\t<IND>from .ImageAnnotation import *\n<DED>except:\n\t<IND>from ImageAnnotation import *\n\n<DED>try:\n\t<IND>from .VectorOperations import *\n<DED>except:\n\t<IND>from VectorOperations import *\n\n<DED>try:\n\t<IND>from .Util import *\n<DED>except:\n\t<IND>from Util import *\n\n<DED>try:\n\t<IND>from .AssertDataTypes import *\n<DED>except:\n\t<IND>from AssertDataTypes import *\n\n<DED>try:\n\t<IND>from .AugmentationConfigurationFile import *\n<DED>except:\n\t<IND>from AugmentationConfigurationFile import *\n\n<DED>try:\n\t<IND>from .ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n<DED>except:\n\t<IND>from ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "lozuwa/impy",
+    "commit": "6f084c7ae341c2e91b75dcf93dd07cdf6c3354f9",
+    "filename": "impy/ObjectDetectionDataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lozuwa-impy/impy/ObjectDetectionDataset.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "impy/ObjectDetectionDataset.py:25:16 Unbound name [10]: Name `AssertDataTypes` is used but not defined in the current scope.",
+    "message": " Name `AssertDataTypes` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 25,
+    "warning_line": "dataAssertion = AssertDataTypes()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom ObjectDetectionDatasetPreprocessMethods import *\nfrom ObjectDetectionDatasetStatisticsMethods import *\nfrom ImagePreprocess import *\nfrom ImageAnnotation import *\nfrom VectorOperations import *\nfrom Util import *\nfrom AssertDataTypes import *\nfrom AugmentationConfigurationFile import *\nfrom ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n\n",
+        "source_code_len": 377,
+        "target_code": "\ntry:\n\tfrom .ObjectDetectionDatasetPreprocessMethods import *\nexcept:\n\tfrom ObjectDetectionDatasetPreprocessMethods import *\n\ntry:\n\tfrom .ObjectDetectionDatasetStatisticsMethods import *\nexcept:\n\tfrom ObjectDetectionDatasetStatisticsMethods import *\n\ntry:\n\tfrom .ImagePreprocess import *\nexcept:\n\tfrom ImagePreprocess import *\n\ntry:\n\tfrom .ImageAnnotation import *\nexcept:\n\tfrom ImageAnnotation import *\n\ntry:\n\tfrom .VectorOperations import *\nexcept:\n\tfrom VectorOperations import *\n\ntry:\n\tfrom .Util import *\nexcept:\n\tfrom Util import *\n\ntry:\n\tfrom .AssertDataTypes import *\nexcept:\n\tfrom AssertDataTypes import *\n\ntry:\n\tfrom .AugmentationConfigurationFile import *\nexcept:\n\tfrom AugmentationConfigurationFile import *\n\ntry:\n\tfrom .ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\nexcept:\n\tfrom ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n\n",
+        "target_code_len": 904,
+        "diff_format": "@@ -13,11 +13,46 @@\n \n-from ObjectDetectionDatasetPreprocessMethods import *\n-from ObjectDetectionDatasetStatisticsMethods import *\n-from ImagePreprocess import *\n-from ImageAnnotation import *\n-from VectorOperations import *\n-from Util import *\n-from AssertDataTypes import *\n-from AugmentationConfigurationFile import *\n-from ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n+try:\n+\tfrom .ObjectDetectionDatasetPreprocessMethods import *\n+except:\n+\tfrom ObjectDetectionDatasetPreprocessMethods import *\n+\n+try:\n+\tfrom .ObjectDetectionDatasetStatisticsMethods import *\n+except:\n+\tfrom ObjectDetectionDatasetStatisticsMethods import *\n+\n+try:\n+\tfrom .ImagePreprocess import *\n+except:\n+\tfrom ImagePreprocess import *\n+\n+try:\n+\tfrom .ImageAnnotation import *\n+except:\n+\tfrom ImageAnnotation import *\n+\n+try:\n+\tfrom .VectorOperations import *\n+except:\n+\tfrom VectorOperations import *\n+\n+try:\n+\tfrom .Util import *\n+except:\n+\tfrom Util import *\n+\n+try:\n+\tfrom .AssertDataTypes import *\n+except:\n+\tfrom AssertDataTypes import *\n+\n+try:\n+\tfrom .AugmentationConfigurationFile import *\n+except:\n+\tfrom AugmentationConfigurationFile import *\n+\n+try:\n+\tfrom .ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n+except:\n+\tfrom ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n \n",
+        "source_code_with_indent": "\nfrom ObjectDetectionDatasetPreprocessMethods import *\nfrom ObjectDetectionDatasetStatisticsMethods import *\nfrom ImagePreprocess import *\nfrom ImageAnnotation import *\nfrom VectorOperations import *\nfrom Util import *\nfrom AssertDataTypes import *\nfrom AugmentationConfigurationFile import *\nfrom ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ntry:\n\t<IND>from .ObjectDetectionDatasetPreprocessMethods import *\n<DED>except:\n\t<IND>from ObjectDetectionDatasetPreprocessMethods import *\n\n<DED>try:\n\t<IND>from .ObjectDetectionDatasetStatisticsMethods import *\n<DED>except:\n\t<IND>from ObjectDetectionDatasetStatisticsMethods import *\n\n<DED>try:\n\t<IND>from .ImagePreprocess import *\n<DED>except:\n\t<IND>from ImagePreprocess import *\n\n<DED>try:\n\t<IND>from .ImageAnnotation import *\n<DED>except:\n\t<IND>from ImageAnnotation import *\n\n<DED>try:\n\t<IND>from .VectorOperations import *\n<DED>except:\n\t<IND>from VectorOperations import *\n\n<DED>try:\n\t<IND>from .Util import *\n<DED>except:\n\t<IND>from Util import *\n\n<DED>try:\n\t<IND>from .AssertDataTypes import *\n<DED>except:\n\t<IND>from AssertDataTypes import *\n\n<DED>try:\n\t<IND>from .AugmentationConfigurationFile import *\n<DED>except:\n\t<IND>from AugmentationConfigurationFile import *\n\n<DED>try:\n\t<IND>from .ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n<DED>except:\n\t<IND>from ApplyAugmentation import applyBoundingBoxAugmentation, applyColorAugmentation\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

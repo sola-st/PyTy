@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jrzaurin/pytorch-widedeep",
+    "commit": "1d1ea3c57a67f80cda369a2aa00987b0b4ddc042",
+    "filename": "pytorch_widedeep/models/_warmup.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jrzaurin-pytorch-widedeep/pytorch_widedeep/models/_warmup.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_widedeep/models/_warmup.py:193:42 Call error [29]: `typing.Union[pytorch_widedeep.models.deep_dense.DeepDense, pytorch_widedeep.models.deep_image.DeepImage, pytorch_widedeep.models.deep_text.DeepText, pytorch_widedeep.models.wide.Wide]` is not a function.",
+    "message": " `typing.Union[pytorch_widedeep.models.deep_dense.DeepDense, pytorch_widedeep.models.deep_image.DeepImage, pytorch_widedeep.models.deep_text.DeepText, pytorch_widedeep.models.wide.Wide]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 193,
+    "warning_line": "\t\t            y_pred = self.activation_fn(model(X))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\t\t#\u00a0If felbo we train the whole model for one last epoch\n\t\tif routine is 'felbo':\n\t\t\tprint('Warming up one last epoch with all warmed up layers trainable')\n\t\t\tself._warm(model, model_name, loader, optimizer, scheduler)\n\n\tdef _warm(self, model:WDModel, model_name:str, loader:DataLoader, optimizer:Optimizer,\n\t\tscheduler:LRScheduler, n_epochs:int=1):\n",
+        "source_code_len": 351,
+        "target_code": "\n\t\t#\u00a0If 'felbo' we train the whole model for one last epoch\n\t\tif routine is 'felbo':\n\t\t\tif self.verbose: print('Warming up one last epoch with all warmed up layers trainable')\n\t\t\tself._warm(model, model_name, loader, optimizer, scheduler)\n\n\tdef _warm(self, model:nn.Module, model_name:str, loader:DataLoader, optimizer:Optimizer,\n\t\tscheduler:LRScheduler, n_epochs:int=1):\n",
+        "target_code_len": 372,
+        "diff_format": "@@ -171,8 +167,8 @@\n \n-\t\t#\u00a0If felbo we train the whole model for one last epoch\n+\t\t#\u00a0If 'felbo' we train the whole model for one last epoch\n \t\tif routine is 'felbo':\n-\t\t\tprint('Warming up one last epoch with all warmed up layers trainable')\n+\t\t\tif self.verbose: print('Warming up one last epoch with all warmed up layers trainable')\n \t\t\tself._warm(model, model_name, loader, optimizer, scheduler)\n \n-\tdef _warm(self, model:WDModel, model_name:str, loader:DataLoader, optimizer:Optimizer,\n+\tdef _warm(self, model:nn.Module, model_name:str, loader:DataLoader, optimizer:Optimizer,\n \t\tscheduler:LRScheduler, n_epochs:int=1):\n",
+        "source_code_with_indent": "\n  #\u00a0If felbo we train the whole model for one last epoch\n  if routine is 'felbo':\n\t\t\t<IND>print('Warming up one last epoch with all warmed up layers trainable')\n   self._warm(model, model_name, loader, optimizer, scheduler)\n\n <DED><DED>def _warm(self, model:WDModel, model_name:str, loader:DataLoader, optimizer:Optimizer,\n  scheduler:LRScheduler, n_epochs:int=1):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n  #\u00a0If 'felbo' we train the whole model for one last epoch\n  if routine is 'felbo':\n\t\t\t<IND>if self.verbose: print('Warming up one last epoch with all warmed up layers trainable')\n   self._warm(model, model_name, loader, optimizer, scheduler)\n\n <DED><DED>def _warm(self, model:nn.Module, model_name:str, loader:DataLoader, optimizer:Optimizer,\n  scheduler:LRScheduler, n_epochs:int=1):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,1066 @@
+Output_fixed_TFix/dd_out_raiden-network-raiden_1d8b5e0.json
+raiden/transfer/mediated_transfer/state_change.py:229:8 Incompatible return type [7]: Expected `ActionInitTarget` but got `ActionCancelRoute`.
+https://github.com/raiden-network/raiden/commit/1d8b5e04c5d9d0862d60cfc5d0506de1da18c3d9
+@@ -227,3 +227,3 @@
+     @classmethod
+-    def from_dict(cls, data) -> 'ActionInitTarget':
++    def from_dict(cls, data) -> 'ActionCancelRoute':
+         return cls(
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_mindee-doctr_04dd012.json
+doctr/models/core.py:63:50 Incompatible parameter type [6]: Expected `List[Tuple[int, int]]` for 3rd positional only parameter to call `DocumentBuilder.__call__` but got `List[typing.Tuple[typing.Any, ...]]`.
+https://github.com/mindee/doctr/commit/04dd012112a5c356de26c0b30ac3565600b72959
+@@ -62,3 +62,3 @@
+         boxes = [rotate_boxes(boxes_page, angle) for boxes_page, angle in zip(boxes, angles)]
+-        out = self.doc_builder(boxes, word_preds, [tuple(page.shape[:2]) for page in pages])
++        out = self.doc_builder(boxes, word_preds, [page.shape[:2] for page in pages])
+         return out
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_pgjones-quart_3a61ac4.json
+tests/serving/test_upgrade.py:65:27 Incompatible parameter type [6]: Expected `Exception` for 1st positional only parameter to call `Server.connection_lost` but got `None`.
+https://github.com/pgjones/quart/commit/3a61ac4e777d3adeabf559b8e42ffe899309e05d
+@@ -64,3 +64,3 @@
+     )
+-    server.connection_lost(None)
++    server.connection_lost(Exception())
+     await transport.closed.wait()
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_raiden-network-raiden_0cdf4a7.json
+raiden/transfer/mediated_transfer/state.py:493:12 Incompatible parameter type [6]: Expected `PaymentID` for 1st parameter `payment_identifier` to call `LockedTransferUnsignedState.__init__` but got `int`.
+https://github.com/raiden-network/raiden/commit/0cdf4a712ae848a05bba14f2f621deaa19fddfa1
+@@ -492,3 +498,3 @@
+         restored = cls(
+-            payment_identifier=int(data['payment_identifier']),
++            payment_identifier=PaymentID(int(data['payment_identifier'])),
+             token=to_canonical_address(data['token']),
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_iDevision-enhanced-discord.py_b8898c7.json
+discord/user.py:434:4 Inconsistent override [14]: `discord.user.User._copy` overrides method defined in `BaseUser` inconsistently. Parameter of type `Type[Variable[U (bound to User)]]` is not a supertype of the overridden parameter `Type[Variable[BU (bound to BaseUser)]]`.
+https://github.com/iDevision/enhanced-discord.py/commit/b8898c7788b7d0b5d2a129912b1e14df87aed0f0
+@@ -433,3 +443,3 @@
+     @classmethod
+-    def _copy(cls: Type[U], user: U) -> U:
++    def _copy(cls, user: User):
+         self = super()._copy(user)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_ethereum-trinity_67962ba.json
+p2p/kademlia.py:331:17 Incompatible variable type [9]: timeout is declared to have type `int` but is used as type `float`.
+https://github.com/ethereum/trinity/commit/67962ba2bebe0ee682e9d9d638ceb2c3e06cc0db
+@@ -330,3 +330,3 @@
+                  callback: Callable,
+-                 timeout: int=2 * k_request_timeout) -> None:
++                 timeout: float=2 * k_request_timeout) -> None:
+         self.callback = callback
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_theupdateframework-python-tuf_ad813a5.json
+tests/repository_simulator.py:144:15 Unsupported operand [58]: `>` is not supported for operand types `Optional[int]` and `int`.
+https://github.com/theupdateframework/python-tuf/commit/ad813a5d0d4489544110b3ec398b2d86bd98afb7
+@@ -143,3 +144,3 @@
+             # return a version previously serialized in publish_root()
+-            if version > len(self.signed_roots):
++            if version is None or version > len(self.signed_roots):
+                 raise FetcherHTTPError(f"Unknown root version {version}", 404)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_atlassian-labs-peerd_fc06a7e.json
+peerd/aws.py:143:4 Incompatible variable type [9]: tags is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `typing.List[typing.Dict[str, typing.Any]]`.
+https://github.com/atlassian-labs/peerd/commit/fc06a7e476bbcd5a177b171811af38b4ad171964
+@@ -142,3 +143,3 @@
+     """
+-    tags = [{'Key': key, 'Value': value} for (key, value) in tags.items()]
++    tags_aws = [{'Key': key, 'Value': value} for (key, value) in tags.items()]
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_olist-correios_8fbe4b3.json
+correios/client.py:325:32 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `ZipCode.__init__` but got `Union[ZipCode, str]`.
+https://github.com/olist/correios/commit/8fbe4b3da9ddeb49f0a69c04ccef5afa37956457
+@@ -324,4 +324,4 @@
+                                     to_zip_code: Union[ZipCode, str]) -> bool:
+-        from_zip_code = ZipCode(from_zip_code)
+-        to_zip_code = ZipCode(to_zip_code)
++        from_zip_code = ZipCode.create(from_zip_code)
++        to_zip_code = ZipCode.create(to_zip_code)
+         result = self._auth_call("verificaDisponibilidadeServico",
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_TheAlgorithms-Python_2595cf0.json
+data_structures/binary_tree/lazy_segment_tree.py:121:4 Inconsistent override [15]: `data_structures.binary_tree.lazy_segment_tree.SegmentTree.__str__` overrides method defined in `object` inconsistently. Returned type `None` is not a subtype of the overridden return `str`.
+https://github.com/TheAlgorithms/Python/commit/2595cf059d677c39513a9d75f1736bc5b84d6298
+@@ -120,4 +121,4 @@
+ 
+-    def __str__(self) -> None:
+-        return [self.query(1, 1, self.size, i, i) for i in range(1, self.size + 1)]
++    def __str__(self) -> str:
++        return str([self.query(1, 1, self.size, i, i) for i in range(1, self.size + 1)])
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_mozman-ezdxf_e644ba6.json
+src/ezdxf/_options.py:165:8 Incompatible return type [7]: Expected `Tuple[Path]` but got `typing.Tuple[Variable[_T_co](covariant), ...]`.
+https://github.com/mozman/ezdxf/commit/e644ba6ee766989f28782fe96a8c127fcf0f78df
+@@ -163,3 +163,3 @@
+     @property
+-    def loaded_config_files(self) -> Tuple[Path]:
++    def loaded_config_files(self) -> Tuple[Path, ...]:
+         return tuple(self._loaded_paths)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_jazzband-django-redis_5f6f383.json
+redis_cache/cache.py:17:15 Unbound name [10]: Name `basestring` is used but not defined in the current scope.
+https://github.com/jazzband/django-redis/commit/5f6f38362dd587aae78d9b8ff97a1e2fe800ba5d
+@@ -16,3 +16,3 @@
+ 
+-class CacheKey(basestring):
++class CacheKey(object):
+     """
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_TheAlgorithms-Python_bcfca67.json
+project_euler/problem_003/sol1.py:95:23 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `isprime` but got `float`.
+https://github.com/TheAlgorithms/Python/commit/bcfca67faa120cc4cb42775af302d6d52d3a3f1e
+@@ -94,4 +94,4 @@
+         if n % i == 0:
+-            if isprime(n / i):
+-                max_number = n / i
++            if isprime(n // i):
++                max_number = n // i
+                 break
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_asyml-forte_3be9aba.json
+forte/processors/nltk_processors.py:141:20 Unbound name [10]: Name `pharse` is used but not defined in the current scope.
+https://github.com/asyml/forte/commit/3be9aba6bd7448faa21b3d16c4ee63f9e6205bb3
+@@ -140,4 +143,5 @@
+                     phrase = Phrase(input_pack, begin_pos, end_pos)
+-                    pharse.phrase_type = chunk.label()
++                    phrase.phrase_type = chunk.label()
+                     input_pack.add_or_get_entry(phrase)
++
+                     index += len(chunk)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_GoogleCloudPlatform-PerfKitBenchmarker_d56793e.json
+perfkitbenchmarker/beam_benchmark_helper.py:38:39 Incompatible parameter type [6]: Expected `typing.Optional[str]` for 2nd positional only parameter to call `gflags.DEFINE_string` but got `int`.
+https://github.com/GoogleCloudPlatform/PerfKitBenchmarker/commit/d56793e050437587b211db86abd614fa7dc378e6
+@@ -37,3 +37,3 @@
+                     'Profile to activate integration test.')
+-flags.DEFINE_string('beam_it_timeout', 600, 'Integration Test Timeout.')
++flags.DEFINE_integer('beam_it_timeout', 600, 'Integration Test Timeout.')
+ flags.DEFINE_string('git_binary', 'git', 'Path to git binary.')
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_optuna-optuna_8917099.json
+pfnopt/dashboard.py:29:0 Incompatible variable type [9]: _mode is declared to have type `str` but is used as type `None`.
+https://github.com/optuna/optuna/commit/8917099bb57bb168116e0cb4343ddb82876abb04
+@@ -28,3 +28,3 @@
+ 
+-_mode = None  # type: str
++_mode = None  # type: Optional[str]
+ _study = None  # type: Optional[pfnopt.study.Study]
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_ibis-project-ibis_bc54fd4.json
+ibis/backends/dask/execution/selection.py:40:4 Incompatible variable type [9]: scope is declared to have type `Scope` but is used as type `None`.
+https://github.com/ibis-project/ibis/commit/bc54fd403a9c4f868638300544ea17cb7ffdb511
+@@ -39,3 +39,3 @@
+     data,
+-    scope: Scope = None,
++    scope: Scope,
+     timecontext: Optional[TimeContext] = None,
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_pikvm-kvmd_31c74a1.json
+kvmd/plugins/hid/otg/__init__.py:59:8 Incompatible return type [7]: Expected `Dict[str, Option]` but got `Dict[str, typing.Union[Dict[str, Option], Option]]`.
+https://github.com/pikvm/kvmd/commit/31c74a1c3020710fb1878a24c8dc8fda71e3fa2e
+@@ -57,3 +57,3 @@
+     @classmethod
+-    def get_plugin_options(cls) -> Dict[str, Option]:
++    def get_plugin_options(cls) -> Dict:
+         return {
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_nextgenusfs-funannotate_d5d21b3.json
+funannotate/aux_scripts/augustus_parallel.py:125:30 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 2nd positional only parameter to call `range.__init__` but got `float`.
+https://github.com/nextgenusfs/funannotate/commit/d5d21b340b3fc9bc008455246d500207778d7b01
+@@ -124,3 +125,3 @@
+             chunks = contiglength / num_parts
+-            for i in range(0, num_parts):
++            for i in range(0, int(num_parts)):
+                 name = str(record.id)+'_part'+str(i+1)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_ecmwf-cfgrib_a02c2f2.json
+cfgrib/dataset.py:480:24 Unsupported operand [58]: `+` is not supported for operand types `T.Sequence[str]` and `T.List[str]`.
+https://github.com/ecmwf/cfgrib/commit/a02c2f2026db4ae61c96043ed96b509ae50f225f
+@@ -479,3 +474,3 @@
+     data_var_attrs = enforce_unique_attributes(index, data_var_attrs_keys, filter_by_keys)
+-    extra_keys = sorted(read_keys + EXTRA_DATA_ATTRIBUTES_KEYS)
++    extra_keys = sorted(list(read_keys) + EXTRA_DATA_ATTRIBUTES_KEYS)
+     extra_attrs = read_data_var_attrs(index, extra_keys)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_Project-MONAI-MONAILabel_4bcf6ea.json
+monailabel/config.py:11:4 Incompatible attribute type [8]: Attribute `APP_DIR` declared in class `Settings` has type `str` but is used as type `None`.
+https://github.com/Project-MONAI/MONAILabel/commit/4bcf6ea684888411b771da5f4e9632bae0e267a0
+@@ -10,4 +10,4 @@
+ 
+-    APP_DIR: str = None
+-    STUDIES: str = None
++    APP_DIR: str = ""
++    STUDIES: str = ""
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_BEEmod-BEE2.4_9c954a1.json
+src/texturing.py:32:0 Incompatible variable type [9]: SPECIAL is declared to have type `Generator` but is used as type `None`.
+https://github.com/BEEmod/BEE2.4/commit/9c954a1e1cff2055f39654d8495cca466e41c8a6
+@@ -31,4 +30,4 @@
+ # These can just be looked up directly.
+-SPECIAL = None  # type: Generator
+-OVERLAYS = None  # type: Generator
++SPECIAL: 'Generator'
++OVERLAYS: 'Generator'
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_quantumblacklabs-kedro_49c095d.json
+kedro/contrib/colors/logging/color_logger.py:110:4 Inconsistent override [14]: `kedro.contrib.colors.logging.color_logger.ColorHandler.format` overrides method defined in `logging.Handler` inconsistently. Parameter of type `str` is not a supertype of the overridden parameter `logging.LogRecord`.
+https://github.com/quantumblacklabs/kedro/commit/49c095d0a747ce00b99727e358bb1f7f41106fe9
+@@ -109,3 +109,3 @@
+ 
+-    def format(self, record: str) -> str:
++    def format(self, record: logging.LogRecord) -> str:
+         """The handler formatter.
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_barseghyanartur-tld_e84ddc7.json
+src/tld/utils.py:444:7 Unsupported operand [58]: `<` is not supported for operand types `Optional[int]` and `int`.
+https://github.com/barseghyanartur/tld/commit/e84ddc74d504b874c9589f1d31635b0175b54e30
+@@ -443,2 +442,5 @@
+ 
++    # This should be None when domain_parts is None
++    # but mypy isn't quite smart enough to figure that out yet
++    assert non_zero_i is not None
+     if non_zero_i < 0:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_quantumlib-Cirq_7c30a63.json
+cirq/devices/device.py:32:32 Invalid type [31]: Expression `type(None)` is not a valid type.
+https://github.com/quantumlib/Cirq/commit/7c30a63283cd9dd6a3837337c5a9d304d79f8675
+@@ -31,3 +31,3 @@
+     def validate_operation(self, operation: 'cirq.ops.Operation'
+-                           ) -> type(None):
++                           ) -> None:
+         """Raises an exception if an operation is not valid.
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_awslabs-sockeye_3f77dfb.json
+sockeye/inference.py:440:46 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `data_io.define_buckets` but got `Optional[int]`.
+https://github.com/awslabs/sockeye/commit/3f77dfbb5d90c3ef4eb9c50731b487c69efde151
+@@ -439,3 +344,3 @@
+         self.beam_size = self.models[0].beam_size
+-        self.buckets = data_io.define_buckets(self.models[0].max_input_len)
++        self.buckets = data_io.define_buckets(self.models[0].config.max_seq_len_source)
+         self.pad_dist = mx.nd.full((self.beam_size, len(self.vocab_target)), val=np.inf, ctx=self.context)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_RDFLib-rdflib_90f6fe5.json
+rdflib/plugins/sparql/algebra.py:804:21 Incompatible variable type [9]: query_algebra is declared to have type `Query` but is used as type `None`.
+https://github.com/RDFLib/rdflib/commit/90f6fe5611f4c7411e5eac347cafb9d009829b6c
+@@ -803,3 +803,3 @@
+ 
+-def translateAlgebra(query_algebra: Query = None):
++def translateAlgebra(query_algebra: Query):
+     """
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_KmolYuan-Pyslvs-UI_68775a4.json
+pyslvs_ui/synthesis/collections/configure_widget.py:364:41 Incompatible parameter type [6]: Expected `List[Tuple[int, int]]` for 1st positional only parameter to call `pyslvs_ui.graphics.canvas.PreviewCanvas.set_driver` but got `List[Tuple[Tuple[int, int], Tuple[float, float]]]`.
+https://github.com/KmolYuan/Pyslvs-UI/commit/68775a4fc50dcc3d0ccf0a7dd395945d9b1e8fbd
+@@ -362,4 +362,4 @@
+         input_list: List[Tuple[Tuple[int, int], Tuple[float, float]]] = params['input']
+-        self.driver_list.addItems(f"(P{b}, P{d})" for b, d in input_list)
+-        self.configure_canvas.set_driver(input_list)
++        self.driver_list.addItems(f"(P{b}, P{d})" for (b, d), _ in input_list)
++        self.configure_canvas.set_driver([d for d, _ in input_list])
+         _set_warning(self.driver_label, self.driver_list.count() == 0)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_zulip-zulip-terminal_e3f2d67.json
+zulipterminal/model.py:129:28 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `List[Variable[_T]]`.
+https://github.com/zulip/zulip-terminal/commit/e3f2d67b3577ef9b6479edb552a3e5a46795c294
+@@ -127,3 +128,3 @@
+ 
+-    def update_messages(self, response: Dict[str, str]) -> None:
++    def update_messages(self, response: Dict[str, Any]) -> None:
+         response['flags'] = []
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_datatheorem-strongarm_e1e4f5c.json
+strongarm/macho/macho_analyzer.py:264:56 Incompatible parameter type [6]: Expected `VirtualMemoryPointer` for 1st positional only parameter to call `MachoAnalyzer.selector_for_selref` but got `int`.
+https://github.com/datatheorem/strongarm/commit/e1e4f5c42879d5e5cb87429d24344cd799a71959
+@@ -263,3 +263,3 @@
+                     # to a locally-implemented Objective-C method *or* C function via the `calls_to` API.
+-                    selector = self.selector_for_selref(selref)
++                    selector = self.selector_for_selref(VirtualMemoryPointer(selref))
+                     if selector and selector.implementation:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_facebookresearch-Mephisto_4937db1.json
+mephisto/abstractions/blueprints/abstract/static_task/static_blueprint.py:134:39 Incompatible parameter type [6]: Expected `typing.Union[bytes, str]` for 1st positional only parameter to call `json.loads` but got `io.TextIOWrapper`.
+https://github.com/facebookresearch/Mephisto/commit/4937db1184a2a8d9b30f0d20bef0bc0f098a5238
+@@ -133,3 +134,3 @@
+             with open(json_file, "r", encoding="utf-8-sig") as json_fp:
+-                json_data = json.loads(json_fp)
++                json_data = json.load(json_fp)
+             for jd in json_data:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_ubisoft-mixer_e385fdd.json
+mixer/blender_data/datablock_proxy.py:244:8 Incompatible variable type [9]: filepath is declared to have type `str` but is used as type `pathlib.Path`.
+https://github.com/ubisoft/mixer/commit/e385fdd5ed8fac155fa2f61abcf56c7d4573bc5a
+@@ -242,4 +242,4 @@
+ 
+-    def matches_shared_folder(self, filepath: str, context: Context):
+-        filepath = pathlib.Path(filepath)
++    def matches_shared_folder(self, filepath_str: str, context: Context):
++        filepath = pathlib.Path(filepath_str)
+         for shared_folder in context.proxy_state.shared_folders:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_Ciphey-Ciphey_5544e94.json
+ciphey/basemods/Crackers/hash.py:105:4 Inconsistent override [15]: `ciphey.basemods.Crackers.hash.HashBuster.getParams` overrides method defined in `ciphey.iface._modules.ConfigurableModule` inconsistently. Returned type `Optional[Dict[str, Dict[str, typing.Any]]]` is not a subtype of the overridden return `Optional[Dict[str, ciphey.iface._modules.ParamSpec]]`.
+https://github.com/Ciphey/Ciphey/commit/5544e945c591d063a2541fd40991c1f81b729575
+@@ -104,4 +96,4 @@
+     @staticmethod
+-    def getParams() -> Optional[Dict[str, Dict[str, Any]]]:
+-        pass
++    def getParams() -> Optional[Dict[str, ParamSpec]]:
++        return None
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_trailofbits-deepstate_614e677.json
+bin/deepstate/core/fuzz.py:240:95 Unbound name [10]: Name `cls` is used but not defined in the current scope.
+https://github.com/trailofbits/deepstate/commit/614e677b11a24b274ffc8fcc41d1cfd324dfbda4
+@@ -239,3 +255,3 @@
+     if not os.path.isfile(lib_path):
+-      raise FuzzFrontendError("No {}-instrumented DeepState static library found in {}".format(cls, lib_path))
++      raise FuzzFrontendError("No {}-instrumented DeepState static library found in {}".format(self, lib_path))
+     L.debug(f"Static library path: {lib_path}")
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_nicolas-chaulet-torch-points3d_feca7fd.json
+torch_points3d/models/segmentation/kpconv.py:106:4 Inconsistent override [14]: `torch_points3d.models.segmentation.kpconv.KPConvPaper.forward` overrides method defined in `UnwrappedUnetBasedModel` inconsistently. Could not find parameter `data` in overriding signature.
+https://github.com/nicolas-chaulet/torch-points3d/commit/feca7fdd3c50ce10ae550e92658ac4d67c298f7d
+@@ -105,3 +105,3 @@
+ 
+-    def forward(self) -> Any:
++    def forward(self, *args, **kwargs) -> Any:
+         """Run forward pass. This will be called by both functions <optimize_parameters> and <test>."""
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_nonebot-nonebot_ebfd976.json
+nonebot/command/argfilter/validators.py:60:4 Incompatible variable type [9]: pattern is declared to have type `str` but is used as type `typing.Pattern[str]`.
+https://github.com/nonebot/nonebot/commit/ebfd976508c49c2f7c42c62819395e736d16823b
+@@ -59,3 +59,3 @@
+ 
+-    pattern = re.compile(pattern, flags)
++    pattern_ = re.compile(pattern, flags)
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_RhinoSecurityLabs-pacu_54b0de4.json
+pacu/modules/cloudwatch__download_logs/main.py:161:14 Unsupported operand [58]: `+` is not supported for operand types `pathlib.Path` and `str`.
+https://github.com/RhinoSecurityLabs/pacu/commit/54b0de44c8fc862e652d0efb54077d0d1385f333
+@@ -160,3 +160,3 @@
+         }
+-    dl_root = downloads_dir() + '/cloud_watch_logs/'
++    dl_root = str(downloads_dir()) + '/cloud_watch_logs/'
+     summary_data['log_download_path'] = '{}{}'.format(dl_root, scan_time)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_python-mypy_9c2b8b3.json
+mypy/server/astmerge.py:216:26 Incompatible parameter type [6]: Expected `Var` for 1st positional only parameter to call `fixup_var` but got `SymbolNode`.
+https://github.com/python/mypy/commit/9c2b8b3651a8ec1d063f124f90008e5324e8e450
+@@ -215,3 +215,3 @@
+                 # The Var node may be an orphan and won't otherwise be processed.
+-                fixup_var(node.node, self.replacements)
++                node.node.accept(self)
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_gitpython-developers-GitPython_2e2fe18.json
+git/index/base.py:116:37 Incompatible variable type [9]: file_path is declared to have type `Union[os.PathLike[typing.Any], str]` but is used as type `None`.
+https://github.com/gitpython-developers/GitPython/commit/2e2fe186d09272c3cb6c96467fff362deb90994f
+@@ -115,3 +115,3 @@
+ 
+-    def __init__(self, repo: 'Repo', file_path: PathLike = None) -> None:
++    def __init__(self, repo: 'Repo', file_path: Union[PathLike, None] = None) -> None:
+         """Initialize this Index instance, optionally from the given ``file_path``.
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_dcs-liberation-dcs_liberation_b405c3a.json
+game/factions/faction_loader.py:29:60 Unsupported operand [58]: `+` is not supported for operand types `str` and `Path`.
+https://github.com/dcs-liberation/dcs_liberation/commit/b405c3ab328fbc1a8d7d5e0d863e49b32f333768
+@@ -27,4 +24,4 @@
+                     logging.info("Loaded faction : " + str(f))
+-            except Exception as e:
+-                logging.error("Unable to load faction : " + path, e)
++            except Exception:
++                logging.exception(f"Unable to load faction : {f}")
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_GoogleCloudPlatform-covid-19-open-data_e0b4252.json
+src/lib/data_source.py:369:8 Incompatible return type [7]: Expected `str` but got `uuid.UUID`.
+https://github.com/GoogleCloudPlatform/covid-19-open-data/commit/e0b42522e02c132993b6d55deb433b42256b1d61
+@@ -368,2 +369,2 @@
+         hash_name = f"{table_name}.{source_full_name}.{data_source_config}"
+-        return uuid.uuid5(uuid.NAMESPACE_DNS, hash_name)
++        return str(uuid.uuid5(uuid.NAMESPACE_DNS, hash_name))
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_securisec-chepy_2c9fbbc.json
+chepy/core.py:640:8 Incompatible return type [7]: Expected `None` but got `ChepyCore`.
+https://github.com/securisec/chepy/commit/2c9fbbc40df534d2cad22f4cd8c258105a6eac94
+@@ -639,3 +639,3 @@
+         webbrowser.open_new_tab(url)
+-        return self
++        return None
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_fscdev-vkwave_ded7019.json
+vkwave/bots/core/dispatching/filters/builtin.py:130:8 Incompatible variable type [9]: prefixes is declared to have type `Tuple[str]` but is used as type `Tuple[str, str]`.
+https://github.com/fscdev/vkwave/commit/ded701991790d79fa5d4e3315ba6ee865c720e9c
+@@ -129,3 +129,3 @@
+         commands: AnyText,
+-        prefixes: typing.Tuple[str] = ("/", "!"),
++        prefixes: typing.Tuple[str, ...] = ("/", "!"),
+         ignore_case: bool = True,
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_Ultimaker-Cura_979407e.json
+cura/API/Account.py:71:8 Incompatible attribute type [8]: Attribute `_update_packages_action` declared in class `Account` has type `typing.Callable[..., typing.Any]` but is used as type `None`.
+https://github.com/Ultimaker/Cura/commit/979407eddfd532e439e9320741ab06d60cdc8908
+@@ -70,3 +70,3 @@
+         self._update_packages_enabled = False
+-        self._update_packages_action = None  # type: Callable
++        self._update_packages_action = None  # type: Optional[Callable]
+         self._last_sync_str = "-"
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_samschott-maestral_1603ca0.json
+maestral/main.py:719:24 Unbound name [10]: Name `UpT` is used but not defined in the current scope.
+https://github.com/samschott/maestral/commit/1603ca01045797f315f2bc0cb4108a164a23568b
+@@ -718,4 +718,4 @@
+ 
+-        uploading: List[UpT] = []
+-        downloading: List[DownT] = []
++        uploading: List[Dict[str, str]] = []
++        downloading: List[Dict[str, str]] = []
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_DHI-GRAS-terracotta_9bd5873.json
+terracotta/scripts/optimize_rasters.py:154:21 Incompatible variable type [9]: in_memory is declared to have type `bool` but is used as type `None`.
+https://github.com/DHI-GRAS/terracotta/commit/9bd58730f551258353c81c6e792b010c008cfc23
+@@ -153,4 +232,5 @@
+                      reproject: bool = False,
+-                     in_memory: bool = None,
++                     in_memory: Union[bool, None] = None,
+                      compression: str = 'auto',
++                     nproc: int = 1,
+                      quiet: bool = False) -> None:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_uma-pi1-kge_eb97e26.json
+kge/config.py:21:23 Incompatible variable type [9]: folder is declared to have type `str` but is used as type `None`.
+https://github.com/uma-pi1/kge/commit/eb97e265bc098390536dc87b040836985423afd8
+@@ -20,3 +20,3 @@
+ 
+-    def __init__(self, folder: str = None, load_default=True):
++    def __init__(self, folder: Optional[str] = None, load_default=True):
+         """Initialize with the default configuration"""
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_volatilityfoundation-volatility3_2e50cde.json
+volatility/framework/automagic/stacker.py:158:51 Invalid type [31]: Expression `[str]` is not a valid type.
+https://github.com/volatilityfoundation/volatility3/commit/2e50cde2e70961ba22334778bb867e609dc1462f
+@@ -157,3 +157,3 @@
+                                    requirement: interfaces.configuration.RequirementInterface,
+-                                   stacked_layers: [str]) -> typing.Optional[typing.Tuple[str, str]]:
++                                   stacked_layers: typing.List[str]) -> typing.Optional[typing.Tuple[str, str]]:
+         """Looks for translation layer requirements and attempts to apply the stacked layers to it.  If it succeeds
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_osmocom-pysim_1e45657.json
+pySim/filesystem.py:647:12 Incompatible return type [7]: Expected `str` but got `bytearray`.
+https://github.com/osmocom/pysim/commit/1e45657e0f177388379f37e8557ac1cfdbac32a5
+@@ -646,3 +650,3 @@
+             raw_bin_data = method(abstract_data)
+-            return h2b(raw_bin_data)
++            return b2h(raw_bin_data)
+         raise NotImplementedError
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_instadeepai-Mava_d7ec17e.json
+mava/systems/tf/qmix/system.py:395:25 Unbound name [10]: Name `architecture` is used but not defined in the current scope.
+https://github.com/instadeepai/Mava/commit/d7ec17e7056f75e16f2e6ccc689b8ff2710e6215
+@@ -394,3 +395,3 @@
+         mixed_networks = AdditiveMixing(
+-            architecture=architecture,
++            architecture=networks,
+             # Q_values etc
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_openfisca-openfisca-france_360e41a.json
+openfisca_france/model/prelevements_obligatoires/impot_revenu/variables_reductions_credits.py:457:13 Unbound name [10]: Name `BoolCol` is used but not defined in the current scope.
+https://github.com/openfisca/openfisca-france/commit/360e41ac01eacdfa47c90d985f52338b0107b86a
+@@ -456,3 +456,4 @@
+     cerfa_field = u"7WG"
+-    column = BoolCol(val_type = "monetary")
++    value_type = int
++    unit = 'currency'
+     entity = FoyerFiscal
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_missionpinball-mpf_15afcda.json
+mpf/assets/show.py:35:4 Inconsistent override [15]: `extensions` overrides attribute defined in `Asset` inconsistently. Type `str` is not a subtype of the overridden attribute `typing.Tuple[str, str, str]`.
+https://github.com/missionpinball/mpf/commit/15afcda17766968f420d53b885f8eca0cf3b40a7
+@@ -34,3 +34,3 @@
+     disk_asset_section = 'file_shows'
+-    extensions = 'yaml'
++    extensions = tuple('yaml')
+     class_priority = 100
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_lebrice-Sequoia_97e1143.json
+sequoia/common/gym_wrappers/convert_tensors.py:71:4 Incompatible return type [7]: Expected `bool` but got `None`.
+https://github.com/lebrice/Sequoia/commit/97e11432390d548d91e7fa8449dc90a70be6a409
+@@ -69,4 +69,4 @@
+ 
+-def _mark_supports_tensors(space: S) -> bool:
+-    return setattr(space, "__supports_tensors", True)
++def _mark_supports_tensors(space: S) -> None:
++    setattr(space, "__supports_tensors", True)
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_volatilityfoundation-volatility3_f5615e2.json
+volatility/framework/interfaces/symbols.py:271:4 Inconsistent override [15]: `volatility.framework.interfaces.symbols.NativeTableInterface.get_symbol` overrides method defined in `BaseSymbolTableInterface` inconsistently. Returned type `objects.Template` is not a subtype of the overridden return `SymbolInterface`.
+https://github.com/volatilityfoundation/volatility3/commit/f5615e28f62285b0c837b24ef92946560721c704
+@@ -270,3 +270,3 @@
+ 
+-    def get_symbol(self, name: str) -> objects.Template:
++    def get_symbol(self, name: str) -> SymbolInterface:
+         raise exceptions.SymbolError("NativeTables never hold symbols")
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_flow-project-flow_224cc4b.json
+cistar-dev/two-lane-two-controller-rl.py:17:44 Unbound name [10]: Name `stochastic_lane_changer` is used but not defined in the current scope.
+https://github.com/flow-project/flow/commit/224cc4b6ac454db300811301e3a8d6ae45fd9950
+@@ -15,4 +15,4 @@
+ 
+-type_params = { "cfm-slow": (6, make_better_cfm(v_des=6),  never_change_lanes_controller()),\
+- "cfm-fast": (6, make_better_cfm(v_des=10), stochastic_lane_changer())}
++type_params = { "cfm-slow": (6, make_better_cfm(v_des=6),  never_change_lanes_controller(), 0),\
++ "cfm-fast": (6, make_better_cfm(v_des=10), never_change_lanes_controller(), 0)}
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_tartiflette-tartiflette_3687c35.json
+tartiflette/types/enum.py:326:12 Unbound name [10]: Name `isintance` is used but not defined in the current scope.
+https://github.com/tartiflette/tartiflette/commit/3687c351642880d71c17be9eb508ef4f80bc6dcc
+@@ -325,3 +325,3 @@
+         return self is other or (
+-            isintance(other, GraphQLEnumTypeExtension)
++            isinstance(other, GraphQLEnumTypeExtension)
+             and other.directives == self.directives
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_mosquito-aio-pika_75e03f0.json
+aio_pika/message.py:441:8 Incompatible variable type [9]: expiration is declared to have type `time.struct_time` but is used as type `None`.
+https://github.com/mosquito/aio-pika/commit/75e03f095f8cbd4fd36f917dc2d1e44ad79ff201
+@@ -440,3 +448,3 @@
+ 
+-        expiration = None       # type: time.struct_time
++        expiration = None
+         if message.header.properties.expiration:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_samschott-maestral_da644e1.json
+maestral/client.py:111:63 Invalid type [31]: Expression `typing.Callable[($local_maestral?client$_FT, $local_maestral?client$_FT)]` is not a valid type.
+https://github.com/samschott/maestral/commit/da644e1218754c2c247d16544d76b292d48f381c
+@@ -110,3 +110,3 @@
+ def to_maestral_error(dbx_path_arg: Optional[int] = None,
+-                      local_path_arg: Optional[int] = None) -> Callable[_FT, _FT]:
++                      local_path_arg: Optional[int] = None) -> Callable[[_FT], _FT]:
+     """
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_Flax-Network-flax-blockchain_5755909.json
+src/mempool.py:35:22 Invalid type [31]: Expression `typing.Dict[slice(src.types.sized_bytes.bytes32, src.types.sized_bytes.bytes32, None)]` is not a valid type.
+https://github.com/Flax-Network/flax-blockchain/commit/5755909c5fbc6ffa630b3512b8a8ef957dc5537f
+@@ -34,3 +34,3 @@
+ 
+-        self.allSeen: Dict[bytes32: bytes32] = {}
++        self.allSeen: Dict[bytes32, bytes32] = {}
+         # Mempool for each tip
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_piccolo-orm-piccolo_129ad01.json
+piccolo/table.py:451:8 Incompatible variable type [9]: Unable to unpack `t.Sequence[piccolo.columns.base.Selectable]`, expected a tuple.
+https://github.com/piccolo-orm/piccolo/commit/129ad014fad3ad91a4e42f3d9e1140e970c1dddf
+@@ -450,5 +452,5 @@
+         """
+-        columns = cls._process_column_args(*columns)
++        _columns = cls._process_column_args(*columns)
+         return Select(
+-            table=cls, columns_list=columns, exclude_secrets=exclude_secrets
++            table=cls, columns_list=_columns, exclude_secrets=exclude_secrets
+         )
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_PrefectHQ-prefect_4d39ee3.json
+src/prefect/contrib/tasks/mysql/mysql.py:87:12 Incompatible return type [7]: Expected `None` but got `typing.Union[Exception, pymysql.err.MySQLError]`.
+https://github.com/PrefectHQ/prefect/commit/4d39ee3addefcce7d947c7e47a1ee963aec3cf02
+@@ -86,3 +89,3 @@
+             logging.debug("Execute Error: ", e)
+-            return e
++            raise e
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_Shougo-denite.nvim_74af9d1.json
+action.pyi:12:34 Incompatible variable type [9]: callback is declared to have type `typing.Callable[[Prompt], Optional[int]]` but is used as type `None`.
+https://github.com/Shougo/denite.nvim/commit/74af9d149677bb5aebace3c2139e8279b5396e68
+@@ -11,3 +11,5 @@
+ 
+-    def register(self, name: str, callback: ActionCallback=None) -> None: ...
++    def clear(self) -> None: ...
++
++    def register(self, name: str, callback: ActionCallback) -> None: ...
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_piccolo-orm-piccolo_fed3b3b.json
+piccolo/table.py:391:41 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `TableMeta.get_column_by_name` but got `t.Union[piccolo.columns.base.Selectable, str]`.
+https://github.com/piccolo-orm/piccolo/commit/fed3b3bbb44a69dd154ba5624d7675bfb738c731
+@@ -391,3 +395,3 @@
+             cls._meta.get_column_by_name(column)
+-            if (type(column) == str)
++            if (isinstance(column, str))
+             else column
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_biolab-orange3_9303682.json
+Orange/widgets/data/owcsvimport.py:1105:32 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `zipfile.ZipFile.getinfo` but got `zipfile.ZipInfo`.
+https://github.com/biolab/orange3/commit/93036825bae2e056304e50a452448efe2898bd24
+@@ -1103,5 +1103,3 @@
+         if len(filelist) == 1:
+-            filename = filelist[0]
+-            zinfo = arh.getinfo(filename)
+-            f = arh.open(zinfo.filename, 'r')
++            f = arh.open(filelist[0], 'r')
+             if 't' in mode:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_dropbox-stone_0b97f5e.json
+stone/api.py:59:8 Incompatible return type [7]: Expected `ApiNamespace` but got `typing.Optional[ApiNamespace]`.
+https://github.com/dropbox/stone/commit/0b97f5e70077282de486f407a97105310acb1067
+@@ -58,3 +58,3 @@
+             self.namespaces[name] = ApiNamespace(name)
+-        return self.namespaces.get(name)
++        return self.namespaces[name]
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_apache-airflow_1f4710f.json
+airflow/providers/amazon/aws/operators/eks.py:638:8 Incompatible variable type [9]: pod_context is declared to have type `str` but is used as type `None`.
+https://github.com/apache/airflow/commit/1f4710f16af725f45cd7b90fb1311b4b80e4cc29
+@@ -637,5 +637,5 @@
+         namespace: str = DEFAULT_NAMESPACE_NAME,
+-        pod_context: str = None,
+-        pod_name: str = None,
+-        pod_username: str = None,
++        pod_context: Optional[str] = None,
++        pod_name: Optional[str] = None,
++        pod_username: Optional[str] = None,
+         aws_conn_id: str = DEFAULT_CONN_ID,
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_uriyyo-fastapi-pagination_0e1e854.json
+fastapi_pagination/paginator.py:12:21 Invalid type [31]: Expression `typing.Callable[(typing.Sequence[$local_fastapi_pagination?paginator$T], int)]` is not a valid type.
+https://github.com/uriyyo/fastapi-pagination/commit/0e1e8542a9ab36f16b6c0ab7af2125b4a03dd095
+@@ -11,3 +11,3 @@
+     params: Optional[AbstractParams] = None,
+-    length_function: Callable[Sequence[T], int] = len,
++    length_function: Callable[[Sequence[T]], int] = len,
+ ) -> AbstractPage[T]:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_apache-airflow_dad2f81.json
+airflow/providers/slack/operators/slack.py:204:8 Incompatible variable type [9]: filename is declared to have type `str` but is used as type `None`.
+https://github.com/apache/airflow/commit/dad2f8103be954afaedf15e9d098ee417b0d5d02
+@@ -203,5 +203,5 @@
+         initial_comment: str = 'No message has been set!',
+-        filename: str = None,
+-        filetype: str = None,
+-        content: str = None,
++        filename: Optional[str] = None,
++        filetype: Optional[str] = None,
++        content: Optional[str] = None,
+         **kwargs,
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_ubisoft-mixer_cba3aa1.json
+mixer/blender_data/json_codec.py:48:28 Incompatible variable type [9]: ctor_args is declared to have type `Tuple[str]` but is used as type `Tuple[]`.
+https://github.com/ubisoft/mixer/commit/cba3aa1610dda5836d79d64827abb6262e3b4a65
+@@ -47,3 +47,3 @@
+ 
+-def serialize(_cls=None, *, ctor_args: Tuple[str] = ()):
++def serialize(_cls=None, *, ctor_args: Tuple[str, ...] = ()):
+     """Class decorator to register a Proxy class for serialization"""
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_emissary-ingress-emissary_246687a.json
+ambassador/ambassador/ir/irtlscontext.py:54:19 Unbound name [10]: Name `st` is used but not defined in the current scope.
+https://github.com/emissary-ingress/emissary/commit/246687a20f7111833df58432d95c9312cd80e8de
+@@ -53,3 +53,3 @@
+ 
+-        self.name: st = config.get('name')
++        self.name = config.get('name')
+         self.hosts = config.get('hosts')
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_karlicoss-promnesia_013cbe4.json
+src/promnesia/dump.py:40:16 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.
+https://github.com/karlicoss/promnesia/commit/013cbe4fb6dee2e0ce5751ca0bf22fe08fc3c995
+@@ -39,3 +39,3 @@
+ 
+-    shutil.move(tpath, db_path)
++    shutil.move(str(tpath), str(db_path))
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_unias-docklet_730a688.json
+web/web.py:697:19 Unbound name [10]: Name `jsobn` is used but not defined in the current scope.
+https://github.com/unias/docklet/commit/730a6888b8ceec875a724a61bed3ad8b44b340e8
+@@ -696,3 +696,3 @@
+         open_registryfile = open(env.getenv('FS_PREFIX') + '/local/settings.conf')
+-        settings = jsobn.loads(open_registryfile.read())
++        settings = json.loads(open_registryfile.read())
+         open_registryfile.close()
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_jamesturk-spatula_385c6e8.json
+src/spatula/workflow.py:73:22 Incompatible variable type [9]: output_dir is declared to have type `str` but is used as type `None`.
+https://github.com/jamesturk/spatula/commit/385c6e81270b90cea0f0835e3c2e875180a82f8b
+@@ -72,3 +72,3 @@
+ 
+-    def execute(self, output_dir: str = None) -> int:
++    def execute(self, output_dir: str) -> int:
+         count = 0
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_ktbyers-netmiko_bbdb10e.json
+netmiko/dell/dell_isilon_ssh.py:65:22 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `str.__add__` but got `typing.Union[typing.Dict[str, typing.Any], typing.List[typing.Any], str]`.
+https://github.com/ktbyers/netmiko/commit/bbdb10efe05561f6ea2b5c9fd8cfff1b0dd293b8
+@@ -64,5 +69,7 @@
+         if not self.check_enable_mode():
+-            output += self.send_command_timing(
++            new_data = self.send_command_timing(
+                 cmd, strip_prompt=False, strip_command=False
+             )
++            assert isinstance(new_data, str)
++            output += new_data
+             if re.search(pattern, output, flags=re_flags):
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_theislab-scanpy_8eeb3fc.json
+scanpy/external/pp/_hashsolo.py:249:4 Incompatible variable type [9]: number_of_noise_barcodes is declared to have type `int` but is used as type `None`.
+https://github.com/theislab/scanpy/commit/8eeb3fc229d5daee8961c32756becae4b1504a36
+@@ -248,3 +251,3 @@
+     pre_existing_clusters: str = None,
+-    number_of_noise_barcodes: int = None,
++    number_of_noise_barcodes: int = 2,
+     inplace: bool = True,
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_alerta-alerta_4a7587c.json
+alerta/exceptions.py:78:7 Unsupported operand [58]: `>=` is not supported for operand types `typing.Optional[int]` and `int`.
+https://github.com/alerta/alerta/commit/4a7587c4862dd75c801cd7a84aae9b928d00c610
+@@ -77,2 +78,3 @@
+ def handle_http_error(error: HTTPException) -> Tuple[Response, int]:
++    error.code = error.code or 500
+     if error.code >= 500:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_argoai-argoverse-api_b9f1b8f.json
+argoverse/evaluation/stereo/eval.py:147:17 Invalid type [31]: Expression `dict()` is not a valid type.
+https://github.com/argoai/argoverse-api/commit/b9f1b8f874c25d37f6154edecda510672289bd5c
+@@ -146,3 +147,3 @@
+         data_sum = data.sum()
+-        summary: dict() = dict()
++        summary = dict()
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_laughingman7743-PyAthena_85dbfcd.json
+pyathena/result_set.py:263:30 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `Optional[Tuple[Dict[str, typing.Any]]]`.
+https://github.com/laughingman7743/PyAthena/commit/85dbfcd64d37dfc11525e2307e94d8e43b8eeda1
+@@ -262,3 +263,4 @@
+         first_row_data = rows[0].get("Data", [])
+-        for meta, data in zip(self._meta_data, first_row_data):
++        meta_data = cast(Tuple[Any, Any], self._meta_data)
++        for meta, data in zip(meta_data, first_row_data):
+             if meta.get("Name", None) != data.get("VarCharValue", None):
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_Scille-parsec-cloud_bbf6f10.json
+parsec/core/types/local_manifests.py:288:43 Unbound name [10]: Name `manifest` is used but not defined in the current scope.
+https://github.com/Scille/parsec-cloud/commit/bbf6f107f50943b3b18bc39c4f7ba8c7f29ea36f
+@@ -287,2 +287,2 @@
+     """
+-    return local_manifest_serializer.loads(manifest)
++    return local_manifest_serializer.loads(raw)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_mesonbuild-meson_70d2207.json
+mesonbuild/interpreterbase.py:461:8 Incompatible attribute type [8]: Attribute `tmp_meson_version` declared in class `InterpreterBase` has type `str` but is used as type `None`.
+https://github.com/mesonbuild/meson/commit/70d2207212e9ae6a2b5d345811acfbe441b6ec74
+@@ -460,3 +460,3 @@
+         # current meson version target within that if-block.
+-        self.tmp_meson_version = None # type: str
++        self.tmp_meson_version = None # type: T.Optional[str]
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_hummingbot-hummingbot_9903a7d.json
+hummingbot/wallet/ethereum/web3_wallet_backend.py:611:65 Unsupported operand [58]: `*` is not supported for operand types `Decimal` and `float`.
+https://github.com/hummingbot/hummingbot/commit/9903a7de36dc30920640bf29085de69a74afde33
+@@ -610,3 +610,3 @@
+         self.logger().info(f"Wrapping {amount} ether from wallet address {self.address}.")
+-        return self.execute_transaction(contract_func, value=int(amount * 1e18))
++        return self.execute_transaction(contract_func, value=int(amount * 10**18))
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_volatilityfoundation-volatility3_2dc3d29.json
+volatility/framework/symbols/wrappers.py:10:23 Incompatible variable type [9]: choices is declared to have type `typing.Mapping[str, int]` but is used as type `None`.
+https://github.com/volatilityfoundation/volatility3/commit/2dc3d2928d5a41c8f166fb2e145a8b4945cc5370
+@@ -9,3 +9,3 @@
+ 
+-    def __init__(self, choices: typing.Mapping[str, int] = None) -> None:
++    def __init__(self, choices: typing.Mapping[str, int]) -> None:
+         self._check_type(choices, collections.Mapping)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_QCoDeS-Qcodes_81d4ec2.json
+qcodes/instrument_drivers/Lakeshore/Model_325.py:26:8 Incompatible return type [7]: Expected `Tuple[str]` but got `typing.Tuple[str, ...]`.
+https://github.com/QCoDeS/Qcodes/commit/81d4ec271b079460686dc352c0a52536ad81fdd8
+@@ -21,6 +21,6 @@
+ 
+-    def split_data_line(line: str, parser: type = str) -> List[str]:
++    def split_data_line(line: str, parser: type=str) -> List[str]:
+         return [parser(i) for i in line.split("  ") if i != ""]
+ 
+-    def strip(strings: Iterable[str]) -> Tuple[str]:
++    def strip(strings: Iterable[str]) -> Tuple:
+         return tuple(s.strip() for s in strings)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_Intility-fastapi-azure-auth_4dc481b.json
+fastapi_azure_auth/auth.py:265:8 Incompatible variable type [9]: iss_callable is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.
+https://github.com/Intility/fastapi-azure-auth/commit/4dc481bb93d07beb5cf632c19d4660435faac5bf
+@@ -264,3 +264,3 @@
+         validate_iss: bool = True,
+-        iss_callable: Callable = None,
++        iss_callable: Optional[Callable[..., Any]] = None,
+         openid_config_use_app_id: bool = False,
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_StellarCN-py-stellar-base_fb33056.json
+stellar_sdk/client/aiohttp_client.py:93:8 Incompatible attribute type [8]: Attribute `user_agent` declared in class `AiohttpClient` has type `Dict[typing.Any, typing.Any]` but is used as type `str`.
+https://github.com/StellarCN/py-stellar-base/commit/fb330563ff2269540bfbfd662fa535080d1cc1f6
+@@ -92,3 +92,3 @@
+ 
+-        self.user_agent: dict = USER_AGENT
++        self.user_agent: Optional[str] = USER_AGENT
+         if user_agent:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_tensorflow-agents_ec50bcb.json
+tf_agents/bandits/policies/greedy_multi_objective_neural_policy.py:86:6 Incompatible variable type [9]: emit_policy_info is declared to have type `Tuple[str]` but is used as type `Tuple[]`.
+https://github.com/tensorflow/agents/commit/ec50bcbc5f618fdb669f5671b1d9b34b6447b09f
+@@ -85,3 +85,3 @@
+       accepts_per_arm_features: bool = False,
+-      emit_policy_info: Tuple[Text] = (),
++      emit_policy_info: Tuple[Text, ...] = (),
+       name: Optional[Text] = None):
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_althonos-pronto_dc4b4d9.json
+pronto/relationship.py:184:38 Unbound name [10]: Name `term` is used but not defined in the current scope.
+https://github.com/althonos/pronto/commit/dc4b4d9999b7dfcf50edbdd768bb549b1ccb5c90
+@@ -183,3 +183,3 @@
+                 fastobo.typedef.DefClause:
+-                    lambda c: setattr(term, "definition", Definition._from_ast(c)),
++                    lambda c: setattr(rship, "definition", Definition._from_ast(c)),
+                 fastobo.typedef.DisjointFromClause:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_common-workflow-language-cwltool_886a6ac.json
+cwltool/job.py:194:8 Incompatible variable type [9]: shouldquote is declared to have type `typing.Callable[[typing.Any], typing.Any]` but is used as type `None`.
+https://github.com/common-workflow-language/cwltool/commit/886a6ac41c685f20d39e352f9c657e59f3312265
+@@ -193,7 +210,5 @@
+ 
+-        shouldquote = None  # type: Callable[[Any], Any]
++        shouldquote = needs_shell_quoting_re.search   # type: Callable[[Any], Any]
+         if scr:
+             shouldquote = lambda x: False
+-        else:
+-            shouldquote = needs_shell_quoting_re.search
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_DeepRegNet-DeepReg_127a704.json
+deepreg/config/parser.py:23:52 Incompatible parameter type [6]: Expected `typing.Dict[typing.Any, typing.Any]` for 2nd positional only parameter to call `update_nested_dict` but got `typing.Mapping[typing.Any, typing.Any]`.
+https://github.com/DeepRegNet/DeepReg/commit/127a704dcc244084852558a2fbf67c180164febc
+@@ -21,3 +21,3 @@
+     for k, v in u.items():
+-        if isinstance(v, collections.Mapping):
++        if isinstance(v, dict):
+             d[k] = update_nested_dict(d.get(k, {}), v)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_matrix-org-pantalaimon_c7ca5d9.json
+pantalaimon/config.py:56:4 Incompatible variable type [9]: value is declared to have type `str` but is used as type `ParseResult`.
+https://github.com/matrix-org/pantalaimon/commit/c7ca5d9851943b1e2d24aa0968d623a014fee965
+@@ -53,5 +53,5 @@
+ 
+-def parse_url(value):
++def parse_url(v):
+     # type: (str) -> ParseResult
+-    value = urlparse(value)
++    value = urlparse(v)
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_flopp-GpxTrackPoster_9aeab96.json
+gpxtrackposter/calendar_drawer.py:80:81 Incompatible parameter type [6]: Expected `bool` for 3rd positional only parameter to call `TracksDrawer.color` but got `typing.List[typing.Any]`.
+https://github.com/flopp/GpxTrackPoster/commit/9aeab965da054b491c53caf4343eb3d506846338
+@@ -79,3 +85,4 @@
+                     length = sum([t.length for t in tracks])
+-                    color = self.color(self.poster.length_range_by_date, length, [t for t in tracks if t.special])
++                    has_special = len([t for t in tracks if t.special]) > 0
++                    color = self.color(self.poster.length_range_by_date, length, has_special)
+                     d.add(d.rect(pos, dim, fill=color))
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_jordaneremieff-mangum_64c6f39.json
+mangum/protocols/websockets.py:146:8 Incompatible return type [7]: Expected `typing.Dict[str, typing.Any]` but got implicit return value of `None`.
+https://github.com/jordaneremieff/mangum/commit/64c6f390f27f8df63acaa42e769d99aa744ebf34
+@@ -146,1 +148,3 @@
+         return make_response("OK", status_code=200)
++
++    return make_response("Error", status_code=500)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_fscdev-vkwave_3d2517a.json
+vkwave/bots/utils/keyboards/keyboard.py:99:34 Incompatible variable type [9]: payload is declared to have type `typing.Dict[typing.Any, typing.Any]` but is used as type `None`.
+https://github.com/fscdev/vkwave/commit/3d2517ac3f026f037d79ba8d26b1e9a2144cda4a
+@@ -98,3 +98,3 @@
+ 
+-    def add_location_button(self, payload: dict = None) -> None:
++    def add_location_button(self, payload: typing.Optional[typing.Dict[str, str]] = None) -> None:
+         """
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_googleapis-python-bigquery_66b3dd9.json
+google/cloud/bigquery/dbapi/_helpers.py:231:8 Incompatible variable type [9]: type_ is declared to have type `str` but is used as type `query.ArrayQueryParameterType`.
+https://github.com/googleapis/python-bigquery/commit/66b3dd9f9aec3fda9610a3ceec8d8a477f2ab3b9
+@@ -228,5 +228,5 @@
+     if type_type == SCALAR:
+-        type_ = sub_type
++        result_type = sub_type
+     elif type_type == ARRAY:
+-        type_ = query.ArrayQueryParameterType(sub_type, name=name)
++        result_type = query.ArrayQueryParameterType(sub_type, name=name)
+     elif type_type == STRUCT:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_PKSHATechnology-Research-camphr_eb556d1.json
+bedoner/pipelines/trf_model.py:146:66 Unbound name [10]: Name `PyttBertModel` is used but not defined in the current scope.
+https://github.com/PKSHATechnology-Research/camphr/commit/eb556d1c0fd05610974fe53ad5ddccecb1189775
+@@ -145,3 +146,3 @@
+ 
+-    def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> PyttBertModel:
++    def from_disk(self, path: Path, exclude=tuple(), **kwargs) -> BertModel:
+         with (path / "cfg.pkl").open("rb") as f:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_dagster-io-dagster_b57b91e.json
+python_modules/dagster/dagster/core/execution/plan/objects.py:107:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.
+https://github.com/dagster-io/dagster/commit/b57b91ea7666da41a3dbc610116aed500c647d84
+@@ -103,6 +107,4 @@
+             return self.error.message.strip() + ":\n\n" + user_code_error.to_string()
+-        elif self.error_source == ErrorSource.FRAMEWORK_ERROR:
++        else:
+             return self.error.to_string()
+-        else:
+-            check.failed(f"Unexpected error setting: {self.error_source}")
+ 
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_dcs-liberation-dcs_liberation_8eef1ea.json
+gen/flights/traveltime.py:136:15 Unsupported operand [58]: `-` is not supported for operand types `Optional[timedelta]` and `timedelta`.
+https://github.com/dcs-liberation/dcs_liberation/commit/8eef1eaa7cdcd8f9672a93dc5e8f9771a1ce9a3d
+@@ -135,2 +135,5 @@
+                 tot = flight.flight_plan.tot_for_waypoint(tot_waypoint)
++                if tot is None:
++                    logging.error(f"TOT waypoint for {flight} has no TOT")
++                    tot = self.package.time_over_target
+         return tot - travel_time - self.HOLD_TIME
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_rytilahti-python-miio_6453bfe.json
+miio/airconditioningcompanion.py:315:12 Incompatible variable type [9]: model is declared to have type `str` but is used as type `bytes`.
+https://github.com/rytilahti/python-miio/commit/6453bfee512150e3f062670e890533fcd67067ea
+@@ -314,3 +314,3 @@
+         try:
+-            model = bytes.fromhex(model)
++            model_bytes = bytes.fromhex(model)
+         except ValueError:
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_ConsenSys-mythril_dce26a3.json
+mythril/laser/ethereum/state/calldata.py:270:58 Incompatible parameter type [6]: Expected `typing.Optional[List[typing.Any]]` for 2nd positional only parameter to call `mythril.laser.smt.bitvec.BitVec.__init__` but got `int`.
+https://github.com/ConsenSys/mythril/commit/dce26a37b274af1a2f35ba30e85f4b57d5120717
+@@ -269,3 +269,3 @@
+         self._reads = []  # type: List[Tuple[Union[int, BitVec], BitVec]]
+-        self._size = BitVec(str(tx_id) + "_calldatasize", 256)
++        self._size = BitVec(symbol_factory.BitVecSym(str(tx_id) + "_calldatasize", 256))
+         super().__init__(tx_id)
+
+----------------------------------------------
+Output_fixed_TFix/dd_out_openstack-ceilometer_a19ed26.json
+ceilometer/api/controllers/v2/events.py:229:26 Unbound name [10]: Name `unicode` is used but not defined in the current scope.
+https://github.com/openstack/ceilometer/commit/a19ed2698508568f14a1490785795596af001118
+@@ -228,3 +228,3 @@
+     @v2_utils.requires_admin
+-    @wsme_pecan.wsexpose([unicode])
++    @wsme_pecan.wsexpose([six.text_type])
+     def get_all(self):
+
+----------------------------------------------
+Time: Wed Aug 24 12:52:08 2022

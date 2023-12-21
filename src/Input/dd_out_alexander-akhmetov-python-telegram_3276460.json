@@ -1,0 +1,51 @@
+[
+  {
+    "project": "alexander-akhmetov/python-telegram",
+    "commit": "3276460f6deb7c5784a8bead5d82ee08dd15a974",
+    "filename": "telegram/tdjson.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/alexander-akhmetov-python-telegram/telegram/tdjson.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "telegram/tdjson.py:32:23 Incompatible variable type [9]: library_path is declared to have type `str` but is used as type `None`.",
+    "message": " library_path is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 32,
+    "warning_line": "    def __init__(self, library_path: str = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": ")\nfrom typing import Any, Dict\n\n",
+        "source_code_len": 32,
+        "target_code": ")\nfrom typing import Any, Dict, Optional\n\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -12,3 +12,3 @@\n )\n-from typing import Any, Dict\n+from typing import Any, Dict, Optional\n \n",
+        "source_code_with_indent": ")\nfrom typing import Any, Dict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": ")\nfrom typing import Any, Dict, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class TDJson(object):\n    def __init__(self, library_path: str = None) -> None:\n        if library_path is None:\n",
+        "source_code_len": 113,
+        "target_code": "class TDJson(object):\n    def __init__(self, library_path: Optional[str] = None) -> None:\n        if library_path is None:\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -31,3 +31,3 @@\n class TDJson(object):\n-    def __init__(self, library_path: str = None) -> None:\n+    def __init__(self, library_path: Optional[str] = None) -> None:\n         if library_path is None:\n",
+        "source_code_with_indent": "<DED>class TDJson(object):\n    <IND>def __init__(self, library_path: str = None) -> None:\n        <IND>if library_path is None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class TDJson(object):\n    <IND>def __init__(self, library_path: Optional[str] = None) -> None:\n        <IND>if library_path is None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

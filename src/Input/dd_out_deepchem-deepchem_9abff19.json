@@ -1,0 +1,51 @@
+[
+  {
+    "project": "deepchem/deepchem",
+    "commit": "9abff19783b0024d67036bbf4687c1846d13537f",
+    "filename": "deepchem/feat/material_featurizers/composition_featurizer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepchem-deepchem/deepchem/feat/material_featurizers/composition_featurizer.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deepchem/feat/material_featurizers/composition_featurizer.py:179:15 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 179,
+    "warning_line": "      res[k] = 1. * res[k] / sum_nums",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from collections import defaultdict\n\nfrom deepchem.utils.typing import PymatgenComposition, DefaultDict, Union\nfrom deepchem.feat import MaterialCompositionFeaturizer\n\n\n",
+        "source_code_len": 169,
+        "target_code": "from collections import defaultdict\nfrom typing import DefaultDict, Union, List\n\nfrom deepchem.utils.typing import PymatgenComposition\nfrom deepchem.feat import MaterialCompositionFeaturizer\n\n",
+        "target_code_len": 192,
+        "diff_format": "@@ -3,6 +3,6 @@\n from collections import defaultdict\n+from typing import DefaultDict, Union, List\n \n-from deepchem.utils.typing import PymatgenComposition, DefaultDict, Union\n+from deepchem.utils.typing import PymatgenComposition\n from deepchem.feat import MaterialCompositionFeaturizer\n-\n \n",
+        "source_code_with_indent": "from collections import defaultdict\n\nfrom deepchem.utils.typing import PymatgenComposition, DefaultDict, Union\nfrom deepchem.feat import MaterialCompositionFeaturizer\n\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from collections import defaultdict\nfrom typing import DefaultDict, Union, List\n\nfrom deepchem.utils.typing import PymatgenComposition\nfrom deepchem.feat import MaterialCompositionFeaturizer\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    stack = []\n    curr_str = ''\n    i = 0\n    res = defaultdict(int)\n    formula = formula.replace('-', '').replace('@', '').replace(\n",
+        "source_code_len": 143,
+        "target_code": "    \"\"\"\n    stack: List[str] = []\n    curr_str = ''\n    i = 0\n    res: DefaultDict = defaultdict(int)\n    formula = formula.replace('-', '').replace('@', '').replace(\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -109,6 +109,6 @@\n     \"\"\"\n-    stack = []\n+    stack: List[str] = []\n     curr_str = ''\n     i = 0\n-    res = defaultdict(int)\n+    res: DefaultDict = defaultdict(int)\n     formula = formula.replace('-', '').replace('@', '').replace(\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    stack = []\n    curr_str = ''\n    i = 0\n    res = defaultdict(int)\n    formula = formula.replace('-', '').replace('@', '').replace(\n",
+        "target_code_with_indent": "\n    stack: List[str] = []\n    curr_str = ''\n    i = 0\n    res: DefaultDict = defaultdict(int)\n    formula = formula.replace('-', '').replace('@', '').replace(\n"
+      }
+    ]
+  }
+]

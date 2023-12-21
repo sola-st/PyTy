@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jbms/beancount-import",
+    "commit": "0d3dd644f8125157e89a5223b9174ffad87af908",
+    "filename": "beancount_import/source/google_purchases.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jbms-beancount-import/beancount_import/source/google_purchases.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "beancount_import/source/google_purchases.py:99:8 Incompatible return type [7]: Expected `ImportResult` but got `None`.",
+    "message": " Expected `ImportResult` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 99,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                           tz_info: Optional[datetime.tzinfo],\n                           html_path: str) -> ImportResult:\n    date = datetime.datetime.fromtimestamp(purchase['timestamp'] / 1000,\n",
+        "source_code_len": 196,
+        "target_code": "                           tz_info: Optional[datetime.tzinfo],\n                           html_path: str) -> Optional[ImportResult]:\n    date = datetime.datetime.fromtimestamp(purchase['timestamp'] / 1000,\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -92,3 +92,3 @@\n                            tz_info: Optional[datetime.tzinfo],\n-                           html_path: str) -> ImportResult:\n+                           html_path: str) -> Optional[ImportResult]:\n     date = datetime.datetime.fromtimestamp(purchase['timestamp'] / 1000,\n",
+        "source_code_with_indent": "                           tz_info: Optional[datetime.tzinfo],\n                           html_path: str) -> ImportResult:\n    <IND>date = datetime.datetime.fromtimestamp(purchase['timestamp'] / 1000,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                           tz_info: Optional[datetime.tzinfo],\n                           html_path: str) -> Optional[ImportResult]:\n    <IND>date = datetime.datetime.fromtimestamp(purchase['timestamp'] / 1000,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

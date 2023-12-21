@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "4027b872acf87e263feef1b16d2b81ce214c3067",
+    "filename": "UM/TaskManagement/HttpRequestManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/TaskManagement/HttpRequestManager.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/TaskManagement/HttpRequestManager.py:64:8 Call error [29]: `Optional[typing.Callable[[int, int], None]]` is not a function.",
+    "message": " `Optional[typing.Callable[[int, int], None]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 64,
+    "warning_line": "        self.download_progress_callback(bytes_received, bytes_total)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def onCallback(self, reply: \"QNetworkReply\") -> None:\n        self.callback(reply)\n\n    def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n        self.error_callback(reply, error)\n\n    def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n        self.download_progress_callback(bytes_received, bytes_total)\n\n    def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n        self.upload_progress_callback(bytes_sent, bytes_total)\n\n",
+        "source_code_len": 537,
+        "target_code": "    def onCallback(self, reply: \"QNetworkReply\") -> None:\n        if self.callback is not None:\n            self.callback(reply)\n\n    def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n        if self.error_callback is not None:\n            self.error_callback(reply, error)\n\n    def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n        if self.download_progress_callback is not None:\n            self.download_progress_callback(bytes_received, bytes_total)\n\n    def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n        if self.upload_progress_callback is not None:\n            self.upload_progress_callback(bytes_sent, bytes_total)\n\n",
+        "target_code_len": 745,
+        "diff_format": "@@ -57,12 +57,16 @@\n     def onCallback(self, reply: \"QNetworkReply\") -> None:\n-        self.callback(reply)\n+        if self.callback is not None:\n+            self.callback(reply)\n \n     def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n-        self.error_callback(reply, error)\n+        if self.error_callback is not None:\n+            self.error_callback(reply, error)\n \n     def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n-        self.download_progress_callback(bytes_received, bytes_total)\n+        if self.download_progress_callback is not None:\n+            self.download_progress_callback(bytes_received, bytes_total)\n \n     def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n-        self.upload_progress_callback(bytes_sent, bytes_total)\n+        if self.upload_progress_callback is not None:\n+            self.upload_progress_callback(bytes_sent, bytes_total)\n \n",
+        "source_code_with_indent": "    <DED>def onCallback(self, reply: \"QNetworkReply\") -> None:\n        <IND>self.callback(reply)\n\n    <DED>def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n        <IND>self.error_callback(reply, error)\n\n    <DED>def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n        <IND>self.download_progress_callback(bytes_received, bytes_total)\n\n    <DED>def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n        <IND>self.upload_progress_callback(bytes_sent, bytes_total)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def onCallback(self, reply: \"QNetworkReply\") -> None:\n        <IND>if self.callback is not None:\n            <IND>self.callback(reply)\n\n    <DED><DED>def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n        <IND>if self.error_callback is not None:\n            <IND>self.error_callback(reply, error)\n\n    <DED><DED>def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n        <IND>if self.download_progress_callback is not None:\n            <IND>self.download_progress_callback(bytes_received, bytes_total)\n\n    <DED><DED>def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n        <IND>if self.upload_progress_callback is not None:\n            <IND>self.upload_progress_callback(bytes_sent, bytes_total)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "4027b872acf87e263feef1b16d2b81ce214c3067",
+    "filename": "UM/TaskManagement/HttpRequestManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/TaskManagement/HttpRequestManager.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/TaskManagement/HttpRequestManager.py:67:8 Call error [29]: `Optional[typing.Callable[[int, int], None]]` is not a function.",
+    "message": " `Optional[typing.Callable[[int, int], None]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 67,
+    "warning_line": "        self.upload_progress_callback(bytes_sent, bytes_total)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def onCallback(self, reply: \"QNetworkReply\") -> None:\n        self.callback(reply)\n\n    def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n        self.error_callback(reply, error)\n\n    def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n        self.download_progress_callback(bytes_received, bytes_total)\n\n    def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n        self.upload_progress_callback(bytes_sent, bytes_total)\n\n",
+        "source_code_len": 537,
+        "target_code": "    def onCallback(self, reply: \"QNetworkReply\") -> None:\n        if self.callback is not None:\n            self.callback(reply)\n\n    def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n        if self.error_callback is not None:\n            self.error_callback(reply, error)\n\n    def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n        if self.download_progress_callback is not None:\n            self.download_progress_callback(bytes_received, bytes_total)\n\n    def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n        if self.upload_progress_callback is not None:\n            self.upload_progress_callback(bytes_sent, bytes_total)\n\n",
+        "target_code_len": 745,
+        "diff_format": "@@ -57,12 +57,16 @@\n     def onCallback(self, reply: \"QNetworkReply\") -> None:\n-        self.callback(reply)\n+        if self.callback is not None:\n+            self.callback(reply)\n \n     def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n-        self.error_callback(reply, error)\n+        if self.error_callback is not None:\n+            self.error_callback(reply, error)\n \n     def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n-        self.download_progress_callback(bytes_received, bytes_total)\n+        if self.download_progress_callback is not None:\n+            self.download_progress_callback(bytes_received, bytes_total)\n \n     def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n-        self.upload_progress_callback(bytes_sent, bytes_total)\n+        if self.upload_progress_callback is not None:\n+            self.upload_progress_callback(bytes_sent, bytes_total)\n \n",
+        "source_code_with_indent": "    <DED>def onCallback(self, reply: \"QNetworkReply\") -> None:\n        <IND>self.callback(reply)\n\n    <DED>def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n        <IND>self.error_callback(reply, error)\n\n    <DED>def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n        <IND>self.download_progress_callback(bytes_received, bytes_total)\n\n    <DED>def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n        <IND>self.upload_progress_callback(bytes_sent, bytes_total)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def onCallback(self, reply: \"QNetworkReply\") -> None:\n        <IND>if self.callback is not None:\n            <IND>self.callback(reply)\n\n    <DED><DED>def onErrorCallback(self, reply: \"QNetworkReply\", error: \"QNetworkReply.NetworkError\") -> None:\n        <IND>if self.error_callback is not None:\n            <IND>self.error_callback(reply, error)\n\n    <DED><DED>def onDownloadProgressCallback(self, bytes_received: int, bytes_total: int) -> None:\n        <IND>if self.download_progress_callback is not None:\n            <IND>self.download_progress_callback(bytes_received, bytes_total)\n\n    <DED><DED>def onUploadProgressCallback(self, bytes_sent: int, bytes_total: int) -> None:\n        <IND>if self.upload_progress_callback is not None:\n            <IND>self.upload_progress_callback(bytes_sent, bytes_total)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

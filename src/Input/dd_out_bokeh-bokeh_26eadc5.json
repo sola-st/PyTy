@@ -1,0 +1,53 @@
+[
+  {
+    "project": "bokeh/bokeh",
+    "commit": "26eadc549714a14220b669920fe407d98808eb4c",
+    "filename": "bokeh/models/renderers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/models/renderers.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/models/renderers.py:278:4 Inconsistent override [15]: `level` overrides attribute defined in `Renderer` inconsistently. Type `bokeh.core.property.override.Override` is not a subtype of the overridden attribute `bokeh.core.property.enum.Enum`.",
+    "message": " `level` overrides attribute defined in `Renderer` inconsistently. Type `bokeh.core.property.override.Override` is not a subtype of the overridden attribute `bokeh.core.property.enum.Enum`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 278,
+    "warning_line": "    level = Override(default=\"glyph\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass TileRenderer(DataRenderer):\n",
+        "source_code_len": 35,
+        "target_code": "\n    level = Override(default=\"glyph\")\n\n    x_range_name = String('default', help=\"\"\"\n    A particular (named) x-range to use for computing screen locations when\n    rendering glyphs on the plot. If unset, use the default x-range.\n    \"\"\")\n\n    y_range_name = String('default', help=\"\"\"\n    A particular (named) y-range to use for computing screen locations when\n    rendering glyphs on the plot. If unset, use the default y-range.\n    \"\"\")\n\nclass TileRenderer(DataRenderer):\n",
+        "target_code_len": 476,
+        "diff_format": "@@ -82,2 +82,14 @@\n \n+    level = Override(default=\"glyph\")\n+\n+    x_range_name = String('default', help=\"\"\"\n+    A particular (named) x-range to use for computing screen locations when\n+    rendering glyphs on the plot. If unset, use the default x-range.\n+    \"\"\")\n+\n+    y_range_name = String('default', help=\"\"\"\n+    A particular (named) y-range to use for computing screen locations when\n+    rendering glyphs on the plot. If unset, use the default y-range.\n+    \"\"\")\n+\n class TileRenderer(DataRenderer):\n",
+        "source_code_with_indent": "\n<DED>class TileRenderer(DataRenderer):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    level = Override(default=\"glyph\")\n\n    x_range_name = String('default', help=\"\"\"\n    A particular (named) x-range to use for computing screen locations when\n    rendering glyphs on the plot. If unset, use the default x-range.\n    \"\"\")\n\n    y_range_name = String('default', help=\"\"\"\n    A particular (named) y-range to use for computing screen locations when\n    rendering glyphs on the plot. If unset, use the default y-range.\n    \"\"\")\n\n<DED>class TileRenderer(DataRenderer):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bokeh/bokeh",
+    "commit": "26eadc549714a14220b669920fe407d98808eb4c",
+    "filename": "bokeh/models/renderers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/models/renderers.py",
+    "file_hunks_size": 7,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/models/renderers.py:298:4 Inconsistent override [15]: `level` overrides attribute defined in `Renderer` inconsistently. Type `bokeh.core.property.override.Override` is not a subtype of the overridden attribute `bokeh.core.property.enum.Enum`.",
+    "message": " `level` overrides attribute defined in `Renderer` inconsistently. Type `bokeh.core.property.override.Override` is not a subtype of the overridden attribute `bokeh.core.property.enum.Enum`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 298,
+    "warning_line": "    level = Override(default=\"overlay\")"
+  }
+]

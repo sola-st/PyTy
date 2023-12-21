@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PrefectHQ/prefect",
+    "commit": "9f3bfc92d7de62ebd2243dd9a7e8ea5925373850",
+    "filename": "src/prefect/core/flow.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PrefectHQ-prefect/src/prefect/core/flow.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/prefect/core/flow.py:180:8 Incompatible attribute type [8]: Attribute `_slug_counters` declared in class `Flow` has type `Dict[str, Iterator[int]]` but is used as type `typing.DefaultDict[Variable[collections._KT], itertools.count[int]]`.",
+    "message": " Attribute `_slug_counters` declared in class `Flow` has type `Dict[str, Iterator[int]]` but is used as type `typing.DefaultDict[Variable[collections._KT], itertools.count[int]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 180,
+    "warning_line": "        self._slug_counters = collections.defaultdict(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._slug_counters = collections.defaultdict(\n            lambda: itertools.count(1)\n        )  # type: Dict[str, Iterator[int]]\n",
+        "source_code_len": 138,
+        "target_code": "        self._slug_counters = collections.defaultdict(\n            cast(Callable, functools.partial(itertools.count, 1))\n        )  # type: Dict[str, Iterator[int]]\n",
+        "target_code_len": 165,
+        "diff_format": "@@ -180,3 +180,3 @@\n         self._slug_counters = collections.defaultdict(\n-            lambda: itertools.count(1)\n+            cast(Callable, functools.partial(itertools.count, 1))\n         )  # type: Dict[str, Iterator[int]]\n",
+        "source_code_with_indent": "        self._slug_counters = collections.defaultdict(\n            lambda: itertools.count(1)\n        )  # type: Dict[str, Iterator[int]]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._slug_counters = collections.defaultdict(\n            cast(Callable, functools.partial(itertools.count, 1))\n        )  # type: Dict[str, Iterator[int]]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

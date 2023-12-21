@@ -1,0 +1,36 @@
+[
+  {
+    "project": "algoo/preview-generator",
+    "commit": "09895c027a8c7c20318d2820caf0c40083f32ce8",
+    "filename": "preview_generator/preview/builder/cad__vtk.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/algoo-preview-generator/preview_generator/preview/builder/cad__vtk.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "preview_generator/preview/builder/cad__vtk.py:100:12 Incompatible variable type [9]: mimetype is declared to have type `str` but is used as type `typing.Optional[str]`.",
+    "message": " mimetype is declared to have type `str` but is used as type `typing.Optional[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 100,
+    "warning_line": "            mimetype, _ = mimetypes_storage.guess_type(file_path, strict=False)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if not mimetype:\n            mimetype, _ = mimetypes_storage.guess_type(file_path, strict=False)\n        reader = self._get_vtk_reader(mimetype)\n",
+        "source_code_len": 153,
+        "target_code": "        if not mimetype:\n            guessed_mimetype, _ = mimetypes_storage.guess_type(file_path, strict=False)\n            # INFO - G.M - 2019-11-22 - guessed_mimetype can be None\n            mimetype = guessed_mimetype or \"\"\n        reader = self._get_vtk_reader(mimetype)\n",
+        "target_code_len": 276,
+        "diff_format": "@@ -99,3 +99,5 @@\n         if not mimetype:\n-            mimetype, _ = mimetypes_storage.guess_type(file_path, strict=False)\n+            guessed_mimetype, _ = mimetypes_storage.guess_type(file_path, strict=False)\n+            # INFO - G.M - 2019-11-22 - guessed_mimetype can be None\n+            mimetype = guessed_mimetype or \"\"\n         reader = self._get_vtk_reader(mimetype)\n",
+        "source_code_with_indent": "        if not mimetype:\n            <IND>mimetype, _ = mimetypes_storage.guess_type(file_path, strict=False)\n        <DED>reader = self._get_vtk_reader(mimetype)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if not mimetype:\n            <IND>guessed_mimetype, _ = mimetypes_storage.guess_type(file_path, strict=False)\n            # INFO - G.M - 2019-11-22 - guessed_mimetype can be None\n            mimetype = guessed_mimetype or \"\"\n        <DED>reader = self._get_vtk_reader(mimetype)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

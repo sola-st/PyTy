@@ -1,0 +1,36 @@
+[
+  {
+    "project": "DataBiosphere/toil",
+    "commit": "c4dc6132c96a6ab411e9a513deeb23458e30fa93",
+    "filename": "src/toil/common.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DataBiosphere-toil/src/toil/common.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/toil/common.py:479:79 Incompatible parameter type [6]: Expected `Union[typing.Callable[[str], Variable[argparse._T]], argparse.FileType]` for 3rd parameter `type` to call `argparse._ActionsContainer.add_argument` but got `str`.",
+    "message": " Expected `Union[typing.Callable[[str], Variable[argparse._T]], argparse.FileType]` for 3rd parameter `type` to call `argparse._ActionsContainer.add_argument` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 479,
+    "warning_line": "    file_store_options.add_argument('--disableCaching', dest='disableCaching', type='bool', nargs='?', const=True,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    move_exports.set_defaults(moveExports=False)\n    file_store_options.add_argument('--disableCaching', dest='disableCaching', type='bool', nargs='?', const=True,\n                                    default=False,\n",
+        "source_code_len": 215,
+        "target_code": "    move_exports.set_defaults(moveExports=False)\n    file_store_options.add_argument('--disableCaching', dest='disableCaching', action='store_true',\n                                    default=False,\n",
+        "target_code_len": 200,
+        "diff_format": "@@ -478,3 +478,3 @@\n     move_exports.set_defaults(moveExports=False)\n-    file_store_options.add_argument('--disableCaching', dest='disableCaching', type='bool', nargs='?', const=True,\n+    file_store_options.add_argument('--disableCaching', dest='disableCaching', action='store_true',\n                                     default=False,\n",
+        "source_code_with_indent": "    move_exports.set_defaults(moveExports=False)\n    file_store_options.add_argument('--disableCaching', dest='disableCaching', type='bool', nargs='?', const=True,\n                                    default=False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    move_exports.set_defaults(moveExports=False)\n    file_store_options.add_argument('--disableCaching', dest='disableCaching', action='store_true',\n                                    default=False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "facebookresearch/CompilerGym",
+    "commit": "e3d4bd3c5a003c1f895e817dba199ea2ec1e6585",
+    "filename": "compiler_gym/envs/llvm/datasets/csmith.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-CompilerGym/compiler_gym/envs/llvm/datasets/csmith.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "compiler_gym/envs/llvm/datasets/csmith.py:224:8 Incompatible return type [7]: Expected `int` but got `float`.",
+    "message": " Expected `int` but got `float`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 224,
+    "warning_line": "        return float(\"inf\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def size(self) -> int:\n        # Actually 2^32 - 1, but practically infinite for all intents and\n",
+        "source_code_len": 115,
+        "target_code": "    @property\n    def size(self) -> float:\n        # Actually 2^32 - 1, but practically infinite for all intents and\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -220,3 +220,3 @@\n     @property\n-    def size(self) -> int:\n+    def size(self) -> float:\n         # Actually 2^32 - 1, but practically infinite for all intents and\n",
+        "source_code_with_indent": "    <DED><DED><DED>@property\n    def size(self) -> int:\n        # Actually 2^32 - 1, but practically infinite for all intents and\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED><DED>@property\n    def size(self) -> float:\n        # Actually 2^32 - 1, but practically infinite for all intents and\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

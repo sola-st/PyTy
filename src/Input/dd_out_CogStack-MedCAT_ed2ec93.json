@@ -1,0 +1,104 @@
+[
+  {
+    "project": "CogStack/MedCAT",
+    "commit": "ed2ec9365b688b0e890652e5410c2065075eb986",
+    "filename": "medcat/cat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/CogStack-MedCAT/medcat/cat.py",
+    "file_hunks_size": 45,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "medcat/cat.py:757:39 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[Iterable[str], Iterable[typing.Tuple[typing.Any, ...]]]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[Iterable[str], Iterable[typing.Tuple[typing.Any, ...]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 757,
+    "warning_line": "                    for i in range(len(texts)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    self.log.warning(\"Found at least one failed batch and set output for enclosed texts to empty\")\n                    for i in range(len(texts)):\n                        if i == len(out):\n                            out.append(self._doc_to_out(None, only_cui, addl_info))\n                        elif out[i]['text'] != texts[i]:\n                            out.insert(i, self._doc_to_out(None, only_cui, addl_info))\n",
+        "source_code_len": 433,
+        "target_code": "                    self.log.warning(\"Found at least one failed batch and set output for enclosed texts to empty\")\n                    for i, text in enumerate(texts):\n                        if i == len(out):\n                            out.append(self._doc_to_out(None, only_cui, addl_info))\n                        elif out[i]['text'] != text:\n                            out.insert(i, self._doc_to_out(None, only_cui, addl_info))\n",
+        "target_code_len": 434,
+        "diff_format": "@@ -756,6 +768,6 @@\n                     self.log.warning(\"Found at least one failed batch and set output for enclosed texts to empty\")\n-                    for i in range(len(texts)):\n+                    for i, text in enumerate(texts):\n                         if i == len(out):\n                             out.append(self._doc_to_out(None, only_cui, addl_info))\n-                        elif out[i]['text'] != texts[i]:\n+                        elif out[i]['text'] != text:\n                             out.insert(i, self._doc_to_out(None, only_cui, addl_info))\n",
+        "source_code_with_indent": "                    <IND>self.log.warning(\"Found at least one failed batch and set output for enclosed texts to empty\")\n                    for i in range(len(texts)):\n                        <IND>if i == len(out):\n                            <IND>out.append(self._doc_to_out(None, only_cui, addl_info))\n                        <DED>elif out[i]['text'] != texts[i]:\n                            <IND>out.insert(i, self._doc_to_out(None, only_cui, addl_info))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    <IND>self.log.warning(\"Found at least one failed batch and set output for enclosed texts to empty\")\n                    for i, text in enumerate(texts):\n                        <IND>if i == len(out):\n                            <IND>out.append(self._doc_to_out(None, only_cui, addl_info))\n                        <DED>elif out[i]['text'] != text:\n                            <IND>out.insert(i, self._doc_to_out(None, only_cui, addl_info))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "CogStack/MedCAT",
+    "commit": "ed2ec9365b688b0e890652e5410c2065075eb986",
+    "filename": "medcat/cat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/CogStack-MedCAT/medcat/cat.py",
+    "file_hunks_size": 45,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "medcat/cat.py:1042:33 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[typing.Any]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1042,
+    "warning_line": "            for idx in range(len(in_data)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            out = {}\n            for idx in range(len(in_data)):\n                out[in_data[idx][0]] = entities[idx]\n        else:\n            out = []\n            for idx in range(len(in_data)):\n                out.append((in_data[idx][0], entities[idx]))\n\n",
+        "source_code_len": 259,
+        "target_code": "            out = {}\n            for idx, data in enumerate(in_data):\n                out[data[0]] = entities[idx]\n        else:\n            out = []\n            for idx, data in enumerate(in_data):\n                out.append((data[0], entities[idx]))\n\n",
+        "target_code_len": 253,
+        "diff_format": "@@ -1041,8 +1054,8 @@\n             out = {}\n-            for idx in range(len(in_data)):\n-                out[in_data[idx][0]] = entities[idx]\n+            for idx, data in enumerate(in_data):\n+                out[data[0]] = entities[idx]\n         else:\n             out = []\n-            for idx in range(len(in_data)):\n-                out.append((in_data[idx][0], entities[idx]))\n+            for idx, data in enumerate(in_data):\n+                out.append((data[0], entities[idx]))\n \n",
+        "source_code_with_indent": "            <IND>out = {}\n            for idx in range(len(in_data)):\n                <IND>out[in_data[idx][0]] = entities[idx]\n        <DED><DED>else:\n            <IND>out = []\n            for idx in range(len(in_data)):\n                <IND>out.append((in_data[idx][0], entities[idx]))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>out = {}\n            for idx, data in enumerate(in_data):\n                <IND>out[data[0]] = entities[idx]\n        <DED><DED>else:\n            <IND>out = []\n            for idx, data in enumerate(in_data):\n                <IND>out.append((data[0], entities[idx]))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "CogStack/MedCAT",
+    "commit": "ed2ec9365b688b0e890652e5410c2065075eb986",
+    "filename": "medcat/cat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/CogStack-MedCAT/medcat/cat.py",
+    "file_hunks_size": 45,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "medcat/cat.py:1046:33 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[typing.Any]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1046,
+    "warning_line": "            for idx in range(len(in_data)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            out = {}\n            for idx in range(len(in_data)):\n                out[in_data[idx][0]] = entities[idx]\n        else:\n            out = []\n            for idx in range(len(in_data)):\n                out.append((in_data[idx][0], entities[idx]))\n\n",
+        "source_code_len": 259,
+        "target_code": "            out = {}\n            for idx, data in enumerate(in_data):\n                out[data[0]] = entities[idx]\n        else:\n            out = []\n            for idx, data in enumerate(in_data):\n                out.append((data[0], entities[idx]))\n\n",
+        "target_code_len": 253,
+        "diff_format": "@@ -1041,8 +1054,8 @@\n             out = {}\n-            for idx in range(len(in_data)):\n-                out[in_data[idx][0]] = entities[idx]\n+            for idx, data in enumerate(in_data):\n+                out[data[0]] = entities[idx]\n         else:\n             out = []\n-            for idx in range(len(in_data)):\n-                out.append((in_data[idx][0], entities[idx]))\n+            for idx, data in enumerate(in_data):\n+                out.append((data[0], entities[idx]))\n \n",
+        "source_code_with_indent": "            <IND>out = {}\n            for idx in range(len(in_data)):\n                <IND>out[in_data[idx][0]] = entities[idx]\n        <DED><DED>else:\n            <IND>out = []\n            for idx in range(len(in_data)):\n                <IND>out.append((in_data[idx][0], entities[idx]))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>out = {}\n            for idx, data in enumerate(in_data):\n                <IND>out[data[0]] = entities[idx]\n        <DED><DED>else:\n            <IND>out = []\n            for idx, data in enumerate(in_data):\n                <IND>out.append((data[0], entities[idx]))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

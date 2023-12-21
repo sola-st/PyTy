@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PyFilesystem/pyfilesystem2",
+    "commit": "5cf0666a00d3ff855cf56e08dd0af2282b79a193",
+    "filename": "fs/opener/appfs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyFilesystem-pyfilesystem2/fs/opener/appfs.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fs/opener/appfs.py:64:12 Incompatible return type [7]: Expected `Union[SubFS[_AppFS], _AppFS]` but got `SubFS[fs.base.FS]`.",
+    "message": " Expected `Union[SubFS[_AppFS], _AppFS]` but got `SubFS[fs.base.FS]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 64,
+    "warning_line": "            return app_fs.opendir(path, factory=ClosingSubFS)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    protocols = [\"userdata\", \"userconf\", \"sitedata\", \"siteconf\", \"usercache\", \"userlog\"]\n\n    _protocol_mapping = {\n        \"userdata\": appfs.UserDataFS,\n        \"userconf\": appfs.UserConfigFS,\n        \"sitedata\": appfs.SiteDataFS,\n        \"siteconf\": appfs.SiteConfigFS,\n        \"usercache\": appfs.UserCacheFS,\n        \"userlog\": appfs.UserLogFS,\n    }\n\n",
+        "source_code_len": 355,
+        "target_code": "    protocols = [\"userdata\", \"userconf\", \"sitedata\", \"siteconf\", \"usercache\", \"userlog\"]\n    _protocol_mapping = None\n\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -27,11 +27,3 @@\n     protocols = [\"userdata\", \"userconf\", \"sitedata\", \"siteconf\", \"usercache\", \"userlog\"]\n-\n-    _protocol_mapping = {\n-        \"userdata\": appfs.UserDataFS,\n-        \"userconf\": appfs.UserConfigFS,\n-        \"sitedata\": appfs.SiteDataFS,\n-        \"siteconf\": appfs.SiteConfigFS,\n-        \"usercache\": appfs.UserCacheFS,\n-        \"userlog\": appfs.UserLogFS,\n-    }\n+    _protocol_mapping = None\n \n",
+        "source_code_with_indent": "    protocols = [\"userdata\", \"userconf\", \"sitedata\", \"siteconf\", \"usercache\", \"userlog\"]\n\n    _protocol_mapping = {\n        \"userdata\": appfs.UserDataFS,\n        \"userconf\": appfs.UserConfigFS,\n        \"sitedata\": appfs.SiteDataFS,\n        \"siteconf\": appfs.SiteConfigFS,\n        \"usercache\": appfs.UserCacheFS,\n        \"userlog\": appfs.UserLogFS,\n    }\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    protocols = [\"userdata\", \"userconf\", \"sitedata\", \"siteconf\", \"usercache\", \"userlog\"]\n    _protocol_mapping = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

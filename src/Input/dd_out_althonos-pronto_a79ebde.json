@@ -1,0 +1,70 @@
+[
+  {
+    "project": "althonos/pronto",
+    "commit": "a79ebded276a3aa6a1deef3c8cd77be27ef4c247",
+    "filename": "pronto/term.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/term.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/term.py:350:8 Incompatible return type [7]: Expected `frozenset[str]` but got `TermSet`.",
+    "message": " Expected `frozenset[str]` but got `TermSet`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 350,
+    "warning_line": "        return s",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def equivalent_to(self) -> FrozenSet[str]:\n        \"\"\"`TermSet`: The terms declared as equivalent to this term.\n",
+        "source_code_len": 130,
+        "target_code": "    @property\n    def equivalent_to(self) -> \"TermSet\":\n        \"\"\"`TermSet`: The terms declared as equivalent to this term.\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -343,3 +343,3 @@\n     @property\n-    def equivalent_to(self) -> FrozenSet[str]:\n+    def equivalent_to(self) -> \"TermSet\":\n         \"\"\"`TermSet`: The terms declared as equivalent to this term.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@property\n    def equivalent_to(self) -> FrozenSet[str]:\n        <IND>",
+        "target_code_with_indent": "    <DED>@property\n    def equivalent_to(self) -> \"TermSet\":\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "althonos/pronto",
+    "commit": "a79ebded276a3aa6a1deef3c8cd77be27ef4c247",
+    "filename": "pronto/term.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/term.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/term.py:490:8 Incompatible return type [7]: Expected `pronto.logic.lineage.SubclassesIterator` but got `pronto.logic.lineage.SuperclassesIterator`.",
+    "message": " Expected `pronto.logic.lineage.SubclassesIterator` but got `pronto.logic.lineage.SuperclassesIterator`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 490,
+    "warning_line": "        return SuperclassesIterator(*self, distance=distance, with_self=with_self)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self, distance: Optional[int] = None, with_self: bool = True\n    ) -> SubclassesIterator:\n        \"\"\"Get an iterator over the superclasses of all terms in the set.\n",
+        "source_code_len": 172,
+        "target_code": "        self, distance: Optional[int] = None, with_self: bool = True\n    ) -> SuperclassesIterator:\n        \"\"\"Get an iterator over the superclasses of all terms in the set.\n",
+        "target_code_len": 174,
+        "diff_format": "@@ -477,3 +477,3 @@\n         self, distance: Optional[int] = None, with_self: bool = True\n-    ) -> SubclassesIterator:\n+    ) -> SuperclassesIterator:\n         \"\"\"Get an iterator over the superclasses of all terms in the set.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        self, distance: Optional[int] = None, with_self: bool = True\n    ) -> SubclassesIterator:\n        <IND>",
+        "target_code_with_indent": "        self, distance: Optional[int] = None, with_self: bool = True\n    ) -> SuperclassesIterator:\n        <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "cctbx/cctbx_project",
+    "commit": "6080bc9db19fed2028fcbc13dc2928bf83990418",
+    "filename": "cctbx/run_tests.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/cctbx-cctbx_project/cctbx/run_tests.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cctbx/run_tests.py:156:19 Incompatible parameter type [6]: Expected `typing.Iterable[str]` for 1st positional only parameter to call `list.__iadd__` but got `typing.List[typing.Union[typing.List[str], str]]`.",
+    "message": " Expected `typing.Iterable[str]` for 1st positional only parameter to call `list.__iadd__` but got `typing.List[typing.Union[typing.List[str], str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 156,
+    "warning_line": "  tst_list_fail += tst_list_fail_py3",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n# failing tests on Python 3\ntst_list_fail_py3 = [\n  \"$D/xray/boost_python/tst_xray.py\",\n  [\"$D/regression/tst_xray.py\", \"I41/acd\"],\n  ]\ntst_list_fail = [\"$D/regression/tst_maptbx_box.py\",]\nif sys.version_info[0] > 2:\n  tst_list_fail += tst_list_fail_py3\nelse:\n  tst_list_base += tst_list_fail_py3\n\n# final lists\ntst_list = tst_list_base\ntst_list_expected_failures = tst_list_fail\n\ndef run():\n",
+        "source_code_len": 393,
+        "target_code": "\ndef run():\n",
+        "target_code_len": 12,
+        "diff_format": "@@ -148,17 +150,2 @@\n \n-# failing tests on Python 3\n-tst_list_fail_py3 = [\n-  \"$D/xray/boost_python/tst_xray.py\",\n-  [\"$D/regression/tst_xray.py\", \"I41/acd\"],\n-  ]\n-tst_list_fail = [\"$D/regression/tst_maptbx_box.py\",]\n-if sys.version_info[0] > 2:\n-  tst_list_fail += tst_list_fail_py3\n-else:\n-  tst_list_base += tst_list_fail_py3\n-\n-# final lists\n-tst_list = tst_list_base\n-tst_list_expected_failures = tst_list_fail\n-\n def run():\n",
+        "source_code_with_indent": "\n# failing tests on Python 3\ntst_list_fail_py3 = [\n  \"$D/xray/boost_python/tst_xray.py\",\n  [\"$D/regression/tst_xray.py\", \"I41/acd\"],\n  ]\ntst_list_fail = [\"$D/regression/tst_maptbx_box.py\",]\nif sys.version_info[0] > 2:\n  <IND>tst_list_fail += tst_list_fail_py3\n<DED>else:\n  <IND>tst_list_base += tst_list_fail_py3\n\n# final lists\n<DED>tst_list = tst_list_base\ntst_list_expected_failures = tst_list_fail\n\ndef run():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef run():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

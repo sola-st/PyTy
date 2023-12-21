@@ -1,0 +1,36 @@
+[
+  {
+    "project": "abersheeran/rpc.py",
+    "commit": "42834fd13dab6aba15868120fd380942739ba630",
+    "filename": "rpcpy/wsgi.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abersheeran-rpc.py/rpcpy/wsgi.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rpcpy/wsgi.py:222:12 Incompatible parameter type [6]: Expected `typing.Callable[..., Variable[concurrent.futures._base._T]]` for 1st positional only parameter to call `concurrent.futures._base.Executor.submit` but got `concurrent.futures._base.DoneAndNotDoneFutures[None]`.",
+    "message": " Expected `typing.Callable[..., Variable[concurrent.futures._base._T]]` for 1st positional only parameter to call `concurrent.futures._base.Executor.submit` but got `concurrent.futures._base.DoneAndNotDoneFutures[None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 222,
+    "warning_line": "            wait(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.thread_pool.submit(\n            wait(\n                (\n                    self.thread_pool.submit(self.send_event),\n                    self.thread_pool.submit(self.keep_alive),\n                ),\n                return_when=FIRST_COMPLETED,\n            )\n        )\n",
+        "source_code_len": 281,
+        "target_code": "        self.thread_pool.submit(\n            wait,\n            (\n                self.thread_pool.submit(self.send_event),\n                self.thread_pool.submit(self.keep_alive),\n            ),\n            return_when=FIRST_COMPLETED,\n        )\n",
+        "target_code_len": 247,
+        "diff_format": "@@ -221,9 +221,8 @@\n         self.thread_pool.submit(\n-            wait(\n-                (\n-                    self.thread_pool.submit(self.send_event),\n-                    self.thread_pool.submit(self.keep_alive),\n-                ),\n-                return_when=FIRST_COMPLETED,\n-            )\n+            wait,\n+            (\n+                self.thread_pool.submit(self.send_event),\n+                self.thread_pool.submit(self.keep_alive),\n+            ),\n+            return_when=FIRST_COMPLETED,\n         )\n",
+        "source_code_with_indent": "        self.thread_pool.submit(\n            wait(\n                (\n                    self.thread_pool.submit(self.send_event),\n                    self.thread_pool.submit(self.keep_alive),\n                ),\n                return_when=FIRST_COMPLETED,\n            )\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.thread_pool.submit(\n            wait,\n            (\n                self.thread_pool.submit(self.send_event),\n                self.thread_pool.submit(self.keep_alive),\n            ),\n            return_when=FIRST_COMPLETED,\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

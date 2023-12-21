@@ -1,0 +1,36 @@
+[
+  {
+    "project": "niklasf/python-chess",
+    "commit": "3c416574779ec38ab2583be2d9c6acb0a2375a28",
+    "filename": "chess/gaviota.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/niklasf-python-chess/chess/gaviota.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chess/gaviota.py:1867:37 Incompatible parameter type [6]: Expected `Tuple[str, int, int]` for 1st positional only parameter to call `dict.__getitem__` but got `Optional[Tuple[str, int, int]]`.",
+    "message": " Expected `Tuple[str, int, int]` for 1st positional only parameter to call `dict.__getitem__` but got `Optional[Tuple[str, int, int]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1867,
+    "warning_line": "                del self.block_cache[lru_cache_key]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if len(self.block_cache) > 128:\n                lru_cache_key, lru_age = None, None\n                for cache_key, cache_entry in self.block_cache.items():\n                    if lru_age is None or cache_entry.age < lru_age:\n                        lru_cache_key = cache_key\n                        lru_age = cache_entry.age\n\n                del self.block_cache[lru_cache_key]\n",
+        "source_code_len": 390,
+        "target_code": "            if len(self.block_cache) > 128:\n                lru_cache_key = min(self.block_cache, key=lambda cache_key: self.block_cache[cache_key].age)\n                del self.block_cache[lru_cache_key]\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -1860,8 +1860,3 @@\n             if len(self.block_cache) > 128:\n-                lru_cache_key, lru_age = None, None\n-                for cache_key, cache_entry in self.block_cache.items():\n-                    if lru_age is None or cache_entry.age < lru_age:\n-                        lru_cache_key = cache_key\n-                        lru_age = cache_entry.age\n-\n+                lru_cache_key = min(self.block_cache, key=lambda cache_key: self.block_cache[cache_key].age)\n                 del self.block_cache[lru_cache_key]\n",
+        "source_code_with_indent": "            if len(self.block_cache) > 128:\n                <IND>lru_cache_key, lru_age = None, None\n                for cache_key, cache_entry in self.block_cache.items():\n                    <IND>if lru_age is None or cache_entry.age < lru_age:\n                        <IND>lru_cache_key = cache_key\n                        lru_age = cache_entry.age\n\n                <DED><DED>del self.block_cache[lru_cache_key]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            if len(self.block_cache) > 128:\n                <IND>lru_cache_key = min(self.block_cache, key=lambda cache_key: self.block_cache[cache_key].age)\n                del self.block_cache[lru_cache_key]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

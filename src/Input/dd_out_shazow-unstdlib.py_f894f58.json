@@ -1,0 +1,51 @@
+[
+  {
+    "project": "shazow/unstdlib.py",
+    "commit": "f894f58a6c69916e799c672dd3b1589c38fb130f",
+    "filename": "unstdlib/html.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/shazow-unstdlib.py/unstdlib/html.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "unstdlib/html.py:13:17 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 13,
+    "warning_line": "    MarkupType = unicode",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom unstdlib.standard.functools_ import memoized\n",
+        "source_code_len": 51,
+        "target_code": "\nfrom unstdlib.six import text_type, string_types\nfrom unstdlib.standard.functools_ import memoized\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -5,2 +5,3 @@\n \n+from unstdlib.six import text_type, string_types\n from unstdlib.standard.functools_ import memoized\n",
+        "source_code_with_indent": "\nfrom unstdlib.standard.functools_ import memoized\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom unstdlib.six import text_type, string_types\nfrom unstdlib.standard.functools_ import memoized\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "except ImportError:\n    MarkupType = unicode\n\n",
+        "source_code_len": 46,
+        "target_code": "except ImportError:\n    MarkupType = text_type\n\n",
+        "target_code_len": 48,
+        "diff_format": "@@ -12,3 +13,3 @@\n except ImportError:\n-    MarkupType = unicode\n+    MarkupType = text_type\n \n",
+        "source_code_with_indent": "<DED>except ImportError:\n    <IND>MarkupType = unicode\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>except ImportError:\n    <IND>MarkupType = text_type\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

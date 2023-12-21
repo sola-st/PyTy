@@ -1,0 +1,51 @@
+[
+  {
+    "project": "iffiX/machin",
+    "commit": "c42c13016b9e32d3102dc045b9bf1cbb3cb55dc6",
+    "filename": "machin/auto/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/iffiX-machin/machin/auto/dataset.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "machin/auto/dataset.py:105:8 Incompatible return type [7]: Expected `Iterable[typing.Any]` but got `RLDataset`.",
+    "message": " Expected `Iterable[typing.Any]` but got `RLDataset`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 105,
+    "warning_line": "        return self",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import pytorch_lightning as pl\nfrom typing import Iterable, List, Dict, Union, Any, Tuple, Callable\nfrom torch.utils.data import IterableDataset\n",
+        "source_code_len": 145,
+        "target_code": "import pytorch_lightning as pl\nfrom typing import Iterator, List, Dict, Union, Any, Tuple, Callable\nfrom torch.utils.data import IterableDataset\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -5,3 +5,3 @@\n import pytorch_lightning as pl\n-from typing import Iterable, List, Dict, Union, Any, Tuple, Callable\n+from typing import Iterator, List, Dict, Union, Any, Tuple, Callable\n from torch.utils.data import IterableDataset\n",
+        "source_code_with_indent": "import pytorch_lightning as pl\nfrom typing import Iterable, List, Dict, Union, Any, Tuple, Callable\nfrom torch.utils.data import IterableDataset\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import pytorch_lightning as pl\nfrom typing import Iterator, List, Dict, Union, Any, Tuple, Callable\nfrom torch.utils.data import IterableDataset\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __iter__(self) -> Iterable:\n        return self\n",
+        "source_code_len": 57,
+        "target_code": "\n    def __iter__(self) -> Iterator:\n        return self\n",
+        "target_code_len": 57,
+        "diff_format": "@@ -103,3 +103,3 @@\n \n-    def __iter__(self) -> Iterable:\n+    def __iter__(self) -> Iterator:\n         return self\n",
+        "source_code_with_indent": "\n    <DED>def __iter__(self) -> Iterable:\n        <IND>return self\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __iter__(self) -> Iterator:\n        <IND>return self\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

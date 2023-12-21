@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Yelp/paasta",
+    "commit": "854aad5093f8ce009f0cff6679b135a07c6063a1",
+    "filename": "paasta_tools/setup_istio_mesh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Yelp-paasta/paasta_tools/setup_istio_mesh.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "paasta_tools/setup_istio_mesh.py:191:21 Incompatible parameter type [6]: Expected `Mapping[typing.Any, typing.Any]` for 2nd positional only parameter to call `setup_paasta_namespace_services` but got `typing.AbstractSet[typing.Any]`.",
+    "message": " Expected `Mapping[typing.Any, typing.Any]` for 2nd positional only parameter to call `setup_paasta_namespace_services` but got `typing.AbstractSet[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 191,
+    "warning_line": "        kube_client, namespaces.keys(), existing_kube_services_names, rate_limit",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import sys\nfrom typing import List\n",
+        "source_code_len": 35,
+        "target_code": "import sys\nfrom typing import AbstractSet\nfrom typing import List\n",
+        "target_code_len": 66,
+        "diff_format": "@@ -28,2 +28,3 @@\n import sys\n+from typing import AbstractSet\n from typing import List\n",
+        "source_code_with_indent": "import sys\nfrom typing import List\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import sys\nfrom typing import AbstractSet\nfrom typing import List\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    kube_client: KubeClient,\n    paasta_namespaces: Mapping,\n    existing_kube_services_names: Set[str] = set(),\n",
+        "source_code_len": 113,
+        "target_code": "    kube_client: KubeClient,\n    paasta_namespaces: AbstractSet,\n    existing_kube_services_names: Set[str] = set(),\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -132,3 +133,3 @@\n     kube_client: KubeClient,\n-    paasta_namespaces: Mapping,\n+    paasta_namespaces: AbstractSet,\n     existing_kube_services_names: Set[str] = set(),\n",
+        "source_code_with_indent": "    kube_client: KubeClient,\n    paasta_namespaces: Mapping,\n    existing_kube_services_names: Set[str] = set(),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    kube_client: KubeClient,\n    paasta_namespaces: AbstractSet,\n    existing_kube_services_names: Set[str] = set(),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

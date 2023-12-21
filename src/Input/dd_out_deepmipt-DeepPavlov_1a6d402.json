@@ -1,0 +1,36 @@
+[
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "1a6d4020c53e2b39e224616481528fad901cbd4e",
+    "filename": "deeppavlov/core/commands/infer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/core/commands/infer.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/core/commands/infer.py:136:24 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `int`.",
+    "message": " Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 136,
+    "warning_line": "            batch = zip(*[batch]*args_count)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    while True:\n        batch = (l.strip() for l in islice(f, batch_size*args_count))\n        if args_count > 1:\n            batch = zip(*[batch]*args_count)\n        batch = list(batch)\n\n",
+        "source_code_len": 187,
+        "target_code": "    while True:\n        batch = list((l.strip() for l in islice(f, batch_size*args_count)))\n\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -133,6 +95,3 @@\n     while True:\n-        batch = (l.strip() for l in islice(f, batch_size*args_count))\n-        if args_count > 1:\n-            batch = zip(*[batch]*args_count)\n-        batch = list(batch)\n+        batch = list((l.strip() for l in islice(f, batch_size*args_count)))\n \n",
+        "source_code_with_indent": "    while True:\n        <IND>batch = (l.strip() for l in islice(f, batch_size*args_count))\n        if args_count > 1:\n            <IND>batch = zip(*[batch]*args_count)\n        <DED>batch = list(batch)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    while True:\n        <IND>batch = list((l.strip() for l in islice(f, batch_size*args_count)))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

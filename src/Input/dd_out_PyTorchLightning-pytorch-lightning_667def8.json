@@ -1,0 +1,70 @@
+[
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "667def8d8990ac9320786900501501fbcf5bd55d",
+    "filename": "pytorch_lightning/utilities/parsing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/utilities/parsing.py",
+    "file_hunks_size": 22,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/utilities/parsing.py:56:4 Incompatible variable type [9]: val is declared to have type `str` but is used as type `Union[bool, str]`.",
+    "message": " val is declared to have type `str` but is used as type `Union[bool, str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 56,
+    "warning_line": "    val = str_to_bool_or_str(val)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    val = str_to_bool_or_str(val)\n    if isinstance(val, bool):\n        return val\n    raise ValueError(f'invalid truth value {val}')\n\n",
+        "source_code_len": 143,
+        "target_code": "    \"\"\"\n    val_converted = str_to_bool_or_str(val)\n    if isinstance(val_converted, bool):\n        return val_converted\n    raise ValueError(f'invalid truth value {val_converted}')\n\n",
+        "target_code_len": 183,
+        "diff_format": "@@ -55,6 +58,6 @@\n     \"\"\"\n-    val = str_to_bool_or_str(val)\n-    if isinstance(val, bool):\n-        return val\n-    raise ValueError(f'invalid truth value {val}')\n+    val_converted = str_to_bool_or_str(val)\n+    if isinstance(val_converted, bool):\n+        return val_converted\n+    raise ValueError(f'invalid truth value {val_converted}')\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    val = str_to_bool_or_str(val)\n    if isinstance(val, bool):\n        <IND>return val\n    <DED>raise ValueError(f'invalid truth value {val}')\n\n",
+        "target_code_with_indent": "\n    val_converted = str_to_bool_or_str(val)\n    if isinstance(val_converted, bool):\n        <IND>return val_converted\n    <DED>raise ValueError(f'invalid truth value {val_converted}')\n\n"
+      }
+    ]
+  },
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "667def8d8990ac9320786900501501fbcf5bd55d",
+    "filename": "pytorch_lightning/utilities/parsing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/utilities/parsing.py",
+    "file_hunks_size": 22,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/utilities/parsing.py:74:4 Incompatible variable type [9]: val is declared to have type `str` but is used as type `Union[bool, str]`.",
+    "message": " val is declared to have type `str` but is used as type `Union[bool, str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 74,
+    "warning_line": "    val = str_to_bool_or_str(val)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    val = str_to_bool_or_str(val)\n    if isinstance(val, bool):\n        return val\n    try:\n        return int(val)\n    except ValueError:\n        return val\n\n",
+        "source_code_len": 167,
+        "target_code": "    \"\"\"\n    val_converted = str_to_bool_or_str(val)\n    if isinstance(val_converted, bool):\n        return val_converted\n    try:\n        return int(val_converted)\n    except ValueError:\n        return val_converted\n\n",
+        "target_code_len": 217,
+        "diff_format": "@@ -73,9 +76,9 @@\n     \"\"\"\n-    val = str_to_bool_or_str(val)\n-    if isinstance(val, bool):\n-        return val\n+    val_converted = str_to_bool_or_str(val)\n+    if isinstance(val_converted, bool):\n+        return val_converted\n     try:\n-        return int(val)\n+        return int(val_converted)\n     except ValueError:\n-        return val\n+        return val_converted\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    val = str_to_bool_or_str(val)\n    if isinstance(val, bool):\n        <IND>return val\n    <DED>try:\n        <IND>return int(val)\n    <DED>except ValueError:\n        <IND>return val\n\n",
+        "target_code_with_indent": "\n    val_converted = str_to_bool_or_str(val)\n    if isinstance(val_converted, bool):\n        <IND>return val_converted\n    <DED>try:\n        <IND>return int(val_converted)\n    <DED>except ValueError:\n        <IND>return val_converted\n\n"
+      }
+    ]
+  }
+]

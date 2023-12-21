@@ -1,0 +1,104 @@
+[
+  {
+    "project": "sorgerlab/indra",
+    "commit": "3f089d0fa45bac30a09f3342bc165bbd94b8a4b7",
+    "filename": "indra/belief/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sorgerlab-indra/indra/belief/__init__.py",
+    "file_hunks_size": 42,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "indra/belief/__init__.py:213:29 Incompatible parameter type [6]: Expected `List[List[indra.statements.evidence.Evidence]]` for 1st positional only parameter to call `check_extra_evidence` but got `Optional[List[List[indra.statements.evidence.Evidence]]]`.",
+    "message": " Expected `List[List[indra.statements.evidence.Evidence]]` for 1st positional only parameter to call `check_extra_evidence` but got `Optional[List[List[indra.statements.evidence.Evidence]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 213,
+    "warning_line": "        check_extra_evidence(extra_evidence, len(statements))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def check_extra_evidence(\n    extra_evidence: List[List[Evidence]],\n    num_stmts: int,\n",
+        "source_code_len": 88,
+        "target_code": "def check_extra_evidence(\n    extra_evidence: Optional[List[List[Evidence]]],\n    num_stmts: int,\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -703,3 +708,3 @@\n def check_extra_evidence(\n-    extra_evidence: List[List[Evidence]],\n+    extra_evidence: Optional[List[List[Evidence]]],\n     num_stmts: int,\n",
+        "source_code_with_indent": "<DED>def check_extra_evidence(\n    extra_evidence: List[List[Evidence]],\n    num_stmts: int,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def check_extra_evidence(\n    extra_evidence: Optional[List[List[Evidence]]],\n    num_stmts: int,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sorgerlab/indra",
+    "commit": "3f089d0fa45bac30a09f3342bc165bbd94b8a4b7",
+    "filename": "indra/belief/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sorgerlab-indra/indra/belief/__init__.py",
+    "file_hunks_size": 42,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "indra/belief/__init__.py:217:55 Incompatible parameter type [6]: Expected `List[List[indra.statements.evidence.Evidence]]` for 3rd positional only parameter to call `get_stmt_evidence` but got `Optional[List[List[indra.statements.evidence.Evidence]]]`.",
+    "message": " Expected `List[List[indra.statements.evidence.Evidence]]` for 3rd positional only parameter to call `get_stmt_evidence` but got `Optional[List[List[indra.statements.evidence.Evidence]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 217,
+    "warning_line": "            all_evidence = get_stmt_evidence(stmt, ix, extra_evidence)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ix: int,\n    extra_evidence: List[List[Evidence]],\n) -> Set[Evidence]:\n    \"\"\"Combine stmt's own evidence with any extra evidence provided.\"\"\"\n    if extra_evidence:\n        extra_ev_for_stmt = extra_evidence[ix]\n        stmt_ev = set(stmt.evidence) | set(extra_ev_for_stmt)\n    else:\n        stmt_ev = set(stmt.evidence)\n    return stmt_ev\n\n\n\n",
+        "source_code_len": 348,
+        "target_code": "    ix: int,\n    extra_evidence: Optional[List[List[Evidence]]],\n) -> List[Evidence]:\n    \"\"\"Combine a statements' own evidence with any extra evidence provided.\"\"\"\n    stmt_ev = set(stmt.evidence)\n    if extra_evidence is not None:\n        extra_ev_for_stmt = extra_evidence[ix]\n        stmt_ev.update(extra_ev_for_stmt)\n    return list(stmt_ev)\n\n\n\n",
+        "target_code_len": 350,
+        "diff_format": "@@ -741,13 +746,12 @@\n     ix: int,\n-    extra_evidence: List[List[Evidence]],\n-) -> Set[Evidence]:\n-    \"\"\"Combine stmt's own evidence with any extra evidence provided.\"\"\"\n-    if extra_evidence:\n+    extra_evidence: Optional[List[List[Evidence]]],\n+) -> List[Evidence]:\n+    \"\"\"Combine a statements' own evidence with any extra evidence provided.\"\"\"\n+    stmt_ev = set(stmt.evidence)\n+    if extra_evidence is not None:\n         extra_ev_for_stmt = extra_evidence[ix]\n-        stmt_ev = set(stmt.evidence) | set(extra_ev_for_stmt)\n-    else:\n-        stmt_ev = set(stmt.evidence)\n-    return stmt_ev\n-\n-\n-\n+        stmt_ev.update(extra_ev_for_stmt)\n+    return list(stmt_ev)\n+\n+\n+\n",
+        "source_code_with_indent": "    ix: int,\n    extra_evidence: List[List[Evidence]],\n) -> Set[Evidence]:\n    <IND>\"\"\"Combine stmt's own evidence with any extra evidence provided.\"\"\"\n    if extra_evidence:\n        <IND>extra_ev_for_stmt = extra_evidence[ix]\n        stmt_ev = set(stmt.evidence) | set(extra_ev_for_stmt)\n    <DED>else:\n        <IND>stmt_ev = set(stmt.evidence)\n    <DED>return stmt_ev\n\n\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ix: int,\n    extra_evidence: Optional[List[List[Evidence]]],\n) -> List[Evidence]:\n    <IND>\"\"\"Combine a statements' own evidence with any extra evidence provided.\"\"\"\n    stmt_ev = set(stmt.evidence)\n    if extra_evidence is not None:\n        <IND>extra_ev_for_stmt = extra_evidence[ix]\n        stmt_ev.update(extra_ev_for_stmt)\n    <DED>return list(stmt_ev)\n\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sorgerlab/indra",
+    "commit": "3f089d0fa45bac30a09f3342bc165bbd94b8a4b7",
+    "filename": "indra/belief/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sorgerlab-indra/indra/belief/__init__.py",
+    "file_hunks_size": 42,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "indra/belief/__init__.py:218:52 Incompatible parameter type [6]: Expected `List[indra.statements.evidence.Evidence]` for 1st positional only parameter to call `SimpleScorer.score_evidence_list` but got `Set[indra.statements.evidence.Evidence]`.",
+    "message": " Expected `List[indra.statements.evidence.Evidence]` for 1st positional only parameter to call `SimpleScorer.score_evidence_list` but got `Set[indra.statements.evidence.Evidence]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 218,
+    "warning_line": "            beliefs.append(self.score_evidence_list(all_evidence))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ix: int,\n    extra_evidence: List[List[Evidence]],\n) -> Set[Evidence]:\n    \"\"\"Combine stmt's own evidence with any extra evidence provided.\"\"\"\n    if extra_evidence:\n        extra_ev_for_stmt = extra_evidence[ix]\n        stmt_ev = set(stmt.evidence) | set(extra_ev_for_stmt)\n    else:\n        stmt_ev = set(stmt.evidence)\n    return stmt_ev\n\n\n\n",
+        "source_code_len": 348,
+        "target_code": "    ix: int,\n    extra_evidence: Optional[List[List[Evidence]]],\n) -> List[Evidence]:\n    \"\"\"Combine a statements' own evidence with any extra evidence provided.\"\"\"\n    stmt_ev = set(stmt.evidence)\n    if extra_evidence is not None:\n        extra_ev_for_stmt = extra_evidence[ix]\n        stmt_ev.update(extra_ev_for_stmt)\n    return list(stmt_ev)\n\n\n\n",
+        "target_code_len": 350,
+        "diff_format": "@@ -741,13 +746,12 @@\n     ix: int,\n-    extra_evidence: List[List[Evidence]],\n-) -> Set[Evidence]:\n-    \"\"\"Combine stmt's own evidence with any extra evidence provided.\"\"\"\n-    if extra_evidence:\n+    extra_evidence: Optional[List[List[Evidence]]],\n+) -> List[Evidence]:\n+    \"\"\"Combine a statements' own evidence with any extra evidence provided.\"\"\"\n+    stmt_ev = set(stmt.evidence)\n+    if extra_evidence is not None:\n         extra_ev_for_stmt = extra_evidence[ix]\n-        stmt_ev = set(stmt.evidence) | set(extra_ev_for_stmt)\n-    else:\n-        stmt_ev = set(stmt.evidence)\n-    return stmt_ev\n-\n-\n-\n+        stmt_ev.update(extra_ev_for_stmt)\n+    return list(stmt_ev)\n+\n+\n+\n",
+        "source_code_with_indent": "    ix: int,\n    extra_evidence: List[List[Evidence]],\n) -> Set[Evidence]:\n    <IND>\"\"\"Combine stmt's own evidence with any extra evidence provided.\"\"\"\n    if extra_evidence:\n        <IND>extra_ev_for_stmt = extra_evidence[ix]\n        stmt_ev = set(stmt.evidence) | set(extra_ev_for_stmt)\n    <DED>else:\n        <IND>stmt_ev = set(stmt.evidence)\n    <DED>return stmt_ev\n\n\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ix: int,\n    extra_evidence: Optional[List[List[Evidence]]],\n) -> List[Evidence]:\n    <IND>\"\"\"Combine a statements' own evidence with any extra evidence provided.\"\"\"\n    stmt_ev = set(stmt.evidence)\n    if extra_evidence is not None:\n        <IND>extra_ev_for_stmt = extra_evidence[ix]\n        stmt_ev.update(extra_ev_for_stmt)\n    <DED>return list(stmt_ev)\n\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

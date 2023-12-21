@@ -1,0 +1,87 @@
+[
+  {
+    "project": "plasma-umass/scalene",
+    "commit": "be32bf042a868c3731dab570b0014b9dc8879e58",
+    "filename": "scalene/leak_analysis.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plasma-umass-scalene/scalene/leak_analysis.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scalene/leak_analysis.py:100:74 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `one_sided_binomial_test_ge` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `one_sided_binomial_test_ge` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 100,
+    "warning_line": "            this_pvalue = one_sided_binomial_test_ge(int(np.nansum(vec)), vec[max_index], 1/(m-removed))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def outliers(\n    vec: List[float], alpha: float = 0.01, trials: int = 3000\n) -> List[Tuple[int, float]]:\n",
+        "source_code_len": 106,
+        "target_code": "def outliers(\n    vec: List[Any], alpha: float = 0.01, trials: int = 3000\n) -> List[Tuple[int, float]]:\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -79,3 +88,3 @@\n def outliers(\n-    vec: List[float], alpha: float = 0.01, trials: int = 3000\n+    vec: List[Any], alpha: float = 0.01, trials: int = 3000\n ) -> List[Tuple[int, float]]:\n",
+        "source_code_with_indent": "<DED>def outliers(\n    vec: List[float], alpha: float = 0.01, trials: int = 3000\n) -> List[Tuple[int, float]]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def outliers(\n    vec: List[Any], alpha: float = 0.01, trials: int = 3000\n) -> List[Tuple[int, float]]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "plasma-umass/scalene",
+    "commit": "be32bf042a868c3731dab570b0014b9dc8879e58",
+    "filename": "scalene/scalene_profiler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plasma-umass-scalene/scalene/scalene_profiler.py",
+    "file_hunks_size": 12,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scalene/scalene_profiler.py:208:4 Incompatible attribute type [8]: Attribute `_Scalene__leak_score` declared in class `Scalene` has type `Dict[Filename, Dict[LineNumber, float]]` but is used as type `typing.DefaultDict[Variable[collections._KT], typing.DefaultDict[Variable[collections._KT], float]]`.",
+    "message": " Attribute `_Scalene__leak_score` declared in class `Scalene` has type `Dict[Filename, Dict[LineNumber, float]]` but is used as type `typing.DefaultDict[Variable[collections._KT], typing.DefaultDict[Variable[collections._KT], float]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 208,
+    "warning_line": "    __leak_score: Dict[Filename, Dict[LineNumber, float]] = defaultdict("
+  },
+  {
+    "project": "plasma-umass/scalene",
+    "commit": "be32bf042a868c3731dab570b0014b9dc8879e58",
+    "filename": "scalene/scalene_profiler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plasma-umass-scalene/scalene/scalene_profiler.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scalene/scalene_profiler.py:796:12 Incompatible return type [7]: Expected `List[Tuple[FrameType, int, FrameType]]` but got `None`.",
+    "message": " Expected `List[Tuple[FrameType, int, FrameType]]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 796,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            # threading library\n            return None\n        frames: List[Tuple[FrameType, int]] = [\n",
+        "source_code_len": 104,
+        "target_code": "            # threading library\n            return []\n        frames: List[Tuple[FrameType, int]] = [\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -795,3 +800,3 @@\n             # threading library\n-            return None\n+            return []\n         frames: List[Tuple[FrameType, int]] = [\n",
+        "source_code_with_indent": "            # threading library\n            <IND>return None\n        <DED>frames: List[Tuple[FrameType, int]] = [\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            # threading library\n            <IND>return []\n        <DED>frames: List[Tuple[FrameType, int]] = [\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "openscopeproject/InteractiveHtmlBom",
+    "commit": "6350be3e1e6aefaa341ba3440c585675f8959166",
+    "filename": "InteractiveHtmlBom/ecad/easyeda.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openscopeproject-InteractiveHtmlBom/InteractiveHtmlBom/ecad/easyeda.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "InteractiveHtmlBom/ecad/easyeda.py:300:8 Call error [29]: `typing.Optional[typing.Callable[[], typing.Any]]` is not a function.",
+    "message": " `typing.Optional[typing.Callable[[], typing.Any]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 300,
+    "warning_line": "        {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        }.get(pad['shape'])()\n\n    def add_drawing_bounding_box(self, drawing, bbox):\n        # type: (dict, BoundingBox) -> None\n\n        def add_segment():\n            bbox.add_segment(drawing['start'][0], drawing['start'][1],\n                             drawing['end'][0], drawing['end'][1],\n                             drawing['width'] / 2)\n\n        def add_circle():\n            bbox.add_circle(drawing['start'][0], drawing['start'][1],\n                            drawing['radius'] + drawing['width'] / 2)\n\n        def add_svgpath():\n            width = drawing.get('width', 0)\n            bbox.add_svgpath(drawing['svgpath'], width, self.logger)\n\n        def add_polygon():\n            if 'polygons' not in drawing:\n                add_svgpath()\n                return\n            polygon = drawing['polygons'][0]\n            for point in polygon:\n                bbox.add_point(point[0], point[1])\n\n        {\n            'segment': add_segment,\n            'circle': add_circle,\n            'arc': add_svgpath,\n            'polygon': add_polygon,\n            'text': lambda: None,  # text is not really needed for bounding box\n        }.get(drawing['type'])()\n\n",
+        "source_code_len": 1171,
+        "target_code": "        }.get(pad['shape'])()\n\n",
+        "target_code_len": 31,
+        "diff_format": "@@ -274,34 +274,2 @@\n         }.get(pad['shape'])()\n-\n-    def add_drawing_bounding_box(self, drawing, bbox):\n-        # type: (dict, BoundingBox) -> None\n-\n-        def add_segment():\n-            bbox.add_segment(drawing['start'][0], drawing['start'][1],\n-                             drawing['end'][0], drawing['end'][1],\n-                             drawing['width'] / 2)\n-\n-        def add_circle():\n-            bbox.add_circle(drawing['start'][0], drawing['start'][1],\n-                            drawing['radius'] + drawing['width'] / 2)\n-\n-        def add_svgpath():\n-            width = drawing.get('width', 0)\n-            bbox.add_svgpath(drawing['svgpath'], width, self.logger)\n-\n-        def add_polygon():\n-            if 'polygons' not in drawing:\n-                add_svgpath()\n-                return\n-            polygon = drawing['polygons'][0]\n-            for point in polygon:\n-                bbox.add_point(point[0], point[1])\n-\n-        {\n-            'segment': add_segment,\n-            'circle': add_circle,\n-            'arc': add_svgpath,\n-            'polygon': add_polygon,\n-            'text': lambda: None,  # text is not really needed for bounding box\n-        }.get(drawing['type'])()\n \n",
+        "source_code_with_indent": "        }.get(pad['shape'])()\n\n    <DED>def add_drawing_bounding_box(self, drawing, bbox):\n        # type: (dict, BoundingBox) -> None\n\n        <IND>def add_segment():\n            <IND>bbox.add_segment(drawing['start'][0], drawing['start'][1],\n                             drawing['end'][0], drawing['end'][1],\n                             drawing['width'] / 2)\n\n        <DED>def add_circle():\n            <IND>bbox.add_circle(drawing['start'][0], drawing['start'][1],\n                            drawing['radius'] + drawing['width'] / 2)\n\n        <DED>def add_svgpath():\n            <IND>width = drawing.get('width', 0)\n            bbox.add_svgpath(drawing['svgpath'], width, self.logger)\n\n        <DED>def add_polygon():\n            <IND>if 'polygons' not in drawing:\n                <IND>add_svgpath()\n                return\n            <DED>polygon = drawing['polygons'][0]\n            for point in polygon:\n                <IND>bbox.add_point(point[0], point[1])\n\n        <DED><DED>{\n            'segment': add_segment,\n            'circle': add_circle,\n            'arc': add_svgpath,\n            'polygon': add_polygon,\n            'text': lambda: None,  # text is not really needed for bounding box\n        }.get(drawing['type'])()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        }.get(pad['shape'])()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

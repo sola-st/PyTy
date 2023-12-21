@@ -1,0 +1,36 @@
+[
+  {
+    "project": "poljar/matrix-nio",
+    "commit": "948b982599c7549769480707eb53a6cacf705df6",
+    "filename": "nio/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/poljar-matrix-nio/nio/client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nio/client.py:345:8 Incompatible return type [7]: Expected `Event` but got `Union[None, Event, RoomKeyEvent, nio.events.BadEvent, nio.events.UnknownBadEvent]`.",
+    "message": " Expected `Event` but got `Union[None, Event, RoomKeyEvent, nio.events.BadEvent, nio.events.UnknownBadEvent]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 345,
+    "warning_line": "        return self.olm.decrypt_event(event)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def decrypt_event(self, event):\n        # type: (MegolmEvent) -> Event\n        \"\"\"Decrypt a undecrypted megolm event.\"\"\"\n",
+        "source_code_len": 126,
+        "target_code": "\n    def decrypt_event(\n        self,\n        event  # type: MegolmEvent\n    ):\n        # type: (...) -> Optional[Union[Event, BadEventType, RoomKeyEvent]]\n        \"\"\"Decrypt a undecrypted megolm event.\"\"\"\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -339,4 +339,7 @@\n \n-    def decrypt_event(self, event):\n-        # type: (MegolmEvent) -> Event\n+    def decrypt_event(\n+        self,\n+        event  # type: MegolmEvent\n+    ):\n+        # type: (...) -> Optional[Union[Event, BadEventType, RoomKeyEvent]]\n         \"\"\"Decrypt a undecrypted megolm event.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED><DED>def decrypt_event(self, event):\n        # type: (MegolmEvent) -> Event\n        <IND>\"\"\"Decrypt a undecrypted megolm event.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def decrypt_event(\n        self,\n        event  # type: MegolmEvent\n    ):\n        # type: (...) -> Optional[Union[Event, BadEventType, RoomKeyEvent]]\n        <IND>\"\"\"Decrypt a undecrypted megolm event.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

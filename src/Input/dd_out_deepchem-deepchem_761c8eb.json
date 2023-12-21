@@ -1,0 +1,36 @@
+[
+  {
+    "project": "deepchem/deepchem",
+    "commit": "761c8ebe69acbf22ed89b29166340e29d9abdbe9",
+    "filename": "deepchem/feat/graph_features.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepchem-deepchem/deepchem/feat/graph_features.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deepchem/feat/graph_features.py:456:17 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `Union[int, str]`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `Union[int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 456,
+    "warning_line": "  for i in range(max_distance):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    )\n  else:\n    max_distance = max_pair_distance\n",
+        "source_code_len": 51,
+        "target_code": "    )\n  elif isinstance(max_pair_distance, int):\n    max_distance = max_pair_distance\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -450,3 +452,3 @@\n     )\n-  else:\n+  elif isinstance(max_pair_distance, int):\n     max_distance = max_pair_distance\n",
+        "source_code_with_indent": "    )\n  <DED>else:\n    <IND>max_distance = max_pair_distance\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    )\n  <DED>elif isinstance(max_pair_distance, int):\n    <IND>max_distance = max_pair_distance\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

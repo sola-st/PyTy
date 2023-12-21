@@ -1,0 +1,36 @@
+[
+  {
+    "project": "aws/aws-cli",
+    "commit": "d627a1dc1c972b3de70e97eb7dc45b336a6a6ac3",
+    "filename": "tests/functional/s3/test_cp_command.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aws-aws-cli/tests/functional/s3/test_cp_command.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/functional/s3/test_cp_command.py:168:4 Unbound name [10]: Name `unittest` is used but not defined in the current scope.",
+    "message": " Name `unittest` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 168,
+    "warning_line": "    unittest.main()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\nif __name__ == \"__main__\":\n    unittest.main()\n",
+        "source_code_len": 49,
+        "target_code": "\n    def test_cp_succeeds_with_mimetype_errors(self):\n        full_path = self.files.create_file('foo.txt', 'mycontent')\n        cmdline = '%s %s s3://bucket/key.txt' % (self.prefix, full_path)\n        self.parsed_responses = [\n            {'ETag': '\"c8afdb36c52cf4727836669019e69222\"'}]\n        with mock.patch('mimetypes.guess_type') as mock_guess_type:\n            # This should throw a UnicodeDecodeError.\n            mock_guess_type.side_effect = lambda x: b'\\xe2'.decode('ascii')\n            self.run_cmd(cmdline, expected_rc=0)\n        # Because of the decoding error the command should have succeeded\n        # just that there was no content type added.\n        self.assertNotIn('ContentType', self.last_kwargs)\n",
+        "target_code_len": 720,
+        "diff_format": "@@ -165,4 +165,13 @@\n \n-\n-if __name__ == \"__main__\":\n-    unittest.main()\n+    def test_cp_succeeds_with_mimetype_errors(self):\n+        full_path = self.files.create_file('foo.txt', 'mycontent')\n+        cmdline = '%s %s s3://bucket/key.txt' % (self.prefix, full_path)\n+        self.parsed_responses = [\n+            {'ETag': '\"c8afdb36c52cf4727836669019e69222\"'}]\n+        with mock.patch('mimetypes.guess_type') as mock_guess_type:\n+            # This should throw a UnicodeDecodeError.\n+            mock_guess_type.side_effect = lambda x: b'\\xe2'.decode('ascii')\n+            self.run_cmd(cmdline, expected_rc=0)\n+        # Because of the decoding error the command should have succeeded\n+        # just that there was no content type added.\n+        self.assertNotIn('ContentType', self.last_kwargs)\n",
+        "source_code_with_indent": "\n\n<DED><DED>if __name__ == \"__main__\":\n    <IND>unittest.main()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def test_cp_succeeds_with_mimetype_errors(self):\n        <IND>full_path = self.files.create_file('foo.txt', 'mycontent')\n        cmdline = '%s %s s3://bucket/key.txt' % (self.prefix, full_path)\n        self.parsed_responses = [\n            {'ETag': '\"c8afdb36c52cf4727836669019e69222\"'}]\n        with mock.patch('mimetypes.guess_type') as mock_guess_type:\n            # This should throw a UnicodeDecodeError.\n            <IND>mock_guess_type.side_effect = lambda x: b'\\xe2'.decode('ascii')\n            self.run_cmd(cmdline, expected_rc=0)\n        # Because of the decoding error the command should have succeeded\n        # just that there was no content type added.\n        <DED>self.assertNotIn('ContentType', self.last_kwargs)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

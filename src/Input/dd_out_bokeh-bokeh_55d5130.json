@@ -1,0 +1,83 @@
+[
+  {
+    "project": "bokeh/bokeh",
+    "commit": "55d5130cdac569a2643d4638f816723237a8f1c4",
+    "filename": "bokeh/command/subcommands/file_output.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/command/subcommands/file_output.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/command/subcommands/file_output.py:172:27 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `io.TextIOBase.write` but got `Union[None, bytes, str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `io.TextIOBase.write` but got `Union[None, bytes, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 172,
+    "warning_line": "                file.write(contents)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import io\nfrom abc import abstractmethod\nfrom typing import Dict, List, Optional, Tuple, Union\n",
+        "source_code_len": 95,
+        "target_code": "import io\nimport sys\nfrom abc import abstractmethod\nfrom os.path import splitext\nfrom typing import Dict, List, Optional, Tuple, Union\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -23,3 +23,5 @@\n import io\n+import sys\n from abc import abstractmethod\n+from os.path import splitext\n from typing import Dict, List, Optional, Tuple, Union\n",
+        "source_code_with_indent": "import io\nfrom abc import abstractmethod\nfrom typing import Dict, List, Optional, Tuple, Union\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import io\nimport sys\nfrom abc import abstractmethod\nfrom os.path import splitext\nfrom typing import Dict, List, Optional, Tuple, Union\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        '''\n        contents = self.file_contents(args, doc)\n        if filename == '-':\n            print(contents)\n        else:\n            with io.open(filename, \"w\", encoding=\"utf-8\") as file:\n                file.write(contents)\n        self.after_write_file(args, filename, doc)\n\n",
+        "source_code_len": 287,
+        "target_code": "        '''\n        def write_str(content: str, filename: str) -> None:\n            if filename == \"-\":\n                print(content)\n            else:\n                with io.open(filename, \"w\", encoding=\"utf-8\") as file:\n                    file.write(content)\n            self.after_write_file(args, filename, doc)\n\n        def write_bytes(content: bytes, filename: str) -> None:\n            if filename == \"-\":\n                sys.stdout.buffer.write(content)\n            else:\n                with io.open(filename, \"wb\") as f:\n                    f.write(content)\n            self.after_write_file(args, filename, doc)\n\n        contents = self.file_contents(args, doc)\n\n        if isinstance(contents, str):\n            write_str(contents, filename)\n        elif isinstance(contents, bytes):\n            write_bytes(contents, filename)\n        else:\n            if filename == \"-\" or len(contents) <= 1:\n                def indexed(i: int) -> str:\n                    return filename\n            else:\n                def indexed(i: int) -> str:\n                    root, ext = splitext(filename)\n                    return f\"{root}_{i}{ext}\"\n\n            for i, content in enumerate(contents):\n                if isinstance(content, str):\n                    write_str(content, indexed(i))\n                elif isinstance(content, bytes):\n                    write_bytes(content, indexed(i))\n\n",
+        "target_code_len": 1401,
+        "diff_format": "@@ -166,9 +168,38 @@\n         '''\n+        def write_str(content: str, filename: str) -> None:\n+            if filename == \"-\":\n+                print(content)\n+            else:\n+                with io.open(filename, \"w\", encoding=\"utf-8\") as file:\n+                    file.write(content)\n+            self.after_write_file(args, filename, doc)\n+\n+        def write_bytes(content: bytes, filename: str) -> None:\n+            if filename == \"-\":\n+                sys.stdout.buffer.write(content)\n+            else:\n+                with io.open(filename, \"wb\") as f:\n+                    f.write(content)\n+            self.after_write_file(args, filename, doc)\n+\n         contents = self.file_contents(args, doc)\n-        if filename == '-':\n-            print(contents)\n+\n+        if isinstance(contents, str):\n+            write_str(contents, filename)\n+        elif isinstance(contents, bytes):\n+            write_bytes(contents, filename)\n         else:\n-            with io.open(filename, \"w\", encoding=\"utf-8\") as file:\n-                file.write(contents)\n-        self.after_write_file(args, filename, doc)\n+            if filename == \"-\" or len(contents) <= 1:\n+                def indexed(i: int) -> str:\n+                    return filename\n+            else:\n+                def indexed(i: int) -> str:\n+                    root, ext = splitext(filename)\n+                    return f\"{root}_{i}{ext}\"\n+\n+            for i, content in enumerate(contents):\n+                if isinstance(content, str):\n+                    write_str(content, indexed(i))\n+                elif isinstance(content, bytes):\n+                    write_bytes(content, indexed(i))\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        contents = self.file_contents(args, doc)\n        if filename == '-':\n            <IND>print(contents)\n        <DED>else:\n            <IND>with io.open(filename, \"w\", encoding=\"utf-8\") as file:\n                <IND>file.write(contents)\n        <DED><DED>self.after_write_file(args, filename, doc)\n\n",
+        "target_code_with_indent": "\n        def write_str(content: str, filename: str) -> None:\n            <IND>if filename == \"-\":\n                <IND>print(content)\n            <DED>else:\n                <IND>with io.open(filename, \"w\", encoding=\"utf-8\") as file:\n                    <IND>file.write(content)\n            <DED><DED>self.after_write_file(args, filename, doc)\n\n        <DED>def write_bytes(content: bytes, filename: str) -> None:\n            <IND>if filename == \"-\":\n                <IND>sys.stdout.buffer.write(content)\n            <DED>else:\n                <IND>with io.open(filename, \"wb\") as f:\n                    <IND>f.write(content)\n            <DED><DED>self.after_write_file(args, filename, doc)\n\n        <DED>contents = self.file_contents(args, doc)\n\n        if isinstance(contents, str):\n            <IND>write_str(contents, filename)\n        <DED>elif isinstance(contents, bytes):\n            <IND>write_bytes(contents, filename)\n        <DED>else:\n            <IND>if filename == \"-\" or len(contents) <= 1:\n                <IND>def indexed(i: int) -> str:\n                    <IND>return filename\n            <DED><DED>else:\n                <IND>def indexed(i: int) -> str:\n                    <IND>root, ext = splitext(filename)\n                    return f\"{root}_{i}{ext}\"\n\n            <DED><DED>for i, content in enumerate(contents):\n                <IND>if isinstance(content, str):\n                    <IND>write_str(content, indexed(i))\n                <DED>elif isinstance(content, bytes):\n                    <IND>write_bytes(content, indexed(i))\n\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @abstractmethod\n    def file_contents(self, args: argparse.Namespace, doc: Document) -> Union[str, bytes, None]:\n        ''' Subclasses must override this method to return the contents of the output file for the given doc.\n",
+        "source_code_len": 227,
+        "target_code": "    @abstractmethod\n    def file_contents(self, args: argparse.Namespace, doc: Document) -> Union[str, bytes, List[str], List[bytes]]:\n        ''' Subclasses must override this method to return the contents of the output file for the given doc.\n",
+        "target_code_len": 245,
+        "diff_format": "@@ -182,3 +213,3 @@\n     @abstractmethod\n-    def file_contents(self, args: argparse.Namespace, doc: Document) -> Union[str, bytes, None]:\n+    def file_contents(self, args: argparse.Namespace, doc: Document) -> Union[str, bytes, List[str], List[bytes]]:\n         ''' Subclasses must override this method to return the contents of the output file for the given doc.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@abstractmethod\n    def file_contents(self, args: argparse.Namespace, doc: Document) -> Union[str, bytes, None]:\n        <IND>",
+        "target_code_with_indent": "    <DED>@abstractmethod\n    def file_contents(self, args: argparse.Namespace, doc: Document) -> Union[str, bytes, List[str], List[bytes]]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "bokeh/bokeh",
+    "commit": "55d5130cdac569a2643d4638f816723237a8f1c4",
+    "filename": "bokeh/command/subcommands/svg.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/bokeh/command/subcommands/svg.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bokeh/command/subcommands/svg.py:138:28 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `io.TextIOBase.write` but got `int`.",
+    "message": " Expected `str` for 1st positional only parameter to call `io.TextIOBase.write` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 138,
+    "warning_line": "                    f.write(svg)"
+  }
+]

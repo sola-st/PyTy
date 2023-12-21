@@ -1,0 +1,100 @@
+[
+  {
+    "project": "pantsbuild/pants",
+    "commit": "538b976a67884e2d9879c3fd0eb16d732426ece5",
+    "filename": "src/python/pants/source/source_root.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pantsbuild-pants/src/python/pants/source/source_root.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/python/pants/source/source_root.py:97:6 Incompatible return type [7]: Expected `SourceRoot` but got `None`.",
+    "message": " Expected `SourceRoot` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 97,
+    "warning_line": "      return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os\nfrom typing import Sequence, Set\n\n",
+        "source_code_len": 44,
+        "target_code": "import os\nfrom typing import Optional, Sequence, Set\n\n",
+        "target_code_len": 54,
+        "diff_format": "@@ -4,3 +4,3 @@\n import os\n-from typing import Sequence, Set\n+from typing import Optional, Sequence, Set\n \n",
+        "source_code_with_indent": "import os\nfrom typing import Sequence, Set\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nfrom typing import Optional, Sequence, Set\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n  def find_by_path(self, path: str) -> SourceRoot:\n    \"\"\"Find the source root for the given path, or None.\n",
+        "source_code_len": 109,
+        "target_code": "\n  def find_by_path(self, path: str) -> Optional[SourceRoot]:\n    \"\"\"Find the source root for the given path, or None.\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -85,3 +84,3 @@\n \n-  def find_by_path(self, path: str) -> SourceRoot:\n+  def find_by_path(self, path: str) -> Optional[SourceRoot]:\n     \"\"\"Find the source root for the given path, or None.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n  <DED>def find_by_path(self, path: str) -> SourceRoot:\n    <IND>",
+        "target_code_with_indent": "\n  <DED>def find_by_path(self, path: str) -> Optional[SourceRoot]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "pantsbuild/pants",
+    "commit": "538b976a67884e2d9879c3fd0eb16d732426ece5",
+    "filename": "src/python/pants/source/source_root.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pantsbuild-pants/src/python/pants/source/source_root.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/python/pants/source/source_root.py:101:6 Incompatible return type [7]: Expected `SourceRoot` but got implicit return value of `None`.",
+    "message": " Expected `SourceRoot` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 101,
+    "warning_line": "      return SourceRoot(path, (), SourceRootCategories.UNKNOWN)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os\nfrom typing import Sequence, Set\n\n",
+        "source_code_len": 44,
+        "target_code": "import os\nfrom typing import Optional, Sequence, Set\n\n",
+        "target_code_len": 54,
+        "diff_format": "@@ -4,3 +4,3 @@\n import os\n-from typing import Sequence, Set\n+from typing import Optional, Sequence, Set\n \n",
+        "source_code_with_indent": "import os\nfrom typing import Sequence, Set\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nfrom typing import Optional, Sequence, Set\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n  def find_by_path(self, path: str) -> SourceRoot:\n    \"\"\"Find the source root for the given path, or None.\n",
+        "source_code_len": 109,
+        "target_code": "\n  def find_by_path(self, path: str) -> Optional[SourceRoot]:\n    \"\"\"Find the source root for the given path, or None.\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -85,3 +84,3 @@\n \n-  def find_by_path(self, path: str) -> SourceRoot:\n+  def find_by_path(self, path: str) -> Optional[SourceRoot]:\n     \"\"\"Find the source root for the given path, or None.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n  <DED>def find_by_path(self, path: str) -> SourceRoot:\n    <IND>",
+        "target_code_with_indent": "\n  <DED>def find_by_path(self, path: str) -> Optional[SourceRoot]:\n    <IND>"
+      }
+    ]
+  }
+]

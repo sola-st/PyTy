@@ -1,0 +1,99 @@
+[
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "1d9376046fb9ccd87f390b74384c48ad87efea94",
+    "filename": "tests/test_commands.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_commands.py:1245:40 Incompatible parameter type [6]: Expected `str` for 2nd parameter `match` to call `aioredis.client.Redis.sscan` but got `bytes`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "1d9376046fb9ccd87f390b74384c48ad87efea94",
+    "filename": "tests/test_commands.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_commands.py:1795:33 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `aioredis.client.Redis.hset` but got `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "1d9376046fb9ccd87f390b74384c48ad87efea94",
+    "filename": "tests/test_commands.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_commands.py:1827:26 Incompatible parameter type [6]: Expected `typing.Mapping[str, typing.Union[None, bytes, float, int, memoryview, str]]` for 2nd parameter `mapping` to call `aioredis.client.Redis.hset` but got `typing.Dict[bytes, bytes]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "1d9376046fb9ccd87f390b74384c48ad87efea94",
+    "filename": "tests/test_commands.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_commands.py:1843:26 Incompatible parameter type [6]: Expected `typing.Mapping[str, typing.Union[None, bytes, float, int, memoryview, str]]` for 2nd parameter `mapping` to call `aioredis.client.Redis.hset` but got `typing.Dict[bytes, bytes]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "1d9376046fb9ccd87f390b74384c48ad87efea94",
+    "filename": "tests/test_commands.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_commands.py:1862:38 Incompatible parameter type [6]: Expected `typing.Mapping[str, typing.Union[None, bytes, float, int, memoryview, str]]` for 2nd positional only parameter to call `aioredis.client.Redis.hmset` but got `typing.Dict[bytes, bytes]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "1d9376046fb9ccd87f390b74384c48ad87efea94",
+    "filename": "tests/test_commands.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_commands.py:1874:26 Incompatible parameter type [6]: Expected `typing.Mapping[str, typing.Union[None, bytes, float, int, memoryview, str]]` for 2nd parameter `mapping` to call `aioredis.client.Redis.hset` but got `typing.Dict[bytes, bytes]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "1d9376046fb9ccd87f390b74384c48ad87efea94",
+    "filename": "tests/test_commands.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_commands.py:2396:66 Incompatible parameter type [6]: Expected `typing.Union[int, str]` for 3rd parameter `id` to call `aioredis.client.Redis.xadd` but got `bytes`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "aio-libs/aioredis-py",
+    "commit": "1d9376046fb9ccd87f390b74384c48ad87efea94",
+    "filename": "tests/test_encoding.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aio-libs-aioredis-py/tests/test_encoding.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "tests/test_encoding.py:115:29 Incompatible parameter type [6]: Expected `typing.Union[None, bytes, float, int, memoryview, str]` for 2nd positional only parameter to call `aioredis.client.Redis.set` but got `TestInvalidUserInput.test_user_type_fails.Foo`.",
+    "message": " Expected `typing.Union[None, bytes, float, int, memoryview, str]` for 2nd positional only parameter to call `aioredis.client.Redis.set` but got `TestInvalidUserInput.test_user_type_fails.Foo`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 115,
+    "warning_line": "            await r.set(\"a\", Foo())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        with pytest.raises(aioredis.DataError):\n            await r.set(\"a\", Foo())\n",
+        "source_code_len": 84,
+        "target_code": "        with pytest.raises(aioredis.DataError):\n            await r.set(\"a\", Foo())  # type: ignore\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -114,2 +114,2 @@\n         with pytest.raises(aioredis.DataError):\n-            await r.set(\"a\", Foo())\n+            await r.set(\"a\", Foo())  # type: ignore\n",
+        "source_code_with_indent": "        <DED><DED>with pytest.raises(aioredis.DataError):\n            <IND>await r.set(\"a\", Foo())\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED><DED>with pytest.raises(aioredis.DataError):\n            <IND>await r.set(\"a\", Foo())  # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

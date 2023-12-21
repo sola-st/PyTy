@@ -1,0 +1,104 @@
+[
+  {
+    "project": "ethereum/py-evm",
+    "commit": "f5de35a2513edca627001301034bfde8cec5dda1",
+    "filename": "evm/utils/blobs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-py-evm/evm/utils/blobs.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "evm/utils/blobs.py:102:12 Incompatible return type [7]: Expected `bytes` but got `typing.Generator[typing.Any, None, None]`.",
+    "message": " Expected `bytes` but got `typing.Generator[typing.Any, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 102,
+    "warning_line": "            yield indicator_byte",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n    \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_len": 156,
+        "target_code": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n    \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -80,3 +80,3 @@\n @apply_to_return_value(b\"\".join)\n-def serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n+def serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n     \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_with_indent": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n    <IND>\"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n    <IND>\"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/py-evm",
+    "commit": "f5de35a2513edca627001301034bfde8cec5dda1",
+    "filename": "evm/utils/blobs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-py-evm/evm/utils/blobs.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "evm/utils/blobs.py:103:12 Incompatible return type [7]: Expected `bytes` but got `typing.Generator[bytes, None, None]`.",
+    "message": " Expected `bytes` but got `typing.Generator[bytes, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 103,
+    "warning_line": "            yield blob[blob_index:blob_index + 31]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n    \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_len": 156,
+        "target_code": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n    \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -80,3 +80,3 @@\n @apply_to_return_value(b\"\".join)\n-def serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n+def serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n     \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_with_indent": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n    <IND>\"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n    <IND>\"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/py-evm",
+    "commit": "f5de35a2513edca627001301034bfde8cec5dda1",
+    "filename": "evm/utils/blobs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-py-evm/evm/utils/blobs.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "evm/utils/blobs.py:106:8 Incompatible return type [7]: Expected `bytes` but got `typing.Generator[bytes, None, None]`.",
+    "message": " Expected `bytes` but got `typing.Generator[bytes, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 106,
+    "warning_line": "        yield chunk_filler",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n    \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_len": 156,
+        "target_code": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n    \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -80,3 +80,3 @@\n @apply_to_return_value(b\"\".join)\n-def serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n+def serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n     \"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_with_indent": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> bytes:\n    <IND>\"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "@apply_to_return_value(b\"\".join)\ndef serialize_blobs(blobs: Iterable[bytes]) -> Iterator[bytes]:\n    <IND>\"\"\"Serialize a sequence of blobs and return a collation body.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

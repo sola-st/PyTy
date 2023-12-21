@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pdoc3/pdoc",
+    "commit": "43f28dde6fd97ff1472bf984ebd4afa3e4d5ab6b",
+    "filename": "pdoc/test/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pdoc3-pdoc/pdoc/test/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pdoc/test/__init__.py:599:26 Incompatible variable type [9]: c is declared to have type `typing.List[pdoc.Doc]` but is used as type `str`.",
+    "message": " c is declared to have type `typing.List[pdoc.Doc]` but is used as type `str`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 599,
+    "warning_line": "        def f(a: int, *b, c: typing.List[pdoc.Doc] = ''): pass",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # typed\n        def f(a: int, *b, c: typing.List[pdoc.Doc] = ''): pass\n        func = pdoc.Function('f', mod, f)\n        self.assertEqual(func.params(), ['a', '*b', \"c=''\"])\n        self.assertEqual(func.params(annotate=True),\n                         ['a:\\xA0int', '*b', \"c:\\xA0List[pdoc.Doc]\\xA0=\\xA0''\"])\n\n",
+        "source_code_len": 317,
+        "target_code": "        # typed\n        def f(a: int, *b, c: typing.List[pdoc.Doc] = []): pass\n        func = pdoc.Function('f', mod, f)\n        self.assertEqual(func.params(), ['a', '*b', \"c=[]\"])\n        self.assertEqual(func.params(annotate=True),\n                         ['a:\\xA0int', '*b', \"c:\\xA0List[pdoc.Doc]\\xA0=\\xA0[]\"])\n\n",
+        "target_code_len": 317,
+        "diff_format": "@@ -598,7 +598,7 @@\n         # typed\n-        def f(a: int, *b, c: typing.List[pdoc.Doc] = ''): pass\n+        def f(a: int, *b, c: typing.List[pdoc.Doc] = []): pass\n         func = pdoc.Function('f', mod, f)\n-        self.assertEqual(func.params(), ['a', '*b', \"c=''\"])\n+        self.assertEqual(func.params(), ['a', '*b', \"c=[]\"])\n         self.assertEqual(func.params(annotate=True),\n-                         ['a:\\xA0int', '*b', \"c:\\xA0List[pdoc.Doc]\\xA0=\\xA0''\"])\n+                         ['a:\\xA0int', '*b', \"c:\\xA0List[pdoc.Doc]\\xA0=\\xA0[]\"])\n \n",
+        "source_code_with_indent": "        # typed\n        def f(a: int, *b, c: typing.List[pdoc.Doc] = ''): pass\n        func = pdoc.Function('f', mod, f)\n        self.assertEqual(func.params(), ['a', '*b', \"c=''\"])\n        self.assertEqual(func.params(annotate=True),\n                         ['a:\\xA0int', '*b', \"c:\\xA0List[pdoc.Doc]\\xA0=\\xA0''\"])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # typed\n        def f(a: int, *b, c: typing.List[pdoc.Doc] = []): pass\n        func = pdoc.Function('f', mod, f)\n        self.assertEqual(func.params(), ['a', '*b', \"c=[]\"])\n        self.assertEqual(func.params(annotate=True),\n                         ['a:\\xA0int', '*b', \"c:\\xA0List[pdoc.Doc]\\xA0=\\xA0[]\"])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

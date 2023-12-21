@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "144bf7e8addcb6d85cd84a74ee55189669851eab",
+    "filename": "src/ezdxf/addons/drawing/qtviewer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/drawing/qtviewer.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/drawing/qtviewer.py:104:8 Incompatible attribute type [8]: Attribute `_zoom` declared in class `CADGraphicsView` has type `int` but is used as type `float`.",
+    "message": " Attribute `_zoom` declared in class `CADGraphicsView` has type `int` but is used as type `float`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 104,
+    "warning_line": "        self._zoom *= factor",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        super().__init__()\n        self._zoom = 1\n        self._default_zoom = 1\n        self._zoom_limits = (0.5, 100)\n",
+        "source_code_len": 120,
+        "target_code": "        super().__init__()\n        self._zoom = 1.\n        self._default_zoom = 1.\n        self._zoom_limits = (0.5, 100)\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -38,4 +38,4 @@\n         super().__init__()\n-        self._zoom = 1\n-        self._default_zoom = 1\n+        self._zoom = 1.\n+        self._default_zoom = 1.\n         self._zoom_limits = (0.5, 100)\n",
+        "source_code_with_indent": "        <IND>super().__init__()\n        self._zoom = 1\n        self._default_zoom = 1\n        self._zoom_limits = (0.5, 100)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>super().__init__()\n        self._zoom = 1.\n        self._default_zoom = 1.\n        self._zoom_limits = (0.5, 100)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mirumee/ariadne",
+    "commit": "741c652d9707d6983d74b136e82e09f05a89f026",
+    "filename": "ariadne/graphql.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mirumee-ariadne/ariadne/graphql.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ariadne/graphql.py:121:41 Incompatible parameter type [6]: Expected `Optional[List[Type[Extension]]]` for 1st positional only parameter to call `ExtensionManager.__init__` but got `Optional[List[Type[ExtensionSync]]]`.",
+    "message": " Expected `Optional[List[Type[Extension]]]` for 1st positional only parameter to call `ExtensionManager.__init__` but got `Optional[List[Type[ExtensionSync]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 121,
+    "warning_line": "    extension_manager = ExtensionManager(extensions)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    middleware: Optional[MiddlewareManager] = None,\n    extensions: Optional[List[Type[ExtensionSync]]] = None,\n    **kwargs,\n",
+        "source_code_len": 126,
+        "target_code": "    middleware: Optional[MiddlewareManager] = None,\n    extensions: Optional[List[Type[Extension]]] = None,\n    **kwargs,\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -117,3 +116,3 @@\n     middleware: Optional[MiddlewareManager] = None,\n-    extensions: Optional[List[Type[ExtensionSync]]] = None,\n+    extensions: Optional[List[Type[Extension]]] = None,\n     **kwargs,\n",
+        "source_code_with_indent": "    middleware: Optional[MiddlewareManager] = None,\n    extensions: Optional[List[Type[ExtensionSync]]] = None,\n    **kwargs,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    middleware: Optional[MiddlewareManager] = None,\n    extensions: Optional[List[Type[Extension]]] = None,\n    **kwargs,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

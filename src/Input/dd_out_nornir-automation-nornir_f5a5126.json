@@ -1,0 +1,36 @@
+[
+  {
+    "project": "nornir-automation/nornir",
+    "commit": "f5a51269f8faffa3f078d14cadd81695419bfa76",
+    "filename": "nornir/core/deserializer/inventory.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nornir-automation-nornir/nornir/core/deserializer/inventory.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nornir/core/deserializer/inventory.py:112:8 Incompatible return type [7]: Expected `InventoryElement` but got `Defaults`.",
+    "message": " Expected `InventoryElement` but got `Defaults`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 112,
+    "warning_line": "        return Defaults(**d)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def serialize(cls, defaults: inventory.Defaults) -> \"InventoryElement\":\n        d = {}\n",
+        "source_code_len": 108,
+        "target_code": "    @classmethod\n    def serialize(cls, defaults: inventory.Defaults) -> \"Defaults\":\n        d = {}\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -102,3 +102,3 @@\n     @classmethod\n-    def serialize(cls, defaults: inventory.Defaults) -> \"InventoryElement\":\n+    def serialize(cls, defaults: inventory.Defaults) -> \"Defaults\":\n         d = {}\n",
+        "source_code_with_indent": "    @classmethod\n    def serialize(cls, defaults: inventory.Defaults) -> \"InventoryElement\":\n        <IND>d = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @classmethod\n    def serialize(cls, defaults: inventory.Defaults) -> \"Defaults\":\n        <IND>d = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

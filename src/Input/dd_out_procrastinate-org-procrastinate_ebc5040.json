@@ -1,0 +1,51 @@
+[
+  {
+    "project": "procrastinate-org/procrastinate",
+    "commit": "ebc504006c1e6b5cd2a16b8760d7ee8a2358a725",
+    "filename": "procrastinate/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/procrastinate-org-procrastinate/procrastinate/cli.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "procrastinate/cli.py:35:52 Incompatible parameter type [6]: Expected `typing.Union[typing_extensions.Literal['$'], typing_extensions.Literal['%'], typing_extensions.Literal['{']]` for 3rd parameter `style` to call `logging.basicConfig` but got `str`.",
+    "message": " Expected `typing.Union[typing_extensions.Literal['$'], typing_extensions.Literal['%'], typing_extensions.Literal['{']]` for 3rd parameter `style` to call `logging.basicConfig` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 35,
+    "warning_line": "    logging.basicConfig(level=level, format=format, style=style)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os\nfrom typing import Any, Callable, Dict, Optional\n\nimport click\n\n",
+        "source_code_len": 74,
+        "target_code": "import os\nfrom typing import Any, Callable, Dict, Optional, Union\n\nimport click\nfrom typing_extensions import Literal\n\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -6,5 +6,6 @@\n import os\n-from typing import Any, Callable, Dict, Optional\n+from typing import Any, Callable, Dict, Optional, Union\n \n import click\n+from typing_extensions import Literal\n \n",
+        "source_code_with_indent": "import os\nfrom typing import Any, Callable, Dict, Optional\n\nimport click\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nfrom typing import Any, Callable, Dict, Optional, Union\n\nimport click\nfrom typing_extensions import Literal\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef configure_logging(verbosity: int, format: str, style: str) -> None:\n    level = get_log_level(verbosity=verbosity)\n",
+        "source_code_len": 120,
+        "target_code": "\nStyle = Union[Literal[\"%\"], Literal[\"{\"], Literal[\"$\"]]\n\n\ndef configure_logging(verbosity: int, format: str, style: Style) -> None:\n    level = get_log_level(verbosity=verbosity)\n",
+        "target_code_len": 180,
+        "diff_format": "@@ -32,3 +33,6 @@\n \n-def configure_logging(verbosity: int, format: str, style: str) -> None:\n+Style = Union[Literal[\"%\"], Literal[\"{\"], Literal[\"$\"]]\n+\n+\n+def configure_logging(verbosity: int, format: str, style: Style) -> None:\n     level = get_log_level(verbosity=verbosity)\n",
+        "source_code_with_indent": "\n<DED>def configure_logging(verbosity: int, format: str, style: str) -> None:\n    <IND>level = get_log_level(verbosity=verbosity)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>Style = Union[Literal[\"%\"], Literal[\"{\"], Literal[\"$\"]]\n\n\ndef configure_logging(verbosity: int, format: str, style: Style) -> None:\n    <IND>level = get_log_level(verbosity=verbosity)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

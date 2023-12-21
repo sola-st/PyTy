@@ -1,0 +1,36 @@
+[
+  {
+    "project": "niwinz/djorm-pgarray",
+    "commit": "9018d0fc7f2a6a75f51b4cb830ecde8df4f5b534",
+    "filename": "testing/runtests.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/niwinz-djorm-pgarray/testing/runtests.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "testing/runtests.py:11:8 Unbound name [10]: Name `argv` is used but not defined in the current scope.",
+    "message": " Name `argv` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 11,
+    "warning_line": "        argv.append(\"pg_array_fields\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if len(args) == 0:\n        argv.append(\"pg_array_fields\")\n    call_command(\"test\", *args, verbosity=2)\n",
+        "source_code_len": 107,
+        "target_code": "    if len(args) == 0:\n        args.append(\"pg_array_fields\")\n    call_command(\"test\", *args, verbosity=2)\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -10,3 +10,3 @@\n     if len(args) == 0:\n-        argv.append(\"pg_array_fields\")\n+        args.append(\"pg_array_fields\")\n     call_command(\"test\", *args, verbosity=2)\n",
+        "source_code_with_indent": "    if len(args) == 0:\n        <IND>argv.append(\"pg_array_fields\")\n    <DED>call_command(\"test\", *args, verbosity=2)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if len(args) == 0:\n        <IND>args.append(\"pg_array_fields\")\n    <DED>call_command(\"test\", *args, verbosity=2)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

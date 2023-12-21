@@ -1,0 +1,88 @@
+[
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "c940d9d032d64b1bb40a0ad8bc1435e1951bd88e",
+    "filename": "cwltool/process.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/process.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/process.py:138:49 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `bytes`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 138,
+    "warning_line": "            cache[\"https://w3id.org/cwl/\" + f] = res.read()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    cache = {}  # type: Dict[Text, Text]\n    version = version.split(\"#\")[-1]\n",
+        "source_code_len": 79,
+        "target_code": "\n    cache = {}  # type: Dict[Text, Union[bytes, Text]]\n    version = version.split(\"#\")[-1]\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -130,3 +133,3 @@\n \n-    cache = {}  # type: Dict[Text, Text]\n+    cache = {}  # type: Dict[Text, Union[bytes, Text]]\n     version = version.split(\"#\")[-1]\n",
+        "source_code_with_indent": "\n    <DED>cache = {}  # type: Dict[Text, Text]\n    version = version.split(\"#\")[-1]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>cache = {}  # type: Dict[Text, Union[bytes, Text]]\n    version = version.split(\"#\")[-1]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "c940d9d032d64b1bb40a0ad8bc1435e1951bd88e",
+    "filename": "cwltool/process.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/process.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/process.py:149:25 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `bytes`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 149,
+    "warning_line": "                  + f] = res.read()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    cache = {}  # type: Dict[Text, Text]\n    version = version.split(\"#\")[-1]\n",
+        "source_code_len": 79,
+        "target_code": "\n    cache = {}  # type: Dict[Text, Union[bytes, Text]]\n    version = version.split(\"#\")[-1]\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -130,3 +133,3 @@\n \n-    cache = {}  # type: Dict[Text, Text]\n+    cache = {}  # type: Dict[Text, Union[bytes, Text]]\n     version = version.split(\"#\")[-1]\n",
+        "source_code_with_indent": "\n    <DED>cache = {}  # type: Dict[Text, Text]\n    version = version.split(\"#\")[-1]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>cache = {}  # type: Dict[Text, Union[bytes, Text]]\n    version = version.split(\"#\")[-1]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "c940d9d032d64b1bb40a0ad8bc1435e1951bd88e",
+    "filename": "cwltool/process.py",
+    "min_patch_found": false,
+    "full_warning_msg": "cwltool/process.py:640:22 Incompatible parameter type [6]: Expected `Variable[AnyStr <: [str, bytes]]` for 1st positional only parameter to call `typing.Mapping.get` but got `str`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "c940d9d032d64b1bb40a0ad8bc1435e1951bd88e",
+    "filename": "cwltool/process.py",
+    "min_patch_found": false,
+    "full_warning_msg": "cwltool/process.py:641:26 Incompatible parameter type [6]: Expected `Variable[AnyStr <: [str, bytes]]` for 1st positional only parameter to call `dict.__getitem__` but got `str`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "3d3ba0460da93bc9c7c479bd0f8a72288d901279",
+    "filename": "deeppavlov/core/commands/train.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/core/commands/train.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/core/commands/train.py:205:25 Incompatible parameter type [6]: Expected `Estimator` for 1st positional only parameter to call `_fit_batches` but got `Chainer`.",
+    "message": " Expected `Estimator` for 1st positional only parameter to call `_fit_batches` but got `Chainer`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 205,
+    "warning_line": "            _fit_batches(model, iterator, train_config)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            _train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n        elif callable(getattr(model, 'fit_batches', None)):\n            _fit_batches(model, iterator, train_config)\n        elif callable(getattr(model, 'fit', None)):\n            _fit(model, iterator, train_config)\n        elif not isinstance(model, Chainer):\n            log.warning('Nothing to train')\n\n",
+        "source_code_len": 416,
+        "target_code": "            _train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -203,8 +199,2 @@\n             _train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n-        elif callable(getattr(model, 'fit_batches', None)):\n-            _fit_batches(model, iterator, train_config)\n-        elif callable(getattr(model, 'fit', None)):\n-            _fit(model, iterator, train_config)\n-        elif not isinstance(model, Chainer):\n-            log.warning('Nothing to train')\n \n",
+        "source_code_with_indent": "            <IND>_train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n        <DED>elif callable(getattr(model, 'fit_batches', None)):\n            <IND>_fit_batches(model, iterator, train_config)\n        <DED>elif callable(getattr(model, 'fit', None)):\n            <IND>_fit(model, iterator, train_config)\n        <DED>elif not isinstance(model, Chainer):\n            <IND>log.warning('Nothing to train')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>_train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "3d3ba0460da93bc9c7c479bd0f8a72288d901279",
+    "filename": "deeppavlov/core/commands/train.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/core/commands/train.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/core/commands/train.py:207:17 Incompatible parameter type [6]: Expected `Estimator` for 1st positional only parameter to call `_fit` but got `Chainer`.",
+    "message": " Expected `Estimator` for 1st positional only parameter to call `_fit` but got `Chainer`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 207,
+    "warning_line": "            _fit(model, iterator, train_config)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            _train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n        elif callable(getattr(model, 'fit_batches', None)):\n            _fit_batches(model, iterator, train_config)\n        elif callable(getattr(model, 'fit', None)):\n            _fit(model, iterator, train_config)\n        elif not isinstance(model, Chainer):\n            log.warning('Nothing to train')\n\n",
+        "source_code_len": 416,
+        "target_code": "            _train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -203,8 +199,2 @@\n             _train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n-        elif callable(getattr(model, 'fit_batches', None)):\n-            _fit_batches(model, iterator, train_config)\n-        elif callable(getattr(model, 'fit', None)):\n-            _fit(model, iterator, train_config)\n-        elif not isinstance(model, Chainer):\n-            log.warning('Nothing to train')\n \n",
+        "source_code_with_indent": "            <IND>_train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n        <DED>elif callable(getattr(model, 'fit_batches', None)):\n            <IND>_fit_batches(model, iterator, train_config)\n        <DED>elif callable(getattr(model, 'fit', None)):\n            <IND>_fit(model, iterator, train_config)\n        <DED>elif not isinstance(model, Chainer):\n            <IND>log.warning('Nothing to train')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>_train_batches(model, iterator, train_config, metrics_functions, start_epoch_num=start_epoch_num)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

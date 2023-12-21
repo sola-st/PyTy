@@ -1,0 +1,53 @@
+[
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "03884dd6705bbb22689c890ab3fce54797bdb014",
+    "filename": "cwltool/job.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/job.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/job.py:214:63 Incompatible parameter type [6]: Expected `List[bytes]` for 1st positional only parameter to call `Builder.build_job_script` but got `List[str]`.",
+    "message": " Expected `List[bytes]` for 1st positional only parameter to call `Builder.build_job_script` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 214,
+    "warning_line": "                job_script_contents = builder.build_job_script(commands)"
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "03884dd6705bbb22689c890ab3fce54797bdb014",
+    "filename": "cwltool/job.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/job.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/job.py:216:16 Incompatible parameter type [6]: Expected `List[bytes]` for 1st positional only parameter to call `_job_popen` but got `List[str]`.",
+    "message": " Expected `List[bytes]` for 1st positional only parameter to call `_job_popen` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 216,
+    "warning_line": "                commands,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _job_popen(\n        commands,  # type: List[bytes]\n        stdin_path,  # type: Text\n",
+        "source_code_len": 89,
+        "target_code": "def _job_popen(\n        commands,  # type: List[str]\n        stdin_path,  # type: Text\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -426,3 +426,3 @@\n def _job_popen(\n-        commands,  # type: List[bytes]\n+        commands,  # type: List[str]\n         stdin_path,  # type: Text\n",
+        "source_code_with_indent": "<DED><DED>def _job_popen(\n        commands,  # type: List[bytes]\n        stdin_path,  # type: Text\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>def _job_popen(\n        commands,  # type: List[str]\n        stdin_path,  # type: Text\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

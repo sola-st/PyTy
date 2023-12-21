@@ -1,0 +1,113 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "d28e70f112117229074e585316d64caba9f37926",
+    "filename": "forte/data/selector.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/data/selector.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/data/selector.py:94:4 Inconsistent override [14]: `forte.data.selector.NameMatchSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "message": " `forte.data.selector.NameMatchSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 94,
+    "warning_line": "    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:\n        matches = 0\n        for name, pack in m_pack.iter_packs():\n            if name == self.select_name:\n                matches += 1\n                yield pack\n\n        if matches == 0:\n            raise ValueError(\n                f\"Pack name {self.select_name}\" f\" not in the MultiPack\"\n            )\n\n",
+        "source_code_len": 372,
+        "target_code": "\n    def will_select(\n        self, pack_name: str, pack: DataPack, multi_pack: MultiPack\n    ):\n        return pack_name == self.select_name\n\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -93,13 +122,6 @@\n \n-    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:\n-        matches = 0\n-        for name, pack in m_pack.iter_packs():\n-            if name == self.select_name:\n-                matches += 1\n-                yield pack\n-\n-        if matches == 0:\n-            raise ValueError(\n-                f\"Pack name {self.select_name}\" f\" not in the MultiPack\"\n-            )\n+    def will_select(\n+        self, pack_name: str, pack: DataPack, multi_pack: MultiPack\n+    ):\n+        return pack_name == self.select_name\n \n",
+        "source_code_with_indent": "\n    <DED>def select(self, m_pack: MultiPack) -> Iterator[DataPack]:\n        <IND>matches = 0\n        for name, pack in m_pack.iter_packs():\n            <IND>if name == self.select_name:\n                <IND>matches += 1\n                yield pack\n\n        <DED><DED>if matches == 0:\n            <IND>raise ValueError(\n                f\"Pack name {self.select_name}\" f\" not in the MultiPack\"\n            )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def will_select(\n        self, pack_name: str, pack: DataPack, multi_pack: MultiPack\n    ):\n        <IND>return pack_name == self.select_name\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "d28e70f112117229074e585316d64caba9f37926",
+    "filename": "forte/data/selector.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/data/selector.py",
+    "file_hunks_size": 7,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/data/selector.py:143:4 Inconsistent override [14]: `forte.data.selector.RegexNameMatchSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "message": " `forte.data.selector.RegexNameMatchSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 143,
+    "warning_line": "    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:"
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "d28e70f112117229074e585316d64caba9f37926",
+    "filename": "forte/data/selector.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/data/selector.py",
+    "file_hunks_size": 7,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/data/selector.py:171:4 Inconsistent override [14]: `forte.data.selector.FirstPackSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "message": " `forte.data.selector.FirstPackSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 171,
+    "warning_line": "    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:"
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "d28e70f112117229074e585316d64caba9f37926",
+    "filename": "forte/data/selector.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/data/selector.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/data/selector.py:182:4 Inconsistent override [14]: `forte.data.selector.AllPackSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "message": " `forte.data.selector.AllPackSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 182,
+    "warning_line": "    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:\n        if len(m_pack.packs) == 0:\n            raise ValueError(\"Multi-pack has no data packs.\")\n\n        else:\n            yield from m_pack.packs\n",
+        "source_code_len": 212,
+        "target_code": "\n    def will_select(\n        self, pack_name: str, pack: DataPack, multi_pack: MultiPack\n    ) -> bool:\n        return True\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -181,7 +210,5 @@\n \n-    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:\n-        if len(m_pack.packs) == 0:\n-            raise ValueError(\"Multi-pack has no data packs.\")\n-\n-        else:\n-            yield from m_pack.packs\n+    def will_select(\n+        self, pack_name: str, pack: DataPack, multi_pack: MultiPack\n+    ) -> bool:\n+        return True\n",
+        "source_code_with_indent": "\n    def select(self, m_pack: MultiPack) -> Iterator[DataPack]:\n        <IND>if len(m_pack.packs) == 0:\n            <IND>raise ValueError(\"Multi-pack has no data packs.\")\n\n        <DED>else:\n            <IND>yield from m_pack.packs\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def will_select(\n        self, pack_name: str, pack: DataPack, multi_pack: MultiPack\n    ) -> bool:\n        <IND>return True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "asyml/forte",
+    "commit": "d28e70f112117229074e585316d64caba9f37926",
+    "filename": "tests/forte/pipeline_test.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/forte/pipeline_test.py:94:4 Inconsistent override [14]: `tests.forte.pipeline_test.NothingSelector.select` overrides method defined in `SinglePackSelector` inconsistently. Could not find parameter `pack` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

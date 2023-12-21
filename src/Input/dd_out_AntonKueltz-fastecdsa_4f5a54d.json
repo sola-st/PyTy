@@ -1,0 +1,77 @@
+[
+  {
+    "project": "AntonKueltz/fastecdsa",
+    "commit": "4f5a54dcef53fe59a4499dc10a9b95cff1ab9def",
+    "filename": "fastecdsa/ecdsa.py",
+    "min_patch_found": false,
+    "full_warning_msg": "fastecdsa/ecdsa.py:54:17 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "AntonKueltz/fastecdsa",
+    "commit": "4f5a54dcef53fe59a4499dc10a9b95cff1ab9def",
+    "filename": "fastecdsa/keys.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/AntonKueltz-fastecdsa/fastecdsa/keys.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fastecdsa/keys.py:12:34 Invalid type [31]: Expression `(int, fastecdsa.point.Point)` is not a valid type.",
+    "message": " Expression `(int, fastecdsa.point.Point)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 12,
+    "warning_line": "def gen_keypair(curve: Curve) -> (int, Point):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from os import urandom\n\n",
+        "source_code_len": 24,
+        "target_code": "from os import urandom\nfrom typing import Tuple\n\n",
+        "target_code_len": 49,
+        "diff_format": "@@ -3,2 +3,3 @@\n from os import urandom\n+from typing import Tuple\n \n",
+        "source_code_with_indent": "from os import urandom\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from os import urandom\nfrom typing import Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef gen_keypair(curve: Curve) -> (int, Point):\n    \"\"\"Generate a keypair that consists of a private key and a public key.\n",
+        "source_code_len": 123,
+        "target_code": "\ndef gen_keypair(curve: Curve) -> Tuple[int, Point]:\n    \"\"\"Generate a keypair that consists of a private key and a public key.\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -11,3 +12,3 @@\n \n-def gen_keypair(curve: Curve) -> (int, Point):\n+def gen_keypair(curve: Curve) -> Tuple[int, Point]:\n     \"\"\"Generate a keypair that consists of a private key and a public key.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef gen_keypair(curve: Curve) -> (int, Point):\n    <IND>",
+        "target_code_with_indent": "\ndef gen_keypair(curve: Curve) -> Tuple[int, Point]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "AntonKueltz/fastecdsa",
+    "commit": "4f5a54dcef53fe59a4499dc10a9b95cff1ab9def",
+    "filename": "fastecdsa/keys.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/AntonKueltz-fastecdsa/fastecdsa/keys.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fastecdsa/keys.py:84:93 Invalid type [31]: Expression `(fastecdsa.point.Point, fastecdsa.point.Point)` is not a valid type.",
+    "message": " Expression `(fastecdsa.point.Point, fastecdsa.point.Point)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 84,
+    "warning_line": "def get_public_keys_from_sig(sig: (int, int), msg, curve: Curve = P256, hashfunc=sha256) -> (Point, Point):"
+  }
+]

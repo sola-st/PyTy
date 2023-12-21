@@ -1,0 +1,36 @@
+[
+  {
+    "project": "willmcgugan/rich",
+    "commit": "9b666838c970afb32f254b3f9a2440b90866455e",
+    "filename": "rich/segment.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-rich/rich/segment.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rich/segment.py:97:50 Unsupported operand [58]: `+` is not supported for operand types `Optional[Style]` and `Style`.",
+    "message": " `+` is not supported for operand types `Optional[Style]` and `Style`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 97,
+    "warning_line": "                cls(text, None if is_control else _style + post_style, is_control)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            )\n        if post_style:\n            segments = (\n                cls(text, None if is_control else _style + post_style, is_control)\n                for text, _style, is_control in segments\n",
+        "source_code_len": 202,
+        "target_code": "            )\n        if post_style is not None:\n            segments = (\n                cls(\n                    text,\n                    None\n                    if is_control\n                    else (_style + post_style if _style else post_style),\n                    is_control,\n                )\n                for text, _style, is_control in segments\n",
+        "target_code_len": 361,
+        "diff_format": "@@ -94,5 +94,11 @@\n             )\n-        if post_style:\n+        if post_style is not None:\n             segments = (\n-                cls(text, None if is_control else _style + post_style, is_control)\n+                cls(\n+                    text,\n+                    None\n+                    if is_control\n+                    else (_style + post_style if _style else post_style),\n+                    is_control,\n+                )\n                 for text, _style, is_control in segments\n",
+        "source_code_with_indent": "            )\n        <DED>if post_style:\n            <IND>segments = (\n                cls(text, None if is_control else _style + post_style, is_control)\n                for text, _style, is_control in segments\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            )\n        <DED>if post_style is not None:\n            <IND>segments = (\n                cls(\n                    text,\n                    None\n                    if is_control\n                    else (_style + post_style if _style else post_style),\n                    is_control,\n                )\n                for text, _style, is_control in segments\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

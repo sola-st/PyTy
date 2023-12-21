@@ -1,0 +1,119 @@
+[
+  {
+    "project": "ariebovenberg/snug",
+    "commit": "2a033ba42a3352235795ae72de9ee3547f9696d4",
+    "filename": "snug/query.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ariebovenberg-snug/snug/query.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snug/query.py:71:8 Incompatible return type [7]: Expected `Variable[T]` but got `Variable[T_resp]`.",
+    "message": " Expected `Variable[T]` but got `Variable[T_resp]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 71,
+    "warning_line": "        return response",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return self.load((yield self.request))\n\n\nclass Base(Query[T, T_req, T_resp]):\n    \"\"\"Base class for query subclasses with useful methods to override\n\n    Example\n    -------\n\n    >>> class post(query.Base):\n    ...     def __init__(self, id):\n    ...         self.id = id\n    ...\n    ...     def _request(self):\n    ...         return f'/posts/{self.id}/'\n    \"\"\"\n\n    @abc.abstractmethod\n    def _request(self) -> T_req:\n        \"\"\"override this method to implement a request creator\"\"\"\n        raise NotImplementedError\n\n    def _parse(self, response: T_resp) -> T:\n        \"\"\"override this method to provide custom loading of responses\n\n        Parameters\n        ----------\n        response\n            the response to parse\n        \"\"\"\n        return response\n\n    def __iter__(self):\n        return self._parse((yield self._request()))\n\n",
+        "source_code_len": 851,
+        "target_code": "        return self.load((yield self.request))\n\n",
+        "target_code_len": 48,
+        "diff_format": "@@ -41,35 +39,2 @@\n         return self.load((yield self.request))\n-\n-\n-class Base(Query[T, T_req, T_resp]):\n-    \"\"\"Base class for query subclasses with useful methods to override\n-\n-    Example\n-    -------\n-\n-    >>> class post(query.Base):\n-    ...     def __init__(self, id):\n-    ...         self.id = id\n-    ...\n-    ...     def _request(self):\n-    ...         return f'/posts/{self.id}/'\n-    \"\"\"\n-\n-    @abc.abstractmethod\n-    def _request(self) -> T_req:\n-        \"\"\"override this method to implement a request creator\"\"\"\n-        raise NotImplementedError\n-\n-    def _parse(self, response: T_resp) -> T:\n-        \"\"\"override this method to provide custom loading of responses\n-\n-        Parameters\n-        ----------\n-        response\n-            the response to parse\n-        \"\"\"\n-        return response\n-\n-    def __iter__(self):\n-        return self._parse((yield self._request()))\n \n",
+        "source_code_with_indent": "        <IND>return self.load((yield self.request))\n\n\n<DED><DED>class Base(Query[T, T_req, T_resp]):\n    <IND>\"\"\"Base class for query subclasses with useful methods to override\n\n    Example\n    -------\n\n    >>> class post(query.Base):\n    ...     def __init__(self, id):\n    ...         self.id = id\n    ...\n    ...     def _request(self):\n    ...         return f'/posts/{self.id}/'\n    \"\"\"\n\n    @abc.abstractmethod\n    def _request(self) -> T_req:\n        <IND>\"\"\"override this method to implement a request creator\"\"\"\n        raise NotImplementedError\n\n    <DED>def _parse(self, response: T_resp) -> T:\n        <IND>\"\"\"override this method to provide custom loading of responses\n\n        Parameters\n        ----------\n        response\n            the response to parse\n        \"\"\"\n        return response\n\n    <DED>def __iter__(self):\n        <IND>return self._parse((yield self._request()))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>return self.load((yield self.request))\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        )\n\n\nclass cls_from_func:\n    \"\"\"Create a query class from a function. Use as a decorator.\n\n    Parameters\n    ----------\n    load\n        function to parse the response\n\n    Example\n    -------\n\n    >>> @query.cls_from_func(load=load_post)\n    ... def post(id: int):\n    ...     return f'posts/{id}/'\n\n    Note\n    ----\n    The function must:\n\n    * be a python function, bound to a module.\n    * be fully annotated, without keyword-only arguments\n    \"\"\"\n    # keyword-only arguments to prevent incorrect decorator usage\n    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n        self.load = load\n\n    def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n            Query[T, T_req, T_resp]]:\n        return make_dataclass(\n            func.__name__,\n            func_to_fields(func),\n            bases=(Base, ),\n            namespace={\n                '__doc__':    func.__doc__,\n                '__module__': func.__module__,\n                '_request':   partialmethod(compose(\n                    partial(apply, func), as_tuple)),\n                '_parse':     staticmethod(self.load)\n            })\n",
+        "source_code_len": 1136,
+        "target_code": "        )\n",
+        "target_code_len": 10,
+        "diff_format": "@@ -118,42 +83,1 @@\n         )\n-\n-\n-class cls_from_func:\n-    \"\"\"Create a query class from a function. Use as a decorator.\n-\n-    Parameters\n-    ----------\n-    load\n-        function to parse the response\n-\n-    Example\n-    -------\n-\n-    >>> @query.cls_from_func(load=load_post)\n-    ... def post(id: int):\n-    ...     return f'posts/{id}/'\n-\n-    Note\n-    ----\n-    The function must:\n-\n-    * be a python function, bound to a module.\n-    * be fully annotated, without keyword-only arguments\n-    \"\"\"\n-    # keyword-only arguments to prevent incorrect decorator usage\n-    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n-        self.load = load\n-\n-    def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n-            Query[T, T_req, T_resp]]:\n-        return make_dataclass(\n-            func.__name__,\n-            func_to_fields(func),\n-            bases=(Base, ),\n-            namespace={\n-                '__doc__':    func.__doc__,\n-                '__module__': func.__module__,\n-                '_request':   partialmethod(compose(\n-                    partial(apply, func), as_tuple)),\n-                '_parse':     staticmethod(self.load)\n-            })\n",
+        "source_code_with_indent": "        )\n\n\n<DED><DED>class cls_from_func:\n    <IND>\"\"\"Create a query class from a function. Use as a decorator.\n\n    Parameters\n    ----------\n    load\n        function to parse the response\n\n    Example\n    -------\n\n    >>> @query.cls_from_func(load=load_post)\n    ... def post(id: int):\n    ...     return f'posts/{id}/'\n\n    Note\n    ----\n    The function must:\n\n    * be a python function, bound to a module.\n    * be fully annotated, without keyword-only arguments\n    \"\"\"\n    # keyword-only arguments to prevent incorrect decorator usage\n    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n        <IND>self.load = load\n\n    <DED>def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n            Query[T, T_req, T_resp]]:\n        <IND>return make_dataclass(\n            func.__name__,\n            func_to_fields(func),\n            bases=(Base, ),\n            namespace={\n                '__doc__':    func.__doc__,\n                '__module__': func.__module__,\n                '_request':   partialmethod(compose(\n                    partial(apply, func), as_tuple)),\n                '_parse':     staticmethod(self.load)\n            })\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ariebovenberg/snug",
+    "commit": "2a033ba42a3352235795ae72de9ee3547f9696d4",
+    "filename": "snug/query.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ariebovenberg-snug/snug/query.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snug/query.py:151:12 Incompatible parameter type [6]: Expected `t.Iterable[t.Union[t.Tuple[str, t.Type[typing.Any]], t.Tuple[str, t.Type[typing.Any], dataclasses.Field[typing.Any]], str]]` for 2nd positional only parameter to call `make_dataclass` but got `t.List[dataclasses.Field[typing.Any]]`.",
+    "message": " Expected `t.Iterable[t.Union[t.Tuple[str, t.Type[typing.Any]], t.Tuple[str, t.Type[typing.Any], dataclasses.Field[typing.Any]], str]]` for 2nd positional only parameter to call `make_dataclass` but got `t.List[dataclasses.Field[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 151,
+    "warning_line": "            func_to_fields(func),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        )\n\n\nclass cls_from_func:\n    \"\"\"Create a query class from a function. Use as a decorator.\n\n    Parameters\n    ----------\n    load\n        function to parse the response\n\n    Example\n    -------\n\n    >>> @query.cls_from_func(load=load_post)\n    ... def post(id: int):\n    ...     return f'posts/{id}/'\n\n    Note\n    ----\n    The function must:\n\n    * be a python function, bound to a module.\n    * be fully annotated, without keyword-only arguments\n    \"\"\"\n    # keyword-only arguments to prevent incorrect decorator usage\n    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n        self.load = load\n\n    def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n            Query[T, T_req, T_resp]]:\n        return make_dataclass(\n            func.__name__,\n            func_to_fields(func),\n            bases=(Base, ),\n            namespace={\n                '__doc__':    func.__doc__,\n                '__module__': func.__module__,\n                '_request':   partialmethod(compose(\n                    partial(apply, func), as_tuple)),\n                '_parse':     staticmethod(self.load)\n            })\n",
+        "source_code_len": 1136,
+        "target_code": "        )\n",
+        "target_code_len": 10,
+        "diff_format": "@@ -118,42 +83,1 @@\n         )\n-\n-\n-class cls_from_func:\n-    \"\"\"Create a query class from a function. Use as a decorator.\n-\n-    Parameters\n-    ----------\n-    load\n-        function to parse the response\n-\n-    Example\n-    -------\n-\n-    >>> @query.cls_from_func(load=load_post)\n-    ... def post(id: int):\n-    ...     return f'posts/{id}/'\n-\n-    Note\n-    ----\n-    The function must:\n-\n-    * be a python function, bound to a module.\n-    * be fully annotated, without keyword-only arguments\n-    \"\"\"\n-    # keyword-only arguments to prevent incorrect decorator usage\n-    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n-        self.load = load\n-\n-    def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n-            Query[T, T_req, T_resp]]:\n-        return make_dataclass(\n-            func.__name__,\n-            func_to_fields(func),\n-            bases=(Base, ),\n-            namespace={\n-                '__doc__':    func.__doc__,\n-                '__module__': func.__module__,\n-                '_request':   partialmethod(compose(\n-                    partial(apply, func), as_tuple)),\n-                '_parse':     staticmethod(self.load)\n-            })\n",
+        "source_code_with_indent": "        )\n\n\n<DED><DED>class cls_from_func:\n    <IND>\"\"\"Create a query class from a function. Use as a decorator.\n\n    Parameters\n    ----------\n    load\n        function to parse the response\n\n    Example\n    -------\n\n    >>> @query.cls_from_func(load=load_post)\n    ... def post(id: int):\n    ...     return f'posts/{id}/'\n\n    Note\n    ----\n    The function must:\n\n    * be a python function, bound to a module.\n    * be fully annotated, without keyword-only arguments\n    \"\"\"\n    # keyword-only arguments to prevent incorrect decorator usage\n    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n        <IND>self.load = load\n\n    <DED>def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n            Query[T, T_req, T_resp]]:\n        <IND>return make_dataclass(\n            func.__name__,\n            func_to_fields(func),\n            bases=(Base, ),\n            namespace={\n                '__doc__':    func.__doc__,\n                '__module__': func.__module__,\n                '_request':   partialmethod(compose(\n                    partial(apply, func), as_tuple)),\n                '_parse':     staticmethod(self.load)\n            })\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ariebovenberg/snug",
+    "commit": "2a033ba42a3352235795ae72de9ee3547f9696d4",
+    "filename": "snug/query.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ariebovenberg-snug/snug/query.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snug/query.py:151:27 Incompatible parameter type [6]: Expected `types.FunctionType` for 1st positional only parameter to call `func_to_fields` but got `typing.Callable[..., Variable[T_req]]`.",
+    "message": " Expected `types.FunctionType` for 1st positional only parameter to call `func_to_fields` but got `typing.Callable[..., Variable[T_req]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 151,
+    "warning_line": "            func_to_fields(func),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        )\n\n\nclass cls_from_func:\n    \"\"\"Create a query class from a function. Use as a decorator.\n\n    Parameters\n    ----------\n    load\n        function to parse the response\n\n    Example\n    -------\n\n    >>> @query.cls_from_func(load=load_post)\n    ... def post(id: int):\n    ...     return f'posts/{id}/'\n\n    Note\n    ----\n    The function must:\n\n    * be a python function, bound to a module.\n    * be fully annotated, without keyword-only arguments\n    \"\"\"\n    # keyword-only arguments to prevent incorrect decorator usage\n    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n        self.load = load\n\n    def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n            Query[T, T_req, T_resp]]:\n        return make_dataclass(\n            func.__name__,\n            func_to_fields(func),\n            bases=(Base, ),\n            namespace={\n                '__doc__':    func.__doc__,\n                '__module__': func.__module__,\n                '_request':   partialmethod(compose(\n                    partial(apply, func), as_tuple)),\n                '_parse':     staticmethod(self.load)\n            })\n",
+        "source_code_len": 1136,
+        "target_code": "        )\n",
+        "target_code_len": 10,
+        "diff_format": "@@ -118,42 +83,1 @@\n         )\n-\n-\n-class cls_from_func:\n-    \"\"\"Create a query class from a function. Use as a decorator.\n-\n-    Parameters\n-    ----------\n-    load\n-        function to parse the response\n-\n-    Example\n-    -------\n-\n-    >>> @query.cls_from_func(load=load_post)\n-    ... def post(id: int):\n-    ...     return f'posts/{id}/'\n-\n-    Note\n-    ----\n-    The function must:\n-\n-    * be a python function, bound to a module.\n-    * be fully annotated, without keyword-only arguments\n-    \"\"\"\n-    # keyword-only arguments to prevent incorrect decorator usage\n-    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n-        self.load = load\n-\n-    def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n-            Query[T, T_req, T_resp]]:\n-        return make_dataclass(\n-            func.__name__,\n-            func_to_fields(func),\n-            bases=(Base, ),\n-            namespace={\n-                '__doc__':    func.__doc__,\n-                '__module__': func.__module__,\n-                '_request':   partialmethod(compose(\n-                    partial(apply, func), as_tuple)),\n-                '_parse':     staticmethod(self.load)\n-            })\n",
+        "source_code_with_indent": "        )\n\n\n<DED><DED>class cls_from_func:\n    <IND>\"\"\"Create a query class from a function. Use as a decorator.\n\n    Parameters\n    ----------\n    load\n        function to parse the response\n\n    Example\n    -------\n\n    >>> @query.cls_from_func(load=load_post)\n    ... def post(id: int):\n    ...     return f'posts/{id}/'\n\n    Note\n    ----\n    The function must:\n\n    * be a python function, bound to a module.\n    * be fully annotated, without keyword-only arguments\n    \"\"\"\n    # keyword-only arguments to prevent incorrect decorator usage\n    def __init__(self, *, load: t.Callable[[T_resp], T]=identity):\n        <IND>self.load = load\n\n    <DED>def __call__(self, func: t.Callable[..., T_req]) -> t.Type[\n            Query[T, T_req, T_resp]]:\n        <IND>return make_dataclass(\n            func.__name__,\n            func_to_fields(func),\n            bases=(Base, ),\n            namespace={\n                '__doc__':    func.__doc__,\n                '__module__': func.__module__,\n                '_request':   partialmethod(compose(\n                    partial(apply, func), as_tuple)),\n                '_parse':     staticmethod(self.load)\n            })\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

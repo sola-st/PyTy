@@ -1,0 +1,87 @@
+[
+  {
+    "project": "Project-MONAI/MONAI",
+    "commit": "be913e5bb28e61f40da714827976ac8ff543d543",
+    "filename": "monai/engines/workflow.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Project-MONAI-MONAI/monai/engines/workflow.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "monai/engines/workflow.py:109:54 Incompatible parameter type [6]: Expected `typing.Callable[..., typing.Any]` for 1st positional only parameter to call `monai.transforms.utils.apply_transform` but got `Optional[monai.transforms.compose.Transform]`.",
+    "message": " Expected `typing.Callable[..., typing.Any]` for 1st positional only parameter to call `monai.transforms.utils.apply_transform` but got `Optional[monai.transforms.compose.Transform]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 109,
+    "warning_line": "                engine.state.output = apply_transform(post_transform, engine.state.output)"
+  },
+  {
+    "project": "Project-MONAI/MONAI",
+    "commit": "be913e5bb28e61f40da714827976ac8ff543d543",
+    "filename": "monai/handlers/segmentation_saver.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Project-MONAI-MONAI/monai/handlers/segmentation_saver.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "monai/handlers/segmentation_saver.py:87:16 Incompatible parameter type [6]: Expected `Union[monai.utils.enums.GridSampleMode, str]` for 5th parameter `mode` to call `monai.data.nifti_saver.NiftiSaver.__init__` but got `Union[monai.utils.enums.GridSampleMode, monai.utils.enums.InterpolateMode, str]`.",
+    "message": " Expected `Union[monai.utils.enums.GridSampleMode, str]` for 5th parameter `mode` to call `monai.data.nifti_saver.NiftiSaver.__init__` but got `Union[monai.utils.enums.GridSampleMode, monai.utils.enums.InterpolateMode, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 87,
+    "warning_line": "                mode=mode,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                resample=resample,\n                mode=mode,\n                padding_mode=padding_mode,\n",
+        "source_code_len": 105,
+        "target_code": "                resample=resample,\n                mode=GridSampleMode(mode),\n                padding_mode=padding_mode,\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -86,3 +89,3 @@\n                 resample=resample,\n-                mode=mode,\n+                mode=GridSampleMode(mode),\n                 padding_mode=padding_mode,\n",
+        "source_code_with_indent": "                resample=resample,\n                mode=mode,\n                padding_mode=padding_mode,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                resample=resample,\n                mode=GridSampleMode(mode),\n                padding_mode=padding_mode,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Project-MONAI/MONAI",
+    "commit": "be913e5bb28e61f40da714827976ac8ff543d543",
+    "filename": "monai/handlers/segmentation_saver.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Project-MONAI-MONAI/monai/handlers/segmentation_saver.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "monai/handlers/segmentation_saver.py:97:16 Incompatible parameter type [6]: Expected `Union[monai.utils.enums.InterpolateMode, str]` for 5th parameter `mode` to call `monai.data.png_saver.PNGSaver.__init__` but got `Union[monai.utils.enums.GridSampleMode, monai.utils.enums.InterpolateMode, str]`.",
+    "message": " Expected `Union[monai.utils.enums.InterpolateMode, str]` for 5th parameter `mode` to call `monai.data.png_saver.PNGSaver.__init__` but got `Union[monai.utils.enums.GridSampleMode, monai.utils.enums.InterpolateMode, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 97,
+    "warning_line": "                mode=mode,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                resample=resample,\n                mode=mode,\n                scale=scale,\n",
+        "source_code_len": 91,
+        "target_code": "                resample=resample,\n                mode=InterpolateMode(mode),\n                scale=scale,\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -96,3 +99,3 @@\n                 resample=resample,\n-                mode=mode,\n+                mode=InterpolateMode(mode),\n                 scale=scale,\n",
+        "source_code_with_indent": "                resample=resample,\n                mode=mode,\n                scale=scale,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                resample=resample,\n                mode=InterpolateMode(mode),\n                scale=scale,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

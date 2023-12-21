@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "c8ca85f6f3181166caffbcb81f643b3efa61d111",
+    "filename": "optuna/study.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/study.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/study.py:734:15 Unbound name [10]: Name `optuna` is used but not defined in the current scope.",
+    "message": " Name `optuna` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 734,
+    "warning_line": "        except optuna.TrialPruned as e:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            result = func(trial)\n        except optuna.TrialPruned as e:\n            message = \"Setting status of trial#{} as {}. {}\".format(\n",
+        "source_code_len": 142,
+        "target_code": "            result = func(trial)\n        except exceptions.TrialPruned as e:\n            message = \"Setting status of trial#{} as {}. {}\".format(\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -733,3 +733,3 @@\n             result = func(trial)\n-        except optuna.TrialPruned as e:\n+        except exceptions.TrialPruned as e:\n             message = \"Setting status of trial#{} as {}. {}\".format(\n",
+        "source_code_with_indent": "            <IND>result = func(trial)\n        <DED>except optuna.TrialPruned as e:\n            <IND>message = \"Setting status of trial#{} as {}. {}\".format(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>result = func(trial)\n        <DED>except exceptions.TrialPruned as e:\n            <IND>message = \"Setting status of trial#{} as {}. {}\".format(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

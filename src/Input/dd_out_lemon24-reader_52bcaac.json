@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lemon24/reader",
+    "commit": "52bcaac18d17c99f4c331fcb8c00f7f371166ff2",
+    "filename": "src/reader/_storage.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lemon24-reader/src/reader/_storage.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/reader/_storage.py:1480:30 Incompatible parameter type [6]: Expected `datetime` for 2nd positional only parameter to call `dict.__setitem__` but got `float`.",
+    "message": " Expected `datetime` for 2nd positional only parameter to call `dict.__setitem__` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1480,
+    "warning_line": "        context[days_param] = float(period_days)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    context = dict(now=now)\n\n",
+        "source_code_len": 30,
+        "target_code": "\n    context: Dict[str, Any] = dict(now=now)\n\n",
+        "target_code_len": 46,
+        "diff_format": "@@ -1473,3 +1473,3 @@\n \n-    context = dict(now=now)\n+    context: Dict[str, Any] = dict(now=now)\n \n",
+        "source_code_with_indent": "\n    context = dict(now=now)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    context: Dict[str, Any] = dict(now=now)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

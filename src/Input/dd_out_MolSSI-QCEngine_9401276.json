@@ -1,0 +1,51 @@
+[
+  {
+    "project": "MolSSI/QCEngine",
+    "commit": "9401276bab85425c33f371585c9129a25c57038e",
+    "filename": "qcengine/exceptions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/MolSSI-QCEngine/qcengine/exceptions.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcengine/exceptions.py:26:17 Unbound name [10]: Name `QCEngineError` is used but not defined in the current scope.",
+    "message": " Name `QCEngineError` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 26,
+    "warning_line": "class InputError(QCEngineError):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from qcelemental.models import ComputeError, FailedOperation\n\n\nclass UnknownError(Exception):\n    \"\"\"\n    Unknown QCEngine error, the type was not able to be specified.\n    \"\"\"\n    error_type = \"unknown_error\"\n\n",
+        "source_code_len": 211,
+        "target_code": "\nimport traceback\n\nfrom qcelemental.models import ComputeError, FailedOperation\n\nclass QCEngineException(Exception):\n    \"\"\"\n    Base QCEngine exception, should never be called explicitly.\n    \"\"\"\n    error_type = \"base_error\"\n    header = \"QCEngine Base Error:\"\n\n",
+        "target_code_len": 264,
+        "diff_format": "@@ -1,9 +1,12 @@\n+\n+import traceback\n+\n from qcelemental.models import ComputeError, FailedOperation\n \n-\n-class UnknownError(Exception):\n+class QCEngineException(Exception):\n     \"\"\"\n-    Unknown QCEngine error, the type was not able to be specified.\n+    Base QCEngine exception, should never be called explicitly.\n     \"\"\"\n-    error_type = \"unknown_error\"\n+    error_type = \"base_error\"\n+    header = \"QCEngine Base Error:\"\n \n",
+        "source_code_with_indent": "from qcelemental.models import ComputeError, FailedOperation\n\n\nclass UnknownError(Exception):\n    <IND>\"\"\"\n    Unknown QCEngine error, the type was not able to be specified.\n    \"\"\"\n    error_type = \"unknown_error\"\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport traceback\n\nfrom qcelemental.models import ComputeError, FailedOperation\n\nclass QCEngineException(Exception):\n    <IND>\"\"\"\n    Base QCEngine exception, should never be called explicitly.\n    \"\"\"\n    error_type = \"base_error\"\n    header = \"QCEngine Base Error:\"\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\nclass InputError(QCEngineError):\n    \"\"\"\n",
+        "source_code_len": 43,
+        "target_code": "\nclass UnknownError(QCEngineException):\n    \"\"\"\n    Unknown QCEngine error, the type was not able to be specified.\n    \"\"\"\n    error_type = \"unknown_error\"\n    header = \"QCEngine Unknown Error:\"\n\n\n\nclass InputError(QCEngineException):\n    \"\"\"\n",
+        "target_code_len": 243,
+        "diff_format": "@@ -24,4 +30,12 @@\n \n+class UnknownError(QCEngineException):\n+    \"\"\"\n+    Unknown QCEngine error, the type was not able to be specified.\n+    \"\"\"\n+    error_type = \"unknown_error\"\n+    header = \"QCEngine Unknown Error:\"\n \n-class InputError(QCEngineError):\n+\n+\n+class InputError(QCEngineException):\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n\n<DED><DED>class InputError(QCEngineError):\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>class UnknownError(QCEngineException):\n    <IND>\"\"\"\n    Unknown QCEngine error, the type was not able to be specified.\n    \"\"\"\n    error_type = \"unknown_error\"\n    header = \"QCEngine Unknown Error:\"\n\n\n\n<DED>class InputError(QCEngineException):\n    <IND>"
+      }
+    ]
+  }
+]

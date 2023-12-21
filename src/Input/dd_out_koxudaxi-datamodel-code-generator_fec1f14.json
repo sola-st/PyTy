@@ -1,0 +1,85 @@
+[
+  {
+    "project": "koxudaxi/datamodel-code-generator",
+    "commit": "fec1f14c6551b442bf6f61029cac44f48d67d8bc",
+    "filename": "datamodel_code_generator/__main__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/koxudaxi-datamodel-code-generator/datamodel_code_generator/__main__.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "datamodel_code_generator/__main__.py:41:4 Incompatible variable type [9]: args is declared to have type `Optional[Sequence[str]]` but is used as type `argparse.Namespace`.",
+    "message": " args is declared to have type `Optional[Sequence[str]]` but is used as type `argparse.Namespace`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 41,
+    "warning_line": "    args = arg_parser.parse_args(args)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import sys\nfrom argparse import ArgumentParser, FileType\nfrom datetime import datetime, timezone\nfrom enum import IntEnum\nfrom typing import Optional, Sequence\n\nimport argcomplete\n\nfrom datamodel_code_generator.model import BaseModel, DataModelField\n",
+        "source_code_len": 250,
+        "target_code": "import sys\nfrom argparse import ArgumentParser, FileType, Namespace\nfrom datetime import datetime, timezone\nfrom enum import IntEnum\nfrom typing import Optional, Sequence, Union\n\nimport argcomplete\nfrom datamodel_code_generator.model import BaseModel, DataModelField\n",
+        "target_code_len": 267,
+        "diff_format": "@@ -8,9 +8,8 @@\n import sys\n-from argparse import ArgumentParser, FileType\n+from argparse import ArgumentParser, FileType, Namespace\n from datetime import datetime, timezone\n from enum import IntEnum\n-from typing import Optional, Sequence\n+from typing import Optional, Sequence, Union\n \n import argcomplete\n-\n from datamodel_code_generator.model import BaseModel, DataModelField\n",
+        "source_code_with_indent": "import sys\nfrom argparse import ArgumentParser, FileType\nfrom datetime import datetime, timezone\nfrom enum import IntEnum\nfrom typing import Optional, Sequence\n\nimport argcomplete\n\nfrom datamodel_code_generator.model import BaseModel, DataModelField\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import sys\nfrom argparse import ArgumentParser, FileType, Namespace\nfrom datetime import datetime, timezone\nfrom enum import IntEnum\nfrom typing import Optional, Sequence, Union\n\nimport argcomplete\nfrom datamodel_code_generator.model import BaseModel, DataModelField\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    args = arg_parser.parse_args(args)\n\n    input_filename = os.path.abspath(os.path.expanduser(args.input))\n    parser = Parser(BaseModel, DataModelField, filename=input_filename)\n",
+        "source_code_len": 182,
+        "target_code": "\n    namespace: Namespace = arg_parser.parse_args(args)\n\n    input_filename = os.path.abspath(os.path.expanduser(namespace.input))\n    parser = Parser(BaseModel, DataModelField, filename=input_filename)\n",
+        "target_code_len": 203,
+        "diff_format": "@@ -40,5 +41,5 @@\n \n-    args = arg_parser.parse_args(args)\n+    namespace: Namespace = arg_parser.parse_args(args)\n \n-    input_filename = os.path.abspath(os.path.expanduser(args.input))\n+    input_filename = os.path.abspath(os.path.expanduser(namespace.input))\n     parser = Parser(BaseModel, DataModelField, filename=input_filename)\n",
+        "source_code_with_indent": "\n    <DED>args = arg_parser.parse_args(args)\n\n    input_filename = os.path.abspath(os.path.expanduser(args.input))\n    parser = Parser(BaseModel, DataModelField, filename=input_filename)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>namespace: Namespace = arg_parser.parse_args(args)\n\n    input_filename = os.path.abspath(os.path.expanduser(namespace.input))\n    parser = Parser(BaseModel, DataModelField, filename=input_filename)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "koxudaxi/datamodel-code-generator",
+    "commit": "fec1f14c6551b442bf6f61029cac44f48d67d8bc",
+    "filename": "datamodel_code_generator/model/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/koxudaxi-datamodel-code-generator/datamodel_code_generator/model/base.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "datamodel_code_generator/model/base.py:53:8 Incompatible attribute type [8]: Attribute `fields` declared in class `DataModel` has type `List[DataModelField]` but is used as type `typing.Union[List[DataModelField], DataModelField]`.",
+    "message": " Attribute `fields` declared in class `DataModel` has type `List[DataModelField]` but is used as type `typing.Union[List[DataModelField], DataModelField]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 53,
+    "warning_line": "        self.fields: List[DataModelField] = fields or DataModelField(name='pass')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class DataModel(TemplateBase, ABC):\n    TEMPLATE_FILE_PATH: str = ''\n\n    def __init__(self, name: str, fields: List[DataModelField],\n                 decorators: Optional[List[str]] = None, base_class: Optional[str] = None):\n        if not self.TEMPLATE_FILE_PATH:\n            raise Exception(f'TEMPLATE_FILE_NAME Not Set')\n\n        self.name: str = name\n        self.fields: List[DataModelField] = fields or DataModelField(name='pass')\n        self.decorators: List[str] = decorators or []\n",
+        "source_code_len": 492,
+        "target_code": "class DataModel(TemplateBase, ABC):\n    TEMPLATE_FILE_PATH: str = \"\"\n\n    def __init__(\n        self,\n        name: str,\n        fields: List[DataModelField],\n        decorators: Optional[List[str]] = None,\n        base_class: Optional[str] = None,\n    ) -> None:\n        if not self.TEMPLATE_FILE_PATH:\n            raise Exception(f\"TEMPLATE_FILE_NAME Not Set\")\n\n        self.name: str = name\n        self.fields: List[DataModelField] = fields or [DataModelField(name=\"pass\")]\n        self.decorators: List[str] = decorators or []\n",
+        "target_code_len": 532,
+        "diff_format": "@@ -44,11 +49,16 @@\n class DataModel(TemplateBase, ABC):\n-    TEMPLATE_FILE_PATH: str = ''\n+    TEMPLATE_FILE_PATH: str = \"\"\n \n-    def __init__(self, name: str, fields: List[DataModelField],\n-                 decorators: Optional[List[str]] = None, base_class: Optional[str] = None):\n+    def __init__(\n+        self,\n+        name: str,\n+        fields: List[DataModelField],\n+        decorators: Optional[List[str]] = None,\n+        base_class: Optional[str] = None,\n+    ) -> None:\n         if not self.TEMPLATE_FILE_PATH:\n-            raise Exception(f'TEMPLATE_FILE_NAME Not Set')\n+            raise Exception(f\"TEMPLATE_FILE_NAME Not Set\")\n \n         self.name: str = name\n-        self.fields: List[DataModelField] = fields or DataModelField(name='pass')\n+        self.fields: List[DataModelField] = fields or [DataModelField(name=\"pass\")]\n         self.decorators: List[str] = decorators or []\n",
+        "source_code_with_indent": "<DED><DED>class DataModel(TemplateBase, ABC):\n    <IND>TEMPLATE_FILE_PATH: str = ''\n\n    def __init__(self, name: str, fields: List[DataModelField],\n                 decorators: Optional[List[str]] = None, base_class: Optional[str] = None):\n        <IND>if not self.TEMPLATE_FILE_PATH:\n            <IND>raise Exception(f'TEMPLATE_FILE_NAME Not Set')\n\n        <DED>self.name: str = name\n        self.fields: List[DataModelField] = fields or DataModelField(name='pass')\n        self.decorators: List[str] = decorators or []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class DataModel(TemplateBase, ABC):\n    <IND>TEMPLATE_FILE_PATH: str = \"\"\n\n    def __init__(\n        self,\n        name: str,\n        fields: List[DataModelField],\n        decorators: Optional[List[str]] = None,\n        base_class: Optional[str] = None,\n    ) -> None:\n        <IND>if not self.TEMPLATE_FILE_PATH:\n            <IND>raise Exception(f\"TEMPLATE_FILE_NAME Not Set\")\n\n        <DED>self.name: str = name\n        self.fields: List[DataModelField] = fields or [DataModelField(name=\"pass\")]\n        self.decorators: List[str] = decorators or []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

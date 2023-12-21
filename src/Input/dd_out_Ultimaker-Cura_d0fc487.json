@@ -1,0 +1,119 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "d0fc4878c29a04bbcfcb289775d93a04b62b9517",
+    "filename": "cura/OAuth2/AuthorizationRequestHandler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/OAuth2/AuthorizationRequestHandler.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/OAuth2/AuthorizationRequestHandler.py:52:47 Invalid type [31]: Expression `(cura.OAuth2.Models.ResponseData, typing.Optional[cura.OAuth2.Models.AuthenticationResponse])` is not a valid type.",
+    "message": " Expression `(cura.OAuth2.Models.ResponseData, typing.Optional[cura.OAuth2.Models.AuthenticationResponse])` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 52,
+    "warning_line": "    def _handleCallback(self, query: dict) -> (\"ResponseData\", Optional[\"AuthenticationResponse\"]):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Optional, Callable\n\n",
+        "source_code_len": 99,
+        "target_code": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Optional, Callable, Tuple, Dict, Any, List\n\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -2,3 +2,3 @@\n # Cura is released under the terms of the LGPLv3 or higher.\n-from typing import Optional, Callable\n+from typing import Optional, Callable, Tuple, Dict, Any, List\n \n",
+        "source_code_with_indent": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Optional, Callable\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# Cura is released under the terms of the LGPLv3 or higher.\nfrom typing import Optional, Callable, Tuple, Dict, Any, List\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _handleCallback(self, query: dict) -> (\"ResponseData\", Optional[\"AuthenticationResponse\"]):\n        \"\"\"\n",
+        "source_code_len": 113,
+        "target_code": "\n    def _handleCallback(self, query: Dict[Any, List]) -> Tuple[\"ResponseData\", Optional[\"AuthenticationResponse\"]]:\n        \"\"\"\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-    def _handleCallback(self, query: dict) -> (\"ResponseData\", Optional[\"AuthenticationResponse\"]):\n+    def _handleCallback(self, query: Dict[Any, List]) -> Tuple[\"ResponseData\", Optional[\"AuthenticationResponse\"]]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def _handleCallback(self, query: dict) -> (\"ResponseData\", Optional[\"AuthenticationResponse\"]):\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def _handleCallback(self, query: Dict[Any, List]) -> Tuple[\"ResponseData\", Optional[\"AuthenticationResponse\"]]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "d0fc4878c29a04bbcfcb289775d93a04b62b9517",
+    "filename": "cura/OAuth2/AuthorizationRequestHandler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/OAuth2/AuthorizationRequestHandler.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/OAuth2/AuthorizationRequestHandler.py:61:16 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `AuthorizationHelpers.getAccessTokenUsingAuthorizationCode` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `AuthorizationHelpers.getAccessTokenUsingAuthorizationCode` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 61,
+    "warning_line": "                self._queryGet(query, \"code\"), self.verification_code)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        if self._queryGet(query, \"code\"):\n            # If the code was returned we get the access token.\n            token_response = self.authorization_helpers.getAccessTokenUsingAuthorizationCode(\n                self._queryGet(query, \"code\"), self.verification_code)\n\n",
+        "source_code_len": 284,
+        "target_code": "        \"\"\"\n        code = self._queryGet(query, \"code\")\n        if code:\n            # If the code was returned we get the access token.\n            token_response = self.authorization_helpers.getAccessTokenUsingAuthorizationCode(\n                code, self.verification_code)\n\n",
+        "target_code_len": 279,
+        "diff_format": "@@ -57,6 +57,7 @@\n         \"\"\"\n-        if self._queryGet(query, \"code\"):\n+        code = self._queryGet(query, \"code\")\n+        if code:\n             # If the code was returned we get the access token.\n             token_response = self.authorization_helpers.getAccessTokenUsingAuthorizationCode(\n-                self._queryGet(query, \"code\"), self.verification_code)\n+                code, self.verification_code)\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        if self._queryGet(query, \"code\"):\n            # If the code was returned we get the access token.\n            <IND>token_response = self.authorization_helpers.getAccessTokenUsingAuthorizationCode(\n                self._queryGet(query, \"code\"), self.verification_code)\n\n",
+        "target_code_with_indent": "\n        code = self._queryGet(query, \"code\")\n        if code:\n            # If the code was returned we get the access token.\n            <IND>token_response = self.authorization_helpers.getAccessTokenUsingAuthorizationCode(\n                code, self.verification_code)\n\n"
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "d0fc4878c29a04bbcfcb289775d93a04b62b9517",
+    "filename": "cura/OAuth2/AuthorizationService.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/OAuth2/AuthorizationService.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/OAuth2/AuthorizationService.py:61:48 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `AuthorizationHelpers.parseJWT` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `AuthorizationHelpers.parseJWT` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 61,
+    "warning_line": "        user_data = self._auth_helpers.parseJWT(self._auth_data.access_token)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        if not self._auth_data:\n            # If no auth data exists, we should always log in again.\n",
+        "source_code_len": 113,
+        "target_code": "        \"\"\"\n        if not self._auth_data or self._auth_data.access_token is None:\n            # If no auth data exists, we should always log in again.\n",
+        "target_code_len": 153,
+        "diff_format": "@@ -57,3 +57,3 @@\n         \"\"\"\n-        if not self._auth_data:\n+        if not self._auth_data or self._auth_data.access_token is None:\n             # If no auth data exists, we should always log in again.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        if not self._auth_data:\n            # If no auth data exists, we should always log in again.\n",
+        "target_code_with_indent": "\n        if not self._auth_data or self._auth_data.access_token is None:\n            # If no auth data exists, we should always log in again.\n"
+      }
+    ]
+  }
+]

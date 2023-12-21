@@ -1,0 +1,54 @@
+[
+  {
+    "project": "Neuraxio/Neuraxle",
+    "commit": "fbbc72ddaaa2cdcdade884a3563b699c115e9aa2",
+    "filename": "examples/caching/plot_auto_ml_checkpoint.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples/caching/plot_auto_ml_checkpoint.py:64:67 Incompatible parameter type [6]: Expected `neuraxle.hyperparams.space.HyperparameterSamples` for 1st positional only parameter to call `neuraxle.base._HasChildrenMixin.set_hyperparams_space` but got `HyperparameterSpace`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Neuraxio/Neuraxle",
+    "commit": "fbbc72ddaaa2cdcdade884a3563b699c115e9aa2",
+    "filename": "examples/caching/plot_auto_ml_checkpoint.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples/caching/plot_auto_ml_checkpoint.py:102:69 Incompatible parameter type [6]: Expected `neuraxle.hyperparams.space.HyperparameterSamples` for 1st positional only parameter to call `neuraxle.base._HasChildrenMixin.set_hyperparams_space` but got `HyperparameterSpace`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Neuraxio/Neuraxle",
+    "commit": "fbbc72ddaaa2cdcdade884a3563b699c115e9aa2",
+    "filename": "neuraxle/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Neuraxio-Neuraxle/neuraxle/base.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "neuraxle/base.py:2370:35 Incompatible parameter type [6]: Expected `HyperparameterSamples` for 1st positional only parameter to call `_HasChildrenMixin.set_hyperparams_space` but got `HyperparameterSpace`.",
+    "message": " Expected `HyperparameterSamples` for 1st positional only parameter to call `_HasChildrenMixin.set_hyperparams_space` but got `HyperparameterSpace`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 2370,
+    "warning_line": "        self.set_hyperparams_space(saved_pipeline.get_hyperparams_space())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def set_hyperparams_space(self, hyperparams_space: HyperparameterSamples) -> BaseStep:\n        \"\"\"\n",
+        "source_code_len": 104,
+        "target_code": "\n    def set_hyperparams_space(self, hyperparams_space: HyperparameterSpace) -> BaseStep:\n        \"\"\"\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -1836,3 +1836,3 @@\n \n-    def set_hyperparams_space(self, hyperparams_space: HyperparameterSamples) -> BaseStep:\n+    def set_hyperparams_space(self, hyperparams_space: HyperparameterSpace) -> BaseStep:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def set_hyperparams_space(self, hyperparams_space: HyperparameterSamples) -> BaseStep:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def set_hyperparams_space(self, hyperparams_space: HyperparameterSpace) -> BaseStep:\n        <IND>"
+      }
+    ]
+  }
+]

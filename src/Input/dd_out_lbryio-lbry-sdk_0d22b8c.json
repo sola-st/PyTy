@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lbryio/lbry-sdk",
+    "commit": "0d22b8c23ccce635b52c73d2c0a0f9b46f2fb44a",
+    "filename": "torba/basetransaction.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lbryio-lbry-sdk/torba/basetransaction.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torba/basetransaction.py:145:8 Incompatible return type [7]: Expected `int` but got `Optional[bool]`.",
+    "message": " Expected `int` but got `Optional[bool]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 145,
+    "warning_line": "        return self.txo_ref.txo.is_my_account",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def is_my_account(self) -> int:\n        \"\"\" True if the output this input spends is yours. \"\"\"\n",
+        "source_code_len": 113,
+        "target_code": "    @property\n    def is_my_account(self) -> Optional[bool]:\n        \"\"\" True if the output this input spends is yours. \"\"\"\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -140,3 +140,3 @@\n     @property\n-    def is_my_account(self) -> int:\n+    def is_my_account(self) -> Optional[bool]:\n         \"\"\" True if the output this input spends is yours. \"\"\"\n",
+        "source_code_with_indent": "    <DED>@property\n    def is_my_account(self) -> int:\n        <IND>\"\"\" True if the output this input spends is yours. \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def is_my_account(self) -> Optional[bool]:\n        <IND>\"\"\" True if the output this input spends is yours. \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

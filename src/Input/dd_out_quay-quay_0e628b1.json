@@ -1,0 +1,87 @@
+[
+  {
+    "project": "quay/quay",
+    "commit": "0e628b1569aa168434d154f4ed147dda484fcebd",
+    "filename": "data/registry_model/datatypes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quay-quay/data/registry_model/datatypes.py",
+    "file_hunks_size": 19,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "data/registry_model/datatypes.py:326:15 Invalid type [31]: Expression `data.registry_model.datatype.datatype(\"Manifest\", [\"digest\", \"media_type\", \"internal_manifest_bytes\"])` is not a valid type.",
+    "message": " Expression `data.registry_model.datatype.datatype(\"Manifest\", [\"digest\", \"media_type\", \"internal_manifest_bytes\"])` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 326,
+    "warning_line": "class Manifest(datatype(\"Manifest\", [\"digest\", \"media_type\", \"internal_manifest_bytes\"])):"
+  },
+  {
+    "project": "quay/quay",
+    "commit": "0e628b1569aa168434d154f4ed147dda484fcebd",
+    "filename": "data/registry_model/datatypes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quay-quay/data/registry_model/datatypes.py",
+    "file_hunks_size": 19,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "data/registry_model/datatypes.py:431:4 Invalid type [31]: Expression `data.registry_model.datatype.datatype(\"LegacyImage\", [\"docker_image_id\", \"created\", \"comment\", \"command\", \"image_size\", \"aggregate_size\", \"uploading\", \"v1_metadata_string\"])` is not a valid type.",
+    "message": " Expression `data.registry_model.datatype.datatype(\"LegacyImage\", [\"docker_image_id\", \"created\", \"comment\", \"command\", \"image_size\", \"aggregate_size\", \"uploading\", \"v1_metadata_string\"])` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 431,
+    "warning_line": "    datatype(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\nclass LegacyImage(\n    datatype(\n        \"LegacyImage\",\n",
+        "source_code_len": 58,
+        "target_code": "\n    @optionalinput(\"legacy_image_row\")\n    def _legacy_image_row(self, legacy_image_row):\n        return legacy_image_row\n\n    @property\n    def layers_compressed_size(self):\n        # TODO: Simplify once we've stopped writing Image rows and we've backfilled the\n        # sizes.\n\n        # First check the manifest itself, as all newly written manifests will have the\n        # size.\n        if self._layers_compressed_size is not None:\n            return self._layers_compressed_size\n\n        # Secondly, check for the size of the legacy Image row.\n        legacy_image_row = self._legacy_image_row\n        if legacy_image_row:\n            return legacy_image_row.aggregate_size\n\n        # Otherwise, return None.\n        return None\n\n    @property\n    @requiresinput(\"legacy_id_handler\")\n    def legacy_image_root_id(self, legacy_id_handler):\n        \"\"\"\n        Returns the legacy Docker V1-style image ID for this manifest. Note that an ID will\n        be returned even if the manifest does not support a legacy image.\n        \"\"\"\n        return legacy_id_handler.encode(self._db_id)\n\n    def as_manifest(self):\n        \"\"\" Returns the manifest or legacy image as a manifest. \"\"\"\n        return self\n\n    @property\n    @requiresinput(\"legacy_id_handler\")\n    def _legacy_id_handler(self, legacy_id_handler):\n        return legacy_id_handler\n\n    def lookup_legacy_image(self, layer_index, retriever):\n        \"\"\" Looks up and returns the legacy image for index-th layer in this manifest\n            or None if none. The indexes here are from leaf to root, with index 0 being\n            the leaf.\n        \"\"\"\n        # Retrieve the schema1 manifest. If none exists, legacy images are not supported.\n        parsed = self.get_parsed_manifest()\n        if parsed is None:\n            return None\n\n        schema1 = parsed.get_schema1_manifest(\"$namespace\", \"$repo\", \"$tag\", retriever)\n        if schema1 is None:\n            return None\n\n        return LegacyImage.for_schema1_manifest_layer_index(\n            self, schema1, layer_index, self._legacy_id_handler\n        )\n\n\nclass LegacyImage(\n    namedtuple(\n        \"LegacyImage\",\n",
+        "target_code_len": 2137,
+        "diff_format": "@@ -428,5 +348,63 @@\n \n+    @optionalinput(\"legacy_image_row\")\n+    def _legacy_image_row(self, legacy_image_row):\n+        return legacy_image_row\n+\n+    @property\n+    def layers_compressed_size(self):\n+        # TODO: Simplify once we've stopped writing Image rows and we've backfilled the\n+        # sizes.\n+\n+        # First check the manifest itself, as all newly written manifests will have the\n+        # size.\n+        if self._layers_compressed_size is not None:\n+            return self._layers_compressed_size\n+\n+        # Secondly, check for the size of the legacy Image row.\n+        legacy_image_row = self._legacy_image_row\n+        if legacy_image_row:\n+            return legacy_image_row.aggregate_size\n+\n+        # Otherwise, return None.\n+        return None\n+\n+    @property\n+    @requiresinput(\"legacy_id_handler\")\n+    def legacy_image_root_id(self, legacy_id_handler):\n+        \"\"\"\n+        Returns the legacy Docker V1-style image ID for this manifest. Note that an ID will\n+        be returned even if the manifest does not support a legacy image.\n+        \"\"\"\n+        return legacy_id_handler.encode(self._db_id)\n+\n+    def as_manifest(self):\n+        \"\"\" Returns the manifest or legacy image as a manifest. \"\"\"\n+        return self\n+\n+    @property\n+    @requiresinput(\"legacy_id_handler\")\n+    def _legacy_id_handler(self, legacy_id_handler):\n+        return legacy_id_handler\n+\n+    def lookup_legacy_image(self, layer_index, retriever):\n+        \"\"\" Looks up and returns the legacy image for index-th layer in this manifest\n+            or None if none. The indexes here are from leaf to root, with index 0 being\n+            the leaf.\n+        \"\"\"\n+        # Retrieve the schema1 manifest. If none exists, legacy images are not supported.\n+        parsed = self.get_parsed_manifest()\n+        if parsed is None:\n+            return None\n+\n+        schema1 = parsed.get_schema1_manifest(\"$namespace\", \"$repo\", \"$tag\", retriever)\n+        if schema1 is None:\n+            return None\n+\n+        return LegacyImage.for_schema1_manifest_layer_index(\n+            self, schema1, layer_index, self._legacy_id_handler\n+        )\n+\n \n class LegacyImage(\n-    datatype(\n+    namedtuple(\n         \"LegacyImage\",\n",
+        "source_code_with_indent": "\n\n<DED><DED>class LegacyImage(\n    datatype(\n        \"LegacyImage\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@optionalinput(\"legacy_image_row\")\n    def _legacy_image_row(self, legacy_image_row):\n        <IND>return legacy_image_row\n\n    <DED>@property\n    def layers_compressed_size(self):\n        # TODO: Simplify once we've stopped writing Image rows and we've backfilled the\n        # sizes.\n\n        # First check the manifest itself, as all newly written manifests will have the\n        # size.\n        <IND>if self._layers_compressed_size is not None:\n            <IND>return self._layers_compressed_size\n\n        # Secondly, check for the size of the legacy Image row.\n        <DED>legacy_image_row = self._legacy_image_row\n        if legacy_image_row:\n            <IND>return legacy_image_row.aggregate_size\n\n        # Otherwise, return None.\n        <DED>return None\n\n    <DED>@property\n    @requiresinput(\"legacy_id_handler\")\n    def legacy_image_root_id(self, legacy_id_handler):\n        <IND>\"\"\"\n        Returns the legacy Docker V1-style image ID for this manifest. Note that an ID will\n        be returned even if the manifest does not support a legacy image.\n        \"\"\"\n        return legacy_id_handler.encode(self._db_id)\n\n    <DED>def as_manifest(self):\n        <IND>\"\"\" Returns the manifest or legacy image as a manifest. \"\"\"\n        return self\n\n    <DED>@property\n    @requiresinput(\"legacy_id_handler\")\n    def _legacy_id_handler(self, legacy_id_handler):\n        <IND>return legacy_id_handler\n\n    <DED>def lookup_legacy_image(self, layer_index, retriever):\n        <IND>\"\"\" Looks up and returns the legacy image for index-th layer in this manifest\n            or None if none. The indexes here are from leaf to root, with index 0 being\n            the leaf.\n        \"\"\"\n        # Retrieve the schema1 manifest. If none exists, legacy images are not supported.\n        parsed = self.get_parsed_manifest()\n        if parsed is None:\n            <IND>return None\n\n        <DED>schema1 = parsed.get_schema1_manifest(\"$namespace\", \"$repo\", \"$tag\", retriever)\n        if schema1 is None:\n            <IND>return None\n\n        <DED>return LegacyImage.for_schema1_manifest_layer_index(\n            self, schema1, layer_index, self._legacy_id_handler\n        )\n\n\n<DED><DED>class LegacyImage(\n    namedtuple(\n        \"LegacyImage\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "quay/quay",
+    "commit": "0e628b1569aa168434d154f4ed147dda484fcebd",
+    "filename": "data/registry_model/datatypes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quay-quay/data/registry_model/datatypes.py",
+    "file_hunks_size": 19,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "data/registry_model/datatypes.py:594:19 Invalid type [31]: Expression `data.registry_model.datatype.datatype(\"DerivedImage\", [\"verb\", \"varying_metadata\", \"blob\"])` is not a valid type.",
+    "message": " Expression `data.registry_model.datatype.datatype(\"DerivedImage\", [\"verb\", \"varying_metadata\", \"blob\"])` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 594,
+    "warning_line": "class DerivedImage(datatype(\"DerivedImage\", [\"verb\", \"varying_metadata\", \"blob\"])):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return placements\n\n\nclass DerivedImage(datatype(\"DerivedImage\", [\"verb\", \"varying_metadata\", \"blob\"])):\n    \"\"\"\n    DerivedImage represents an image derived from a manifest via some form of verb.\n    \"\"\"\n\n    @classmethod\n    def for_derived_storage(cls, derived, verb, varying_metadata, blob):\n        return DerivedImage(\n            db_id=derived.id, verb=verb, varying_metadata=varying_metadata, blob=blob\n        )\n\n    @property\n    def unique_id(self):\n        \"\"\"\n        Returns a unique ID for this derived image.\n\n        This call will consistently produce the same unique ID across calls in the same code base.\n        \"\"\"\n        return hashlib.sha256((\"%s:%s\" % (self.verb, self._db_id)).encode(\"utf-8\")).hexdigest()\n\n",
+        "source_code_len": 741,
+        "target_code": "        return placements\n\n",
+        "target_code_len": 27,
+        "diff_format": "@@ -591,23 +580,2 @@\n         return placements\n-\n-\n-class DerivedImage(datatype(\"DerivedImage\", [\"verb\", \"varying_metadata\", \"blob\"])):\n-    \"\"\"\n-    DerivedImage represents an image derived from a manifest via some form of verb.\n-    \"\"\"\n-\n-    @classmethod\n-    def for_derived_storage(cls, derived, verb, varying_metadata, blob):\n-        return DerivedImage(\n-            db_id=derived.id, verb=verb, varying_metadata=varying_metadata, blob=blob\n-        )\n-\n-    @property\n-    def unique_id(self):\n-        \"\"\"\n-        Returns a unique ID for this derived image.\n-\n-        This call will consistently produce the same unique ID across calls in the same code base.\n-        \"\"\"\n-        return hashlib.sha256((\"%s:%s\" % (self.verb, self._db_id)).encode(\"utf-8\")).hexdigest()\n \n",
+        "source_code_with_indent": "        return placements\n\n\n<DED><DED>class DerivedImage(datatype(\"DerivedImage\", [\"verb\", \"varying_metadata\", \"blob\"])):\n    <IND>\"\"\"\n    DerivedImage represents an image derived from a manifest via some form of verb.\n    \"\"\"\n\n    @classmethod\n    def for_derived_storage(cls, derived, verb, varying_metadata, blob):\n        <IND>return DerivedImage(\n            db_id=derived.id, verb=verb, varying_metadata=varying_metadata, blob=blob\n        )\n\n    <DED>@property\n    def unique_id(self):\n        <IND>\"\"\"\n        Returns a unique ID for this derived image.\n\n        This call will consistently produce the same unique ID across calls in the same code base.\n        \"\"\"\n        return hashlib.sha256((\"%s:%s\" % (self.verb, self._db_id)).encode(\"utf-8\")).hexdigest()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        return placements\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "wandb/client",
+    "commit": "5e86a729c39922025d45d001e4ab38231c49eae3",
+    "filename": "wandb/sdk_py27/wandb_settings.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wandb-client/wandb/sdk_py27/wandb_settings.py",
+    "file_hunks_size": 27,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wandb/sdk_py27/wandb_settings.py:185:15 Invalid type [31]: Expression `six.with_metaclass(wandb.sdk_py27.wandb_settings.CantTouchThis, object)` is not a valid type.",
+    "message": " Expression `six.with_metaclass(wandb.sdk_py27.wandb_settings.CantTouchThis, object)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 185,
+    "warning_line": "class Settings(six.with_metaclass(CantTouchThis, object)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass CantTouchThis(type):\n    def __setattr__(cls, attr, value):\n        raise Exception(\"NO!\")\n\n\nclass Settings(six.with_metaclass(CantTouchThis, object)):\n    \"\"\"Settings Constructor\n",
+        "source_code_len": 187,
+        "target_code": "\nclass Settings(object):\n    \"\"\"Settings Constructor\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -179,8 +168,3 @@\n \n-class CantTouchThis(type):\n-    def __setattr__(cls, attr, value):\n-        raise Exception(\"NO!\")\n-\n-\n-class Settings(six.with_metaclass(CantTouchThis, object)):\n+class Settings(object):\n     \"\"\"Settings Constructor\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>class CantTouchThis(type):\n    <IND>def __setattr__(cls, attr, value):\n        <IND>raise Exception(\"NO!\")\n\n\n<DED><DED>class Settings(six.with_metaclass(CantTouchThis, object)):\n    <IND>",
+        "target_code_with_indent": "\n<DED>class Settings(object):\n    <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1138 @@
+[
+  {
+    "isolated_code_change": "-return -1\n+return \"X\"",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_VALUE",
+    "involved_types": ["str", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "str"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "boolean_algebra/quine_mc_cluskey.py:17:8 Incompatible return type [7]: Expected `str` but got `int`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/97b6ca2",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_VALUE_OF_TYPE"
+  },
+  {
+    "isolated_code_change": "-def depth_first_search(graph: dict, start: str) -> set[int]:\n+def depth_first_search(graph: dict, start: str) -> Set[str]:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["str", "int", "Set"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "set[int]",
+      "to": "Set[str]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "graphs/depth_first_search.py:32:4 Incompatible return type [7]: Expected `typing.Set[int]` but got `typing.Set[str]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/977511b",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def document_frequency(term: str, corpus: str) -> int:\n+def document_frequency(term: str, corpus: str) -> tuple[int, int]:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["int", "tuple"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "tuple[int, int]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "machine_learning/word_frequency_functions.py:83:4 Incompatible return type [7]: Expected `int` but got `typing.Tuple[int, int]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/9b60be6",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def is_valid_public_key_static(local_private_key_str: str, remote_public_key_str: str, prime: int) -> bool:\n+def is_valid_public_key_static(remote_public_key_str: int, prime: int) -> bool:",
+    "type_error": "Unsupported operand [58]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["str", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN_PARAM",
+    "full_warning_msg": "ciphers/diffie_hellman.py:248:11 Unsupported operand [58]: `<=` is not supported for operand types `int` and `str`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "EXACT_MENTIONED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def is_valid_public_key_static(local_private_key_str: str, remote_public_key_str: str, prime: int) -> bool:\n+def is_valid_public_key_static(remote_public_key_str: int, prime: int) -> bool:",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["str", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN_PARAM",
+    "full_warning_msg": "ciphers/diffie_hellman.py:249:19 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `pow` but got `str`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },  
+  {
+    "isolated_code_change": "-def is_valid_public_key_static(local_private_key_str: str, remote_public_key_str: str, prime: int) -> bool:\n-if not DiffieHellman.is_valid_public_key_static(local_private_key, remote_public_key, prime):\n+def is_valid_public_key_static(remote_public_key_str: int, prime: int) -> bool:\n+if not DiffieHellman.is_valid_public_key_static(remote_public_key, prime):",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["str", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN_PARAM",
+    "full_warning_msg": "ciphers/diffie_hellman.py:261:12 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `DiffieHellman.is_valid_public_key_static` but got `int`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },    
+  {
+    "isolated_code_change": "-def encrypt(self, text: str) -> ([str], [int]):\n+def encrypt(text: str) -> tuple[list[int], list[int]]:",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["str", "int", "tuple", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "([str], [int])",
+      "to": "tuple[list[int], list[int]]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/onepad_cipher.py:5:37 Invalid type [31]: Expression `([str], [int])` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def decrypt(self, cipher: [str], key: [int]) -> str:\n+def decrypt(cipher: list[int], key: list[int]) -> str:",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["str", "int", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[str]",
+      "to": "list[int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/onepad_cipher.py:17:30 Invalid type [31]: Expression `[str]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def decrypt(self, cipher: [str], key: [int]) -> str:\n+def decrypt(cipher: list[int], key: list[int]) -> str:",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["str", "int", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[int]",
+      "to": "list[int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/onepad_cipher.py:17:42 Invalid type [31]: Expression `[int]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def generate_table(key: str) -> [str]:\n+def generate_table(key: str) -> list[str]:",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["str", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[str]",
+      "to": "list[str]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/playfair_cipher.py:40:32 Invalid type [31]: Expression `[str]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  }, 
+  {
+    "isolated_code_change": "-def getBlocksFromText(message: int, blockSize: int = DEFAULT_BLOCK_SIZE) -> [int]:\n+def get_blocks_from_text(message: str, block_size: int = DEFAULT_BLOCK_SIZE) -> list[int]:",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["int", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[int]",
+      "to": "list[int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/rsa_cipher.py:43:76 Invalid type [31]: Expression `[int]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def getBlocksFromText(message: int, blockSize: int = DEFAULT_BLOCK_SIZE) -> [int]:\n+def get_blocks_from_text(message: str, block_size: int = DEFAULT_BLOCK_SIZE) -> list[int]:",
+    "type_error": "Undefined attribute [16]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["str", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "str"
+    },
+    "location": "ENCLOSING_FUN_PARAM",
+    "full_warning_msg": "ciphers/rsa_cipher.py:44:19 Undefined attribute [16]: `int` has no attribute `encode`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def getTextFromBlocks(\n-    blockInts: [int], messageLength: int, blockSize: int = DEFAULT_BLOCK_SIZE\n+def get_blocks_from_text(\n+    message: str, block_size: int = DEFAULT_BLOCK_SIZE\n+) -> list[int]:\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["[int]", "list", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[int]",
+      "to": "list[int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/rsa_cipher.py:56:15 Invalid type [31]: Expression `[int]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def encryptMessage(\n-    message: str, key: (int, int), blockSize: int = DEFAULT_BLOCK_SIZE\n-) -> [int]:\n-    encryptedBlocks = []\n+def encrypt_message(\n+    message: str, key: tuple[int, int], blockSize: int = DEFAULT_BLOCK_SIZE\n+) -> list[int]:\n+    encrypted_blocks = []\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["(int, int)", "tuple", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "(int, int)",
+      "to": "tuple[int, int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/rsa_cipher.py:71:24 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def encryptMessage(\n-    message: str, key: (int, int), blockSize: int = DEFAULT_BLOCK_SIZE\n-) -> [int]:\n-    encryptedBlocks = []\n+def encrypt_message(\n+    message: str, key: tuple[int, int], blockSize: int = DEFAULT_BLOCK_SIZE\n+) -> list[int]:\n+    encrypted_blocks = []\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["[int]", "list[int]", "int", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[int]",
+      "to": "list[int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/rsa_cipher.py:72:5 Invalid type [31]: Expression `[int]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },  
+  {
+    "isolated_code_change": "-def getTextFromBlocks(\n-    blockInts: [int], messageLength: int, blockSize: int = DEFAULT_BLOCK_SIZE\n+def get_blocks_from_text(\n+    message: str, block_size: int = DEFAULT_BLOCK_SIZE\n+) -> list[int]:\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["int", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "int"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "ciphers/rsa_cipher.py:76:35 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `getBlocksFromText` but got `str`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def decryptMessage(\n-    encryptedBlocks: [int],\n-    messageLength: int,\n-    key: (int, int),\n-    blockSize: int = DEFAULT_BLOCK_SIZE,\n+def decrypt_message(\n+    encrypted_blocks: list[int],\n+    message_length: int,\n+    key: tuple[int, int],\n+    block_size: int = DEFAULT_BLOCK_SIZE,\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["[int]", "int", "list[int]", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[int]",
+      "to": "list[int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/rsa_cipher.py:82:21 Invalid type [31]: Expression `[int]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },    
+  {
+    "isolated_code_change": "-def decryptMessage(\n-    encryptedBlocks: [int],\n-    messageLength: int,\n-    key: (int, int),\n-    blockSize: int = DEFAULT_BLOCK_SIZE,\n+def decrypt_message(\n+    encrypted_blocks: list[int],\n+    message_length: int,\n+    key: tuple[int, int],\n+    block_size: int = DEFAULT_BLOCK_SIZE,\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["(int, int)", "int", "tuple[int, int]", "tuple"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "(int, int)",
+      "to": "tuple[int, int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/rsa_cipher.py:84:10 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },        
+  {
+    "isolated_code_change": "-def readKeyFile(keyFilename: str) -> (int, int, int):\n-    with open(keyFilename) as fo:\n+def read_key_file(key_filename: str) -> tuple[int, int, int]:\n+    with open(key_filename) as fo:\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["(int, int, int)", "tuple[int, int, int]", "tuple", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "(int, int, int)",
+      "to": "tuple[int, int, int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/rsa_cipher.py:94:38 Invalid type [31]: Expression `(int, int, int)` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def rsafactor(d: int, e: int, N: int) -> [int]:\n+def rsafactor(d: int, e: int, N: int) -> list[int]:\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["[int]", "list[int]", "list", "int"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[int]",
+      "to": "list[int]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/rsa_factorization.py:16:41 Invalid type [31]: Expression `[int]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-    def __init__(self, passcode: str = None):\n+    def __init__(self, passcode: Optional[str] = None) -> None:\n",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["Optional[str]", "str", "Optional"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "Optional[str]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/shuffled_shift_cipher.py:29:23 Incompatible variable type [9]: passcode is declared to have type `str` but is used as type `None`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_OPTIONAL_FOR_NONE"
+  },
+  {
+    "isolated_code_change": "-def __decryptPart(messagePart: str, character2Number: dict) -> (str, str, str):\n+def __decryptPart(\n+    messagePart: str, character2Number: dict[str, str]\n+) -> tuple[str, str, str]:\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["(str, str, str)", "str", "tuple", "tuple[str, str, str]"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "(str, str, str)",
+      "to": "tuple[str, str, str]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/trafid_cipher.py:19:64 Invalid type [31]: Expression `(str, str, str)` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-def __prepare(message: str, alphabet: str) -> (str, str, dict, dict):\n+def __prepare(\n+    message: str, alphabet: str\n+) -> tuple[str, str, dict[str, str], dict[str, str]]:\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["(str, str, dict, dict)", "str", "tuple", "dict"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "(str, str, dict, dict)",
+      "to": "tuple[str, str, dict[str, str], dict[str, str]]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/trafid_cipher.py:35:47 Invalid type [31]: Expression `(str, str, dict, dict)` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-    def encrypt(self, content: str, key: int) -> [str]:\n+    def encrypt(self, content: str, key: int) -> list[str]:\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["[str]", "str", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[str]",
+      "to": "list[str]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/xor_cipher.py:31:49 Invalid type [31]: Expression `[str]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-    def decrypt(self, content: str, key: int) -> [str]:\n+    def decrypt(self, content: str, key: int) -> list[str]:\n",
+    "type_error": "Invalid type [31]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["[str]", "str", "list"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "[str]",
+      "to": "list[str]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "ciphers/xor_cipher.py:56:49 Invalid type [31]: Expression `[str]` is not a valid type.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/6089536",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-    graph: GraphUndirectedWeighted,\n-) -> Tuple[Dict[str, int], Dict[str, Optional[str]]]:\n+    graph: GraphUndirectedWeighted[T],\n+) -> tuple[dict[T, int], dict[T, Optional[T]]]:\n",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["Tuple", "Dict", "str", "int", "Any", "Optional"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Tuple[Dict[str, int], Dict[str, Optional[str]]]",
+      "to": "Tuple[Dict[typing.Any, int], Dict[typing.Any, None]]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "graphs/minimum_spanning_tree_prims2.py:247:8 Incompatible return type [7]: Expected `Tuple[Dict[str, int], Dict[str, Optional[str]]]` but got `Tuple[Dict[typing.Any, int], Dict[typing.Any, None]]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/9586230",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-    def extract_min(self) -> Union[int, str]:\n+    def extract_min(self) -> T:\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["None", "Dict", "Union", "int", "str", "TypeVar(Any)"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Union[int, str]",
+      "to": "TypeVar(Any)"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "graphs/minimum_spanning_tree_prims2.py:256:32 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `dict.__setitem__` but got `Union[int, str]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/9586230",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANY"
+  },
+  {
+    "isolated_code_change": "-    def extract_min(self) -> Union[int, str]:\n+    def extract_min(self) -> T:\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["None", "Dict", "Union", "int", "str", "TypeVar(Any)"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Union[int, str]",
+      "to": "TypeVar(Any)"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "graphs/minimum_spanning_tree_prims2.py:264:36 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `dict.__setitem__` but got `Union[int, str]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/9586230",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANY"
+  },
+  {
+    "isolated_code_change": "-    graph: GraphUndirectedWeighted,\n-) -> Tuple[Dict[str, int], Dict[str, Optional[str]]]:\n+    graph: GraphUndirectedWeighted[T],\n+) -> tuple[dict[T, int], dict[T, Optional[T]]]:\n",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["Tuple", "Dict", "str", "int", "Any", "Optional"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Tuple[Dict[str, int], Dict[str, Optional[str]]]",
+      "to": "Tuple[Dict[typing.Any, int], Dict[typing.Any, None]]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "graphs/minimum_spanning_tree_prims2.py:265:4 Incompatible return type [7]: Expected `Tuple[Dict[str, int], Dict[str, Optional[str]]]` but got `Tuple[Dict[typing.Any, int], Dict[typing.Any, None]]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/9586230",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-            if isprime(n / i):\n-                max_number = n / i\n+            if isprime(n // i):\n+                max_number = n // i\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "OP_CHANGE",
+    "involved_types": ["int", "float"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "float",
+      "to": "int"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "project_euler/problem_003/sol1.py:95:23 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `isprime` but got `float`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-            if isprime(n / i):\n-                max_number = n / i\n+            if isprime(n // i):\n+                max_number = n // i\n",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "OP_CHANGE",
+    "involved_types": ["int", "float"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "float",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_003/sol1.py:100:4 Incompatible return type [7]: Expected `int` but got `float`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-            n = n / i\n+            n = n // i\n",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "OP_CHANGE",
+    "involved_types": ["int", "float"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "float",
+      "to": "int"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "project_euler/problem_003/sol3.py:60:12 Incompatible variable type [9]: n is declared to have type `int` but is used as type `float`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-        reduce(lambda x, y: int(x) * int(y), n[i : i + 13]) for i in range(len(n) - 12)\n+        # mypy cannot properly interpret reduce\n+        int(reduce(lambda x, y: str(int(x) * int(y)), n[i : i + 13]))\n+        for i in range(len(n) - 12)\n",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "CASTING",
+    "involved_types": ["int", "Union", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Union[int, str]",
+      "to": "int"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "project_euler/problem_008/sol2.py:72:4 Incompatible return type [7]: Expected `int` but got `typing.Union[int, str]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "+    return -1",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_RETURN_VAL",
+    "involved_types": ["int", "None"],
+    "type_change": {
+      "kind": "ADDED",
+      "from": "None",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_009/sol1.py:37:24 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_VALUE_OF_TYPE"
+  },
+  {
+    "isolated_code_change": "+    return -1",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_RETURN_VAL",
+    "involved_types": ["int", "None"],
+    "type_change": {
+      "kind": "ADDED",
+      "from": "None",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_009/sol1.py:56:16 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_VALUE_OF_TYPE"
+  },  
+  {
+    "isolated_code_change": "-def fibonacci_generator() -> int:\n+def fibonacci_generator() -> Generator[int, None, None]:\n",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["int", "Generator", "None"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "Generator[int, None, None]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "project_euler/problem_025/sol2.py:47:8 Incompatible return type [7]: Expected `int` but got `typing.Generator[int, None, None]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def fibonacci_generator() -> int:\n+def fibonacci_generator() -> Generator[int, None, None]:\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["int", "Generator", "None"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "Generator[int, None, None]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "project_euler/problem_025/sol2.py:65:23 Incompatible parameter type [6]: Expected `typing.Iterator[Variable[_T]]` for 1st positional only parameter to call `next` but got `int`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUBTYPE"
+  },
+  {
+    "isolated_code_change": "+    return -1",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_RETURN_VAL",
+    "involved_types": ["int", "None"],
+    "type_change": {
+      "kind": "ADDED",
+      "from": "None",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_044/sol1.py:43:16 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_VALUE_OF_TYPE"
+  },
+  {
+    "isolated_code_change": "+    return []",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_RETURN_VAL",
+    "involved_types": ["List", "int", "None"],
+    "type_change": {
+      "kind": "ADDED",
+      "from": "None",
+      "to": "List[int]"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_046/sol1.py:86:16 Incompatible return type [7]: Expected `typing.List[int]` but got implicit return value of `None`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_VALUE_OF_TYPE"
+  },
+  {
+    "isolated_code_change": "-    number = str(number)\n+    number_str = str(number)\n",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "CREATE_NEW_VAR",
+    "involved_types": ["int", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "str"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "project_euler/problem_051/sol1.py:66:4 Incompatible variable type [9]: number is declared to have type `int` but is used as type `str`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-    number = str(number)\n+    number_str = str(number)\n-    for duplicate in Counter(number) - Counter(set(number)):\n-        family = [int(number.replace(duplicate, digit)) for digit in digits]\n+    for duplicate in Counter(number_str) - Counter(set(number_str)):\n+        family = [int(number_str.replace(duplicate, digit)) for digit in digits]\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": ["int", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "str"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "project_euler/problem_051/sol1.py:70:29 Incompatible parameter type [6]: Expected `None` for 1st positional only parameter to call `Counter.__init__` but got `int`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
+  },    
+  {
+    "isolated_code_change": "-    number = str(number)\n+    number_str = str(number)\n-    for duplicate in Counter(number) - Counter(set(number)):\n-        family = [int(number.replace(duplicate, digit)) for digit in digits]\n+    for duplicate in Counter(number_str) - Counter(set(number_str)):\n+        family = [int(number_str.replace(duplicate, digit)) for digit in digits]\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": ["int", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "str"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "project_euler/problem_051/sol1.py:70:51 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `set.__init__` but got `int`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
+  },        
+  {
+    "isolated_code_change": "-    number = str(number)\n+    number_str = str(number)\n-    for duplicate in Counter(number) - Counter(set(number)):\n-        family = [int(number.replace(duplicate, digit)) for digit in digits]\n+    for duplicate in Counter(number_str) - Counter(set(number_str)):\n+        family = [int(number_str.replace(duplicate, digit)) for digit in digits]\n",
+    "type_error": "Undefined attribute [16]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": ["int", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "str"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "project_euler/problem_051/sol1.py:71:22 Undefined attribute [16]: `int` has no attribute `replace`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },        
+  {
+    "isolated_code_change": "+    return -1",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_RETURN_VAL",
+    "involved_types": ["int", "None"],
+    "type_change": {
+      "kind": "ADDED",
+      "from": "None",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_051/sol1.py:107:12 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_VALUE_OF_TYPE"
+  },        
+  {
+    "isolated_code_change": "-    largest = [0, 0]\n+    largest: float = 0\n+    result = 0\n-        if x * log10(a) > largest[0]:\n-            largest = [x * log10(a), i + 1]\n-    return largest[1]\n+        if x * log10(a) > largest:\n+            largest = x * log10(a)\n+            result = i + 1\n+    return result\n",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": ["int", "float"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "float",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_099/sol1.py:30:4 Incompatible return type [7]: Expected `int` but got `float`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-    poly: int\n+    poly: Callable[[int], int]\n",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": ["int", "Callable"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "Callable[[int], int]"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_101/sol1.py:208:8 Incompatible variable type [9]: poly is declared to have type `int` but is used as type `typing.Callable[[int], int]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-    poly: int\n+    poly: Callable[[int], int]\n",
+    "type_error": "Call error [29]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": ["int", "Callable"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "Callable[[int], int]"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_101/sol1.py:210:29 Call error [29]: `int` is not a function.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-    poly: int\n+    poly: Callable[[int], int]\n",
+    "type_error": "Call error [29]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": ["int", "Callable"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "Callable[[int], int]"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "project_euler/problem_101/sol1.py:213:15 Call error [29]: `int` is not a function.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-        x = _modexpt(base, exponent / 2, modulo_value) % modulo_value\n+        x = _modexpt(base, exponent // 2, modulo_value) % modulo_value\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "OP_CHANGE",
+    "involved_types": ["int", "float"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "float",
+      "to": "int"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "project_euler/problem_188/sol1.py:39:27 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `_modexpt` but got `float`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/bcfca67",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def kruskal(num_nodes: int, num_edges: int, edges: List[Tuple[int, int, int]]) -> int:\n+def kruskal(\n+    num_nodes: int, edges: list[tuple[int, int, int]]\n+) -> list[tuple[int, int, int]]:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["int", "List", "Any", "tuple"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "list[tuple[int, int, int]]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "graphs/minimum_spanning_tree_kruskal.py:36:4 Incompatible return type [7]: Expected `int` but got `List[typing.Any]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/da71184",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUBTYPE"
+  },  
+  {
+    "isolated_code_change": "-def depth_first_search(graph: dict, start: str) -> set[int]:\n+def depth_first_search(graph: dict, start: str) -> Set[str]:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["int", "Set", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Set[str]",
+      "to": "Set[int]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "graphs/depth_first_search.py:32:4 Incompatible return type [7]: Expected `typing.Set[int]` but got `typing.Set[str]`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/977511b",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },  
+  {
+    "isolated_code_change": "-        known_prefix: SI_Unit = SI_Unit[known_prefix.lower()]\n+        known_prefix = SI_Unit[known_prefix.lower()]\n",
+    "type_error": "Illegal annotation target [35]",
+    "code_transform": "REMOVE_TYPE",
+    "involved_types": ["SI_Unit", "Union", "str"],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "SI_Unit",
+      "to": "Union[str, SI_Unit]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "conversions/prefix_conversions.py:62:8 Illegal annotation target [35]: Target `known_prefix` cannot be annotated after it is first declared.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/20c7518",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "CANNOT_REANNOTATE"
+  },  
+  {
+    "isolated_code_change": "-        unknown_prefix: SI_Unit = SI_Unit[unknown_prefix.lower()]\n-    unknown_amount = known_amount * (10 ** (known_prefix.value - unknown_prefix.value))\n+        unknown_prefix = SI_Unit[unknown_prefix.lower()]\n+    unknown_amount: float = known_amount * (\n+        10 ** (known_prefix.value - unknown_prefix.value)\n+    )",
+    "type_error": "Illegal annotation target [35]",
+    "code_transform": "REMOVE_TYPE",
+    "involved_types": ["SI_Unit", "Union", "str"],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "SI_Unit",
+      "to": "Union[str, SI_Unit]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "conversions/prefix_conversions.py:64:8 Illegal annotation target [35]: Target `unknown_prefix` cannot be annotated after it is first declared.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/20c7518",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "CANNOT_REANNOTATE"
+  },  
+  {
+    "isolated_code_change": "-        known_prefix: Binary_Unit = Binary_Unit[known_prefix.lower()]\n+        known_prefix = Binary_Unit[known_prefix.lower()]\n",
+    "type_error": "Illegal annotation target [35]",
+    "code_transform": "REMOVE_TYPE",
+    "involved_types": ["Binary_Unit", "Union", "str"],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "Binary_Unit",
+      "to": "Union[str, Binary_Unit]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "conversions/prefix_conversions.py:88:8 Illegal annotation target [35]: Target `known_prefix` cannot be annotated after it is first declared.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/20c7518",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "CANNOT_REANNOTATE"
+  },  
+  {
+    "isolated_code_change": "-        unknown_prefix: Binary_Unit = Binary_Unit[unknown_prefix.lower()]\n-    unknown_amount = known_amount * (\n+        unknown_prefix = Binary_Unit[unknown_prefix.lower()]\n+    unknown_amount: float = known_amount * (\n",
+    "type_error": "Illegal annotation target [35]",
+    "code_transform": "REMOVE_TYPE",
+    "involved_types": ["Binary_Unit", "Union", "str"],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "Binary_Unit",
+      "to": "Union[str, Binary_Unit]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "conversions/prefix_conversions.py:90:8 Illegal annotation target [35]: Target `unknown_prefix` cannot be annotated after it is first declared.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/20c7518",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "CANNOT_REANNOTATE"
+  },  
+  {
+    "isolated_code_change": "-def adler32(plain_text: str) -> str:\n+def adler32(plain_text: str) -> int:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["int", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "hashes/adler32.py:29:4 Incompatible return type [7]: Expected `str` but got `int`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/a53fcf2",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },  
+  {
+    "isolated_code_change": "-def sdbm(plain_text: str) -> str:\n+def sdbm(plain_text: str) -> int:\n",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": ["int", "str"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "str",
+      "to": "int"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "hashes/sdbm.py:37:4 Incompatible return type [7]: Expected `str` but got `int`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/a53fcf2",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-            return unsorted\n+            break\n+    return unsorted",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_RETURN_VAL",
+    "involved_types": ["None", "List", "Any"],
+    "type_change": {
+      "kind": "ADDED",
+      "from": "None",
+      "to": "List[Any]"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "sorts/cocktail_shaker_sort.py:36:12 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got implicit return value of `None`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/a4726ca",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "+    return \"\"",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "ADD_RETURN_VAL",
+    "involved_types": ["None", "str"],
+    "type_change": {
+      "kind": "ADDED",
+      "from": "None",
+      "to": "str"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "graphs/markov_chain.py:37:16 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/4545270",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": true,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-    def link(self, x: int, y: int) -> None:\n+    def link(\n+        self, node1: DisjointSetTreeNode[T], node2: DisjointSetTreeNode[T]\n+    ) -> None:\n",
+    "type_error": "Undefined attribute [16]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["int", "DisjointSetTreeNode", "TypeVar(Any)", "Generic"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "DisjointSetTreeNode[T]"
+    },
+    "location": "ENCLOSING_FUN_PARAM",
+    "full_warning_msg": "graphs/minimum_spanning_tree_kruskal2.py:31:11 Undefined attribute [16]: `int` has no attribute `rank`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/256c319",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-    def link(self, x: int, y: int) -> None:\n+    def link(\n+        self, node1: DisjointSetTreeNode[T], node2: DisjointSetTreeNode[T]\n+    ) -> None:\n",
+    "type_error": "Undefined attribute [16]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["int", "DisjointSetTreeNode", "TypeVar(Any)", "Generic"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "DisjointSetTreeNode[T]"
+    },
+    "location": "ENCLOSING_FUN_PARAM",
+    "full_warning_msg": "graphs/minimum_spanning_tree_kruskal2.py:32:12 Undefined attribute [16]: `int` has no attribute `parent`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/256c319",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "NO_HINT"
+  },
+  {
+    "isolated_code_change": "-    def link(self, x: int, y: int) -> None:\n+    def link(\n+        self, node1: DisjointSetTreeNode[T], node2: DisjointSetTreeNode[T]\n+    ) -> None:\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["int", "DisjointSetTreeNode", "TypeVar(Any)", "Generic"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "DisjointSetTreeNode[T]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "graphs/minimum_spanning_tree_kruskal2.py:40:18 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `DisjointSetTree.link` but got `DisjointSetTreeNode`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/256c319",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },  
+  {
+    "isolated_code_change": "-    def link(self, x: int, y: int) -> None:\n+    def link(\n+        self, node1: DisjointSetTreeNode[T], node2: DisjointSetTreeNode[T]\n+    ) -> None:\n",
+    "type_error": "Incompatible parameter type [6]",
+    "code_transform": "MODIFY_FUN_PARAM_TYPE",
+    "involved_types": ["int", "DisjointSetTreeNode", "TypeVar(Any)", "Generic"],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "int",
+      "to": "DisjointSetTreeNode[T]"
+    },
+    "location": "FUN_CALLEE",
+    "full_warning_msg": "graphs/minimum_spanning_tree_kruskal2.py:40:36 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `DisjointSetTree.link` but got `DisjointSetTreeNode`.",
+    "url": "https://github.com/TheAlgorithms/Python/commit/256c319",
+    "repo": "https://github.com/TheAlgorithms/Python",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  }
+  
+
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "femueller/python-n26",
+    "commit": "9246220e51899e2d6488306ceaf345e2874bbd28",
+    "filename": "n26/api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/femueller-python-n26/n26/api.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "n26/api.py:91:8 Incompatible return type [7]: Expected `typing.List[typing.Any]` but got `typing.Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `typing.List[typing.Any]` but got `typing.Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 91,
+    "warning_line": "        return self._do_request(GET, BASE_URL + '/api/transactions/so')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_standing_orders(self) -> list:\n        \"\"\"\n",
+        "source_code_len": 56,
+        "target_code": "\n    def get_standing_orders(self) -> dict:\n        \"\"\"\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -86,3 +86,3 @@\n \n-    def get_standing_orders(self) -> list:\n+    def get_standing_orders(self) -> dict:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def get_standing_orders(self) -> list:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def get_standing_orders(self) -> dict:\n        <IND>"
+      }
+    ]
+  }
+]

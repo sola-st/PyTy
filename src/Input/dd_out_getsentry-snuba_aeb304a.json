@@ -1,0 +1,36 @@
+[
+  {
+    "project": "getsentry/snuba",
+    "commit": "aeb304a2a07c28658296a459293b8927b639a4ce",
+    "filename": "snuba/datasets/storages/errors.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/snuba/datasets/storages/errors.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snuba/datasets/storages/errors.py:238:8 Incompatible parameter type [6]: Expected `Mapping[str, Sequence[str]]` for 5th parameter `promoted_tags` to call `ErrorsReplacer.__init__` but got `Mapping[str, typing.Union[typing.Dict[Variable[_KT], Variable[_VT]], typing.KeysView[str]]]`.",
+    "message": " Expected `Mapping[str, Sequence[str]]` for 5th parameter `promoted_tags` to call `ErrorsReplacer.__init__` but got `Mapping[str, typing.Union[typing.Dict[Variable[_KT], Variable[_VT]], typing.KeysView[str]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 238,
+    "warning_line": "        promoted_tags={\"tags\": promoted_tag_columns.keys(), \"contexts\": {}},",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        tag_column_map={\"tags\": promoted_tag_columns, \"contexts\": {}},\n        promoted_tags={\"tags\": promoted_tag_columns.keys(), \"contexts\": {}},\n        state_name=ReplacerState.ERRORS,\n",
+        "source_code_len": 189,
+        "target_code": "        tag_column_map={\"tags\": promoted_tag_columns, \"contexts\": {}},\n        promoted_tags={\"tags\": list(promoted_tag_columns.keys()), \"contexts\": []},\n        state_name=ReplacerState.ERRORS,\n",
+        "target_code_len": 195,
+        "diff_format": "@@ -237,3 +237,3 @@\n         tag_column_map={\"tags\": promoted_tag_columns, \"contexts\": {}},\n-        promoted_tags={\"tags\": promoted_tag_columns.keys(), \"contexts\": {}},\n+        promoted_tags={\"tags\": list(promoted_tag_columns.keys()), \"contexts\": []},\n         state_name=ReplacerState.ERRORS,\n",
+        "source_code_with_indent": "        tag_column_map={\"tags\": promoted_tag_columns, \"contexts\": {}},\n        promoted_tags={\"tags\": promoted_tag_columns.keys(), \"contexts\": {}},\n        state_name=ReplacerState.ERRORS,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        tag_column_map={\"tags\": promoted_tag_columns, \"contexts\": {}},\n        promoted_tags={\"tags\": list(promoted_tag_columns.keys()), \"contexts\": []},\n        state_name=ReplacerState.ERRORS,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

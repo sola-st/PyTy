@@ -1,0 +1,51 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "0f82593074386f9529d58f7ee9e0da4a58ef5b8e",
+    "filename": "raiden/message_handler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/message_handler.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/message_handler.py:124:12 Incompatible parameter type [6]: Expected `raiden.utils.typing.PaymentAmount` for 5th parameter `amount` to call `get_best_routes` but got `raiden.utils.typing.PaymentWithFeeAmount`.",
+    "message": " Expected `raiden.utils.typing.PaymentAmount` for 5th parameter `amount` to call `get_best_routes` but got `raiden.utils.typing.PaymentWithFeeAmount`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 124,
+    "warning_line": "            amount=from_transfer.lock.amount,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from raiden.utils import pex, random_secret\nfrom raiden.utils.typing import MYPY_ANNOTATION, InitiatorAddress, TokenNetworkID\n\n",
+        "source_code_len": 127,
+        "target_code": "from raiden.utils import pex, random_secret\nfrom raiden.utils.typing import MYPY_ANNOTATION, InitiatorAddress, PaymentAmount, TokenNetworkID\n\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -29,3 +29,3 @@\n from raiden.utils import pex, random_secret\n-from raiden.utils.typing import MYPY_ANNOTATION, InitiatorAddress, TokenNetworkID\n+from raiden.utils.typing import MYPY_ANNOTATION, InitiatorAddress, PaymentAmount, TokenNetworkID\n \n",
+        "source_code_with_indent": "from raiden.utils import pex, random_secret\nfrom raiden.utils.typing import MYPY_ANNOTATION, InitiatorAddress, TokenNetworkID\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from raiden.utils import pex, random_secret\nfrom raiden.utils.typing import MYPY_ANNOTATION, InitiatorAddress, PaymentAmount, TokenNetworkID\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            to_address=from_transfer.target,\n            amount=from_transfer.lock.amount,\n            previous_address=message.sender,\n",
+        "source_code_len": 136,
+        "target_code": "            to_address=from_transfer.target,\n            amount=PaymentAmount(from_transfer.lock.amount),  # FIXME: mypy; deprecated by #3863\n            previous_address=message.sender,\n",
+        "target_code_len": 187,
+        "diff_format": "@@ -123,3 +123,3 @@\n             to_address=from_transfer.target,\n-            amount=from_transfer.lock.amount,\n+            amount=PaymentAmount(from_transfer.lock.amount),  # FIXME: mypy; deprecated by #3863\n             previous_address=message.sender,\n",
+        "source_code_with_indent": "            to_address=from_transfer.target,\n            amount=from_transfer.lock.amount,\n            previous_address=message.sender,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            to_address=from_transfer.target,\n            amount=PaymentAmount(from_transfer.lock.amount),  # FIXME: mypy; deprecated by #3863\n            previous_address=message.sender,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

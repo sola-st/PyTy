@@ -1,0 +1,36 @@
+[
+  {
+    "project": "trailofbits/pip-audit",
+    "commit": "844c85f0b9a65e76577a4f2b232537af02542d6c",
+    "filename": "pip_audit/dependency_source/resolvelib/pypi_provider.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-pip-audit/pip_audit/dependency_source/resolvelib/pypi_provider.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pip_audit/dependency_source/resolvelib/pypi_provider.py:46:8 Incompatible variable type [9]: extras is declared to have type `bool` but is used as type `None`.",
+    "message": " extras is declared to have type `bool` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 46,
+    "warning_line": "        extras: bool = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        version: Version,\n        url: Optional[str] = None,\n        extras: bool = None,\n        is_wheel: bool = True,\n",
+        "source_code_len": 121,
+        "target_code": "        version: Version,\n        url: str,\n        extras: Set[str],\n        is_wheel: bool = True,\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -44,4 +44,4 @@\n         version: Version,\n-        url: Optional[str] = None,\n-        extras: bool = None,\n+        url: str,\n+        extras: Set[str],\n         is_wheel: bool = True,\n",
+        "source_code_with_indent": "        version: Version,\n        url: Optional[str] = None,\n        extras: bool = None,\n        is_wheel: bool = True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        version: Version,\n        url: str,\n        extras: Set[str],\n        is_wheel: bool = True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

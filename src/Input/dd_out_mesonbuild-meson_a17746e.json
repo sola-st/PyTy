@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "a17746e2aba63a7e55778a29012aaceb78fb2ba1",
+    "filename": "mesonbuild/dependencies/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/dependencies/base.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/dependencies/base.py:154:50 Unbound name [10]: Name `typing` is used but not defined in the current scope.",
+    "message": " Name `typing` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 154,
+    "warning_line": "    def get_link_args(self, raw: bool = False) -> typing.List[str]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_link_args(self, raw: bool = False) -> typing.List[str]:\n        if raw and self.raw_link_args is not None:\n",
+        "source_code_len": 120,
+        "target_code": "\n    def get_link_args(self, raw: bool = False) -> List[str]:\n        if raw and self.raw_link_args is not None:\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -153,3 +153,3 @@\n \n-    def get_link_args(self, raw: bool = False) -> typing.List[str]:\n+    def get_link_args(self, raw: bool = False) -> List[str]:\n         if raw and self.raw_link_args is not None:\n",
+        "source_code_with_indent": "\n    <DED>def get_link_args(self, raw: bool = False) -> typing.List[str]:\n        <IND>if raw and self.raw_link_args is not None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_link_args(self, raw: bool = False) -> List[str]:\n        <IND>if raw and self.raw_link_args is not None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

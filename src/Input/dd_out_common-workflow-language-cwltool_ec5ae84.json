@@ -1,0 +1,36 @@
+[
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "ec5ae842f0854a20107f4076257811ef6a2f0b9f",
+    "filename": "cwltool/job.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/job.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/job.py:390:18 Incompatible variable type [9]: main_provenanceObject is declared to have type `str` but is used as type `None`.",
+    "message": " main_provenanceObject is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 390,
+    "warning_line": "    def run(self, main_provenanceObject=None, ProcessProvActivity=None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            cidfile_prefix=\"\", rm_tmpdir=True, move_outputs=\"move\", **kwargs):\n        # type: (ProvDocument, Text, ProvEntity, Dict[Text, Any], bool, bool, bool, Text, Text, bool, Text, **Any) -> None \n        (docker_req, docker_is_req) = get_feature(self, \"DockerRequirement\")\n",
+        "source_code_len": 280,
+        "target_code": "            cidfile_prefix=\"\", rm_tmpdir=True, move_outputs=\"move\", **kwargs):\n        # type: (Any, ProvEntity, Dict[Text, Any], bool, bool, bool, Text, Text, bool, Text, **Any) -> None \n        (docker_req, docker_is_req) = get_feature(self, \"DockerRequirement\")\n",
+        "target_code_len": 265,
+        "diff_format": "@@ -393,3 +393,3 @@\n             cidfile_prefix=\"\", rm_tmpdir=True, move_outputs=\"move\", **kwargs):\n-        # type: (ProvDocument, Text, ProvEntity, Dict[Text, Any], bool, bool, bool, Text, Text, bool, Text, **Any) -> None \n+        # type: (Any, ProvEntity, Dict[Text, Any], bool, bool, bool, Text, Text, bool, Text, **Any) -> None \n         (docker_req, docker_is_req) = get_feature(self, \"DockerRequirement\")\n",
+        "source_code_with_indent": "            cidfile_prefix=\"\", rm_tmpdir=True, move_outputs=\"move\", **kwargs):\n        # type: (ProvDocument, Text, ProvEntity, Dict[Text, Any], bool, bool, bool, Text, Text, bool, Text, **Any) -> None \n        <IND>(docker_req, docker_is_req) = get_feature(self, \"DockerRequirement\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            cidfile_prefix=\"\", rm_tmpdir=True, move_outputs=\"move\", **kwargs):\n        # type: (Any, ProvEntity, Dict[Text, Any], bool, bool, bool, Text, Text, bool, Text, **Any) -> None \n        <IND>(docker_req, docker_is_req) = get_feature(self, \"DockerRequirement\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

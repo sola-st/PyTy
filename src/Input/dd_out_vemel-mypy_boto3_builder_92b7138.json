@@ -1,0 +1,70 @@
+[
+  {
+    "project": "vemel/mypy_boto3_builder",
+    "commit": "92b7138e7f62371bd74c6da18b8a879366f02799",
+    "filename": "mypy_boto3_builder/botocore_stubs_static/auth.pyi",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vemel-mypy_boto3_builder/mypy_boto3_builder/botocore_stubs_static/auth.pyi",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy_boto3_builder/botocore_stubs_static/auth.pyi:23:4 Inconsistent override [15]: `mypy_boto3_builder.botocore_stubs_static.auth.SigV2Auth.add_auth` overrides method defined in `BaseSigner` inconsistently. Returned type `requests.models.Request` is not a subtype of the overridden return `None`.",
+    "message": " `mypy_boto3_builder.botocore_stubs_static.auth.SigV2Auth.add_auth` overrides method defined in `BaseSigner` inconsistently. Returned type `requests.models.Request` is not a subtype of the overridden return `None`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 23,
+    "warning_line": "    def add_auth(self, request: Request) -> Request: ...",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    REQUIRES_REGION: bool = ...\n    def add_auth(self, request: Request) -> None: ...\n\n",
+        "source_code_len": 87,
+        "target_code": "    REQUIRES_REGION: bool = ...\n    def add_auth(self, request: Request) -> Optional[Request]: ...\n\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -16,3 +16,3 @@\n     REQUIRES_REGION: bool = ...\n-    def add_auth(self, request: Request) -> None: ...\n+    def add_auth(self, request: Request) -> Optional[Request]: ...\n \n",
+        "source_code_with_indent": "    <IND>REQUIRES_REGION: bool = ...\n    def add_auth(self, request: Request) -> None: ...\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>REQUIRES_REGION: bool = ...\n    def add_auth(self, request: Request) -> Optional[Request]: ...\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "vemel/mypy_boto3_builder",
+    "commit": "92b7138e7f62371bd74c6da18b8a879366f02799",
+    "filename": "mypy_boto3_builder/botocore_stubs_static/regions.pyi",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vemel-mypy_boto3_builder/mypy_boto3_builder/botocore_stubs_static/regions.pyi",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "mypy_boto3_builder/botocore_stubs_static/regions.pyi:27:4 Inconsistent override [15]: `mypy_boto3_builder.botocore_stubs_static.regions.EndpointResolver.construct_endpoint` overrides method defined in `BaseEndpointResolver` inconsistently. Returned type `Optional[Dict[str, typing.Any]]` is not a subtype of the overridden return `None`.",
+    "message": " `mypy_boto3_builder.botocore_stubs_static.regions.EndpointResolver.construct_endpoint` overrides method defined in `BaseEndpointResolver` inconsistently. Returned type `Optional[Dict[str, typing.Any]]` is not a subtype of the overridden return `None`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 27,
+    "warning_line": "    def construct_endpoint(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    ) -> List[str]: ...\n    def construct_endpoint(\n        self,\n",
+        "source_code_len": 66,
+        "target_code": "    ) -> List[str]: ...\n    def construct_endpoint(  # type: ignore\n        self,\n",
+        "target_code_len": 82,
+        "diff_format": "@@ -26,3 +26,3 @@\n     ) -> List[str]: ...\n-    def construct_endpoint(\n+    def construct_endpoint(  # type: ignore\n         self,\n",
+        "source_code_with_indent": "    ) -> List[str]: ...\n    def construct_endpoint(\n        self,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> List[str]: ...\n    def construct_endpoint(  # type: ignore\n        self,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

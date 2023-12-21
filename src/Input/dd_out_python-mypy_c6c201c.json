@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "c6c201c391fba5a2322561e1126ce4c7395b0bd7",
+    "filename": "test-data/stdlib-samples/3.2/subprocess.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/test-data/stdlib-samples/3.2/subprocess.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "test-data/stdlib-samples/3.2/subprocess.py:1406:16 Incompatible variable type [9]: _WTERMSIG is declared to have type `typing.Callable[[int], bool]` but is used as type `typing.Callable(os.WTERMSIG)[[Named(status, int)], int]`.",
+    "message": " _WTERMSIG is declared to have type `typing.Callable[[int], bool]` but is used as type `typing.Callable(os.WTERMSIG)[[Named(status, int)], int]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1406,
+    "warning_line": "                _WTERMSIG: Callable[[int], bool] = os.WTERMSIG,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n                _WTERMSIG: Callable[[int], bool] = os.WTERMSIG,\n                _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n                _WEXITSTATUS: Callable[[int], bool] = os.WEXITSTATUS) -> None:\n            # This method is called (indirectly) by __del__, so it cannot\n",
+        "source_code_len": 353,
+        "target_code": "                _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n                _WTERMSIG: Callable[[int], int] = os.WTERMSIG,\n                _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n                _WEXITSTATUS: Callable[[int], int] = os.WEXITSTATUS) -> None:\n            # This method is called (indirectly) by __del__, so it cannot\n",
+        "target_code_len": 351,
+        "diff_format": "@@ -1405,5 +1405,5 @@\n                 _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n-                _WTERMSIG: Callable[[int], bool] = os.WTERMSIG,\n+                _WTERMSIG: Callable[[int], int] = os.WTERMSIG,\n                 _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n-                _WEXITSTATUS: Callable[[int], bool] = os.WEXITSTATUS) -> None:\n+                _WEXITSTATUS: Callable[[int], int] = os.WEXITSTATUS) -> None:\n             # This method is called (indirectly) by __del__, so it cannot\n",
+        "source_code_with_indent": "                _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n                _WTERMSIG: Callable[[int], bool] = os.WTERMSIG,\n                _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n                _WEXITSTATUS: Callable[[int], bool] = os.WEXITSTATUS) -> None:\n            # This method is called (indirectly) by __del__, so it cannot\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n                _WTERMSIG: Callable[[int], int] = os.WTERMSIG,\n                _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n                _WEXITSTATUS: Callable[[int], int] = os.WEXITSTATUS) -> None:\n            # This method is called (indirectly) by __del__, so it cannot\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "c6c201c391fba5a2322561e1126ce4c7395b0bd7",
+    "filename": "test-data/stdlib-samples/3.2/subprocess.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/test-data/stdlib-samples/3.2/subprocess.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "test-data/stdlib-samples/3.2/subprocess.py:1408:16 Incompatible variable type [9]: _WEXITSTATUS is declared to have type `typing.Callable[[int], bool]` but is used as type `typing.Callable(os.WEXITSTATUS)[[Named(status, int)], int]`.",
+    "message": " _WEXITSTATUS is declared to have type `typing.Callable[[int], bool]` but is used as type `typing.Callable(os.WEXITSTATUS)[[Named(status, int)], int]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1408,
+    "warning_line": "                _WEXITSTATUS: Callable[[int], bool] = os.WEXITSTATUS) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n                _WTERMSIG: Callable[[int], bool] = os.WTERMSIG,\n                _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n                _WEXITSTATUS: Callable[[int], bool] = os.WEXITSTATUS) -> None:\n            # This method is called (indirectly) by __del__, so it cannot\n",
+        "source_code_len": 353,
+        "target_code": "                _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n                _WTERMSIG: Callable[[int], int] = os.WTERMSIG,\n                _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n                _WEXITSTATUS: Callable[[int], int] = os.WEXITSTATUS) -> None:\n            # This method is called (indirectly) by __del__, so it cannot\n",
+        "target_code_len": 351,
+        "diff_format": "@@ -1405,5 +1405,5 @@\n                 _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n-                _WTERMSIG: Callable[[int], bool] = os.WTERMSIG,\n+                _WTERMSIG: Callable[[int], int] = os.WTERMSIG,\n                 _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n-                _WEXITSTATUS: Callable[[int], bool] = os.WEXITSTATUS) -> None:\n+                _WEXITSTATUS: Callable[[int], int] = os.WEXITSTATUS) -> None:\n             # This method is called (indirectly) by __del__, so it cannot\n",
+        "source_code_with_indent": "                _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n                _WTERMSIG: Callable[[int], bool] = os.WTERMSIG,\n                _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n                _WEXITSTATUS: Callable[[int], bool] = os.WEXITSTATUS) -> None:\n            # This method is called (indirectly) by __del__, so it cannot\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                _WIFSIGNALED: Callable[[int], bool] = os.WIFSIGNALED,\n                _WTERMSIG: Callable[[int], int] = os.WTERMSIG,\n                _WIFEXITED: Callable[[int], bool] = os.WIFEXITED,\n                _WEXITSTATUS: Callable[[int], int] = os.WEXITSTATUS) -> None:\n            # This method is called (indirectly) by __del__, so it cannot\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

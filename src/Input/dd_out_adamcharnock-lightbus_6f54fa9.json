@@ -1,0 +1,172 @@
+[
+  {
+    "project": "adamcharnock/lightbus",
+    "commit": "6f54fa9d69ad62f9d92770fd2a438cd0ea040e20",
+    "filename": "lightbus/utilities/casting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/adamcharnock-lightbus/lightbus/utilities/casting.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lightbus/utilities/casting.py:66:8 Incompatible variable type [9]: hint is declared to have type `Variable[H]` but is used as type `Type[typing.Any]`.",
+    "message": " hint is declared to have type `Variable[H]` but is used as type `Type[typing.Any]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 66,
+    "warning_line": "        hint = optional_hint",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "source_code_len": 96,
+        "target_code": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-def cast_to_hint(value: V, hint: H) -> Union[V, H]:\n+def cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n     \"\"\"Cast a value into a given type hint\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    <IND>",
+        "target_code_with_indent": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "adamcharnock/lightbus",
+    "commit": "6f54fa9d69ad62f9d92770fd2a438cd0ea040e20",
+    "filename": "lightbus/utilities/casting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/adamcharnock-lightbus/lightbus/utilities/casting.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lightbus/utilities/casting.py:68:38 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `parse_hint` but got `Variable[H]`.",
+    "message": " Expected `Type[typing.Any]` for 1st positional only parameter to call `parse_hint` but got `Variable[H]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 68,
+    "warning_line": "    hint_type, hint_args = parse_hint(hint)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "source_code_len": 96,
+        "target_code": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-def cast_to_hint(value: V, hint: H) -> Union[V, H]:\n+def cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n     \"\"\"Cast a value into a given type hint\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    <IND>",
+        "target_code_with_indent": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "adamcharnock/lightbus",
+    "commit": "6f54fa9d69ad62f9d92770fd2a438cd0ea040e20",
+    "filename": "lightbus/utilities/casting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/adamcharnock-lightbus/lightbus/utilities/casting.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lightbus/utilities/casting.py:84:12 Incompatible parameter type [6]: Expected `Type[Variable[T]]` for 2nd parameter `destination_type` to call `_mapping_to_instance` but got `Variable[H]`.",
+    "message": " Expected `Type[Variable[T]]` for 2nd parameter `destination_type` to call `_mapping_to_instance` but got `Variable[H]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 84,
+    "warning_line": "            destination_type=hint,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "source_code_len": 96,
+        "target_code": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-def cast_to_hint(value: V, hint: H) -> Union[V, H]:\n+def cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n     \"\"\"Cast a value into a given type hint\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    <IND>",
+        "target_code_with_indent": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "adamcharnock/lightbus",
+    "commit": "6f54fa9d69ad62f9d92770fd2a438cd0ea040e20",
+    "filename": "lightbus/utilities/casting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/adamcharnock-lightbus/lightbus/utilities/casting.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lightbus/utilities/casting.py:91:51 Incompatible parameter type [6]: Expected `Type[Variable[T]]` for 2nd parameter `destination_type` to call `_mapping_to_instance` but got `Variable[H]`.",
+    "message": " Expected `Type[Variable[T]]` for 2nd parameter `destination_type` to call `_mapping_to_instance` but got `Variable[H]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 91,
+    "warning_line": "        return _mapping_to_instance(mapping=value, destination_type=hint)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "source_code_len": 96,
+        "target_code": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-def cast_to_hint(value: V, hint: H) -> Union[V, H]:\n+def cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n     \"\"\"Cast a value into a given type hint\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    <IND>",
+        "target_code_with_indent": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "adamcharnock/lightbus",
+    "commit": "6f54fa9d69ad62f9d92770fd2a438cd0ea040e20",
+    "filename": "lightbus/utilities/casting.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/adamcharnock-lightbus/lightbus/utilities/casting.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lightbus/utilities/casting.py:93:51 Incompatible parameter type [6]: Expected `Type[Variable[T]]` for 2nd parameter `destination_type` to call `_mapping_to_instance` but got `Variable[H]`.",
+    "message": " Expected `Type[Variable[T]]` for 2nd parameter `destination_type` to call `_mapping_to_instance` but got `Variable[H]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 93,
+    "warning_line": "        return _mapping_to_instance(mapping=value, destination_type=hint)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "source_code_len": 96,
+        "target_code": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    \"\"\"Cast a value into a given type hint\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-def cast_to_hint(value: V, hint: H) -> Union[V, H]:\n+def cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n     \"\"\"Cast a value into a given type hint\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef cast_to_hint(value: V, hint: H) -> Union[V, H]:\n    <IND>",
+        "target_code_with_indent": "\ndef cast_to_hint(value: V, hint: Type[H]) -> Union[V, H]:\n    <IND>"
+      }
+    ]
+  }
+]

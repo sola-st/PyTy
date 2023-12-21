@@ -1,0 +1,100 @@
+[
+  {
+    "project": "jedie/django-tools",
+    "commit": "4fedac15aa1c143f45b6f8abb384dbc1fc6079db",
+    "filename": "django_tools/selenium/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jedie-django-tools/django_tools/selenium/base.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "django_tools/selenium/base.py:81:64 Invalid type [31]: Expression `[list, tuple]` is not a valid type.",
+    "message": " Expression `[list, tuple]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 81,
+    "warning_line": "def assert_browser_language(driver: RemoteWebDriver, languages: [list, tuple]):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef assert_browser_language(driver: RemoteWebDriver, languages: [list, tuple]):\n    browser_languages = driver.execute_script('return window.navigator.languages')\n    browser_language = browser_languages[0]\n    assert browser_language in languages, (\n        f'Browser language \"{browser_language}\" is not in {languages}'\n    )\n",
+        "source_code_len": 329,
+        "target_code": "\ndef assert_browser_language(driver: RemoteWebDriver, language: str):\n    browser_languages = driver.execute_script('return window.navigator.languages')\n    assert browser_languages == [language], (\n        f'Browser language \"{browser_languages}\" is not in {[language]}'\n    )\n",
+        "target_code_len": 278,
+        "diff_format": "@@ -80,7 +80,6 @@\n \n-def assert_browser_language(driver: RemoteWebDriver, languages: [list, tuple]):\n+def assert_browser_language(driver: RemoteWebDriver, language: str):\n     browser_languages = driver.execute_script('return window.navigator.languages')\n-    browser_language = browser_languages[0]\n-    assert browser_language in languages, (\n-        f'Browser language \"{browser_language}\" is not in {languages}'\n+    assert browser_languages == [language], (\n+        f'Browser language \"{browser_languages}\" is not in {[language]}'\n     )\n",
+        "source_code_with_indent": "\n<DED><DED>def assert_browser_language(driver: RemoteWebDriver, languages: [list, tuple]):\n    <IND>browser_languages = driver.execute_script('return window.navigator.languages')\n    browser_language = browser_languages[0]\n    assert browser_language in languages, (\n        f'Browser language \"{browser_language}\" is not in {languages}'\n    )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def assert_browser_language(driver: RemoteWebDriver, language: str):\n    <IND>browser_languages = driver.execute_script('return window.navigator.languages')\n    assert browser_languages == [language], (\n        f'Browser language \"{browser_languages}\" is not in {[language]}'\n    )\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def assert_browser_language(self, languages: [list, tuple]):\n        assert_browser_language(driver=self.driver, languages=languages)\n",
+        "source_code_len": 139,
+        "target_code": "\n    def assert_browser_language(self, language: str):\n        assert_browser_language(driver=self.driver, language=language)\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -237,3 +236,3 @@\n \n-    def assert_browser_language(self, languages: [list, tuple]):\n-        assert_browser_language(driver=self.driver, languages=languages)\n+    def assert_browser_language(self, language: str):\n+        assert_browser_language(driver=self.driver, language=language)\n",
+        "source_code_with_indent": "\n    <DED>def assert_browser_language(self, languages: [list, tuple]):\n        <IND>assert_browser_language(driver=self.driver, languages=languages)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def assert_browser_language(self, language: str):\n        <IND>assert_browser_language(driver=self.driver, language=language)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jedie/django-tools",
+    "commit": "4fedac15aa1c143f45b6f8abb384dbc1fc6079db",
+    "filename": "django_tools/selenium/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jedie-django-tools/django_tools/selenium/base.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "django_tools/selenium/base.py:238:49 Invalid type [31]: Expression `[list, tuple]` is not a valid type.",
+    "message": " Expression `[list, tuple]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 238,
+    "warning_line": "    def assert_browser_language(self, languages: [list, tuple]):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef assert_browser_language(driver: RemoteWebDriver, languages: [list, tuple]):\n    browser_languages = driver.execute_script('return window.navigator.languages')\n    browser_language = browser_languages[0]\n    assert browser_language in languages, (\n        f'Browser language \"{browser_language}\" is not in {languages}'\n    )\n",
+        "source_code_len": 329,
+        "target_code": "\ndef assert_browser_language(driver: RemoteWebDriver, language: str):\n    browser_languages = driver.execute_script('return window.navigator.languages')\n    assert browser_languages == [language], (\n        f'Browser language \"{browser_languages}\" is not in {[language]}'\n    )\n",
+        "target_code_len": 278,
+        "diff_format": "@@ -80,7 +80,6 @@\n \n-def assert_browser_language(driver: RemoteWebDriver, languages: [list, tuple]):\n+def assert_browser_language(driver: RemoteWebDriver, language: str):\n     browser_languages = driver.execute_script('return window.navigator.languages')\n-    browser_language = browser_languages[0]\n-    assert browser_language in languages, (\n-        f'Browser language \"{browser_language}\" is not in {languages}'\n+    assert browser_languages == [language], (\n+        f'Browser language \"{browser_languages}\" is not in {[language]}'\n     )\n",
+        "source_code_with_indent": "\n<DED><DED>def assert_browser_language(driver: RemoteWebDriver, languages: [list, tuple]):\n    <IND>browser_languages = driver.execute_script('return window.navigator.languages')\n    browser_language = browser_languages[0]\n    assert browser_language in languages, (\n        f'Browser language \"{browser_language}\" is not in {languages}'\n    )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def assert_browser_language(driver: RemoteWebDriver, language: str):\n    <IND>browser_languages = driver.execute_script('return window.navigator.languages')\n    assert browser_languages == [language], (\n        f'Browser language \"{browser_languages}\" is not in {[language]}'\n    )\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def assert_browser_language(self, languages: [list, tuple]):\n        assert_browser_language(driver=self.driver, languages=languages)\n",
+        "source_code_len": 139,
+        "target_code": "\n    def assert_browser_language(self, language: str):\n        assert_browser_language(driver=self.driver, language=language)\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -237,3 +236,3 @@\n \n-    def assert_browser_language(self, languages: [list, tuple]):\n-        assert_browser_language(driver=self.driver, languages=languages)\n+    def assert_browser_language(self, language: str):\n+        assert_browser_language(driver=self.driver, language=language)\n",
+        "source_code_with_indent": "\n    <DED>def assert_browser_language(self, languages: [list, tuple]):\n        <IND>assert_browser_language(driver=self.driver, languages=languages)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def assert_browser_language(self, language: str):\n        <IND>assert_browser_language(driver=self.driver, language=language)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

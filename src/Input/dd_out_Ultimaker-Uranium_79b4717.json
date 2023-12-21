@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "79b471714b6781390ec58cbb0ea414d08ce33c5f",
+    "filename": "plugins/UpdateChecker/UpdateChecker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/plugins/UpdateChecker/UpdateChecker.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/UpdateChecker/UpdateChecker.py:118:52 Incompatible parameter type [6]: Expected `Version` for 2nd positional only parameter to call `UpdateChecker._handleLatestUpdate` but got `Optional[Version]`.",
+    "message": " Expected `Version` for 2nd positional only parameter to call `UpdateChecker._handleLatestUpdate` but got `Optional[Version]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 118,
+    "warning_line": "            self._handleLatestUpdate(local_version, newest_beta_version, silent, display_same_version, NewBetaVersionMessage,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if newest_version is None:\n            # Todo: warn user that something failed!\n",
+        "source_code_len": 89,
+        "target_code": "\n        if newest_version is None or newest_beta_version is None:\n            # Todo: warn user that something failed!\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -107,3 +107,3 @@\n \n-        if newest_version is None:\n+        if newest_version is None or newest_beta_version is None:\n             # Todo: warn user that something failed!\n",
+        "source_code_with_indent": "\n        if newest_version is None:\n            # Todo: warn user that something failed!\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        if newest_version is None or newest_beta_version is None:\n            # Todo: warn user that something failed!\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

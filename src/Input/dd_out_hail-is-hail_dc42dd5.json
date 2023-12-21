@@ -1,0 +1,104 @@
+[
+  {
+    "project": "hail-is/hail",
+    "commit": "dc42dd5de3d40e75f71442bfc7ec7f23e827fca5",
+    "filename": "python/hail/expr/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hail-is-hail/python/hail/expr/types.py",
+    "file_hunks_size": 55,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "python/hail/expr/types.py:25:11 Unbound name [10]: Name `HistoryMixin` is used but not defined in the current scope.",
+    "message": " Name `HistoryMixin` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 25,
+    "warning_line": "class Type(HistoryMixin):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass Type(HistoryMixin):\n    \"\"\"\n    Hail type superclass used for annotations and expression language.\n    \"\"\"\n    __metaclass__ = abc.ABCMeta\n\n",
+        "source_code_len": 147,
+        "target_code": "\nclass Type(object):\n    \"\"\"\n    Hail type superclass.\n    \"\"\"\n\n",
+        "target_code_len": 64,
+        "diff_format": "@@ -24,7 +25,6 @@\n \n-class Type(HistoryMixin):\n-    \"\"\"\n-    Hail type superclass used for annotations and expression language.\n-    \"\"\"\n-    __metaclass__ = abc.ABCMeta\n+class Type(object):\n+    \"\"\"\n+    Hail type superclass.\n+    \"\"\"\n \n",
+        "source_code_with_indent": "\n<DED><DED>class Type(HistoryMixin):\n    <IND>\"\"\"\n    Hail type superclass used for annotations and expression language.\n    \"\"\"\n    __metaclass__ = abc.ABCMeta\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class Type(object):\n    <IND>\"\"\"\n    Hail type superclass.\n    \"\"\"\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "hail-is/hail",
+    "commit": "dc42dd5de3d40e75f71442bfc7ec7f23e827fca5",
+    "filename": "python/hail/expr/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hail-is-hail/python/hail/expr/types.py",
+    "file_hunks_size": 55,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "python/hail/expr/types.py:148:5 Unbound name [10]: Name `record_init` is used but not defined in the current scope.",
+    "message": " Name `record_init` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 148,
+    "warning_line": "    @record_init",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"\n    __metaclass__ = InternType\n\n    @record_init\n    def __init__(self, required=False):\n        super(TInt32, self).__init__(scala_object(Env.hail().expr.types, 'TInt32').apply(required))\n\n",
+        "source_code_len": 198,
+        "target_code": "    \"\"\"\n    def __init__(self):\n        self._get_jtype = lambda: scala_object(Env.hail().expr.types, 'TInt32Optional')\n        super(TInt32, self).__init__()\n\n",
+        "target_code_len": 160,
+        "diff_format": "@@ -145,7 +131,5 @@\n     \"\"\"\n-    __metaclass__ = InternType\n-\n-    @record_init\n-    def __init__(self, required=False):\n-        super(TInt32, self).__init__(scala_object(Env.hail().expr.types, 'TInt32').apply(required))\n+    def __init__(self):\n+        self._get_jtype = lambda: scala_object(Env.hail().expr.types, 'TInt32Optional')\n+        super(TInt32, self).__init__()\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    __metaclass__ = InternType\n\n    @record_init\n    def __init__(self, required=False):\n        <IND>super(TInt32, self).__init__(scala_object(Env.hail().expr.types, 'TInt32').apply(required))\n\n",
+        "target_code_with_indent": "\n    def __init__(self):\n        <IND>self._get_jtype = lambda: scala_object(Env.hail().expr.types, 'TInt32Optional')\n        super(TInt32, self).__init__()\n\n"
+      }
+    ]
+  },
+  {
+    "project": "hail-is/hail",
+    "commit": "dc42dd5de3d40e75f71442bfc7ec7f23e827fca5",
+    "filename": "python/hail/expr/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hail-is-hail/python/hail/expr/types.py",
+    "file_hunks_size": 55,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "python/hail/expr/types.py:783:5 Unbound name [10]: Name `record_property` is used but not defined in the current scope.",
+    "message": " Name `record_property` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 783,
+    "warning_line": "    @record_property",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _repr(self):\n        return \"TLocus()\"\n\n    @property\n    @record_property\n    def reference_genome(self):\n",
+        "source_code_len": 116,
+        "target_code": "\n    def __str__(self):\n        return \"TLocus('{}')\".format(self.reference_genome)\n\n    @property\n    def reference_genome(self):\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -778,7 +712,6 @@\n \n-    def _repr(self):\n-        return \"TLocus()\"\n-\n-    @property\n-    @record_property\n+    def __str__(self):\n+        return \"TLocus('{}')\".format(self.reference_genome)\n+\n+    @property\n     def reference_genome(self):\n",
+        "source_code_with_indent": "\n    <DED><DED>def _repr(self):\n        <IND>return \"TLocus()\"\n\n    <DED>@property\n    @record_property\n    def reference_genome(self):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def __str__(self):\n        <IND>return \"TLocus('{}')\".format(self.reference_genome)\n\n    <DED>@property\n    def reference_genome(self):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

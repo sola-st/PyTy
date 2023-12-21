@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RhinoSecurityLabs/pacu",
+    "commit": "54b0de44c8fc862e652d0efb54077d0d1385f333",
+    "filename": "pacu/modules/cloudwatch__download_logs/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RhinoSecurityLabs-pacu/pacu/modules/cloudwatch__download_logs/main.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pacu/modules/cloudwatch__download_logs/main.py:161:14 Unsupported operand [58]: `+` is not supported for operand types `pathlib.Path` and `str`.",
+    "message": " `+` is not supported for operand types `pathlib.Path` and `str`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 161,
+    "warning_line": "    dl_root = downloads_dir() + '/cloud_watch_logs/'",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        }\n    dl_root = downloads_dir() + '/cloud_watch_logs/'\n    summary_data['log_download_path'] = '{}{}'.format(dl_root, scan_time)\n",
+        "source_code_len": 137,
+        "target_code": "        }\n    dl_root = str(downloads_dir()) + '/cloud_watch_logs/'\n    summary_data['log_download_path'] = '{}{}'.format(dl_root, scan_time)\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -160,3 +160,3 @@\n         }\n-    dl_root = downloads_dir() + '/cloud_watch_logs/'\n+    dl_root = str(downloads_dir()) + '/cloud_watch_logs/'\n     summary_data['log_download_path'] = '{}{}'.format(dl_root, scan_time)\n",
+        "source_code_with_indent": "        }\n    <DED>dl_root = downloads_dir() + '/cloud_watch_logs/'\n    summary_data['log_download_path'] = '{}{}'.format(dl_root, scan_time)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        }\n    <DED>dl_root = str(downloads_dir()) + '/cloud_watch_logs/'\n    summary_data['log_download_path'] = '{}{}'.format(dl_root, scan_time)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

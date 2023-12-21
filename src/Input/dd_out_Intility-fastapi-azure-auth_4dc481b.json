@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Intility/fastapi-azure-auth",
+    "commit": "4dc481bb93d07beb5cf632c19d4660435faac5bf",
+    "filename": "fastapi_azure_auth/auth.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Intility-fastapi-azure-auth/fastapi_azure_auth/auth.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fastapi_azure_auth/auth.py:265:8 Incompatible variable type [9]: iss_callable is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " iss_callable is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 265,
+    "warning_line": "        iss_callable: Callable = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        validate_iss: bool = True,\n        iss_callable: Callable = None,\n        openid_config_use_app_id: bool = False,\n",
+        "source_code_len": 122,
+        "target_code": "        validate_iss: bool = True,\n        iss_callable: Optional[Callable[..., Any]] = None,\n        openid_config_use_app_id: bool = False,\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -264,3 +264,3 @@\n         validate_iss: bool = True,\n-        iss_callable: Callable = None,\n+        iss_callable: Optional[Callable[..., Any]] = None,\n         openid_config_use_app_id: bool = False,\n",
+        "source_code_with_indent": "        validate_iss: bool = True,\n        iss_callable: Callable = None,\n        openid_config_use_app_id: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        validate_iss: bool = True,\n        iss_callable: Optional[Callable[..., Any]] = None,\n        openid_config_use_app_id: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "project": "rotki/rotki",
+    "commit": "05b5b2ff3f9bd700fbbbd726be98cfa6c657f04d",
+    "filename": "rotkehlchen/blockchain.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/blockchain.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/blockchain.py:110:53 Incompatible parameter type [6]: Expected `typing.BTCAddress` for 1st positional only parameter to call `Blockchain.query_btc_account_balance` but got `Union[typing.BTCAddress, typing.EthAddress]`.",
+    "message": " Expected `typing.BTCAddress` for 1st positional only parameter to call `Blockchain.query_btc_account_balance` but got `Union[typing.BTCAddress, typing.EthAddress]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 110,
+    "warning_line": "            balance = self.query_btc_account_balance(account)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom rotkehlchen.errors import InputError, EthSyncError\n",
+        "source_code_len": 57,
+        "target_code": "\nfrom rotkehlchen.db.dbhandler import BlockchainAccounts\nfrom rotkehlchen.errors import InputError, EthSyncError\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -8,2 +8,3 @@\n \n+from rotkehlchen.db.dbhandler import BlockchainAccounts\n from rotkehlchen.errors import InputError, EthSyncError\n",
+        "source_code_with_indent": "\nfrom rotkehlchen.errors import InputError, EthSyncError\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom rotkehlchen.db.dbhandler import BlockchainAccounts\nfrom rotkehlchen.errors import InputError, EthSyncError\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            self,\n            blockchain_accounts: Dict[str, List[Union[typing.EthAddress, typing.BTCAddress]]],\n            all_eth_tokens: List[typing.EthTokenInfo],\n",
+        "source_code_len": 168,
+        "target_code": "            self,\n            blockchain_accounts: BlockchainAccounts,\n            all_eth_tokens: List[typing.EthTokenInfo],\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -34,3 +35,3 @@\n             self,\n-            blockchain_accounts: Dict[str, List[Union[typing.EthAddress, typing.BTCAddress]]],\n+            blockchain_accounts: BlockchainAccounts,\n             all_eth_tokens: List[typing.EthTokenInfo],\n",
+        "source_code_with_indent": "            self,\n            blockchain_accounts: Dict[str, List[Union[typing.EthAddress, typing.BTCAddress]]],\n            all_eth_tokens: List[typing.EthTokenInfo],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            self,\n            blockchain_accounts: BlockchainAccounts,\n            all_eth_tokens: List[typing.EthTokenInfo],\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # go through ETH accounts and make sure they are EIP55 encoded\n        if S_ETH in self.accounts:\n            self.accounts[S_ETH] = [to_checksum_address(x) for x in self.accounts[S_ETH]]\n\n",
+        "source_code_len": 197,
+        "target_code": "        # go through ETH accounts and make sure they are EIP55 encoded\n        # TODO: really really bad thing here. Should not have to force mutate\n        # a named tuple. Move this into the named tuple constructor\n        self.accounts._replace(eth=[to_checksum_address(x) for x in self.accounts.eth])\n\n",
+        "target_code_len": 306,
+        "diff_format": "@@ -47,4 +48,5 @@\n         # go through ETH accounts and make sure they are EIP55 encoded\n-        if S_ETH in self.accounts:\n-            self.accounts[S_ETH] = [to_checksum_address(x) for x in self.accounts[S_ETH]]\n+        # TODO: really really bad thing here. Should not have to force mutate\n+        # a named tuple. Move this into the named tuple constructor\n+        self.accounts._replace(eth=[to_checksum_address(x) for x in self.accounts.eth])\n \n",
+        "source_code_with_indent": "        # go through ETH accounts and make sure they are EIP55 encoded\n        if S_ETH in self.accounts:\n            <IND>self.accounts[S_ETH] = [to_checksum_address(x) for x in self.accounts[S_ETH]]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # go through ETH accounts and make sure they are EIP55 encoded\n        # TODO: really really bad thing here. Should not have to force mutate\n        # a named tuple. Move this into the named tuple constructor\n        self.accounts._replace(eth=[to_checksum_address(x) for x in self.accounts.eth])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

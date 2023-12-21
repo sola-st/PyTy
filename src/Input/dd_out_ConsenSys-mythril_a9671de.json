@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "a9671de8a3751d916a4190c56879c712a3f02c61",
+    "filename": "mythril/laser/ethereum/instructions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/ethereum/instructions.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/ethereum/instructions.py:1763:32 Incompatible parameter type [6]: Expected `Union[int, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `hex` but got `typing.Optional[int]`.",
+    "message": " Expected `Union[int, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `hex` but got `typing.Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1763,
+    "warning_line": "            target = \"0x\" + hex(target.value)[-40:]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        target = global_state.mstate.stack.pop()\n        account_created = False\n        # Often the target of the suicide instruction will be symbolic\n        # If it isn't then well transfer the balance to the indicated contract\n        if isinstance(target, BitVec) and not target.symbolic:\n            target = \"0x\" + hex(target.value)[-40:]\n        if isinstance(target, str):\n            try:\n                global_state.world_state[\n                    target\n                ].balance += global_state.environment.active_account.balance\n            except KeyError:\n                global_state.world_state.create_account(\n                    address=target,\n                    balance=global_state.environment.active_account.balance,\n                )\n                account_created = True\n\n",
+        "source_code_len": 802,
+        "target_code": "        target = global_state.mstate.stack.pop()\n        transfer_amount = global_state.environment.active_account.balance()\n        # Often the target of the suicide instruction will be symbolic\n        # If it isn't then we'll transfer the balance to the indicated contract\n        global_state.world_state[target].add_balance(transfer_amount)\n\n",
+        "target_code_len": 347,
+        "diff_format": "@@ -1758,18 +1758,6 @@\n         target = global_state.mstate.stack.pop()\n-        account_created = False\n+        transfer_amount = global_state.environment.active_account.balance()\n         # Often the target of the suicide instruction will be symbolic\n-        # If it isn't then well transfer the balance to the indicated contract\n-        if isinstance(target, BitVec) and not target.symbolic:\n-            target = \"0x\" + hex(target.value)[-40:]\n-        if isinstance(target, str):\n-            try:\n-                global_state.world_state[\n-                    target\n-                ].balance += global_state.environment.active_account.balance\n-            except KeyError:\n-                global_state.world_state.create_account(\n-                    address=target,\n-                    balance=global_state.environment.active_account.balance,\n-                )\n-                account_created = True\n+        # If it isn't then we'll transfer the balance to the indicated contract\n+        global_state.world_state[target].add_balance(transfer_amount)\n \n",
+        "source_code_with_indent": "        target = global_state.mstate.stack.pop()\n        account_created = False\n        # Often the target of the suicide instruction will be symbolic\n        # If it isn't then well transfer the balance to the indicated contract\n        if isinstance(target, BitVec) and not target.symbolic:\n            <IND>target = \"0x\" + hex(target.value)[-40:]\n        <DED>if isinstance(target, str):\n            <IND>try:\n                <IND>global_state.world_state[\n                    target\n                ].balance += global_state.environment.active_account.balance\n            <DED>except KeyError:\n                <IND>global_state.world_state.create_account(\n                    address=target,\n                    balance=global_state.environment.active_account.balance,\n                )\n                account_created = True\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        target = global_state.mstate.stack.pop()\n        transfer_amount = global_state.environment.active_account.balance()\n        # Often the target of the suicide instruction will be symbolic\n        # If it isn't then we'll transfer the balance to the indicated contract\n        global_state.world_state[target].add_balance(transfer_amount)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

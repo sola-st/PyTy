@@ -1,0 +1,70 @@
+[
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "7c7fff0c4e6b4c51755c1502a4f057fde05a1a0b",
+    "filename": "tests/test_simple_track_dataloader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/tests/test_simple_track_dataloader.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_simple_track_dataloader.py:58:61 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `SimpleArgoverseTrackingDataLoader.get_closest_lidar_fpath` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `SimpleArgoverseTrackingDataLoader.get_closest_lidar_fpath` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 58,
+    "warning_line": "    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\" Just barely within 51 ms allowed buffer\"\"\"\n    cam_timestamp = 50 * 1e6\n    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n    gt_ply_fpath = f\"test_data/tracking/{_LOG_ID}/lidar/PC_2.ply\"\n",
+        "source_code_len": 222,
+        "target_code": "    \"\"\" Just barely within 51 ms allowed buffer\"\"\"\n    cam_timestamp = int(50 * 1e6)\n    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n\n    assert ply_fpath is not None\n    gt_ply_fpath = f\"test_data/tracking/{_LOG_ID}/lidar/PC_2.ply\"\n",
+        "target_code_len": 261,
+        "diff_format": "@@ -56,4 +58,6 @@\n     \"\"\" Just barely within 51 ms allowed buffer\"\"\"\n-    cam_timestamp = 50 * 1e6\n+    cam_timestamp = int(50 * 1e6)\n     ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n+\n+    assert ply_fpath is not None\n     gt_ply_fpath = f\"test_data/tracking/{_LOG_ID}/lidar/PC_2.ply\"\n",
+        "source_code_with_indent": "    <IND>\"\"\" Just barely within 51 ms allowed buffer\"\"\"\n    cam_timestamp = 50 * 1e6\n    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n    gt_ply_fpath = f\"test_data/tracking/{_LOG_ID}/lidar/PC_2.ply\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\" Just barely within 51 ms allowed buffer\"\"\"\n    cam_timestamp = int(50 * 1e6)\n    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n\n    assert ply_fpath is not None\n    gt_ply_fpath = f\"test_data/tracking/{_LOG_ID}/lidar/PC_2.ply\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "argoai/argoverse-api",
+    "commit": "7c7fff0c4e6b4c51755c1502a4f057fde05a1a0b",
+    "filename": "tests/test_simple_track_dataloader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/argoai-argoverse-api/tests/test_simple_track_dataloader.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_simple_track_dataloader.py:71:61 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `SimpleArgoverseTrackingDataLoader.get_closest_lidar_fpath` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `SimpleArgoverseTrackingDataLoader.get_closest_lidar_fpath` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 71,
+    "warning_line": "    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    log_max_lidar_timestamp = 2\n    cam_timestamp = log_max_lidar_timestamp + max_allowed_interval + 1\n    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n",
+        "source_code_len": 179,
+        "target_code": "    log_max_lidar_timestamp = 2\n    cam_timestamp = int(log_max_lidar_timestamp + max_allowed_interval + 1)\n    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n",
+        "target_code_len": 184,
+        "diff_format": "@@ -69,3 +73,3 @@\n     log_max_lidar_timestamp = 2\n-    cam_timestamp = log_max_lidar_timestamp + max_allowed_interval + 1\n+    cam_timestamp = int(log_max_lidar_timestamp + max_allowed_interval + 1)\n     ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n",
+        "source_code_with_indent": "    log_max_lidar_timestamp = 2\n    cam_timestamp = log_max_lidar_timestamp + max_allowed_interval + 1\n    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    log_max_lidar_timestamp = 2\n    cam_timestamp = int(log_max_lidar_timestamp + max_allowed_interval + 1)\n    ply_fpath = data_loader.get_closest_lidar_fpath(_LOG_ID, cam_timestamp)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

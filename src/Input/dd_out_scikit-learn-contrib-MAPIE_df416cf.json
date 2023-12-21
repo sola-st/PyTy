@@ -1,0 +1,36 @@
+[
+  {
+    "project": "scikit-learn-contrib/MAPIE",
+    "commit": "df416cf9df2d4a5dc88602b822e4e7a73e6b9d12",
+    "filename": "mapie/tests/test_classification.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/scikit-learn-contrib-MAPIE/mapie/tests/test_classification.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mapie/tests/test_classification.py:213:8 Incompatible return type [7]: Expected `None` but got `WrongOutputModel`.",
+    "message": " Expected `None` but got `WrongOutputModel`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 213,
+    "warning_line": "        return self",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def fit(self, *args: Any) -> None:\n        self.fitted_ = True\n        return self\n\n    def predict_proba(self, *args: Any) -> None:\n        return self.proba_out\n\n    def predict(self, *args: Any) -> None:\n        pred = (\n",
+        "source_code_len": 228,
+        "target_code": "    def fit(self, *args: Any) -> None:\n        pass\n\n    def predict_proba(self, *args: Any) -> ArrayLike:\n        return self.proba_out\n\n    def predict(self, *args: Any) -> ArrayLike:\n        pred = (\n",
+        "target_code_len": 203,
+        "diff_format": "@@ -211,9 +211,8 @@\n     def fit(self, *args: Any) -> None:\n-        self.fitted_ = True\n-        return self\n-\n-    def predict_proba(self, *args: Any) -> None:\n+        pass\n+\n+    def predict_proba(self, *args: Any) -> ArrayLike:\n         return self.proba_out\n \n-    def predict(self, *args: Any) -> None:\n+    def predict(self, *args: Any) -> ArrayLike:\n         pred = (\n",
+        "source_code_with_indent": "    <DED>def fit(self, *args: Any) -> None:\n        <IND>self.fitted_ = True\n        return self\n\n    <DED>def predict_proba(self, *args: Any) -> None:\n        <IND>return self.proba_out\n\n    <DED>def predict(self, *args: Any) -> None:\n        <IND>pred = (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def fit(self, *args: Any) -> None:\n        <IND>pass\n\n    <DED>def predict_proba(self, *args: Any) -> ArrayLike:\n        <IND>return self.proba_out\n\n    <DED>def predict(self, *args: Any) -> ArrayLike:\n        <IND>pred = (\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

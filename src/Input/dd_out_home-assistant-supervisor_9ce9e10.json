@@ -1,0 +1,36 @@
+[
+  {
+    "project": "home-assistant/supervisor",
+    "commit": "9ce9e10dfdb61068a2ad1828439458a85e82a2f8",
+    "filename": "hassio/addons/addon.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/home-assistant-supervisor/hassio/addons/addon.py",
+    "file_hunks_size": 50,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hassio/addons/addon.py:1038:41 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `Addon._set_update` but got `Optional[str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `Addon._set_update` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1038,
+    "warning_line": "            self._set_update(self.image, self.version_installed)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    @check_installed\n    async def rebuild(self) -> None:\n        \"\"\"Perform a rebuild of local build add-on.\"\"\"\n        last_state = await self.state()\n\n        if not self.need_build:\n            _LOGGER.error(\"Can't rebuild a image based add-on\")\n            raise AddonsNotSupportedError()\n        if self.version_installed != self.latest_version:\n            _LOGGER.error(\"Version changed, use Update instead Rebuild\")\n            raise AddonsError()\n\n        # remove docker container but not addon config\n        try:\n            await self.instance.remove()\n            await self.instance.install(self.version_installed)\n        except DockerAPIError:\n            raise AddonsError() from None\n        else:\n            self._set_update(self.image, self.version_installed)\n\n        # restore state\n        if last_state == STATE_STARTED:\n            await self.start()\n\n    @check_installed\n    async def write_stdin(self, data):\n",
+        "source_code_len": 941,
+        "target_code": "\n    async def write_stdin(self, data):\n",
+        "target_code_len": 40,
+        "diff_format": "@@ -1018,28 +507,2 @@\n \n-    @check_installed\n-    async def rebuild(self) -> None:\n-        \"\"\"Perform a rebuild of local build add-on.\"\"\"\n-        last_state = await self.state()\n-\n-        if not self.need_build:\n-            _LOGGER.error(\"Can't rebuild a image based add-on\")\n-            raise AddonsNotSupportedError()\n-        if self.version_installed != self.latest_version:\n-            _LOGGER.error(\"Version changed, use Update instead Rebuild\")\n-            raise AddonsError()\n-\n-        # remove docker container but not addon config\n-        try:\n-            await self.instance.remove()\n-            await self.instance.install(self.version_installed)\n-        except DockerAPIError:\n-            raise AddonsError() from None\n-        else:\n-            self._set_update(self.image, self.version_installed)\n-\n-        # restore state\n-        if last_state == STATE_STARTED:\n-            await self.start()\n-\n-    @check_installed\n     async def write_stdin(self, data):\n",
+        "source_code_with_indent": "\n    <DED><DED>@check_installed\n    async def rebuild(self) -> None:\n        <IND>\"\"\"Perform a rebuild of local build add-on.\"\"\"\n        last_state = await self.state()\n\n        if not self.need_build:\n            <IND>_LOGGER.error(\"Can't rebuild a image based add-on\")\n            raise AddonsNotSupportedError()\n        <DED>if self.version_installed != self.latest_version:\n            <IND>_LOGGER.error(\"Version changed, use Update instead Rebuild\")\n            raise AddonsError()\n\n        # remove docker container but not addon config\n        <DED>try:\n            <IND>await self.instance.remove()\n            await self.instance.install(self.version_installed)\n        <DED>except DockerAPIError:\n            <IND>raise AddonsError() from None\n        <DED>else:\n            <IND>self._set_update(self.image, self.version_installed)\n\n        # restore state\n        <DED>if last_state == STATE_STARTED:\n            <IND>await self.start()\n\n    <DED><DED>@check_installed\n    async def write_stdin(self, data):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>async def write_stdin(self, data):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

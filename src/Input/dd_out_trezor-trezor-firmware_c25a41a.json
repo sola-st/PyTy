@@ -1,0 +1,104 @@
+[
+  {
+    "project": "trezor/trezor-firmware",
+    "commit": "c25a41aa576f6140d827676980d70bc06aa85083",
+    "filename": "core/src/apps/common/sd_salt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trezor-trezor-firmware/core/src/apps/common/sd_salt.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/src/apps/common/sd_salt.py:49:4 Incompatible return type [7]: Expected `bytes` but got `str`.",
+    "message": " Expected `bytes` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 49,
+    "warning_line": "    return \"/trezor/device_%s\" % storage.device.get_device_id().lower()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_device_dir() -> bytes:\n    return \"/trezor/device_%s\" % storage.device.get_device_id().lower()\n",
+        "source_code_len": 105,
+        "target_code": "\ndef _get_device_dir() -> str:\n    return \"/trezor/device_%s\" % storage.device.get_device_id().lower()\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -47,3 +47,3 @@\n \n-def _get_device_dir() -> bytes:\n+def _get_device_dir() -> str:\n     return \"/trezor/device_%s\" % storage.device.get_device_id().lower()\n",
+        "source_code_with_indent": "\n<DED><DED>def _get_device_dir() -> bytes:\n    <IND>return \"/trezor/device_%s\" % storage.device.get_device_id().lower()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def _get_device_dir() -> str:\n    <IND>return \"/trezor/device_%s\" % storage.device.get_device_id().lower()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "trezor/trezor-firmware",
+    "commit": "c25a41aa576f6140d827676980d70bc06aa85083",
+    "filename": "core/src/apps/common/sd_salt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trezor-trezor-firmware/core/src/apps/common/sd_salt.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/src/apps/common/sd_salt.py:54:8 Incompatible return type [7]: Expected `bytes` but got `str`.",
+    "message": " Expected `bytes` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 54,
+    "warning_line": "        return \"%s/salt.new\" % _get_device_dir()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_salt_path(new: bool = False) -> bytes:\n    if new:\n",
+        "source_code_len": 61,
+        "target_code": "\ndef _get_salt_path(new: bool = False) -> str:\n    if new:\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-def _get_salt_path(new: bool = False) -> bytes:\n+def _get_salt_path(new: bool = False) -> str:\n     if new:\n",
+        "source_code_with_indent": "\n<DED>def _get_salt_path(new: bool = False) -> bytes:\n    <IND>if new:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _get_salt_path(new: bool = False) -> str:\n    <IND>if new:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "trezor/trezor-firmware",
+    "commit": "c25a41aa576f6140d827676980d70bc06aa85083",
+    "filename": "core/src/apps/common/sd_salt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trezor-trezor-firmware/core/src/apps/common/sd_salt.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/src/apps/common/sd_salt.py:56:8 Incompatible return type [7]: Expected `bytes` but got `str`.",
+    "message": " Expected `bytes` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 56,
+    "warning_line": "        return \"%s/salt\" % _get_device_dir()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_salt_path(new: bool = False) -> bytes:\n    if new:\n",
+        "source_code_len": 61,
+        "target_code": "\ndef _get_salt_path(new: bool = False) -> str:\n    if new:\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -51,3 +51,3 @@\n \n-def _get_salt_path(new: bool = False) -> bytes:\n+def _get_salt_path(new: bool = False) -> str:\n     if new:\n",
+        "source_code_with_indent": "\n<DED>def _get_salt_path(new: bool = False) -> bytes:\n    <IND>if new:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _get_salt_path(new: bool = False) -> str:\n    <IND>if new:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "project": "paul-nameless/tg",
+    "commit": "e0781997987b439010c039833494c4f6c022c754",
+    "filename": "tg/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/paul-nameless-tg/tg/models.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tg/models.py:282:12 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 282,
+    "warning_line": "            return False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.chats: List[Dict[str, Any]] = []\n        self.chat_ids: List[int] = []\n        self.have_full_chat_list = False\n",
+        "source_code_len": 125,
+        "target_code": "        self.chats: List[Dict[str, Any]] = []\n        self.inactive_chats: Dict[int, Dict[str, Any]] = {}\n        self.chat_ids: Set[int] = set()\n        self.have_full_chat_list = False\n",
+        "target_code_len": 187,
+        "diff_format": "@@ -206,3 +206,4 @@\n         self.chats: List[Dict[str, Any]] = []\n-        self.chat_ids: List[int] = []\n+        self.inactive_chats: Dict[int, Dict[str, Any]] = {}\n+        self.chat_ids: Set[int] = set()\n         self.have_full_chat_list = False\n",
+        "source_code_with_indent": "        self.chats: List[Dict[str, Any]] = []\n        self.chat_ids: List[int] = []\n        self.have_full_chat_list = False\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.chats: List[Dict[str, Any]] = []\n        self.inactive_chats: Dict[int, Dict[str, Any]] = {}\n        self.chat_ids: Set[int] = set()\n        self.have_full_chat_list = False\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        chats = result.update[\"chat_ids\"]\n        if not chats:\n            self.have_full_chat_list = True\n            return chats\n\n        for chat_id in chats:\n            # TODO: fix this, we shouldn't have any duplicates\n            if chat_id not in self.chat_ids:\n                self.chat_ids.append(chat_id)\n                chat = self.fetch_chat(chat_id)\n                self.chats.append(chat)\n\n",
+        "source_code_len": 408,
+        "target_code": "\n        chat_ids = result.update[\"chat_ids\"]\n        if not chat_ids:\n            self.have_full_chat_list = True\n            return\n\n        for chat_id in chat_ids:\n            chat = self.fetch_chat(chat_id)\n            self.add_chat(chat)\n\n",
+        "target_code_len": 245,
+        "diff_format": "@@ -244,13 +245,10 @@\n \n-        chats = result.update[\"chat_ids\"]\n-        if not chats:\n+        chat_ids = result.update[\"chat_ids\"]\n+        if not chat_ids:\n             self.have_full_chat_list = True\n-            return chats\n-\n-        for chat_id in chats:\n-            # TODO: fix this, we shouldn't have any duplicates\n-            if chat_id not in self.chat_ids:\n-                self.chat_ids.append(chat_id)\n-                chat = self.fetch_chat(chat_id)\n-                self.chats.append(chat)\n+            return\n+\n+        for chat_id in chat_ids:\n+            chat = self.fetch_chat(chat_id)\n+            self.add_chat(chat)\n \n",
+        "source_code_with_indent": "\n        <DED>chats = result.update[\"chat_ids\"]\n        if not chats:\n            <IND>self.have_full_chat_list = True\n            return chats\n\n        <DED>for chat_id in chats:\n            # TODO: fix this, we shouldn't have any duplicates\n            <IND>if chat_id not in self.chat_ids:\n                <IND>self.chat_ids.append(chat_id)\n                chat = self.fetch_chat(chat_id)\n                self.chats.append(chat)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>chat_ids = result.update[\"chat_ids\"]\n        if not chat_ids:\n            <IND>self.have_full_chat_list = True\n            return\n\n        <DED>for chat_id in chat_ids:\n            <IND>chat = self.fetch_chat(chat_id)\n            self.add_chat(chat)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def update_chat(self, chat_id: int, **updates: Dict[str, Any]) -> bool:\n        for i, c in enumerate(self.chats):\n            if c[\"id\"] != chat_id:\n                continue\n            self.chats[i].update(updates)\n            self.chats = sorted(\n                self.chats,\n                # recommended chat order, for more info see\n                # https://core.telegram.org/tdlib/getting-started#getting-the-lists-of-chats\n                key=lambda it: (it[\"order\"], it[\"id\"]),\n                reverse=True,\n            )\n            log.info(f\"Updated chat with keys {list(updates)}\")\n            return True\n        else:\n            log.warning(f\"Can't find chat {chat_id} in existing chats\")\n            return False\n\n",
+        "source_code_len": 736,
+        "target_code": "\n    def add_chat(self, chat: Dict[str, Any]) -> None:\n        chat_id = chat[\"id\"]\n        if chat_id in self.chat_ids:\n            return\n        if int(chat[\"order\"]) == 0:\n            self.inactive_chats[chat_id] = chat\n            return\n        self.chat_ids.add(chat_id)\n        self.chats.append(chat)\n        self._sort_chats()\n\n    def _sort_chats(self) -> None:\n        self.chats = sorted(\n            self.chats,\n            # recommended chat order, for more info see\n            # https://core.telegram.org/tdlib/getting-started#getting-the-lists-of-chats\n            key=lambda it: (it[\"order\"], it[\"id\"]),\n            reverse=True,\n        )\n\n    def update_chat(self, chat_id: int, **updates: Dict[str, Any]) -> bool:\n        for i, chat in enumerate(self.chats):\n            if chat[\"id\"] != chat_id:\n                continue\n            chat.update(updates)\n            if int(chat[\"order\"]) == 0:\n                self.inactive_chats[chat_id] = chat\n                self.chat_ids.discard(chat_id)\n                self.chats = [\n                    _chat for _chat in self.chats if _chat[\"id\"] != chat_id\n                ]\n                log.info(f\"Removing chat '{chat['title']}'\")\n            else:\n                self._sort_chats()\n                log.info(f\"Updated chat with keys {list(updates)}\")\n            return True\n\n        if _chat := self.inactive_chats.get(chat_id):\n            _chat.update(updates)\n            if int(_chat[\"order\"]) != 0:\n                del self.inactive_chats[chat_id]\n                self.add_chat(_chat)\n                log.info(f\"Marked chat '{_chat['title']}' as active\")\n                return True\n            return False\n\n        log.warning(f\"Can't find chat {chat_id} in existing chats\")\n        return False\n\n",
+        "target_code_len": 1778,
+        "diff_format": "@@ -265,19 +263,50 @@\n \n+    def add_chat(self, chat: Dict[str, Any]) -> None:\n+        chat_id = chat[\"id\"]\n+        if chat_id in self.chat_ids:\n+            return\n+        if int(chat[\"order\"]) == 0:\n+            self.inactive_chats[chat_id] = chat\n+            return\n+        self.chat_ids.add(chat_id)\n+        self.chats.append(chat)\n+        self._sort_chats()\n+\n+    def _sort_chats(self) -> None:\n+        self.chats = sorted(\n+            self.chats,\n+            # recommended chat order, for more info see\n+            # https://core.telegram.org/tdlib/getting-started#getting-the-lists-of-chats\n+            key=lambda it: (it[\"order\"], it[\"id\"]),\n+            reverse=True,\n+        )\n+\n     def update_chat(self, chat_id: int, **updates: Dict[str, Any]) -> bool:\n-        for i, c in enumerate(self.chats):\n-            if c[\"id\"] != chat_id:\n+        for i, chat in enumerate(self.chats):\n+            if chat[\"id\"] != chat_id:\n                 continue\n-            self.chats[i].update(updates)\n-            self.chats = sorted(\n-                self.chats,\n-                # recommended chat order, for more info see\n-                # https://core.telegram.org/tdlib/getting-started#getting-the-lists-of-chats\n-                key=lambda it: (it[\"order\"], it[\"id\"]),\n-                reverse=True,\n-            )\n-            log.info(f\"Updated chat with keys {list(updates)}\")\n+            chat.update(updates)\n+            if int(chat[\"order\"]) == 0:\n+                self.inactive_chats[chat_id] = chat\n+                self.chat_ids.discard(chat_id)\n+                self.chats = [\n+                    _chat for _chat in self.chats if _chat[\"id\"] != chat_id\n+                ]\n+                log.info(f\"Removing chat '{chat['title']}'\")\n+            else:\n+                self._sort_chats()\n+                log.info(f\"Updated chat with keys {list(updates)}\")\n             return True\n-        else:\n-            log.warning(f\"Can't find chat {chat_id} in existing chats\")\n-            return False\n+\n+        if _chat := self.inactive_chats.get(chat_id):\n+            _chat.update(updates)\n+            if int(_chat[\"order\"]) != 0:\n+                del self.inactive_chats[chat_id]\n+                self.add_chat(_chat)\n+                log.info(f\"Marked chat '{_chat['title']}' as active\")\n+                return True\n+            return False\n+\n+        log.warning(f\"Can't find chat {chat_id} in existing chats\")\n+        return False\n \n",
+        "source_code_with_indent": "\n    <DED>def update_chat(self, chat_id: int, **updates: Dict[str, Any]) -> bool:\n        <IND>for i, c in enumerate(self.chats):\n            <IND>if c[\"id\"] != chat_id:\n                <IND>continue\n            <DED>self.chats[i].update(updates)\n            self.chats = sorted(\n                self.chats,\n                # recommended chat order, for more info see\n                # https://core.telegram.org/tdlib/getting-started#getting-the-lists-of-chats\n                key=lambda it: (it[\"order\"], it[\"id\"]),\n                reverse=True,\n            )\n            log.info(f\"Updated chat with keys {list(updates)}\")\n            return True\n        <DED>else:\n            <IND>log.warning(f\"Can't find chat {chat_id} in existing chats\")\n            return False\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def add_chat(self, chat: Dict[str, Any]) -> None:\n        <IND>chat_id = chat[\"id\"]\n        if chat_id in self.chat_ids:\n            <IND>return\n        <DED>if int(chat[\"order\"]) == 0:\n            <IND>self.inactive_chats[chat_id] = chat\n            return\n        <DED>self.chat_ids.add(chat_id)\n        self.chats.append(chat)\n        self._sort_chats()\n\n    <DED>def _sort_chats(self) -> None:\n        <IND>self.chats = sorted(\n            self.chats,\n            # recommended chat order, for more info see\n            # https://core.telegram.org/tdlib/getting-started#getting-the-lists-of-chats\n            key=lambda it: (it[\"order\"], it[\"id\"]),\n            reverse=True,\n        )\n\n    <DED>def update_chat(self, chat_id: int, **updates: Dict[str, Any]) -> bool:\n        <IND>for i, chat in enumerate(self.chats):\n            <IND>if chat[\"id\"] != chat_id:\n                <IND>continue\n            <DED>chat.update(updates)\n            if int(chat[\"order\"]) == 0:\n                <IND>self.inactive_chats[chat_id] = chat\n                self.chat_ids.discard(chat_id)\n                self.chats = [\n                    _chat for _chat in self.chats if _chat[\"id\"] != chat_id\n                ]\n                log.info(f\"Removing chat '{chat['title']}'\")\n            <DED>else:\n                <IND>self._sort_chats()\n                log.info(f\"Updated chat with keys {list(updates)}\")\n            <DED>return True\n\n        <DED>if _chat := self.inactive_chats.get(chat_id):\n            <IND>_chat.update(updates)\n            if int(_chat[\"order\"]) != 0:\n                <IND>del self.inactive_chats[chat_id]\n                self.add_chat(_chat)\n                log.info(f\"Marked chat '{_chat['title']}' as active\")\n                return True\n            <DED>return False\n\n        <DED>log.warning(f\"Can't find chat {chat_id} in existing chats\")\n        return False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,227 @@
+[
+  {
+    "isolated_code_change": "-def start_rasa_for_local_rasa_x(args: argparse.Namespace, rasa_x_token: Text) -> None: \n+def start_rasa_for_local_rasa_x( args: argparse.Namespace, rasa_x_token: Text ) -> BaseProcess:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": [
+      "None",
+      "BaseProcess",
+      "SpawnProcess"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "None",
+      "to": "BaseProcess"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "rasa/cli/x.py:225:4 Incompatible return type [7]: Expected `None` but got `multiprocessing.context.SpawnProcess`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUPER_TYPE"
+  },
+  {
+    "isolated_code_change": "-return [UserUtteranceReverted()] + _message_clarification(tracker)\n+reverted_event: List[Event] = [UserUtteranceReverted()]\n+return reverted_event + _message_clarification(tracker)",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": [
+      "List",
+      "UserUtteranceReverted",
+      "Event"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "List[UserUtteranceReverted]",
+      "to": "List[Event]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rasa/core/actions/two_stage_fallback.py:106:8 Incompatible return type [7]: Expected `List[Event]` but got `List[UserUtteranceReverted]`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-return [UserUtteranceReverted()] + _message_clarification(tracker)\n+reverted_event: List[Event] = [UserUtteranceReverted()]\n+return reverted_event + _message_clarification(tracker)",
+    "type_error": "Unsupported operand [58]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": [
+      "List",
+      "UserUtteranceReverted",
+      "Event"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "List[UserUtteranceReverted]",
+      "to": "List[Event]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rasa/core/actions/two_stage_fallback.py:106:43 Unsupported operand [58]: `+` is not supported for operand types `List[UserUtteranceReverted]` and `List[Event]`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "EXACT_MENTIONED_TYPE"
+  },
+  {
+    "isolated_code_change": "-return (\n+return bool(",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "CASTING",
+    "involved_types": [
+      "bool",
+      "Union[bool, TrackerFeaturizer]",
+      "TrackerFeaturizer"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Union[bool, TrackerFeaturizer]",
+      "to": "bool"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rasa/core/agent.py:682:12 Incompatible return type [7]: Expected `bool` but got `Union[bool, rasa.core.featurizers.tracker_featurizers.TrackerFeaturizer]`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def list_routes(app: Sanic) -> Text: \n+def list_routes(app: Sanic) -> Dict[Text, Text]:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": [
+      "Any",
+      "str",
+      "Dict",
+      "Text"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Text",
+      "to": "Dict[Text, Text]"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "rasa/core/utils.py:128:4 Incompatible return type [7]: Expected `str` but got `Dict[typing.Any, typing.Any]`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_SUBTYPE"
+  },
+  {
+    "isolated_code_change": "-) -> Optional[Text]: \n+) -> Optional[Union[Path, Text]]:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": [
+      "Optional",
+      "str",
+      "Union",
+      "None",
+      "Path",
+      "Text"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Optional[Text]",
+      "to": "Optional[Union[Path, Text]]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "rasa/model.py:642:8 Incompatible return type [7]: Expected `Optional[str]` but got `Union[None, Path, str]`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def create_component_from_class(self, component_class: Type[C], **cfg: Any) -> C: \n+def create_component_from_class( self, component_class: Type[Component], **cfg: Any ) -> Optional[Component]:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": [
+      "TypeVar(\"C\", bound=Component)",
+      "Component",
+      "Optional"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "TypeVar(\"C\", bound=Component)",
+      "to": "Optional[Component]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "rasa/nlu/components.py:956:8 Incompatible return type [7]: Expected `Variable[C (bound to Component)]` but got `Component`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "PARTIAL_MENTIONED_TYPE"
+  },    
+  {
+    "isolated_code_change": "-model = super().load(\n+model: ResponseSelector = super().load(",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_VAR_TYPE",
+    "involved_types": [
+      "DIETClassifier",
+      "ResponseSelector"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "DIETClassifier",
+      "to": "ResponseSelector"
+    },
+    "location": "ENCLOSING_FUN",
+    "full_warning_msg": "rasa/nlu/selectors/response_selector.py:638:12 Incompatible return type [7]: Expected `ResponseSelector` but got `DIETClassifier`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def _create_emulator(mode: Optional[Text]) -> NoEmulator: \n+def _create_emulator(mode: Optional[Text]) -> Emulator:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": [
+      "NoEmulator",
+      "Emulator",
+      "WitEmulator"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "NoEmulator",
+      "to": "Emulator"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "rasa/server.py:452:8 Incompatible return type [7]: Expected `NoEmulator` but got `WitEmulator`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  },
+  {
+    "isolated_code_change": "-def get_active_loop_name(state: State) -> Optional[Text]: \n+def get_active_loop_name( state: State, ) -> Optional[Union[Text, Tuple[Union[float, Text]]]]:",
+    "type_error": "Incompatible return type [7]",
+    "code_transform": "MODIFY_FUN_RETURN_TYPE",
+    "involved_types": [
+      "Optional",
+      "Union",
+      "Text",
+      "Tuple",
+      "float"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "Optional[Text]",
+      "to": "Optional[Union[Text, Tuple[Union[float, Text]]]]"
+    },
+    "location": "ENCLOSING_FUN_RETURN",
+    "full_warning_msg": "rasa/shared/core/trackers.py:892:4 Incompatible return type [7]: Expected `Optional[str]` but got `Union[None, Tuple[Union[float, str]], str]`.",
+    "url": "https://github.com/RasaHQ/rasa/commit/1ded5ef",
+    "repo": "https://github.com/RasaHQ/rasa",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  }
+]

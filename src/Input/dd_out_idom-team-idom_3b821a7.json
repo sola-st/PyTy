@@ -1,0 +1,85 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "3b821a7da06ede29d49744418808a3fdedbd96bb",
+    "filename": "idom/server/flask.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/idom/server/flask.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "idom/server/flask.py:54:12 Incompatible parameter type [6]: Expected `Config` for 1st positional only parameter to call `__init__` but got `Dict[str, Union[bool, object, str, Variable[_VT]]]`.",
+    "message": " Expected `Config` for 1st positional only parameter to call `__init__` but got `Dict[str, Union[bool, object, str, Variable[_VT]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 54,
+    "warning_line": "            {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    def _create_config(self, config: Optional[Config]) -> Config:\n        return Config(\n            {\n                \"import_name\": __name__,\n                \"url_prefix\": \"\",\n                \"cors\": False,\n                \"serve_static_files\": True,\n                \"redirect_root_to_index\": True,\n                **(config or {}),\n            }\n        )\n\n",
+        "source_code_len": 360,
+        "target_code": "    def _create_config(self, config: Optional[Config]) -> Config:\n        new_config: Config = {\n            \"import_name\": __name__,\n            \"url_prefix\": \"\",\n            \"cors\": False,\n            \"serve_static_files\": True,\n            \"redirect_root_to_index\": True,\n        }\n        if config is not None:\n            # BUG: https://github.com/python/mypy/issues/6462\n            new_config.update(config)  # type: ignore\n        return new_config\n\n",
+        "target_code_len": 459,
+        "diff_format": "@@ -52,12 +52,13 @@\n     def _create_config(self, config: Optional[Config]) -> Config:\n-        return Config(\n-            {\n-                \"import_name\": __name__,\n-                \"url_prefix\": \"\",\n-                \"cors\": False,\n-                \"serve_static_files\": True,\n-                \"redirect_root_to_index\": True,\n-                **(config or {}),\n-            }\n-        )\n+        new_config: Config = {\n+            \"import_name\": __name__,\n+            \"url_prefix\": \"\",\n+            \"cors\": False,\n+            \"serve_static_files\": True,\n+            \"redirect_root_to_index\": True,\n+        }\n+        if config is not None:\n+            # BUG: https://github.com/python/mypy/issues/6462\n+            new_config.update(config)  # type: ignore\n+        return new_config\n \n",
+        "source_code_with_indent": "    <DED><DED>def _create_config(self, config: Optional[Config]) -> Config:\n        <IND>return Config(\n            {\n                \"import_name\": __name__,\n                \"url_prefix\": \"\",\n                \"cors\": False,\n                \"serve_static_files\": True,\n                \"redirect_root_to_index\": True,\n                **(config or {}),\n            }\n        )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>def _create_config(self, config: Optional[Config]) -> Config:\n        <IND>new_config: Config = {\n            \"import_name\": __name__,\n            \"url_prefix\": \"\",\n            \"cors\": False,\n            \"serve_static_files\": True,\n            \"redirect_root_to_index\": True,\n        }\n        if config is not None:\n            # BUG: https://github.com/python/mypy/issues/6462\n            <IND>new_config.update(config)  # type: ignore\n        <DED>return new_config\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "idom-team/idom",
+    "commit": "3b821a7da06ede29d49744418808a3fdedbd96bb",
+    "filename": "idom/server/sanic.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/idom/server/sanic.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "idom/server/sanic.py:47:12 Incompatible parameter type [6]: Expected `Config` for 1st positional only parameter to call `__init__` but got `Dict[str, Union[bool, object, str, Variable[_VT]]]`.",
+    "message": " Expected `Config` for 1st positional only parameter to call `__init__` but got `Dict[str, Union[bool, object, str, Variable[_VT]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 47,
+    "warning_line": "            {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    url_prefix: str\n    server_static_files: bool\n    redirect_root_to_index: bool\n",
+        "source_code_len": 83,
+        "target_code": "    url_prefix: str\n    serve_static_files: bool\n    redirect_root_to_index: bool\n",
+        "target_code_len": 82,
+        "diff_format": "@@ -30,3 +30,3 @@\n     url_prefix: str\n-    server_static_files: bool\n+    serve_static_files: bool\n     redirect_root_to_index: bool\n",
+        "source_code_with_indent": "    url_prefix: str\n    server_static_files: bool\n    redirect_root_to_index: bool\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    url_prefix: str\n    serve_static_files: bool\n    redirect_root_to_index: bool\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _create_config(self, config: Optional[Config]) -> Config:\n        return Config(\n            {\n                \"cors\": False,\n                \"url_prefix\": \"\",\n                \"serve_static_files\": True,\n                \"redirect_root_to_index\": True,\n                **(config or {}),\n            }\n        )\n\n",
+        "source_code_len": 319,
+        "target_code": "    def _create_config(self, config: Optional[Config]) -> Config:\n        new_config: Config = {\n            \"cors\": False,\n            \"url_prefix\": \"\",\n            \"serve_static_files\": True,\n            \"redirect_root_to_index\": True,\n        }\n        if config is not None:\n            new_config.update(config)\n        return new_config\n\n",
+        "target_code_len": 344,
+        "diff_format": "@@ -45,11 +45,11 @@\n     def _create_config(self, config: Optional[Config]) -> Config:\n-        return Config(\n-            {\n-                \"cors\": False,\n-                \"url_prefix\": \"\",\n-                \"serve_static_files\": True,\n-                \"redirect_root_to_index\": True,\n-                **(config or {}),\n-            }\n-        )\n+        new_config: Config = {\n+            \"cors\": False,\n+            \"url_prefix\": \"\",\n+            \"serve_static_files\": True,\n+            \"redirect_root_to_index\": True,\n+        }\n+        if config is not None:\n+            new_config.update(config)\n+        return new_config\n \n",
+        "source_code_with_indent": "    <DED>def _create_config(self, config: Optional[Config]) -> Config:\n        <IND>return Config(\n            {\n                \"cors\": False,\n                \"url_prefix\": \"\",\n                \"serve_static_files\": True,\n                \"redirect_root_to_index\": True,\n                **(config or {}),\n            }\n        )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _create_config(self, config: Optional[Config]) -> Config:\n        <IND>new_config: Config = {\n            \"cors\": False,\n            \"url_prefix\": \"\",\n            \"serve_static_files\": True,\n            \"redirect_root_to_index\": True,\n        }\n        if config is not None:\n            <IND>new_config.update(config)\n        <DED>return new_config\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

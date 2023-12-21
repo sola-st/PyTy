@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "5dde120132bf5c755fd2c47cb4f73558f89dd384",
+    "filename": "tests/core/test_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/tests/core/test_utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/core/test_utils.py:185:59 Incompatible parameter type [6]: Expected `Union[None, EndpointConfig, LockStore]` for 1st positional only parameter to call `utils._lock_store_is_redis_lock_store` but got `Union[None, EndpointConfig, str]`.",
+    "message": " Expected `Union[None, EndpointConfig, LockStore]` for 1st positional only parameter to call `utils._lock_store_is_redis_lock_store` but got `Union[None, EndpointConfig, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 185,
+    "warning_line": "    assert rasa.core.utils._lock_store_is_redis_lock_store(lock_store) == expected",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def test_lock_store_is_redis_lock_store(\n    lock_store: Union[EndpointConfig, Text, None], expected: bool\n):\n",
+        "source_code_len": 110,
+        "target_code": "def test_lock_store_is_redis_lock_store(\n    lock_store: Union[EndpointConfig, LockStore, None], expected: bool\n):\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -181,3 +181,3 @@\n def test_lock_store_is_redis_lock_store(\n-    lock_store: Union[EndpointConfig, Text, None], expected: bool\n+    lock_store: Union[EndpointConfig, LockStore, None], expected: bool\n ):\n",
+        "source_code_with_indent": "def test_lock_store_is_redis_lock_store(\n    lock_store: Union[EndpointConfig, Text, None], expected: bool\n):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "def test_lock_store_is_redis_lock_store(\n    lock_store: Union[EndpointConfig, LockStore, None], expected: bool\n):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

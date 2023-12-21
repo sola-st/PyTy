@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "0489c8d47fe23773dc61b25f9a339fefb476a7b9",
+    "filename": "cfgrib/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/messages.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/messages.py:85:16 Incompatible variable type [9]: value is declared to have type `bool` but is used as type `T.List[typing.Any]`.",
+    "message": " value is declared to have type `bool` but is used as type `T.List[typing.Any]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 85,
+    "warning_line": "                value = [v.encode(self.encoding) for v in value]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def message_set(self, item, value):\n        # type: (str, T.Any, bool) -> None\n        key = item.encode(self.encoding)\n",
+        "source_code_len": 124,
+        "target_code": "    def message_set(self, item, value):\n        # type: (str, T.Any) -> None\n        key = item.encode(self.encoding)\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -79,3 +79,3 @@\n     def message_set(self, item, value):\n-        # type: (str, T.Any, bool) -> None\n+        # type: (str, T.Any) -> None\n         key = item.encode(self.encoding)\n",
+        "source_code_with_indent": "    <DED>def message_set(self, item, value):\n        # type: (str, T.Any, bool) -> None\n        <IND>key = item.encode(self.encoding)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def message_set(self, item, value):\n        # type: (str, T.Any) -> None\n        <IND>key = item.encode(self.encoding)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ecmwf/cfgrib",
+    "commit": "0489c8d47fe23773dc61b25f9a339fefb476a7b9",
+    "filename": "cfgrib/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ecmwf-cfgrib/cfgrib/messages.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cfgrib/messages.py:86:56 Incompatible parameter type [6]: Expected `T.List[typing.Any]` for 3rd positional only parameter to call `eccodes.codes_set_array` but got `bool`.",
+    "message": " Expected `T.List[typing.Any]` for 3rd positional only parameter to call `eccodes.codes_set_array` but got `bool`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 86,
+    "warning_line": "            eccodes.codes_set_array(self.codes_id, key, value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def message_set(self, item, value):\n        # type: (str, T.Any, bool) -> None\n        key = item.encode(self.encoding)\n",
+        "source_code_len": 124,
+        "target_code": "    def message_set(self, item, value):\n        # type: (str, T.Any) -> None\n        key = item.encode(self.encoding)\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -79,3 +79,3 @@\n     def message_set(self, item, value):\n-        # type: (str, T.Any, bool) -> None\n+        # type: (str, T.Any) -> None\n         key = item.encode(self.encoding)\n",
+        "source_code_with_indent": "    <DED>def message_set(self, item, value):\n        # type: (str, T.Any, bool) -> None\n        <IND>key = item.encode(self.encoding)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def message_set(self, item, value):\n        # type: (str, T.Any) -> None\n        <IND>key = item.encode(self.encoding)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

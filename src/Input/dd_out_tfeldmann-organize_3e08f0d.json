@@ -1,0 +1,36 @@
+[
+  {
+    "project": "tfeldmann/organize",
+    "commit": "3e08f0d15adf4d480920272e16b61bcf9b431e62",
+    "filename": "organize/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tfeldmann-organize/organize/core.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "organize/core.py:133:47 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `OutputHelper.print_path_not_found` but got `Path`.",
+    "message": " Expected `str` for 1st positional only parameter to call `OutputHelper.print_path_not_found` but got `Path`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 133,
+    "warning_line": "            output_helper.print_path_not_found(basedir)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else:\n            output_helper.print_path_not_found(basedir)\n            continue\n",
+        "source_code_len": 91,
+        "target_code": "        else:\n            output_helper.print_path_not_found(str(basedir))\n            continue\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -132,3 +132,3 @@\n         else:\n-            output_helper.print_path_not_found(basedir)\n+            output_helper.print_path_not_found(str(basedir))\n             continue\n",
+        "source_code_with_indent": "        <DED>else:\n            <IND>output_helper.print_path_not_found(basedir)\n            continue\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>else:\n            <IND>output_helper.print_path_not_found(str(basedir))\n            continue\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

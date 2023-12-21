@@ -1,0 +1,36 @@
+[
+  {
+    "project": "google/TensorNetwork",
+    "commit": "1489f4b77400054fc21f5379e6a05180b200396c",
+    "filename": "tensornetwork/backends/shell/shell_backend.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-TensorNetwork/tensornetwork/backends/shell/shell_backend.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensornetwork/backends/shell/shell_backend.py:148:29 Incompatible parameter type [6]: Expected `typing.Tuple[int, ...]` for 1st positional only parameter to call `ShellTensor.__init__` but got `int`.",
+    "message": " Expected `typing.Tuple[int, ...]` for 1st positional only parameter to call `ShellTensor.__init__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 148,
+    "warning_line": "    new_tensor = ShellTensor((3 - len(shape)) * shape)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n  def diag(self, tensor: Tensor) -> Tensor:\n    shape = tensor.shape\n    new_tensor = ShellTensor((3 - len(shape)) * shape)\n    return new_tensor\n\n  def convert_to_tensor(self, tensor: Any) -> Tensor:\n",
+        "source_code_len": 202,
+        "target_code": "\n  def convert_to_tensor(self, tensor: Any) -> Tensor:\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -145,7 +145,2 @@\n \n-  def diag(self, tensor: Tensor) -> Tensor:\n-    shape = tensor.shape\n-    new_tensor = ShellTensor((3 - len(shape)) * shape)\n-    return new_tensor\n-\n   def convert_to_tensor(self, tensor: Any) -> Tensor:\n",
+        "source_code_with_indent": "\n  <DED>def diag(self, tensor: Tensor) -> Tensor:\n    <IND>shape = tensor.shape\n    new_tensor = ShellTensor((3 - len(shape)) * shape)\n    return new_tensor\n\n  <DED>def convert_to_tensor(self, tensor: Any) -> Tensor:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n  <DED>def convert_to_tensor(self, tensor: Any) -> Tensor:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

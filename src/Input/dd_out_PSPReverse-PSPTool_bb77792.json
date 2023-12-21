@@ -1,0 +1,36 @@
+[
+  {
+    "project": "PSPReverse/PSPTool",
+    "commit": "bb77792a5313f80a078e0d53c642d18353c801d8",
+    "filename": "psptool2/blob.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PSPReverse-PSPTool/psptool2/blob.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "psptool2/blob.py:150:16 Incompatible return type [7]: Expected `Entry` but got implicit return value of `None`.",
+    "message": " Expected `Entry` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 150,
+    "warning_line": "                return entry",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_entry_by_type(self, type_) -> Entry:\n        for entry in self.unique_entries:\n            if entry.type == type_:\n                return entry\n\n        # todo: raise something?\n",
+        "source_code_len": 191,
+        "target_code": "\n    def get_entries_by_type(self, type_) -> List[Entry]:\n        entries = []\n\n        for entry in self.unique_entries:\n            if entry.type == type_:\n                entries.append(entry)\n\n        return entries\n",
+        "target_code_len": 220,
+        "diff_format": "@@ -146,7 +146,9 @@\n \n-    def get_entry_by_type(self, type_) -> Entry:\n+    def get_entries_by_type(self, type_) -> List[Entry]:\n+        entries = []\n+\n         for entry in self.unique_entries:\n             if entry.type == type_:\n-                return entry\n+                entries.append(entry)\n \n-        # todo: raise something?\n+        return entries\n",
+        "source_code_with_indent": "\n    <DED><DED><DED><DED>def get_entry_by_type(self, type_) -> Entry:\n        <IND>for entry in self.unique_entries:\n            <IND>if entry.type == type_:\n                <IND>return entry\n\n        # todo: raise something?\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED><DED><DED>def get_entries_by_type(self, type_) -> List[Entry]:\n        <IND>entries = []\n\n        for entry in self.unique_entries:\n            <IND>if entry.type == type_:\n                <IND>entries.append(entry)\n\n        <DED><DED>return entries\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

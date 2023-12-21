@@ -1,0 +1,36 @@
+[
+  {
+    "project": "plasma-umass/scalene",
+    "commit": "14c7c6fe031fa5901d283f124c19217249dc4f78",
+    "filename": "scalene/replacement_thread_join.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plasma-umass-scalene/scalene/replacement_thread_join.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "scalene/replacement_thread_join.py:27:4 Incompatible attribute type [8]: Attribute `join` declared in class `threading.Thread` has type `typing.Callable(threading.Thread.join)[[Named(self, threading.Thread), Named(timeout, Optional[float], default)], None]` but is used as type `typing.Callable[[Named(self, threading.Thread), Named(timeout, Optional[float], default)], None]`.",
+    "message": " Attribute `join` declared in class `threading.Thread` has type `typing.Callable(threading.Thread.join)[[Named(self, threading.Thread), Named(timeout, Optional[float], default)], None]` but is used as type `typing.Callable[[Named(self, threading.Thread), Named(timeout, Optional[float], default)], None]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 27,
+    "warning_line": "    threading.Thread.join = thread_join_replacement",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        return None\n    threading.Thread.join = thread_join_replacement\n",
+        "source_code_len": 72,
+        "target_code": "        return None\n    threading.Thread.join = thread_join_replacement # type: ignore\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -26,2 +26,2 @@\n         return None\n-    threading.Thread.join = thread_join_replacement\n+    threading.Thread.join = thread_join_replacement # type: ignore\n",
+        "source_code_with_indent": "        <DED><DED><DED>return None\n    <DED>threading.Thread.join = thread_join_replacement\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED><DED><DED>return None\n    <DED>threading.Thread.join = thread_join_replacement # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

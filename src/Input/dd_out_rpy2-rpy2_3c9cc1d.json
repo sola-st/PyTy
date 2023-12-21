@@ -1,0 +1,51 @@
+[
+  {
+    "project": "rpy2/rpy2",
+    "commit": "3c9cc1d71acae41fca4aa42385cc07ae216dccf3",
+    "filename": "rpy/ipython/rmagic.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rpy2-rpy2/rpy/ipython/rmagic.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rpy/ipython/rmagic.py:386:30 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 386,
+    "warning_line": "        '-u', '--units', type=unicode, choices=[\"px\", \"in\", \"cm\", \"mm\"],",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from IPython.external.simplegeneric import generic\nfrom IPython.utils.py3compat import str_to_unicode, unicode_to_str, PY3\n\n",
+        "source_code_len": 124,
+        "target_code": "from IPython.external.simplegeneric import generic\nfrom IPython.utils.py3compat import (str_to_unicode, unicode_to_str, PY3,\n                                     unicode_type)\n\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -73,3 +73,4 @@\n from IPython.external.simplegeneric import generic\n-from IPython.utils.py3compat import str_to_unicode, unicode_to_str, PY3\n+from IPython.utils.py3compat import (str_to_unicode, unicode_to_str, PY3,\n+                                     unicode_type)\n \n",
+        "source_code_with_indent": "from IPython.external.simplegeneric import generic\nfrom IPython.utils.py3compat import str_to_unicode, unicode_to_str, PY3\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from IPython.external.simplegeneric import generic\nfrom IPython.utils.py3compat import (str_to_unicode, unicode_to_str, PY3,\n                                     unicode_type)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @argument(\n        '-u', '--units', type=unicode, choices=[\"px\", \"in\", \"cm\", \"mm\"],\n        help='Units of png plotting device sent as an argument to *png* in R. One of [\"px\", \"in\", \"cm\", \"mm\"].'\n",
+        "source_code_len": 200,
+        "target_code": "    @argument(\n        '-u', '--units', type=unicode_type, choices=[\"px\", \"in\", \"cm\", \"mm\"],\n        help='Units of png plotting device sent as an argument to *png* in R. One of [\"px\", \"in\", \"cm\", \"mm\"].'\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -385,3 +386,3 @@\n     @argument(\n-        '-u', '--units', type=unicode, choices=[\"px\", \"in\", \"cm\", \"mm\"],\n+        '-u', '--units', type=unicode_type, choices=[\"px\", \"in\", \"cm\", \"mm\"],\n         help='Units of png plotting device sent as an argument to *png* in R. One of [\"px\", \"in\", \"cm\", \"mm\"].'\n",
+        "source_code_with_indent": "    @argument(\n        '-u', '--units', type=unicode, choices=[\"px\", \"in\", \"cm\", \"mm\"],\n        help='Units of png plotting device sent as an argument to *png* in R. One of [\"px\", \"in\", \"cm\", \"mm\"].'\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @argument(\n        '-u', '--units', type=unicode_type, choices=[\"px\", \"in\", \"cm\", \"mm\"],\n        help='Units of png plotting device sent as an argument to *png* in R. One of [\"px\", \"in\", \"cm\", \"mm\"].'\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

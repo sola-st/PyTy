@@ -1,0 +1,68 @@
+[
+  {
+    "project": "snaptec/openWB",
+    "commit": "7d1efe667506a50f4913970d08d3305fa6ef8ea7",
+    "filename": "modules/bezug_smashm/sma-em-measurement.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snaptec-openWB/modules/bezug_smashm/sma-em-measurement.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "modules/bezug_smashm/sma-em-measurement.py:88:12 Unbound name [10]: Name `decode_speedwire` is used but not defined in the current scope.",
+    "message": " Name `decode_speedwire` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 88,
+    "warning_line": "    emparts=decode_speedwire(sock.recv(608))"
+  },
+  {
+    "project": "snaptec/openWB",
+    "commit": "7d1efe667506a50f4913970d08d3305fa6ef8ea7",
+    "filename": "modules/bezug_smashm/sma-em-measurement.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snaptec-openWB/modules/bezug_smashm/sma-em-measurement.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "modules/bezug_smashm/sma-em-measurement.py:111:22 Incompatible variable type [9]: mapping is declared to have type `typing.Dict[str, str]` but is used as type `typing.Union[typing.Dict[str, typing.Union[bool, str]], typing.Dict[str, str]]`.",
+    "message": " mapping is declared to have type `typing.Dict[str, str]` but is used as type `typing.Union[typing.Dict[str, typing.Union[bool, str]], typing.Dict[str, str]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 111,
+    "warning_line": "        for filename, mapping in phasemapping.items():",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#                filename:  channel\nmapping      = { 'evuhu':   'frequency' }\nphasemapping = { 'bezuga%i': { 'from': 'i%i', 'sign': True },\n                 'evuv%i':   { 'from': 'u%i'   },\n                 'evupf%i':  { 'from': 'cosphi%i' }\n               }\n#try:\n",
+        "source_code_len": 265,
+        "target_code": "#                filename:  channel\nmappingdict      = { 'evuhz':   'frequency' }\nphasemappingdict = { 'bezuga%i': { 'from': 'i%i', 'sign': True },\n                     'evuv%i':   { 'from': 'u%i'   },\n                     'evupf%i':  { 'from': 'cosphi%i' }\n                   }\n#try:\n",
+        "target_code_len": 285,
+        "diff_format": "@@ -62,7 +62,7 @@\n #                filename:  channel\n-mapping      = { 'evuhu':   'frequency' }\n-phasemapping = { 'bezuga%i': { 'from': 'i%i', 'sign': True },\n-                 'evuv%i':   { 'from': 'u%i'   },\n-                 'evupf%i':  { 'from': 'cosphi%i' }\n-               }\n+mappingdict      = { 'evuhz':   'frequency' }\n+phasemappingdict = { 'bezuga%i': { 'from': 'i%i', 'sign': True },\n+                     'evuv%i':   { 'from': 'u%i'   },\n+                     'evupf%i':  { 'from': 'cosphi%i' }\n+                   }\n #try:\n",
+        "source_code_with_indent": "#                filename:  channel\nmapping      = { 'evuhu':   'frequency' }\nphasemapping = { 'bezuga%i': { 'from': 'i%i', 'sign': True },\n                 'evuv%i':   { 'from': 'u%i'   },\n                 'evupf%i':  { 'from': 'cosphi%i' }\n               }\n#try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#                filename:  channel\nmappingdict      = { 'evuhz':   'frequency' }\nphasemappingdict = { 'bezuga%i': { 'from': 'i%i', 'sign': True },\n                     'evuv%i':   { 'from': 'u%i'   },\n                     'evupf%i':  { 'from': 'cosphi%i' }\n                   }\n#try:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            writeToFile(basepath + 'bezugw%i' % phase, power)\n        for filename, mapping in phasemapping.items():\n            for phase in [1,2,3]:\n",
+        "source_code_len": 151,
+        "target_code": "            writeToFile(basepath + 'bezugw%i' % phase, power)\n        for filename, mapping in phasemappingdict.items():\n            for phase in [1,2,3]:\n",
+        "target_code_len": 155,
+        "diff_format": "@@ -110,3 +110,3 @@\n             writeToFile(basepath + 'bezugw%i' % phase, power)\n-        for filename, mapping in phasemapping.items():\n+        for filename, mapping in phasemappingdict.items():\n             for phase in [1,2,3]:\n",
+        "source_code_with_indent": "            <DED>writeToFile(basepath + 'bezugw%i' % phase, power)\n        <DED>for filename, mapping in phasemapping.items():\n            <IND>for phase in [1,2,3]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>writeToFile(basepath + 'bezugw%i' % phase, power)\n        <DED>for filename, mapping in phasemappingdict.items():\n            <IND>for phase in [1,2,3]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

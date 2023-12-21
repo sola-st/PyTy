@@ -1,0 +1,51 @@
+[
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "33451967b24616277798e22deb1789f52968ae45",
+    "filename": "volatility/framework/plugins/windows/virtmap.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/volatility/framework/plugins/windows/virtmap.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "volatility/framework/plugins/windows/virtmap.py:103:15 Unsupported operand [58]: `not in` is not supported for right operand type `int`.",
+    "message": " `not in` is not supported for right operand type `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 103,
+    "warning_line": "            if 'Unused' not in entry:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from volatility.framework.configuration import requirements\nfrom volatility.framework.renderers import format_hints\n",
+        "source_code_len": 116,
+        "target_code": "from volatility.framework.configuration import requirements\nfrom volatility.framework.layers import intel\nfrom volatility.framework.renderers import format_hints\n",
+        "target_code_len": 162,
+        "diff_format": "@@ -9,2 +9,3 @@\n from volatility.framework.configuration import requirements\n+from volatility.framework.layers import intel\n from volatility.framework.renderers import format_hints\n",
+        "source_code_with_indent": "from volatility.framework.configuration import requirements\nfrom volatility.framework.renderers import format_hints\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from volatility.framework.configuration import requirements\nfrom volatility.framework.layers import intel\nfrom volatility.framework.renderers import format_hints\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def determine_map(cls, module: interfaces.context.ModuleInterface) -> \\\n            Dict[int, List[Tuple[int, int]]]:\n        \"\"\"Returns the virtual map from a windows kernel module.\"\"\"\n        result = {}\n        system_va_type = module.get_enumeration('_MI_SYSTEM_VA_TYPE')\n        large_page_size = (module.context.layers[module.layer_name].page_size ** 2) // module.get_type(\"_MMPTE\").size\n\n",
+        "source_code_len": 399,
+        "target_code": "    def determine_map(cls, module: interfaces.context.ModuleInterface) -> \\\n            Dict[str, List[Tuple[int, int]]]:\n        \"\"\"Returns the virtual map from a windows kernel module.\"\"\"\n        layer = module.context.layers[module.layer_name]\n        if not isinstance(layer, intel.Intel):\n            raise\n\n        result = {}  # type: Dict[str, List[Tuple[int, int]]]\n        try:\n            system_va_type = module.get_enumeration('_MI_SYSTEM_VA_TYPE')\n            large_page_size = (layer.page_size ** 2) // module.get_type(\"_MMPTE\").size\n        except exceptions.SymbolError:\n            raise exceptions.SymbolError(\"Required structures not found\")\n\n",
+        "target_code_len": 663,
+        "diff_format": "@@ -36,7 +37,14 @@\n     def determine_map(cls, module: interfaces.context.ModuleInterface) -> \\\n-            Dict[int, List[Tuple[int, int]]]:\n+            Dict[str, List[Tuple[int, int]]]:\n         \"\"\"Returns the virtual map from a windows kernel module.\"\"\"\n-        result = {}\n-        system_va_type = module.get_enumeration('_MI_SYSTEM_VA_TYPE')\n-        large_page_size = (module.context.layers[module.layer_name].page_size ** 2) // module.get_type(\"_MMPTE\").size\n+        layer = module.context.layers[module.layer_name]\n+        if not isinstance(layer, intel.Intel):\n+            raise\n+\n+        result = {}  # type: Dict[str, List[Tuple[int, int]]]\n+        try:\n+            system_va_type = module.get_enumeration('_MI_SYSTEM_VA_TYPE')\n+            large_page_size = (layer.page_size ** 2) // module.get_type(\"_MMPTE\").size\n+        except exceptions.SymbolError:\n+            raise exceptions.SymbolError(\"Required structures not found\")\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    def determine_map(cls, module: interfaces.context.ModuleInterface) ->            Dict[int, List[Tuple[int, int]]]:\n        <IND>\"\"\"Returns the virtual map from a windows kernel module.\"\"\"\n        result = {}\n        system_va_type = module.get_enumeration('_MI_SYSTEM_VA_TYPE')\n        large_page_size = (module.context.layers[module.layer_name].page_size ** 2) // module.get_type(\"_MMPTE\").size\n\n",
+        "target_code_with_indent": "    def determine_map(cls, module: interfaces.context.ModuleInterface) ->            Dict[str, List[Tuple[int, int]]]:\n        <IND>\"\"\"Returns the virtual map from a windows kernel module.\"\"\"\n        layer = module.context.layers[module.layer_name]\n        if not isinstance(layer, intel.Intel):\n            <IND>raise\n\n        <DED>result = {}  # type: Dict[str, List[Tuple[int, int]]]\n        try:\n            <IND>system_va_type = module.get_enumeration('_MI_SYSTEM_VA_TYPE')\n            large_page_size = (layer.page_size ** 2) // module.get_type(\"_MMPTE\").size\n        <DED>except exceptions.SymbolError:\n            <IND>raise exceptions.SymbolError(\"Required structures not found\")\n\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "joerick/pyinstrument",
+    "commit": "3edf5ee327b73c2f9f953f62dbd827f15c360824",
+    "filename": "pyinstrument/renderers/console.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/joerick-pyinstrument/pyinstrument/renderers/console.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyinstrument/renderers/console.py:151:22 Call error [29]: `ConsoleRenderer.colors_disabled` is not a function.",
+    "message": " `ConsoleRenderer.colors_disabled` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 151,
+    "warning_line": "    colors_disabled = colors_disabled()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    class colors_disabled:\n        def __getattr__(self, key):\n            return \"\"\n\n    colors_disabled = colors_disabled()\n",
+        "source_code_len": 126,
+        "target_code": "    class colors_disabled:\n        red = \"\"\n        green = \"\"\n        yellow = \"\"\n        blue = \"\"\n        cyan = \"\"\n        bright_green = \"\"\n        white = \"\"\n\n        bg_dark_blue_255 = \"\"\n        white_255 = \"\"\n\n        bold = \"\"\n        faint = \"\"\n\n        end = \"\"\n",
+        "target_code_len": 274,
+        "diff_format": "@@ -147,5 +147,16 @@\n     class colors_disabled:\n-        def __getattr__(self, key):\n-            return \"\"\n+        red = \"\"\n+        green = \"\"\n+        yellow = \"\"\n+        blue = \"\"\n+        cyan = \"\"\n+        bright_green = \"\"\n+        white = \"\"\n \n-    colors_disabled = colors_disabled()\n+        bg_dark_blue_255 = \"\"\n+        white_255 = \"\"\n+\n+        bold = \"\"\n+        faint = \"\"\n+\n+        end = \"\"\n",
+        "source_code_with_indent": "    <DED>class colors_disabled:\n        <IND>def __getattr__(self, key):\n            <IND>return \"\"\n\n    <DED><DED>colors_disabled = colors_disabled()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>class colors_disabled:\n        <IND>red = \"\"\n        green = \"\"\n        yellow = \"\"\n        blue = \"\"\n        cyan = \"\"\n        bright_green = \"\"\n        white = \"\"\n\n        bg_dark_blue_255 = \"\"\n        white_255 = \"\"\n\n        bold = \"\"\n        faint = \"\"\n\n        end = \"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

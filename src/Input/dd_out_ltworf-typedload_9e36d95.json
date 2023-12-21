@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ltworf/typedload",
+    "commit": "9e36d959b1c16dc969b1507f7701144ded381170",
+    "filename": "typedload/dataloader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ltworf-typedload/typedload/dataloader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "typedload/dataloader.py:343:8 Incompatible variable type [9]: Unable to unpack `typing.List[Variable[_T]]`, expected a tuple.",
+    "message": " Unable to unpack `typing.List[Variable[_T]]`, expected a tuple.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 343,
+    "warning_line": "        transforms = []  # type: Tuple[str, str]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # Prepare the list of the needed name changes\n        transforms = []  # type: Tuple[str, str]\n        for field in fields:\n",
+        "source_code_len": 132,
+        "target_code": "        # Prepare the list of the needed name changes\n        transforms = []  # type: List[Tuple[str, str]]\n        for field in fields:\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -342,3 +342,3 @@\n         # Prepare the list of the needed name changes\n-        transforms = []  # type: Tuple[str, str]\n+        transforms = []  # type: List[Tuple[str, str]]\n         for field in fields:\n",
+        "source_code_with_indent": "        # Prepare the list of the needed name changes\n        transforms = []  # type: Tuple[str, str]\n        for field in fields:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # Prepare the list of the needed name changes\n        transforms = []  # type: List[Tuple[str, str]]\n        for field in fields:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

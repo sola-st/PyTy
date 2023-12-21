@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jbms/beancount-import",
+    "commit": "9618b8da6924f17aadcffb46ef4445979882dd96",
+    "filename": "beancount_import/source/ultipro_google_statement.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jbms-beancount-import/beancount_import/source/ultipro_google_statement.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "beancount_import/source/ultipro_google_statement.py:302:35 Incompatible parameter type [6]: Expected `Union[typing.Sequence[Union[os.PathLike[bytes], os.PathLike[str], bytes, str]], bytes, str]` for 1st positional only parameter to call `subprocess.check_output` but got `List[Optional[str]]`.",
+    "message": " Expected `Union[typing.Sequence[Union[os.PathLike[bytes], os.PathLike[str], bytes, str]], bytes, str]` for 1st positional only parameter to call `subprocess.check_output` but got `List[Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 302,
+    "warning_line": "    text = subprocess.check_output([pdftotext, '-raw', path, '-']).decode()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    pdftotext='pdftotext'\n    if os.getenv(PDFTOTEXT_ENV):\n        pdftotext=os.getenv(PDFTOTEXT_ENV)\n    text = subprocess.check_output([pdftotext, '-raw', path, '-']).decode()\n",
+        "source_code_len": 178,
+        "target_code": "    pdftotext='pdftotext'\n    replacement_pdftotext = os.getenv(PDFTOTEXT_ENV)\n    if replacement_pdftotext is not None:\n        pdftotext=replacement_pdftotext\n    text = subprocess.check_output([pdftotext, '-raw', path, '-']).decode()\n",
+        "target_code_len": 237,
+        "diff_format": "@@ -299,4 +299,5 @@\n     pdftotext='pdftotext'\n-    if os.getenv(PDFTOTEXT_ENV):\n-        pdftotext=os.getenv(PDFTOTEXT_ENV)\n+    replacement_pdftotext = os.getenv(PDFTOTEXT_ENV)\n+    if replacement_pdftotext is not None:\n+        pdftotext=replacement_pdftotext\n     text = subprocess.check_output([pdftotext, '-raw', path, '-']).decode()\n",
+        "source_code_with_indent": "    pdftotext='pdftotext'\n    if os.getenv(PDFTOTEXT_ENV):\n        <IND>pdftotext=os.getenv(PDFTOTEXT_ENV)\n    <DED>text = subprocess.check_output([pdftotext, '-raw', path, '-']).decode()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    pdftotext='pdftotext'\n    replacement_pdftotext = os.getenv(PDFTOTEXT_ENV)\n    if replacement_pdftotext is not None:\n        <IND>pdftotext=replacement_pdftotext\n    <DED>text = subprocess.check_output([pdftotext, '-raw', path, '-']).decode()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

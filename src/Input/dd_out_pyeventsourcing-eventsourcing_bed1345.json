@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pyeventsourcing/eventsourcing",
+    "commit": "bed13457998ce646a2f549c1f8fd7eb8a601f128",
+    "filename": "eventsourcing/postgres.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pyeventsourcing-eventsourcing/eventsourcing/postgres.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eventsourcing/postgres.py:364:12 Incompatible parameter type [6]: Expected `str` for 3rd parameter `port` to call `PostgresDatastore.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 3rd parameter `port` to call `PostgresDatastore.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 364,
+    "warning_line": "            port=port,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        port = self.getenv(self.POSTGRES_PORT, \"5432\")\n\n",
+        "source_code_len": 57,
+        "target_code": "\n        port = self.getenv(self.POSTGRES_PORT) or \"5432\"\n\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -343,3 +343,3 @@\n \n-        port = self.getenv(self.POSTGRES_PORT, \"5432\")\n+        port = self.getenv(self.POSTGRES_PORT) or \"5432\"\n \n",
+        "source_code_with_indent": "\n        <DED>port = self.getenv(self.POSTGRES_PORT, \"5432\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>port = self.getenv(self.POSTGRES_PORT) or \"5432\"\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

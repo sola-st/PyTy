@@ -1,0 +1,36 @@
+[
+  {
+    "project": "bpython/curtsies",
+    "commit": "b14ae9f635709d5776b7216663f2c53c7e28e9c2",
+    "filename": "curtsies/termhelpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bpython-curtsies/curtsies/termhelpers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "curtsies/termhelpers.py:57:56 Incompatible parameter type [6]: Expected `List[Union[List[Union[bytes, int]], int]]` for 3rd positional only parameter to call `termios.tcsetattr` but got `List[Union[List[bytes], int]]`.",
+    "message": " Expected `List[Union[List[Union[bytes, int]], int]]` for 3rd positional only parameter to call `termios.tcsetattr` but got `List[Union[List[bytes], int]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 57,
+    "warning_line": "        termios.tcsetattr(self.stream, termios.TCSANOW, self.attrs)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n_Attr = List[Union[int, List[bytes]]]\n\n",
+        "source_code_len": 40,
+        "target_code": "\n_Attr = List[Union[int, List[Union[bytes, int]]]]\n\n",
+        "target_code_len": 52,
+        "diff_format": "@@ -8,3 +8,3 @@\n \n-_Attr = List[Union[int, List[bytes]]]\n+_Attr = List[Union[int, List[Union[bytes, int]]]]\n \n",
+        "source_code_with_indent": "\n_Attr = List[Union[int, List[bytes]]]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n_Attr = List[Union[int, List[Union[bytes, int]]]]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

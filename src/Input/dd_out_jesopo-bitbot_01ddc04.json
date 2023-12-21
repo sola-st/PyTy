@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jesopo/bitbot",
+    "commit": "01ddc04bb91017b3ccd167234bce0415c47375d1",
+    "filename": "src/utils/irc/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jesopo-bitbot/src/utils/irc/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/utils/irc/__init__.py:344:4 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 344,
+    "warning_line": "    return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef hostmask_match_many(hostmasks: typing.List[str], pattern: str) -> str:\n    part1_out = []\n",
+        "source_code_len": 95,
+        "target_code": "\ndef hostmask_match_many(hostmasks: typing.List[str], pattern: str\n        ) -> typing.Optional[str]:\n    part1_out = []\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -332,3 +332,4 @@\n \n-def hostmask_match_many(hostmasks: typing.List[str], pattern: str) -> str:\n+def hostmask_match_many(hostmasks: typing.List[str], pattern: str\n+        ) -> typing.Optional[str]:\n     part1_out = []\n",
+        "source_code_with_indent": "\n<DED><DED>def hostmask_match_many(hostmasks: typing.List[str], pattern: str) -> str:\n    <IND>part1_out = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def hostmask_match_many(hostmasks: typing.List[str], pattern: str\n        ) -> typing.Optional[str]:\n    <IND>part1_out = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

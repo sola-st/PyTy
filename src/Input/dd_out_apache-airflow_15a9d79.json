@@ -1,0 +1,100 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "15a9d7910cc0d2ca0ed97e3535a6b85edcf16af8",
+    "filename": "scripts/ci/pre_commit/pre_commit_check_provider_yaml_files.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/scripts/ci/pre_commit/pre_commit_check_provider_yaml_files.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/ci/pre_commit/pre_commit_check_provider_yaml_files.py:172:44 Incompatible parameter type [6]: Expected `List[str]` for 1st positional only parameter to call `check_if_objects_belongs_to_package` but got `typing.Set[typing.Any]`.",
+    "message": " Expected `List[str]` for 1st positional only parameter to call `check_if_objects_belongs_to_package` but got `typing.Set[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 172,
+    "warning_line": "        check_if_objects_belongs_to_package(current_modules, provider_package, yaml_file_path, resource_type)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from itertools import chain, product\nfrom typing import Any, Dict, Iterable, List\n\n",
+        "source_code_len": 83,
+        "target_code": "from itertools import chain, product\nfrom typing import Any, Dict, Iterable, List, Set\n\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -25,3 +25,3 @@\n from itertools import chain, product\n-from typing import Any, Dict, Iterable, List\n+from typing import Any, Dict, Iterable, List, Set\n \n",
+        "source_code_with_indent": "from itertools import chain, product\nfrom typing import Any, Dict, Iterable, List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from itertools import chain, product\nfrom typing import Any, Dict, Iterable, List, Set\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def check_if_objects_belongs_to_package(\n    object_names: List[str], provider_package: str, yaml_file_path: str, resource_type: str\n):\n",
+        "source_code_len": 136,
+        "target_code": "def check_if_objects_belongs_to_package(\n    object_names: Set[str], provider_package: str, yaml_file_path: str, resource_type: str\n):\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -139,3 +139,3 @@\n def check_if_objects_belongs_to_package(\n-    object_names: List[str], provider_package: str, yaml_file_path: str, resource_type: str\n+    object_names: Set[str], provider_package: str, yaml_file_path: str, resource_type: str\n ):\n",
+        "source_code_with_indent": "<DED>def check_if_objects_belongs_to_package(\n    object_names: List[str], provider_package: str, yaml_file_path: str, resource_type: str\n):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def check_if_objects_belongs_to_package(\n    object_names: Set[str], provider_package: str, yaml_file_path: str, resource_type: str\n):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "15a9d7910cc0d2ca0ed97e3535a6b85edcf16af8",
+    "filename": "scripts/ci/pre_commit/pre_commit_check_provider_yaml_files.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/scripts/ci/pre_commit/pre_commit_check_provider_yaml_files.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/ci/pre_commit/pre_commit_check_provider_yaml_files.py:210:44 Incompatible parameter type [6]: Expected `List[str]` for 1st positional only parameter to call `check_if_objects_belongs_to_package` but got `typing.Set[typing.Any]`.",
+    "message": " Expected `List[str]` for 1st positional only parameter to call `check_if_objects_belongs_to_package` but got `typing.Set[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 210,
+    "warning_line": "        check_if_objects_belongs_to_package(current_modules, provider_package, yaml_file_path, resource_type)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from itertools import chain, product\nfrom typing import Any, Dict, Iterable, List\n\n",
+        "source_code_len": 83,
+        "target_code": "from itertools import chain, product\nfrom typing import Any, Dict, Iterable, List, Set\n\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -25,3 +25,3 @@\n from itertools import chain, product\n-from typing import Any, Dict, Iterable, List\n+from typing import Any, Dict, Iterable, List, Set\n \n",
+        "source_code_with_indent": "from itertools import chain, product\nfrom typing import Any, Dict, Iterable, List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from itertools import chain, product\nfrom typing import Any, Dict, Iterable, List, Set\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def check_if_objects_belongs_to_package(\n    object_names: List[str], provider_package: str, yaml_file_path: str, resource_type: str\n):\n",
+        "source_code_len": 136,
+        "target_code": "def check_if_objects_belongs_to_package(\n    object_names: Set[str], provider_package: str, yaml_file_path: str, resource_type: str\n):\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -139,3 +139,3 @@\n def check_if_objects_belongs_to_package(\n-    object_names: List[str], provider_package: str, yaml_file_path: str, resource_type: str\n+    object_names: Set[str], provider_package: str, yaml_file_path: str, resource_type: str\n ):\n",
+        "source_code_with_indent": "<DED>def check_if_objects_belongs_to_package(\n    object_names: List[str], provider_package: str, yaml_file_path: str, resource_type: str\n):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def check_if_objects_belongs_to_package(\n    object_names: Set[str], provider_package: str, yaml_file_path: str, resource_type: str\n):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

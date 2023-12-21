@@ -1,0 +1,66 @@
+[
+  {
+    "project": "koxudaxi/datamodel-code-generator",
+    "commit": "4c35060bc3ef8f9076a15dbb66b44234faa58a8d",
+    "filename": "datamodel_code_generator/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/koxudaxi-datamodel-code-generator/datamodel_code_generator/types.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "datamodel_code_generator/types.py:162:8 Incompatible return type [7]: Expected `str` but got `Optional[str]`.",
+    "message": " Expected `str` but got `Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 162,
+    "warning_line": "        return type_",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    use_generic_container: bool = False\n\n",
+        "source_code_len": 41,
+        "target_code": "    use_generic_container: bool = False\n    alias: Optional[str] = None\n\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -38,2 +38,3 @@\n     use_generic_container: bool = False\n+    alias: Optional[str] = None\n \n",
+        "source_code_with_indent": "    use_generic_container: bool = False\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    use_generic_container: bool = False\n    alias: Optional[str] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def type_hint(self) -> str:\n        if self.type:\n            if (\n",
+        "source_code_len": 71,
+        "target_code": "    def type_hint(self) -> str:\n        type_: Optional[str] = self.alias or self.type\n        if type_:\n            if (\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -118,3 +119,4 @@\n     def type_hint(self) -> str:\n-        if self.type:\n+        type_: Optional[str] = self.alias or self.type\n+        if type_:\n             if (\n",
+        "source_code_with_indent": "    def type_hint(self) -> str:\n        <IND>if self.type:\n            <IND>if (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def type_hint(self) -> str:\n        <IND>type_: Optional[str] = self.alias or self.type\n        if type_:\n            <IND>if (\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            ) and self.python_version == PythonVersion.PY_36:\n                type_: str = f\"'{self.type}'\"\n            else:\n                type_ = self.type\n        else:\n",
+        "source_code_len": 174,
+        "target_code": "            ) and self.python_version == PythonVersion.PY_36:\n                type_ = f\"'{type_}'\"\n        else:\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -122,5 +124,3 @@\n             ) and self.python_version == PythonVersion.PY_36:\n-                type_: str = f\"'{self.type}'\"\n-            else:\n-                type_ = self.type\n+                type_ = f\"'{type_}'\"\n         else:\n",
+        "source_code_with_indent": "            ) and self.python_version == PythonVersion.PY_36:\n                <IND>type_: str = f\"'{self.type}'\"\n            <DED>else:\n                <IND>type_ = self.type\n        <DED><DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            ) and self.python_version == PythonVersion.PY_36:\n                <IND>type_ = f\"'{type_}'\"\n        <DED><DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

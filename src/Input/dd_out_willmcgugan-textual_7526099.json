@@ -1,0 +1,45 @@
+[
+  {
+    "project": "willmcgugan/textual",
+    "commit": "752609962fbef8195f58746e30c2df2582899730",
+    "filename": "src/textual/_ansi_sequences.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-textual/src/textual/_ansi_sequences.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/textual/_ansi_sequences.py:6:0 Incompatible variable type [9]: ANSI_SEQUENCES is declared to have type `Dict[str, typing.Tuple[Keys, ...]]` but is used as type `Dict[str, Union[Tuple[Keys], Tuple[Keys, Keys], Keys]]`.",
+    "message": " ANSI_SEQUENCES is declared to have type `Dict[str, typing.Tuple[Keys, ...]]` but is used as type `Dict[str, Union[Tuple[Keys], Tuple[Keys, Keys], Keys]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 6,
+    "warning_line": "ANSI_SEQUENCES: Dict[str, Tuple[Keys, ...]] = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\\x1b[6;4~\": (Keys.Escape, Keys.ShiftPageDown),\n    \"\\x1b[3;5~\": Keys.ControlDelete,  # xterm, gnome-terminal.\n    \"\\x1b[5;5~\": Keys.ControlPageUp,\n    \"\\x1b[6;5~\": Keys.ControlPageDown,\n    \"\\x1b[3;6~\": Keys.ControlShiftDelete,\n    \"\\x1b[5;6~\": Keys.ControlShiftPageUp,\n    \"\\x1b[6;6~\": Keys.ControlShiftPageDown,\n    \"\\x1b[2;7~\": (Keys.Escape, Keys.ControlInsert),\n",
+        "source_code_len": 371,
+        "target_code": "    \"\\x1b[6;4~\": (Keys.Escape, Keys.ShiftPageDown),\n    \"\\x1b[3;5~\": (Keys.ControlDelete,),  # xterm, gnome-terminal.\n    \"\\x1b[5;5~\": (Keys.ControlPageUp,),\n    \"\\x1b[6;5~\": (Keys.ControlPageDown,),\n    \"\\x1b[3;6~\": (Keys.ControlShiftDelete,),\n    \"\\x1b[5;6~\": (Keys.ControlShiftPageUp,),\n    \"\\x1b[6;6~\": (Keys.ControlShiftPageDown,),\n    \"\\x1b[2;7~\": (Keys.Escape, Keys.ControlInsert),\n",
+        "target_code_len": 389,
+        "diff_format": "@@ -154,8 +154,8 @@\n     \"\\x1b[6;4~\": (Keys.Escape, Keys.ShiftPageDown),\n-    \"\\x1b[3;5~\": Keys.ControlDelete,  # xterm, gnome-terminal.\n-    \"\\x1b[5;5~\": Keys.ControlPageUp,\n-    \"\\x1b[6;5~\": Keys.ControlPageDown,\n-    \"\\x1b[3;6~\": Keys.ControlShiftDelete,\n-    \"\\x1b[5;6~\": Keys.ControlShiftPageUp,\n-    \"\\x1b[6;6~\": Keys.ControlShiftPageDown,\n+    \"\\x1b[3;5~\": (Keys.ControlDelete,),  # xterm, gnome-terminal.\n+    \"\\x1b[5;5~\": (Keys.ControlPageUp,),\n+    \"\\x1b[6;5~\": (Keys.ControlPageDown,),\n+    \"\\x1b[3;6~\": (Keys.ControlShiftDelete,),\n+    \"\\x1b[5;6~\": (Keys.ControlShiftPageUp,),\n+    \"\\x1b[6;6~\": (Keys.ControlShiftPageDown,),\n     \"\\x1b[2;7~\": (Keys.Escape, Keys.ControlInsert),\n",
+        "source_code_with_indent": "    \"\\x1b[6;4~\": (Keys.Escape, Keys.ShiftPageDown),\n    \"\\x1b[3;5~\": Keys.ControlDelete,  # xterm, gnome-terminal.\n    \"\\x1b[5;5~\": Keys.ControlPageUp,\n    \"\\x1b[6;5~\": Keys.ControlPageDown,\n    \"\\x1b[3;6~\": Keys.ControlShiftDelete,\n    \"\\x1b[5;6~\": Keys.ControlShiftPageUp,\n    \"\\x1b[6;6~\": Keys.ControlShiftPageDown,\n    \"\\x1b[2;7~\": (Keys.Escape, Keys.ControlInsert),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    \"\\x1b[6;4~\": (Keys.Escape, Keys.ShiftPageDown),\n    \"\\x1b[3;5~\": (Keys.ControlDelete,),  # xterm, gnome-terminal.\n    \"\\x1b[5;5~\": (Keys.ControlPageUp,),\n    \"\\x1b[6;5~\": (Keys.ControlPageDown,),\n    \"\\x1b[3;6~\": (Keys.ControlShiftDelete,),\n    \"\\x1b[5;6~\": (Keys.ControlShiftPageUp,),\n    \"\\x1b[6;6~\": (Keys.ControlShiftPageDown,),\n    \"\\x1b[2;7~\": (Keys.Escape, Keys.ControlInsert),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "willmcgugan/textual",
+    "commit": "752609962fbef8195f58746e30c2df2582899730",
+    "filename": "src/textual/state.py",
+    "min_patch_found": false,
+    "full_warning_msg": "src/textual/state.py:30:4 Incompatible attribute type [8]: Attribute `color` declared in class `Example` has type `Reactive[str]` but is used as type `Reactive[typing_extensions.Literal['blue']]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/willmcgugan-textual/src/textual/state.py'",
+    "dd_fail": true
+  }
+]

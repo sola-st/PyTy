@@ -1,0 +1,51 @@
+[
+  {
+    "project": "SK-415/HarukaBot",
+    "commit": "13e7adc21c79f8f9c94b76ae2b7a0be7fcc0ab77",
+    "filename": "src/plugins/haruka_bot/config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/SK-415-HarukaBot/src/plugins/haruka_bot/config.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/plugins/haruka_bot/config.py:6:4 Incompatible attribute type [8]: Attribute `haruka_dir` declared in class `Config` has type `str` but is used as type `None`.",
+    "message": " Attribute `haruka_dir` declared in class `Config` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 6,
+    "warning_line": "    haruka_dir: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from pydantic import BaseSettings\n",
+        "source_code_len": 34,
+        "target_code": "from typing import Optional\nfrom pydantic import BaseSettings\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -1,1 +1,2 @@\n+from typing import Optional\n from pydantic import BaseSettings\n",
+        "source_code_with_indent": "from pydantic import BaseSettings\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Optional\nfrom pydantic import BaseSettings\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \n    haruka_dir: str = None\n    haruka_to_me: bool = True\n",
+        "source_code_len": 62,
+        "target_code": "    \n    haruka_dir: Optional[str] = None\n    haruka_to_me: bool = True\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -5,3 +6,3 @@\n     \n-    haruka_dir: str = None\n+    haruka_dir: Optional[str] = None\n     haruka_to_me: bool = True\n",
+        "source_code_with_indent": "    \n    <IND>haruka_dir: str = None\n    haruka_to_me: bool = True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    \n    <IND>haruka_dir: Optional[str] = None\n    haruka_to_me: bool = True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

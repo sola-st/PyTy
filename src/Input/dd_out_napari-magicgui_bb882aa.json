@@ -1,0 +1,36 @@
+[
+  {
+    "project": "napari/magicgui",
+    "commit": "bb882aaa2b2825bc27043945bc0d0609a2b769e9",
+    "filename": "magicgui/backends/_qtpy/widgets.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/napari-magicgui/magicgui/backends/_qtpy/widgets.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "magicgui/backends/_qtpy/widgets.py:1218:20 Incompatible variable type [9]: text is declared to have type `str` but is used as type `float`.",
+    "message": " text is declared to have type `str` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1218,
+    "warning_line": "                    text = float(value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _format_number(self, text: str) -> str:\n        try:\n            value = int(text)\n        except ValueError:\n            try:\n                value = float(text)  # type: ignore\n            except ValueError:\n                pass\n\n        if isinstance(value, (int, float)):\n            if 0.1 <= abs(value) < 10 ** (self.ndigits + 1) or value == 0:\n                if isinstance(value, int):\n                    text = str(value)\n                else:\n                    text = float(value)\n                    text = f\"{text:.{self.ndigits}f}\"\n            else:\n                text = f\"{value:.{self.ndigits-1}e}\"\n\n",
+        "source_code_len": 628,
+        "target_code": "    def _format_number(self, text: str) -> str:\n        \"\"\"convert string to int or float if possible\"\"\"\n        try:\n            value: int | float | None = int(text)\n        except ValueError:\n            try:\n                value = float(text)\n            except ValueError:\n                value = None\n\n        if isinstance(value, (int, float)):\n            dgt = self.ndigits\n            if 0.1 <= abs(value) < 10 ** (dgt + 1) or value == 0:\n                text = str(value) if isinstance(value, int) else f\"{value:.{dgt}f}\"\n            else:\n                text = f\"{value:.{dgt-1}e}\"\n\n",
+        "target_code_len": 597,
+        "diff_format": "@@ -1204,19 +1202,17 @@\n     def _format_number(self, text: str) -> str:\n+        \"\"\"convert string to int or float if possible\"\"\"\n         try:\n-            value = int(text)\n+            value: int | float | None = int(text)\n         except ValueError:\n             try:\n-                value = float(text)  # type: ignore\n+                value = float(text)\n             except ValueError:\n-                pass\n+                value = None\n \n         if isinstance(value, (int, float)):\n-            if 0.1 <= abs(value) < 10 ** (self.ndigits + 1) or value == 0:\n-                if isinstance(value, int):\n-                    text = str(value)\n-                else:\n-                    text = float(value)\n-                    text = f\"{text:.{self.ndigits}f}\"\n+            dgt = self.ndigits\n+            if 0.1 <= abs(value) < 10 ** (dgt + 1) or value == 0:\n+                text = str(value) if isinstance(value, int) else f\"{value:.{dgt}f}\"\n             else:\n-                text = f\"{value:.{self.ndigits-1}e}\"\n+                text = f\"{value:.{dgt-1}e}\"\n \n",
+        "source_code_with_indent": "    <DED>def _format_number(self, text: str) -> str:\n        <IND>try:\n            <IND>value = int(text)\n        <DED>except ValueError:\n            <IND>try:\n                <IND>value = float(text)  # type: ignore\n            <DED>except ValueError:\n                <IND>pass\n\n        <DED><DED>if isinstance(value, (int, float)):\n            <IND>if 0.1 <= abs(value) < 10 ** (self.ndigits + 1) or value == 0:\n                <IND>if isinstance(value, int):\n                    <IND>text = str(value)\n                <DED>else:\n                    <IND>text = float(value)\n                    text = f\"{text:.{self.ndigits}f}\"\n            <DED><DED>else:\n                <IND>text = f\"{value:.{self.ndigits-1}e}\"\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _format_number(self, text: str) -> str:\n        <IND>\"\"\"convert string to int or float if possible\"\"\"\n        try:\n            <IND>value: int | float | None = int(text)\n        <DED>except ValueError:\n            <IND>try:\n                <IND>value = float(text)\n            <DED>except ValueError:\n                <IND>value = None\n\n        <DED><DED>if isinstance(value, (int, float)):\n            <IND>dgt = self.ndigits\n            if 0.1 <= abs(value) < 10 ** (dgt + 1) or value == 0:\n                <IND>text = str(value) if isinstance(value, int) else f\"{value:.{dgt}f}\"\n            <DED>else:\n                <IND>text = f\"{value:.{dgt-1}e}\"\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

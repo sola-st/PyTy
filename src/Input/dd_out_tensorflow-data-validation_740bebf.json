@@ -1,0 +1,88 @@
+[
+  {
+    "project": "tensorflow/data-validation",
+    "commit": "740bebfaad01ade1bff6933f0477ac781d707f10",
+    "filename": "tensorflow_data_validation/statistics/generators/basic_stats_generator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-data-validation/tensorflow_data_validation/statistics/generators/basic_stats_generator.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_data_validation/statistics/generators/basic_stats_generator.py:718:8 Incompatible attribute type [8]: Attribute `num_values_summary` declared in class `_PartialCommonStats` has type `str` but is used as type `Optional[str]`.",
+    "message": " Attribute `num_values_summary` declared in class `_PartialCommonStats` has type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 718,
+    "warning_line": "        stats_for_feature.common_stats.num_values_summary = (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # feature.\n    self.num_values_summary = ''\n\n",
+        "source_code_len": 49,
+        "target_code": "    # feature.\n    self.num_values_summary = None\n\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -85,3 +85,3 @@\n     # feature.\n-    self.num_values_summary = ''\n+    self.num_values_summary = None\n \n",
+        "source_code_with_indent": "    # feature.\n    self.num_values_summary = ''\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # feature.\n    self.num_values_summary = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "tensorflow/data-validation",
+    "commit": "740bebfaad01ade1bff6933f0477ac781d707f10",
+    "filename": "tensorflow_data_validation/statistics/generators/basic_stats_generator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-data-validation/tensorflow_data_validation/statistics/generators/basic_stats_generator.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_data_validation/statistics/generators/basic_stats_generator.py:720:8 Incompatible attribute type [8]: Attribute `quantiles_summary` declared in class `_PartialNumericStats` has type `str` but is used as type `Optional[str]`.",
+    "message": " Attribute `quantiles_summary` declared in class `_PartialNumericStats` has type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 720,
+    "warning_line": "        stats_for_feature.numeric_stats.quantiles_summary = (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # Summary of the quantiles for the values in this feature.\n    self.quantiles_summary = ''\n\n",
+        "source_code_len": 96,
+        "target_code": "    # Summary of the quantiles for the values in this feature.\n    self.quantiles_summary = None\n\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -196,3 +196,3 @@\n     # Summary of the quantiles for the values in this feature.\n-    self.quantiles_summary = ''\n+    self.quantiles_summary = None\n \n",
+        "source_code_with_indent": "    # Summary of the quantiles for the values in this feature.\n    self.quantiles_summary = ''\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # Summary of the quantiles for the values in this feature.\n    self.quantiles_summary = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "tensorflow/data-validation",
+    "commit": "740bebfaad01ade1bff6933f0477ac781d707f10",
+    "filename": "tensorflow_data_validation/utils/quantiles_util_test.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tensorflow_data_validation/utils/quantiles_util_test.py:36:36 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `quantiles_util.QuantilesCombiner.add_input` but got `typing.Optional[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "tensorflow/data-validation",
+    "commit": "740bebfaad01ade1bff6933f0477ac781d707f10",
+    "filename": "tensorflow_data_validation/utils/quantiles_util_test.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tensorflow_data_validation/utils/quantiles_util_test.py:38:37 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `quantiles_util.QuantilesCombiner.extract_output` but got `typing.Optional[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

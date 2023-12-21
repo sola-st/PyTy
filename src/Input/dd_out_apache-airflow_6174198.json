@@ -1,0 +1,51 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "6174198a3fa3ab7cffa7394afad48e5082210283",
+    "filename": "airflow/providers/tableau/operators/tableau.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/tableau/operators/tableau.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/tableau/operators/tableau.py:131:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 131,
+    "warning_line": "            return job_id",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if self.method == 'refresh':\n\n            job_id = response.id\n\n            if self.blocking_refresh:\n",
+        "source_code_len": 111,
+        "target_code": "\n        job_id = response.id\n\n        if self.method == 'refresh':\n            if self.blocking_refresh:\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -118,6 +118,5 @@\n \n+        job_id = response.id\n+\n         if self.method == 'refresh':\n-\n-            job_id = response.id\n-\n             if self.blocking_refresh:\n",
+        "source_code_with_indent": "\n        <DED>if self.method == 'refresh':\n\n            <IND>job_id = response.id\n\n            if self.blocking_refresh:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>job_id = response.id\n\n        if self.method == 'refresh':\n            <IND>if self.blocking_refresh:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            return job_id\n\n",
+        "source_code_len": 28,
+        "target_code": "\n        return job_id\n\n",
+        "target_code_len": 24,
+        "diff_format": "@@ -130,3 +129,3 @@\n \n-            return job_id\n+        return job_id\n \n",
+        "source_code_with_indent": "\n            <DED><DED>return job_id\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED><DED><DED>return job_id\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

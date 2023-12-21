@@ -1,0 +1,104 @@
+[
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "0456b4598f5f7eaebf626bca45d563562a15887b",
+    "filename": "pytorch_lightning/trainer/trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/trainer/trainer.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/trainer/trainer.py:534:32 Incompatible parameter type [6]: Expected `LightningEnum` for 1st positional only parameter to call `Trainer._set_running_stage` but got `None`.",
+    "message": " Expected `LightningEnum` for 1st positional only parameter to call `Trainer._set_running_stage` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 534,
+    "warning_line": "        self._set_running_stage(None, model)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self._set_running_stage(None, model)\n\n",
+        "source_code_len": 47,
+        "target_code": "\n        self._running_stage = None\n\n",
+        "target_code_len": 37,
+        "diff_format": "@@ -533,3 +532,3 @@\n \n-        self._set_running_stage(None, model)\n+        self._running_stage = None\n \n",
+        "source_code_with_indent": "\n        <DED>self._set_running_stage(None, model)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>self._running_stage = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "0456b4598f5f7eaebf626bca45d563562a15887b",
+    "filename": "pytorch_lightning/trainer/trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/trainer/trainer.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/trainer/trainer.py:927:32 Incompatible parameter type [6]: Expected `LightningEnum` for 1st positional only parameter to call `Trainer._set_running_stage` but got `None`.",
+    "message": " Expected `LightningEnum` for 1st positional only parameter to call `Trainer._set_running_stage` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 927,
+    "warning_line": "        self._set_running_stage(None, model or self.lightning_module)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.teardown('test')\n        self._set_running_stage(None, model or self.lightning_module)\n        return results\n",
+        "source_code_len": 123,
+        "target_code": "        self.teardown('test')\n        self._running_stage = None\n        return results\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -926,3 +915,3 @@\n         self.teardown('test')\n-        self._set_running_stage(None, model or self.lightning_module)\n+        self._running_stage = None\n         return results\n",
+        "source_code_with_indent": "        <DED>self.teardown('test')\n        self._set_running_stage(None, model or self.lightning_module)\n        return results\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>self.teardown('test')\n        self._running_stage = None\n        return results\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "0456b4598f5f7eaebf626bca45d563562a15887b",
+    "filename": "pytorch_lightning/trainer/trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/trainer/trainer.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/trainer/trainer.py:1036:32 Incompatible parameter type [6]: Expected `LightningEnum` for 1st positional only parameter to call `Trainer._set_running_stage` but got `None`.",
+    "message": " Expected `LightningEnum` for 1st positional only parameter to call `Trainer._set_running_stage` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1036,
+    "warning_line": "        self._set_running_stage(None, model)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        results = self.fit(model)\n        self._set_running_stage(None, model)\n\n",
+        "source_code_len": 80,
+        "target_code": "        results = self.fit(model)\n        self._running_stage = None\n\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -1035,3 +1024,3 @@\n         results = self.fit(model)\n-        self._set_running_stage(None, model)\n+        self._running_stage = None\n \n",
+        "source_code_with_indent": "        results = self.fit(model)\n        self._set_running_stage(None, model)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        results = self.fit(model)\n        self._running_stage = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

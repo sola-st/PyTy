@@ -1,0 +1,36 @@
+[
+  {
+    "project": "agronholm/anyio",
+    "commit": "cb5b64cfb31af68325d94c591a04d16bae2a8d70",
+    "filename": "src/anyio/lowlevel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/agronholm-anyio/src/anyio/lowlevel.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/anyio/lowlevel.py:140:8 Incompatible return type [7]: Expected `RunvarToken[Variable[T]]` but got `RunvarToken[object]`.",
+    "message": " Expected `RunvarToken[Variable[T]]` but got `RunvarToken[object]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 140,
+    "warning_line": "        return token",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, var: 'RunVar', value: Union[T, Literal[_NoValueSet.NO_VALUE_SET]]):\n        self._var = var\n",
+        "source_code_len": 116,
+        "target_code": "\n    def __init__(self, var: 'RunVar[T]', value: Union[T, Literal[_NoValueSet.NO_VALUE_SET]]):\n        self._var = var\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -81,3 +81,3 @@\n \n-    def __init__(self, var: 'RunVar', value: Union[T, Literal[_NoValueSet.NO_VALUE_SET]]):\n+    def __init__(self, var: 'RunVar[T]', value: Union[T, Literal[_NoValueSet.NO_VALUE_SET]]):\n         self._var = var\n",
+        "source_code_with_indent": "\n    def __init__(self, var: 'RunVar', value: Union[T, Literal[_NoValueSet.NO_VALUE_SET]]):\n        <IND>self._var = var\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, var: 'RunVar[T]', value: Union[T, Literal[_NoValueSet.NO_VALUE_SET]]):\n        <IND>self._var = var\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "goodboy/tractor",
+    "commit": "0ca668453c8dd3a6da79b60243b0c822646623e4",
+    "filename": "tractor/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/__init__.py:79:15 Incompatible parameter type [6]: Expected `typing.Callable[..., typing.Awaitable[typing.Any]]` for 2nd positional only parameter to call `_start_actor` but got `typing.Optional[partial[typing.Awaitable[typing.Any]]]`.",
+    "message": " Expected `typing.Callable[..., typing.Awaitable[typing.Any]]` for 2nd positional only parameter to call `_start_actor` but got `typing.Optional[partial[typing.Awaitable[typing.Any]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 79,
+    "warning_line": "        actor, main, host, port, arbiter_addr=arbiter_addr)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    log = get_logger('tractor')\n    main = partial(async_fn, *args) if async_fn else None\n    arbiter_addr = (host, port) = arbiter_addr or (\n",
+        "source_code_len": 142,
+        "target_code": "    log = get_logger('tractor')\n    main = partial(async_fn, *args)\n    arbiter_addr = (host, port) = arbiter_addr or (\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -45,3 +45,3 @@\n     log = get_logger('tractor')\n-    main = partial(async_fn, *args) if async_fn else None\n+    main = partial(async_fn, *args)\n     arbiter_addr = (host, port) = arbiter_addr or (\n",
+        "source_code_with_indent": "    log = get_logger('tractor')\n    main = partial(async_fn, *args) if async_fn else None\n    arbiter_addr = (host, port) = arbiter_addr or (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    log = get_logger('tractor')\n    main = partial(async_fn, *args)\n    arbiter_addr = (host, port) = arbiter_addr or (\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

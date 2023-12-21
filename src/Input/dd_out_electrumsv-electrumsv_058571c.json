@@ -1,0 +1,36 @@
+[
+  {
+    "project": "electrumsv/electrumsv",
+    "commit": "058571cfe28380129e8e171408d1f7c9c8514f0a",
+    "filename": "electrumsv/wallet.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/electrumsv-electrumsv/electrumsv/wallet.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "electrumsv/wallet.py:2463:16 Incompatible parameter type [6]: Expected `WalletEventFlag` for 4th positional only parameter to call `WalletEventRow.__init__` but got `Optional[int]`.",
+    "message": " Expected `WalletEventFlag` for 4th positional only parameter to call `WalletEventRow.__init__` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 2463,
+    "warning_line": "                entry.account_id, entry.date_created))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        for entry in entries:\n            rows.append(WalletEventRow(next_id, entry.event_type, entry.event_flags,\n                entry.account_id, entry.date_created))\n            next_id += 1\n",
+        "source_code_len": 195,
+        "target_code": "        for entry in entries:\n            rows.append(WalletEventRow(next_id, entry.event_type,\n                entry.account_id, entry.event_flags, entry.date_created))\n            next_id += 1\n",
+        "target_code_len": 195,
+        "diff_format": "@@ -2461,4 +2460,4 @@\n         for entry in entries:\n-            rows.append(WalletEventRow(next_id, entry.event_type, entry.event_flags,\n-                entry.account_id, entry.date_created))\n+            rows.append(WalletEventRow(next_id, entry.event_type,\n+                entry.account_id, entry.event_flags, entry.date_created))\n             next_id += 1\n",
+        "source_code_with_indent": "        for entry in entries:\n            <IND>rows.append(WalletEventRow(next_id, entry.event_type, entry.event_flags,\n                entry.account_id, entry.date_created))\n            next_id += 1\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        for entry in entries:\n            <IND>rows.append(WalletEventRow(next_id, entry.event_type,\n                entry.account_id, entry.event_flags, entry.date_created))\n            next_id += 1\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

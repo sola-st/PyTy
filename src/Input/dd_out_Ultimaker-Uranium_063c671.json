@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "063c6717bb612223bd3c959b36b23b17501f9310",
+    "filename": "UM/Trust.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Trust.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Trust.py:82:8 Incompatible return type [7]: Expected `RSAPrivateKey` but got `None`.",
+    "message": " Expected `RSAPrivateKey` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 82,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def loadPrivateKey(private_filename: str) -> RSAPrivateKey:\n        try:\n",
+        "source_code_len": 95,
+        "target_code": "    @staticmethod\n    def loadPrivateKey(private_filename: str) -> Optional[RSAPrivateKey]:\n        try:\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -74,3 +74,3 @@\n     @staticmethod\n-    def loadPrivateKey(private_filename: str) -> RSAPrivateKey:\n+    def loadPrivateKey(private_filename: str) -> Optional[RSAPrivateKey]:\n         try:\n",
+        "source_code_with_indent": "    <DED>@staticmethod\n    def loadPrivateKey(private_filename: str) -> RSAPrivateKey:\n        <IND>try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@staticmethod\n    def loadPrivateKey(private_filename: str) -> Optional[RSAPrivateKey]:\n        <IND>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

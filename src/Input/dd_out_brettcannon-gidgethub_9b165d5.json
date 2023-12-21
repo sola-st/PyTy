@@ -1,0 +1,113 @@
+[
+  {
+    "project": "brettcannon/gidgethub",
+    "commit": "9b165d5f7f9e9482186f40343f331e2b81286a4a",
+    "filename": "gidgethub/abc.py",
+    "min_patch_found": false,
+    "full_warning_msg": "gidgethub/abc.py:39:48 Incompatible parameter type [6]: Expected `str` for 3rd parameter `oauth_token` to call `sansio.create_headers` but got `Opt[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "brettcannon/gidgethub",
+    "commit": "9b165d5f7f9e9482186f40343f331e2b81286a4a",
+    "filename": "gidgethub/sansio.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/brettcannon-gidgethub/gidgethub/sansio.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gidgethub/sansio.py:91:21 Incompatible variable type [9]: secret is declared to have type `str` but is used as type `None`.",
+    "message": " secret is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 91,
+    "warning_line": "                  *, secret: str = None) -> \"Event\":",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def from_http(cls, headers: Mapping, body: bytes,\n                  *, secret: str = None) -> \"Event\":\n        \"\"\"Construct an event from HTTP headers and JSON body data.\n",
+        "source_code_len": 175,
+        "target_code": "    def from_http(cls, headers: Mapping, body: bytes,\n                  *, secret: Optional[str] = None) -> \"Event\":\n        \"\"\"Construct an event from HTTP headers and JSON body data.\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -90,3 +90,3 @@\n     def from_http(cls, headers: Mapping, body: bytes,\n-                  *, secret: str = None) -> \"Event\":\n+                  *, secret: Optional[str] = None) -> \"Event\":\n         \"\"\"Construct an event from HTTP headers and JSON body data.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    def from_http(cls, headers: Mapping, body: bytes,\n                  *, secret: str = None) -> \"Event\":\n        <IND>",
+        "target_code_with_indent": "    def from_http(cls, headers: Mapping, body: bytes,\n                  *, secret: Optional[str] = None) -> \"Event\":\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "brettcannon/gidgethub",
+    "commit": "9b165d5f7f9e9482186f40343f331e2b81286a4a",
+    "filename": "gidgethub/sansio.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/brettcannon-gidgethub/gidgethub/sansio.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gidgethub/sansio.py:125:42 Incompatible variable type [9]: media is declared to have type `str` but is used as type `None`.",
+    "message": " media is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 125,
+    "warning_line": "def accept_format(*, version: str = \"v3\", media: str = None, json: bool = True) -> str:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef accept_format(*, version: str = \"v3\", media: str = None, json: bool = True) -> str:\n    \"\"\"Construct the specification of the format that a request should return.\n",
+        "source_code_len": 168,
+        "target_code": "\ndef accept_format(*, version: str = \"v3\", media: Optional[str] = None,\n                  json: bool = True) -> str:\n    \"\"\"Construct the specification of the format that a request should return.\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -124,3 +124,4 @@\n \n-def accept_format(*, version: str = \"v3\", media: str = None, json: bool = True) -> str:\n+def accept_format(*, version: str = \"v3\", media: Optional[str] = None,\n+                  json: bool = True) -> str:\n     \"\"\"Construct the specification of the format that a request should return.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>def accept_format(*, version: str = \"v3\", media: str = None, json: bool = True) -> str:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def accept_format(*, version: str = \"v3\", media: Optional[str] = None,\n                  json: bool = True) -> str:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "brettcannon/gidgethub",
+    "commit": "9b165d5f7f9e9482186f40343f331e2b81286a4a",
+    "filename": "gidgethub/sansio.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/brettcannon-gidgethub/gidgethub/sansio.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gidgethub/sansio.py:148:19 Incompatible variable type [9]: oauth_token is declared to have type `str` but is used as type `None`.",
+    "message": " oauth_token is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 148,
+    "warning_line": "                   oauth_token: str = None) -> Dict[str, str]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def create_headers(requester: str, *, accept: str = accept_format(),\n                   oauth_token: str = None) -> Dict[str, str]:\n    \"\"\"Create a dict representing GitHub-specific header fields.\n",
+        "source_code_len": 197,
+        "target_code": "def create_headers(requester: str, *, accept: str = accept_format(),\n                   oauth_token: Optional[str] = None) -> Dict[str, str]:\n    \"\"\"Create a dict representing GitHub-specific header fields.\n",
+        "target_code_len": 207,
+        "diff_format": "@@ -147,3 +148,3 @@\n def create_headers(requester: str, *, accept: str = accept_format(),\n-                   oauth_token: str = None) -> Dict[str, str]:\n+                   oauth_token: Optional[str] = None) -> Dict[str, str]:\n     \"\"\"Create a dict representing GitHub-specific header fields.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED>def create_headers(requester: str, *, accept: str = accept_format(),\n                   oauth_token: str = None) -> Dict[str, str]:\n    <IND>",
+        "target_code_with_indent": "<DED>def create_headers(requester: str, *, accept: str = accept_format(),\n                   oauth_token: Optional[str] = None) -> Dict[str, str]:\n    <IND>"
+      }
+    ]
+  }
+]

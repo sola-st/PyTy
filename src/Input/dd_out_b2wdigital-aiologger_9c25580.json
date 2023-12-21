@@ -1,0 +1,100 @@
+[
+  {
+    "project": "b2wdigital/aiologger",
+    "commit": "9c255803598c16d6663b7ffe6f95ff8fff46aa2f",
+    "filename": "aiologger/loggers/json.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/b2wdigital-aiologger/aiologger/loggers/json.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiologger/loggers/json.py:99:12 Incompatible parameter type [6]: Expected `LogLevel` for 2nd parameter `level` to call `ExtendedLogRecord.__init__` but got `int`.",
+    "message": " Expected `LogLevel` for 2nd parameter `level` to call `ExtendedLogRecord.__init__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 99,
+    "warning_line": "            level=level,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from asyncio import AbstractEventLoop\nfrom typing import Dict, Iterable, Callable, Tuple, Any, Optional\n\n",
+        "source_code_len": 105,
+        "target_code": "from asyncio import AbstractEventLoop\nfrom typing import Dict, Iterable, Callable, Tuple, Any, Optional, Mapping\n\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -3,3 +3,3 @@\n from asyncio import AbstractEventLoop\n-from typing import Dict, Iterable, Callable, Tuple, Any, Optional\n+from typing import Dict, Iterable, Callable, Tuple, Any, Optional, Mapping\n \n",
+        "source_code_with_indent": "from asyncio import AbstractEventLoop\nfrom typing import Dict, Iterable, Callable, Tuple, Any, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from asyncio import AbstractEventLoop\nfrom typing import Dict, Iterable, Callable, Tuple, Any, Optional, Mapping\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        level: int,\n        msg: Any,\n        args: Tuple,\n        exc_info=None,\n",
+        "source_code_len": 96,
+        "target_code": "        self,\n        level: LogLevel,\n        msg: Any,\n        args: Optional[Tuple[Mapping]],\n        exc_info=None,\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -66,5 +66,5 @@\n         self,\n-        level: int,\n+        level: LogLevel,\n         msg: Any,\n-        args: Tuple,\n+        args: Optional[Tuple[Mapping]],\n         exc_info=None,\n",
+        "source_code_with_indent": "        self,\n        level: int,\n        msg: Any,\n        args: Tuple,\n        exc_info=None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        level: LogLevel,\n        msg: Any,\n        args: Optional[Tuple[Mapping]],\n        exc_info=None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "b2wdigital/aiologger",
+    "commit": "9c255803598c16d6663b7ffe6f95ff8fff46aa2f",
+    "filename": "aiologger/loggers/json.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/b2wdigital-aiologger/aiologger/loggers/json.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiologger/loggers/json.py:103:12 Incompatible parameter type [6]: Expected `Optional[Tuple[typing.Mapping[typing.Any, typing.Any]]]` for 6th parameter `args` to call `ExtendedLogRecord.__init__` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `Optional[Tuple[typing.Mapping[typing.Any, typing.Any]]]` for 6th parameter `args` to call `ExtendedLogRecord.__init__` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 103,
+    "warning_line": "            args=args,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from asyncio import AbstractEventLoop\nfrom typing import Dict, Iterable, Callable, Tuple, Any, Optional\n\n",
+        "source_code_len": 105,
+        "target_code": "from asyncio import AbstractEventLoop\nfrom typing import Dict, Iterable, Callable, Tuple, Any, Optional, Mapping\n\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -3,3 +3,3 @@\n from asyncio import AbstractEventLoop\n-from typing import Dict, Iterable, Callable, Tuple, Any, Optional\n+from typing import Dict, Iterable, Callable, Tuple, Any, Optional, Mapping\n \n",
+        "source_code_with_indent": "from asyncio import AbstractEventLoop\nfrom typing import Dict, Iterable, Callable, Tuple, Any, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from asyncio import AbstractEventLoop\nfrom typing import Dict, Iterable, Callable, Tuple, Any, Optional, Mapping\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        level: int,\n        msg: Any,\n        args: Tuple,\n        exc_info=None,\n",
+        "source_code_len": 96,
+        "target_code": "        self,\n        level: LogLevel,\n        msg: Any,\n        args: Optional[Tuple[Mapping]],\n        exc_info=None,\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -66,5 +66,5 @@\n         self,\n-        level: int,\n+        level: LogLevel,\n         msg: Any,\n-        args: Tuple,\n+        args: Optional[Tuple[Mapping]],\n         exc_info=None,\n",
+        "source_code_with_indent": "        self,\n        level: int,\n        msg: Any,\n        args: Tuple,\n        exc_info=None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        level: LogLevel,\n        msg: Any,\n        args: Optional[Tuple[Mapping]],\n        exc_info=None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

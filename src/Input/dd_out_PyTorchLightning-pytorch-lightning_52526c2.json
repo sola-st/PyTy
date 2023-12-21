@@ -1,0 +1,51 @@
+[
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "52526c20b565482e29f218df1b08e13384250cde",
+    "filename": "pytorch_lightning/utilities/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/utilities/cli.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/utilities/cli.py:201:8 Incompatible variable type [9]: datamodule_class is declared to have type `Type[LightningDataModule]` but is used as type `None`.",
+    "message": " datamodule_class is declared to have type `Type[LightningDataModule]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 201,
+    "warning_line": "        datamodule_class: Type[LightningDataModule] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        model_class: Type[LightningModule],\n        datamodule_class: Type[LightningDataModule] = None,\n        save_config_callback: Optional[Type[SaveConfigCallback]] = SaveConfigCallback,\n",
+        "source_code_len": 205,
+        "target_code": "        self,\n        model_class: Union[Type[LightningModule], Callable[..., LightningModule]],\n        datamodule_class: Optional[Union[Type[LightningDataModule], Callable[..., LightningDataModule]]] = None,\n        save_config_callback: Optional[Type[SaveConfigCallback]] = SaveConfigCallback,\n",
+        "target_code_len": 297,
+        "diff_format": "@@ -199,4 +212,4 @@\n         self,\n-        model_class: Type[LightningModule],\n-        datamodule_class: Type[LightningDataModule] = None,\n+        model_class: Union[Type[LightningModule], Callable[..., LightningModule]],\n+        datamodule_class: Optional[Union[Type[LightningDataModule], Callable[..., LightningDataModule]]] = None,\n         save_config_callback: Optional[Type[SaveConfigCallback]] = SaveConfigCallback,\n",
+        "source_code_with_indent": "        self,\n        model_class: Type[LightningModule],\n        datamodule_class: Type[LightningDataModule] = None,\n        save_config_callback: Optional[Type[SaveConfigCallback]] = SaveConfigCallback,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        model_class: Union[Type[LightningModule], Callable[..., LightningModule]],\n        datamodule_class: Optional[Union[Type[LightningDataModule], Callable[..., LightningDataModule]]] = None,\n        save_config_callback: Optional[Type[SaveConfigCallback]] = SaveConfigCallback,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        assert issubclass(trainer_class, Trainer)\n        assert issubclass(model_class, LightningModule)\n        if datamodule_class is not None:\n            assert issubclass(datamodule_class, LightningDataModule)\n        self.model_class = model_class\n",
+        "source_code_len": 267,
+        "target_code": "        \"\"\"\n        self.model_class = model_class\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -257,6 +273,2 @@\n         \"\"\"\n-        assert issubclass(trainer_class, Trainer)\n-        assert issubclass(model_class, LightningModule)\n-        if datamodule_class is not None:\n-            assert issubclass(datamodule_class, LightningDataModule)\n         self.model_class = model_class\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        assert issubclass(trainer_class, Trainer)\n        assert issubclass(model_class, LightningModule)\n        if datamodule_class is not None:\n            <IND>assert issubclass(datamodule_class, LightningDataModule)\n        <DED>self.model_class = model_class\n",
+        "target_code_with_indent": "\n        self.model_class = model_class\n"
+      }
+    ]
+  }
+]

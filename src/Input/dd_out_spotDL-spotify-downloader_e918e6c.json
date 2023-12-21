@@ -1,0 +1,98 @@
+[
+  {
+    "project": "spotDL/spotify-downloader",
+    "commit": "e918e6c894ea04d388445ed527fdf790806e6c44",
+    "filename": "spotdl/download/progressHandlers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spotDL-spotify-downloader/spotdl/download/progressuiHandlers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spotdl/download/progressHandlers.py:264:8 Incompatible attribute type [8]: Attribute `progress` declared in class `_ProgressTracker` has type `int` but is used as type `float`.",
+    "message": " Attribute `progress` declared in class `_ProgressTracker` has type `int` but is used as type `float`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 264,
+    "warning_line": "        self.progress = self.progress + iterFraction"
+  },
+  {
+    "project": "spotDL/spotify-downloader",
+    "commit": "e918e6c894ea04d388445ed527fdf790806e6c44",
+    "filename": "spotdl/search/songObj.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spotDL-spotify-downloader/spotdl/search/songObj.py",
+    "file_hunks_size": 21,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spotdl/search/songObj.py:33:39 Incompatible variable type [9]: output_format is declared to have type `str` but is used as type `None`.",
+    "message": " output_format is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 33,
+    "warning_line": "    def from_url(cls, spotifyURL: str, output_format: str = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    # ! constructors here are a bit mucky, there are two different constructors for two\n    # ! different use cases, hence the actual __init__ function does not exist\n\n    # ! Note, since the following are class methods, an instance of songObj is initialized\n    # ! and passed to them\n    @classmethod\n    def from_url(cls, spotifyURL: str, output_format: str = None):\n        # check if URL is a playlist, user, artist or album, if yes raise an Exception,\n        # else procede\n        if not ('open.spotify.com' in spotifyURL and 'track' in spotifyURL):\n            raise Exception('passed URL is not that of a track: %s' % spotifyURL)\n\n        if output_format is None:\n            output_format = \"mp3\"\n\n        # query spotify for song, artist, album details\n        spotifyClient = SpotifyClient()\n\n        rawTrackMeta = spotifyClient.track(spotifyURL)\n\n        convertedFileName = create_file_name(\n            rawTrackMeta['name'],\n            [artist['name'] for artist in rawTrackMeta['artists']]\n        )\n\n        convertedFilePath = Path(\".\", f\"{convertedFileName}.{output_format}\")\n\n        # if a song is already downloaded skip it\n        if convertedFilePath.is_file():\n            print(f\"Skipping \\\"{convertedFileName}\\\" as it's already downloaded\")\n            return None\n\n        primaryArtistId = rawTrackMeta['artists'][0]['id']\n        rawArtistMeta = spotifyClient.artist(primaryArtistId)\n\n        albumId = rawTrackMeta['album']['id']\n        rawAlbumMeta = spotifyClient.album(albumId)\n\n        # get best match from the given provider\n        songName = rawTrackMeta['name']\n\n        albumName = rawTrackMeta['album']['name']\n\n        duration = round(\n            rawTrackMeta['duration_ms'] / 1000,\n            ndigits=3\n        )\n\n        contributingArtists = []\n\n        for artist in rawTrackMeta['artists']:\n            contributingArtists.append(artist['name'])\n\n        youtubeLink = SongObj.searchProvider(\n            songName,\n            contributingArtists,\n            albumName,\n            duration\n        )\n\n        # try to get lyrics from Genius\n        try:\n            lyrics = get_song_lyrics(songName, contributingArtists)\n        except (AttributeError, IndexError):\n            lyrics = \"\"\n\n        return cls(\n            rawTrackMeta, rawAlbumMeta,\n            rawArtistMeta, youtubeLink,\n            lyrics\n        )\n\n    @classmethod\n    def from_dump(cls, dataDump: dict):\n        rawTrackMeta = dataDump['rawTrackMeta']\n        rawAlbumMeta = dataDump['rawAlbumMeta']\n        rawArtistMeta = dataDump['rawAlbumMeta']\n        youtubeLink = dataDump['youtubeLink']\n        lyrics = dataDump['lyrics']\n\n        return cls(\n            rawTrackMeta, rawAlbumMeta,\n            rawArtistMeta, youtubeLink,\n            lyrics\n        )\n\n",
+        "source_code_len": 2796,
+        "target_code": "\n    # ===============\n    # === Methods ===\n    # ===============\n\n",
+        "target_code_len": 68,
+        "diff_format": "@@ -26,87 +15,5 @@\n \n-    # ! constructors here are a bit mucky, there are two different constructors for two\n-    # ! different use cases, hence the actual __init__ function does not exist\n-\n-    # ! Note, since the following are class methods, an instance of songObj is initialized\n-    # ! and passed to them\n-    @classmethod\n-    def from_url(cls, spotifyURL: str, output_format: str = None):\n-        # check if URL is a playlist, user, artist or album, if yes raise an Exception,\n-        # else procede\n-        if not ('open.spotify.com' in spotifyURL and 'track' in spotifyURL):\n-            raise Exception('passed URL is not that of a track: %s' % spotifyURL)\n-\n-        if output_format is None:\n-            output_format = \"mp3\"\n-\n-        # query spotify for song, artist, album details\n-        spotifyClient = SpotifyClient()\n-\n-        rawTrackMeta = spotifyClient.track(spotifyURL)\n-\n-        convertedFileName = create_file_name(\n-            rawTrackMeta['name'],\n-            [artist['name'] for artist in rawTrackMeta['artists']]\n-        )\n-\n-        convertedFilePath = Path(\".\", f\"{convertedFileName}.{output_format}\")\n-\n-        # if a song is already downloaded skip it\n-        if convertedFilePath.is_file():\n-            print(f\"Skipping \\\"{convertedFileName}\\\" as it's already downloaded\")\n-            return None\n-\n-        primaryArtistId = rawTrackMeta['artists'][0]['id']\n-        rawArtistMeta = spotifyClient.artist(primaryArtistId)\n-\n-        albumId = rawTrackMeta['album']['id']\n-        rawAlbumMeta = spotifyClient.album(albumId)\n-\n-        # get best match from the given provider\n-        songName = rawTrackMeta['name']\n-\n-        albumName = rawTrackMeta['album']['name']\n-\n-        duration = round(\n-            rawTrackMeta['duration_ms'] / 1000,\n-            ndigits=3\n-        )\n-\n-        contributingArtists = []\n-\n-        for artist in rawTrackMeta['artists']:\n-            contributingArtists.append(artist['name'])\n-\n-        youtubeLink = SongObj.searchProvider(\n-            songName,\n-            contributingArtists,\n-            albumName,\n-            duration\n-        )\n-\n-        # try to get lyrics from Genius\n-        try:\n-            lyrics = get_song_lyrics(songName, contributingArtists)\n-        except (AttributeError, IndexError):\n-            lyrics = \"\"\n-\n-        return cls(\n-            rawTrackMeta, rawAlbumMeta,\n-            rawArtistMeta, youtubeLink,\n-            lyrics\n-        )\n-\n-    @classmethod\n-    def from_dump(cls, dataDump: dict):\n-        rawTrackMeta = dataDump['rawTrackMeta']\n-        rawAlbumMeta = dataDump['rawAlbumMeta']\n-        rawArtistMeta = dataDump['rawAlbumMeta']\n-        youtubeLink = dataDump['youtubeLink']\n-        lyrics = dataDump['lyrics']\n-\n-        return cls(\n-            rawTrackMeta, rawAlbumMeta,\n-            rawArtistMeta, youtubeLink,\n-            lyrics\n-        )\n+    # ===============\n+    # === Methods ===\n+    # ===============\n \n",
+        "source_code_with_indent": "\n    # ! constructors here are a bit mucky, there are two different constructors for two\n    # ! different use cases, hence the actual __init__ function does not exist\n\n    # ! Note, since the following are class methods, an instance of songObj is initialized\n    # ! and passed to them\n    <DED>@classmethod\n    def from_url(cls, spotifyURL: str, output_format: str = None):\n        # check if URL is a playlist, user, artist or album, if yes raise an Exception,\n        # else procede\n        <IND>if not ('open.spotify.com' in spotifyURL and 'track' in spotifyURL):\n            <IND>raise Exception('passed URL is not that of a track: %s' % spotifyURL)\n\n        <DED>if output_format is None:\n            <IND>output_format = \"mp3\"\n\n        # query spotify for song, artist, album details\n        <DED>spotifyClient = SpotifyClient()\n\n        rawTrackMeta = spotifyClient.track(spotifyURL)\n\n        convertedFileName = create_file_name(\n            rawTrackMeta['name'],\n            [artist['name'] for artist in rawTrackMeta['artists']]\n        )\n\n        convertedFilePath = Path(\".\", f\"{convertedFileName}.{output_format}\")\n\n        # if a song is already downloaded skip it\n        if convertedFilePath.is_file():\n            <IND>print(f\"Skipping \\\"{convertedFileName}\\\" as it's already downloaded\")\n            return None\n\n        <DED>primaryArtistId = rawTrackMeta['artists'][0]['id']\n        rawArtistMeta = spotifyClient.artist(primaryArtistId)\n\n        albumId = rawTrackMeta['album']['id']\n        rawAlbumMeta = spotifyClient.album(albumId)\n\n        # get best match from the given provider\n        songName = rawTrackMeta['name']\n\n        albumName = rawTrackMeta['album']['name']\n\n        duration = round(\n            rawTrackMeta['duration_ms'] / 1000,\n            ndigits=3\n        )\n\n        contributingArtists = []\n\n        for artist in rawTrackMeta['artists']:\n            <IND>contributingArtists.append(artist['name'])\n\n        <DED>youtubeLink = SongObj.searchProvider(\n            songName,\n            contributingArtists,\n            albumName,\n            duration\n        )\n\n        # try to get lyrics from Genius\n        try:\n            <IND>lyrics = get_song_lyrics(songName, contributingArtists)\n        <DED>except (AttributeError, IndexError):\n            <IND>lyrics = \"\"\n\n        <DED>return cls(\n            rawTrackMeta, rawAlbumMeta,\n            rawArtistMeta, youtubeLink,\n            lyrics\n        )\n\n    <DED>@classmethod\n    def from_dump(cls, dataDump: dict):\n        <IND>rawTrackMeta = dataDump['rawTrackMeta']\n        rawAlbumMeta = dataDump['rawAlbumMeta']\n        rawArtistMeta = dataDump['rawAlbumMeta']\n        youtubeLink = dataDump['youtubeLink']\n        lyrics = dataDump['lyrics']\n\n        return cls(\n            rawTrackMeta, rawAlbumMeta,\n            rawArtistMeta, youtubeLink,\n            lyrics\n        )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    # ===============\n    # === Methods ===\n    # ===============\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spotDL/spotify-downloader",
+    "commit": "e918e6c894ea04d388445ed527fdf790806e6c44",
+    "filename": "spotdl/search/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "spotdl/search/utils.py:7:32 Incompatible variable type [9]: output_format is declared to have type `str` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/spotDL-spotify-downloader/spotdl/search/utils.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "spotDL/spotify-downloader",
+    "commit": "e918e6c894ea04d388445ed527fdf790806e6c44",
+    "filename": "spotdl/search/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "spotdl/search/utils.py:35:36 Incompatible variable type [9]: output_format is declared to have type `str` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/spotDL-spotify-downloader/spotdl/search/utils.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "spotDL/spotify-downloader",
+    "commit": "e918e6c894ea04d388445ed527fdf790806e6c44",
+    "filename": "spotdl/search/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "spotdl/search/utils.py:69:38 Incompatible variable type [9]: output_format is declared to have type `str` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/spotDL-spotify-downloader/spotdl/search/utils.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "spotDL/spotify-downloader",
+    "commit": "e918e6c894ea04d388445ed527fdf790806e6c44",
+    "filename": "spotdl/search/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "spotdl/search/utils.py:159:42 Incompatible variable type [9]: output_format is declared to have type `str` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/spotDL-spotify-downloader/spotdl/search/utils.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "spotDL/spotify-downloader",
+    "commit": "e918e6c894ea04d388445ed527fdf790806e6c44",
+    "filename": "spotdl/search/utils.py",
+    "min_patch_found": false,
+    "full_warning_msg": "spotdl/search/utils.py:199:21 Incompatible variable type [9]: output_format is declared to have type `str` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/spotDL-spotify-downloader/spotdl/search/utils.py'",
+    "dd_fail": true
+  }
+]

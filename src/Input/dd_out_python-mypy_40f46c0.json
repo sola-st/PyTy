@@ -1,0 +1,68 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "40f46c001a2802f40f091773529ce6b6ddf0700f",
+    "filename": "mypy/newsemanal/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/newsemanal/semanal.py",
+    "file_hunks_size": 15,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/newsemanal/semanal.py:3735:51 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `SymbolTableNode.__init__` but got `Final[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `SymbolTableNode.__init__` but got `Final[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 3735,
+    "warning_line": "                tree.names[name] = SymbolTableNode(GDEF, alias_node)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            name = alias.split('.')[-1]\n            n = self.lookup_fully_qualified_or_none(target_name)\n            if n:\n                target = self.named_type_or_none(target_name, [])\n",
+        "source_code_len": 189,
+        "target_code": "            name = alias.split('.')[-1]\n            if name in tree.names:\n                continue\n            tag = self.track_incomplete_refs()\n            n = self.lookup_fully_qualified_or_none(target_name)\n            if n:\n                # Found built-in class target. Create alias.\n                target = self.named_type_or_none(target_name, [])\n",
+        "target_code_len": 357,
+        "diff_format": "@@ -3728,4 +3737,8 @@\n             name = alias.split('.')[-1]\n+            if name in tree.names:\n+                continue\n+            tag = self.track_incomplete_refs()\n             n = self.lookup_fully_qualified_or_none(target_name)\n             if n:\n+                # Found built-in class target. Create alias.\n                 target = self.named_type_or_none(target_name, [])\n",
+        "source_code_with_indent": "            <IND>name = alias.split('.')[-1]\n            n = self.lookup_fully_qualified_or_none(target_name)\n            if n:\n                <IND>target = self.named_type_or_none(target_name, [])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>name = alias.split('.')[-1]\n            if name in tree.names:\n                <IND>continue\n            <DED>tag = self.track_incomplete_refs()\n            n = self.lookup_fully_qualified_or_none(target_name)\n            if n:\n                # Found built-in class target. Create alias.\n                <IND>target = self.named_type_or_none(target_name, [])\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                                       no_args=True, normalized=True)\n                tree.names[name] = SymbolTableNode(GDEF, alias_node)\n            else:\n                # Built-in target not defined, remove the original fake\n                # definition to trigger a better error message.\n                tree.names.pop(name, None)\n\n",
+        "source_code_len": 337,
+        "target_code": "                                       no_args=True, normalized=True)\n                self.add_symbol(name, alias_node, tree)\n            elif self.found_incomplete_ref(tag):\n                # Built-in class target may not ready yet -- defer.\n                self.mark_incomplete(name)\n            else:\n                # Test fixtures may be missing some builtin classes, which is okay.\n                pass\n\n",
+        "target_code_len": 410,
+        "diff_format": "@@ -3734,7 +3747,9 @@\n                                        no_args=True, normalized=True)\n-                tree.names[name] = SymbolTableNode(GDEF, alias_node)\n+                self.add_symbol(name, alias_node, tree)\n+            elif self.found_incomplete_ref(tag):\n+                # Built-in class target may not ready yet -- defer.\n+                self.mark_incomplete(name)\n             else:\n-                # Built-in target not defined, remove the original fake\n-                # definition to trigger a better error message.\n-                tree.names.pop(name, None)\n+                # Test fixtures may be missing some builtin classes, which is okay.\n+                pass\n \n",
+        "source_code_with_indent": "                                       no_args=True, normalized=True)\n                tree.names[name] = SymbolTableNode(GDEF, alias_node)\n            <DED>else:\n                # Built-in target not defined, remove the original fake\n                # definition to trigger a better error message.\n                <IND>tree.names.pop(name, None)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                                       no_args=True, normalized=True)\n                self.add_symbol(name, alias_node, tree)\n            <DED>elif self.found_incomplete_ref(tag):\n                # Built-in class target may not ready yet -- defer.\n                <IND>self.mark_incomplete(name)\n            <DED>else:\n                # Test fixtures may be missing some builtin classes, which is okay.\n                <IND>pass\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "40f46c001a2802f40f091773529ce6b6ddf0700f",
+    "filename": "mypy/newsemanal/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/newsemanal/semanal.py",
+    "file_hunks_size": 15,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/newsemanal/semanal.py:3830:33 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `SymbolTableNode.__init__` but got `Final[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `SymbolTableNode.__init__` but got `Final[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 3830,
+    "warning_line": "        symbol = SymbolTableNode(kind,"
+  }
+]

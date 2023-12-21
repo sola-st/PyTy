@@ -1,0 +1,53 @@
+[
+  {
+    "project": "odlgroup/odl",
+    "commit": "82a0d4c1e54468f539defa7672c690700e6014d8",
+    "filename": "odl/tomo/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/odlgroup-odl/odl/tomo/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "odl/tomo/__init__.py:20:11 Unbound name [10]: Name `backends` is used but not defined in the current scope.",
+    "message": " Name `backends` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 20,
+    "warning_line": "__all__ += backends.__all__",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\nfrom .backends import *\n__all__ += backends.__all__\n\nfrom .operators import *\n",
+        "source_code_len": 79,
+        "target_code": "\nfrom .operators import *\n",
+        "target_code_len": 26,
+        "diff_format": "@@ -18,5 +18,2 @@\n \n-from .backends import *\n-__all__ += backends.__all__\n-\n from .operators import *\n",
+        "source_code_with_indent": "\nfrom .backends import *\n__all__ += backends.__all__\n\nfrom .operators import *\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom .operators import *\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "odlgroup/odl",
+    "commit": "82a0d4c1e54468f539defa7672c690700e6014d8",
+    "filename": "odl/tomo/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/odlgroup-odl/odl/tomo/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "odl/tomo/__init__.py:26:0 Incompatible variable type [9]: __all__ is declared to have type `typing.Tuple[]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+    "message": " __all__ is declared to have type `typing.Tuple[]` but is used as type `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 26,
+    "warning_line": "__all__ += analytic.__all__"
+  }
+]

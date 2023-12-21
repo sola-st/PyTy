@@ -1,0 +1,53 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "e683ee4ec1e9cc9e34e78948eed9d3c0e01b83ee",
+    "filename": "UM/Trust.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Trust.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Trust.py:147:42 Unsupported operand [58]: `+` is not supported for operand types `str` and `Optional[str]`.",
+    "message": " `+` is not supported for operand types `str` and `Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 147,
+    "warning_line": "        concat = \"\".join([\"\" + key + \"\" + signatures.get(key) for key in sorted(signatures.keys())])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        concat = \"\".join([\"\" + key + \"\" + signatures.get(key) for key in sorted(signatures.keys())])\n        if concat is None or len(concat) < 1:\n",
+        "source_code_len": 148,
+        "target_code": "\n        concat = \"\".join([str(key) + str(signatures.get(key)) for key in sorted(signatures.keys())])\n        if concat is None or len(concat) < 1:\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -146,3 +146,3 @@\n \n-        concat = \"\".join([\"\" + key + \"\" + signatures.get(key) for key in sorted(signatures.keys())])\n+        concat = \"\".join([str(key) + str(signatures.get(key)) for key in sorted(signatures.keys())])\n         if concat is None or len(concat) < 1:\n",
+        "source_code_with_indent": "\n        concat = \"\".join([\"\" + key + \"\" + signatures.get(key) for key in sorted(signatures.keys())])\n        if concat is None or len(concat) < 1:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        concat = \"\".join([str(key) + str(signatures.get(key)) for key in sorted(signatures.keys())])\n        if concat is None or len(concat) < 1:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "e683ee4ec1e9cc9e34e78948eed9d3c0e01b83ee",
+    "filename": "UM/Trust.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Trust.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Trust.py:149:12 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 149,
+    "warning_line": "            return None"
+  }
+]

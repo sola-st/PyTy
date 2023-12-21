@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "e644ba6ee766989f28782fe96a8c127fcf0f78df",
+    "filename": "src/ezdxf/_options.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/_options.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/_options.py:165:8 Incompatible return type [7]: Expected `Tuple[Path]` but got `typing.Tuple[Variable[_T_co](covariant), ...]`.",
+    "message": " Expected `Tuple[Path]` but got `typing.Tuple[Variable[_T_co](covariant), ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 165,
+    "warning_line": "        return tuple(self._loaded_paths)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def loaded_config_files(self) -> Tuple[Path]:\n        return tuple(self._loaded_paths)\n",
+        "source_code_len": 105,
+        "target_code": "    @property\n    def loaded_config_files(self) -> Tuple[Path, ...]:\n        return tuple(self._loaded_paths)\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -163,3 +163,3 @@\n     @property\n-    def loaded_config_files(self) -> Tuple[Path]:\n+    def loaded_config_files(self) -> Tuple[Path, ...]:\n         return tuple(self._loaded_paths)\n",
+        "source_code_with_indent": "    <DED>@property\n    def loaded_config_files(self) -> Tuple[Path]:\n        <IND>return tuple(self._loaded_paths)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def loaded_config_files(self) -> Tuple[Path, ...]:\n        <IND>return tuple(self._loaded_paths)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

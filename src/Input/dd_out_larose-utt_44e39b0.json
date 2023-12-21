@@ -1,0 +1,70 @@
+[
+  {
+    "project": "larose/utt",
+    "commit": "44e39b0a8d765b32ec866684dc5d379ac4ef4911",
+    "filename": "utt/report/summary_section.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/larose-utt/utt/report/summary_section.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "utt/report/summary_section.py:63:32 Incompatible parameter type [6]: Expected `datetime.datetime` for 1st positional only parameter to call `_format_date` but got `datetime.date`.",
+    "message": " Expected `datetime.datetime` for 1st positional only parameter to call `_format_date` but got `datetime.date`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 63,
+    "warning_line": "        date_str = _format_date(self._model.start_date)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _format_date(datetime: datetime.datetime) -> str:\n    return datetime.strftime(\"%A, %b %d, %Y (week {week})\".format(week=datetime.isocalendar()[1]))\n",
+        "source_code_len": 154,
+        "target_code": "\ndef _format_date(date: datetime.date) -> str:\n    return date.strftime(\"%A, %b %d, %Y (week {week})\".format(week=date.isocalendar()[1]))\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -115,3 +115,3 @@\n \n-def _format_date(datetime: datetime.datetime) -> str:\n-    return datetime.strftime(\"%A, %b %d, %Y (week {week})\".format(week=datetime.isocalendar()[1]))\n+def _format_date(date: datetime.date) -> str:\n+    return date.strftime(\"%A, %b %d, %Y (week {week})\".format(week=date.isocalendar()[1]))\n",
+        "source_code_with_indent": "\n<DED>def _format_date(datetime: datetime.datetime) -> str:\n    <IND>return datetime.strftime(\"%A, %b %d, %Y (week {week})\".format(week=datetime.isocalendar()[1]))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _format_date(date: datetime.date) -> str:\n    <IND>return date.strftime(\"%A, %b %d, %Y (week {week})\".format(week=date.isocalendar()[1]))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "larose/utt",
+    "commit": "44e39b0a8d765b32ec866684dc5d379ac4ef4911",
+    "filename": "utt/report/summary_section.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/larose-utt/utt/report/summary_section.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "utt/report/summary_section.py:65:62 Incompatible parameter type [6]: Expected `datetime.datetime` for 1st positional only parameter to call `_format_date` but got `datetime.date`.",
+    "message": " Expected `datetime.datetime` for 1st positional only parameter to call `_format_date` but got `datetime.date`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 65,
+    "warning_line": "            date_str = \" \".join([date_str, \"to\", _format_date(self._model.end_date)])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _format_date(datetime: datetime.datetime) -> str:\n    return datetime.strftime(\"%A, %b %d, %Y (week {week})\".format(week=datetime.isocalendar()[1]))\n",
+        "source_code_len": 154,
+        "target_code": "\ndef _format_date(date: datetime.date) -> str:\n    return date.strftime(\"%A, %b %d, %Y (week {week})\".format(week=date.isocalendar()[1]))\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -115,3 +115,3 @@\n \n-def _format_date(datetime: datetime.datetime) -> str:\n-    return datetime.strftime(\"%A, %b %d, %Y (week {week})\".format(week=datetime.isocalendar()[1]))\n+def _format_date(date: datetime.date) -> str:\n+    return date.strftime(\"%A, %b %d, %Y (week {week})\".format(week=date.isocalendar()[1]))\n",
+        "source_code_with_indent": "\n<DED>def _format_date(datetime: datetime.datetime) -> str:\n    <IND>return datetime.strftime(\"%A, %b %d, %Y (week {week})\".format(week=datetime.isocalendar()[1]))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _format_date(date: datetime.date) -> str:\n    <IND>return date.strftime(\"%A, %b %d, %Y (week {week})\".format(week=date.isocalendar()[1]))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

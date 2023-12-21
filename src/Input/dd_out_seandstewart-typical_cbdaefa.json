@@ -1,0 +1,36 @@
+[
+  {
+    "project": "seandstewart/typical",
+    "commit": "cbdaefa22689dc83e138d6ef48165ed5b5faca72",
+    "filename": "typic/ext/schema/field.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/seandstewart-typical/typic/ext/schema/field.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "typic/ext/schema/field.py:82:8 Incompatible return type [7]: Expected `str` but got `Union[bytes, str]`.",
+    "message": " Expected `str` but got `Union[bytes, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 82,
+    "warning_line": "        return dumps(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def tojson(self, *, indent: int = 0, ensure_ascii: bool = False, **kwargs) -> str:\n        return dumps(\n",
+        "source_code_len": 110,
+        "target_code": "\n    def tojson(\n        self, *, indent: int = 0, ensure_ascii: bool = False, **kwargs\n    ) -> Union[str, bytes]:\n        return dumps(\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -80,3 +80,5 @@\n \n-    def tojson(self, *, indent: int = 0, ensure_ascii: bool = False, **kwargs) -> str:\n+    def tojson(\n+        self, *, indent: int = 0, ensure_ascii: bool = False, **kwargs\n+    ) -> Union[str, bytes]:\n         return dumps(\n",
+        "source_code_with_indent": "\n    <DED>def tojson(self, *, indent: int = 0, ensure_ascii: bool = False, **kwargs) -> str:\n        <IND>return dumps(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def tojson(\n        self, *, indent: int = 0, ensure_ascii: bool = False, **kwargs\n    ) -> Union[str, bytes]:\n        <IND>return dumps(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

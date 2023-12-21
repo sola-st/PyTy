@@ -1,0 +1,130 @@
+[
+  {
+    "project": "getsentry/zeus",
+    "commit": "f1d24af1728d13c0f63d667a3b384f3fb494d2da",
+    "filename": "zeus/utils/trees.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-zeus/zeus/utils/trees.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "zeus/utils/trees.py:57:8 Incompatible return type [7]: Expected `Dict[str, Set[str]]` but got `Set[typing.Any]`.",
+    "message": " Expected `Dict[str, Set[str]]` but got `Set[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 57,
+    "warning_line": "        return tree[parent]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n) -> Dict[str, Set[str]]:\n    tree = defaultdict(set)\n\n",
+        "source_code_len": 133,
+        "target_code": "    tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n) -> Set[str]:\n    tree: Dict[str, Set[str]] = defaultdict(set)\n\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -21,4 +21,4 @@\n     tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n-) -> Dict[str, Set[str]]:\n-    tree = defaultdict(set)\n+) -> Set[str]:\n+    tree: Dict[str, Set[str]] = defaultdict(set)\n \n",
+        "source_code_with_indent": "    tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n) -> Dict[str, Set[str]]:\n    <IND>tree = defaultdict(set)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n) -> Set[str]:\n    <IND>tree: Dict[str, Set[str]] = defaultdict(set)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "getsentry/zeus",
+    "commit": "f1d24af1728d13c0f63d667a3b384f3fb494d2da",
+    "filename": "zeus/utils/trees.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-zeus/zeus/utils/trees.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "zeus/utils/trees.py:59:4 Incompatible return type [7]: Expected `Dict[str, Set[str]]` but got `Set[typing.Any]`.",
+    "message": " Expected `Dict[str, Set[str]]` but got `Set[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 59,
+    "warning_line": "    return tree[\"\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n) -> Dict[str, Set[str]]:\n    tree = defaultdict(set)\n\n",
+        "source_code_len": 133,
+        "target_code": "    tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n) -> Set[str]:\n    tree: Dict[str, Set[str]] = defaultdict(set)\n\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -21,4 +21,4 @@\n     tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n-) -> Dict[str, Set[str]]:\n-    tree = defaultdict(set)\n+) -> Set[str]:\n+    tree: Dict[str, Set[str]] = defaultdict(set)\n \n",
+        "source_code_with_indent": "    tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n) -> Dict[str, Set[str]]:\n    <IND>tree = defaultdict(set)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    tests: List[str], sep: str = \".\", min_children: int = 1, parent: str = \"\"\n) -> Set[str]:\n    <IND>tree: Dict[str, Set[str]] = defaultdict(set)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "getsentry/zeus",
+    "commit": "f1d24af1728d13c0f63d667a3b384f3fb494d2da",
+    "filename": "zeus/vcs/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-zeus/zeus/vcs/base.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "zeus/vcs/base.py:167:53 Incompatible variable type [9]: username is declared to have type `str` but is used as type `None`.",
+    "message": " username is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 167,
+    "warning_line": "    def __init__(self, id: str, path: str, url: str, username: str = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, id: str, path: str, url: str, username: str = None):\n        self.id = id\n",
+        "source_code_len": 98,
+        "target_code": "\n    def __init__(self, id: str, path: str, url: str, username: Optional[str] = None):\n        self.id = id\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -166,3 +166,3 @@\n \n-    def __init__(self, id: str, path: str, url: str, username: str = None):\n+    def __init__(self, id: str, path: str, url: str, username: Optional[str] = None):\n         self.id = id\n",
+        "source_code_with_indent": "\n    def __init__(self, id: str, path: str, url: str, username: str = None):\n        <IND>self.id = id\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, id: str, path: str, url: str, username: Optional[str] = None):\n        <IND>self.id = id\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "getsentry/zeus",
+    "commit": "f1d24af1728d13c0f63d667a3b384f3fb494d2da",
+    "filename": "zeus/vcs/git.py",
+    "min_patch_found": false,
+    "full_warning_msg": "zeus/vcs/git.py:90:4 Inconsistent override [14]: `zeus.vcs.git.GitVcs.run` overrides method defined in `Vcs` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "getsentry/zeus",
+    "commit": "f1d24af1728d13c0f63d667a3b384f3fb494d2da",
+    "filename": "zeus/vcs/providers/github.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-zeus/zeus/vcs/providers/github.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "zeus/vcs/providers/github.py:30:4 Incompatible return type [7]: Expected `GitHubClient` but got `typing.Tuple[GitHubClient, typing.Any]`.",
+    "message": " Expected `GitHubClient` but got `typing.Tuple[GitHubClient, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 30,
+    "warning_line": "    return GitHubClient(token=identity.config[\"access_token\"]), identity"
+  }
+]

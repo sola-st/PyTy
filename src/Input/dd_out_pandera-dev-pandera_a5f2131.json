@@ -1,0 +1,170 @@
+[
+  {
+    "project": "pandera-dev/pandera",
+    "commit": "a5f2131798f22c253847715f106803e9f6a3bc56",
+    "filename": "pandera/schemas.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pandera-dev-pandera/pandera/schemas.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pandera/schemas.py:685:44 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `enumerate.__init__` but got `Union[None, List[Union[Check, Hypothesis]], Check, Hypothesis]`.",
+    "message": " Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `enumerate.__init__` but got `Union[None, List[Union[Check, Hypothesis]], Check, Hypothesis]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 685,
+    "warning_line": "        for check_index, check in enumerate(self.checks):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nPandasDtypeInputTypes = Union[\n",
+        "source_code_len": 32,
+        "target_code": "\nCheckListProperty = List[Union[Check, Hypothesis]]\n\nPandasDtypeInputTypes = Union[\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -52,2 +52,4 @@\n \n+CheckListProperty = List[Union[Check, Hypothesis]]\n+\n PandasDtypeInputTypes = Union[\n",
+        "source_code_with_indent": "\nPandasDtypeInputTypes = Union[\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nCheckListProperty = List[Union[Check, Hypothesis]]\n\nPandasDtypeInputTypes = Union[\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self.checks: CheckList = checks\n        self.index = index\n",
+        "source_code_len": 68,
+        "target_code": "\n        self.checks: CheckListProperty = checks\n        self.index = index\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -201,3 +201,3 @@\n \n-        self.checks: CheckList = checks\n+        self.checks: CheckListProperty = checks\n         self.index = index\n",
+        "source_code_with_indent": "\n        <DED>self.checks: CheckList = checks\n        self.index = index\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>self.checks: CheckListProperty = checks\n        self.index = index\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pandera-dev/pandera",
+    "commit": "a5f2131798f22c253847715f106803e9f6a3bc56",
+    "filename": "pandera/schemas.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pandera-dev-pandera/pandera/schemas.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pandera/schemas.py:859:12 Incompatible parameter type [6]: Expected `Optional[typing.Sequence[typing.Any]]` for 3rd parameter `checks` to call `st.dataframe_strategy` but got `Union[None, List[Union[Check, Hypothesis]], Check, Hypothesis]`.",
+    "message": " Expected `Optional[typing.Sequence[typing.Any]]` for 3rd parameter `checks` to call `st.dataframe_strategy` but got `Union[None, List[Union[Check, Hypothesis]], Check, Hypothesis]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 859,
+    "warning_line": "            checks=self.checks,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nPandasDtypeInputTypes = Union[\n",
+        "source_code_len": 32,
+        "target_code": "\nCheckListProperty = List[Union[Check, Hypothesis]]\n\nPandasDtypeInputTypes = Union[\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -52,2 +52,4 @@\n \n+CheckListProperty = List[Union[Check, Hypothesis]]\n+\n PandasDtypeInputTypes = Union[\n",
+        "source_code_with_indent": "\nPandasDtypeInputTypes = Union[\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nCheckListProperty = List[Union[Check, Hypothesis]]\n\nPandasDtypeInputTypes = Union[\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self.checks: CheckList = checks\n        self.index = index\n",
+        "source_code_len": 68,
+        "target_code": "\n        self.checks: CheckListProperty = checks\n        self.index = index\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -201,3 +201,3 @@\n \n-        self.checks: CheckList = checks\n+        self.checks: CheckListProperty = checks\n         self.index = index\n",
+        "source_code_with_indent": "\n        <DED>self.checks: CheckList = checks\n        self.index = index\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>self.checks: CheckListProperty = checks\n        self.index = index\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pandera-dev/pandera",
+    "commit": "a5f2131798f22c253847715f106803e9f6a3bc56",
+    "filename": "pandera/schemas.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pandera-dev-pandera/pandera/schemas.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pandera/schemas.py:1136:8 Incompatible attribute type [8]: Attribute `columns` declared in class `DataFrameSchema` has type `Dict[str, Column]` but is used as type `Dict[str, Dict[str, typing.Any]]`.",
+    "message": " Attribute `columns` declared in class `DataFrameSchema` has type `Dict[str, Column]` but is used as type `Dict[str, Dict[str, typing.Any]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 1136,
+    "warning_line": "        new_schema.columns = new_columns",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        new_columns: Dict[str, Dict[str, Any]] = {}\n        for col in new_schema.columns:\n",
+        "source_code_len": 92,
+        "target_code": "\n        new_columns: Dict[str, Column] = {}\n        for col in new_schema.columns:\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -1114,3 +1114,3 @@\n \n-        new_columns: Dict[str, Dict[str, Any]] = {}\n+        new_columns: Dict[str, Column] = {}\n         for col in new_schema.columns:\n",
+        "source_code_with_indent": "\n        <DED>new_columns: Dict[str, Dict[str, Any]] = {}\n        for col in new_schema.columns:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>new_columns: Dict[str, Column] = {}\n        for col in new_schema.columns:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pandera-dev/pandera",
+    "commit": "a5f2131798f22c253847715f106803e9f6a3bc56",
+    "filename": "tests/core/test_model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/core/test_model.py:302:42 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "pandera-dev/pandera",
+    "commit": "a5f2131798f22c253847715f106803e9f6a3bc56",
+    "filename": "tests/core/test_model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/core/test_model.py:570:15 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Union[None, typing.List[typing.Union[pa.checks.Check, pa.hypotheses.Hypothesis]], pa.checks.Check, pa.hypotheses.Hypothesis]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "pandera-dev/pandera",
+    "commit": "a5f2131798f22c253847715f106803e9f6a3bc56",
+    "filename": "tests/core/test_model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/core/test_model.py:739:30 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `typing.Mapping.get` but got `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "pandera-dev/pandera",
+    "commit": "a5f2131798f22c253847715f106803e9f6a3bc56",
+    "filename": "tests/core/test_model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/core/test_model.py:744:42 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

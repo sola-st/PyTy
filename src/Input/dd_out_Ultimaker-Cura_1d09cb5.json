@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "1d09cb5b9cf7a76d6b30d8e701dff0f2fffc663f",
+    "filename": "plugins/UM3NetworkPrinting/src/Cloud/CloudApiClient.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/UM3NetworkPrinting/src/Cloud/CloudApiClient.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/UM3NetworkPrinting/src/Cloud/CloudApiClient.py:103:82 Incompatible variable type [9]: data is declared to have type `Dict[str, typing.Any]` but is used as type `None`.",
+    "message": " data is declared to have type `Dict[str, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 103,
+    "warning_line": "    def doPrintJobAction(self, cluster_id: str, cluster_job_id: str, action: str, data: Dict[str, Any] = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    #  \\param action: The name of the action to execute.\n    def doPrintJobAction(self, cluster_id: str, cluster_job_id: str, action: str, data: Dict[str, Any] = None) -> None:\n        body = b\"\"\n",
+        "source_code_len": 196,
+        "target_code": "    #  \\param action: The name of the action to execute.\n    def doPrintJobAction(self, cluster_id: str, cluster_job_id: str, action: str, data: Optional[Dict[str, Any]] = None) -> None:\n        body = b\"\"\n",
+        "target_code_len": 206,
+        "diff_format": "@@ -102,3 +102,3 @@\n     #  \\param action: The name of the action to execute.\n-    def doPrintJobAction(self, cluster_id: str, cluster_job_id: str, action: str, data: Dict[str, Any] = None) -> None:\n+    def doPrintJobAction(self, cluster_id: str, cluster_job_id: str, action: str, data: Optional[Dict[str, Any]] = None) -> None:\n         body = b\"\"\n",
+        "source_code_with_indent": "    #  \\param action: The name of the action to execute.\n    <DED>def doPrintJobAction(self, cluster_id: str, cluster_job_id: str, action: str, data: Dict[str, Any] = None) -> None:\n        <IND>body = b\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    #  \\param action: The name of the action to execute.\n    <DED>def doPrintJobAction(self, cluster_id: str, cluster_job_id: str, action: str, data: Optional[Dict[str, Any]] = None) -> None:\n        <IND>body = b\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

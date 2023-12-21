@@ -1,0 +1,100 @@
+[
+  {
+    "project": "actionless/pikaur",
+    "commit": "e9bd18a6cee2a6aa44627c3fbb5de55e93709531",
+    "filename": "pikaur/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/actionless-pikaur/pikaur/build.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pikaur/build.py:382:24 Unsupported operand [58]: `+` is not supported for operand types `Dict[str, pikaur.version.VersionMatcher]` and `Dict[str, pikaur.version.VersionMatcher]`.",
+    "message": " `+` is not supported for operand types `Dict[str, pikaur.version.VersionMatcher]` and `Dict[str, pikaur.version.VersionMatcher]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 382,
+    "warning_line": "                        src_info.get_makedepends() + src_info.get_checkdepends()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _get_deps(self) -> None:\n        self.new_deps_to_install = []\n        self.new_make_deps_to_install = []\n        src_info = SrcInfo(self.build_dir)\n        local_provided_pkgs = PackageDB.get_local_provided_dict()\n        for new_deps_version_matchers, deps_destination in (\n",
+        "source_code_len": 284,
+        "target_code": "    def _get_deps(self) -> None:\n        src_info = SrcInfo(self.build_dir)\n        local_provided_pkgs = PackageDB.get_local_provided_dict()\n        self.new_deps_to_install = []\n        new_make_deps_to_install = []\n        new_check_deps_to_install = []\n        for new_deps_version_matchers, deps_destination in (\n",
+        "target_code_len": 318,
+        "diff_format": "@@ -372,6 +372,7 @@\n     def _get_deps(self) -> None:\n-        self.new_deps_to_install = []\n-        self.new_make_deps_to_install = []\n         src_info = SrcInfo(self.build_dir)\n         local_provided_pkgs = PackageDB.get_local_provided_dict()\n+        self.new_deps_to_install = []\n+        new_make_deps_to_install = []\n+        new_check_deps_to_install = []\n         for new_deps_version_matchers, deps_destination in (\n",
+        "source_code_with_indent": "    <DED>def _get_deps(self) -> None:\n        <IND>self.new_deps_to_install = []\n        self.new_make_deps_to_install = []\n        src_info = SrcInfo(self.build_dir)\n        local_provided_pkgs = PackageDB.get_local_provided_dict()\n        for new_deps_version_matchers, deps_destination in (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _get_deps(self) -> None:\n        <IND>src_info = SrcInfo(self.build_dir)\n        local_provided_pkgs = PackageDB.get_local_provided_dict()\n        self.new_deps_to_install = []\n        new_make_deps_to_install = []\n        new_check_deps_to_install = []\n        for new_deps_version_matchers, deps_destination in (\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                ), (\n                    list(set(\n                        src_info.get_makedepends() + src_info.get_checkdepends()\n                    )),\n                    self.new_make_deps_to_install\n                ),\n",
+        "source_code_len": 225,
+        "target_code": "                ), (\n                    src_info.get_makedepends(), new_make_deps_to_install,\n                ), (\n                    src_info.get_checkdepends(), new_check_deps_to_install,\n                ),\n",
+        "target_code_len": 211,
+        "diff_format": "@@ -380,6 +381,5 @@\n                 ), (\n-                    list(set(\n-                        src_info.get_makedepends() + src_info.get_checkdepends()\n-                    )),\n-                    self.new_make_deps_to_install\n+                    src_info.get_makedepends(), new_make_deps_to_install,\n+                ), (\n+                    src_info.get_checkdepends(), new_check_deps_to_install,\n                 ),\n",
+        "source_code_with_indent": "                ), (\n                    list(set(\n                        src_info.get_makedepends() + src_info.get_checkdepends()\n                    )),\n                    self.new_make_deps_to_install\n                ),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                ), (\n                    src_info.get_makedepends(), new_make_deps_to_install,\n                ), (\n                    src_info.get_checkdepends(), new_check_deps_to_install,\n                ),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "actionless/pikaur",
+    "commit": "e9bd18a6cee2a6aa44627c3fbb5de55e93709531",
+    "filename": "pikaur/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/actionless-pikaur/pikaur/build.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pikaur/build.py:397:49 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `list.__getitem__` but got `str`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `list.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 397,
+    "warning_line": "                    if new_deps_version_matchers[dep_name](provided_by.package.version):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _get_deps(self) -> None:\n        self.new_deps_to_install = []\n        self.new_make_deps_to_install = []\n        src_info = SrcInfo(self.build_dir)\n        local_provided_pkgs = PackageDB.get_local_provided_dict()\n        for new_deps_version_matchers, deps_destination in (\n",
+        "source_code_len": 284,
+        "target_code": "    def _get_deps(self) -> None:\n        src_info = SrcInfo(self.build_dir)\n        local_provided_pkgs = PackageDB.get_local_provided_dict()\n        self.new_deps_to_install = []\n        new_make_deps_to_install = []\n        new_check_deps_to_install = []\n        for new_deps_version_matchers, deps_destination in (\n",
+        "target_code_len": 318,
+        "diff_format": "@@ -372,6 +372,7 @@\n     def _get_deps(self) -> None:\n-        self.new_deps_to_install = []\n-        self.new_make_deps_to_install = []\n         src_info = SrcInfo(self.build_dir)\n         local_provided_pkgs = PackageDB.get_local_provided_dict()\n+        self.new_deps_to_install = []\n+        new_make_deps_to_install = []\n+        new_check_deps_to_install = []\n         for new_deps_version_matchers, deps_destination in (\n",
+        "source_code_with_indent": "    <DED>def _get_deps(self) -> None:\n        <IND>self.new_deps_to_install = []\n        self.new_make_deps_to_install = []\n        src_info = SrcInfo(self.build_dir)\n        local_provided_pkgs = PackageDB.get_local_provided_dict()\n        for new_deps_version_matchers, deps_destination in (\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _get_deps(self) -> None:\n        <IND>src_info = SrcInfo(self.build_dir)\n        local_provided_pkgs = PackageDB.get_local_provided_dict()\n        self.new_deps_to_install = []\n        new_make_deps_to_install = []\n        new_check_deps_to_install = []\n        for new_deps_version_matchers, deps_destination in (\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                ), (\n                    list(set(\n                        src_info.get_makedepends() + src_info.get_checkdepends()\n                    )),\n                    self.new_make_deps_to_install\n                ),\n",
+        "source_code_len": 225,
+        "target_code": "                ), (\n                    src_info.get_makedepends(), new_make_deps_to_install,\n                ), (\n                    src_info.get_checkdepends(), new_check_deps_to_install,\n                ),\n",
+        "target_code_len": 211,
+        "diff_format": "@@ -380,6 +381,5 @@\n                 ), (\n-                    list(set(\n-                        src_info.get_makedepends() + src_info.get_checkdepends()\n-                    )),\n-                    self.new_make_deps_to_install\n+                    src_info.get_makedepends(), new_make_deps_to_install,\n+                ), (\n+                    src_info.get_checkdepends(), new_check_deps_to_install,\n                 ),\n",
+        "source_code_with_indent": "                ), (\n                    list(set(\n                        src_info.get_makedepends() + src_info.get_checkdepends()\n                    )),\n                    self.new_make_deps_to_install\n                ),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                ), (\n                    src_info.get_makedepends(), new_make_deps_to_install,\n                ), (\n                    src_info.get_checkdepends(), new_check_deps_to_install,\n                ),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

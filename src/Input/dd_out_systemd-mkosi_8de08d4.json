@@ -1,0 +1,68 @@
+[
+  {
+    "project": "systemd/mkosi",
+    "commit": "8de08d4169bc1072be7fbd5a34abcda09a1f0f6f",
+    "filename": "tests/test_config_parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/systemd-mkosi/tests/test_config_parser.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_config_parser.py:143:28 Invalid type [31]: Expression `[mkosi.CommandLineArguments]` is not a valid type.",
+    "message": " Expression `[mkosi.CommandLineArguments]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 143,
+    "warning_line": "    def __eq__(self, other: [mkosi.CommandLineArguments]) -> bool:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nimport pytest\n",
+        "source_code_len": 15,
+        "target_code": "\nfrom typing import Mapping, Any\nimport pytest\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -6,2 +6,3 @@\n \n+from typing import Mapping, Any\n import pytest\n",
+        "source_code_with_indent": "\nimport pytest\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Mapping, Any\nimport pytest\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __eq__(self, other: [mkosi.CommandLineArguments]) -> bool:\n        \"\"\"Compare the configuration returned by parse_args against self.reference_config\"\"\"\n",
+        "source_code_len": 161,
+        "target_code": "\n    def __eq__(self, other: Mapping[str, Any]) -> bool:\n        \"\"\"Compare the configuration returned by parse_args against self.reference_config\"\"\"\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -142,3 +143,3 @@\n \n-    def __eq__(self, other: [mkosi.CommandLineArguments]) -> bool:\n+    def __eq__(self, other: Mapping[str, Any]) -> bool:\n         \"\"\"Compare the configuration returned by parse_args against self.reference_config\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def __eq__(self, other: [mkosi.CommandLineArguments]) -> bool:\n        <IND>\"\"\"Compare the configuration returned by parse_args against self.reference_config\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __eq__(self, other: Mapping[str, Any]) -> bool:\n        <IND>\"\"\"Compare the configuration returned by parse_args against self.reference_config\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "systemd/mkosi",
+    "commit": "8de08d4169bc1072be7fbd5a34abcda09a1f0f6f",
+    "filename": "tests/test_config_parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/systemd-mkosi/tests/test_config_parser.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_config_parser.py:182:8 Incompatible attribute type [8]: Attribute `optionxform` declared in class `configparser.RawConfigParser` has type `BoundMethod[typing.Callable(configparser.RawConfigParser.optionxform)[[Named(self, configparser.RawConfigParser), Named(optionstr, str)], str], configparser.RawConfigParser]` but is used as type `typing.Type[str]`.",
+    "message": " Attribute `optionxform` declared in class `configparser.RawConfigParser` has type `BoundMethod[typing.Callable(configparser.RawConfigParser.optionxform)[[Named(self, configparser.RawConfigParser), Named(optionstr, str)], str], configparser.RawConfigParser]` but is used as type `typing.Type[str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 182,
+    "warning_line": "        config_parser.optionxform = str"
+  }
+]

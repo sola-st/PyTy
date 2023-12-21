@@ -1,0 +1,70 @@
+[
+  {
+    "project": "abersheeran/rpc.py",
+    "commit": "06324d8d595f66c19915a7ae157a2a79839630b0",
+    "filename": "tests/test_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abersheeran-rpc.py/tests/test_client.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_client.py:58:8 Incompatible return type [7]: Expected `Client` but got `Generator[typing.Any, None, None]`.",
+    "message": " Expected `Client` but got `Generator[typing.Any, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 58,
+    "warning_line": "        yield Client(httpx_client, base_url=\"http://testserver/\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@pytest.fixture\ndef sync_client(wsgi_app) -> Client:\n    httpx_client = httpx.Client(app=wsgi_app)\n",
+        "source_code_len": 99,
+        "target_code": "@pytest.fixture\ndef sync_client(wsgi_app):\n    httpx_client = httpx.Client(app=wsgi_app)\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -54,3 +54,3 @@\n @pytest.fixture\n-def sync_client(wsgi_app) -> Client:\n+def sync_client(wsgi_app):\n     httpx_client = httpx.Client(app=wsgi_app)\n",
+        "source_code_with_indent": "<DED>@pytest.fixture\ndef sync_client(wsgi_app) -> Client:\n    <IND>httpx_client = httpx.Client(app=wsgi_app)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>@pytest.fixture\ndef sync_client(wsgi_app):\n    <IND>httpx_client = httpx.Client(app=wsgi_app)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "abersheeran/rpc.py",
+    "commit": "06324d8d595f66c19915a7ae157a2a79839630b0",
+    "filename": "tests/test_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abersheeran-rpc.py/tests/test_client.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_client.py:67:8 Incompatible return type [7]: Expected `Client` but got `Generator[typing.Any, None, None]`.",
+    "message": " Expected `Client` but got `Generator[typing.Any, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 67,
+    "warning_line": "        yield Client(httpx_client, base_url=\"http://testserver/\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@pytest.fixture\ndef async_client(asgi_app) -> Client:\n    httpx_client = httpx.AsyncClient(app=asgi_app)\n",
+        "source_code_len": 105,
+        "target_code": "@pytest.fixture\ndef async_client(asgi_app):\n    httpx_client = httpx.AsyncClient(app=asgi_app)\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -63,3 +63,3 @@\n @pytest.fixture\n-def async_client(asgi_app) -> Client:\n+def async_client(asgi_app):\n     httpx_client = httpx.AsyncClient(app=asgi_app)\n",
+        "source_code_with_indent": "<DED><DED>@pytest.fixture\ndef async_client(asgi_app) -> Client:\n    <IND>httpx_client = httpx.AsyncClient(app=asgi_app)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>@pytest.fixture\ndef async_client(asgi_app):\n    <IND>httpx_client = httpx.AsyncClient(app=asgi_app)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

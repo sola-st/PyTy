@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "02ee1ed197cef5585027af954eb8a78bef39bfe9",
+    "filename": "qcodes/utils/validators.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/utils/validators.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/utils/validators.py:852:4 Inconsistent override [14]: `qcodes.utils.validators.Lists.validate` overrides method defined in `Validator` inconsistently. Parameter of type `TList[Anything]` is not a supertype of the overridden parameter `TList[Validator[typing.Any]]`.",
+    "message": " `qcodes.utils.validators.Lists.validate` overrides method defined in `Validator` inconsistently. Parameter of type `TList[Anything]` is not a supertype of the overridden parameter `TList[Validator[typing.Any]]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 852,
+    "warning_line": "    def validate(self, value: TList[Anything], context: str = '') -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass Lists(Validator[TList[Validator[Any]]]):\n    \"\"\"\n",
+        "source_code_len": 56,
+        "target_code": "\nclass Lists(Validator[TList[Any]]):\n    \"\"\"\n",
+        "target_code_len": 45,
+        "diff_format": "@@ -834,3 +834,3 @@\n \n-class Lists(Validator[TList[Validator[Any]]]):\n+class Lists(Validator[TList[Any]]):\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>class Lists(Validator[TList[Validator[Any]]]):\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>class Lists(Validator[TList[Any]]):\n    <IND>"
+      }
+    ]
+  }
+]

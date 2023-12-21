@@ -1,0 +1,36 @@
+[
+  {
+    "project": "online-judge-tools/verification-helper",
+    "commit": "4616847aeee5f478e6de74a206153004e51f1fd0",
+    "filename": "tests/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/online-judge-tools-verification-helper/tests/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/utils.py:13:4 Incompatible return type [7]: Expected `typing.Iterator[pathlib.Path]` but got `contextlib._GeneratorContextManager[pathlib.Path]`.",
+    "message": " Expected `typing.Iterator[pathlib.Path]` but got `contextlib._GeneratorContextManager[pathlib.Path]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 13,
+    "warning_line": "    return load_files_pathlib(files_)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef load_files(files: Dict[str, bytes]) -> Iterator[pathlib.Path]:\n    files_ = {}\n",
+        "source_code_len": 84,
+        "target_code": "\ndef load_files(files: Dict[str, bytes]) -> ContextManager[pathlib.Path]:\n    files_ = {}\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -7,3 +7,3 @@\n \n-def load_files(files: Dict[str, bytes]) -> Iterator[pathlib.Path]:\n+def load_files(files: Dict[str, bytes]) -> ContextManager[pathlib.Path]:\n     files_ = {}\n",
+        "source_code_with_indent": "\ndef load_files(files: Dict[str, bytes]) -> Iterator[pathlib.Path]:\n    <IND>files_ = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef load_files(files: Dict[str, bytes]) -> ContextManager[pathlib.Path]:\n    <IND>files_ = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

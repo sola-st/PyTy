@@ -1,0 +1,138 @@
+[
+  {
+    "project": "allenai/allennlp",
+    "commit": "050504f0f1ee8b96adb4fddce468bd309ac8b746",
+    "filename": "allennlp/service/servable/models/bidaf.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/service/servable/models/bidaf.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "allennlp/service/servable/models/bidaf.py:33:69 Incompatible parameter type [6]: Expected `typing.Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` for 2nd parameter `token_indexers` to call `allennlp.data.fields.text_field.TextField.__init__` but got `typing.Dict[str, typing.Union[allennlp.data.token_indexers.single_id_token_indexer.SingleIdTokenIndexer, allennlp.data.token_indexers.token_characters_indexer.TokenCharactersIndexer]]`.",
+    "message": " Expected `typing.Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` for 2nd parameter `token_indexers` to call `allennlp.data.fields.text_field.TextField.__init__` but got `typing.Dict[str, typing.Union[allennlp.data.token_indexers.single_id_token_indexer.SingleIdTokenIndexer, allennlp.data.token_indexers.token_characters_indexer.TokenCharactersIndexer]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 33,
+    "warning_line": "        question = TextField(self.tokenizer.tokenize(question_text), token_indexers=self.token_indexers)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import WordTokenizer\nfrom allennlp.data.token_indexers import SingleIdTokenIndexer, TokenCharactersIndexer\nfrom allennlp.models import BidirectionalAttentionFlow\n",
+        "source_code_len": 235,
+        "target_code": "from allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import Tokenizer\nfrom allennlp.data.token_indexers import TokenIndexer\nfrom allennlp.models import BidirectionalAttentionFlow\n",
+        "target_code_len": 199,
+        "diff_format": "@@ -4,4 +7,4 @@\n from allennlp.data.fields import TextField\n-from allennlp.data.tokenizers import WordTokenizer\n-from allennlp.data.token_indexers import SingleIdTokenIndexer, TokenCharactersIndexer\n+from allennlp.data.tokenizers import Tokenizer\n+from allennlp.data.token_indexers import TokenIndexer\n from allennlp.models import BidirectionalAttentionFlow\n",
+        "source_code_with_indent": "from allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import WordTokenizer\nfrom allennlp.data.token_indexers import SingleIdTokenIndexer, TokenCharactersIndexer\nfrom allennlp.models import BidirectionalAttentionFlow\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import Tokenizer\nfrom allennlp.data.token_indexers import TokenIndexer\nfrom allennlp.models import BidirectionalAttentionFlow\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "allenai/allennlp",
+    "commit": "050504f0f1ee8b96adb4fddce468bd309ac8b746",
+    "filename": "allennlp/service/servable/models/bidaf.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/service/servable/models/bidaf.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "allennlp/service/servable/models/bidaf.py:35:28 Incompatible parameter type [6]: Expected `typing.Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` for 2nd parameter `token_indexers` to call `allennlp.data.fields.text_field.TextField.__init__` but got `typing.Dict[str, typing.Union[allennlp.data.token_indexers.single_id_token_indexer.SingleIdTokenIndexer, allennlp.data.token_indexers.token_characters_indexer.TokenCharactersIndexer]]`.",
+    "message": " Expected `typing.Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` for 2nd parameter `token_indexers` to call `allennlp.data.fields.text_field.TextField.__init__` but got `typing.Dict[str, typing.Union[allennlp.data.token_indexers.single_id_token_indexer.SingleIdTokenIndexer, allennlp.data.token_indexers.token_characters_indexer.TokenCharactersIndexer]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 35,
+    "warning_line": "                            token_indexers=self.token_indexers)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import WordTokenizer\nfrom allennlp.data.token_indexers import SingleIdTokenIndexer, TokenCharactersIndexer\nfrom allennlp.models import BidirectionalAttentionFlow\n",
+        "source_code_len": 235,
+        "target_code": "from allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import Tokenizer\nfrom allennlp.data.token_indexers import TokenIndexer\nfrom allennlp.models import BidirectionalAttentionFlow\n",
+        "target_code_len": 199,
+        "diff_format": "@@ -4,4 +7,4 @@\n from allennlp.data.fields import TextField\n-from allennlp.data.tokenizers import WordTokenizer\n-from allennlp.data.token_indexers import SingleIdTokenIndexer, TokenCharactersIndexer\n+from allennlp.data.tokenizers import Tokenizer\n+from allennlp.data.token_indexers import TokenIndexer\n from allennlp.models import BidirectionalAttentionFlow\n",
+        "source_code_with_indent": "from allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import WordTokenizer\nfrom allennlp.data.token_indexers import SingleIdTokenIndexer, TokenCharactersIndexer\nfrom allennlp.models import BidirectionalAttentionFlow\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import Tokenizer\nfrom allennlp.data.token_indexers import TokenIndexer\nfrom allennlp.models import BidirectionalAttentionFlow\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "allenai/allennlp",
+    "commit": "050504f0f1ee8b96adb4fddce468bd309ac8b746",
+    "filename": "allennlp/service/servable/models/decomposable_attention.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/service/servable/models/decomposable_attention.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "allennlp/service/servable/models/decomposable_attention.py:36:67 Incompatible parameter type [6]: Expected `typing.Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` for 2nd parameter `token_indexers` to call `allennlp.data.fields.text_field.TextField.__init__` but got `typing.Dict[str, allennlp.data.token_indexers.single_id_token_indexer.SingleIdTokenIndexer]`.",
+    "message": " Expected `typing.Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` for 2nd parameter `token_indexers` to call `allennlp.data.fields.text_field.TextField.__init__` but got `typing.Dict[str, allennlp.data.token_indexers.single_id_token_indexer.SingleIdTokenIndexer]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 36,
+    "warning_line": "        premise = TextField(self.tokenizer.tokenize(premise_text), token_indexers=self.token_indexers)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from allennlp.common import Params, constants\nfrom allennlp.data import Vocabulary\nfrom allennlp.data.dataset_readers.snli import SnliReader\nfrom allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import WordTokenizer\nfrom allennlp.data.token_indexers import SingleIdTokenIndexer\nfrom allennlp.models import DecomposableAttention\nfrom allennlp.nn import InitializerApplicator\nfrom allennlp.service.servable import Servable, JSONDict\n",
+        "source_code_len": 450,
+        "target_code": "import os\nfrom typing import Dict\n\nfrom allennlp.common import Params\nfrom allennlp.data import Vocabulary\nfrom allennlp.data.dataset_readers import SnliReader\nfrom allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import Tokenizer\nfrom allennlp.data.token_indexers import TokenIndexer\nfrom allennlp.models import DecomposableAttention\nfrom allennlp.service.servable import Servable, JSONDict\n",
+        "target_code_len": 411,
+        "diff_format": "@@ -1,9 +1,11 @@\n-from allennlp.common import Params, constants\n+import os\n+from typing import Dict\n+\n+from allennlp.common import Params\n from allennlp.data import Vocabulary\n-from allennlp.data.dataset_readers.snli import SnliReader\n+from allennlp.data.dataset_readers import SnliReader\n from allennlp.data.fields import TextField\n-from allennlp.data.tokenizers import WordTokenizer\n-from allennlp.data.token_indexers import SingleIdTokenIndexer\n+from allennlp.data.tokenizers import Tokenizer\n+from allennlp.data.token_indexers import TokenIndexer\n from allennlp.models import DecomposableAttention\n-from allennlp.nn import InitializerApplicator\n from allennlp.service.servable import Servable, JSONDict\n",
+        "source_code_with_indent": "from allennlp.common import Params, constants\nfrom allennlp.data import Vocabulary\nfrom allennlp.data.dataset_readers.snli import SnliReader\nfrom allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import WordTokenizer\nfrom allennlp.data.token_indexers import SingleIdTokenIndexer\nfrom allennlp.models import DecomposableAttention\nfrom allennlp.nn import InitializerApplicator\nfrom allennlp.service.servable import Servable, JSONDict\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nfrom typing import Dict\n\nfrom allennlp.common import Params\nfrom allennlp.data import Vocabulary\nfrom allennlp.data.dataset_readers import SnliReader\nfrom allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import Tokenizer\nfrom allennlp.data.token_indexers import TokenIndexer\nfrom allennlp.models import DecomposableAttention\nfrom allennlp.service.servable import Servable, JSONDict\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "allenai/allennlp",
+    "commit": "050504f0f1ee8b96adb4fddce468bd309ac8b746",
+    "filename": "allennlp/service/servable/models/decomposable_attention.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/service/servable/models/decomposable_attention.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "allennlp/service/servable/models/decomposable_attention.py:37:73 Incompatible parameter type [6]: Expected `typing.Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` for 2nd parameter `token_indexers` to call `allennlp.data.fields.text_field.TextField.__init__` but got `typing.Dict[str, allennlp.data.token_indexers.single_id_token_indexer.SingleIdTokenIndexer]`.",
+    "message": " Expected `typing.Dict[str, allennlp.data.token_indexers.token_indexer.TokenIndexer[typing.Any]]` for 2nd parameter `token_indexers` to call `allennlp.data.fields.text_field.TextField.__init__` but got `typing.Dict[str, allennlp.data.token_indexers.single_id_token_indexer.SingleIdTokenIndexer]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 37,
+    "warning_line": "        hypothesis = TextField(self.tokenizer.tokenize(hypothesis_text), token_indexers=self.token_indexers)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from allennlp.common import Params, constants\nfrom allennlp.data import Vocabulary\nfrom allennlp.data.dataset_readers.snli import SnliReader\nfrom allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import WordTokenizer\nfrom allennlp.data.token_indexers import SingleIdTokenIndexer\nfrom allennlp.models import DecomposableAttention\nfrom allennlp.nn import InitializerApplicator\nfrom allennlp.service.servable import Servable, JSONDict\n",
+        "source_code_len": 450,
+        "target_code": "import os\nfrom typing import Dict\n\nfrom allennlp.common import Params\nfrom allennlp.data import Vocabulary\nfrom allennlp.data.dataset_readers import SnliReader\nfrom allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import Tokenizer\nfrom allennlp.data.token_indexers import TokenIndexer\nfrom allennlp.models import DecomposableAttention\nfrom allennlp.service.servable import Servable, JSONDict\n",
+        "target_code_len": 411,
+        "diff_format": "@@ -1,9 +1,11 @@\n-from allennlp.common import Params, constants\n+import os\n+from typing import Dict\n+\n+from allennlp.common import Params\n from allennlp.data import Vocabulary\n-from allennlp.data.dataset_readers.snli import SnliReader\n+from allennlp.data.dataset_readers import SnliReader\n from allennlp.data.fields import TextField\n-from allennlp.data.tokenizers import WordTokenizer\n-from allennlp.data.token_indexers import SingleIdTokenIndexer\n+from allennlp.data.tokenizers import Tokenizer\n+from allennlp.data.token_indexers import TokenIndexer\n from allennlp.models import DecomposableAttention\n-from allennlp.nn import InitializerApplicator\n from allennlp.service.servable import Servable, JSONDict\n",
+        "source_code_with_indent": "from allennlp.common import Params, constants\nfrom allennlp.data import Vocabulary\nfrom allennlp.data.dataset_readers.snli import SnliReader\nfrom allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import WordTokenizer\nfrom allennlp.data.token_indexers import SingleIdTokenIndexer\nfrom allennlp.models import DecomposableAttention\nfrom allennlp.nn import InitializerApplicator\nfrom allennlp.service.servable import Servable, JSONDict\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nfrom typing import Dict\n\nfrom allennlp.common import Params\nfrom allennlp.data import Vocabulary\nfrom allennlp.data.dataset_readers import SnliReader\nfrom allennlp.data.fields import TextField\nfrom allennlp.data.tokenizers import Tokenizer\nfrom allennlp.data.token_indexers import TokenIndexer\nfrom allennlp.models import DecomposableAttention\nfrom allennlp.service.servable import Servable, JSONDict\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

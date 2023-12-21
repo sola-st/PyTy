@@ -1,0 +1,68 @@
+[
+  {
+    "project": "hail-is/hail",
+    "commit": "9aa89a61c1c27f6fc814541e7594635a0f306a77",
+    "filename": "hail/python/hail/methods/impex.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hail-is-hail/hail/python/hail/methods/impex.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hail/python/hail/methods/impex.py:956:26 Unbound name [10]: Name `tdict` is used but not defined in the current scope.",
+    "message": " Name `tdict` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 956,
+    "warning_line": "    java_index_file_map = tdict(tstr, tstr)._convert_to_j(index_file_map)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        index_file_map = {}\n    java_index_file_map = tdict(tstr, tstr)._convert_to_j(index_file_map)\n\n",
+        "source_code_len": 103,
+        "target_code": "        index_file_map = {}\n\n",
+        "target_code_len": 29,
+        "diff_format": "@@ -955,3 +955,2 @@\n         index_file_map = {}\n-    java_index_file_map = tdict(tstr, tstr)._convert_to_j(index_file_map)\n \n",
+        "source_code_with_indent": "        <IND>index_file_map = {}\n    <DED>java_index_file_map = tdict(tstr, tstr)._convert_to_j(index_file_map)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>index_file_map = {}\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    # have to get reference genome from the index files!\n    reference_genome = Env.hail().io.bgen.LoadBgen.getReferenceGenome(Env.hc()._jhc.hadoopConf(), wrap_to_list(path), java_index_file_map)\n    lt = tlocus(reference_genome) if reference_genome else tstruct(contig=tstr, position=tint32)\n\n    if variants is not None:\n        expected_vtype = tstruct(locus=lt, alleles=tarray(tstr))\n",
+        "source_code_len": 389,
+        "target_code": "\n    if variants is not None:\n        mt_type = Env.backend().matrix_type(\n            MatrixRead(MatrixBGENReader(path, sample_file, index_file_map, n_partitions, block_size, None)))\n        lt = mt_type.row_type['locus']\n\n        expected_vtype = tstruct(locus=lt, alleles=tarray(tstr))\n",
+        "target_code_len": 289,
+        "diff_format": "@@ -960,7 +959,7 @@\n \n-    # have to get reference genome from the index files!\n-    reference_genome = Env.hail().io.bgen.LoadBgen.getReferenceGenome(Env.hc()._jhc.hadoopConf(), wrap_to_list(path), java_index_file_map)\n-    lt = tlocus(reference_genome) if reference_genome else tstruct(contig=tstr, position=tint32)\n-\n     if variants is not None:\n+        mt_type = Env.backend().matrix_type(\n+            MatrixRead(MatrixBGENReader(path, sample_file, index_file_map, n_partitions, block_size, None)))\n+        lt = mt_type.row_type['locus']\n+\n         expected_vtype = tstruct(locus=lt, alleles=tarray(tstr))\n",
+        "source_code_with_indent": "\n    # have to get reference genome from the index files!\n    reference_genome = Env.hail().io.bgen.LoadBgen.getReferenceGenome(Env.hc()._jhc.hadoopConf(), wrap_to_list(path), java_index_file_map)\n    lt = tlocus(reference_genome) if reference_genome else tstruct(contig=tstr, position=tint32)\n\n    if variants is not None:\n        <IND>expected_vtype = tstruct(locus=lt, alleles=tarray(tstr))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    if variants is not None:\n        <IND>mt_type = Env.backend().matrix_type(\n            MatrixRead(MatrixBGENReader(path, sample_file, index_file_map, n_partitions, block_size, None)))\n        lt = mt_type.row_type['locus']\n\n        expected_vtype = tstruct(locus=lt, alleles=tarray(tstr))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "hail-is/hail",
+    "commit": "9aa89a61c1c27f6fc814541e7594635a0f306a77",
+    "filename": "hail/python/hail/methods/impex.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hail-is-hail/hail/python/hail/methods/impex.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hail/python/hail/methods/impex.py:963:9 Unbound name [10]: Name `tlocus` is used but not defined in the current scope.",
+    "message": " Name `tlocus` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 963,
+    "warning_line": "    lt = tlocus(reference_genome) if reference_genome else tstruct(contig=tstr, position=tint32)"
+  }
+]

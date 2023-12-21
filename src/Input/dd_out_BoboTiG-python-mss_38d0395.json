@@ -1,0 +1,70 @@
+[
+  {
+    "project": "BoboTiG/python-mss",
+    "commit": "38d0395b541a1a8dcbdfa2bbb3acab9ce976d527",
+    "filename": "mss/linux.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/BoboTiG-python-mss/mss/linux.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mss/linux.py:238:37 Incompatible variable type [9]: func is declared to have type `str` but is used as type `None`.",
+    "message": " func is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 238,
+    "warning_line": "        def cfactory(attr=self.xlib, func=None, argtypes=None, restype=None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        def cfactory(attr=self.xlib, func=None, argtypes=None, restype=None):\n            # type: (Any, str, List[Any], Any) -> None\n            \"\"\" Factorize ctypes creations. \"\"\"\n",
+        "source_code_len": 182,
+        "target_code": "\n        def cfactory(func, argtypes, restype, attr=self.xlib):\n            # type: (str, List[Any], Any, Any) -> None\n            \"\"\" Factorize ctypes creations. \"\"\"\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -237,4 +237,4 @@\n \n-        def cfactory(attr=self.xlib, func=None, argtypes=None, restype=None):\n-            # type: (Any, str, List[Any], Any) -> None\n+        def cfactory(func, argtypes, restype, attr=self.xlib):\n+            # type: (str, List[Any], Any, Any) -> None\n             \"\"\" Factorize ctypes creations. \"\"\"\n",
+        "source_code_with_indent": "\n        def cfactory(attr=self.xlib, func=None, argtypes=None, restype=None):\n            # type: (Any, str, List[Any], Any) -> None\n            <IND>\"\"\" Factorize ctypes creations. \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        def cfactory(func, argtypes, restype, attr=self.xlib):\n            # type: (str, List[Any], Any, Any) -> None\n            <IND>\"\"\" Factorize ctypes creations. \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "BoboTiG/python-mss",
+    "commit": "38d0395b541a1a8dcbdfa2bbb3acab9ce976d527",
+    "filename": "mss/linux.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/BoboTiG-python-mss/mss/linux.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mss/linux.py:238:48 Incompatible variable type [9]: argtypes is declared to have type `List[typing.Any]` but is used as type `None`.",
+    "message": " argtypes is declared to have type `List[typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 238,
+    "warning_line": "        def cfactory(attr=self.xlib, func=None, argtypes=None, restype=None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        def cfactory(attr=self.xlib, func=None, argtypes=None, restype=None):\n            # type: (Any, str, List[Any], Any) -> None\n            \"\"\" Factorize ctypes creations. \"\"\"\n",
+        "source_code_len": 182,
+        "target_code": "\n        def cfactory(func, argtypes, restype, attr=self.xlib):\n            # type: (str, List[Any], Any, Any) -> None\n            \"\"\" Factorize ctypes creations. \"\"\"\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -237,4 +237,4 @@\n \n-        def cfactory(attr=self.xlib, func=None, argtypes=None, restype=None):\n-            # type: (Any, str, List[Any], Any) -> None\n+        def cfactory(func, argtypes, restype, attr=self.xlib):\n+            # type: (str, List[Any], Any, Any) -> None\n             \"\"\" Factorize ctypes creations. \"\"\"\n",
+        "source_code_with_indent": "\n        def cfactory(attr=self.xlib, func=None, argtypes=None, restype=None):\n            # type: (Any, str, List[Any], Any) -> None\n            <IND>\"\"\" Factorize ctypes creations. \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        def cfactory(func, argtypes, restype, attr=self.xlib):\n            # type: (str, List[Any], Any, Any) -> None\n            <IND>\"\"\" Factorize ctypes creations. \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

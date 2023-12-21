@@ -1,0 +1,36 @@
+[
+  {
+    "project": "CadQuery/cadquery",
+    "commit": "0325474f7270bd71820f0b88513eadf6380253e1",
+    "filename": "cadquery/cq.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/CadQuery-cadquery/cadquery/cq.py",
+    "file_hunks_size": 30,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cadquery/cq.py:310:8 Incompatible variable type [9]: s is declared to have type `Shape` but is used as type `Union[Compound, Location, Shape, Solid, Vector]`.",
+    "message": " s is declared to have type `Shape` but is used as type `Union[Compound, Location, Shape, Solid, Vector]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 310,
+    "warning_line": "        s: Shape = ctxSolid",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # loop through current stack objects, and combine them\n        toCombine = self.solids().vals()\n\n        if otherCQToCombine:\n            for obj in otherCQToCombine.solids().vals():\n                toCombine.append(obj)\n",
+        "source_code_len": 229,
+        "target_code": "        # loop through current stack objects, and combine them\n        toCombine = cast(List[Solid], self.solids().vals())\n\n        if otherCQToCombine:\n            otherSolids = cast(List[Solid], otherCQToCombine.solids().vals())\n            for obj in otherSolids:\n                toCombine.append(obj)\n",
+        "target_code_len": 305,
+        "diff_format": "@@ -293,6 +293,7 @@\n         # loop through current stack objects, and combine them\n-        toCombine = self.solids().vals()\n+        toCombine = cast(List[Solid], self.solids().vals())\n \n         if otherCQToCombine:\n-            for obj in otherCQToCombine.solids().vals():\n+            otherSolids = cast(List[Solid], otherCQToCombine.solids().vals())\n+            for obj in otherSolids:\n                 toCombine.append(obj)\n",
+        "source_code_with_indent": "        # loop through current stack objects, and combine them\n        toCombine = self.solids().vals()\n\n        if otherCQToCombine:\n            <IND>for obj in otherCQToCombine.solids().vals():\n                <IND>toCombine.append(obj)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # loop through current stack objects, and combine them\n        toCombine = cast(List[Solid], self.solids().vals())\n\n        if otherCQToCombine:\n            <IND>otherSolids = cast(List[Solid], otherCQToCombine.solids().vals())\n            for obj in otherSolids:\n                <IND>toCombine.append(obj)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

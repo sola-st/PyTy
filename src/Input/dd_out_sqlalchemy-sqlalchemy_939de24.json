@@ -1,0 +1,36 @@
+[
+  {
+    "project": "sqlalchemy/sqlalchemy",
+    "commit": "939de240d31a5441ad7380738d410a976d4ecc3a",
+    "filename": "lib/sqlalchemy/dialects/postgresql/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sqlalchemy-sqlalchemy/lib/sqlalchemy/dialects/postgresql/base.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lib/sqlalchemy/dialects/postgresql/base.py:2046:4 Inconsistent override [15]: `__slots__` overrides attribute defined in `elements.CompilerColumnElement` inconsistently. Type `typing.Tuple[str, str, str]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "message": " `__slots__` overrides attribute defined in `elements.CompilerColumnElement` inconsistently. Type `typing.Tuple[str, str, str]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 2046,
+    "warning_line": "    __slots__ = (\"type\", \"clause\", \"typeclause\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\nclass _ColonCast(elements.CompilerColumnElement):\n    __visit_name__ = \"colon_cast\"\n    __slots__ = (\"type\", \"clause\", \"typeclause\")\n\n    def __init__(self, expression, type_):\n        self.type = type_\n        self.clause = expression\n        self.typeclause = elements.TypeClause(type_)\n\n\ncolspecs = {\n",
+        "source_code_len": 305,
+        "target_code": "\ncolspecs = {\n",
+        "target_code_len": 14,
+        "diff_format": "@@ -2043,12 +2044,2 @@\n \n-class _ColonCast(elements.CompilerColumnElement):\n-    __visit_name__ = \"colon_cast\"\n-    __slots__ = (\"type\", \"clause\", \"typeclause\")\n-\n-    def __init__(self, expression, type_):\n-        self.type = type_\n-        self.clause = expression\n-        self.typeclause = elements.TypeClause(type_)\n-\n-\n colspecs = {\n",
+        "source_code_with_indent": "\n<DED><DED><DED>class _ColonCast(elements.CompilerColumnElement):\n    <IND>__visit_name__ = \"colon_cast\"\n    __slots__ = (\"type\", \"clause\", \"typeclause\")\n\n    def __init__(self, expression, type_):\n        <IND>self.type = type_\n        self.clause = expression\n        self.typeclause = elements.TypeClause(type_)\n\n\n<DED><DED>colspecs = {\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>colspecs = {\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

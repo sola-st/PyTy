@@ -1,0 +1,70 @@
+[
+  {
+    "project": "RelevanceAI/vectorhub",
+    "commit": "c29bfbfb92261a5bee178b26fa4e5370bb039809",
+    "filename": "vectorhub/encoders/audio/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RelevanceAI-vectorhub/vectorhub/encoders/audio/base.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vectorhub/encoders/audio/base.py:34:53 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `io.BytesIO.__init__` but got `str`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `io.BytesIO.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 34,
+    "warning_line": "            data, sampling_rate = sf.read(io.BytesIO(audio), dtype='float32')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        if type(audio) == str:\n            if 'http' in audio:\n",
+        "source_code_len": 75,
+        "target_code": "        \"\"\"\n        if type(audio) is str:\n            if 'http' in audio:\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -20,3 +20,3 @@\n         \"\"\"\n-        if type(audio) == str:\n+        if type(audio) is str:\n             if 'http' in audio:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        if type(audio) == str:\n            <IND>if 'http' in audio:\n",
+        "target_code_with_indent": "\n        if type(audio) is str:\n            <IND>if 'http' in audio:\n"
+      }
+    ]
+  },
+  {
+    "project": "RelevanceAI/vectorhub",
+    "commit": "c29bfbfb92261a5bee178b26fa4e5370bb039809",
+    "filename": "vectorhub/encoders/image/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RelevanceAI-vectorhub/vectorhub/encoders/image/base.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vectorhub/encoders/image/base.py:33:27 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `io.BytesIO.__init__` but got `str`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `io.BytesIO.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 33,
+    "warning_line": "            b = io.BytesIO(image)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        if type(image) == str:\n            if 'http' in image:\n",
+        "source_code_len": 75,
+        "target_code": "        \"\"\"\n        if type(image) is str:\n            if 'http' in image:\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -21,3 +21,3 @@\n         \"\"\"\n-        if type(image) == str:\n+        if type(image) is str:\n             if 'http' in image:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        if type(image) == str:\n            <IND>if 'http' in image:\n",
+        "target_code_with_indent": "\n        if type(image) is str:\n            <IND>if 'http' in image:\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "project": "dot-osk/monitor_ctrl",
+    "commit": "23f7665ab92c330c54f8c265665ac27e9c02f924",
+    "filename": "vcp.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dot-osk-monitor_ctrl/vcp.py",
+    "file_hunks_size": 14,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vcp.py:300:57 Invalid type [31]: Expression `(int, int)` is not a valid type.",
+    "message": " Expression `(int, int)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 300,
+    "warning_line": "    def get_vcp_value_by_name(self, vcp_code_key: str)->(int, int):"
+  },
+  {
+    "project": "dot-osk/monitor_ctrl",
+    "commit": "23f7665ab92c330c54f8c265665ac27e9c02f924",
+    "filename": "vcp.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dot-osk-monitor_ctrl/vcp.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vcp.py:406:25 Invalid type [31]: Expression `(int, int, int)` is not a valid type.",
+    "message": " Expression `(int, int, int)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 406,
+    "warning_line": "    def rgb_gain(self)->(int, int, int):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import vcp_code\n\n",
+        "source_code_len": 17,
+        "target_code": "import vcp_code\nfrom typing import Tuple\n\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -7,2 +7,3 @@\n import vcp_code\n+from typing import Tuple\n \n",
+        "source_code_with_indent": "import vcp_code\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import vcp_code\nfrom typing import Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def rgb_gain(self)->(int, int, int):\n        \"\"\"\n",
+        "source_code_len": 67,
+        "target_code": "    @property\n    def rgb_gain(self) -> Tuple[int, int, int]:\n        \"\"\"\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -405,3 +406,3 @@\n     @property\n-    def rgb_gain(self)->(int, int, int):\n+    def rgb_gain(self) -> Tuple[int, int, int]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@property\n    def rgb_gain(self)->(int, int, int):\n        <IND>",
+        "target_code_with_indent": "    <DED>@property\n    def rgb_gain(self) -> Tuple[int, int, int]:\n        <IND>"
+      }
+    ]
+  }
+]

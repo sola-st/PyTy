@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Mic92/nixpkgs-review",
+    "commit": "27cba6e4ff24dd074fa0e030db49f9f0656f264a",
+    "filename": "nixpkgs_review/review.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Mic92-nixpkgs-review/nixpkgs_review/review.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "nixpkgs_review/review.py:258:34 Incompatible parameter type [6]: Expected `IO[bytes]` for 1st positional only parameter to call `parse_packages_xml` but got `Optional[IO[typing.Any]]`.",
+    "message": " Expected `IO[bytes]` for 1st positional only parameter to call `parse_packages_xml` but got `Optional[IO[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 258,
+    "warning_line": "        return parse_packages_xml(nix_env.stdout)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    with proc as nix_env:\n        return parse_packages_xml(nix_env.stdout)\n",
+        "source_code_len": 76,
+        "target_code": "    with proc as nix_env:\n        assert nix_env.stdout\n        return parse_packages_xml(nix_env.stdout)\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -257,2 +258,3 @@\n     with proc as nix_env:\n+        assert nix_env.stdout\n         return parse_packages_xml(nix_env.stdout)\n",
+        "source_code_with_indent": "    with proc as nix_env:\n        <IND>return parse_packages_xml(nix_env.stdout)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    with proc as nix_env:\n        <IND>assert nix_env.stdout\n        return parse_packages_xml(nix_env.stdout)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

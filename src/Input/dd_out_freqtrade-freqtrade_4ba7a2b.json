@@ -1,0 +1,70 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "4ba7a2bbd290c2c6e5746995ceacd89660a04ab5",
+    "filename": "freqtrade/resolvers/iresolver.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/resolvers/iresolver.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/resolvers/iresolver.py:61:49 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `importlib.util.module_from_spec` but got `Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 61,
+    "warning_line": "        module = importlib.util.module_from_spec(spec)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        spec = importlib.util.spec_from_file_location(object_name or \"\", str(module_path))\n        module = importlib.util.module_from_spec(spec)\n",
+        "source_code_len": 146,
+        "target_code": "        spec = importlib.util.spec_from_file_location(object_name or \"\", str(module_path))\n        if not spec:\n            return iter([None])\n\n        module = importlib.util.module_from_spec(spec)\n",
+        "target_code_len": 200,
+        "diff_format": "@@ -60,2 +60,5 @@\n         spec = importlib.util.spec_from_file_location(object_name or \"\", str(module_path))\n+        if not spec:\n+            return iter([None])\n+\n         module = importlib.util.module_from_spec(spec)\n",
+        "source_code_with_indent": "        spec = importlib.util.spec_from_file_location(object_name or \"\", str(module_path))\n        module = importlib.util.module_from_spec(spec)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        spec = importlib.util.spec_from_file_location(object_name or \"\", str(module_path))\n        if not spec:\n            <IND>return iter([None])\n\n        <DED>module = importlib.util.module_from_spec(spec)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "4ba7a2bbd290c2c6e5746995ceacd89660a04ab5",
+    "filename": "freqtrade/rpc/webhook.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/rpc/webhook.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/rpc/webhook.py:88:30 Incompatible parameter type [6]: Expected `bool` for 2nd positional only parameter to call `requests.api.post` but got `Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `bool` for 2nd positional only parameter to call `requests.api.post` but got `Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 88,
+    "warning_line": "            post(self._url, **kwargs)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if self._format == 'form':\n            kwargs = {'data': payload}\n        elif self._format == 'json':\n            kwargs = {'json': payload}\n        else:\n            raise NotImplementedError('Unknown format: {}'.format(self._format))\n\n        try:\n            post(self._url, **kwargs)\n        except RequestException as exc:\n",
+        "source_code_len": 338,
+        "target_code": "\n        try:\n            if self._format == 'form':\n                post(self._url, data=payload)\n            elif self._format == 'json':\n                post(self._url, json=payload)\n            else:\n                raise NotImplementedError('Unknown format: {}'.format(self._format))\n\n        except RequestException as exc:\n",
+        "target_code_len": 330,
+        "diff_format": "@@ -79,11 +79,10 @@\n \n-        if self._format == 'form':\n-            kwargs = {'data': payload}\n-        elif self._format == 'json':\n-            kwargs = {'json': payload}\n-        else:\n-            raise NotImplementedError('Unknown format: {}'.format(self._format))\n+        try:\n+            if self._format == 'form':\n+                post(self._url, data=payload)\n+            elif self._format == 'json':\n+                post(self._url, json=payload)\n+            else:\n+                raise NotImplementedError('Unknown format: {}'.format(self._format))\n \n-        try:\n-            post(self._url, **kwargs)\n         except RequestException as exc:\n",
+        "source_code_with_indent": "\n        if self._format == 'form':\n            <IND>kwargs = {'data': payload}\n        <DED>elif self._format == 'json':\n            <IND>kwargs = {'json': payload}\n        <DED>else:\n            <IND>raise NotImplementedError('Unknown format: {}'.format(self._format))\n\n        <DED>try:\n            <IND>post(self._url, **kwargs)\n        <DED>except RequestException as exc:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        try:\n            <IND>if self._format == 'form':\n                <IND>post(self._url, data=payload)\n            <DED>elif self._format == 'json':\n                <IND>post(self._url, json=payload)\n            <DED>else:\n                <IND>raise NotImplementedError('Unknown format: {}'.format(self._format))\n\n        <DED><DED>except RequestException as exc:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ithemal/Ithemal",
+    "commit": "f90cc852e635ba738c1766dcda70e5b8a7be936d",
+    "filename": "aws/command_queue.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ithemal-Ithemal/aws/command_queue.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aws/command_queue.py:48:21 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `str`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 48,
+    "warning_line": "    for idx in range(instance_count):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n    # type: (str, str, str, int) -> None\n\n",
+        "source_code_len": 123,
+        "target_code": "def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n    # type: (str, str, str, int, bool) -> None\n\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -34,3 +34,3 @@\n def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n-    # type: (str, str, str, int) -> None\n+    # type: (str, str, str, int, bool) -> None\n \n",
+        "source_code_with_indent": "<DED>def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n    # type: (str, str, str, int) -> None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n    # type: (str, str, str, int, bool) -> None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ithemal/Ithemal",
+    "commit": "f90cc852e635ba738c1766dcda70e5b8a7be936d",
+    "filename": "aws/command_queue.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ithemal-Ithemal/aws/command_queue.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aws/command_queue.py:50:18 Unsupported operand [58]: `-` is not supported for operand types `str` and `int`.",
+    "message": " `-` is not supported for operand types `str` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 50,
+    "warning_line": "        if idx == instance_count - 1:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n    # type: (str, str, str, int) -> None\n\n",
+        "source_code_len": 123,
+        "target_code": "def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n    # type: (str, str, str, int, bool) -> None\n\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -34,3 +34,3 @@\n def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n-    # type: (str, str, str, int) -> None\n+    # type: (str, str, str, int, bool) -> None\n \n",
+        "source_code_with_indent": "<DED>def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n    # type: (str, str, str, int) -> None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def create_queue(identity, queue, instance_type, instance_count, ignore_exists):\n    # type: (str, str, str, int, bool) -> None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

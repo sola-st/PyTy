@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ebroecker/canmatrix",
+    "commit": "a15ba7dd6dfd8463e657925d6359e49d5cab2d3b",
+    "filename": "src/canmatrix/canmatrix.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ebroecker-canmatrix/src/canmatrix/canmatrix.py",
+    "file_hunks_size": 35,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/canmatrix/canmatrix.py:912:8 Incompatible variable type [9]: little_bits is declared to have type `typing.Sequence[typing.MutableSequence[typing.Any]]` but is used as type `reversed[typing.Any]`.",
+    "message": " little_bits is declared to have type `typing.Sequence[typing.MutableSequence[typing.Any]]` but is used as type `reversed[typing.Any]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 912,
+    "warning_line": "        little_bits = reversed(tuple(grouper(little_bits, 8)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        little_bits = reversed(tuple(grouper(little_bits, 8)))\n        little_bits = tuple(chain(*little_bits))\n\n        returnList = [\n            little + big\n",
+        "source_code_len": 162,
+        "target_code": "\n        little_bits_iter = reversed(tuple(grouper(little_bits, 8)))\n        little_bits = list(chain(*little_bits_iter))\n\n        return_list = [\n            little + big\n",
+        "target_code_len": 172,
+        "diff_format": "@@ -911,6 +910,6 @@\n \n-        little_bits = reversed(tuple(grouper(little_bits, 8)))\n-        little_bits = tuple(chain(*little_bits))\n-\n-        returnList = [\n+        little_bits_iter = reversed(tuple(grouper(little_bits, 8)))\n+        little_bits = list(chain(*little_bits_iter))\n+\n+        return_list = [\n             little + big\n",
+        "source_code_with_indent": "\n        <DED><DED><DED>little_bits = reversed(tuple(grouper(little_bits, 8)))\n        little_bits = tuple(chain(*little_bits))\n\n        returnList = [\n            little + big\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED><DED><DED>little_bits_iter = reversed(tuple(grouper(little_bits, 8)))\n        little_bits = list(chain(*little_bits_iter))\n\n        return_list = [\n            little + big\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        return returnList\n\n",
+        "source_code_len": 28,
+        "target_code": "\n        return return_list\n\n",
+        "target_code_len": 29,
+        "diff_format": "@@ -919,3 +918,3 @@\n \n-        return returnList\n+        return return_list\n \n",
+        "source_code_with_indent": "\n        return returnList\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        return return_list\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

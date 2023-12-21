@@ -1,0 +1,70 @@
+[
+  {
+    "project": "dagster-io/dagster",
+    "commit": "5502b4bf42106c48ec38dbdb5971e9e531e86599",
+    "filename": "python_modules/dagster/dagster/config/validate.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dagster-io-dagster/python_modules/dagster/dagster/config/validate.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "python_modules/dagster/dagster/config/validate.py:30:52 Unsupported operand [58]: `+` is not supported for operand types `typing.List[typing.Type[int]]` and `typing.List[typing.Type[float]]`.",
+    "message": " `+` is not supported for operand types `typing.List[typing.Type[int]]` and `typing.List[typing.Type[float]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 30,
+    "warning_line": "VALID_FLOAT_TYPES = tuple(list(six.integer_types) + [float])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nVALID_FLOAT_TYPES = tuple(list(six.integer_types) + [float])\n\n",
+        "source_code_len": 63,
+        "target_code": "\nVALID_FLOAT_TYPES = tuple([int, float])\n\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -29,3 +28,3 @@\n \n-VALID_FLOAT_TYPES = tuple(list(six.integer_types) + [float])\n+VALID_FLOAT_TYPES = tuple([int, float])\n \n",
+        "source_code_with_indent": "\nVALID_FLOAT_TYPES = tuple(list(six.integer_types) + [float])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nVALID_FLOAT_TYPES = tuple([int, float])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dagster-io/dagster",
+    "commit": "5502b4bf42106c48ec38dbdb5971e9e531e86599",
+    "filename": "python_modules/dagster/dagster/core/definitions/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dagster-io-dagster/python_modules/dagster/dagster/core/definitions/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "python_modules/dagster/dagster/core/definitions/utils.py:34:6 Unsupported operand [58]: `+` is not supported for operand types `typing.List[str]` and `typing.Sequence[str]`.",
+    "message": " `+` is not supported for operand types `typing.List[str]` and `typing.Sequence[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 34,
+    "warning_line": "    + keyword.kwlist  # just disallow all python keywords",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ]\n    + keyword.kwlist  # just disallow all python keywords\n)\n",
+        "source_code_len": 66,
+        "target_code": "    ]\n    + list(keyword.kwlist)  # just disallow all python keywords\n)\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -33,3 +33,3 @@\n     ]\n-    + keyword.kwlist  # just disallow all python keywords\n+    + list(keyword.kwlist)  # just disallow all python keywords\n )\n",
+        "source_code_with_indent": "    ]\n    + keyword.kwlist  # just disallow all python keywords\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ]\n    + list(keyword.kwlist)  # just disallow all python keywords\n)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

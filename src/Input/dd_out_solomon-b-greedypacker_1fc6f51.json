@@ -1,0 +1,165 @@
+[
+  {
+    "project": "solomon-b/greedypacker",
+    "commit": "1fc6f51b6d008ed5d257757ce885e73543246bc5",
+    "filename": "greedypacker/binmanager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/solomon-b-greedypacker/greedypacker/binmanager.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "greedypacker/binmanager.py:53:8 Incompatible variable type [9]: defaultBin is declared to have type `Union[guillotine.Guillotine, shelf.Sheet]` but is used as type `Union[None, guillotine.Guillotine, shelf.Sheet]`.",
+    "message": " defaultBin is declared to have type `Union[guillotine.Guillotine, shelf.Sheet]` but is used as type `Union[None, guillotine.Guillotine, shelf.Sheet]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 53,
+    "warning_line": "        defaultBin = self._bin_factory() # type: Algorithm",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        defaultBin = self._bin_factory() # type: Algorithm\n        self.bins = [defaultBin] # type: List[Algorithm]\n\n",
+        "source_code_len": 118,
+        "target_code": "\n        defaultBin = self._bin_factory() \n        self.bins = [defaultBin]\n\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -52,4 +51,4 @@\n \n-        defaultBin = self._bin_factory() # type: Algorithm\n-        self.bins = [defaultBin] # type: List[Algorithm]\n+        defaultBin = self._bin_factory() \n+        self.bins = [defaultBin]\n \n",
+        "source_code_with_indent": "\n        defaultBin = self._bin_factory() # type: Algorithm\n        self.bins = [defaultBin] # type: List[Algorithm]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        defaultBin = self._bin_factory() \n        self.bins = [defaultBin]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "solomon-b/greedypacker",
+    "commit": "1fc6f51b6d008ed5d257757ce885e73543246bc5",
+    "filename": "greedypacker/binmanager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/solomon-b-greedypacker/greedypacker/binmanager.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "greedypacker/binmanager.py:75:12 Incompatible return type [7]: Expected `Union[None, guillotine.Guillotine, shelf.Sheet]` but got `maximal_rectangles.MaximalRectangle`.",
+    "message": " Expected `Union[None, guillotine.Guillotine, shelf.Sheet]` but got `maximal_rectangles.MaximalRectangle`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 75,
+    "warning_line": "            return maximal_rectangles.MaximalRectangle(self.bin_width, self.bin_height, self.rotation)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _bin_factory(self) -> Optional[Algorithm]:\n        \"\"\"\n",
+        "source_code_len": 64,
+        "target_code": "\n    def _bin_factory(self) -> Any:\n        \"\"\"\n",
+        "target_code_len": 48,
+        "diff_format": "@@ -63,3 +62,3 @@\n \n-    def _bin_factory(self) -> Optional[Algorithm]:\n+    def _bin_factory(self) -> Any:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def _bin_factory(self) -> Optional[Algorithm]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def _bin_factory(self) -> Any:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "solomon-b/greedypacker",
+    "commit": "1fc6f51b6d008ed5d257757ce885e73543246bc5",
+    "filename": "greedypacker/binmanager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/solomon-b-greedypacker/greedypacker/binmanager.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "greedypacker/binmanager.py:89:29 Incompatible parameter type [6]: Expected `Union[guillotine.Guillotine, shelf.Sheet]` for 1st positional only parameter to call `list.append` but got `Union[None, guillotine.Guillotine, shelf.Sheet]`.",
+    "message": " Expected `Union[guillotine.Guillotine, shelf.Sheet]` for 1st positional only parameter to call `list.append` but got `Union[None, guillotine.Guillotine, shelf.Sheet]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 89,
+    "warning_line": "            self.bins.append(self._bin_factory())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        defaultBin = self._bin_factory() # type: Algorithm\n        self.bins = [defaultBin] # type: List[Algorithm]\n\n",
+        "source_code_len": 118,
+        "target_code": "\n        defaultBin = self._bin_factory() \n        self.bins = [defaultBin]\n\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -52,4 +51,4 @@\n \n-        defaultBin = self._bin_factory() # type: Algorithm\n-        self.bins = [defaultBin] # type: List[Algorithm]\n+        defaultBin = self._bin_factory() \n+        self.bins = [defaultBin]\n \n",
+        "source_code_with_indent": "\n        defaultBin = self._bin_factory() # type: Algorithm\n        self.bins = [defaultBin] # type: List[Algorithm]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        defaultBin = self._bin_factory() \n        self.bins = [defaultBin]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "solomon-b/greedypacker",
+    "commit": "1fc6f51b6d008ed5d257757ce885e73543246bc5",
+    "filename": "greedypacker/binmanager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/solomon-b-greedypacker/greedypacker/binmanager.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "greedypacker/binmanager.py:152:25 Incompatible parameter type [6]: Expected `Union[guillotine.Guillotine, shelf.Sheet]` for 1st positional only parameter to call `list.append` but got `Union[None, guillotine.Guillotine, shelf.Sheet]`.",
+    "message": " Expected `Union[guillotine.Guillotine, shelf.Sheet]` for 1st positional only parameter to call `list.append` but got `Union[None, guillotine.Guillotine, shelf.Sheet]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 152,
+    "warning_line": "        self.bins.append(self._bin_factory())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        defaultBin = self._bin_factory() # type: Algorithm\n        self.bins = [defaultBin] # type: List[Algorithm]\n\n",
+        "source_code_len": 118,
+        "target_code": "\n        defaultBin = self._bin_factory() \n        self.bins = [defaultBin]\n\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -52,4 +51,4 @@\n \n-        defaultBin = self._bin_factory() # type: Algorithm\n-        self.bins = [defaultBin] # type: List[Algorithm]\n+        defaultBin = self._bin_factory() \n+        self.bins = [defaultBin]\n \n",
+        "source_code_with_indent": "\n        defaultBin = self._bin_factory() # type: Algorithm\n        self.bins = [defaultBin] # type: List[Algorithm]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        defaultBin = self._bin_factory() \n        self.bins = [defaultBin]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "solomon-b/greedypacker",
+    "commit": "1fc6f51b6d008ed5d257757ce885e73543246bc5",
+    "filename": "greedypacker/func_guillotine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "greedypacker/func_guillotine.py:44:35 Invalid type [31]: Expression `(typing.List[greedypacker.func_guillotine.FreeRectangle], item)` is not a valid type.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/solomon-b-greedypacker/greedypacker/func_guillotine.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "solomon-b/greedypacker",
+    "commit": "1fc6f51b6d008ed5d257757ce885e73543246bc5",
+    "filename": "greedypacker/func_guillotine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "greedypacker/func_guillotine.py:53:4 Incompatible return type [7]: Expected `List[FreeRectangle]` but got `FreeRectangle`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/solomon-b-greedypacker/greedypacker/func_guillotine.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "solomon-b/greedypacker",
+    "commit": "1fc6f51b6d008ed5d257757ce885e73543246bc5",
+    "filename": "greedypacker/func_guillotine.py",
+    "min_patch_found": false,
+    "full_warning_msg": "greedypacker/func_guillotine.py:111:4 Incompatible return type [7]: Expected `List[FreeRectangle]` but got `filter[FreeRectangle]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/solomon-b-greedypacker/greedypacker/func_guillotine.py'",
+    "dd_fail": true
+  }
+]

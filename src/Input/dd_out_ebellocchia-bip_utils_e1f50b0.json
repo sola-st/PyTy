@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ebellocchia/bip_utils",
+    "commit": "e1f50b075069de7264f61964d782d0595a8f95bd",
+    "filename": "bip_utils/bip/bip32/bip32_path.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ebellocchia-bip_utils/bip_utils/bip/bip32/bip32_path.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bip_utils/bip/bip32/bip32_path.py:160:25 Incompatible parameter type [6]: Expected `Optional[List[Union[Bip32KeyIndex, int]]]` for 1st positional only parameter to call `Bip32Path.__init__` but got `List[int]`.",
+    "message": " Expected `Optional[List[Union[Bip32KeyIndex, int]]]` for 1st positional only parameter to call `Bip32Path.__init__` but got `List[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 160,
+    "warning_line": "        return Bip32Path(parsed_elems)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# Import\nfrom typing import Iterator, List, Optional, Tuple, Union\nfrom bip_utils.bip.bip32.bip32_ex import Bip32PathError\n",
+        "source_code_len": 123,
+        "target_code": "# Import\nfrom typing import Iterator, List, Optional, Sequence, Tuple, Union\nfrom bip_utils.bip.bip32.bip32_ex import Bip32PathError\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -22,3 +22,3 @@\n # Import\n-from typing import Iterator, List, Optional, Tuple, Union\n+from typing import Iterator, List, Optional, Sequence, Tuple, Union\n from bip_utils.bip.bip32.bip32_ex import Bip32PathError\n",
+        "source_code_with_indent": "# Import\nfrom typing import Iterator, List, Optional, Tuple, Union\nfrom bip_utils.bip.bip32.bip32_ex import Bip32PathError\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# Import\nfrom typing import Iterator, List, Optional, Sequence, Tuple, Union\nfrom bip_utils.bip.bip32.bip32_ex import Bip32PathError\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self,\n                 elems: Optional[List[Union[int, Bip32KeyIndex]]] = None) -> None:\n        \"\"\" Construct class by specifying the path elements.\n",
+        "source_code_len": 167,
+        "target_code": "    def __init__(self,\n                 elems: Optional[Sequence[Union[int, Bip32KeyIndex]]] = None) -> None:\n        \"\"\" Construct class by specifying the path elements.\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -41,3 +41,3 @@\n     def __init__(self,\n-                 elems: Optional[List[Union[int, Bip32KeyIndex]]] = None) -> None:\n+                 elems: Optional[Sequence[Union[int, Bip32KeyIndex]]] = None) -> None:\n         \"\"\" Construct class by specifying the path elements.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    def __init__(self,\n                 elems: Optional[List[Union[int, Bip32KeyIndex]]] = None) -> None:\n        <IND>",
+        "target_code_with_indent": "    def __init__(self,\n                 elems: Optional[Sequence[Union[int, Bip32KeyIndex]]] = None) -> None:\n        <IND>"
+      }
+    ]
+  }
+]

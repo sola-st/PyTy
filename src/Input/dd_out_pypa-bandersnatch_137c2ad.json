@@ -1,0 +1,70 @@
+[
+  {
+    "project": "pypa/bandersnatch",
+    "commit": "137c2ad89c625bbb96afd7d2d09974f1c7fc3d8a",
+    "filename": "src/bandersnatch/main.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pypa-bandersnatch/src/bandersnatch/main.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/bandersnatch/main.py:105:28 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.",
+    "message": " Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 105,
+    "warning_line": "                shutil.move(status_file, tmp_status_file)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            try:\n                shutil.move(status_file, tmp_status_file)\n                logger.debug(\n",
+        "source_code_len": 105,
+        "target_code": "            try:\n                shutil.move(str(status_file), tmp_status_file)\n                logger.debug(\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -104,3 +104,3 @@\n             try:\n-                shutil.move(status_file, tmp_status_file)\n+                shutil.move(str(status_file), tmp_status_file)\n                 logger.debug(\n",
+        "source_code_with_indent": "            try:\n                <IND>shutil.move(status_file, tmp_status_file)\n                logger.debug(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            try:\n                <IND>shutil.move(str(status_file), tmp_status_file)\n                logger.debug(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pypa/bandersnatch",
+    "commit": "137c2ad89c625bbb96afd7d2d09974f1c7fc3d8a",
+    "filename": "src/bandersnatch/verify.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pypa-bandersnatch/src/bandersnatch/verify.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/bandersnatch/verify.py:45:20 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.",
+    "message": " Expected `str` for 1st positional only parameter to call `shutil.move` but got `Path`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 45,
+    "warning_line": "        shutil.move(new_json_path, json_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if new_json_path.exists():\n        shutil.move(new_json_path, json_path)\n    else:\n",
+        "source_code_len": 87,
+        "target_code": "    if new_json_path.exists():\n        shutil.move(str(new_json_path), json_path)\n    else:\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -44,3 +44,3 @@\n     if new_json_path.exists():\n-        shutil.move(new_json_path, json_path)\n+        shutil.move(str(new_json_path), json_path)\n     else:\n",
+        "source_code_with_indent": "    if new_json_path.exists():\n        <IND>shutil.move(new_json_path, json_path)\n    <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if new_json_path.exists():\n        <IND>shutil.move(str(new_json_path), json_path)\n    <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

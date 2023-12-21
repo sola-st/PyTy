@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Ouranosinc/xclim",
+    "commit": "8a53189c863afad79300b3aee66e50f51a389cfb",
+    "filename": "xclim/core/indicator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ouranosinc-xclim/xclim/core/indicator.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "xclim/core/indicator.py:262:16 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[typing.Callable[..., typing.Any], List[typing.Any], bool, int, str]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Union[typing.Callable[..., typing.Any], List[typing.Any], bool, int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 262,
+    "warning_line": "            len(kwds[\"var_name\"]) if isinstance(kwds[\"var_name\"], (list, tuple)) else 1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from inspect import _empty, signature\nfrom typing import Callable, Dict, List, Mapping, Sequence, Union\n\n",
+        "source_code_len": 105,
+        "target_code": "from inspect import _empty, signature\nfrom typing import Any, Callable, Dict, List, Mapping, Sequence, Union\n\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -18,3 +18,3 @@\n from inspect import _empty, signature\n-from typing import Callable, Dict, List, Mapping, Sequence, Union\n+from typing import Any, Callable, Dict, List, Mapping, Sequence, Union\n \n",
+        "source_code_with_indent": "from inspect import _empty, signature\nfrom typing import Callable, Dict, List, Mapping, Sequence, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from inspect import _empty, signature\nfrom typing import Any, Callable, Dict, List, Mapping, Sequence, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _parse_cf_attrs(\n        cls, kwds: Dict[str, Union[str, Callable, int, bool, List[str, Callable]]]\n    ) -> Union[List[Dict[str, str]], List[Dict[str, Union[str, Callable]]]]:\n",
+        "source_code_len": 185,
+        "target_code": "    def _parse_cf_attrs(\n        cls, kwds: Dict[str, Any]\n    ) -> Union[List[Dict[str, str]], List[Dict[str, Union[str, Callable]]]]:\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -256,3 +256,3 @@\n     def _parse_cf_attrs(\n-        cls, kwds: Dict[str, Union[str, Callable, int, bool, List[str, Callable]]]\n+        cls, kwds: Dict[str, Any]\n     ) -> Union[List[Dict[str, str]], List[Dict[str, Union[str, Callable]]]]:\n",
+        "source_code_with_indent": "    def _parse_cf_attrs(\n        cls, kwds: Dict[str, Union[str, Callable, int, bool, List[str, Callable]]]\n    ) -> Union[List[Dict[str, str]], List[Dict[str, Union[str, Callable]]]]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def _parse_cf_attrs(\n        cls, kwds: Dict[str, Any]\n    ) -> Union[List[Dict[str, str]], List[Dict[str, Union[str, Callable]]]]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

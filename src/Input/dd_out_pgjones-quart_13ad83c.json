@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pgjones/quart",
+    "commit": "13ad83c755ed8178269f1133eaf88725056338cc",
+    "filename": "src/quart/wrappers/response.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pgjones-quart/src/quart/wrappers/response.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/quart/wrappers/response.py:511:29 Unsupported operand [58]: `>` is not supported for operand types `Union[str, str]` and `int`.",
+    "message": " `>` is not supported for operand types `Union[str, str]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 511,
+    "warning_line": "        return int(value) if value > 0 else None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        try:\n            value = self.headers.get(\"Age\", \"\")\n        except (TypeError, ValueError):\n            return None\n        return int(value) if value > 0 else None\n\n",
+        "source_code_len": 175,
+        "target_code": "        try:\n            value = int(self.headers.get(\"Age\", \"\"))\n        except (TypeError, ValueError):\n            return None\n        return value if value > 0 else None\n\n",
+        "target_code_len": 175,
+        "diff_format": "@@ -507,6 +507,6 @@\n         try:\n-            value = self.headers.get(\"Age\", \"\")\n+            value = int(self.headers.get(\"Age\", \"\"))\n         except (TypeError, ValueError):\n             return None\n-        return int(value) if value > 0 else None\n+        return value if value > 0 else None\n \n",
+        "source_code_with_indent": "        <IND>try:\n            <IND>value = self.headers.get(\"Age\", \"\")\n        <DED>except (TypeError, ValueError):\n            <IND>return None\n        <DED>return int(value) if value > 0 else None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>try:\n            <IND>value = int(self.headers.get(\"Age\", \"\"))\n        <DED>except (TypeError, ValueError):\n            <IND>return None\n        <DED>return value if value > 0 else None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

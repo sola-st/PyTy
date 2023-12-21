@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "6784d85a084ff1d782fe5b3d6ab1331d27d49791",
+    "filename": "mypy/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/build.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/build.py:1919:52 Unsupported operand [58]: `+` is not supported for operand types `List[str]` and `Optional[List[str]]`.",
+    "message": " `+` is not supported for operand types `List[str]` and `Optional[List[str]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 1919,
+    "warning_line": "        for dep in dependencies + self.suppressed + self.ancestors:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def verify_dependencies(self) -> None:\n        \"\"\"Report errors for import targets in modules that don't exist.\"\"\"\n        # Strip out indirect dependencies. See comment in build.load_graph().\n        manager = self.manager\n        dependencies = [dep for dep in self.dependencies\n                        if self.priorities.get(dep) != PRI_INDIRECT]\n        assert self.ancestors is not None\n        for dep in dependencies + self.suppressed + self.ancestors:\n            options = manager.options.clone_for_module(dep)\n",
+        "source_code_len": 525,
+        "target_code": "\n    def verify_dependencies(self, suppressed_only: bool = False) -> None:\n        \"\"\"Report errors for import targets in modules that don't exist.\n\n        If suppressed_only is set, only check suppressed dependencies.\n        \"\"\"\n        manager = self.manager\n        assert self.ancestors is not None\n        if suppressed_only:\n            all_deps = self.suppressed\n        else:\n            # Strip out indirect dependencies. See comment in build.load_graph().\n            dependencies = [dep for dep in self.dependencies\n                            if self.priorities.get(dep) != PRI_INDIRECT]\n            all_deps = dependencies + self.suppressed + self.ancestors\n        for dep in all_deps:\n            options = manager.options.clone_for_module(dep)\n",
+        "target_code_len": 762,
+        "diff_format": "@@ -1911,10 +1914,17 @@\n \n-    def verify_dependencies(self) -> None:\n-        \"\"\"Report errors for import targets in modules that don't exist.\"\"\"\n-        # Strip out indirect dependencies. See comment in build.load_graph().\n+    def verify_dependencies(self, suppressed_only: bool = False) -> None:\n+        \"\"\"Report errors for import targets in modules that don't exist.\n+\n+        If suppressed_only is set, only check suppressed dependencies.\n+        \"\"\"\n         manager = self.manager\n-        dependencies = [dep for dep in self.dependencies\n-                        if self.priorities.get(dep) != PRI_INDIRECT]\n         assert self.ancestors is not None\n-        for dep in dependencies + self.suppressed + self.ancestors:\n+        if suppressed_only:\n+            all_deps = self.suppressed\n+        else:\n+            # Strip out indirect dependencies. See comment in build.load_graph().\n+            dependencies = [dep for dep in self.dependencies\n+                            if self.priorities.get(dep) != PRI_INDIRECT]\n+            all_deps = dependencies + self.suppressed + self.ancestors\n+        for dep in all_deps:\n             options = manager.options.clone_for_module(dep)\n",
+        "source_code_with_indent": "\n    <DED><DED>def verify_dependencies(self) -> None:\n        <IND>\"\"\"Report errors for import targets in modules that don't exist.\"\"\"\n        # Strip out indirect dependencies. See comment in build.load_graph().\n        manager = self.manager\n        dependencies = [dep for dep in self.dependencies\n                        if self.priorities.get(dep) != PRI_INDIRECT]\n        assert self.ancestors is not None\n        for dep in dependencies + self.suppressed + self.ancestors:\n            <IND>options = manager.options.clone_for_module(dep)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def verify_dependencies(self, suppressed_only: bool = False) -> None:\n        <IND>\"\"\"Report errors for import targets in modules that don't exist.\n\n        If suppressed_only is set, only check suppressed dependencies.\n        \"\"\"\n        manager = self.manager\n        assert self.ancestors is not None\n        if suppressed_only:\n            <IND>all_deps = self.suppressed\n        <DED>else:\n            # Strip out indirect dependencies. See comment in build.load_graph().\n            <IND>dependencies = [dep for dep in self.dependencies\n                            if self.priorities.get(dep) != PRI_INDIRECT]\n            all_deps = dependencies + self.suppressed + self.ancestors\n        <DED>for dep in all_deps:\n            <IND>options = manager.options.clone_for_module(dep)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

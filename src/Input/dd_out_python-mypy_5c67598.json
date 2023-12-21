@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "5c67598dacf74fea40005d2b8a37a22f5e011437",
+    "filename": "mypy/checkexpr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checkexpr.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checkexpr.py:3129:54 Incompatible parameter type [6]: Expected `ProperType` for 1st positional only parameter to call `MessageBuilder.alias_invalid_in_runtime_context` but got `Optional[ProperType]`.",
+    "message": " Expected `ProperType` for 1st positional only parameter to call `MessageBuilder.alias_invalid_in_runtime_context` but got `Optional[ProperType]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 3129,
+    "warning_line": "            self.msg.alias_invalid_in_runtime_context(item, ctx)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                return AnyType(TypeOfAny.special_form)\n            # This type is invalid in most runtime contexts.\n            self.msg.alias_invalid_in_runtime_context(item, ctx)\n            return AnyType(TypeOfAny.from_error)\n\n",
+        "source_code_len": 231,
+        "target_code": "                return AnyType(TypeOfAny.special_form)\n            # This type is invalid in most runtime contexts, give it an 'object' type.\n            return self.named_type('builtins.object')\n\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -3127,5 +3127,4 @@\n                 return AnyType(TypeOfAny.special_form)\n-            # This type is invalid in most runtime contexts.\n-            self.msg.alias_invalid_in_runtime_context(item, ctx)\n-            return AnyType(TypeOfAny.from_error)\n+            # This type is invalid in most runtime contexts, give it an 'object' type.\n+            return self.named_type('builtins.object')\n \n",
+        "source_code_with_indent": "                <IND>return AnyType(TypeOfAny.special_form)\n            # This type is invalid in most runtime contexts.\n            <DED>self.msg.alias_invalid_in_runtime_context(item, ctx)\n            return AnyType(TypeOfAny.from_error)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>return AnyType(TypeOfAny.special_form)\n            # This type is invalid in most runtime contexts, give it an 'object' type.\n            <DED>return self.named_type('builtins.object')\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

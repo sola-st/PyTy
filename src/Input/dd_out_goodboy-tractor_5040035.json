@@ -1,0 +1,36 @@
+[
+  {
+    "project": "goodboy/tractor",
+    "commit": "50400359b8566b489ebb2350c5a27fa28c3eba7a",
+    "filename": "tractor/_clustering.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/_clustering.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/_clustering.py:51:8 Incompatible return type [7]: Expected `AsyncGenerator[typing.List[str], typing.Dict[str, tractor._portal.Portal]]` but got `AsyncGenerator[typing.Dict[str, tractor._portal.Portal], None]`.",
+    "message": " Expected `AsyncGenerator[typing.List[str], typing.Dict[str, tractor._portal.Portal]]` but got `AsyncGenerator[typing.Dict[str, tractor._portal.Portal], None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 51,
+    "warning_line": "        yield portals",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": ") -> AsyncGenerator[\n    list[str],\n    dict[str, tractor.Portal]\n]:\n",
+        "source_code_len": 69,
+        "target_code": ") -> AsyncGenerator[\n    dict[str, tractor.Portal],\n    None,\n]:\n",
+        "target_code_len": 65,
+        "diff_format": "@@ -22,4 +22,4 @@\n ) -> AsyncGenerator[\n-    list[str],\n-    dict[str, tractor.Portal]\n+    dict[str, tractor.Portal],\n+    None,\n ]:\n",
+        "source_code_with_indent": ") -> AsyncGenerator[\n    list[str],\n    dict[str, tractor.Portal]\n]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": ") -> AsyncGenerator[\n    dict[str, tractor.Portal],\n    None,\n]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

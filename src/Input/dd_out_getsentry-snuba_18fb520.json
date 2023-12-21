@@ -1,0 +1,36 @@
+[
+  {
+    "project": "getsentry/snuba",
+    "commit": "18fb520502986bebfc6ef2c4beea5103742faf99",
+    "filename": "snuba/snapshots/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/snuba/snapshots/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "snuba/snapshots/__init__.py:35:16 Incompatible return type [7]: Expected `str` but got `TableConfig`.",
+    "message": " Expected `str` but got `TableConfig`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 35,
+    "warning_line": "                return t",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_table(self, table_name: str) -> str:\n        for t in self.tables:\n",
+        "source_code_len": 80,
+        "target_code": "\n    def get_table(self, table_name: str) -> TableConfig:\n        for t in self.tables:\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -31,3 +31,3 @@\n \n-    def get_table(self, table_name: str) -> str:\n+    def get_table(self, table_name: str) -> TableConfig:\n         for t in self.tables:\n",
+        "source_code_with_indent": "\n    def get_table(self, table_name: str) -> str:\n        <IND>for t in self.tables:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def get_table(self, table_name: str) -> TableConfig:\n        <IND>for t in self.tables:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "hsahovic/poke-env",
+    "commit": "e9b53cd23e51715cd7b888ebb866b9cc17c330bd",
+    "filename": "src/poke_env/player/player.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hsahovic-poke-env/src/poke_env/player/player.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/poke_env/player/player.py:392:30 Incompatible parameter type [6]: Expected `Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]` for 1st positional only parameter to call `min` but got `Optional[int]`.",
+    "message": " Expected `Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]` for 1st positional only parameter to call `min` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 392,
+    "warning_line": "            members, size=min(battle.max_team_size, len(members)), replace=False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        members = list(range(1, len(battle.team) + 1))\n        choice = random.choice(\n            members, size=min(battle.max_team_size, len(members)), replace=False\n        )\n        return \"/team \" + \"\".join([str(c) for c in choice])\n\n",
+        "source_code_len": 239,
+        "target_code": "        members = list(range(1, len(battle.team) + 1))\n        random.shuffle(members)\n        return \"/team \" + \"\".join([str(c) for c in members])\n\n",
+        "target_code_len": 149,
+        "diff_format": "@@ -390,6 +390,4 @@\n         members = list(range(1, len(battle.team) + 1))\n-        choice = random.choice(\n-            members, size=min(battle.max_team_size, len(members)), replace=False\n-        )\n-        return \"/team \" + \"\".join([str(c) for c in choice])\n+        random.shuffle(members)\n+        return \"/team \" + \"\".join([str(c) for c in members])\n \n",
+        "source_code_with_indent": "        members = list(range(1, len(battle.team) + 1))\n        choice = random.choice(\n            members, size=min(battle.max_team_size, len(members)), replace=False\n        )\n        return \"/team \" + \"\".join([str(c) for c in choice])\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        members = list(range(1, len(battle.team) + 1))\n        random.shuffle(members)\n        return \"/team \" + \"\".join([str(c) for c in members])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

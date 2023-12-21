@@ -1,0 +1,70 @@
+[
+  {
+    "project": "opendatacube/datacube-core",
+    "commit": "2675a1d41226a2446d567c83f56d2dd6a10529d3",
+    "filename": "datacube/index/_datasets.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/opendatacube-datacube-core/datacube/index/_datasets.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "datacube/index/_datasets.py:199:8 Incompatible variable type [9]: Unable to unpack `typing.List[fields.Field]`, expected a tuple.",
+    "message": " Unable to unpack `typing.List[fields.Field]`, expected a tuple.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 199,
+    "warning_line": "        group_fields = [load_field(f) for f in group_fields]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def search_product_duplicates(self, product, *group_fields):\n        # type: (DatasetType, Iterable[Union[str, fields.Field]]) -> Iterable[tuple, Set[UUID]]\n        \"\"\"\n",
+        "source_code_len": 174,
+        "target_code": "\n    def search_product_duplicates(self, product: DatasetType, *args) -> Iterable[Tuple[Any, Set[UUID]]]:\n        \"\"\"\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -181,4 +181,3 @@\n \n-    def search_product_duplicates(self, product, *group_fields):\n-        # type: (DatasetType, Iterable[Union[str, fields.Field]]) -> Iterable[tuple, Set[UUID]]\n+    def search_product_duplicates(self, product: DatasetType, *args) -> Iterable[Tuple[Any, Set[UUID]]]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def search_product_duplicates(self, product, *group_fields):\n        # type: (DatasetType, Iterable[Union[str, fields.Field]]) -> Iterable[tuple, Set[UUID]]\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def search_product_duplicates(self, product: DatasetType, *args) -> Iterable[Tuple[Any, Set[UUID]]]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "opendatacube/datacube-core",
+    "commit": "2675a1d41226a2446d567c83f56d2dd6a10529d3",
+    "filename": "datacube/index/_datasets.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/opendatacube-datacube-core/datacube/index/_datasets.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "datacube/index/_datasets.py:199:35 Incompatible parameter type [6]: Expected `Union[fields.Field, str]` for 1st positional only parameter to anonymous call but got `Iterable[Union[fields.Field, str]]`.",
+    "message": " Expected `Union[fields.Field, str]` for 1st positional only parameter to anonymous call but got `Iterable[Union[fields.Field, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 199,
+    "warning_line": "        group_fields = [load_field(f) for f in group_fields]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def search_product_duplicates(self, product, *group_fields):\n        # type: (DatasetType, Iterable[Union[str, fields.Field]]) -> Iterable[tuple, Set[UUID]]\n        \"\"\"\n",
+        "source_code_len": 174,
+        "target_code": "\n    def search_product_duplicates(self, product: DatasetType, *args) -> Iterable[Tuple[Any, Set[UUID]]]:\n        \"\"\"\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -181,4 +181,3 @@\n \n-    def search_product_duplicates(self, product, *group_fields):\n-        # type: (DatasetType, Iterable[Union[str, fields.Field]]) -> Iterable[tuple, Set[UUID]]\n+    def search_product_duplicates(self, product: DatasetType, *args) -> Iterable[Tuple[Any, Set[UUID]]]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def search_product_duplicates(self, product, *group_fields):\n        # type: (DatasetType, Iterable[Union[str, fields.Field]]) -> Iterable[tuple, Set[UUID]]\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def search_product_duplicates(self, product: DatasetType, *args) -> Iterable[Tuple[Any, Set[UUID]]]:\n        <IND>"
+      }
+    ]
+  }
+]

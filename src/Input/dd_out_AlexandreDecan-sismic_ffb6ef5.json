@@ -1,0 +1,113 @@
+[
+  {
+    "project": "AlexandreDecan/sismic",
+    "commit": "ffb6ef590d7d7e0679ff8a753d6836805fb76122",
+    "filename": "sismic/code/evaluator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/AlexandreDecan-sismic/sismic/code/evaluator.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sismic/code/evaluator.py:90:12 Incompatible return type [7]: Expected `bool` but got `None`.",
+    "message": " Expected `bool` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 90,
+    "warning_line": "            return self._execute_code(transition.action, {'event': event})",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if transition.guard:\n            return self._evaluate_code(transition.guard, {'event': event})\n\n    def execute_action(self, transition: Transition, event: Event) -> bool:\n        \"\"\"\n",
+        "source_code_len": 193,
+        "target_code": "        if transition.guard:\n            return self._evaluate_code(transition.guard, additional_context={'event': event})\n\n    def execute_action(self, transition: Transition, event: Event) -> None:\n        \"\"\"\n",
+        "target_code_len": 212,
+        "diff_format": "@@ -78,5 +78,5 @@\n         if transition.guard:\n-            return self._evaluate_code(transition.guard, {'event': event})\n+            return self._evaluate_code(transition.guard, additional_context={'event': event})\n \n-    def execute_action(self, transition: Transition, event: Event) -> bool:\n+    def execute_action(self, transition: Transition, event: Event) -> None:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        if transition.guard:\n            <IND>return self._evaluate_code(transition.guard, {'event': event})\n\n    <DED><DED>def execute_action(self, transition: Transition, event: Event) -> bool:\n        <IND>",
+        "target_code_with_indent": "        if transition.guard:\n            <IND>return self._evaluate_code(transition.guard, additional_context={'event': event})\n\n    <DED><DED>def execute_action(self, transition: Transition, event: Event) -> None:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "AlexandreDecan/sismic",
+    "commit": "ffb6ef590d7d7e0679ff8a753d6836805fb76122",
+    "filename": "sismic/code/evaluator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/AlexandreDecan-sismic/sismic/code/evaluator.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sismic/code/evaluator.py:90:12 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 90,
+    "warning_line": "            return self._execute_code(transition.action, {'event': event})",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if transition.guard:\n            return self._evaluate_code(transition.guard, {'event': event})\n\n    def execute_action(self, transition: Transition, event: Event) -> bool:\n        \"\"\"\n",
+        "source_code_len": 193,
+        "target_code": "        if transition.guard:\n            return self._evaluate_code(transition.guard, additional_context={'event': event})\n\n    def execute_action(self, transition: Transition, event: Event) -> None:\n        \"\"\"\n",
+        "target_code_len": 212,
+        "diff_format": "@@ -78,5 +78,5 @@\n         if transition.guard:\n-            return self._evaluate_code(transition.guard, {'event': event})\n+            return self._evaluate_code(transition.guard, additional_context={'event': event})\n \n-    def execute_action(self, transition: Transition, event: Event) -> bool:\n+    def execute_action(self, transition: Transition, event: Event) -> None:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        if transition.guard:\n            <IND>return self._evaluate_code(transition.guard, {'event': event})\n\n    <DED><DED>def execute_action(self, transition: Transition, event: Event) -> bool:\n        <IND>",
+        "target_code_with_indent": "        if transition.guard:\n            <IND>return self._evaluate_code(transition.guard, additional_context={'event': event})\n\n    <DED><DED>def execute_action(self, transition: Transition, event: Event) -> None:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "AlexandreDecan/sismic",
+    "commit": "ffb6ef590d7d7e0679ff8a753d6836805fb76122",
+    "filename": "sismic/code/python.py",
+    "min_patch_found": false,
+    "full_warning_msg": "sismic/code/python.py:307:4 Inconsistent override [15]: `sismic.code.python.PythonEvaluator.execute_action` overrides method defined in `Evaluator` inconsistently. Returned type `None` is not a subtype of the overridden return `bool`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "AlexandreDecan/sismic",
+    "commit": "ffb6ef590d7d7e0679ff8a753d6836805fb76122",
+    "filename": "sismic/interpreter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/AlexandreDecan-sismic/sismic/interpreter.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sismic/interpreter.py:29:17 Incompatible variable type [9]: evaluator_klass is declared to have type `typing.Callable[[Interpreter, Mapping[typing.Any, typing.Any]], sismic.code.evaluator.Evaluator]` but is used as type `typing.Type[sismic.code.python.PythonEvaluator]`.",
+    "message": " evaluator_klass is declared to have type `typing.Callable[[Interpreter, Mapping[typing.Any, typing.Any]], sismic.code.evaluator.Evaluator]` but is used as type `typing.Type[sismic.code.python.PythonEvaluator]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 29,
+    "warning_line": "                 evaluator_klass: Callable[['Interpreter', Mapping], Evaluator]=PythonEvaluator,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(self, statechart: model.Statechart, *,\n                 evaluator_klass: Callable[['Interpreter', Mapping], Evaluator]=PythonEvaluator,\n                 initial_context: Mapping=None,\n",
+        "source_code_len": 201,
+        "target_code": "    def __init__(self, statechart: model.Statechart, *,\n                 evaluator_klass: Callable[['Interpreter'], Evaluator]=PythonEvaluator,\n                 initial_context: Mapping=None,\n",
+        "target_code_len": 192,
+        "diff_format": "@@ -28,3 +28,3 @@\n     def __init__(self, statechart: model.Statechart, *,\n-                 evaluator_klass: Callable[['Interpreter', Mapping], Evaluator]=PythonEvaluator,\n+                 evaluator_klass: Callable[['Interpreter'], Evaluator]=PythonEvaluator,\n                  initial_context: Mapping=None,\n",
+        "source_code_with_indent": "    def __init__(self, statechart: model.Statechart, *,\n                 evaluator_klass: Callable[['Interpreter', Mapping], Evaluator]=PythonEvaluator,\n                 initial_context: Mapping=None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def __init__(self, statechart: model.Statechart, *,\n                 evaluator_klass: Callable[['Interpreter'], Evaluator]=PythonEvaluator,\n                 initial_context: Mapping=None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

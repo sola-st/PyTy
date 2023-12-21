@@ -1,0 +1,36 @@
+[
+  {
+    "project": "repology/repology-updater",
+    "commit": "6177d06463bbb4aef27caf83ec3bf559b996d37b",
+    "filename": "repology/repoproc/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/repology-repology-updater/repology/repoproc/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "repology/repoproc/__init__.py:79:12 Incompatible return type [7]: Expected `bool` but got `None`.",
+    "message": " Expected `bool` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 79,
+    "warning_line": "            return",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            logger.log('fetching source {} not supported'.format(source['name']))\n            return\n\n",
+        "source_code_len": 102,
+        "target_code": "            logger.log('fetching source {} not supported'.format(source['name']))\n            return False\n\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -78,3 +78,3 @@\n             logger.log('fetching source {} not supported'.format(source['name']))\n-            return\n+            return False\n \n",
+        "source_code_with_indent": "            <IND>logger.log('fetching source {} not supported'.format(source['name']))\n            return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>logger.log('fetching source {} not supported'.format(source['name']))\n            return False\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

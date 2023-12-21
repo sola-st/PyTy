@@ -1,0 +1,51 @@
+[
+  {
+    "project": "tensorflow/data-validation",
+    "commit": "9c6c074965f8339e3e9d1468da810544326dd5d9",
+    "filename": "tensorflow_data_validation/utils/stats_gen_lib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-data-validation/tensorflow_data_validation/utils/stats_gen_lib.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_data_validation/utils/stats_gen_lib.py:218:2 Incompatible variable type [9]: stats_generators is declared to have type `List[stats_generator.CombinerStatsGenerator]` but is used as type `List[stats_generator.StatsGenerator]`.",
+    "message": " stats_generators is declared to have type `List[stats_generator.CombinerStatsGenerator]` but is used as type `List[stats_generator.StatsGenerator]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 218,
+    "warning_line": "  stats_generators = stats_impl.get_generators(stats_options, in_memory=True)  # type: List[stats_generator.CombinerStatsGenerator]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import tempfile\n\n",
+        "source_code_len": 17,
+        "target_code": "import tempfile\nfrom typing import Any, cast, List, Optional, Text\n\n",
+        "target_code_len": 68,
+        "diff_format": "@@ -25,2 +25,3 @@\n import tempfile\n+from typing import Any, cast, List, Optional, Text\n \n",
+        "source_code_with_indent": "import tempfile\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import tempfile\nfrom typing import Any, cast, List, Optional, Text\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n  stats_generators = stats_impl.get_generators(stats_options, in_memory=True)  # type: List[stats_generator.CombinerStatsGenerator]\n  if n_jobs < -1 or n_jobs == 0:\n",
+        "source_code_len": 166,
+        "target_code": "\n  stats_generators = cast(\n      List[stats_generator.CombinerStatsGenerator],\n      stats_impl.get_generators(stats_options, in_memory=True))\n  if n_jobs < -1 or n_jobs == 0:\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -217,3 +217,5 @@\n \n-  stats_generators = stats_impl.get_generators(stats_options, in_memory=True)  # type: List[stats_generator.CombinerStatsGenerator]\n+  stats_generators = cast(\n+      List[stats_generator.CombinerStatsGenerator],\n+      stats_impl.get_generators(stats_options, in_memory=True))\n   if n_jobs < -1 or n_jobs == 0:\n",
+        "source_code_with_indent": "\n  <DED>stats_generators = stats_impl.get_generators(stats_options, in_memory=True)  # type: List[stats_generator.CombinerStatsGenerator]\n  if n_jobs < -1 or n_jobs == 0:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n  <DED>stats_generators = cast(\n      List[stats_generator.CombinerStatsGenerator],\n      stats_impl.get_generators(stats_options, in_memory=True))\n  if n_jobs < -1 or n_jobs == 0:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

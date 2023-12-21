@@ -1,0 +1,70 @@
+[
+  {
+    "project": "BurnySc2/python-sc2",
+    "commit": "ac04f7794719d0b0c9d1f7a69f467dc1a6befe41",
+    "filename": "sc2/bot_ai.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/BurnySc2-python-sc2/sc2/bot_ai.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sc2/bot_ai.py:1064:8 Incompatible variable type [9]: progresses is declared to have type `List[int]` but is used as type `List[float]`.",
+    "message": " progresses is declared to have type `List[int]` but is used as type `List[float]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1064,
+    "warning_line": "        progresses: List[int] = [self.structure_type_build_progress(unit_info_id_value)]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return 1\n        progresses: List[int] = [self.structure_type_build_progress(unit_info_id_value)]\n        for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "source_code_len": 194,
+        "target_code": "            return 1\n        progresses: List[float] = [self.structure_type_build_progress(unit_info_id_value)]\n        for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -1063,3 +1067,3 @@\n             return 1\n-        progresses: List[int] = [self.structure_type_build_progress(unit_info_id_value)]\n+        progresses: List[float] = [self.structure_type_build_progress(unit_info_id_value)]\n         for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "source_code_with_indent": "            <IND>return 1\n        <DED>progresses: List[int] = [self.structure_type_build_progress(unit_info_id_value)]\n        for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return 1\n        <DED>progresses: List[float] = [self.structure_type_build_progress(unit_info_id_value)]\n        for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "BurnySc2/python-sc2",
+    "commit": "ac04f7794719d0b0c9d1f7a69f467dc1a6befe41",
+    "filename": "sc2/bot_ai.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/BurnySc2-python-sc2/sc2/bot_ai.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sc2/bot_ai.py:1066:30 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `list.append` but got `float`.",
+    "message": " Expected `int` for 1st positional only parameter to call `list.append` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1066,
+    "warning_line": "            progresses.append(self.structure_type_build_progress(equiv_structure.value))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return 1\n        progresses: List[int] = [self.structure_type_build_progress(unit_info_id_value)]\n        for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "source_code_len": 194,
+        "target_code": "            return 1\n        progresses: List[float] = [self.structure_type_build_progress(unit_info_id_value)]\n        for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -1063,3 +1067,3 @@\n             return 1\n-        progresses: List[int] = [self.structure_type_build_progress(unit_info_id_value)]\n+        progresses: List[float] = [self.structure_type_build_progress(unit_info_id_value)]\n         for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "source_code_with_indent": "            <IND>return 1\n        <DED>progresses: List[int] = [self.structure_type_build_progress(unit_info_id_value)]\n        for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return 1\n        <DED>progresses: List[float] = [self.structure_type_build_progress(unit_info_id_value)]\n        for equiv_structure in EQUIVALENTS_FOR_TECH_PROGRESS.get(unit_info_id, []):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

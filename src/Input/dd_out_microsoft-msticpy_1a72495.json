@@ -1,0 +1,36 @@
+[
+  {
+    "project": "microsoft/msticpy",
+    "commit": "1a7249542fda2bf40042102e8abe0e15a10e944b",
+    "filename": "msticpy/common/wsconfig.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/microsoft-msticpy/msticpy/common/wsconfig.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "msticpy/common/wsconfig.py:173:12 Incompatible return type [7]: Expected `Dict[str, str]` but got `None`.",
+    "message": " Expected `Dict[str, str]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 173,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    return json_config\n            return {}\n        except json.JSONDecodeError:\n            return None\n\n",
+        "source_code_len": 123,
+        "target_code": "                    return json_config\n        except json.JSONDecodeError:\n            pass\n        return {}\n\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -170,5 +170,5 @@\n                     return json_config\n-            return {}\n         except json.JSONDecodeError:\n-            return None\n+            pass\n+        return {}\n \n",
+        "source_code_with_indent": "                    return json_config\n            <DED><DED>return {}\n        <DED>except json.JSONDecodeError:\n            <IND>return None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    return json_config\n        <DED><DED><DED>except json.JSONDecodeError:\n            <IND>pass\n        <DED>return {}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "5981d9cc37ea0abbcecd0153a884fe8a80cd573e",
+    "filename": "qcodes/station.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/station.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/station.py:356:50 Incompatible parameter type [6]: Expected `Optional[str]` for 1st positional only parameter to call `Station._get_config_file_path` but got `List[str]`.",
+    "message": " Expected `Optional[str]` for 1st positional only parameter to call `Station._get_config_file_path` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 356,
+    "warning_line": "                path = self._get_config_file_path(filename)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            for filename in filenames:\n                path = self._get_config_file_path(filename)\n",
+        "source_code_len": 99,
+        "target_code": "            for filename in filenames:\n                assert isinstance(filename, str)\n                path = self._get_config_file_path(filename)\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -355,2 +355,3 @@\n             for filename in filenames:\n+                assert isinstance(filename, str)\n                 path = self._get_config_file_path(filename)\n",
+        "source_code_with_indent": "            for filename in filenames:\n                <IND>path = self._get_config_file_path(filename)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            for filename in filenames:\n                <IND>assert isinstance(filename, str)\n                path = self._get_config_file_path(filename)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

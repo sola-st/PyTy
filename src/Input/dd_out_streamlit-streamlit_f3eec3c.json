@@ -1,0 +1,100 @@
+[
+  {
+    "project": "streamlit/streamlit",
+    "commit": "f3eec3cd58d1b1cbcf6a2efa42f9ae7b299cf93c",
+    "filename": "lib/streamlit/server/server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/streamlit-streamlit/lib/streamlit/server/server.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lib/streamlit/server/server.py:409:49 Invalid type [31]: Expression `[bool, str]` is not a valid type.",
+    "message": " Expression `[bool, str]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 409,
+    "warning_line": "    def is_ready_for_browser_connection(self) -> [bool, str]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from enum import Enum\nfrom typing import Any, Dict, Optional, TYPE_CHECKING\n\n",
+        "source_code_len": 77,
+        "target_code": "from enum import Enum\nfrom typing import Any, Dict, Optional, TYPE_CHECKING, Tuple\n\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -24,3 +24,3 @@\n from enum import Enum\n-from typing import Any, Dict, Optional, TYPE_CHECKING\n+from typing import Any, Dict, Optional, TYPE_CHECKING, Tuple\n \n",
+        "source_code_with_indent": "from enum import Enum\nfrom typing import Any, Dict, Optional, TYPE_CHECKING\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from enum import Enum\nfrom typing import Any, Dict, Optional, TYPE_CHECKING, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def is_ready_for_browser_connection(self) -> [bool, str]:\n        if self._state not in (State.INITIAL, State.STOPPING, State.STOPPED):\n",
+        "source_code_len": 154,
+        "target_code": "    @property\n    def is_ready_for_browser_connection(self) -> Tuple[bool, str]:\n        if self._state not in (State.INITIAL, State.STOPPING, State.STOPPED):\n",
+        "target_code_len": 159,
+        "diff_format": "@@ -408,3 +408,3 @@\n     @property\n-    def is_ready_for_browser_connection(self) -> [bool, str]:\n+    def is_ready_for_browser_connection(self) -> Tuple[bool, str]:\n         if self._state not in (State.INITIAL, State.STOPPING, State.STOPPED):\n",
+        "source_code_with_indent": "    <DED>@property\n    def is_ready_for_browser_connection(self) -> [bool, str]:\n        <IND>if self._state not in (State.INITIAL, State.STOPPING, State.STOPPED):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def is_ready_for_browser_connection(self) -> Tuple[bool, str]:\n        <IND>if self._state not in (State.INITIAL, State.STOPPING, State.STOPPED):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "streamlit/streamlit",
+    "commit": "f3eec3cd58d1b1cbcf6a2efa42f9ae7b299cf93c",
+    "filename": "lib/streamlit/server/server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/streamlit-streamlit/lib/streamlit/server/server.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lib/streamlit/server/server.py:416:35 Invalid type [31]: Expression `[bool, str]` is not a valid type.",
+    "message": " Expression `[bool, str]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 416,
+    "warning_line": "    def is_script_loading(self) -> [bool, str]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from enum import Enum\nfrom typing import Any, Dict, Optional, TYPE_CHECKING\n\n",
+        "source_code_len": 77,
+        "target_code": "from enum import Enum\nfrom typing import Any, Dict, Optional, TYPE_CHECKING, Tuple\n\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -24,3 +24,3 @@\n from enum import Enum\n-from typing import Any, Dict, Optional, TYPE_CHECKING\n+from typing import Any, Dict, Optional, TYPE_CHECKING, Tuple\n \n",
+        "source_code_with_indent": "from enum import Enum\nfrom typing import Any, Dict, Optional, TYPE_CHECKING\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from enum import Enum\nfrom typing import Any, Dict, Optional, TYPE_CHECKING, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def is_script_loading(self) -> [bool, str]:\n        try:\n",
+        "source_code_len": 75,
+        "target_code": "    @property\n    def is_script_loading(self) -> Tuple[bool, str]:\n        try:\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -415,3 +415,3 @@\n     @property\n-    def is_script_loading(self) -> [bool, str]:\n+    def is_script_loading(self) -> Tuple[bool, str]:\n         try:\n",
+        "source_code_with_indent": "    <DED>@property\n    def is_script_loading(self) -> [bool, str]:\n        <IND>try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def is_script_loading(self) -> Tuple[bool, str]:\n        <IND>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

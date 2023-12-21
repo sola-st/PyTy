@@ -1,0 +1,70 @@
+[
+  {
+    "project": "netzob/netzob",
+    "commit": "07b2e544ea37307aa39e386e2d81b75637acbb2f",
+    "filename": "src/netzob/Common/MMSTD/Dictionary/Variables/AbstractLeafVariable.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/netzob-netzob/src/netzob/Common/MMSTD/Dictionary/Variables/AbstractLeafVariable.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/netzob/Common/MMSTD/Dictionary/Variables/AbstractLeafVariable.py:60:5 Unbound name [10]: Name `abstractmethod` is used but not defined in the current scope.",
+    "message": " Name `abstractmethod` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 60,
+    "warning_line": "    @abstractmethod",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#+---------------------------------------------------------------------------+\nfrom gettext import gettext as _\n",
+        "source_code_len": 112,
+        "target_code": "#+---------------------------------------------------------------------------+\nfrom abc import abstractmethod\nfrom gettext import gettext as _\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -30,2 +30,3 @@\n #+---------------------------------------------------------------------------+\n+from abc import abstractmethod\n from gettext import gettext as _\n",
+        "source_code_with_indent": "#+---------------------------------------------------------------------------+\nfrom gettext import gettext as _\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#+---------------------------------------------------------------------------+\nfrom abc import abstractmethod\nfrom gettext import gettext as _\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "netzob/netzob",
+    "commit": "07b2e544ea37307aa39e386e2d81b75637acbb2f",
+    "filename": "src/netzob/Common/MMSTD/Dictionary/Variables/AbstractVariable.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/netzob-netzob/src/netzob/Common/MMSTD/Dictionary/Variables/AbstractVariable.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/netzob/Common/MMSTD/Dictionary/Variables/AbstractVariable.py:73:64 Unbound name [10]: Name `self` is used but not defined in the current scope.",
+    "message": " Name `self` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 73,
+    "warning_line": "    return _(\"Variable {0} (mutable: {1}, random: {2})\").format(self.name, self.random, self.mutable)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n    return _(\"Variable {0} (mutable: {1}, random: {2})\").format(self.name, self.random, self.mutable)\n\n",
+        "source_code_len": 115,
+        "target_code": "        \"\"\"\n        return _(\"Variable {0} (mutable: {1}, random: {2})\").format(self.name, str(self.random), str(self.mutable))\n\n    @abstractmethod\n    def getType(self):\n        \"\"\"getType:\n                Return the type of a variable.\n        \"\"\"\n        raise NotImplementedError(\"The current variable doesn't support 'getType'.\")\n\n    @abstractmethod\n    def getDescription(self, processingToken):\n        \"\"\"getDescription:\n                Get the full description of the variable.\n\n                @type processingToken: netzob.Common.MMSTD.Dictionary.VariableProcessingToken.AbstractVariableProcessingToken.AbstractVariableProcessingToken\n                @param processingToken: a token which contains all critical information on this access.\n                @rtype: string\n                @return: the full description of the variable.\n        \"\"\"\n        raise NotImplementedError(\"The current variable doesn't support 'getDescription'.\")\n\n    @abstractmethod\n    def getUncontextualizedDescription(self):\n        \"\"\"getUncontextualizedDescription:\n                Get the uncontextualized description of the variable (no use of memory or vocabulary).\n\n                @rtype: string\n                @return: the uncontextualized description of the variable.\n        \"\"\"\n        raise NotImplementedError(\"The current variable doesn't support 'getUncontextualizedDescription'.\")\n\n",
+        "target_code_len": 1391,
+        "diff_format": "@@ -72,3 +71,32 @@\n         \"\"\"\n-    return _(\"Variable {0} (mutable: {1}, random: {2})\").format(self.name, self.random, self.mutable)\n+        return _(\"Variable {0} (mutable: {1}, random: {2})\").format(self.name, str(self.random), str(self.mutable))\n+\n+    @abstractmethod\n+    def getType(self):\n+        \"\"\"getType:\n+                Return the type of a variable.\n+        \"\"\"\n+        raise NotImplementedError(\"The current variable doesn't support 'getType'.\")\n+\n+    @abstractmethod\n+    def getDescription(self, processingToken):\n+        \"\"\"getDescription:\n+                Get the full description of the variable.\n+\n+                @type processingToken: netzob.Common.MMSTD.Dictionary.VariableProcessingToken.AbstractVariableProcessingToken.AbstractVariableProcessingToken\n+                @param processingToken: a token which contains all critical information on this access.\n+                @rtype: string\n+                @return: the full description of the variable.\n+        \"\"\"\n+        raise NotImplementedError(\"The current variable doesn't support 'getDescription'.\")\n+\n+    @abstractmethod\n+    def getUncontextualizedDescription(self):\n+        \"\"\"getUncontextualizedDescription:\n+                Get the uncontextualized description of the variable (no use of memory or vocabulary).\n+\n+                @rtype: string\n+                @return: the uncontextualized description of the variable.\n+        \"\"\"\n+        raise NotImplementedError(\"The current variable doesn't support 'getUncontextualizedDescription'.\")\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>return _(\"Variable {0} (mutable: {1}, random: {2})\").format(self.name, self.random, self.mutable)\n\n",
+        "target_code_with_indent": "\n        return _(\"Variable {0} (mutable: {1}, random: {2})\").format(self.name, str(self.random), str(self.mutable))\n\n    <DED>@abstractmethod\n    def getType(self):\n        <IND>\"\"\"getType:\n                Return the type of a variable.\n        \"\"\"\n        raise NotImplementedError(\"The current variable doesn't support 'getType'.\")\n\n    <DED>@abstractmethod\n    def getDescription(self, processingToken):\n        <IND>\"\"\"getDescription:\n                Get the full description of the variable.\n\n                @type processingToken: netzob.Common.MMSTD.Dictionary.VariableProcessingToken.AbstractVariableProcessingToken.AbstractVariableProcessingToken\n                @param processingToken: a token which contains all critical information on this access.\n                @rtype: string\n                @return: the full description of the variable.\n        \"\"\"\n        raise NotImplementedError(\"The current variable doesn't support 'getDescription'.\")\n\n    <DED>@abstractmethod\n    def getUncontextualizedDescription(self):\n        <IND>\"\"\"getUncontextualizedDescription:\n                Get the uncontextualized description of the variable (no use of memory or vocabulary).\n\n                @rtype: string\n                @return: the uncontextualized description of the variable.\n        \"\"\"\n        raise NotImplementedError(\"The current variable doesn't support 'getUncontextualizedDescription'.\")\n\n"
+      }
+    ]
+  }
+]

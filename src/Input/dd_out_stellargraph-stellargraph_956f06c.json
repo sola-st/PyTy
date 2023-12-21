@@ -1,0 +1,36 @@
+[
+  {
+    "project": "stellargraph/stellargraph",
+    "commit": "956f06cd7860dd5387411c28890d87c70dcd8f42",
+    "filename": "tests/mapper/test_relational_node_mappers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stellargraph-stellargraph/tests/mapper/test_relational_node_mappers.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/mapper/test_relational_node_mappers.py:44:12 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Iterable[typing.Any]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Iterable[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 44,
+    "warning_line": "    N = len(G.nodes())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    gnx, features = create_graph_features()\n    nodes = list(gnx.nodes)\n    node_features = pd.DataFrame.from_dict(\n        {n: f for n, f in zip(nodes, features)}, orient=\"index\"\n    )\n    G = StellarDiGraph(gnx, node_features=node_features)\n    N = len(G.nodes())\n",
+        "source_code_len": 267,
+        "target_code": "\n    G, features = create_graph_features()\n    N = len(G.nodes())\n",
+        "target_code_len": 66,
+        "diff_format": "@@ -37,8 +37,3 @@\n \n-    gnx, features = create_graph_features()\n-    nodes = list(gnx.nodes)\n-    node_features = pd.DataFrame.from_dict(\n-        {n: f for n, f in zip(nodes, features)}, orient=\"index\"\n-    )\n-    G = StellarDiGraph(gnx, node_features=node_features)\n+    G, features = create_graph_features()\n     N = len(G.nodes())\n",
+        "source_code_with_indent": "\n    gnx, features = create_graph_features()\n    nodes = list(gnx.nodes)\n    node_features = pd.DataFrame.from_dict(\n        {n: f for n, f in zip(nodes, features)}, orient=\"index\"\n    )\n    G = StellarDiGraph(gnx, node_features=node_features)\n    N = len(G.nodes())\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    G, features = create_graph_features()\n    N = len(G.nodes())\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

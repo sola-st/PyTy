@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "969644a83c6a556a97009be1c3e1e1d4983f83ae",
+    "filename": "rasa/core/policies/memoization.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/core/policies/memoization.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/core/policies/memoization.py:181:56 Incompatible parameter type [6]: Expected `Dict[typing.Any, typing.Any]` for 1st positional only parameter to call `MemoizationPolicy._create_feature_key` but got `List[Dict[str, float]]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` for 1st positional only parameter to call `MemoizationPolicy._create_feature_key` but got `List[Dict[str, float]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 181,
+    "warning_line": "        return self.lookup.get(self._create_feature_key(states))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _create_feature_key(self, states: Dict) -> Text:\n        from rasa.utils import io\n",
+        "source_code_len": 92,
+        "target_code": "\n    def _create_feature_key(self, states: List[Dict]) -> Text:\n        from rasa.utils import io\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -133,3 +133,3 @@\n \n-    def _create_feature_key(self, states: Dict) -> Text:\n+    def _create_feature_key(self, states: List[Dict]) -> Text:\n         from rasa.utils import io\n",
+        "source_code_with_indent": "\n    <DED><DED>def _create_feature_key(self, states: Dict) -> Text:\n        <IND>from rasa.utils import io\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def _create_feature_key(self, states: List[Dict]) -> Text:\n        <IND>from rasa.utils import io\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "project": "openlawlibrary/pygls",
+    "commit": "d12dc734a6500ca56a661678715af939f2fb78d9",
+    "filename": "examples/json-extension/server/server.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples/json-extension/server/server.py:92:33 Incompatible parameter type [6]: Expected `typing.Dict[typing.Any, typing.Any]` for 2nd parameter `trigger_characters` to call `LanguageServer.feature` but got `typing.List[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "openlawlibrary/pygls",
+    "commit": "d12dc734a6500ca56a661678715af939f2fb78d9",
+    "filename": "pygls/protocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openlawlibrary-pygls/pygls/protocol.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pygls/protocol.py:413:4 Inconsistent override [14]: `pygls.protocol.JsonRPCProtocol.connection_made` overrides method defined in `asyncio.protocols.BaseProtocol` inconsistently. Parameter of type `asyncio.transports.Transport` is not a supertype of the overridden parameter `asyncio.transports.BaseTransport`.",
+    "message": " `pygls.protocol.JsonRPCProtocol.connection_made` overrides method defined in `asyncio.protocols.BaseProtocol` inconsistently. Parameter of type `asyncio.transports.Transport` is not a supertype of the overridden parameter `asyncio.transports.BaseTransport`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 413,
+    "warning_line": "    def connection_made(self, transport: asyncio.Transport):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def connection_made(self, transport: asyncio.Transport):\n        \"\"\"Method from base class, called when connection is established\"\"\"\n",
+        "source_code_len": 138,
+        "target_code": "\n    def connection_made(self, transport: asyncio.BaseTransport):\n        \"\"\"Method from base class, called when connection is established\"\"\"\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -412,3 +412,3 @@\n \n-    def connection_made(self, transport: asyncio.Transport):\n+    def connection_made(self, transport: asyncio.BaseTransport):\n         \"\"\"Method from base class, called when connection is established\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def connection_made(self, transport: asyncio.Transport):\n        <IND>\"\"\"Method from base class, called when connection is established\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def connection_made(self, transport: asyncio.BaseTransport):\n        <IND>\"\"\"Method from base class, called when connection is established\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

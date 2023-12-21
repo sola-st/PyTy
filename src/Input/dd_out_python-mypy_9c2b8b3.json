@@ -1,0 +1,100 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "9c2b8b3651a8ec1d063f124f90008e5324e8e450",
+    "filename": "mypy/server/astmerge.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/server/astmerge.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/server/astmerge.py:216:26 Incompatible parameter type [6]: Expected `Var` for 1st positional only parameter to call `fixup_var` but got `SymbolNode`.",
+    "message": " Expected `Var` for 1st positional only parameter to call `fixup_var` but got `SymbolNode`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 216,
+    "warning_line": "                fixup_var(node.node, self.replacements)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                # The Var node may be an orphan and won't otherwise be processed.\n                fixup_var(node.node, self.replacements)\n\n",
+        "source_code_len": 139,
+        "target_code": "                # The Var node may be an orphan and won't otherwise be processed.\n                node.node.accept(self)\n\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -215,3 +215,3 @@\n                 # The Var node may be an orphan and won't otherwise be processed.\n-                fixup_var(node.node, self.replacements)\n+                node.node.accept(self)\n \n",
+        "source_code_with_indent": "                # The Var node may be an orphan and won't otherwise be processed.\n                <IND>fixup_var(node.node, self.replacements)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                # The Var node may be an orphan and won't otherwise be processed.\n                <IND>node.node.accept(self)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "9c2b8b3651a8ec1d063f124f90008e5324e8e450",
+    "filename": "mypy/server/astmerge.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/server/astmerge.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/server/astmerge.py:465:26 Incompatible parameter type [6]: Expected `Var` for 1st positional only parameter to call `fixup_var` but got `SymbolNode`.",
+    "message": " Expected `Var` for 1st positional only parameter to call `fixup_var` but got `SymbolNode`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 465,
+    "warning_line": "                fixup_var(node.node, replacements)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    OverloadedFuncDef, LambdaExpr, TypedDictExpr, EnumCallExpr, FuncBase, TypeAliasExpr, CallExpr,\n    CastExpr,\n    MDEF\n",
+        "source_code_len": 122,
+        "target_code": "    OverloadedFuncDef, LambdaExpr, TypedDictExpr, EnumCallExpr, FuncBase, TypeAliasExpr, CallExpr,\n    CastExpr, TypeAlias,\n    MDEF\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -53,3 +53,3 @@\n     OverloadedFuncDef, LambdaExpr, TypedDictExpr, EnumCallExpr, FuncBase, TypeAliasExpr, CallExpr,\n-    CastExpr,\n+    CastExpr, TypeAlias,\n     MDEF\n",
+        "source_code_with_indent": "    OverloadedFuncDef, LambdaExpr, TypedDictExpr, EnumCallExpr, FuncBase, TypeAliasExpr, CallExpr,\n    CastExpr,\n    MDEF\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    OverloadedFuncDef, LambdaExpr, TypedDictExpr, EnumCallExpr, FuncBase, TypeAliasExpr, CallExpr,\n    CastExpr, TypeAlias,\n    MDEF\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                # The Var node may be an orphan and won't otherwise be processed.\n                fixup_var(node.node, self.replacements)\n\n",
+        "source_code_len": 139,
+        "target_code": "                # The Var node may be an orphan and won't otherwise be processed.\n                node.node.accept(self)\n\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -215,3 +215,3 @@\n                 # The Var node may be an orphan and won't otherwise be processed.\n-                fixup_var(node.node, self.replacements)\n+                node.node.accept(self)\n \n",
+        "source_code_with_indent": "                # The Var node may be an orphan and won't otherwise be processed.\n                <IND>fixup_var(node.node, self.replacements)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                # The Var node may be an orphan and won't otherwise be processed.\n                <IND>node.node.accept(self)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                node.node = new\n            if isinstance(node.node, Var):\n                # Handle them here just in case these aren't exposed through the AST.\n                # TODO: Is this necessary?\n                fixup_var(node.node, replacements)\n\n\ndef fixup_var(node: Var, replacements: Dict[SymbolNode, SymbolNode]) -> None:\n    if node.type:\n        node.type.accept(TypeReplaceVisitor(replacements))\n    node.info = cast(TypeInfo, replacements.get(node.info, node.info))\n",
+        "source_code_len": 483,
+        "target_code": "                node.node = new\n            if isinstance(node.node, (Var, TypeAlias)):\n                # Handle them here just in case these aren't exposed through the AST.\n                node.node.accept(NodeReplaceVisitor(replacements))\n",
+        "target_code_len": 241,
+        "diff_format": "@@ -461,11 +465,4 @@\n                 node.node = new\n-            if isinstance(node.node, Var):\n+            if isinstance(node.node, (Var, TypeAlias)):\n                 # Handle them here just in case these aren't exposed through the AST.\n-                # TODO: Is this necessary?\n-                fixup_var(node.node, replacements)\n-\n-\n-def fixup_var(node: Var, replacements: Dict[SymbolNode, SymbolNode]) -> None:\n-    if node.type:\n-        node.type.accept(TypeReplaceVisitor(replacements))\n-    node.info = cast(TypeInfo, replacements.get(node.info, node.info))\n+                node.node.accept(NodeReplaceVisitor(replacements))\n",
+        "source_code_with_indent": "                node.node = new\n            <DED>if isinstance(node.node, Var):\n                # Handle them here just in case these aren't exposed through the AST.\n                # TODO: Is this necessary?\n                <IND>fixup_var(node.node, replacements)\n\n\n<DED><DED><DED><DED>def fixup_var(node: Var, replacements: Dict[SymbolNode, SymbolNode]) -> None:\n    <IND>if node.type:\n        <IND>node.type.accept(TypeReplaceVisitor(replacements))\n    <DED>node.info = cast(TypeInfo, replacements.get(node.info, node.info))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                node.node = new\n            <DED>if isinstance(node.node, (Var, TypeAlias)):\n                # Handle them here just in case these aren't exposed through the AST.\n                <IND>node.node.accept(NodeReplaceVisitor(replacements))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

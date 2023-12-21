@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "532f3fbc05e3f44a2e4e13fccf5673c957fadb14",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:1334:38 Incompatible parameter type [6]: Expected `List[Type]` for 2nd positional only parameter to call `Instance.__init__` but got `List[Union[AnyType, Instance]]`.",
+    "message": " Expected `List[Type]` for 2nd positional only parameter to call `Instance.__init__` but got `List[Union[AnyType, Instance]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1334,
+    "warning_line": "            up, down = Instance(info, up_args), Instance(info, down_args)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n                       for j, _ in enumerate(tvars)]\n            down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n                         for j, _ in enumerate(tvars)]\n            up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "source_code_len": 354,
+        "target_code": "            up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n                       for j, _ in enumerate(tvars)]  # type: List[Type]\n            down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n                         for j, _ in enumerate(tvars)]  # type: List[Type]\n            up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "target_code_len": 394,
+        "diff_format": "@@ -1330,5 +1330,5 @@\n             up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n-                       for j, _ in enumerate(tvars)]\n+                       for j, _ in enumerate(tvars)]  # type: List[Type]\n             down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n-                         for j, _ in enumerate(tvars)]\n+                         for j, _ in enumerate(tvars)]  # type: List[Type]\n             up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "source_code_with_indent": "            <IND>up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n                       for j, _ in enumerate(tvars)]\n            down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n                         for j, _ in enumerate(tvars)]\n            up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n                       for j, _ in enumerate(tvars)]  # type: List[Type]\n            down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n                         for j, _ in enumerate(tvars)]  # type: List[Type]\n            up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "532f3fbc05e3f44a2e4e13fccf5673c957fadb14",
+    "filename": "mypy/checker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checker.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checker.py:1334:63 Incompatible parameter type [6]: Expected `List[Type]` for 2nd positional only parameter to call `Instance.__init__` but got `List[Union[AnyType, UninhabitedType]]`.",
+    "message": " Expected `List[Type]` for 2nd positional only parameter to call `Instance.__init__` but got `List[Union[AnyType, UninhabitedType]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1334,
+    "warning_line": "            up, down = Instance(info, up_args), Instance(info, down_args)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n                       for j, _ in enumerate(tvars)]\n            down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n                         for j, _ in enumerate(tvars)]\n            up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "source_code_len": 354,
+        "target_code": "            up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n                       for j, _ in enumerate(tvars)]  # type: List[Type]\n            down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n                         for j, _ in enumerate(tvars)]  # type: List[Type]\n            up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "target_code_len": 394,
+        "diff_format": "@@ -1330,5 +1330,5 @@\n             up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n-                       for j, _ in enumerate(tvars)]\n+                       for j, _ in enumerate(tvars)]  # type: List[Type]\n             down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n-                         for j, _ in enumerate(tvars)]\n+                         for j, _ in enumerate(tvars)]  # type: List[Type]\n             up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "source_code_with_indent": "            <IND>up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n                       for j, _ in enumerate(tvars)]\n            down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n                         for j, _ in enumerate(tvars)]\n            up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>up_args = [object_type if i == j else AnyType(TypeOfAny.special_form)\n                       for j, _ in enumerate(tvars)]  # type: List[Type]\n            down_args = [UninhabitedType() if i == j else AnyType(TypeOfAny.special_form)\n                         for j, _ in enumerate(tvars)]  # type: List[Type]\n            up, down = Instance(info, up_args), Instance(info, down_args)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

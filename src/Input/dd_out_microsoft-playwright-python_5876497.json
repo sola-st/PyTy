@@ -1,0 +1,36 @@
+[
+  {
+    "project": "microsoft/playwright-python",
+    "commit": "5876497dbe133bf0515bffe64801c28a2e8cdebe",
+    "filename": "playwright_web/transport.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/microsoft-playwright-python/playwright_web/transport.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "playwright_web/transport.py:65:4 Incompatible return type [7]: Expected `Awaitable[typing.Any]` but got implicit return value of `None`.",
+    "message": " Expected `Awaitable[typing.Any]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 65,
+    "warning_line": "    self._output.write(data)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n  def send(self, message: Dict) -> Awaitable:\n    msg = json.dumps(message)\n",
+        "source_code_len": 77,
+        "target_code": "\n  def send(self, message: Dict) -> None:\n    msg = json.dumps(message)\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -56,3 +56,3 @@\n \n-  def send(self, message: Dict) -> Awaitable:\n+  def send(self, message: Dict) -> None:\n     msg = json.dumps(message)\n",
+        "source_code_with_indent": "\n  <DED><DED>def send(self, message: Dict) -> Awaitable:\n    <IND>msg = json.dumps(message)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n  <DED><DED>def send(self, message: Dict) -> None:\n    <IND>msg = json.dumps(message)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

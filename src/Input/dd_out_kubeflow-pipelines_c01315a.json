@@ -1,0 +1,100 @@
+[
+  {
+    "project": "kubeflow/pipelines",
+    "commit": "c01315a89da6a0eee4a12d3bb1c095c28931aee3",
+    "filename": "sdk/python/kfp/dsl/_metadata.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kubeflow-pipelines/sdk/python/kfp/dsl/_metadata.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sdk/python/kfp/dsl/_metadata.py:38:6 Incompatible variable type [9]: properties is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "message": " properties is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 38,
+    "warning_line": "      properties: Dict = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\nclass TypeMeta(BaseMeta):\n  def __init__(self,\n      name: str = '',\n      properties: Dict = None):\n    self.name = name\n    self.properties = {} if properties is None else properties\n\n  def to_dict_or_str(self):\n    if self.properties is None or len(self.properties) == 0:\n      return self.name\n    else:\n      return {self.name: self.properties}\n\n  @staticmethod\n  def from_dict_or_str(payload):\n    '''from_dict_or_str accepts a payload object and returns a TypeMeta instance\n     Args:\n       payload (str/dict): the payload could be a str or a dict\n    '''\n\n    type_meta = TypeMeta()\n    if isinstance(payload, dict):\n      if not _check_valid_type_dict(payload):\n        raise ValueError(payload + ' is not a valid type string')\n      type_meta.name, type_meta.properties = list(payload.items())[0]\n      # Convert possible OrderedDict to dict\n      type_meta.properties = dict(type_meta.properties)\n    elif isinstance(payload, str):\n      type_meta.name = payload\n    else:\n      raise ValueError('from_dict_or_str is expecting either dict or str.')\n    return type_meta\n\n  def serialize(self):\n    return str(self.to_dict_or_str())\n\n  @staticmethod\n  def deserialize(payload):\n    '''deserialize expects two types of input: dict and str\n    1) If the payload is a string, the type is named as such with no properties.\n    2) If the payload is a dict, the type name and properties are extracted. '''\n    return TypeMeta.from_dict_or_str(payload)\n\n",
+        "source_code_len": 1459,
+        "target_code": "\n\n",
+        "target_code_len": 2,
+        "diff_format": "@@ -34,44 +34,2 @@\n \n-class TypeMeta(BaseMeta):\n-  def __init__(self,\n-      name: str = '',\n-      properties: Dict = None):\n-    self.name = name\n-    self.properties = {} if properties is None else properties\n-\n-  def to_dict_or_str(self):\n-    if self.properties is None or len(self.properties) == 0:\n-      return self.name\n-    else:\n-      return {self.name: self.properties}\n-\n-  @staticmethod\n-  def from_dict_or_str(payload):\n-    '''from_dict_or_str accepts a payload object and returns a TypeMeta instance\n-     Args:\n-       payload (str/dict): the payload could be a str or a dict\n-    '''\n-\n-    type_meta = TypeMeta()\n-    if isinstance(payload, dict):\n-      if not _check_valid_type_dict(payload):\n-        raise ValueError(payload + ' is not a valid type string')\n-      type_meta.name, type_meta.properties = list(payload.items())[0]\n-      # Convert possible OrderedDict to dict\n-      type_meta.properties = dict(type_meta.properties)\n-    elif isinstance(payload, str):\n-      type_meta.name = payload\n-    else:\n-      raise ValueError('from_dict_or_str is expecting either dict or str.')\n-    return type_meta\n-\n-  def serialize(self):\n-    return str(self.to_dict_or_str())\n-\n-  @staticmethod\n-  def deserialize(payload):\n-    '''deserialize expects two types of input: dict and str\n-    1) If the payload is a string, the type is named as such with no properties.\n-    2) If the payload is a dict, the type name and properties are extracted. '''\n-    return TypeMeta.from_dict_or_str(payload)\n \n",
+        "source_code_with_indent": "\n<DED><DED>class TypeMeta(BaseMeta):\n  <IND>def __init__(self,\n      name: str = '',\n      properties: Dict = None):\n    <IND>self.name = name\n    self.properties = {} if properties is None else properties\n\n  <DED>def to_dict_or_str(self):\n    <IND>if self.properties is None or len(self.properties) == 0:\n      <IND>return self.name\n    <DED>else:\n      <IND>return {self.name: self.properties}\n\n  <DED><DED>@staticmethod\n  def from_dict_or_str(payload):\n    <IND>'''from_dict_or_str accepts a payload object and returns a TypeMeta instance\n     Args:\n       payload (str/dict): the payload could be a str or a dict\n    '''\n\n    type_meta = TypeMeta()\n    if isinstance(payload, dict):\n      <IND>if not _check_valid_type_dict(payload):\n        <IND>raise ValueError(payload + ' is not a valid type string')\n      <DED>type_meta.name, type_meta.properties = list(payload.items())[0]\n      # Convert possible OrderedDict to dict\n      type_meta.properties = dict(type_meta.properties)\n    <DED>elif isinstance(payload, str):\n      <IND>type_meta.name = payload\n    <DED>else:\n      <IND>raise ValueError('from_dict_or_str is expecting either dict or str.')\n    <DED>return type_meta\n\n  <DED>def serialize(self):\n    <IND>return str(self.to_dict_or_str())\n\n  <DED>@staticmethod\n  def deserialize(payload):\n    <IND>'''deserialize expects two types of input: dict and str\n    1) If the payload is a string, the type is named as such with no properties.\n    2) If the payload is a dict, the type name and properties are extracted. '''\n    return TypeMeta.from_dict_or_str(payload)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "      description: str = '',\n      param_type: TypeMeta = None,\n      default = None):\n",
+        "source_code_len": 87,
+        "target_code": "      description: str = '',\n      param_type = None,\n      default = None):\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -81,3 +39,3 @@\n       description: str = '',\n-      param_type: TypeMeta = None,\n+      param_type = None,\n       default = None):\n",
+        "source_code_with_indent": "      description: str = '',\n      param_type: TypeMeta = None,\n      default = None):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "      description: str = '',\n      param_type = None,\n      default = None):\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    self.description = description\n    self.param_type = TypeMeta() if param_type is None else param_type\n    self.default = default\n",
+        "source_code_len": 133,
+        "target_code": "    self.description = description\n    self.param_type = param_type\n    self.default = default\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -85,3 +43,3 @@\n     self.description = description\n-    self.param_type = TypeMeta() if param_type is None else param_type\n+    self.param_type = param_type\n     self.default = default\n",
+        "source_code_with_indent": "    self.description = description\n    self.param_type = TypeMeta() if param_type is None else param_type\n    self.default = default\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    self.description = description\n    self.param_type = param_type\n    self.default = default\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "kubeflow/pipelines",
+    "commit": "c01315a89da6a0eee4a12d3bb1c095c28931aee3",
+    "filename": "sdk/python/kfp/dsl/_metadata.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kubeflow-pipelines/sdk/python/kfp/dsl/_metadata.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sdk/python/kfp/dsl/_metadata.py:82:6 Incompatible variable type [9]: param_type is declared to have type `TypeMeta` but is used as type `None`.",
+    "message": " param_type is declared to have type `TypeMeta` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 82,
+    "warning_line": "      param_type: TypeMeta = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "      description: str = '',\n      param_type: TypeMeta = None,\n      default = None):\n",
+        "source_code_len": 87,
+        "target_code": "      description: str = '',\n      param_type = None,\n      default = None):\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -81,3 +39,3 @@\n       description: str = '',\n-      param_type: TypeMeta = None,\n+      param_type = None,\n       default = None):\n",
+        "source_code_with_indent": "      description: str = '',\n      param_type: TypeMeta = None,\n      default = None):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "      description: str = '',\n      param_type = None,\n      default = None):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

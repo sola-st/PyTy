@@ -1,0 +1,36 @@
+[
+  {
+    "project": "paul-nameless/tg",
+    "commit": "dd2433a7c7eecee413efff4da3bbe644271cf9d0",
+    "filename": "tg/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/paul-nameless-tg/tg/models.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tg/models.py:552:12 Incompatible return type [7]: Expected `None` but got `Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `None` but got `Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 552,
+    "warning_line": "            return self.groups[group_id]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_group_info(self, group_id: int) -> None:\n        if group_id in self.groups:\n",
+        "source_code_len": 90,
+        "target_code": "\n    def get_group_info(self, group_id: int) -> Optional[Dict[str, Any]]:\n        if group_id in self.groups:\n",
+        "target_code_len": 110,
+        "diff_format": "@@ -549,3 +549,3 @@\n \n-    def get_group_info(self, group_id: int) -> None:\n+    def get_group_info(self, group_id: int) -> Optional[Dict[str, Any]]:\n         if group_id in self.groups:\n",
+        "source_code_with_indent": "\n    <DED>def get_group_info(self, group_id: int) -> None:\n        <IND>if group_id in self.groups:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_group_info(self, group_id: int) -> Optional[Dict[str, Any]]:\n        <IND>if group_id in self.groups:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

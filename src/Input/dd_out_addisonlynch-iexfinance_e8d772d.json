@@ -1,0 +1,36 @@
+[
+  {
+    "project": "addisonlynch/iexfinance",
+    "commit": "e8d772d02501d4e28155b314b2f7d438dc183290",
+    "filename": "tests/test_stock.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/addisonlynch-iexfinance/tests/test_stock.py",
+    "file_hunks_size": 28,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_stock.py:18:25 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 18,
+    "warning_line": "    string_types = (str, unicode)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nimport sys\n\nPY3 = sys.version_info.major == 3\n\nif PY3:\n    string_types = (str, )\nelse:\n    string_types = (str, unicode)\n\n",
+        "source_code_len": 124,
+        "target_code": "\nimport six\n\n",
+        "target_code_len": 13,
+        "diff_format": "@@ -10,10 +12,3 @@\n \n-import sys\n-\n-PY3 = sys.version_info.major == 3\n-\n-if PY3:\n-    string_types = (str, )\n-else:\n-    string_types = (str, unicode)\n+import six\n \n",
+        "source_code_with_indent": "\nimport sys\n\nPY3 = sys.version_info.major == 3\n\nif PY3:\n    <IND>string_types = (str, )\n<DED>else:\n    <IND>string_types = (str, unicode)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport six\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

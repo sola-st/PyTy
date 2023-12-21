@@ -1,0 +1,66 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "6ebf07612de9741c028b1bff1ddec14efd760b78",
+    "filename": "raiden/tests/utils/smoketest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/tests/utils/smoketest.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/tests/utils/smoketest.py:590:4 Incompatible return type [7]: Expected `typing.Iterator[Variable[T]]` but got `typing.Generator[typing.Callable[[Named(description, str), Named(error, bool, default)], None], None, None]`.",
+    "message": " Expected `typing.Iterator[Variable[T]]` but got `typing.Generator[typing.Callable[[Named(description, str), Named(error, bool, default)], None], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 590,
+    "warning_line": "    yield print_step",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from gevent import sleep\nfrom web3 import HTTPProvider, Web3\n",
+        "source_code_len": 61,
+        "target_code": "from gevent import sleep\nfrom typing_extensions import Protocol\nfrom web3 import HTTPProvider, Web3\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -18,2 +18,3 @@\n from gevent import sleep\n+from typing_extensions import Protocol\n from web3 import HTTPProvider, Web3\n",
+        "source_code_with_indent": "from gevent import sleep\nfrom web3 import HTTPProvider, Web3\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from gevent import sleep\nfrom typing_extensions import Protocol\nfrom web3 import HTTPProvider, Web3\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef ensure_executable(cmd):\n",
+        "source_code_len": 29,
+        "target_code": "\nclass StepPrinter(Protocol):\n    def __call__(self, description: str, error: bool = False) -> None:\n        ...\n\n\ndef ensure_executable(cmd):\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -110,2 +111,7 @@\n \n+class StepPrinter(Protocol):\n+    def __call__(self, description: str, error: bool = False) -> None:\n+        ...\n+\n+\n def ensure_executable(cmd):\n",
+        "source_code_with_indent": "\ndef ensure_executable(cmd):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nclass StepPrinter(Protocol):\n    <IND>def __call__(self, description: str, error: bool = False) -> None:\n        <IND>...\n\n\n<DED><DED>def ensure_executable(cmd):\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@contextmanager\ndef step_printer(step_count, stdout) -> Iterator[Callable[str, bool], None]:\n    step = 0\n",
+        "source_code_len": 106,
+        "target_code": "@contextmanager\ndef step_printer(step_count, stdout) -> Iterator[StepPrinter]:\n    step = 0\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -575,3 +581,3 @@\n @contextmanager\n-def step_printer(step_count, stdout) -> Iterator[Callable[str, bool], None]:\n+def step_printer(step_count, stdout) -> Iterator[StepPrinter]:\n     step = 0\n",
+        "source_code_with_indent": "<DED><DED><DED><DED><DED><DED>@contextmanager\ndef step_printer(step_count, stdout) -> Iterator[Callable[str, bool], None]:\n    <IND>step = 0\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED><DED><DED><DED><DED>@contextmanager\ndef step_printer(step_count, stdout) -> Iterator[StepPrinter]:\n    <IND>step = 0\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

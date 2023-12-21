@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "5db3e1a024a98af4184d6864c71d6abbf00dc3b3",
+    "filename": "mypyc/irbuild/ll_builder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypyc/irbuild/ll_builder.py",
+    "file_hunks_size": 17,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypyc/irbuild/ll_builder.py:729:41 Incompatible parameter type [6]: Expected `RType` for 3rd parameter `rtype` to call `LoadInt.__init__` but got `typing_extensions.Final`.",
+    "message": " Expected `RType` for 3rd parameter `rtype` to call `LoadInt.__init__` but got `typing_extensions.Final`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 729,
+    "warning_line": "        mask = self.add(LoadInt(1, line, rtype=bool_rprimitive))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                  line: int) -> Value:\n        mask = self.add(LoadInt(1, line, rtype=bool_rprimitive))\n        return self.binary_int_op(bool_rprimitive, value, mask, BinaryIntOp.XOR, line)\n\n",
+        "source_code_len": 192,
+        "target_code": "                  line: int) -> Value:\n        mask = self.add(LoadInt(1, line, rtype=value.type))\n        return self.binary_int_op(value.type, value, mask, BinaryIntOp.XOR, line)\n\n",
+        "target_code_len": 182,
+        "diff_format": "@@ -728,4 +728,4 @@\n                   line: int) -> Value:\n-        mask = self.add(LoadInt(1, line, rtype=bool_rprimitive))\n-        return self.binary_int_op(bool_rprimitive, value, mask, BinaryIntOp.XOR, line)\n+        mask = self.add(LoadInt(1, line, rtype=value.type))\n+        return self.binary_int_op(value.type, value, mask, BinaryIntOp.XOR, line)\n \n",
+        "source_code_with_indent": "                  line: int) -> Value:\n        <IND>mask = self.add(LoadInt(1, line, rtype=bool_rprimitive))\n        return self.binary_int_op(bool_rprimitive, value, mask, BinaryIntOp.XOR, line)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                  line: int) -> Value:\n        <IND>mask = self.add(LoadInt(1, line, rtype=value.type))\n        return self.binary_int_op(value.type, value, mask, BinaryIntOp.XOR, line)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "5db3e1a024a98af4184d6864c71d6abbf00dc3b3",
+    "filename": "mypyc/irbuild/ll_builder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypyc/irbuild/ll_builder.py",
+    "file_hunks_size": 17,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypyc/irbuild/ll_builder.py:876:46 Incompatible parameter type [6]: Expected `RType` for 2nd positional only parameter to call `is_same_type` but got `typing_extensions.Final`.",
+    "message": " Expected `RType` for 2nd positional only parameter to call `is_same_type` but got `typing_extensions.Final`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 876,
+    "warning_line": "            elif not is_same_type(value.type, bool_rprimitive):"
+  },
+  {
+    "project": "python/mypy",
+    "commit": "5db3e1a024a98af4184d6864c71d6abbf00dc3b3",
+    "filename": "mypyc/irbuild/ll_builder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypyc/irbuild/ll_builder.py",
+    "file_hunks_size": 17,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypyc/irbuild/ll_builder.py:974:38 Incompatible parameter type [6]: Expected `RType` for 1st positional only parameter to call `LowLevelIRBuilder.binary_int_op` but got `typing_extensions.Final`.",
+    "message": " Expected `RType` for 1st positional only parameter to call `LowLevelIRBuilder.binary_int_op` but got `typing_extensions.Final`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 974,
+    "warning_line": "            return self.binary_int_op(short_int_rprimitive, size_value, offset,"
+  }
+]

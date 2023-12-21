@@ -1,0 +1,36 @@
+[
+  {
+    "project": "microsoft/msticpy",
+    "commit": "a7498a3a911ac9d7fc6f353adeaa38a4afa3e5dd",
+    "filename": "msticpy/nbtools/nbwidgets.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/microsoft-msticpy/msticpy/nbtools/nbwidgets.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "msticpy/nbtools/nbwidgets.py:832:50 Incompatible parameter type [6]: Expected `str` for 4th positional only parameter to call `SelectAlert.__init__` but got `bool`.",
+    "message": " Expected `str` for 4th positional only parameter to call `SelectAlert.__init__` but got `bool`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 832,
+    "warning_line": "        super().__init__(alerts, action, columns, auto_display)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._w_output = widgets.Output(layout={\"border\": \"1px solid black\"})\n        super().__init__(alerts, action, columns, auto_display)\n\n",
+        "source_code_len": 143,
+        "target_code": "        self._w_output = widgets.Output(layout={\"border\": \"1px solid black\"})\n        super().__init__(\n            alerts=alerts, action=action, columns=columns, auto_display=auto_display\n        )\n\n",
+        "target_code_len": 200,
+        "diff_format": "@@ -831,3 +831,5 @@\n         self._w_output = widgets.Output(layout={\"border\": \"1px solid black\"})\n-        super().__init__(alerts, action, columns, auto_display)\n+        super().__init__(\n+            alerts=alerts, action=action, columns=columns, auto_display=auto_display\n+        )\n \n",
+        "source_code_with_indent": "        self._w_output = widgets.Output(layout={\"border\": \"1px solid black\"})\n        super().__init__(alerts, action, columns, auto_display)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._w_output = widgets.Output(layout={\"border\": \"1px solid black\"})\n        super().__init__(\n            alerts=alerts, action=action, columns=columns, auto_display=auto_display\n        )\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

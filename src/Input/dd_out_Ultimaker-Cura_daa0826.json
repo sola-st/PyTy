@@ -1,0 +1,138 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "daa0826190ce7a606e54b944afeed8693f4997d9",
+    "filename": "plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py:132:39 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 132,
+    "warning_line": "        self._file_upload_job_metadata[file_name][\"file_upload_response\"] = file_upload_response",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            file_name = file_upload_response.job_name\n        else:\n",
+        "source_code_len": 141,
+        "target_code": "        elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n        else:\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -125,3 +125,3 @@\n         elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n-            file_name = file_upload_response.job_name\n+            file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n         else:\n",
+        "source_code_with_indent": "        <DED>elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            <IND>file_name = file_upload_response.job_name\n        <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            <IND>file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n        <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "daa0826190ce7a606e54b944afeed8693f4997d9",
+    "filename": "plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py:133:52 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 133,
+    "warning_line": "        job_output = self._file_upload_job_metadata[file_name][\"export_job_output\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            file_name = file_upload_response.job_name\n        else:\n",
+        "source_code_len": 141,
+        "target_code": "        elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n        else:\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -125,3 +125,3 @@\n         elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n-            file_name = file_upload_response.job_name\n+            file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n         else:\n",
+        "source_code_with_indent": "        <DED>elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            <IND>file_name = file_upload_response.job_name\n        <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            <IND>file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n        <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "daa0826190ce7a606e54b944afeed8693f4997d9",
+    "filename": "plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/DigitalLibrary/src/DFFileExportAndUploadManager.py:136:43 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 136,
+    "warning_line": "            self._file_upload_job_metadata[file_name][\"upload_status\"] = \"uploading\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            file_name = file_upload_response.job_name\n        else:\n",
+        "source_code_len": 141,
+        "target_code": "        elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n        else:\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -125,3 +125,3 @@\n         elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n-            file_name = file_upload_response.job_name\n+            file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n         else:\n",
+        "source_code_with_indent": "        <DED>elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            <IND>file_name = file_upload_response.job_name\n        <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>elif isinstance(file_upload_response, DFPrintJobUploadResponse):\n            <IND>file_name = file_upload_response.job_name if file_upload_response.job_name is not None else \"\"\n        <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "daa0826190ce7a606e54b944afeed8693f4997d9",
+    "filename": "plugins/DigitalLibrary/src/DigitalFactoryApiClient.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/DigitalLibrary/src/DigitalFactoryApiClient.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/DigitalLibrary/src/DigitalFactoryApiClient.py:122:8 Incompatible return type [7]: Expected `bool` but got `Optional[bool]`.",
+    "message": " Expected `bool` but got `Optional[bool]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 122,
+    "warning_line": "        return self._projects_pagination_mgr and self._projects_pagination_mgr.links and self._projects_pagination_mgr.links.next_page is not None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        return self._projects_pagination_mgr and self._projects_pagination_mgr.links and self._projects_pagination_mgr.links.next_page is not None\n\n",
+        "source_code_len": 160,
+        "target_code": "        \"\"\"\n        return self._projects_pagination_mgr is not None and self._projects_pagination_mgr.links is not None and self._projects_pagination_mgr.links.next_page is not None\n\n",
+        "target_code_len": 184,
+        "diff_format": "@@ -121,3 +122,3 @@\n         \"\"\"\n-        return self._projects_pagination_mgr and self._projects_pagination_mgr.links and self._projects_pagination_mgr.links.next_page is not None\n+        return self._projects_pagination_mgr is not None and self._projects_pagination_mgr.links is not None and self._projects_pagination_mgr.links.next_page is not None\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        return self._projects_pagination_mgr and self._projects_pagination_mgr.links and self._projects_pagination_mgr.links.next_page is not None\n\n",
+        "target_code_with_indent": "\n        return self._projects_pagination_mgr is not None and self._projects_pagination_mgr.links is not None and self._projects_pagination_mgr.links.next_page is not None\n\n"
+      }
+    ]
+  }
+]

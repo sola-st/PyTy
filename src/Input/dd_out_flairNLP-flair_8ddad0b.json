@@ -1,0 +1,36 @@
+[
+  {
+    "project": "flairNLP/flair",
+    "commit": "8ddad0b13583026c5bf23feae962194b934771ac",
+    "filename": "tests/test_datasets_biomedical.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flairNLP-flair/tests/test_datasets_biomedical.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_datasets_biomedical.py:400:39 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `Token`.",
+    "message": " Expected `typing.Iterable[Variable[_T1]]` for 1st positional only parameter to call `zip.__new__` but got `Token`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 400,
+    "warning_line": "        for token, token_start in zip(*tokenizer.tokenize(doc_text)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        token_ends = set()\n        for token, token_start in zip(*tokenizer.tokenize(doc_text)):\n            token_starts.add(token_start)\n            token_ends.add(token_start + len(token))\n\n",
+        "source_code_len": 193,
+        "target_code": "        token_ends = set()\n        for token in tokenizer.tokenize(doc_text):\n            token_starts.add(token.start_pos)\n            token_ends.add(token.end_pos)\n\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -399,5 +399,5 @@\n         token_ends = set()\n-        for token, token_start in zip(*tokenizer.tokenize(doc_text)):\n-            token_starts.add(token_start)\n-            token_ends.add(token_start + len(token))\n+        for token in tokenizer.tokenize(doc_text):\n+            token_starts.add(token.start_pos)\n+            token_ends.add(token.end_pos)\n \n",
+        "source_code_with_indent": "        token_ends = set()\n        for token, token_start in zip(*tokenizer.tokenize(doc_text)):\n            <IND>token_starts.add(token_start)\n            token_ends.add(token_start + len(token))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        token_ends = set()\n        for token in tokenizer.tokenize(doc_text):\n            <IND>token_starts.add(token.start_pos)\n            token_ends.add(token.end_pos)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

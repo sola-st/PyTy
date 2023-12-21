@@ -1,0 +1,36 @@
+[
+  {
+    "project": "niklasf/python-chess",
+    "commit": "c1282f9b79a3920f4cd0b28a28516ff9b20a747f",
+    "filename": "chess/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/niklasf-python-chess/chess/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chess/__init__.py:371:4 Incompatible return type [7]: Expected `Tuple[List[List[int]], List[List[int]]]` but got `List[typing.Any]`.",
+    "message": " Expected `Tuple[List[List[int]], List[List[int]]]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 371,
+    "warning_line": "    return rays",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _rays() -> Tuple[List[List[Bitboard]], List[List[Bitboard]]]:\n    rays = []\n",
+        "source_code_len": 81,
+        "target_code": "\ndef _rays() -> List[List[Bitboard]]:\n    rays = []\n",
+        "target_code_len": 52,
+        "diff_format": "@@ -356,3 +356,3 @@\n \n-def _rays() -> Tuple[List[List[Bitboard]], List[List[Bitboard]]]:\n+def _rays() -> List[List[Bitboard]]:\n     rays = []\n",
+        "source_code_with_indent": "\ndef _rays() -> Tuple[List[List[Bitboard]], List[List[Bitboard]]]:\n    <IND>rays = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef _rays() -> List[List[Bitboard]]:\n    <IND>rays = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

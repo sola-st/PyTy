@@ -1,0 +1,70 @@
+[
+  {
+    "project": "jpetrucciani/hubspot3",
+    "commit": "a3c14b5be0e05efd43d70b19603348685a7393f4",
+    "filename": "hubspot3/ecommerce_bridge.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jpetrucciani-hubspot3/hubspot3/ecommerce_bridge.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hubspot3/ecommerce_bridge.py:246:30 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 246,
+    "warning_line": "            params[\"appId\"] = app_id",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        params = {\"showProvidedMappings\": str(show_provided_mappings).lower()}\n        if app_id:\n",
+        "source_code_len": 99,
+        "target_code": "\n        params = {}  # type: Dict\n        params[\"showProvidedMappings\"] = str(show_provided_mappings).lower()\n        if app_id:\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -243,3 +243,4 @@\n \n-        params = {\"showProvidedMappings\": str(show_provided_mappings).lower()}\n+        params = {}  # type: Dict\n+        params[\"showProvidedMappings\"] = str(show_provided_mappings).lower()\n         if app_id:\n",
+        "source_code_with_indent": "\n        <DED>params = {\"showProvidedMappings\": str(show_provided_mappings).lower()}\n        if app_id:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>params = {}  # type: Dict\n        params[\"showProvidedMappings\"] = str(show_provided_mappings).lower()\n        if app_id:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jpetrucciani/hubspot3",
+    "commit": "a3c14b5be0e05efd43d70b19603348685a7393f4",
+    "filename": "hubspot3/email_subscription.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jpetrucciani-hubspot3/hubspot3/email_subscription.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hubspot3/email_subscription.py:79:16 Incompatible parameter type [6]: Expected `typing.List[typing.Any]` for 2nd positional only parameter to call `dict.__setitem__` but got `str`.",
+    "message": " Expected `typing.List[typing.Any]` for 2nd positional only parameter to call `dict.__setitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 79,
+    "warning_line": "            ] = portal_legal_basis_explanation",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        data = {\"subscriptionStatuses\": list(subscriptions)}\n        if portal_legal_basis:\n            data[\"portalSubscriptionLegalBasis\"] = portal_legal_basis  # type: ignore\n        if portal_legal_basis_explanation:\n            data[  # type: ignore\n                \"portalSubscriptionLegalBasisExplanation\"\n",
+        "source_code_len": 325,
+        "target_code": "        \"\"\"\n        data = {}  # type: Dict\n        data[\"subscriptionStatuses\"] = list(subscriptions)\n        if portal_legal_basis:\n            data[\"portalSubscriptionLegalBasis\"] = portal_legal_basis\n        if portal_legal_basis_explanation:\n            data[\n                \"portalSubscriptionLegalBasisExplanation\"\n",
+        "target_code_len": 323,
+        "diff_format": "@@ -72,7 +72,8 @@\n         \"\"\"\n-        data = {\"subscriptionStatuses\": list(subscriptions)}\n+        data = {}  # type: Dict\n+        data[\"subscriptionStatuses\"] = list(subscriptions)\n         if portal_legal_basis:\n-            data[\"portalSubscriptionLegalBasis\"] = portal_legal_basis  # type: ignore\n+            data[\"portalSubscriptionLegalBasis\"] = portal_legal_basis\n         if portal_legal_basis_explanation:\n-            data[  # type: ignore\n+            data[\n                 \"portalSubscriptionLegalBasisExplanation\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        data = {\"subscriptionStatuses\": list(subscriptions)}\n        if portal_legal_basis:\n            <IND>data[\"portalSubscriptionLegalBasis\"] = portal_legal_basis  # type: ignore\n        <DED>if portal_legal_basis_explanation:\n            <IND>data[  # type: ignore\n                \"portalSubscriptionLegalBasisExplanation\"\n",
+        "target_code_with_indent": "\n        data = {}  # type: Dict\n        data[\"subscriptionStatuses\"] = list(subscriptions)\n        if portal_legal_basis:\n            <IND>data[\"portalSubscriptionLegalBasis\"] = portal_legal_basis\n        <DED>if portal_legal_basis_explanation:\n            <IND>data[\n                \"portalSubscriptionLegalBasisExplanation\"\n"
+      }
+    ]
+  }
+]

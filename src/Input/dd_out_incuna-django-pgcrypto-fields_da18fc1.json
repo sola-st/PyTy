@@ -1,0 +1,138 @@
+[
+  {
+    "project": "incuna/django-pgcrypto-fields",
+    "commit": "da18fc18c6faacb84d84ebd54ea04a69a27c605e",
+    "filename": "pgcrypto/mixins.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/incuna-django-pgcrypto-fields/pgcrypto/mixins.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pgcrypto/mixins.py:140:4 Inconsistent override [15]: `aggregate` overrides attribute defined in `PGPPublicKeyFieldMixin` inconsistently. Type `typing.Type[DatePGPPublicKeyAggregate]` is not a subtype of the overridden attribute `typing.Type[PGPPublicKeyAggregate]`.",
+    "message": " `aggregate` overrides attribute defined in `PGPPublicKeyFieldMixin` inconsistently. Type `typing.Type[DatePGPPublicKeyAggregate]` is not a subtype of the overridden attribute `typing.Type[PGPPublicKeyAggregate]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 140,
+    "warning_line": "    aggregate = DatePGPPublicKeyAggregate",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n    aggregate = PGPPublicKeyAggregate\n    encrypt_sql = PGP_PUB_ENCRYPT_SQL\n    decrypt_sql = PGP_PUB_DECRYPT_SQL\n\n",
+        "source_code_len": 176,
+        "target_code": "    \"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n    encrypt_sql = PGP_PUB_ENCRYPT_SQL\n    decrypt_sql = PGP_PUB_DECRYPT_SQL\n    cast_type = 'TEXT'\n\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -108,5 +126,5 @@\n     \"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n-    aggregate = PGPPublicKeyAggregate\n     encrypt_sql = PGP_PUB_ENCRYPT_SQL\n     decrypt_sql = PGP_PUB_DECRYPT_SQL\n+    cast_type = 'TEXT'\n \n",
+        "source_code_with_indent": "    <IND>\"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n    aggregate = PGPPublicKeyAggregate\n    encrypt_sql = PGP_PUB_ENCRYPT_SQL\n    decrypt_sql = PGP_PUB_DECRYPT_SQL\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n    encrypt_sql = PGP_PUB_ENCRYPT_SQL\n    decrypt_sql = PGP_PUB_DECRYPT_SQL\n    cast_type = 'TEXT'\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "incuna/django-pgcrypto-fields",
+    "commit": "da18fc18c6faacb84d84ebd54ea04a69a27c605e",
+    "filename": "pgcrypto/mixins.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/incuna-django-pgcrypto-fields/pgcrypto/mixins.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pgcrypto/mixins.py:152:4 Inconsistent override [15]: `aggregate` overrides attribute defined in `PGPSymmetricKeyFieldMixin` inconsistently. Type `typing.Type[DatePGPSymmetricKeyAggregate]` is not a subtype of the overridden attribute `typing.Type[PGPSymmetricKeyAggregate]`.",
+    "message": " `aggregate` overrides attribute defined in `PGPSymmetricKeyFieldMixin` inconsistently. Type `typing.Type[DatePGPSymmetricKeyAggregate]` is not a subtype of the overridden attribute `typing.Type[PGPSymmetricKeyAggregate]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 152,
+    "warning_line": "    aggregate = DatePGPSymmetricKeyAggregate",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n    aggregate = PGPSymmetricKeyAggregate\n    encrypt_sql = PGP_SYM_ENCRYPT_SQL\n    decrypt_sql = PGP_SYM_DECRYPT_SQL\n\n",
+        "source_code_len": 182,
+        "target_code": "    \"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n    encrypt_sql = PGP_SYM_ENCRYPT_SQL\n    decrypt_sql = PGP_SYM_DECRYPT_SQL\n    cast_type = 'TEXT'\n\n",
+        "target_code_len": 164,
+        "diff_format": "@@ -115,5 +133,5 @@\n     \"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n-    aggregate = PGPSymmetricKeyAggregate\n     encrypt_sql = PGP_SYM_ENCRYPT_SQL\n     decrypt_sql = PGP_SYM_DECRYPT_SQL\n+    cast_type = 'TEXT'\n \n",
+        "source_code_with_indent": "    <IND>\"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n    aggregate = PGPSymmetricKeyAggregate\n    encrypt_sql = PGP_SYM_ENCRYPT_SQL\n    decrypt_sql = PGP_SYM_DECRYPT_SQL\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n    encrypt_sql = PGP_SYM_ENCRYPT_SQL\n    decrypt_sql = PGP_SYM_DECRYPT_SQL\n    cast_type = 'TEXT'\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "incuna/django-pgcrypto-fields",
+    "commit": "da18fc18c6faacb84d84ebd54ea04a69a27c605e",
+    "filename": "pgcrypto/mixins.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/incuna-django-pgcrypto-fields/pgcrypto/mixins.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pgcrypto/mixins.py:164:4 Inconsistent override [15]: `aggregate` overrides attribute defined in `PGPPublicKeyFieldMixin` inconsistently. Type `typing.Type[DateTimePGPPublicKeyAggregate]` is not a subtype of the overridden attribute `typing.Type[PGPPublicKeyAggregate]`.",
+    "message": " `aggregate` overrides attribute defined in `PGPPublicKeyFieldMixin` inconsistently. Type `typing.Type[DateTimePGPPublicKeyAggregate]` is not a subtype of the overridden attribute `typing.Type[PGPPublicKeyAggregate]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 164,
+    "warning_line": "    aggregate = DateTimePGPPublicKeyAggregate",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n    aggregate = PGPPublicKeyAggregate\n    encrypt_sql = PGP_PUB_ENCRYPT_SQL\n    decrypt_sql = PGP_PUB_DECRYPT_SQL\n\n",
+        "source_code_len": 176,
+        "target_code": "    \"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n    encrypt_sql = PGP_PUB_ENCRYPT_SQL\n    decrypt_sql = PGP_PUB_DECRYPT_SQL\n    cast_type = 'TEXT'\n\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -108,5 +126,5 @@\n     \"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n-    aggregate = PGPPublicKeyAggregate\n     encrypt_sql = PGP_PUB_ENCRYPT_SQL\n     decrypt_sql = PGP_PUB_DECRYPT_SQL\n+    cast_type = 'TEXT'\n \n",
+        "source_code_with_indent": "    <IND>\"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n    aggregate = PGPPublicKeyAggregate\n    encrypt_sql = PGP_PUB_ENCRYPT_SQL\n    decrypt_sql = PGP_PUB_DECRYPT_SQL\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\"PGP public key encrypted field mixin for postgres.\"\"\"\n    encrypt_sql = PGP_PUB_ENCRYPT_SQL\n    decrypt_sql = PGP_PUB_DECRYPT_SQL\n    cast_type = 'TEXT'\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "incuna/django-pgcrypto-fields",
+    "commit": "da18fc18c6faacb84d84ebd54ea04a69a27c605e",
+    "filename": "pgcrypto/mixins.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/incuna-django-pgcrypto-fields/pgcrypto/mixins.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pgcrypto/mixins.py:176:4 Inconsistent override [15]: `aggregate` overrides attribute defined in `PGPSymmetricKeyFieldMixin` inconsistently. Type `typing.Type[DateTimePGPSymmetricKeyAggregate]` is not a subtype of the overridden attribute `typing.Type[PGPSymmetricKeyAggregate]`.",
+    "message": " `aggregate` overrides attribute defined in `PGPSymmetricKeyFieldMixin` inconsistently. Type `typing.Type[DateTimePGPSymmetricKeyAggregate]` is not a subtype of the overridden attribute `typing.Type[PGPSymmetricKeyAggregate]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 176,
+    "warning_line": "    aggregate = DateTimePGPSymmetricKeyAggregate",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n    aggregate = PGPSymmetricKeyAggregate\n    encrypt_sql = PGP_SYM_ENCRYPT_SQL\n    decrypt_sql = PGP_SYM_DECRYPT_SQL\n\n",
+        "source_code_len": 182,
+        "target_code": "    \"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n    encrypt_sql = PGP_SYM_ENCRYPT_SQL\n    decrypt_sql = PGP_SYM_DECRYPT_SQL\n    cast_type = 'TEXT'\n\n",
+        "target_code_len": 164,
+        "diff_format": "@@ -115,5 +133,5 @@\n     \"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n-    aggregate = PGPSymmetricKeyAggregate\n     encrypt_sql = PGP_SYM_ENCRYPT_SQL\n     decrypt_sql = PGP_SYM_DECRYPT_SQL\n+    cast_type = 'TEXT'\n \n",
+        "source_code_with_indent": "    <IND>\"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n    aggregate = PGPSymmetricKeyAggregate\n    encrypt_sql = PGP_SYM_ENCRYPT_SQL\n    decrypt_sql = PGP_SYM_DECRYPT_SQL\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\"PGP symmetric key encrypted field mixin for postgres.\"\"\"\n    encrypt_sql = PGP_SYM_ENCRYPT_SQL\n    decrypt_sql = PGP_SYM_DECRYPT_SQL\n    cast_type = 'TEXT'\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "project": "pculture/miro",
+    "commit": "8397a4ca175dc1180937ee7d7d955ced8715300d",
+    "filename": "tv/portable/olddatabaseupgrade.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pculture-miro/tv/portable/olddatabaseupgrade.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tv/portable/olddatabaseupgrade.py:231:42 Incompatible parameter type [6]: Expected `typing.Type[typing.Union[OldChannelGuide, OldFeed, OldFeedImpl, OldHTTPAuthPassword, OldItem, OldMetainfo, OldRemoteDownloader]]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[DropItLikeItsHot]`.",
+    "message": " Expected `typing.Type[typing.Union[OldChannelGuide, OldFeed, OldFeedImpl, OldHTTPAuthPassword, OldItem, OldMetainfo, OldRemoteDownloader]]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[DropItLikeItsHot]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 231,
+    "warning_line": "fakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n}\n\n# Drop these classes like they're hot!\n#\n# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n#\n# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n# The cleanest way to handle them is to just drop them.\n# If the user still has these in their database, too bad.\n# BTDownloaders may contain BTDisplay and\n# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\nfakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\nfakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\nfakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\nfakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n\n",
+        "source_code_len": 716,
+        "target_code": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n\n    # Drop these classes like they're hot!\n    #\n    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n    #\n    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n    # cleanest way to handle them is to just drop them.  If the user still has\n    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n    # too.\n    #\n    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n    # databases where it is.\n    'downloader.DownloaderFactory': DropItLikeItsHot,\n    'app.StaticTab': DropItLikeItsHot,\n    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n    'downloader.BTDownloader': DropItLikeItsHot,\n    'downloader.BTDisplay': DropItLikeItsHot,\n    'downloader.HTTPDownloader': DropItLikeItsHot,\n}\n\n\n",
+        "target_code_len": 920,
+        "diff_format": "@@ -219,17 +219,23 @@\n     'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n+\n+    # Drop these classes like they're hot!\n+    #\n+    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n+    #\n+    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n+    # cleanest way to handle them is to just drop them.  If the user still has\n+    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n+    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n+    # too.\n+    #\n+    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n+    # databases where it is.\n+    'downloader.DownloaderFactory': DropItLikeItsHot,\n+    'app.StaticTab': DropItLikeItsHot,\n+    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n+    'downloader.BTDownloader': DropItLikeItsHot,\n+    'downloader.BTDisplay': DropItLikeItsHot,\n+    'downloader.HTTPDownloader': DropItLikeItsHot,\n }\n \n-# Drop these classes like they're hot!\n-#\n-# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n-#\n-# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n-# The cleanest way to handle them is to just drop them.\n-# If the user still has these in their database, too bad.\n-# BTDownloaders may contain BTDisplay and\n-# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\n-fakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\n-fakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\n-fakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\n-fakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n \n",
+        "source_code_with_indent": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n}\n\n# Drop these classes like they're hot!\n#\n# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n#\n# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n# The cleanest way to handle them is to just drop them.\n# If the user still has these in their database, too bad.\n# BTDownloaders may contain BTDisplay and\n# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\nfakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\nfakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\nfakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\nfakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n\n    # Drop these classes like they're hot!\n    #\n    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n    #\n    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n    # cleanest way to handle them is to just drop them.  If the user still has\n    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n    # too.\n    #\n    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n    # databases where it is.\n    'downloader.DownloaderFactory': DropItLikeItsHot,\n    'app.StaticTab': DropItLikeItsHot,\n    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n    'downloader.BTDownloader': DropItLikeItsHot,\n    'downloader.BTDisplay': DropItLikeItsHot,\n    'downloader.HTTPDownloader': DropItLikeItsHot,\n}\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pculture/miro",
+    "commit": "8397a4ca175dc1180937ee7d7d955ced8715300d",
+    "filename": "tv/portable/olddatabaseupgrade.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pculture-miro/tv/portable/olddatabaseupgrade.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tv/portable/olddatabaseupgrade.py:232:41 Incompatible parameter type [6]: Expected `typing.Type[typing.Union[OldChannelGuide, OldFeed, OldFeedImpl, OldHTTPAuthPassword, OldItem, OldMetainfo, OldRemoteDownloader]]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[DropItLikeItsHot]`.",
+    "message": " Expected `typing.Type[typing.Union[OldChannelGuide, OldFeed, OldFeedImpl, OldHTTPAuthPassword, OldItem, OldMetainfo, OldRemoteDownloader]]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[DropItLikeItsHot]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 232,
+    "warning_line": "fakeClasses['downloader.BTDownloader'] = DropItLikeItsHot",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n}\n\n# Drop these classes like they're hot!\n#\n# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n#\n# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n# The cleanest way to handle them is to just drop them.\n# If the user still has these in their database, too bad.\n# BTDownloaders may contain BTDisplay and\n# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\nfakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\nfakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\nfakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\nfakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n\n",
+        "source_code_len": 716,
+        "target_code": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n\n    # Drop these classes like they're hot!\n    #\n    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n    #\n    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n    # cleanest way to handle them is to just drop them.  If the user still has\n    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n    # too.\n    #\n    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n    # databases where it is.\n    'downloader.DownloaderFactory': DropItLikeItsHot,\n    'app.StaticTab': DropItLikeItsHot,\n    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n    'downloader.BTDownloader': DropItLikeItsHot,\n    'downloader.BTDisplay': DropItLikeItsHot,\n    'downloader.HTTPDownloader': DropItLikeItsHot,\n}\n\n\n",
+        "target_code_len": 920,
+        "diff_format": "@@ -219,17 +219,23 @@\n     'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n+\n+    # Drop these classes like they're hot!\n+    #\n+    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n+    #\n+    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n+    # cleanest way to handle them is to just drop them.  If the user still has\n+    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n+    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n+    # too.\n+    #\n+    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n+    # databases where it is.\n+    'downloader.DownloaderFactory': DropItLikeItsHot,\n+    'app.StaticTab': DropItLikeItsHot,\n+    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n+    'downloader.BTDownloader': DropItLikeItsHot,\n+    'downloader.BTDisplay': DropItLikeItsHot,\n+    'downloader.HTTPDownloader': DropItLikeItsHot,\n }\n \n-# Drop these classes like they're hot!\n-#\n-# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n-#\n-# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n-# The cleanest way to handle them is to just drop them.\n-# If the user still has these in their database, too bad.\n-# BTDownloaders may contain BTDisplay and\n-# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\n-fakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\n-fakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\n-fakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\n-fakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n \n",
+        "source_code_with_indent": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n}\n\n# Drop these classes like they're hot!\n#\n# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n#\n# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n# The cleanest way to handle them is to just drop them.\n# If the user still has these in their database, too bad.\n# BTDownloaders may contain BTDisplay and\n# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\nfakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\nfakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\nfakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\nfakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n\n    # Drop these classes like they're hot!\n    #\n    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n    #\n    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n    # cleanest way to handle them is to just drop them.  If the user still has\n    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n    # too.\n    #\n    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n    # databases where it is.\n    'downloader.DownloaderFactory': DropItLikeItsHot,\n    'app.StaticTab': DropItLikeItsHot,\n    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n    'downloader.BTDownloader': DropItLikeItsHot,\n    'downloader.BTDisplay': DropItLikeItsHot,\n    'downloader.HTTPDownloader': DropItLikeItsHot,\n}\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pculture/miro",
+    "commit": "8397a4ca175dc1180937ee7d7d955ced8715300d",
+    "filename": "tv/portable/olddatabaseupgrade.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pculture-miro/tv/portable/olddatabaseupgrade.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tv/portable/olddatabaseupgrade.py:233:38 Incompatible parameter type [6]: Expected `typing.Type[typing.Union[OldChannelGuide, OldFeed, OldFeedImpl, OldHTTPAuthPassword, OldItem, OldMetainfo, OldRemoteDownloader]]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[DropItLikeItsHot]`.",
+    "message": " Expected `typing.Type[typing.Union[OldChannelGuide, OldFeed, OldFeedImpl, OldHTTPAuthPassword, OldItem, OldMetainfo, OldRemoteDownloader]]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[DropItLikeItsHot]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 233,
+    "warning_line": "fakeClasses['downloader.BTDisplay'] = DropItLikeItsHot",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n}\n\n# Drop these classes like they're hot!\n#\n# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n#\n# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n# The cleanest way to handle them is to just drop them.\n# If the user still has these in their database, too bad.\n# BTDownloaders may contain BTDisplay and\n# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\nfakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\nfakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\nfakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\nfakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n\n",
+        "source_code_len": 716,
+        "target_code": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n\n    # Drop these classes like they're hot!\n    #\n    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n    #\n    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n    # cleanest way to handle them is to just drop them.  If the user still has\n    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n    # too.\n    #\n    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n    # databases where it is.\n    'downloader.DownloaderFactory': DropItLikeItsHot,\n    'app.StaticTab': DropItLikeItsHot,\n    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n    'downloader.BTDownloader': DropItLikeItsHot,\n    'downloader.BTDisplay': DropItLikeItsHot,\n    'downloader.HTTPDownloader': DropItLikeItsHot,\n}\n\n\n",
+        "target_code_len": 920,
+        "diff_format": "@@ -219,17 +219,23 @@\n     'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n+\n+    # Drop these classes like they're hot!\n+    #\n+    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n+    #\n+    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n+    # cleanest way to handle them is to just drop them.  If the user still has\n+    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n+    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n+    # too.\n+    #\n+    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n+    # databases where it is.\n+    'downloader.DownloaderFactory': DropItLikeItsHot,\n+    'app.StaticTab': DropItLikeItsHot,\n+    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n+    'downloader.BTDownloader': DropItLikeItsHot,\n+    'downloader.BTDisplay': DropItLikeItsHot,\n+    'downloader.HTTPDownloader': DropItLikeItsHot,\n }\n \n-# Drop these classes like they're hot!\n-#\n-# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n-#\n-# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n-# The cleanest way to handle them is to just drop them.\n-# If the user still has these in their database, too bad.\n-# BTDownloaders may contain BTDisplay and\n-# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\n-fakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\n-fakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\n-fakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\n-fakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n \n",
+        "source_code_with_indent": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n}\n\n# Drop these classes like they're hot!\n#\n# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n#\n# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n# The cleanest way to handle them is to just drop them.\n# If the user still has these in their database, too bad.\n# BTDownloaders may contain BTDisplay and\n# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\nfakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\nfakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\nfakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\nfakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n\n    # Drop these classes like they're hot!\n    #\n    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n    #\n    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n    # cleanest way to handle them is to just drop them.  If the user still has\n    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n    # too.\n    #\n    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n    # databases where it is.\n    'downloader.DownloaderFactory': DropItLikeItsHot,\n    'app.StaticTab': DropItLikeItsHot,\n    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n    'downloader.BTDownloader': DropItLikeItsHot,\n    'downloader.BTDisplay': DropItLikeItsHot,\n    'downloader.HTTPDownloader': DropItLikeItsHot,\n}\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pculture/miro",
+    "commit": "8397a4ca175dc1180937ee7d7d955ced8715300d",
+    "filename": "tv/portable/olddatabaseupgrade.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pculture-miro/tv/portable/olddatabaseupgrade.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tv/portable/olddatabaseupgrade.py:234:43 Incompatible parameter type [6]: Expected `typing.Type[typing.Union[OldChannelGuide, OldFeed, OldFeedImpl, OldHTTPAuthPassword, OldItem, OldMetainfo, OldRemoteDownloader]]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[DropItLikeItsHot]`.",
+    "message": " Expected `typing.Type[typing.Union[OldChannelGuide, OldFeed, OldFeedImpl, OldHTTPAuthPassword, OldItem, OldMetainfo, OldRemoteDownloader]]` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Type[DropItLikeItsHot]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 234,
+    "warning_line": "fakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n}\n\n# Drop these classes like they're hot!\n#\n# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n#\n# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n# The cleanest way to handle them is to just drop them.\n# If the user still has these in their database, too bad.\n# BTDownloaders may contain BTDisplay and\n# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\nfakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\nfakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\nfakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\nfakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n\n",
+        "source_code_len": 716,
+        "target_code": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n\n    # Drop these classes like they're hot!\n    #\n    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n    #\n    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n    # cleanest way to handle them is to just drop them.  If the user still has\n    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n    # too.\n    #\n    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n    # databases where it is.\n    'downloader.DownloaderFactory': DropItLikeItsHot,\n    'app.StaticTab': DropItLikeItsHot,\n    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n    'downloader.BTDownloader': DropItLikeItsHot,\n    'downloader.BTDisplay': DropItLikeItsHot,\n    'downloader.HTTPDownloader': DropItLikeItsHot,\n}\n\n\n",
+        "target_code_len": 920,
+        "diff_format": "@@ -219,17 +219,23 @@\n     'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n+\n+    # Drop these classes like they're hot!\n+    #\n+    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n+    #\n+    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n+    # cleanest way to handle them is to just drop them.  If the user still has\n+    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n+    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n+    # too.\n+    #\n+    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n+    # databases where it is.\n+    'downloader.DownloaderFactory': DropItLikeItsHot,\n+    'app.StaticTab': DropItLikeItsHot,\n+    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n+    'downloader.BTDownloader': DropItLikeItsHot,\n+    'downloader.BTDisplay': DropItLikeItsHot,\n+    'downloader.HTTPDownloader': DropItLikeItsHot,\n }\n \n-# Drop these classes like they're hot!\n-#\n-# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n-#\n-# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n-# The cleanest way to handle them is to just drop them.\n-# If the user still has these in their database, too bad.\n-# BTDownloaders may contain BTDisplay and\n-# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\n-fakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\n-fakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\n-fakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\n-fakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n \n",
+        "source_code_with_indent": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n}\n\n# Drop these classes like they're hot!\n#\n# YahooSearchFeedImpl is a leftover class that we don't use anymore.\n#\n# The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  \n# The cleanest way to handle them is to just drop them.\n# If the user still has these in their database, too bad.\n# BTDownloaders may contain BTDisplay and\n# BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those too.\nfakeClasses['feed.YahooSearchFeedImpl'] = DropItLikeItsHot\nfakeClasses['downloader.BTDownloader'] = DropItLikeItsHot\nfakeClasses['downloader.BTDisplay'] = DropItLikeItsHot\nfakeClasses['downloader.HTTPDownloader'] = DropItLikeItsHot\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    'BitTorrent.ConvertedMetainfo.ConvertedMetainfo': OldMetainfo,\n\n    # Drop these classes like they're hot!\n    #\n    # YahooSearchFeedImpl is a leftover class that we don't use anymore.\n    #\n    # The HTTPDownloader and BTDownloader classes were removed in 0.8.2.  The\n    # cleanest way to handle them is to just drop them.  If the user still has\n    # these in their database, too bad.  BTDownloaders may contain BTDisplay\n    # and BitTorrent.ConvertedMetainfo.ConvertedMetainfo objects, drop those\n    # too.\n    #\n    # DownloaderFactory and StaticTab shouldn't be pickled, but I've seen\n    # databases where it is.\n    'downloader.DownloaderFactory': DropItLikeItsHot,\n    'app.StaticTab': DropItLikeItsHot,\n    'feed.YahooSearchFeedImpl': DropItLikeItsHot,\n    'downloader.BTDownloader': DropItLikeItsHot,\n    'downloader.BTDisplay': DropItLikeItsHot,\n    'downloader.HTTPDownloader': DropItLikeItsHot,\n}\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

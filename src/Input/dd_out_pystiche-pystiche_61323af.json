@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pystiche/pystiche",
+    "commit": "61323afbf05a2a7b6b0ef315cf025c05b842feab",
+    "filename": "pystiche/enc/multi_layer_encoder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pystiche-pystiche/pystiche/enc/multi_layer_encoder.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pystiche/enc/multi_layer_encoder.py:75:53 Call error [29]: `pystiche.core._modules.Module` is not a function.",
+    "message": " `pystiche.core._modules.Module` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 75,
+    "warning_line": "                input = storage[(name, input_key)] = module(input)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self, layer: str, include_last: bool = False\n    ) -> Iterator[Tuple[str, pystiche.Module]]:\n        self._verify_layer(layer)\n",
+        "source_code_len": 135,
+        "target_code": "        self, layer: str, include_last: bool = False\n    ) -> Iterator[Tuple[str, nn.Module]]:\n        self._verify_layer(layer)\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -45,3 +45,3 @@\n         self, layer: str, include_last: bool = False\n-    ) -> Iterator[Tuple[str, pystiche.Module]]:\n+    ) -> Iterator[Tuple[str, nn.Module]]:\n         self._verify_layer(layer)\n",
+        "source_code_with_indent": "        self, layer: str, include_last: bool = False\n    ) -> Iterator[Tuple[str, pystiche.Module]]:\n        <IND>self._verify_layer(layer)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self, layer: str, include_last: bool = False\n    ) -> Iterator[Tuple[str, nn.Module]]:\n        <IND>self._verify_layer(layer)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

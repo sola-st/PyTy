@@ -1,0 +1,201 @@
+[
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/defences/trainer/adversarial_trainer_madry_pgd.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Trusted-AI-adversarial-robustness-toolbox/art/defences/trainer/adversarial_trainer_madry_pgd.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "art/defences/trainer/adversarial_trainer_madry_pgd.py:78:57 Incompatible parameter type [6]: Expected `Classifier` for 1st parameter `classifier` to call `Trainer.__init__` but got `ClassifierGradients`.",
+    "message": " Expected `Classifier` for 1st parameter `classifier` to call `Trainer.__init__` but got `ClassifierGradients`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 78,
+    "warning_line": "        super(AdversarialTrainerMadryPGD, self).__init__(classifier=classifier)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        \"\"\"\n        super(AdversarialTrainerMadryPGD, self).__init__(classifier=classifier)\n        self.batch_size = batch_size\n",
+        "source_code_len": 129,
+        "target_code": "        \"\"\"\n        super(AdversarialTrainerMadryPGD, self).__init__(classifier=classifier)  # type: ignore\n        self.batch_size = batch_size\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -77,3 +77,3 @@\n         \"\"\"\n-        super(AdversarialTrainerMadryPGD, self).__init__(classifier=classifier)\n+        super(AdversarialTrainerMadryPGD, self).__init__(classifier=classifier)  # type: ignore\n         self.batch_size = batch_size\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        super(AdversarialTrainerMadryPGD, self).__init__(classifier=classifier)\n        self.batch_size = batch_size\n",
+        "target_code_with_indent": "\n        super(AdversarialTrainerMadryPGD, self).__init__(classifier=classifier)  # type: ignore\n        self.batch_size = batch_size\n"
+      }
+    ]
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/defences/trainer/adversarial_trainer_madry_pgd.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Trusted-AI-adversarial-robustness-toolbox/art/defences/trainer/adversarial_trainer_madry_pgd.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "art/defences/trainer/adversarial_trainer_madry_pgd.py:91:42 Incompatible parameter type [6]: Expected `Classifier` for 1st positional only parameter to call `AdversarialTrainer.__init__` but got `ClassifierGradients`.",
+    "message": " Expected `Classifier` for 1st positional only parameter to call `AdversarialTrainer.__init__` but got `ClassifierGradients`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 91,
+    "warning_line": "        self.trainer = AdversarialTrainer(classifier, self.attack, ratio=1.0)"
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/estimators/classification/GPy.py",
+    "min_patch_found": false,
+    "full_warning_msg": "art/estimators/classification/GPy.py:164:4 Inconsistent override [14]: `art.estimators.classification.GPy.GPyGaussianProcessClassifier.predict` overrides method defined in `art.estimators.estimator.NeuralNetworkMixin` inconsistently. Could not find parameter `batch_size` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/estimators/classification/GPy.py",
+    "min_patch_found": false,
+    "full_warning_msg": "art/estimators/classification/GPy.py:209:4 Inconsistent override [14]: `art.estimators.classification.GPy.GPyGaussianProcessClassifier.fit` overrides method defined in `art.estimators.estimator.NeuralNetworkMixin` inconsistently. Could not find parameter `batch_size` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/estimators/classification/GPy.py",
+    "min_patch_found": false,
+    "full_warning_msg": "art/estimators/classification/GPy.py:209:4 Inconsistent override [14]: `art.estimators.classification.GPy.GPyGaussianProcessClassifier.fit` overrides method defined in `art.estimators.estimator.NeuralNetworkMixin` inconsistently. Could not find parameter `nb_epochs` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/estimators/classification/tensorflow.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Trusted-AI-adversarial-robustness-toolbox/art/estimators/classification/tensorflow.py",
+    "file_hunks_size": 38,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "art/estimators/classification/tensorflow.py:1020:12 Incompatible return type [7]: Expected `List[str]` but got `None`.",
+    "message": " Expected `List[str]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1020,
+    "warning_line": "            return None"
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/estimators/estimator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Trusted-AI-adversarial-robustness-toolbox/art/estimators/estimator.py",
+    "file_hunks_size": 19,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "art/estimators/estimator.py:478:31 Unsupported operand [58]: `/` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `/` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 478,
+    "warning_line": "            for _ in range(int(generator.size / generator.batch_size)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        for _ in range(nb_epochs):\n            for _ in range(int(generator.size / generator.batch_size)):\n                x, y = generator.get_batch()\n",
+        "source_code_len": 152,
+        "target_code": "        for _ in range(nb_epochs):\n            for _ in range(int(generator.size / generator.batch_size)):  # type: ignore\n                x, y = generator.get_batch()\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -477,3 +463,3 @@\n         for _ in range(nb_epochs):\n-            for _ in range(int(generator.size / generator.batch_size)):\n+            for _ in range(int(generator.size / generator.batch_size)):  # type: ignore\n                 x, y = generator.get_batch()\n",
+        "source_code_with_indent": "        <DED>for _ in range(nb_epochs):\n            <IND>for _ in range(int(generator.size / generator.batch_size)):\n                <IND>x, y = generator.get_batch()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>for _ in range(nb_epochs):\n            <IND>for _ in range(int(generator.size / generator.batch_size)):  # type: ignore\n                <IND>x, y = generator.get_batch()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/estimators/estimator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Trusted-AI-adversarial-robustness-toolbox/art/estimators/estimator.py",
+    "file_hunks_size": 19,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "art/estimators/estimator.py:525:8 Incompatible return type [7]: Expected `int` but got `Optional[int]`.",
+    "message": " Expected `int` but got `Optional[int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 525,
+    "warning_line": "        return self._channel_index",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def channel_index(self) -> int:\n        \"\"\"\n",
+        "source_code_len": 62,
+        "target_code": "    @property\n    def channel_index(self) -> Optional[int]:\n        \"\"\"\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -520,3 +496,3 @@\n     @property\n-    def channel_index(self) -> int:\n+    def channel_index(self) -> Optional[int]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@property\n    def channel_index(self) -> int:\n        <IND>",
+        "target_code_with_indent": "    <DED>@property\n    def channel_index(self) -> Optional[int]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/wrappers/query_efficient_bb.py",
+    "min_patch_found": false,
+    "full_warning_msg": "art/wrappers/query_efficient_bb.py:79:4 Inconsistent override [14]: `art.wrappers.query_efficient_bb.QueryEfficientBBGradientEstimation.fit` overrides method defined in `art.estimators.estimator.NeuralNetworkMixin` inconsistently. Could not find parameter `batch_size` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/wrappers/query_efficient_bb.py",
+    "min_patch_found": false,
+    "full_warning_msg": "art/wrappers/query_efficient_bb.py:79:4 Inconsistent override [14]: `art.wrappers.query_efficient_bb.QueryEfficientBBGradientEstimation.fit` overrides method defined in `art.estimators.estimator.NeuralNetworkMixin` inconsistently. Could not find parameter `nb_epochs` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/wrappers/randomized_smoothing.py",
+    "min_patch_found": false,
+    "full_warning_msg": "art/wrappers/randomized_smoothing.py:220:4 Inconsistent override [14]: `art.wrappers.randomized_smoothing.RandomizedSmoothing.fit` overrides method defined in `art.estimators.estimator.NeuralNetworkMixin` inconsistently. Could not find parameter `batch_size` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit": "e90d9ef4b68e501928719b94f49648dbe1f6a689",
+    "filename": "art/wrappers/randomized_smoothing.py",
+    "min_patch_found": false,
+    "full_warning_msg": "art/wrappers/randomized_smoothing.py:220:4 Inconsistent override [14]: `art.wrappers.randomized_smoothing.RandomizedSmoothing.fit` overrides method defined in `art.estimators.estimator.NeuralNetworkMixin` inconsistently. Could not find parameter `nb_epochs` in overriding signature.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

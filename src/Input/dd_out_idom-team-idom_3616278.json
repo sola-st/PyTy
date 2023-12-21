@@ -1,0 +1,60 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "36162783916d806acb9ad9e94f5bfb548e8f403e",
+    "filename": "src/idom/testing.py",
+    "min_patch_found": false,
+    "full_warning_msg": "src/idom/testing.py:128:38 Incompatible parameter type [6]: Expected `Variable[typing.AnyStr <: [str, bytes]]` for 1st positional only parameter to call `re.compile` but got `Optional[str]`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "idom-team/idom",
+    "commit": "36162783916d806acb9ad9e94f5bfb548e8f403e",
+    "filename": "src/idom/testing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/idom/testing.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/idom/testing.py:139:33 Incompatible parameter type [6]: Expected `Exception` for 1st positional only parameter to call `list.append` but got `BaseException`.",
+    "message": " Expected `Exception` for 1st positional only parameter to call `list.append` but got `BaseException`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 139,
+    "warning_line": "                    found.append(error)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        pattern: Optional[str] = \"\",\n        types: Union[Type[Exception], Tuple[Type[Exception], ...]] = Exception,\n        log_level: int = logging.ERROR,\n        del_log_records: bool = True,\n    ) -> List[Exception]:\n        \"\"\"Return a list of logged exception matching the given criteria\n",
+        "source_code_len": 308,
+        "target_code": "        self,\n        pattern: str = \"\",\n        types: Union[Type[Any], Tuple[Type[Any], ...]] = Exception,\n        log_level: int = logging.ERROR,\n        del_log_records: bool = True,\n    ) -> List[BaseException]:\n        \"\"\"Return a list of logged exception matching the given criteria\n",
+        "target_code_len": 290,
+        "diff_format": "@@ -114,7 +114,7 @@\n         self,\n-        pattern: Optional[str] = \"\",\n-        types: Union[Type[Exception], Tuple[Type[Exception], ...]] = Exception,\n+        pattern: str = \"\",\n+        types: Union[Type[Any], Tuple[Type[Any], ...]] = Exception,\n         log_level: int = logging.ERROR,\n         del_log_records: bool = True,\n-    ) -> List[Exception]:\n+    ) -> List[BaseException]:\n         \"\"\"Return a list of logged exception matching the given criteria\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        self,\n        pattern: Optional[str] = \"\",\n        types: Union[Type[Exception], Tuple[Type[Exception], ...]] = Exception,\n        log_level: int = logging.ERROR,\n        del_log_records: bool = True,\n    ) -> List[Exception]:\n        <IND>",
+        "target_code_with_indent": "        self,\n        pattern: str = \"\",\n        types: Union[Type[Any], Tuple[Type[Any], ...]] = Exception,\n        log_level: int = logging.ERROR,\n        del_log_records: bool = True,\n    ) -> List[BaseException]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        found: List[Exception] = []\n        compiled_pattern = re.compile(pattern)\n",
+        "source_code_len": 95,
+        "target_code": "        \"\"\"\n        found: List[BaseException] = []\n        compiled_pattern = re.compile(pattern)\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -126,3 +126,3 @@\n         \"\"\"\n-        found: List[Exception] = []\n+        found: List[BaseException] = []\n         compiled_pattern = re.compile(pattern)\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        found: List[Exception] = []\n        compiled_pattern = re.compile(pattern)\n",
+        "target_code_with_indent": "\n        found: List[BaseException] = []\n        compiled_pattern = re.compile(pattern)\n"
+      }
+    ]
+  }
+]

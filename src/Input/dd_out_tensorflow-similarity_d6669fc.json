@@ -1,0 +1,66 @@
+[
+  {
+    "project": "tensorflow/similarity",
+    "commit": "d6669fc6a7b33ae74d19748c10f29803690b91b2",
+    "filename": "tensorflow_similarity/samplers/memory_samplers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-similarity/tensorflow_similarity/samplers/memory_samplers.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_similarity/samplers/memory_samplers.py:160:8 Incompatible return type [7]: Expected `Tuple[FloatTensor, IntTensor]` but got `Tuple[Tensor, Tensor]`.",
+    "message": " Expected `Tuple[FloatTensor, IntTensor]` but got `Tuple[Tensor, Tensor]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 160,
+    "warning_line": "        return slice_x, slice_y",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from collections import defaultdict\nfrom typing import Optional, Tuple, Sequence\n\n",
+        "source_code_len": 82,
+        "target_code": "from collections import defaultdict\nfrom typing import Optional, Tuple, TypeVar, Sequence\n\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -2,3 +2,3 @@\n from collections import defaultdict\n-from typing import Optional, Tuple, Sequence\n+from typing import Optional, Tuple, TypeVar, Sequence\n \n",
+        "source_code_with_indent": "from collections import defaultdict\nfrom typing import Optional, Tuple, Sequence\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from collections import defaultdict\nfrom typing import Optional, Tuple, TypeVar, Sequence\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from .utils import select_examples\n\n",
+        "source_code_len": 36,
+        "target_code": "from .utils import select_examples\n\nT = TypeVar('T', FloatTensor, IntTensor)\n\n",
+        "target_code_len": 78,
+        "diff_format": "@@ -10,2 +10,4 @@\n from .utils import select_examples\n+\n+T = TypeVar('T', FloatTensor, IntTensor)\n \n",
+        "source_code_with_indent": "from .utils import select_examples\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from .utils import select_examples\n\nT = TypeVar('T', FloatTensor, IntTensor)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _get_slice(self,\n                   input_: Tensor,\n                   begin: int,\n                   size: int) -> Tensor:\n        b = [0] * len(tf.shape(input_))\n",
+        "source_code_len": 172,
+        "target_code": "    def _get_slice(self,\n                   input_: T,\n                   begin: int,\n                   size: int) -> T:\n        b = [0] * len(tf.shape(input_))\n",
+        "target_code_len": 162,
+        "diff_format": "@@ -162,5 +164,5 @@\n     def _get_slice(self,\n-                   input_: Tensor,\n+                   input_: T,\n                    begin: int,\n-                   size: int) -> Tensor:\n+                   size: int) -> T:\n         b = [0] * len(tf.shape(input_))\n",
+        "source_code_with_indent": "    <DED>def _get_slice(self,\n                   input_: Tensor,\n                   begin: int,\n                   size: int) -> Tensor:\n        <IND>b = [0] * len(tf.shape(input_))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def _get_slice(self,\n                   input_: T,\n                   begin: int,\n                   size: int) -> T:\n        <IND>b = [0] * len(tf.shape(input_))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

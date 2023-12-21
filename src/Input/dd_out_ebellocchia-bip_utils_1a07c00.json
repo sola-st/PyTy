@@ -1,0 +1,53 @@
+[
+  {
+    "project": "ebellocchia/bip_utils",
+    "commit": "1a07c00d7bc8aebc2b9ba42ca918aaf1bdf08696",
+    "filename": "bip_utils/bip/bip32/bip32_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ebellocchia-bip_utils/bip_utils/bip/bip32/bip32_base.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bip_utils/bip/bip32/bip32_base.py:288:65 Incompatible parameter type [6]: Expected `Union[bip_utils.ecc.ikeys.IPublicKey, bytes]` for 1st positional only parameter to call `Bip32PublicKey.FromBytesOrKeyObject` but got `Union[None, bip_utils.ecc.ikeys.IPublicKey, bytes]`.",
+    "message": " Expected `Union[bip_utils.ecc.ikeys.IPublicKey, bytes]` for 1st positional only parameter to call `Bip32PublicKey.FromBytesOrKeyObject` but got `Union[None, bip_utils.ecc.ikeys.IPublicKey, bytes]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 288,
+    "warning_line": "            self.m_pub_key = Bip32PublicKey.FromBytesOrKeyObject(pub_key,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else:\n            self.m_priv_key = None\n",
+        "source_code_len": 49,
+        "target_code": "        else:\n            assert isinstance(pub_key, (bytes, IPublicKey)), \"Public key shall be specified for public-only objects\"\n\n            self.m_priv_key = None\n",
+        "target_code_len": 167,
+        "diff_format": "@@ -286,2 +289,4 @@\n         else:\n+            assert isinstance(pub_key, (bytes, IPublicKey)), \"Public key shall be specified for public-only objects\"\n+\n             self.m_priv_key = None\n",
+        "source_code_with_indent": "        <DED>else:\n            <IND>self.m_priv_key = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>else:\n            <IND>assert isinstance(pub_key, (bytes, IPublicKey)), \"Public key shall be specified for public-only objects\"\n\n            self.m_priv_key = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ebellocchia/bip_utils",
+    "commit": "1a07c00d7bc8aebc2b9ba42ca918aaf1bdf08696",
+    "filename": "bip_utils/monero/mnemonic/monero_mnemonic.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ebellocchia-bip_utils/bip_utils/monero/mnemonic/monero_mnemonic.py",
+    "file_hunks_size": 10,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bip_utils/monero/mnemonic/monero_mnemonic.py:370:75 Incompatible parameter type [6]: Expected `MoneroLanguages` for 2nd positional only parameter to call `_MoneroMnemonicUtils.ComputeChecksum` but got `Optional[MoneroLanguages]`.",
+    "message": " Expected `MoneroLanguages` for 2nd positional only parameter to call `_MoneroMnemonicUtils.ComputeChecksum` but got `Optional[MoneroLanguages]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 370,
+    "warning_line": "            chksum_word = _MoneroMnemonicUtils.ComputeChecksum(words[:-1], lang)"
+  }
+]

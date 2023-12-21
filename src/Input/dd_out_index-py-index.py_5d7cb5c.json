@@ -1,0 +1,51 @@
+[
+  {
+    "project": "index-py/index.py",
+    "commit": "5d7cb5c2de20ef633473bdca58d06306e62a7fed",
+    "filename": "indexpy/concurrency.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/index-py-index.py/indexpy/concurrency.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "indexpy/concurrency.py:54:8 Incompatible return type [7]: Expected `Union[typing.Callable[..., AsyncGenerator[Variable[T], None]], typing.Callable[..., Awaitable[Variable[T]]]]` but got `typing.Callable[..., Union[AsyncGenerator[typing.Any, typing.Any], Awaitable[typing.Any]]]`.",
+    "message": " Expected `Union[typing.Callable[..., AsyncGenerator[Variable[T], None]], typing.Callable[..., Awaitable[Variable[T]]]]` but got `typing.Callable[..., Union[AsyncGenerator[typing.Any, typing.Any], Awaitable[typing.Any]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 54,
+    "warning_line": "        return func",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import functools\nfrom typing import Any, AsyncGenerator, Awaitable, Callable, Iterator, TypeVar, Union\n\nfrom indexpy.utils.inspect import is_async_gen_callable\n\nfrom .utils import is_coroutine_callable, is_gen_callable\n\n",
+        "source_code_len": 220,
+        "target_code": "import functools\nimport typing\nfrom typing import (\n    Any,\n    AsyncGenerator,\n    Awaitable,\n    Callable,\n    Generator,\n    Iterator,\n    TypeVar,\n    overload,\n)\n\nfrom .utils import is_async_gen_callable, is_coroutine_callable, is_gen_callable\n\n",
+        "target_code_len": 251,
+        "diff_format": "@@ -5,7 +5,15 @@\n import functools\n-from typing import Any, AsyncGenerator, Awaitable, Callable, Iterator, TypeVar, Union\n+import typing\n+from typing import (\n+    Any,\n+    AsyncGenerator,\n+    Awaitable,\n+    Callable,\n+    Generator,\n+    Iterator,\n+    TypeVar,\n+    overload,\n+)\n \n-from indexpy.utils.inspect import is_async_gen_callable\n-\n-from .utils import is_coroutine_callable, is_gen_callable\n+from .utils import is_async_gen_callable, is_coroutine_callable, is_gen_callable\n \n",
+        "source_code_with_indent": "import functools\nfrom typing import Any, AsyncGenerator, Awaitable, Callable, Iterator, TypeVar, Union\n\nfrom indexpy.utils.inspect import is_async_gen_callable\n\nfrom .utils import is_coroutine_callable, is_gen_callable\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import functools\nimport typing\nfrom typing import (\n    Any,\n    AsyncGenerator,\n    Awaitable,\n    Callable,\n    Generator,\n    Iterator,\n    TypeVar,\n    overload,\n)\n\nfrom .utils import is_async_gen_callable, is_coroutine_callable, is_gen_callable\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\ndef always_async(\n    func: Callable[..., T],\n) -> Union[Callable[..., AsyncGenerator[T, None]], Callable[..., Awaitable[T]]]:\n    if is_coroutine_callable(func) or is_async_gen_callable(func):\n",
+        "source_code_len": 195,
+        "target_code": "\n@overload\ndef always_async(  # type: ignore\n    func: Callable[..., Generator[T, None, None]]\n) -> Callable[..., AsyncGenerator[T, None]]:\n    ...\n\n\n@overload\ndef always_async(func: Callable[..., T]) -> Callable[..., Awaitable[T]]:\n    ...\n\n\ndef always_async(func):\n    if is_coroutine_callable(func) or is_async_gen_callable(func):\n",
+        "target_code_len": 334,
+        "diff_format": "@@ -49,5 +57,15 @@\n \n-def always_async(\n-    func: Callable[..., T],\n-) -> Union[Callable[..., AsyncGenerator[T, None]], Callable[..., Awaitable[T]]]:\n+@overload\n+def always_async(  # type: ignore\n+    func: Callable[..., Generator[T, None, None]]\n+) -> Callable[..., AsyncGenerator[T, None]]:\n+    ...\n+\n+\n+@overload\n+def always_async(func: Callable[..., T]) -> Callable[..., Awaitable[T]]:\n+    ...\n+\n+\n+def always_async(func):\n     if is_coroutine_callable(func) or is_async_gen_callable(func):\n",
+        "source_code_with_indent": "\n<DED><DED><DED>def always_async(\n    func: Callable[..., T],\n) -> Union[Callable[..., AsyncGenerator[T, None]], Callable[..., Awaitable[T]]]:\n    <IND>if is_coroutine_callable(func) or is_async_gen_callable(func):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>@overload\ndef always_async(  # type: ignore\n    func: Callable[..., Generator[T, None, None]]\n) -> Callable[..., AsyncGenerator[T, None]]:\n    <IND>...\n\n\n<DED>@overload\ndef always_async(func: Callable[..., T]) -> Callable[..., Awaitable[T]]:\n    <IND>...\n\n\n<DED>def always_async(func):\n    <IND>if is_coroutine_callable(func) or is_async_gen_callable(func):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

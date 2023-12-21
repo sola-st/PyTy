@@ -1,0 +1,36 @@
+[
+  {
+    "project": "zenml-io/zenml",
+    "commit": "c6718ec9ee4774eeedaa01dc35746c31f69b925f",
+    "filename": "src/zenml/cli/example.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/zenml-io-zenml/src/zenml/cli/example.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/zenml/cli/example.py:524:28 Incompatible parameter type [6]: Expected `Path` for 1st positional only parameter to call `LocalExample.__init__` but got `str`.",
+    "message": " Expected `Path` for 1st positional only parameter to call `LocalExample.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 524,
+    "warning_line": "            if LocalExample(example.name, destination_dir).is_present():",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            if LocalExample(example.name, destination_dir).is_present():\n                if confirmation(\n",
+        "source_code_len": 107,
+        "target_code": "\n            if LocalExample(Path(example.name), destination_dir).is_present():\n                if confirmation(\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -523,3 +523,3 @@\n \n-            if LocalExample(example.name, destination_dir).is_present():\n+            if LocalExample(Path(example.name), destination_dir).is_present():\n                 if confirmation(\n",
+        "source_code_with_indent": "\n            if LocalExample(example.name, destination_dir).is_present():\n                <IND>if confirmation(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            if LocalExample(Path(example.name), destination_dir).is_present():\n                <IND>if confirmation(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

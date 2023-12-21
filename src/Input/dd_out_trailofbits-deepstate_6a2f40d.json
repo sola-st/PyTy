@@ -1,0 +1,153 @@
+[
+  {
+    "project": "trailofbits/deepstate",
+    "commit": "6a2f40d1dffad56db7ca0be20e570069d899e83b",
+    "filename": "bin/deepstate/core/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-deepstate/bin/deepstate/core/base.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bin/deepstate/core/base.py:133:29 Unbound name [10]: Name `Tuple` is used but not defined in the current scope.",
+    "message": " Name `Tuple` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 133,
+    "warning_line": "    target_args_parsed: List[Tuple[str, Optional[str]]] = []",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Dict, ClassVar, Optional, Union, List, Any\n\n",
+        "source_code_len": 64,
+        "target_code": "\nfrom typing import Dict, ClassVar, Optional, Union, List, Any, Tuple\n\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -22,3 +22,3 @@\n \n-from typing import Dict, ClassVar, Optional, Union, List, Any\n+from typing import Dict, ClassVar, Optional, Union, List, Any, Tuple\n \n",
+        "source_code_with_indent": "\nfrom typing import Dict, ClassVar, Optional, Union, List, Any\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Dict, ClassVar, Optional, Union, List, Any, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # from parsed arguments, modify dict copy if configuration is specified\n    _args: Dict[str, str] = vars(args)\n\n",
+        "source_code_len": 116,
+        "target_code": "    # from parsed arguments, modify dict copy if configuration is specified\n    _args: Dict[str, Any] = vars(args)\n    print(_args)\n\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -129,3 +129,4 @@\n     # from parsed arguments, modify dict copy if configuration is specified\n-    _args: Dict[str, str] = vars(args)\n+    _args: Dict[str, Any] = vars(args)\n+    print(_args)\n \n",
+        "source_code_with_indent": "    # from parsed arguments, modify dict copy if configuration is specified\n    _args: Dict[str, str] = vars(args)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # from parsed arguments, modify dict copy if configuration is specified\n    _args: Dict[str, Any] = vars(args)\n    print(_args)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "trailofbits/deepstate",
+    "commit": "6a2f40d1dffad56db7ca0be20e570069d899e83b",
+    "filename": "bin/deepstate/core/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-deepstate/bin/deepstate/core/base.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bin/deepstate/core/base.py:141:27 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `List[Variable[_T]]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `List[Variable[_T]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 141,
+    "warning_line": "    _args['target_args'] = target_args_parsed",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # from parsed arguments, modify dict copy if configuration is specified\n    _args: Dict[str, str] = vars(args)\n\n",
+        "source_code_len": 116,
+        "target_code": "    # from parsed arguments, modify dict copy if configuration is specified\n    _args: Dict[str, Any] = vars(args)\n    print(_args)\n\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -129,3 +129,4 @@\n     # from parsed arguments, modify dict copy if configuration is specified\n-    _args: Dict[str, str] = vars(args)\n+    _args: Dict[str, Any] = vars(args)\n+    print(_args)\n \n",
+        "source_code_with_indent": "    # from parsed arguments, modify dict copy if configuration is specified\n    _args: Dict[str, str] = vars(args)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # from parsed arguments, modify dict copy if configuration is specified\n    _args: Dict[str, Any] = vars(args)\n    print(_args)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "trailofbits/deepstate",
+    "commit": "6a2f40d1dffad56db7ca0be20e570069d899e83b",
+    "filename": "bin/deepstate/core/fuzz.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-deepstate/bin/deepstate/core/fuzz.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bin/deepstate/core/fuzz.py:265:27 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `List[Tuple[str, Optional[str]]]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `List[Tuple[str, Optional[str]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 265,
+    "warning_line": "    _args['fuzzer_args'] = fuzzer_args_parsed",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # parse fuzzer_args\n    _args: Dict[str, str] = vars(cls._ARGS)\n\n",
+        "source_code_len": 69,
+        "target_code": "    # parse fuzzer_args\n    _args: Dict[str, Any] = vars(cls._ARGS)\n\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -254,3 +253,3 @@\n     # parse fuzzer_args\n-    _args: Dict[str, str] = vars(cls._ARGS)\n+    _args: Dict[str, Any] = vars(cls._ARGS)\n \n",
+        "source_code_with_indent": "    # parse fuzzer_args\n    _args: Dict[str, str] = vars(cls._ARGS)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # parse fuzzer_args\n    _args: Dict[str, Any] = vars(cls._ARGS)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "trailofbits/deepstate",
+    "commit": "6a2f40d1dffad56db7ca0be20e570069d899e83b",
+    "filename": "bin/deepstate/core/fuzz.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/trailofbits-deepstate/bin/deepstate/core/fuzz.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bin/deepstate/core/fuzz.py:411:20 Incompatible parameter type [6]: Expected `typing.Iterable[str]` for 1st positional only parameter to call `list.extend` but got `typing.Iterable[Optional[str]]`.",
+    "message": " Expected `typing.Iterable[str]` for 1st positional only parameter to call `list.extend` but got `typing.Iterable[Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 411,
+    "warning_line": "    cmd_list.extend([",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n  def build_cmd(self, cmd_list: List[str], input_symbol: str = \"@@\") -> List[str]:\n    \"\"\"\n",
+        "source_code_len": 92,
+        "target_code": "\n  def build_cmd(self, cmd_list: List[Optional[str]], input_symbol: str = \"@@\") -> List[Optional[str]]:\n    \"\"\"\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -398,3 +397,3 @@\n \n-  def build_cmd(self, cmd_list: List[str], input_symbol: str = \"@@\") -> List[str]:\n+  def build_cmd(self, cmd_list: List[Optional[str]], input_symbol: str = \"@@\") -> List[Optional[str]]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n  <DED>def build_cmd(self, cmd_list: List[str], input_symbol: str = \"@@\") -> List[str]:\n    <IND>",
+        "target_code_with_indent": "\n  <DED>def build_cmd(self, cmd_list: List[Optional[str]], input_symbol: str = \"@@\") -> List[Optional[str]]:\n    <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,60 @@
+[
+  {
+    "project": "ppizarror/pygame-menu",
+    "commit": "4d255ee2cd0c7928e5d69f5bac9197a6a308286a",
+    "filename": "pygame_menu/_widgetmanager.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pygame_menu/_widgetmanager.py:2138:12 Incompatible parameter type [6]: Expected `typing.Tuple[Variable[_T_co](covariant)]` for 5th parameter `cursor_size` to call `pygame_menu.widgets.widget.textinput.TextInput.__init__` but got `typing.Optional[typing.Tuple[int, int]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ppizarror/pygame-menu",
+    "commit": "4d255ee2cd0c7928e5d69f5bac9197a6a308286a",
+    "filename": "pygame_menu/widgets/widget/textinput.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ppizarror-pygame-menu/pygame_menu/widgets/widget/textinput.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pygame_menu/widgets/widget/textinput.py:200:12 Incompatible variable type [9]: Unable to unpack `None`, expected a tuple.",
+    "message": " Unable to unpack `None`, expected a tuple.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 200,
+    "warning_line": "            cursor_size: Tuple[int, ...] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    _cursor_render: bool\n    _cursor_size: Tuple[int, ...]\n    _cursor_surface: Optional['pygame.Surface']\n",
+        "source_code_len": 107,
+        "target_code": "    _cursor_render: bool\n    _cursor_size: Optional[Tuple2IntType]  # Size defined by user\n    _cursor_surface: Optional['pygame.Surface']\n",
+        "target_code_len": 139,
+        "diff_format": "@@ -142,3 +142,3 @@\n     _cursor_render: bool\n-    _cursor_size: Tuple[int, ...]\n+    _cursor_size: Optional[Tuple2IntType]  # Size defined by user\n     _cursor_surface: Optional['pygame.Surface']\n",
+        "source_code_with_indent": "    _cursor_render: bool\n    _cursor_size: Tuple[int, ...]\n    _cursor_surface: Optional['pygame.Surface']\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    _cursor_render: bool\n    _cursor_size: Optional[Tuple2IntType]  # Size defined by user\n    _cursor_surface: Optional['pygame.Surface']\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            cursor_selection_enable: bool = True,\n            cursor_size: Tuple[int, ...] = None,\n            cursor_switch_ms: NumberType = 500,\n",
+        "source_code_len": 147,
+        "target_code": "            cursor_selection_enable: bool = True,\n            cursor_size: Optional[Tuple2IntType] = None,\n            cursor_switch_ms: NumberType = 500,\n",
+        "target_code_len": 155,
+        "diff_format": "@@ -199,3 +199,3 @@\n             cursor_selection_enable: bool = True,\n-            cursor_size: Tuple[int, ...] = None,\n+            cursor_size: Optional[Tuple2IntType] = None,\n             cursor_switch_ms: NumberType = 500,\n",
+        "source_code_with_indent": "            cursor_selection_enable: bool = True,\n            cursor_size: Tuple[int, ...] = None,\n            cursor_switch_ms: NumberType = 500,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            cursor_selection_enable: bool = True,\n            cursor_size: Optional[Tuple2IntType] = None,\n            cursor_switch_ms: NumberType = 500,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

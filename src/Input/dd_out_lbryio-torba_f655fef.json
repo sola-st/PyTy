@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lbryio/torba",
+    "commit": "f655fefe52fc69e6d4165213faad35c0df48c4a0",
+    "filename": "torba/client/wallet.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lbryio-torba/torba/client/wallet.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "torba/client/wallet.py:67:8 Incompatible return type [7]: Expected `str` but got `bytes`.",
+    "message": " Expected `str` but got `bytes`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 67,
+    "warning_line": "        return h.digest()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def hash(self) -> str:\n        h = sha256()\n",
+        "source_code_len": 62,
+        "target_code": "    @property\n    def hash(self) -> bytes:\n        h = sha256()\n",
+        "target_code_len": 64,
+        "diff_format": "@@ -62,3 +62,3 @@\n     @property\n-    def hash(self) -> str:\n+    def hash(self) -> bytes:\n         h = sha256()\n",
+        "source_code_with_indent": "    <DED><DED>@property\n    def hash(self) -> str:\n        <IND>h = sha256()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@property\n    def hash(self) -> bytes:\n        <IND>h = sha256()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

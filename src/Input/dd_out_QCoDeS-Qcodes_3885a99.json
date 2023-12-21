@@ -1,0 +1,104 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "3885a9944e6010207a352ec5ed4d0f9019594219",
+    "filename": "qcodes/interactive_widget.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/interactive_widget.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "qcodes/interactive_widget.py:391:35 Incompatible parameter type [6]: Expected `float` for 1st positional only parameter to call `datetime.fromtimestamp` but got `Optional[float]`.",
+    "message": " Expected `float` for 1st positional only parameter to call `datetime.fromtimestamp` but got `Optional[float]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 391,
+    "warning_line": "    start = datetime.fromtimestamp(ts_start)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "def _get_timestamp_button(ds: DataSet) -> Box:\n    ts_start = ds.run_timestamp_raw\n    ts_end = ds.completed_timestamp_raw\n    has_finished = ts_end is not None\n    start = datetime.fromtimestamp(ts_start)\n    end = datetime.fromtimestamp(ts_end) if has_finished else None\n    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n    ds_type = (\n        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n    )\n    body = _yaml_dump(\n        {\n            f\"{ds_type}.run_timestamp\": str(start),\n            f\"{ds_type}.completed_timestamp\": str(end)\n            if has_finished\n            else \"?\",\n            \"total_time\": str(end - start) if has_finished else \"?\",\n        }\n    )\n    return button_to_text(title, body)\n\n",
+        "source_code_len": 753,
+        "target_code": "def _get_timestamp_button(ds: DataSet) -> Box:\n    try:\n        total_time = str(\n            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n        )\n    except TypeError:\n        total_time = \"?\"\n    start = ds.run_timestamp()\n    body = _yaml_dump(\n        {\n            \"DataSet.run_timestamp\": start,\n            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n            \"total_time\": total_time,\n        }\n    )\n    return button_to_text(start or \"\", body)\n\n",
+        "target_code_len": 570,
+        "diff_format": "@@ -387,21 +384,18 @@\n def _get_timestamp_button(ds: DataSet) -> Box:\n-    ts_start = ds.run_timestamp_raw\n-    ts_end = ds.completed_timestamp_raw\n-    has_finished = ts_end is not None\n-    start = datetime.fromtimestamp(ts_start)\n-    end = datetime.fromtimestamp(ts_end) if has_finished else None\n-    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n-    ds_type = (\n-        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n-    )\n+    try:\n+        total_time = str(\n+            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n+            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n+        )\n+    except TypeError:\n+        total_time = \"?\"\n+    start = ds.run_timestamp()\n     body = _yaml_dump(\n         {\n-            f\"{ds_type}.run_timestamp\": str(start),\n-            f\"{ds_type}.completed_timestamp\": str(end)\n-            if has_finished\n-            else \"?\",\n-            \"total_time\": str(end - start) if has_finished else \"?\",\n+            \"DataSet.run_timestamp\": start,\n+            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n+            \"total_time\": total_time,\n         }\n     )\n-    return button_to_text(title, body)\n+    return button_to_text(start or \"\", body)\n \n",
+        "source_code_with_indent": "<DED>def _get_timestamp_button(ds: DataSet) -> Box:\n    <IND>ts_start = ds.run_timestamp_raw\n    ts_end = ds.completed_timestamp_raw\n    has_finished = ts_end is not None\n    start = datetime.fromtimestamp(ts_start)\n    end = datetime.fromtimestamp(ts_end) if has_finished else None\n    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n    ds_type = (\n        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n    )\n    body = _yaml_dump(\n        {\n            f\"{ds_type}.run_timestamp\": str(start),\n            f\"{ds_type}.completed_timestamp\": str(end)\n            if has_finished\n            else \"?\",\n            \"total_time\": str(end - start) if has_finished else \"?\",\n        }\n    )\n    return button_to_text(title, body)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _get_timestamp_button(ds: DataSet) -> Box:\n    <IND>try:\n        <IND>total_time = str(\n            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n        )\n    <DED>except TypeError:\n        <IND>total_time = \"?\"\n    <DED>start = ds.run_timestamp()\n    body = _yaml_dump(\n        {\n            \"DataSet.run_timestamp\": start,\n            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n            \"total_time\": total_time,\n        }\n    )\n    return button_to_text(start or \"\", body)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "3885a9944e6010207a352ec5ed4d0f9019594219",
+    "filename": "qcodes/interactive_widget.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/interactive_widget.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "qcodes/interactive_widget.py:392:33 Incompatible parameter type [6]: Expected `float` for 1st positional only parameter to call `datetime.fromtimestamp` but got `Optional[float]`.",
+    "message": " Expected `float` for 1st positional only parameter to call `datetime.fromtimestamp` but got `Optional[float]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 392,
+    "warning_line": "    end = datetime.fromtimestamp(ts_end) if has_finished else None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "def _get_timestamp_button(ds: DataSet) -> Box:\n    ts_start = ds.run_timestamp_raw\n    ts_end = ds.completed_timestamp_raw\n    has_finished = ts_end is not None\n    start = datetime.fromtimestamp(ts_start)\n    end = datetime.fromtimestamp(ts_end) if has_finished else None\n    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n    ds_type = (\n        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n    )\n    body = _yaml_dump(\n        {\n            f\"{ds_type}.run_timestamp\": str(start),\n            f\"{ds_type}.completed_timestamp\": str(end)\n            if has_finished\n            else \"?\",\n            \"total_time\": str(end - start) if has_finished else \"?\",\n        }\n    )\n    return button_to_text(title, body)\n\n",
+        "source_code_len": 753,
+        "target_code": "def _get_timestamp_button(ds: DataSet) -> Box:\n    try:\n        total_time = str(\n            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n        )\n    except TypeError:\n        total_time = \"?\"\n    start = ds.run_timestamp()\n    body = _yaml_dump(\n        {\n            \"DataSet.run_timestamp\": start,\n            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n            \"total_time\": total_time,\n        }\n    )\n    return button_to_text(start or \"\", body)\n\n",
+        "target_code_len": 570,
+        "diff_format": "@@ -387,21 +384,18 @@\n def _get_timestamp_button(ds: DataSet) -> Box:\n-    ts_start = ds.run_timestamp_raw\n-    ts_end = ds.completed_timestamp_raw\n-    has_finished = ts_end is not None\n-    start = datetime.fromtimestamp(ts_start)\n-    end = datetime.fromtimestamp(ts_end) if has_finished else None\n-    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n-    ds_type = (\n-        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n-    )\n+    try:\n+        total_time = str(\n+            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n+            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n+        )\n+    except TypeError:\n+        total_time = \"?\"\n+    start = ds.run_timestamp()\n     body = _yaml_dump(\n         {\n-            f\"{ds_type}.run_timestamp\": str(start),\n-            f\"{ds_type}.completed_timestamp\": str(end)\n-            if has_finished\n-            else \"?\",\n-            \"total_time\": str(end - start) if has_finished else \"?\",\n+            \"DataSet.run_timestamp\": start,\n+            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n+            \"total_time\": total_time,\n         }\n     )\n-    return button_to_text(title, body)\n+    return button_to_text(start or \"\", body)\n \n",
+        "source_code_with_indent": "<DED>def _get_timestamp_button(ds: DataSet) -> Box:\n    <IND>ts_start = ds.run_timestamp_raw\n    ts_end = ds.completed_timestamp_raw\n    has_finished = ts_end is not None\n    start = datetime.fromtimestamp(ts_start)\n    end = datetime.fromtimestamp(ts_end) if has_finished else None\n    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n    ds_type = (\n        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n    )\n    body = _yaml_dump(\n        {\n            f\"{ds_type}.run_timestamp\": str(start),\n            f\"{ds_type}.completed_timestamp\": str(end)\n            if has_finished\n            else \"?\",\n            \"total_time\": str(end - start) if has_finished else \"?\",\n        }\n    )\n    return button_to_text(title, body)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _get_timestamp_button(ds: DataSet) -> Box:\n    <IND>try:\n        <IND>total_time = str(\n            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n        )\n    <DED>except TypeError:\n        <IND>total_time = \"?\"\n    <DED>start = ds.run_timestamp()\n    body = _yaml_dump(\n        {\n            \"DataSet.run_timestamp\": start,\n            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n            \"total_time\": total_time,\n        }\n    )\n    return button_to_text(start or \"\", body)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "3885a9944e6010207a352ec5ed4d0f9019594219",
+    "filename": "qcodes/interactive_widget.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/interactive_widget.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "qcodes/interactive_widget.py:403:30 Unsupported operand [58]: `-` is not supported for operand types `Optional[datetime]` and `datetime`.",
+    "message": " `-` is not supported for operand types `Optional[datetime]` and `datetime`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 403,
+    "warning_line": "            \"total_time\": str(end - start) if has_finished else \"?\",",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "def _get_timestamp_button(ds: DataSet) -> Box:\n    ts_start = ds.run_timestamp_raw\n    ts_end = ds.completed_timestamp_raw\n    has_finished = ts_end is not None\n    start = datetime.fromtimestamp(ts_start)\n    end = datetime.fromtimestamp(ts_end) if has_finished else None\n    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n    ds_type = (\n        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n    )\n    body = _yaml_dump(\n        {\n            f\"{ds_type}.run_timestamp\": str(start),\n            f\"{ds_type}.completed_timestamp\": str(end)\n            if has_finished\n            else \"?\",\n            \"total_time\": str(end - start) if has_finished else \"?\",\n        }\n    )\n    return button_to_text(title, body)\n\n",
+        "source_code_len": 753,
+        "target_code": "def _get_timestamp_button(ds: DataSet) -> Box:\n    try:\n        total_time = str(\n            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n        )\n    except TypeError:\n        total_time = \"?\"\n    start = ds.run_timestamp()\n    body = _yaml_dump(\n        {\n            \"DataSet.run_timestamp\": start,\n            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n            \"total_time\": total_time,\n        }\n    )\n    return button_to_text(start or \"\", body)\n\n",
+        "target_code_len": 570,
+        "diff_format": "@@ -387,21 +384,18 @@\n def _get_timestamp_button(ds: DataSet) -> Box:\n-    ts_start = ds.run_timestamp_raw\n-    ts_end = ds.completed_timestamp_raw\n-    has_finished = ts_end is not None\n-    start = datetime.fromtimestamp(ts_start)\n-    end = datetime.fromtimestamp(ts_end) if has_finished else None\n-    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n-    ds_type = (\n-        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n-    )\n+    try:\n+        total_time = str(\n+            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n+            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n+        )\n+    except TypeError:\n+        total_time = \"?\"\n+    start = ds.run_timestamp()\n     body = _yaml_dump(\n         {\n-            f\"{ds_type}.run_timestamp\": str(start),\n-            f\"{ds_type}.completed_timestamp\": str(end)\n-            if has_finished\n-            else \"?\",\n-            \"total_time\": str(end - start) if has_finished else \"?\",\n+            \"DataSet.run_timestamp\": start,\n+            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n+            \"total_time\": total_time,\n         }\n     )\n-    return button_to_text(title, body)\n+    return button_to_text(start or \"\", body)\n \n",
+        "source_code_with_indent": "<DED>def _get_timestamp_button(ds: DataSet) -> Box:\n    <IND>ts_start = ds.run_timestamp_raw\n    ts_end = ds.completed_timestamp_raw\n    has_finished = ts_end is not None\n    start = datetime.fromtimestamp(ts_start)\n    end = datetime.fromtimestamp(ts_end) if has_finished else None\n    title = start.strftime(\"%Y-%m-%d %H:%M:%S\")  # title without \u00b5s\n    ds_type = (\n        \"DataSet\"  # TODO: should it be \"qcodes.dataset.data_set.DataSet\"?\n    )\n    body = _yaml_dump(\n        {\n            f\"{ds_type}.run_timestamp\": str(start),\n            f\"{ds_type}.completed_timestamp\": str(end)\n            if has_finished\n            else \"?\",\n            \"total_time\": str(end - start) if has_finished else \"?\",\n        }\n    )\n    return button_to_text(title, body)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def _get_timestamp_button(ds: DataSet) -> Box:\n    <IND>try:\n        <IND>total_time = str(\n            datetime.fromtimestamp(ds.run_timestamp_raw)  # type: ignore\n            - datetime.fromtimestamp(ds.completed_timestamp_raw)  # type: ignore\n        )\n    <DED>except TypeError:\n        <IND>total_time = \"?\"\n    <DED>start = ds.run_timestamp()\n    body = _yaml_dump(\n        {\n            \"DataSet.run_timestamp\": start,\n            \"DataSet.completed_timestamp\": ds.completed_timestamp(),\n            \"total_time\": total_time,\n        }\n    )\n    return button_to_text(start or \"\", body)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

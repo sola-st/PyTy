@@ -1,0 +1,41 @@
+[
+  {
+    "isolated_code_change": "-allobj = [objectives.mean_squared_error, objectives.root_mean_squared_error,\n+allobj = [objectives.mean_squared_error,",
+    "type_error": "Undefined attribute [16]",
+    "code_transform": "REMOVE",
+    "involved_types": [],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "",
+      "to": ""
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "tests/keras/test_objectives.py:7:41 Undefined attribute [16]: Module `keras.objectives` has no attribute `root_mean_squared_error`.",
+    "url": "https://github.com/keras-team/keras/commit/217cdd8b",
+    "repo": "https://github.com/keras-team/keras",
+    "change_runtime": true,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "REMOVE"
+  },
+  {
+    "isolated_code_change": "-def split_data(x, y, ratio: int = 0.8): \n+def split_data(x, y, ratio=0.8):",
+    "type_error": "Incompatible variable type [9]",
+    "code_transform": "REMOVE_TYPE",
+    "involved_types": [
+      "int",
+      "float"
+    ],
+    "type_change": {
+      "kind": "REMOVED",
+      "from": "int",
+      "to": ""
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "examples/lstm_stateful.py:157:21 Incompatible variable type [9]: ratio is declared to have type `int` but is used as type `float`.",
+    "url": "https://github.com/keras-team/keras/commit/41d967f",
+    "repo": "https://github.com/keras-team/keras",
+    "change_runtime": false,
+    "mentioned_by_pyre": true,
+    "pyre_detail": "USE_NOT_EXPECTED_TYPE"
+  }
+]

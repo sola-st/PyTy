@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ethereum/trinity",
+    "commit": "6a0c45ad17b8fa8930d004b85ebf56b746c9ea22",
+    "filename": "trinity/protocol/bcc_libp2p/node.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/trinity/protocol/bcc_libp2p/node.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "trinity/protocol/bcc_libp2p/node.py:182:12 Incompatible parameter type [6]: Expected `SigningRoot` for 2nd parameter `head_block_root` to call `Node.request_beacon_blocks` but got `HashTreeRoot`.",
+    "message": " Expected `SigningRoot` for 2nd parameter `head_block_root` to call `Node.request_beacon_blocks` but got `HashTreeRoot`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 182,
+    "warning_line": "            head_block_root=self.head_root,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ) -> Tuple[BaseBeaconBlock, ...]:\n        return await self.node.request_beacon_blocks(\n            self._id,\n            head_block_root=self.head_root,\n            start_slot=start_slot,\n",
+        "source_code_len": 193,
+        "target_code": "    ) -> Tuple[BaseBeaconBlock, ...]:\n        head_block_signing_root = self.node.chain.chaindb.get_block_signing_root_by_hash_tree_root(\n            self.head_root)\n        return await self.node.request_beacon_blocks(\n            self._id,\n            head_block_root=head_block_signing_root,\n            start_slot=start_slot,\n",
+        "target_code_len": 330,
+        "diff_format": "@@ -179,5 +179,7 @@\n     ) -> Tuple[BaseBeaconBlock, ...]:\n+        head_block_signing_root = self.node.chain.chaindb.get_block_signing_root_by_hash_tree_root(\n+            self.head_root)\n         return await self.node.request_beacon_blocks(\n             self._id,\n-            head_block_root=self.head_root,\n+            head_block_root=head_block_signing_root,\n             start_slot=start_slot,\n",
+        "source_code_with_indent": "    ) -> Tuple[BaseBeaconBlock, ...]:\n        <IND>return await self.node.request_beacon_blocks(\n            self._id,\n            head_block_root=self.head_root,\n            start_slot=start_slot,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> Tuple[BaseBeaconBlock, ...]:\n        <IND>head_block_signing_root = self.node.chain.chaindb.get_block_signing_root_by_hash_tree_root(\n            self.head_root)\n        return await self.node.request_beacon_blocks(\n            self._id,\n            head_block_root=head_block_signing_root,\n            start_slot=start_slot,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

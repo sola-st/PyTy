@@ -1,0 +1,36 @@
+[
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "1e413e814ce4fdb8318a63de5793e3af42333c49",
+    "filename": "qutebrowser/config/configfiles.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/qutebrowser/config/configfiles.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qutebrowser/config/configfiles.py:349:35 Incompatible parameter type [6]: Expected `typing.Iterator[str]` for 2nd positional only parameter to call `YamlMigrations._migrate_to_multiple` but got `typing.Tuple[str, str]`.",
+    "message": " Expected `typing.Iterator[str]` for 2nd positional only parameter to call `YamlMigrations._migrate_to_multiple` but got `typing.Tuple[str, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 349,
+    "warning_line": "                                  ('fonts.tabs.selected',",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def _migrate_to_multiple(self, old_name: str,\n                             new_names: typing.Iterator[str]) -> None:\n        if old_name not in self._settings:\n",
+        "source_code_len": 164,
+        "target_code": "    def _migrate_to_multiple(self, old_name: str,\n                             new_names: typing.Iterable[str]) -> None:\n        if old_name not in self._settings:\n",
+        "target_code_len": 164,
+        "diff_format": "@@ -458,3 +458,3 @@\n     def _migrate_to_multiple(self, old_name: str,\n-                             new_names: typing.Iterator[str]) -> None:\n+                             new_names: typing.Iterable[str]) -> None:\n         if old_name not in self._settings:\n",
+        "source_code_with_indent": "    <DED><DED><DED>def _migrate_to_multiple(self, old_name: str,\n                             new_names: typing.Iterator[str]) -> None:\n        <IND>if old_name not in self._settings:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED><DED>def _migrate_to_multiple(self, old_name: str,\n                             new_names: typing.Iterable[str]) -> None:\n        <IND>if old_name not in self._settings:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

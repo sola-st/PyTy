@@ -1,0 +1,36 @@
+[
+  {
+    "project": "AlexsLemonade/refinebio",
+    "commit": "c33da40f653fea9e99f54af0ddf42272a09e196b",
+    "filename": "common/data_refinery_common/message_queue.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/AlexsLemonade-refinebio/common/data_refinery_common/message_queue.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "common/data_refinery_common/message_queue.py:22:33 Unbound name [10]: Name `job` is used but not defined in the current scope.",
+    "message": " Name `job` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 22,
+    "warning_line": "def send_job(job_type: Enum, job=job, is_dispatch=False) -> bool:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef send_job(job_type: Enum, job=job, is_dispatch=False) -> bool:\n    \"\"\"Queues a worker job by sending a Nomad Job dispatch message.\n",
+        "source_code_len": 135,
+        "target_code": "\ndef send_job(job_type: Enum, job, is_dispatch=False) -> bool:\n    \"\"\"Queues a worker job by sending a Nomad Job dispatch message.\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -21,3 +21,3 @@\n \n-def send_job(job_type: Enum, job=job, is_dispatch=False) -> bool:\n+def send_job(job_type: Enum, job, is_dispatch=False) -> bool:\n     \"\"\"Queues a worker job by sending a Nomad Job dispatch message.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef send_job(job_type: Enum, job=job, is_dispatch=False) -> bool:\n    <IND>",
+        "target_code_with_indent": "\ndef send_job(job_type: Enum, job, is_dispatch=False) -> bool:\n    <IND>"
+      }
+    ]
+  }
+]

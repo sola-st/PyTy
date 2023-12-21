@@ -1,0 +1,100 @@
+[
+  {
+    "project": "NateScarlet/auto-derby",
+    "commit": "5c86ea803e3595f2595e0d16e6e9a5f8d72e42e8",
+    "filename": "auto_derby/imagetools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/NateScarlet-auto-derby/auto_derby/imagetools.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "auto_derby/imagetools.py:196:43 Incompatible parameter type [6]: Expected `Union[typing_extensions.Literal[0], typing_extensions.Literal[1], typing_extensions.Literal[2], typing_extensions.Literal[3], typing_extensions.Literal[4], typing_extensions.Literal[5], None]` for 2nd parameter `resample` to call `Image.resize` but got `int`.",
+    "message": " Expected `Union[typing_extensions.Literal[0], typing_extensions.Literal[1], typing_extensions.Literal[2], typing_extensions.Literal[3], typing_extensions.Literal[4], typing_extensions.Literal[5], None]` for 2nd parameter `resample` to call `Image.resize` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 196,
+    "warning_line": "        return img.resize((width, height), resample=resample)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from PIL.Image import BICUBIC, Image, fromarray\n\n",
+        "source_code_len": 49,
+        "target_code": "from PIL.Image import BICUBIC, Image, fromarray\n\n_Resample = Literal[0, 1, 2, 3, 4, 5]\n\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -14,2 +14,4 @@\n from PIL.Image import BICUBIC, Image, fromarray\n+\n+_Resample = Literal[0, 1, 2, 3, 4, 5]\n \n",
+        "source_code_with_indent": "from PIL.Image import BICUBIC, Image, fromarray\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from PIL.Image import BICUBIC, Image, fromarray\n\n_Resample = Literal[0, 1, 2, 3, 4, 5]\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    width: Optional[int] = None,\n    resample: int = BICUBIC,\n) -> Image:\n",
+        "source_code_len": 74,
+        "target_code": "    width: Optional[int] = None,\n    resample: _Resample = BICUBIC,\n) -> Image:\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -192,3 +194,3 @@\n     width: Optional[int] = None,\n-    resample: int = BICUBIC,\n+    resample: _Resample = BICUBIC,\n ) -> Image:\n",
+        "source_code_with_indent": "    width: Optional[int] = None,\n    resample: int = BICUBIC,\n) -> Image:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    width: Optional[int] = None,\n    resample: _Resample = BICUBIC,\n) -> Image:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "NateScarlet/auto-derby",
+    "commit": "5c86ea803e3595f2595e0d16e6e9a5f8d72e42e8",
+    "filename": "auto_derby/imagetools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/NateScarlet-auto-derby/auto_derby/imagetools.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "auto_derby/imagetools.py:204:30 Incompatible parameter type [6]: Expected `Union[typing_extensions.Literal[0], typing_extensions.Literal[1], typing_extensions.Literal[2], typing_extensions.Literal[3], typing_extensions.Literal[4], typing_extensions.Literal[5], None]` for 2nd parameter `resample` to call `Image.resize` but got `int`.",
+    "message": " Expected `Union[typing_extensions.Literal[0], typing_extensions.Literal[1], typing_extensions.Literal[2], typing_extensions.Literal[3], typing_extensions.Literal[4], typing_extensions.Literal[5], None]` for 2nd parameter `resample` to call `Image.resize` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 204,
+    "warning_line": "    return img.resize((w, h), resample=resample)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from PIL.Image import BICUBIC, Image, fromarray\n\n",
+        "source_code_len": 49,
+        "target_code": "from PIL.Image import BICUBIC, Image, fromarray\n\n_Resample = Literal[0, 1, 2, 3, 4, 5]\n\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -14,2 +14,4 @@\n from PIL.Image import BICUBIC, Image, fromarray\n+\n+_Resample = Literal[0, 1, 2, 3, 4, 5]\n \n",
+        "source_code_with_indent": "from PIL.Image import BICUBIC, Image, fromarray\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from PIL.Image import BICUBIC, Image, fromarray\n\n_Resample = Literal[0, 1, 2, 3, 4, 5]\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    width: Optional[int] = None,\n    resample: int = BICUBIC,\n) -> Image:\n",
+        "source_code_len": 74,
+        "target_code": "    width: Optional[int] = None,\n    resample: _Resample = BICUBIC,\n) -> Image:\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -192,3 +194,3 @@\n     width: Optional[int] = None,\n-    resample: int = BICUBIC,\n+    resample: _Resample = BICUBIC,\n ) -> Image:\n",
+        "source_code_with_indent": "    width: Optional[int] = None,\n    resample: int = BICUBIC,\n) -> Image:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    width: Optional[int] = None,\n    resample: _Resample = BICUBIC,\n) -> Image:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

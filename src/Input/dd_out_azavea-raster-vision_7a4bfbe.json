@@ -1,0 +1,36 @@
+[
+  {
+    "project": "azavea/raster-vision",
+    "commit": "7a4bfbe7d24a5ad0e970f8e08eab5ce5c149bef1",
+    "filename": "rastervision_pytorch_learner/rastervision/pytorch_learner/dataset/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/azavea-raster-vision/rastervision_pytorch_learner/rastervision/pytorch_learner/dataset/dataset.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rastervision_pytorch_learner/rastervision/pytorch_learner/dataset/dataset.py:130:4 Incompatible return type [7]: Expected `Tuple[Variable[T], Variable[T]]` but got `typing.Tuple[Variable[T], ...]`.",
+    "message": " Expected `Tuple[Variable[T], Variable[T]]` but got `typing.Tuple[Variable[T], ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 130,
+    "warning_line": "    return tuple([x] * n)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _to_tuple(x: T, n: int = 2) -> Tuple[T, T]:\n    \"\"\"Convert to n-tuple if not already an n-tuple.\"\"\"\n",
+        "source_code_len": 105,
+        "target_code": "\ndef _to_tuple(x: T, n: int = 2) -> Tuple[T, ...]:\n    \"\"\"Convert to n-tuple if not already an n-tuple.\"\"\"\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -123,3 +123,3 @@\n \n-def _to_tuple(x: T, n: int = 2) -> Tuple[T, T]:\n+def _to_tuple(x: T, n: int = 2) -> Tuple[T, ...]:\n     \"\"\"Convert to n-tuple if not already an n-tuple.\"\"\"\n",
+        "source_code_with_indent": "\ndef _to_tuple(x: T, n: int = 2) -> Tuple[T, T]:\n    <IND>\"\"\"Convert to n-tuple if not already an n-tuple.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef _to_tuple(x: T, n: int = 2) -> Tuple[T, ...]:\n    <IND>\"\"\"Convert to n-tuple if not already an n-tuple.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

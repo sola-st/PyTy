@@ -1,0 +1,36 @@
+[
+  {
+    "project": "laramies/theHarvester",
+    "commit": "c0edc7bea67d63c84b1a892572a1377423c981fb",
+    "filename": "theHarvester/discovery/crtsh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/laramies-theHarvester/theHarvester/discovery/crtsh.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "theHarvester/discovery/crtsh.py:22:12 Incompatible return type [7]: Expected `typing.Set[typing.Any]` but got implicit return value of `None`.",
+    "message": " Expected `typing.Set[typing.Any]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 22,
+    "warning_line": "            pass",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def do_search(self) -> Set:\n        try:\n            data = set()  # type: Set\n            url = f'https://crt.sh/?q=%25.{self.word}&output=json'\n            headers = {'User-Agent': Core.get_user_agent()}\n            request = requests.get(url, headers=headers, timeout=15)\n            if request.ok:\n                content = request.json()\n                data = set([dct['name_value'][2:] if '*.' == dct['name_value'][:2] else dct['name_value'] for dct in content])\n            return data\n        except Exception:\n            pass\n\n",
+        "source_code_len": 542,
+        "target_code": "    def do_search(self) -> Set:\n        data = set()  # type: Set\n        url = f'https://crt.sh/?q=%25.{self.word}&output=json'\n        headers = {'User-Agent': Core.get_user_agent()}\n        request = requests.get(url, headers=headers, timeout=15)\n        if request.ok:\n            content = request.json()\n            data = set([dct['name_value'][2:] if '*.' == dct['name_value'][:2] else dct['name_value'] for dct in content])\n        return data\n\n",
+        "target_code_len": 454,
+        "diff_format": "@@ -11,13 +11,10 @@\n     def do_search(self) -> Set:\n-        try:\n-            data = set()  # type: Set\n-            url = f'https://crt.sh/?q=%25.{self.word}&output=json'\n-            headers = {'User-Agent': Core.get_user_agent()}\n-            request = requests.get(url, headers=headers, timeout=15)\n-            if request.ok:\n-                content = request.json()\n-                data = set([dct['name_value'][2:] if '*.' == dct['name_value'][:2] else dct['name_value'] for dct in content])\n-            return data\n-        except Exception:\n-            pass\n+        data = set()  # type: Set\n+        url = f'https://crt.sh/?q=%25.{self.word}&output=json'\n+        headers = {'User-Agent': Core.get_user_agent()}\n+        request = requests.get(url, headers=headers, timeout=15)\n+        if request.ok:\n+            content = request.json()\n+            data = set([dct['name_value'][2:] if '*.' == dct['name_value'][:2] else dct['name_value'] for dct in content])\n+        return data\n \n",
+        "source_code_with_indent": "    <DED>def do_search(self) -> Set:\n        <IND>try:\n            <IND>data = set()  # type: Set\n            url = f'https://crt.sh/?q=%25.{self.word}&output=json'\n            headers = {'User-Agent': Core.get_user_agent()}\n            request = requests.get(url, headers=headers, timeout=15)\n            if request.ok:\n                <IND>content = request.json()\n                data = set([dct['name_value'][2:] if '*.' == dct['name_value'][:2] else dct['name_value'] for dct in content])\n            <DED>return data\n        <DED>except Exception:\n            <IND>pass\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def do_search(self) -> Set:\n        <IND>data = set()  # type: Set\n        url = f'https://crt.sh/?q=%25.{self.word}&output=json'\n        headers = {'User-Agent': Core.get_user_agent()}\n        request = requests.get(url, headers=headers, timeout=15)\n        if request.ok:\n            <IND>content = request.json()\n            data = set([dct['name_value'][2:] if '*.' == dct['name_value'][:2] else dct['name_value'] for dct in content])\n        <DED>return data\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

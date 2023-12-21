@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "66c88a430d6d05d3bec23b5a7704ae38f26e920f",
+    "filename": "mypy/treetransform.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/treetransform.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/treetransform.py:284:8 Incompatible return type [7]: Expected `None` but got `ComplexExpr`.",
+    "message": " Expected `None` but got `ComplexExpr`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 284,
+    "warning_line": "        return ComplexExpr(node.value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def visit_complex_expr(self, node: ComplexExpr) -> None:\n        return ComplexExpr(node.value)\n",
+        "source_code_len": 101,
+        "target_code": "\n    def visit_complex_expr(self, node: ComplexExpr) -> Node:\n        return ComplexExpr(node.value)\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -282,3 +282,3 @@\n \n-    def visit_complex_expr(self, node: ComplexExpr) -> None:\n+    def visit_complex_expr(self, node: ComplexExpr) -> Node:\n         return ComplexExpr(node.value)\n",
+        "source_code_with_indent": "\n    <DED>def visit_complex_expr(self, node: ComplexExpr) -> None:\n        <IND>return ComplexExpr(node.value)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def visit_complex_expr(self, node: ComplexExpr) -> Node:\n        <IND>return ComplexExpr(node.value)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

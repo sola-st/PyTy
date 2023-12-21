@@ -1,0 +1,51 @@
+[
+  {
+    "project": "brainix/pottery",
+    "commit": "9cde6fbaade33fa90b85c4a3786c755422ced1d0",
+    "filename": "pottery/set.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/brainix-pottery/pottery/set.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pottery/set.py:102:28 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `pottery.base._Encodable._decode` but got `typing.Union[bytes, float, int, str]`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `pottery.base._Encodable._decode` but got `typing.Union[bytes, float, int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 102,
+    "warning_line": "        return self._decode(encoded_value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import Tuple\n\n",
+        "source_code_len": 26,
+        "target_code": "from typing import Tuple\nfrom typing import cast\n\n",
+        "target_code_len": 50,
+        "diff_format": "@@ -26,2 +26,3 @@\n from typing import Tuple\n+from typing import cast\n \n",
+        "source_code_with_indent": "from typing import Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Tuple\nfrom typing import cast\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            raise KeyError('pop from an empty set')\n        return self._decode(encoded_value)\n\n",
+        "source_code_len": 96,
+        "target_code": "            raise KeyError('pop from an empty set')\n        return self._decode(cast(bytes, encoded_value))\n\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -101,3 +102,3 @@\n             raise KeyError('pop from an empty set')\n-        return self._decode(encoded_value)\n+        return self._decode(cast(bytes, encoded_value))\n \n",
+        "source_code_with_indent": "            <IND>raise KeyError('pop from an empty set')\n        <DED>return self._decode(encoded_value)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>raise KeyError('pop from an empty set')\n        <DED>return self._decode(cast(bytes, encoded_value))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

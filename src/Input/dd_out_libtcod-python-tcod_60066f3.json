@@ -1,0 +1,156 @@
+[
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "60066f30f07303a0cb7092b760a8e661330a63b9",
+    "filename": "tcod/console.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/tcod/console.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tcod/console.py:258:8 Incompatible variable type [9]: string is declared to have type `str` but is used as type `bytes`.",
+    "message": " string is declared to have type `str` but is used as type `bytes`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 258,
+    "warning_line": "        string = _fmt(string)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        alignment = self.default_alignment if alignment is None else alignment\n        string = _fmt(string)\n        lib.TCOD_console_printf_ex(\n            self.console_c, x, y, bg_blend, alignment, string\n        )\n",
+        "source_code_len": 217,
+        "target_code": "        alignment = self.default_alignment if alignment is None else alignment\n        lib.TCOD_console_printf_ex(\n            self.console_c, x, y, bg_blend, alignment, _fmt(string)\n        )\n",
+        "target_code_len": 193,
+        "diff_format": "@@ -257,5 +257,4 @@\n         alignment = self.default_alignment if alignment is None else alignment\n-        string = _fmt(string)\n         lib.TCOD_console_printf_ex(\n-            self.console_c, x, y, bg_blend, alignment, string\n+            self.console_c, x, y, bg_blend, alignment, _fmt(string)\n         )\n",
+        "source_code_with_indent": "        alignment = self.default_alignment if alignment is None else alignment\n        string = _fmt(string)\n        lib.TCOD_console_printf_ex(\n            self.console_c, x, y, bg_blend, alignment, string\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        alignment = self.default_alignment if alignment is None else alignment\n        lib.TCOD_console_printf_ex(\n            self.console_c, x, y, bg_blend, alignment, _fmt(string)\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "60066f30f07303a0cb7092b760a8e661330a63b9",
+    "filename": "tcod/console.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/tcod/console.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tcod/console.py:292:8 Incompatible variable type [9]: string is declared to have type `str` but is used as type `bytes`.",
+    "message": " string is declared to have type `str` but is used as type `bytes`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 292,
+    "warning_line": "        string = _fmt(string)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        alignment = self.default_alignment if alignment is None else alignment\n        string = _fmt(string)\n        return lib.TCOD_console_printf_rect_ex(\n            self.console_c, x, y, width, height, bg_blend, alignment, string\n        )\n",
+        "source_code_len": 244,
+        "target_code": "        alignment = self.default_alignment if alignment is None else alignment\n        return lib.TCOD_console_printf_rect_ex(\n            self.console_c,\n            x,\n            y,\n            width,\n            height,\n            bg_blend,\n            alignment,\n            _fmt(string),\n        )\n",
+        "target_code_len": 305,
+        "diff_format": "@@ -291,5 +290,11 @@\n         alignment = self.default_alignment if alignment is None else alignment\n-        string = _fmt(string)\n         return lib.TCOD_console_printf_rect_ex(\n-            self.console_c, x, y, width, height, bg_blend, alignment, string\n+            self.console_c,\n+            x,\n+            y,\n+            width,\n+            height,\n+            bg_blend,\n+            alignment,\n+            _fmt(string),\n         )\n",
+        "source_code_with_indent": "        alignment = self.default_alignment if alignment is None else alignment\n        string = _fmt(string)\n        return lib.TCOD_console_printf_rect_ex(\n            self.console_c, x, y, width, height, bg_blend, alignment, string\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        alignment = self.default_alignment if alignment is None else alignment\n        return lib.TCOD_console_printf_rect_ex(\n            self.console_c,\n            x,\n            y,\n            width,\n            height,\n            bg_blend,\n            alignment,\n            _fmt(string),\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "60066f30f07303a0cb7092b760a8e661330a63b9",
+    "filename": "tcod/console.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/tcod/console.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tcod/console.py:312:8 Incompatible variable type [9]: string is declared to have type `str` but is used as type `bytes`.",
+    "message": " string is declared to have type `str` but is used as type `bytes`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 312,
+    "warning_line": "        string = _fmt(string)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        string = _fmt(string)\n        return lib.TCOD_console_get_height_rect_fmt(\n            self.console_c, x, y, width, height, string\n        )\n",
+        "source_code_len": 161,
+        "target_code": "        \"\"\"\n        return lib.TCOD_console_get_height_rect_fmt(\n            self.console_c, x, y, width, height, _fmt(string)\n        )\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -311,5 +316,4 @@\n         \"\"\"\n-        string = _fmt(string)\n         return lib.TCOD_console_get_height_rect_fmt(\n-            self.console_c, x, y, width, height, string\n+            self.console_c, x, y, width, height, _fmt(string)\n         )\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        string = _fmt(string)\n        return lib.TCOD_console_get_height_rect_fmt(\n            self.console_c, x, y, width, height, string\n        )\n",
+        "target_code_with_indent": "\n        return lib.TCOD_console_get_height_rect_fmt(\n            self.console_c, x, y, width, height, _fmt(string)\n        )\n"
+      }
+    ]
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "60066f30f07303a0cb7092b760a8e661330a63b9",
+    "filename": "tcod/libtcodpy.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tcod/libtcodpy.py:813:4 Incompatible variable type [9]: title is declared to have type `Optional[Variable[AnyStr <: [str, bytes]]]` but is used as type `bytes`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "60066f30f07303a0cb7092b760a8e661330a63b9",
+    "filename": "tcod/libtcodpy.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tcod/libtcodpy.py:849:4 Incompatible variable type [9]: fontFile is declared to have type `Variable[AnyStr <: [str, bytes]]` but is used as type `bytes`.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "libtcod/python-tcod",
+    "commit": "60066f30f07303a0cb7092b760a8e661330a63b9",
+    "filename": "tcod/libtcodpy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libtcod-python-tcod/tcod/libtcodpy.py",
+    "file_hunks_size": 24,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "tcod/libtcodpy.py:2354:4 Incompatible return type [7]: Expected `Tuple[float, float, float]` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `Tuple[float, float, float]` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 2354,
+    "warning_line": "    return tuple(cn)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    lib.TCOD_heightmap_get_normal(_heightmap_cdata(hm), x, y, cn, waterLevel)\n    return tuple(cn)\n\n",
+        "source_code_len": 100,
+        "target_code": "    lib.TCOD_heightmap_get_normal(_heightmap_cdata(hm), x, y, cn, waterLevel)\n    return tuple(cn)  # type: ignore\n\n",
+        "target_code_len": 116,
+        "diff_format": "@@ -2353,3 +2360,3 @@\n     lib.TCOD_heightmap_get_normal(_heightmap_cdata(hm), x, y, cn, waterLevel)\n-    return tuple(cn)\n+    return tuple(cn)  # type: ignore\n \n",
+        "source_code_with_indent": "    lib.TCOD_heightmap_get_normal(_heightmap_cdata(hm), x, y, cn, waterLevel)\n    return tuple(cn)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    lib.TCOD_heightmap_get_normal(_heightmap_cdata(hm), x, y, cn, waterLevel)\n    return tuple(cn)  # type: ignore\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

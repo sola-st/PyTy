@@ -1,0 +1,104 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "c3c10f5128d700c131a8de8e5b3f7af8a8fb559d",
+    "filename": "mythril/laser/smt/bitvec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/smt/bitvec.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/smt/bitvec.py:78:4 Incompatible return type [7]: Expected `Bool` but got implicit return value of `None`.",
+    "message": " Expected `Bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 78,
+    "warning_line": "    Bool(z3.UGT(a, b), annotations)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def UGT(a: BitVec, b: BitVec) -> Bool:\n    annotations = a.annotations + b.annotations\n    Bool(z3.UGT(a, b), annotations)\n\n",
+        "source_code_len": 124,
+        "target_code": "def UGT(a: BitVec, b: BitVec) -> Bool:\n    \"\"\" Create an unsigned greater than expression \"\"\"\n    annotations = a.annotations + b.annotations\n    return Bool(z3.UGT(a, b), annotations)\n\n",
+        "target_code_len": 186,
+        "diff_format": "@@ -76,4 +87,5 @@\n def UGT(a: BitVec, b: BitVec) -> Bool:\n+    \"\"\" Create an unsigned greater than expression \"\"\"\n     annotations = a.annotations + b.annotations\n-    Bool(z3.UGT(a, b), annotations)\n+    return Bool(z3.UGT(a, b), annotations)\n \n",
+        "source_code_with_indent": "<DED>def UGT(a: BitVec, b: BitVec) -> Bool:\n    <IND>annotations = a.annotations + b.annotations\n    Bool(z3.UGT(a, b), annotations)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def UGT(a: BitVec, b: BitVec) -> Bool:\n    <IND>\"\"\" Create an unsigned greater than expression \"\"\"\n    annotations = a.annotations + b.annotations\n    return Bool(z3.UGT(a, b), annotations)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "c3c10f5128d700c131a8de8e5b3f7af8a8fb559d",
+    "filename": "mythril/laser/smt/bitvec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/smt/bitvec.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/smt/bitvec.py:83:4 Incompatible return type [7]: Expected `Bool` but got implicit return value of `None`.",
+    "message": " Expected `Bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 83,
+    "warning_line": "    Bool(z3.ULT(a, b), annotations)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def ULT(a: BitVec, b: BitVec) -> Bool:\n    annotations = a.annotations + b.annotations\n    Bool(z3.ULT(a, b), annotations)\n\n",
+        "source_code_len": 124,
+        "target_code": "def ULT(a: BitVec, b: BitVec) -> Bool:\n    \"\"\" Create an unsigned less than expression \"\"\"\n    annotations = a.annotations + b.annotations\n    return Bool(z3.ULT(a, b), annotations)\n\n",
+        "target_code_len": 183,
+        "diff_format": "@@ -81,4 +93,5 @@\n def ULT(a: BitVec, b: BitVec) -> Bool:\n+    \"\"\" Create an unsigned less than expression \"\"\"\n     annotations = a.annotations + b.annotations\n-    Bool(z3.ULT(a, b), annotations)\n+    return Bool(z3.ULT(a, b), annotations)\n \n",
+        "source_code_with_indent": "<DED>def ULT(a: BitVec, b: BitVec) -> Bool:\n    <IND>annotations = a.annotations + b.annotations\n    Bool(z3.ULT(a, b), annotations)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def ULT(a: BitVec, b: BitVec) -> Bool:\n    <IND>\"\"\" Create an unsigned less than expression \"\"\"\n    annotations = a.annotations + b.annotations\n    return Bool(z3.ULT(a, b), annotations)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "c3c10f5128d700c131a8de8e5b3f7af8a8fb559d",
+    "filename": "mythril/laser/smt/bitvec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/smt/bitvec.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/smt/bitvec.py:91:4 Incompatible return type [7]: Expected `BitVec` but got implicit return value of `None`.",
+    "message": " Expected `BitVec` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 91,
+    "warning_line": "    BitVec(nraw, annotations)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        annotations += bv.annotations\n    BitVec(nraw, annotations)\n\n\ndef Extract(high, low, bv: BitVec):\n    BitVec(z3.Extract(high, low, bv.raw), annotations=bv.annotations)\n\n",
+        "source_code_len": 177,
+        "target_code": "        annotations += bv.annotations\n    return BitVec(nraw, annotations)\n\n\ndef Extract(high: int, low: int, bv: BitVec) -> BitVec:\n    \"\"\" Create an extract expression\"\"\"\n    return BitVec(z3.Extract(high, low, bv.raw), annotations=bv.annotations)\n\n",
+        "target_code_len": 251,
+        "diff_format": "@@ -90,7 +104,8 @@\n         annotations += bv.annotations\n-    BitVec(nraw, annotations)\n+    return BitVec(nraw, annotations)\n \n \n-def Extract(high, low, bv: BitVec):\n-    BitVec(z3.Extract(high, low, bv.raw), annotations=bv.annotations)\n+def Extract(high: int, low: int, bv: BitVec) -> BitVec:\n+    \"\"\" Create an extract expression\"\"\"\n+    return BitVec(z3.Extract(high, low, bv.raw), annotations=bv.annotations)\n \n",
+        "source_code_with_indent": "        <IND>annotations += bv.annotations\n    <DED>BitVec(nraw, annotations)\n\n\n<DED>def Extract(high, low, bv: BitVec):\n    <IND>BitVec(z3.Extract(high, low, bv.raw), annotations=bv.annotations)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>annotations += bv.annotations\n    <DED>return BitVec(nraw, annotations)\n\n\n<DED>def Extract(high: int, low: int, bv: BitVec) -> BitVec:\n    <IND>\"\"\" Create an extract expression\"\"\"\n    return BitVec(z3.Extract(high, low, bv.raw), annotations=bv.annotations)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "project": "tensorflow/federated",
+    "commit": "9f5a82440b18910ca996dd677383058e06ee6a6a",
+    "filename": "tensorflow_federated/python/simulation/baselines/cifar100/image_classification_tasks.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-federated/tensorflow_federated/python/simulation/baselines/cifar100/image_classification_tasks.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_federated/python/simulation/baselines/cifar100/image_classification_tasks.py:145:2 Incompatible return type [7]: Expected `Tuple[task_data.BaselineTaskDatasets, typing.Callable[[], model.Model]]` but got `baseline_task.BaselineTask`.",
+    "message": " Expected `Tuple[task_data.BaselineTaskDatasets, typing.Callable[[], model.Model]]` but got `baseline_task.BaselineTask`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 145,
+    "warning_line": "  return baseline_task.BaselineTask(task_datasets, model_fn)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "_RESNET_MODELS = [e.value for e in ResnetModel]\n_PreprocessFn = Callable[[tf.data.Dataset], tf.data.Dataset]\n_ModelFn = Callable[[], model.Model]\n\n",
+        "source_code_len": 147,
+        "target_code": "_RESNET_MODELS = [e.value for e in ResnetModel]\nDEFAULT_CROP_HEIGHT = 24\nDEFAULT_CROP_WIDTH = 24\n\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -41,4 +41,4 @@\n _RESNET_MODELS = [e.value for e in ResnetModel]\n-_PreprocessFn = Callable[[tf.data.Dataset], tf.data.Dataset]\n-_ModelFn = Callable[[], model.Model]\n+DEFAULT_CROP_HEIGHT = 24\n+DEFAULT_CROP_WIDTH = 24\n \n",
+        "source_code_with_indent": "_RESNET_MODELS = [e.value for e in ResnetModel]\n_PreprocessFn = Callable[[tf.data.Dataset], tf.data.Dataset]\n_ModelFn = Callable[[], model.Model]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "_RESNET_MODELS = [e.value for e in ResnetModel]\nDEFAULT_CROP_HEIGHT = 24\nDEFAULT_CROP_WIDTH = 24\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    model_id: Union[str, ResnetModel] = 'resnet18',\n    crop_height: int = 24,\n    crop_width: int = 24,\n    use_synthetic_data: bool = False\n) -> Tuple[task_data.BaselineTaskDatasets, _ModelFn]:\n  \"\"\"Creates a baseline task for image classification on CIFAR-100.\n",
+        "source_code_len": 264,
+        "target_code": "    model_id: Union[str, ResnetModel] = 'resnet18',\n    crop_height: int = DEFAULT_CROP_HEIGHT,\n    crop_width: int = DEFAULT_CROP_WIDTH,\n    use_synthetic_data: bool = False) -> baseline_task.BaselineTask:\n  \"\"\"Creates a baseline task for image classification on CIFAR-100.\n",
+        "target_code_len": 275,
+        "diff_format": "@@ -74,6 +74,5 @@\n     model_id: Union[str, ResnetModel] = 'resnet18',\n-    crop_height: int = 24,\n-    crop_width: int = 24,\n-    use_synthetic_data: bool = False\n-) -> Tuple[task_data.BaselineTaskDatasets, _ModelFn]:\n+    crop_height: int = DEFAULT_CROP_HEIGHT,\n+    crop_width: int = DEFAULT_CROP_WIDTH,\n+    use_synthetic_data: bool = False) -> baseline_task.BaselineTask:\n   \"\"\"Creates a baseline task for image classification on CIFAR-100.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    model_id: Union[str, ResnetModel] = 'resnet18',\n    crop_height: int = 24,\n    crop_width: int = 24,\n    use_synthetic_data: bool = False\n) -> Tuple[task_data.BaselineTaskDatasets, _ModelFn]:\n  <IND>",
+        "target_code_with_indent": "    model_id: Union[str, ResnetModel] = 'resnet18',\n    crop_height: int = DEFAULT_CROP_HEIGHT,\n    crop_width: int = DEFAULT_CROP_WIDTH,\n    use_synthetic_data: bool = False) -> baseline_task.BaselineTask:\n  <IND>"
+      }
+    ]
+  },
+  {
+    "project": "tensorflow/federated",
+    "commit": "9f5a82440b18910ca996dd677383058e06ee6a6a",
+    "filename": "tensorflow_federated/python/simulation/baselines/shakespeare/char_prediction_tasks.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-federated/tensorflow_federated/python/simulation/baselines/shakespeare/char_prediction_tasks.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_federated/python/simulation/baselines/shakespeare/char_prediction_tasks.py:110:2 Incompatible return type [7]: Expected `Tuple[task_data.BaselineTaskDatasets, typing.Callable[[], model.Model]]` but got `baseline_task.BaselineTask`.",
+    "message": " Expected `Tuple[task_data.BaselineTaskDatasets, typing.Callable[[], model.Model]]` but got `baseline_task.BaselineTask`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 110,
+    "warning_line": "  return baseline_task.BaselineTask(task_datasets, model_fn)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    sequence_length: int = DEFAULT_SEQUENCE_LENGTH,\n    use_synthetic_data: bool = False\n) -> Tuple[task_data.BaselineTaskDatasets, _ModelFn]:\n  \"\"\"Creates a baseline task for next-character prediction on Shakespeare.\n",
+        "source_code_len": 218,
+        "target_code": "    sequence_length: int = DEFAULT_SEQUENCE_LENGTH,\n    use_synthetic_data: bool = False) -> baseline_task.BaselineTask:\n  \"\"\"Creates a baseline task for next-character prediction on Shakespeare.\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -41,4 +39,3 @@\n     sequence_length: int = DEFAULT_SEQUENCE_LENGTH,\n-    use_synthetic_data: bool = False\n-) -> Tuple[task_data.BaselineTaskDatasets, _ModelFn]:\n+    use_synthetic_data: bool = False) -> baseline_task.BaselineTask:\n   \"\"\"Creates a baseline task for next-character prediction on Shakespeare.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    sequence_length: int = DEFAULT_SEQUENCE_LENGTH,\n    use_synthetic_data: bool = False\n) -> Tuple[task_data.BaselineTaskDatasets, _ModelFn]:\n  <IND>",
+        "target_code_with_indent": "    sequence_length: int = DEFAULT_SEQUENCE_LENGTH,\n    use_synthetic_data: bool = False) -> baseline_task.BaselineTask:\n  <IND>"
+      }
+    ]
+  }
+]

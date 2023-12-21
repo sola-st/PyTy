@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "994429cdad45d1d33891d9defcf5a9182a4881ce",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:1099:29 Incompatible parameter type [6]: Expected `List[Type]` for 1st positional only parameter to call `Callable.__init__` but got `List[None]`.",
+    "message": " Expected `List[Type]` for 1st positional only parameter to call `Callable.__init__` but got `List[None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1099,
+    "warning_line": "        signature = Callable([None] + types,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        arg_kinds = [ARG_POS] * (len(items) + 1)\n        signature = Callable([None] + types,\n                             arg_kinds,\n",
+        "source_code_len": 134,
+        "target_code": "        arg_kinds = [ARG_POS] * (len(items) + 1)\n        signature = Callable([cast(Type, None)] + types,\n                             arg_kinds,\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -1098,3 +1098,3 @@\n         arg_kinds = [ARG_POS] * (len(items) + 1)\n-        signature = Callable([None] + types,\n+        signature = Callable([cast(Type, None)] + types,\n                              arg_kinds,\n",
+        "source_code_with_indent": "        arg_kinds = [ARG_POS] * (len(items) + 1)\n        signature = Callable([None] + types,\n                             arg_kinds,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        arg_kinds = [ARG_POS] * (len(items) + 1)\n        signature = Callable([cast(Type, None)] + types,\n                             arg_kinds,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "994429cdad45d1d33891d9defcf5a9182a4881ce",
+    "filename": "mypy/semanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/semanal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/semanal.py:1099:38 Unsupported operand [58]: `+` is not supported for operand types `List[None]` and `List[Type]`.",
+    "message": " `+` is not supported for operand types `List[None]` and `List[Type]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 1099,
+    "warning_line": "        signature = Callable([None] + types,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        arg_kinds = [ARG_POS] * (len(items) + 1)\n        signature = Callable([None] + types,\n                             arg_kinds,\n",
+        "source_code_len": 134,
+        "target_code": "        arg_kinds = [ARG_POS] * (len(items) + 1)\n        signature = Callable([cast(Type, None)] + types,\n                             arg_kinds,\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -1098,3 +1098,3 @@\n         arg_kinds = [ARG_POS] * (len(items) + 1)\n-        signature = Callable([None] + types,\n+        signature = Callable([cast(Type, None)] + types,\n                              arg_kinds,\n",
+        "source_code_with_indent": "        arg_kinds = [ARG_POS] * (len(items) + 1)\n        signature = Callable([None] + types,\n                             arg_kinds,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        arg_kinds = [ARG_POS] * (len(items) + 1)\n        signature = Callable([cast(Type, None)] + types,\n                             arg_kinds,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

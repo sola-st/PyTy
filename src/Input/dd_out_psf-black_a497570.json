@@ -1,0 +1,36 @@
+[
+  {
+    "project": "psf/black",
+    "commit": "a497570fcb364b40e0d952d3133e8d4f2d329fea",
+    "filename": "src/black_primer/lib.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/psf-black/src/black_primer/lib.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/black_primer/lib.py:64:12 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `CalledProcessError.__init__` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st positional only parameter to call `CalledProcessError.__init__` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 64,
+    "warning_line": "            process.returncode, cmd_str, output=stdout, stderr=stderr",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if process.returncode != 0:\n        cmd_str = \" \".join(cmd)\n        raise CalledProcessError(\n            process.returncode, cmd_str, output=stdout, stderr=stderr\n        )\n\n",
+        "source_code_len": 179,
+        "target_code": "    if process.returncode != 0:\n        returncode = process.returncode\n        if returncode is None:\n            returncode = 69\n\n        cmd_str = \" \".join(cmd)\n        raise CalledProcessError(returncode, cmd_str, output=stdout, stderr=stderr)\n\n",
+        "target_code_len": 249,
+        "diff_format": "@@ -61,6 +61,8 @@\n     if process.returncode != 0:\n+        returncode = process.returncode\n+        if returncode is None:\n+            returncode = 69\n+\n         cmd_str = \" \".join(cmd)\n-        raise CalledProcessError(\n-            process.returncode, cmd_str, output=stdout, stderr=stderr\n-        )\n+        raise CalledProcessError(returncode, cmd_str, output=stdout, stderr=stderr)\n \n",
+        "source_code_with_indent": "    <DED>if process.returncode != 0:\n        <IND>cmd_str = \" \".join(cmd)\n        raise CalledProcessError(\n            process.returncode, cmd_str, output=stdout, stderr=stderr\n        )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>if process.returncode != 0:\n        <IND>returncode = process.returncode\n        if returncode is None:\n            <IND>returncode = 69\n\n        <DED>cmd_str = \" \".join(cmd)\n        raise CalledProcessError(returncode, cmd_str, output=stdout, stderr=stderr)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

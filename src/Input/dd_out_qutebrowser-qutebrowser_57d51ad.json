@@ -1,0 +1,111 @@
+[
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "57d51ad9bb88f05dced3c47a68688bfebc90e697",
+    "filename": "qutebrowser/browser/commands.py",
+    "min_patch_found": false,
+    "full_warning_msg": "qutebrowser/browser/commands.py:260:21 Invalid type [31]: Expression `{ \"nargs\":\"*\" }` is not a valid type.",
+    "exception": "too many values to unpack (expected 2)",
+    "dd_fail": true
+  },
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "57d51ad9bb88f05dced3c47a68688bfebc90e697",
+    "filename": "qutebrowser/browser/commands.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/qutebrowser/browser/commands.py",
+    "file_hunks_size": 10,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qutebrowser/browser/commands.py:521:24 Incompatible variable type [9]: index is declared to have type `int` but is used as type `None`.",
+    "message": " index is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 521,
+    "warning_line": "    def tab_focus(self, index : int = None, count=None):"
+  },
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "57d51ad9bb88f05dced3c47a68688bfebc90e697",
+    "filename": "qutebrowser/utils/debug.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/qutebrowser/utils/debug.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qutebrowser/utils/debug.py:35:23 Invalid type [31]: Expression `(exception, segfault)` is not a valid type.",
+    "message": " Expression `(exception, segfault)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 35,
+    "warning_line": "def debug_crash(typ : ('exception', 'segfault') = 'exception'):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "from qutebrowser.utils import log, utils\nfrom qutebrowser.commands import cmdutils\nfrom qutebrowser.config import config, style\n\n\n@cmdutils.register(debug=True)\ndef debug_crash(typ : ('exception', 'segfault') = 'exception'):\n    \"\"\"Crash for debugging purposes.\n\n    Args:\n        typ: either 'exception' or 'segfault'.\n\n    Raises:\n        raises Exception when typ is not segfault.\n        segfaults when typ is (you don't say...)\n    \"\"\"\n    if typ == 'segfault':\n        # From python's Lib/test/crashers/bogus_code_obj.py\n        co = types.CodeType(0, 0, 0, 0, 0, b'\\x04\\x71\\x00\\x00', (), (), (),\n                            '', '', 1, b'')\n        exec(co)  # pylint: disable=exec-used\n        raise Exception(\"Segfault failed (wat.)\")\n    else:\n        raise Exception(\"Forced crash\")\n\n\n@cmdutils.register(debug=True)\ndef debug_all_widgets():\n    \"\"\"Print a list of all widgets to debug log.\"\"\"\n    s = QCoreApplication.instance().get_all_widgets()\n    log.misc.debug(s)\n\n\n@cmdutils.register(debug=True)\ndef debug_all_objects():\n    \"\"\"Print a list of  all objects to the debug log.\"\"\"\n    s = QCoreApplication.instance().get_all_objects()\n    log.misc.debug(s)\n\n\n@cmdutils.register(debug=True)\ndef debug_cache_stats():\n    \"\"\"Print LRU cache stats.\"\"\"\n    config_info = config.instance().get.cache_info()\n    style_info = style.get_stylesheet.cache_info()\n    log.misc.debug('config: {}'.format(config_info))\n    log.misc.debug('style: {}'.format(style_info))\n\n",
+        "source_code_len": 1470,
+        "target_code": "from qutebrowser.utils import log, utils\n\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -29,48 +28,2 @@\n from qutebrowser.utils import log, utils\n-from qutebrowser.commands import cmdutils\n-from qutebrowser.config import config, style\n-\n-\n-@cmdutils.register(debug=True)\n-def debug_crash(typ : ('exception', 'segfault') = 'exception'):\n-    \"\"\"Crash for debugging purposes.\n-\n-    Args:\n-        typ: either 'exception' or 'segfault'.\n-\n-    Raises:\n-        raises Exception when typ is not segfault.\n-        segfaults when typ is (you don't say...)\n-    \"\"\"\n-    if typ == 'segfault':\n-        # From python's Lib/test/crashers/bogus_code_obj.py\n-        co = types.CodeType(0, 0, 0, 0, 0, b'\\x04\\x71\\x00\\x00', (), (), (),\n-                            '', '', 1, b'')\n-        exec(co)  # pylint: disable=exec-used\n-        raise Exception(\"Segfault failed (wat.)\")\n-    else:\n-        raise Exception(\"Forced crash\")\n-\n-\n-@cmdutils.register(debug=True)\n-def debug_all_widgets():\n-    \"\"\"Print a list of all widgets to debug log.\"\"\"\n-    s = QCoreApplication.instance().get_all_widgets()\n-    log.misc.debug(s)\n-\n-\n-@cmdutils.register(debug=True)\n-def debug_all_objects():\n-    \"\"\"Print a list of  all objects to the debug log.\"\"\"\n-    s = QCoreApplication.instance().get_all_objects()\n-    log.misc.debug(s)\n-\n-\n-@cmdutils.register(debug=True)\n-def debug_cache_stats():\n-    \"\"\"Print LRU cache stats.\"\"\"\n-    config_info = config.instance().get.cache_info()\n-    style_info = style.get_stylesheet.cache_info()\n-    log.misc.debug('config: {}'.format(config_info))\n-    log.misc.debug('style: {}'.format(style_info))\n \n",
+        "source_code_with_indent": "from qutebrowser.utils import log, utils\nfrom qutebrowser.commands import cmdutils\nfrom qutebrowser.config import config, style\n\n\n@cmdutils.register(debug=True)\ndef debug_crash(typ : ('exception', 'segfault') = 'exception'):\n    <IND>\"\"\"Crash for debugging purposes.\n\n    Args:\n        typ: either 'exception' or 'segfault'.\n\n    Raises:\n        raises Exception when typ is not segfault.\n        segfaults when typ is (you don't say...)\n    \"\"\"\n    if typ == 'segfault':\n        # From python's Lib/test/crashers/bogus_code_obj.py\n        <IND>co = types.CodeType(0, 0, 0, 0, 0, b'\\x04\\x71\\x00\\x00', (), (), (),\n                            '', '', 1, b'')\n        exec(co)  # pylint: disable=exec-used\n        raise Exception(\"Segfault failed (wat.)\")\n    <DED>else:\n        <IND>raise Exception(\"Forced crash\")\n\n\n<DED><DED>@cmdutils.register(debug=True)\ndef debug_all_widgets():\n    <IND>\"\"\"Print a list of all widgets to debug log.\"\"\"\n    s = QCoreApplication.instance().get_all_widgets()\n    log.misc.debug(s)\n\n\n<DED>@cmdutils.register(debug=True)\ndef debug_all_objects():\n    <IND>\"\"\"Print a list of  all objects to the debug log.\"\"\"\n    s = QCoreApplication.instance().get_all_objects()\n    log.misc.debug(s)\n\n\n<DED>@cmdutils.register(debug=True)\ndef debug_cache_stats():\n    <IND>\"\"\"Print LRU cache stats.\"\"\"\n    config_info = config.instance().get.cache_info()\n    style_info = style.get_stylesheet.cache_info()\n    log.misc.debug('config: {}'.format(config_info))\n    log.misc.debug('style: {}'.format(style_info))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from qutebrowser.utils import log, utils\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "57d51ad9bb88f05dced3c47a68688bfebc90e697",
+    "filename": "qutebrowser/utils/utilcmds.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/qutebrowser/utils/utilcmds.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qutebrowser/utils/utilcmds.py:97:13 Unbound name [10]: Name `types` is used but not defined in the current scope.",
+    "message": " Name `types` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 97,
+    "warning_line": "        co = types.CodeType(0, 0, 0, 0, 0, b'\\x04\\x71\\x00\\x00', (), (), (),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\nfrom PyQt5.QtCore import pyqtRemoveInputHook, QCoreApplication\n\nfrom functools import partial\n\n",
+        "source_code_len": 97,
+        "target_code": "\nimport types\nimport functools\n\n\nfrom PyQt5.QtCore import QCoreApplication\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -21,6 +21,7 @@\n \n+import types\n+import functools\n \n-from PyQt5.QtCore import pyqtRemoveInputHook, QCoreApplication\n \n-from functools import partial\n+from PyQt5.QtCore import QCoreApplication\n \n",
+        "source_code_with_indent": "\n\nfrom PyQt5.QtCore import pyqtRemoveInputHook, QCoreApplication\n\nfrom functools import partial\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport types\nimport functools\n\n\nfrom PyQt5.QtCore import QCoreApplication\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    cmdline = ' '.join(command)\n    timer.timeout.connect(partial(_commandrunner.run_safely, cmdline))\n    timer.timeout.connect(lambda: _timers.remove(timer))\n",
+        "source_code_len": 160,
+        "target_code": "    cmdline = ' '.join(command)\n    timer.timeout.connect(functools.partial(\n        _commandrunner.run_safely, cmdline))\n    timer.timeout.connect(lambda: _timers.remove(timer))\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -60,3 +61,4 @@\n     cmdline = ' '.join(command)\n-    timer.timeout.connect(partial(_commandrunner.run_safely, cmdline))\n+    timer.timeout.connect(functools.partial(\n+        _commandrunner.run_safely, cmdline))\n     timer.timeout.connect(lambda: _timers.remove(timer))\n",
+        "source_code_with_indent": "    cmdline = ' '.join(command)\n    timer.timeout.connect(partial(_commandrunner.run_safely, cmdline))\n    timer.timeout.connect(lambda: _timers.remove(timer))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    cmdline = ' '.join(command)\n    timer.timeout.connect(functools.partial(\n        _commandrunner.run_safely, cmdline))\n    timer.timeout.connect(lambda: _timers.remove(timer))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "b20e6d3f060bc385e350433070d5707ae6d6d0b0",
+    "filename": "airflow/decorators/python.py",
+    "min_patch_found": false,
+    "full_warning_msg": "airflow/decorators/python.py:97:12 Incompatible parameter type [6]: Expected `airflow.models.baseoperator.BaseOperator` for 3rd parameter `decorated_operator_class` to call `task_decorator_factory` but got `typing.Type[_PythonDecoratedOperator]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "b20e6d3f060bc385e350433070d5707ae6d6d0b0",
+    "filename": "airflow/decorators/python.py",
+    "min_patch_found": false,
+    "full_warning_msg": "airflow/decorators/python.py:121:8 Incompatible parameter type [6]: Expected `airflow.models.baseoperator.BaseOperator` for 3rd parameter `decorated_operator_class` to call `task_decorator_factory` but got `typing.Type[_PythonDecoratedOperator]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "b20e6d3f060bc385e350433070d5707ae6d6d0b0",
+    "filename": "airflow/decorators/python_virtualenv.py",
+    "min_patch_found": false,
+    "full_warning_msg": "airflow/decorators/python_virtualenv.py:100:12 Incompatible parameter type [6]: Expected `airflow.models.baseoperator.BaseOperator` for 3rd parameter `decorated_operator_class` to call `task_decorator_factory` but got `typing.Type[_PythonVirtualenvDecoratedOperator]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "b20e6d3f060bc385e350433070d5707ae6d6d0b0",
+    "filename": "airflow/providers/docker/decorators/docker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/docker/decorators/docker.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/docker/decorators/docker.py:147:8 Incompatible parameter type [6]: Expected `airflow.models.baseoperator.BaseOperator` for 3rd parameter `decorated_operator_class` to call `task_decorator_factory` but got `typing.Type[_DockerDecoratedOperator]`.",
+    "message": " Expected `airflow.models.baseoperator.BaseOperator` for 3rd parameter `decorated_operator_class` to call `task_decorator_factory` but got `typing.Type[_DockerDecoratedOperator]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 147,
+    "warning_line": "        decorated_operator_class=_DockerDecoratedOperator,"
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "b20e6d3f060bc385e350433070d5707ae6d6d0b0",
+    "filename": "airflow/providers/docker/hooks/docker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/docker/hooks/docker.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/docker/hooks/docker.py:103:12 Incompatible return type [7]: Expected `int` but got implicit return value of `None`.",
+    "message": " Expected `int` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 103,
+    "warning_line": "            raise AirflowException(f'Docker login failed: {docker_error}')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __login(self, client) -> int:\n        self.log.debug('Logging into Docker')\n",
+        "source_code_len": 85,
+        "target_code": "\n    def __login(self, client) -> None:\n        self.log.debug('Logging into Docker')\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -89,3 +93,3 @@\n \n-    def __login(self, client) -> int:\n+    def __login(self, client) -> None:\n         self.log.debug('Logging into Docker')\n",
+        "source_code_with_indent": "\n    <DED>def __login(self, client) -> int:\n        <IND>self.log.debug('Logging into Docker')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __login(self, client) -> None:\n        <IND>self.log.debug('Logging into Docker')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "b20e6d3f060bc385e350433070d5707ae6d6d0b0",
+    "filename": "airflow/providers/docker/operators/docker.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/docker/operators/docker.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/docker/operators/docker.py:250:12 Incompatible parameter type [6]: Expected `str` for 1st parameter `docker_conn_id` to call `DockerHook.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st parameter `docker_conn_id` to call `DockerHook.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 250,
+    "warning_line": "            docker_conn_id=self.docker_conn_id,"
+  }
+]

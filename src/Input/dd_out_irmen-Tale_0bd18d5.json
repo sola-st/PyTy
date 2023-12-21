@@ -1,0 +1,70 @@
+[
+  {
+    "project": "irmen/Tale",
+    "commit": "0bd18d507378ec1407f44631a74b860820fcdbb9",
+    "filename": "tale/driver.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/irmen-Tale/tale/driver.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tale/driver.py:1004:12 Incompatible return type [7]: Expected `player.Player` but got `None`.",
+    "message": " Expected `player.Player` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1004,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __load_saved_game(self, player: player.Player) -> player.Player:\n        assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "source_code_len": 189,
+        "target_code": "\n    def __load_saved_game(self, player: player.Player) -> Optional[player.Player]:\n        assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "target_code_len": 199,
+        "diff_format": "@@ -988,3 +988,3 @@\n \n-    def __load_saved_game(self, player: player.Player) -> player.Player:\n+    def __load_saved_game(self, player: player.Player) -> Optional[player.Player]:\n         assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "source_code_with_indent": "\n    <DED>def __load_saved_game(self, player: player.Player) -> player.Player:\n        <IND>assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __load_saved_game(self, player: player.Player) -> Optional[player.Player]:\n        <IND>assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "irmen/Tale",
+    "commit": "0bd18d507378ec1407f44631a74b860820fcdbb9",
+    "filename": "tale/driver.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/irmen-Tale/tale/driver.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tale/driver.py:1010:16 Incompatible return type [7]: Expected `player.Player` but got `None`.",
+    "message": " Expected `player.Player` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1010,
+    "warning_line": "                return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __load_saved_game(self, player: player.Player) -> player.Player:\n        assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "source_code_len": 189,
+        "target_code": "\n    def __load_saved_game(self, player: player.Player) -> Optional[player.Player]:\n        assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "target_code_len": 199,
+        "diff_format": "@@ -988,3 +988,3 @@\n \n-    def __load_saved_game(self, player: player.Player) -> player.Player:\n+    def __load_saved_game(self, player: player.Player) -> Optional[player.Player]:\n         assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "source_code_with_indent": "\n    <DED>def __load_saved_game(self, player: player.Player) -> player.Player:\n        <IND>assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def __load_saved_game(self, player: player.Player) -> Optional[player.Player]:\n        <IND>assert self.story.config.server_mode == GameMode.IF, \"games can only be loaded in single player 'if' mode\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

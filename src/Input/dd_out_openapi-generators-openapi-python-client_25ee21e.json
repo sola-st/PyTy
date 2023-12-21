@@ -1,0 +1,36 @@
+[
+  {
+    "project": "openapi-generators/openapi-python-client",
+    "commit": "25ee21e9c9497116ba659f0e94e0bb8dc7e58db5",
+    "filename": "openapi_python_client/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openapi-generators-openapi-python-client/openapi_python_client/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "openapi_python_client/__init__.py:25:26 Incompatible parameter type [6]: Expected `typing.Union[os.PathLike[str], str]` for 1st positional only parameter to call `Path.__new__` but got `Optional[str]`.",
+    "message": " Expected `typing.Union[os.PathLike[str], str]` for 1st positional only parameter to call `Path.__new__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 25,
+    "warning_line": "        json_bytes = Path(path).read_bytes()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    json_bytes: bytes\n    if url:\n        response = requests.get(url)\n        json_bytes = response.content\n    else:\n        json_bytes = Path(path).read_bytes()\n    return orjson.loads(json_bytes)\n",
+        "source_code_len": 200,
+        "target_code": "    json_bytes: bytes\n    if url is not None:\n        response = requests.get(url)\n        json_bytes = response.content\n    elif path is not None:\n        json_bytes = Path(path).read_bytes()\n    else:\n        raise ValueError(\"No URL or Path provided\")\n    return orjson.loads(json_bytes)\n",
+        "target_code_len": 291,
+        "diff_format": "@@ -20,7 +20,9 @@\n     json_bytes: bytes\n-    if url:\n+    if url is not None:\n         response = requests.get(url)\n         json_bytes = response.content\n+    elif path is not None:\n+        json_bytes = Path(path).read_bytes()\n     else:\n-        json_bytes = Path(path).read_bytes()\n+        raise ValueError(\"No URL or Path provided\")\n     return orjson.loads(json_bytes)\n",
+        "source_code_with_indent": "    <IND>json_bytes: bytes\n    if url:\n        <IND>response = requests.get(url)\n        json_bytes = response.content\n    <DED>else:\n        <IND>json_bytes = Path(path).read_bytes()\n    <DED>return orjson.loads(json_bytes)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>json_bytes: bytes\n    if url is not None:\n        <IND>response = requests.get(url)\n        json_bytes = response.content\n    <DED>elif path is not None:\n        <IND>json_bytes = Path(path).read_bytes()\n    <DED>else:\n        <IND>raise ValueError(\"No URL or Path provided\")\n    <DED>return orjson.loads(json_bytes)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

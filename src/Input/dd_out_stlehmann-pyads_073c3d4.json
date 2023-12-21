@@ -1,0 +1,109 @@
+[
+  {
+    "project": "stlehmann/pyads",
+    "commit": "073c3d4eaf46233ae9c0360ebcfec25920566024",
+    "filename": "pyads/ads.py",
+    "min_patch_found": false,
+    "full_warning_msg": "pyads/ads.py:476:8 Incompatible attribute type [8]: Attribute `netid` declared in class `AmsAddr` has type `ctypes.Union[]` but is used as type `str`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "stlehmann/pyads",
+    "commit": "073c3d4eaf46233ae9c0360ebcfec25920566024",
+    "filename": "pyads/structs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stlehmann-pyads/pyads/structs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyads/structs.py:73:12 Incompatible attribute type [8]: Attribute `netid` declared in class `AmsAddr` has type `Union[]` but is used as type `str`.",
+    "message": " Attribute `netid` declared in class `AmsAddr` has type `Union[]` but is used as type `str`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 73,
+    "warning_line": "            self.netid = netid",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom ctypes import Structure, Union, c_ubyte, c_uint16, c_uint32, c_uint64\n\n",
+        "source_code_len": 77,
+        "target_code": "\nimport ctypes\nfrom ctypes import Structure, c_ubyte, c_uint16, c_uint32, c_uint64\nfrom typing import Union\n\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -8,3 +8,5 @@\n \n-from ctypes import Structure, Union, c_ubyte, c_uint16, c_uint32, c_uint64\n+import ctypes\n+from ctypes import Structure, c_ubyte, c_uint16, c_uint32, c_uint64\n+from typing import Union\n \n",
+        "source_code_with_indent": "\nfrom ctypes import Structure, Union, c_ubyte, c_uint16, c_uint32, c_uint64\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport ctypes\nfrom ctypes import Structure, c_ubyte, c_uint16, c_uint32, c_uint64\nfrom typing import Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass _AttribUnion(Union):\n    _fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "source_code_len": 100,
+        "target_code": "\nclass _AttribUnion(ctypes.Union):\n    _fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -225,3 +227,3 @@\n \n-class _AttribUnion(Union):\n+class _AttribUnion(ctypes.Union):\n     _fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "source_code_with_indent": "\n<DED><DED>class _AttribUnion(Union):\n    <IND>_fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class _AttribUnion(ctypes.Union):\n    <IND>_fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "stlehmann/pyads",
+    "commit": "073c3d4eaf46233ae9c0360ebcfec25920566024",
+    "filename": "pyads/structs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stlehmann-pyads/pyads/structs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyads/structs.py:137:8 Incompatible attribute type [8]: Attribute `netid` declared in class `AmsAddr` has type `Union[]` but is used as type `str`.",
+    "message": " Attribute `netid` declared in class `AmsAddr` has type `Union[]` but is used as type `str`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 137,
+    "warning_line": "        self.netid = adrString",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom ctypes import Structure, Union, c_ubyte, c_uint16, c_uint32, c_uint64\n\n",
+        "source_code_len": 77,
+        "target_code": "\nimport ctypes\nfrom ctypes import Structure, c_ubyte, c_uint16, c_uint32, c_uint64\nfrom typing import Union\n\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -8,3 +8,5 @@\n \n-from ctypes import Structure, Union, c_ubyte, c_uint16, c_uint32, c_uint64\n+import ctypes\n+from ctypes import Structure, c_ubyte, c_uint16, c_uint32, c_uint64\n+from typing import Union\n \n",
+        "source_code_with_indent": "\nfrom ctypes import Structure, Union, c_ubyte, c_uint16, c_uint32, c_uint64\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport ctypes\nfrom ctypes import Structure, c_ubyte, c_uint16, c_uint32, c_uint64\nfrom typing import Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass _AttribUnion(Union):\n    _fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "source_code_len": 100,
+        "target_code": "\nclass _AttribUnion(ctypes.Union):\n    _fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "target_code_len": 107,
+        "diff_format": "@@ -225,3 +227,3 @@\n \n-class _AttribUnion(Union):\n+class _AttribUnion(ctypes.Union):\n     _fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "source_code_with_indent": "\n<DED><DED>class _AttribUnion(Union):\n    <IND>_fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class _AttribUnion(ctypes.Union):\n    <IND>_fields_ = [(\"nCycleTime\", c_uint32), (\"dwChangeFilter\", c_uint32)]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

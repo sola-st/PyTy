@@ -1,0 +1,51 @@
+[
+  {
+    "project": "volatilityfoundation/volatility3",
+    "commit": "573dd8888589b16b590aa552e53a9c411c3cb3c4",
+    "filename": "development/pdbconv.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/volatilityfoundation-volatility3/development/pdbconv.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "development/pdbconv.py:42:8 Incompatible return type [7]: Expected `str` but got `typing.Optional[str]`.",
+    "message": " Expected `str` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 42,
+    "warning_line": "        return result",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os\nfrom typing import Dict, Union\nfrom urllib import request\n",
+        "source_code_len": 68,
+        "target_code": "import os\nfrom typing import Dict, Union, Optional, Any\nfrom urllib import request\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -6,3 +6,3 @@\n import os\n-from typing import Dict, Union\n+from typing import Dict, Union, Optional, Any\n from urllib import request\n",
+        "source_code_with_indent": "import os\nfrom typing import Dict, Union\nfrom urllib import request\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os\nfrom typing import Dict, Union, Optional, Any\nfrom urllib import request\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def retreive_pdb(self, guid, file_name) -> str:\n        logger.info(\"Download PDB file...\")\n",
+        "source_code_len": 97,
+        "target_code": "\n    def retreive_pdb(self, guid: str, file_name: str) -> Optional[str]:\n        logger.info(\"Download PDB file...\")\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -25,3 +25,3 @@\n \n-    def retreive_pdb(self, guid, file_name) -> str:\n+    def retreive_pdb(self, guid: str, file_name: str) -> Optional[str]:\n         logger.info(\"Download PDB file...\")\n",
+        "source_code_with_indent": "\n    <IND>def retreive_pdb(self, guid, file_name) -> str:\n        <IND>logger.info(\"Download PDB file...\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <IND>def retreive_pdb(self, guid: str, file_name: str) -> Optional[str]:\n        <IND>logger.info(\"Download PDB file...\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

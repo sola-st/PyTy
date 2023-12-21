@@ -1,0 +1,36 @@
+[
+  {
+    "project": "scrapy/scrapy",
+    "commit": "38d361792c02ae2b25323258d070c04d8906495a",
+    "filename": "scrapy/core/downloader/handlers/http2.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/scrapy-scrapy/scrapy/core/downloader/handlers/http2.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scrapy/core/downloader/handlers/http2.py:75:46 Incompatible variable type [9]: pool is declared to have type `H2ConnectionPool` but is used as type `None`.",
+    "message": " pool is declared to have type `H2ConnectionPool` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 75,
+    "warning_line": "        bind_address: Optional[bytes] = None, pool: H2ConnectionPool = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self, context_factory,\n        connect_timeout=10,\n        bind_address: Optional[bytes] = None, pool: H2ConnectionPool = None,\n        crawler=None\n",
+        "source_code_len": 157,
+        "target_code": "        self, context_factory,\n        pool: H2ConnectionPool,\n        connect_timeout=10, bind_address: Optional[bytes] = None,\n        crawler=None\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -73,4 +73,4 @@\n         self, context_factory,\n-        connect_timeout=10,\n-        bind_address: Optional[bytes] = None, pool: H2ConnectionPool = None,\n+        pool: H2ConnectionPool,\n+        connect_timeout=10, bind_address: Optional[bytes] = None,\n         crawler=None\n",
+        "source_code_with_indent": "        self, context_factory,\n        connect_timeout=10,\n        bind_address: Optional[bytes] = None, pool: H2ConnectionPool = None,\n        crawler=None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self, context_factory,\n        pool: H2ConnectionPool,\n        connect_timeout=10, bind_address: Optional[bytes] = None,\n        crawler=None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "project": "google/TensorNetwork",
+    "commit": "7a6a022ede039c883535aa80ee6f377bbbd2e41c",
+    "filename": "tensornetwork/block_sparse/block_tensor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-TensorNetwork/tensornetwork/block_sparse/block_tensor.py",
+    "file_hunks_size": 26,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensornetwork/block_sparse/block_tensor.py:2098:22 Incompatible parameter type [6]: Expected `BlockSparseTensor` for 1st positional only parameter to call `tensordot` but got `ChargeArray`.",
+    "message": " Expected `BlockSparseTensor` for 1st positional only parameter to call `tensordot` but got `ChargeArray`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 2098,
+    "warning_line": "      out = tensordot(out, identity, ([i, j], [0, 1]))  # pytype: disable=wrong-arg-types",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "              axes: Optional[Union[Sequence[Sequence[int]], int]] = 2\n             ) -> BlockSparseTensor:\n  \"\"\"\n",
+        "source_code_len": 113,
+        "target_code": "              axes: Optional[Union[Sequence[Sequence[int]], int]] = 2\n             ) -> Union[BlockSparseTensor, np.number]:\n  \"\"\"\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -1508,3 +1548,3 @@\n               axes: Optional[Union[Sequence[Sequence[int]], int]] = 2\n-             ) -> BlockSparseTensor:\n+             ) -> Union[BlockSparseTensor, np.number]:\n   \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "              axes: Optional[Union[Sequence[Sequence[int]], int]] = 2\n             ) -> BlockSparseTensor:\n  <IND>",
+        "target_code_with_indent": "              axes: Optional[Union[Sequence[Sequence[int]], int]] = 2\n             ) -> Union[BlockSparseTensor, np.number]:\n  <IND>"
+      }
+    ]
+  },
+  {
+    "project": "google/TensorNetwork",
+    "commit": "7a6a022ede039c883535aa80ee6f377bbbd2e41c",
+    "filename": "tensornetwork/block_sparse/block_tensor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-TensorNetwork/tensornetwork/block_sparse/block_tensor.py",
+    "file_hunks_size": 26,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensornetwork/block_sparse/block_tensor.py:2143:2 Incompatible return type [7]: Expected `BlockSparseTensor` but got `ChargeArray`.",
+    "message": " Expected `BlockSparseTensor` but got `ChargeArray`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 2143,
+    "warning_line": "  return BlockSparseTensor("
+  }
+]

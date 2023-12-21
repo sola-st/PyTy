@@ -1,0 +1,172 @@
+[
+  {
+    "project": "rpy2/rpy2",
+    "commit": "206272f376fc31ecca831db466678d42d5cc8cfd",
+    "filename": "rpy2/rinterface_lib/bufferprotocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rpy2-rpy2/rpy2/rinterface_lib/bufferprotocol.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rpy2/rinterface_lib/bufferprotocol.py:25:4 Incompatible return type [7]: Expected `typing.Tuple[int, ...]` but got `typing.Tuple[None, ...]`.",
+    "message": " Expected `typing.Tuple[int, ...]` but got `typing.Tuple[None, ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 25,
+    "warning_line": "    return tuple(shape)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                                           openrlib.rlib.R_DimSymbol)\n    shape = [None, ] * rk\n    if dim_cdata == openrlib.rlib.R_NilValue:\n        shape[0] = openrlib.rlib.Rf_length(cdata)\n    else:\n        for i in range(rk):\n            shape[i] = openrlib.INTEGER_ELT(dim_cdata, i)\n    return tuple(shape)\n\n",
+        "source_code_len": 313,
+        "target_code": "                                           openrlib.rlib.R_DimSymbol)\n\n    if dim_cdata == openrlib.rlib.R_NilValue:\n        shape = (openrlib.rlib.Rf_length(cdata), )\n    else:\n        _ = []\n        for i in range(rk):\n            _.append(openrlib.INTEGER_ELT(dim_cdata, i))\n        shape = tuple(_)\n    return shape\n\n",
+        "target_code_len": 321,
+        "diff_format": "@@ -18,9 +18,11 @@\n                                            openrlib.rlib.R_DimSymbol)\n-    shape = [None, ] * rk\n+\n     if dim_cdata == openrlib.rlib.R_NilValue:\n-        shape[0] = openrlib.rlib.Rf_length(cdata)\n+        shape = (openrlib.rlib.Rf_length(cdata), )\n     else:\n+        _ = []\n         for i in range(rk):\n-            shape[i] = openrlib.INTEGER_ELT(dim_cdata, i)\n-    return tuple(shape)\n+            _.append(openrlib.INTEGER_ELT(dim_cdata, i))\n+        shape = tuple(_)\n+    return shape\n \n",
+        "source_code_with_indent": "                                           openrlib.rlib.R_DimSymbol)\n    shape = [None, ] * rk\n    if dim_cdata == openrlib.rlib.R_NilValue:\n        <IND>shape[0] = openrlib.rlib.Rf_length(cdata)\n    <DED>else:\n        <IND>for i in range(rk):\n            <IND>shape[i] = openrlib.INTEGER_ELT(dim_cdata, i)\n    <DED><DED>return tuple(shape)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                                           openrlib.rlib.R_DimSymbol)\n\n    if dim_cdata == openrlib.rlib.R_NilValue:\n        <IND>shape = (openrlib.rlib.Rf_length(cdata), )\n    <DED>else:\n        <IND>_ = []\n        for i in range(rk):\n            <IND>_.append(openrlib.INTEGER_ELT(dim_cdata, i))\n        <DED>shape = tuple(_)\n    <DED>return shape\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rpy2/rpy2",
+    "commit": "206272f376fc31ecca831db466678d42d5cc8cfd",
+    "filename": "rpy2/rinterface_lib/bufferprotocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rpy2-rpy2/rpy2/rinterface_lib/bufferprotocol.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rpy2/rinterface_lib/bufferprotocol.py:32:17 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `list.__setitem__` but got `int`.",
+    "message": " Expected `None` for 2nd positional only parameter to call `list.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 32,
+    "warning_line": "    strides[0] = itemsize",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    rk = len(shape)\n    strides = [None, ] * rk\n    strides[0] = itemsize\n    for i in range(1, rk):\n        strides[i] = shape[i-1] * strides[i-1]\n    return tuple(strides)\n",
+        "source_code_len": 174,
+        "target_code": "    rk = len(shape)\n    strides = [itemsize, ]\n    for i in range(1, rk):\n        strides.append(shape[i-1] * strides[i-1])\n    return tuple(strides)\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -30,6 +32,5 @@\n     rk = len(shape)\n-    strides = [None, ] * rk\n-    strides[0] = itemsize\n+    strides = [itemsize, ]\n     for i in range(1, rk):\n-        strides[i] = shape[i-1] * strides[i-1]\n+        strides.append(shape[i-1] * strides[i-1])\n     return tuple(strides)\n",
+        "source_code_with_indent": "    <IND>rk = len(shape)\n    strides = [None, ] * rk\n    strides[0] = itemsize\n    for i in range(1, rk):\n        <IND>strides[i] = shape[i-1] * strides[i-1]\n    <DED>return tuple(strides)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>rk = len(shape)\n    strides = [itemsize, ]\n    for i in range(1, rk):\n        <IND>strides.append(shape[i-1] * strides[i-1])\n    <DED>return tuple(strides)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rpy2/rpy2",
+    "commit": "206272f376fc31ecca831db466678d42d5cc8cfd",
+    "filename": "rpy2/rinterface_lib/bufferprotocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rpy2-rpy2/rpy2/rinterface_lib/bufferprotocol.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rpy2/rinterface_lib/bufferprotocol.py:34:21 Incompatible parameter type [6]: Expected `None` for 2nd positional only parameter to call `list.__setitem__` but got `int`.",
+    "message": " Expected `None` for 2nd positional only parameter to call `list.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 34,
+    "warning_line": "        strides[i] = shape[i-1] * strides[i-1]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    rk = len(shape)\n    strides = [None, ] * rk\n    strides[0] = itemsize\n    for i in range(1, rk):\n        strides[i] = shape[i-1] * strides[i-1]\n    return tuple(strides)\n",
+        "source_code_len": 174,
+        "target_code": "    rk = len(shape)\n    strides = [itemsize, ]\n    for i in range(1, rk):\n        strides.append(shape[i-1] * strides[i-1])\n    return tuple(strides)\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -30,6 +32,5 @@\n     rk = len(shape)\n-    strides = [None, ] * rk\n-    strides[0] = itemsize\n+    strides = [itemsize, ]\n     for i in range(1, rk):\n-        strides[i] = shape[i-1] * strides[i-1]\n+        strides.append(shape[i-1] * strides[i-1])\n     return tuple(strides)\n",
+        "source_code_with_indent": "    <IND>rk = len(shape)\n    strides = [None, ] * rk\n    strides[0] = itemsize\n    for i in range(1, rk):\n        <IND>strides[i] = shape[i-1] * strides[i-1]\n    <DED>return tuple(strides)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>rk = len(shape)\n    strides = [itemsize, ]\n    for i in range(1, rk):\n        <IND>strides.append(shape[i-1] * strides[i-1])\n    <DED>return tuple(strides)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rpy2/rpy2",
+    "commit": "206272f376fc31ecca831db466678d42d5cc8cfd",
+    "filename": "rpy2/rinterface_lib/bufferprotocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rpy2-rpy2/rpy2/rinterface_lib/bufferprotocol.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rpy2/rinterface_lib/bufferprotocol.py:34:34 Unsupported operand [58]: `*` is not supported for operand types `int` and `None`.",
+    "message": " `*` is not supported for operand types `int` and `None`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 34,
+    "warning_line": "        strides[i] = shape[i-1] * strides[i-1]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    rk = len(shape)\n    strides = [None, ] * rk\n    strides[0] = itemsize\n    for i in range(1, rk):\n        strides[i] = shape[i-1] * strides[i-1]\n    return tuple(strides)\n",
+        "source_code_len": 174,
+        "target_code": "    rk = len(shape)\n    strides = [itemsize, ]\n    for i in range(1, rk):\n        strides.append(shape[i-1] * strides[i-1])\n    return tuple(strides)\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -30,6 +32,5 @@\n     rk = len(shape)\n-    strides = [None, ] * rk\n-    strides[0] = itemsize\n+    strides = [itemsize, ]\n     for i in range(1, rk):\n-        strides[i] = shape[i-1] * strides[i-1]\n+        strides.append(shape[i-1] * strides[i-1])\n     return tuple(strides)\n",
+        "source_code_with_indent": "    <IND>rk = len(shape)\n    strides = [None, ] * rk\n    strides[0] = itemsize\n    for i in range(1, rk):\n        <IND>strides[i] = shape[i-1] * strides[i-1]\n    <DED>return tuple(strides)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>rk = len(shape)\n    strides = [itemsize, ]\n    for i in range(1, rk):\n        <IND>strides.append(shape[i-1] * strides[i-1])\n    <DED>return tuple(strides)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rpy2/rpy2",
+    "commit": "206272f376fc31ecca831db466678d42d5cc8cfd",
+    "filename": "rpy2/rinterface_lib/bufferprotocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rpy2-rpy2/rpy2/rinterface_lib/bufferprotocol.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rpy2/rinterface_lib/bufferprotocol.py:35:4 Incompatible return type [7]: Expected `typing.Tuple[int, ...]` but got `typing.Tuple[None, ...]`.",
+    "message": " Expected `typing.Tuple[int, ...]` but got `typing.Tuple[None, ...]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 35,
+    "warning_line": "    return tuple(strides)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    rk = len(shape)\n    strides = [None, ] * rk\n    strides[0] = itemsize\n    for i in range(1, rk):\n        strides[i] = shape[i-1] * strides[i-1]\n    return tuple(strides)\n",
+        "source_code_len": 174,
+        "target_code": "    rk = len(shape)\n    strides = [itemsize, ]\n    for i in range(1, rk):\n        strides.append(shape[i-1] * strides[i-1])\n    return tuple(strides)\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -30,6 +32,5 @@\n     rk = len(shape)\n-    strides = [None, ] * rk\n-    strides[0] = itemsize\n+    strides = [itemsize, ]\n     for i in range(1, rk):\n-        strides[i] = shape[i-1] * strides[i-1]\n+        strides.append(shape[i-1] * strides[i-1])\n     return tuple(strides)\n",
+        "source_code_with_indent": "    <IND>rk = len(shape)\n    strides = [None, ] * rk\n    strides[0] = itemsize\n    for i in range(1, rk):\n        <IND>strides[i] = shape[i-1] * strides[i-1]\n    <DED>return tuple(strides)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>rk = len(shape)\n    strides = [itemsize, ]\n    for i in range(1, rk):\n        <IND>strides.append(shape[i-1] * strides[i-1])\n    <DED>return tuple(strides)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

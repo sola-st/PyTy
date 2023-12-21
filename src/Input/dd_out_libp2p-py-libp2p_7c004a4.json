@@ -1,0 +1,36 @@
+[
+  {
+    "project": "libp2p/py-libp2p",
+    "commit": "7c004a4e1443860d2ac132068de2bd9e7625db2a",
+    "filename": "libp2p/security/secio/transport.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libp2p-py-libp2p/libp2p/security/secio/transport.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libp2p/security/secio/transport.py:70:4 Inconsistent override [14]: `libp2p.security.secio.transport.SecureSession.read` overrides method defined in `BaseSession` inconsistently. Could not find parameter `n` in overriding signature.",
+    "message": " `libp2p.security.secio.transport.SecureSession.read` overrides method defined in `BaseSession` inconsistently. Could not find parameter `n` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 70,
+    "warning_line": "    async def read(self) -> bytes:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def read(self) -> bytes:\n        return await self._read_msg()\n",
+        "source_code_len": 74,
+        "target_code": "\n    async def read(self, n: int = -1) -> bytes:\n        return await self._read_msg()\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -69,3 +69,3 @@\n \n-    async def read(self) -> bytes:\n+    async def read(self, n: int = -1) -> bytes:\n         return await self._read_msg()\n",
+        "source_code_with_indent": "\n    <DED>async def read(self) -> bytes:\n        <IND>return await self._read_msg()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>async def read(self, n: int = -1) -> bytes:\n        <IND>return await self._read_msg()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

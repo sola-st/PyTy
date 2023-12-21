@@ -1,0 +1,36 @@
+[
+  {
+    "project": "snaptec/openWB",
+    "commit": "3363eecd1e85540e24aee360cd7c3147290de73f",
+    "filename": "modules/bezug_kostalpiko/kostal_piko.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snaptec-openWB/modules/bezug_kostalpiko/kostal_piko.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "modules/bezug_kostalpiko/kostal_piko.py:86:47 Unsupported operand [58]: `+` is not supported for operand types `int` and `str`.",
+    "message": " `+` is not supported for operand types `int` and `str`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 86,
+    "warning_line": "    wattbezug = bezugw1+bezugw2+bezugw3+pvwatt+speicherleistung",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        speicherleistung = f.read()\n    wattbezug = bezugw1+bezugw2+bezugw3+pvwatt+speicherleistung\nelse:\n",
+        "source_code_len": 106,
+        "target_code": "        speicherleistung = f.read()\n    wattbezug = bezugw1+bezugw2+bezugw3+pvwatt+int(speicherleistung)\nelse:\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -85,3 +85,3 @@\n         speicherleistung = f.read()\n-    wattbezug = bezugw1+bezugw2+bezugw3+pvwatt+speicherleistung\n+    wattbezug = bezugw1+bezugw2+bezugw3+pvwatt+int(speicherleistung)\n else:\n",
+        "source_code_with_indent": "        <IND>speicherleistung = f.read()\n    <DED>wattbezug = bezugw1+bezugw2+bezugw3+pvwatt+speicherleistung\n<DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>speicherleistung = f.read()\n    <DED>wattbezug = bezugw1+bezugw2+bezugw3+pvwatt+int(speicherleistung)\n<DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

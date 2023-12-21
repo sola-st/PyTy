@@ -1,0 +1,62 @@
+[
+  {
+    "project": "instadeepai/Mava",
+    "commit": "220dc1ce05a904ad29150f5d4d13e5ed3871141c",
+    "filename": "examples/debugging_envs/run_networked_feedforward_maddpg.py",
+    "min_patch_found": false,
+    "full_warning_msg": "examples/debugging_envs/run_networked_feedforward_maddpg.py:188:8 Incompatible parameter type [6]: Expected `Dict[str, typing.List[str]]` for 11th parameter `connection_spec` to call `maddpg.system.MADDPG.__init__` but got `typing.Callable(fully_connected_network_spec)[[Named(agents_by_type, Dict[str, typing.List[str]])], Dict[str, typing.List[str]]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "instadeepai/Mava",
+    "commit": "220dc1ce05a904ad29150f5d4d13e5ed3871141c",
+    "filename": "mava/systems/tf/maddpg/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/systems/tf/maddpg/system.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mava/systems/tf/maddpg/system.py:90:8 Incompatible variable type [9]: connection_spec is declared to have type `Dict[str, List[str]]` but is used as type `None`.",
+    "message": " connection_spec is declared to have type `Dict[str, List[str]]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 90,
+    "warning_line": "        connection_spec: Dict[str, List[str]] = None,"
+  },
+  {
+    "project": "instadeepai/Mava",
+    "commit": "220dc1ce05a904ad29150f5d4d13e5ed3871141c",
+    "filename": "mava/systems/tf/maddpg/system.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/instadeepai-Mava/mava/systems/tf/maddpg/system.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "mava/systems/tf/maddpg/system.py:161:32 Call error [29]: `Dict[str, List[str]]` is not a function.",
+    "message": " `Dict[str, List[str]]` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 161,
+    "warning_line": "        self._connection_spec = connection_spec(environment_spec.get_agents_by_type())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        self._eval_loop_fn_kwargs = eval_loop_fn_kwargs\n        self._connection_spec = connection_spec(environment_spec.get_agents_by_type())\n\n",
+        "source_code_len": 144,
+        "target_code": "        self._eval_loop_fn_kwargs = eval_loop_fn_kwargs\n        self._connection_spec = connection_spec(  # type: ignore\n            environment_spec.get_agents_by_type()\n        )\n\n",
+        "target_code_len": 182,
+        "diff_format": "@@ -160,3 +160,5 @@\n         self._eval_loop_fn_kwargs = eval_loop_fn_kwargs\n-        self._connection_spec = connection_spec(environment_spec.get_agents_by_type())\n+        self._connection_spec = connection_spec(  # type: ignore\n+            environment_spec.get_agents_by_type()\n+        )\n \n",
+        "source_code_with_indent": "        self._eval_loop_fn_kwargs = eval_loop_fn_kwargs\n        self._connection_spec = connection_spec(environment_spec.get_agents_by_type())\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._eval_loop_fn_kwargs = eval_loop_fn_kwargs\n        self._connection_spec = connection_spec(  # type: ignore\n            environment_spec.get_agents_by_type()\n        )\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

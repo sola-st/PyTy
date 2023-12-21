@@ -1,0 +1,51 @@
+[
+  {
+    "project": "zalando-incubator/kopf",
+    "commit": "494193235e4961604ca18a20579777c475a5f3c5",
+    "filename": "kopf/reactor/invocation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/zalando-incubator-kopf/kopf/reactor/invocation.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kopf/reactor/invocation.py:36:8 Incompatible return type [7]: Expected `None` but got `typing.Generator[None, None, None]`.",
+    "message": " Expected `None` but got `typing.Generator[None, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 36,
+    "warning_line": "        yield",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import functools\nfrom typing import Optional, Any, Union, List, Iterable, Tuple\n\n",
+        "source_code_len": 81,
+        "target_code": "import functools\nfrom typing import Optional, Any, Union, List, Iterable, Iterator, Tuple\n\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -11,3 +11,3 @@\n import functools\n-from typing import Optional, Any, Union, List, Iterable, Tuple\n+from typing import Optional, Any, Union, List, Iterable, Iterator, Tuple\n \n",
+        "source_code_with_indent": "import functools\nfrom typing import Optional, Any, Union, List, Iterable, Tuple\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import functools\nfrom typing import Optional, Any, Union, List, Iterable, Iterator, Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def context(\n        values: Iterable[Tuple[contextvars.ContextVar, Any]],\n) -> None:\n    \"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "def context(\n        values: Iterable[Tuple[contextvars.ContextVar[Any], Any]],\n) -> Iterator[None]:\n    \"\"\"\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -25,4 +24,4 @@\n def context(\n-        values: Iterable[Tuple[contextvars.ContextVar, Any]],\n-) -> None:\n+        values: Iterable[Tuple[contextvars.ContextVar[Any], Any]],\n+) -> Iterator[None]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "def context(\n        values: Iterable[Tuple[contextvars.ContextVar, Any]],\n) -> None:\n    <IND>",
+        "target_code_with_indent": "def context(\n        values: Iterable[Tuple[contextvars.ContextVar[Any], Any]],\n) -> Iterator[None]:\n    <IND>"
+      }
+    ]
+  }
+]

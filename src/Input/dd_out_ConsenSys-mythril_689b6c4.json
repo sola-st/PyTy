@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ConsenSys/mythril",
+    "commit": "689b6c469b8b689f416f8b0ef944f728f3e57bca",
+    "filename": "mythril/laser/smt/bool.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ConsenSys-mythril/mythril/laser/smt/bool.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mythril/laser/smt/bool.py:87:4 Incompatible variable type [9]: Unable to unpack `typing.List[Bool]`, expected a tuple.",
+    "message": " Unable to unpack `typing.List[Bool]`, expected a tuple.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 87,
+    "warning_line": "    args = [arg if isinstance(arg, Bool) else Bool(arg) for arg in args]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Union, cast\n\n",
+        "source_code_len": 33,
+        "target_code": "\nfrom typing import Union, cast, List\n\n",
+        "target_code_len": 39,
+        "diff_format": "@@ -3,3 +3,3 @@\n \n-from typing import Union, cast\n+from typing import Union, cast, List\n \n",
+        "source_code_with_indent": "\nfrom typing import Union, cast\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Union, cast, List\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef And(*args: Bool) -> Bool:\n    \"\"\"Create an And expression.\"\"\"\n    union = []\n    args = [arg if isinstance(arg, Bool) else Bool(arg) for arg in args]\n    for arg in args:\n        union.append(arg.annotations)\n    return Bool(z3.And([a.raw for a in args]), union)\n\n",
+        "source_code_len": 269,
+        "target_code": "\ndef And(*args: Union[Bool, bool]) -> Bool:\n    \"\"\"Create an And expression.\"\"\"\n    union = []\n    args_list = [arg if isinstance(arg, Bool) else Bool(arg) for arg in args]  # type: List[Bool]\n    for arg in args_list:\n        union.append(arg.annotations)\n    return Bool(z3.And([a.raw for a in args_list]), union)\n\n",
+        "target_code_len": 317,
+        "diff_format": "@@ -83,9 +83,9 @@\n \n-def And(*args: Bool) -> Bool:\n+def And(*args: Union[Bool, bool]) -> Bool:\n     \"\"\"Create an And expression.\"\"\"\n     union = []\n-    args = [arg if isinstance(arg, Bool) else Bool(arg) for arg in args]\n-    for arg in args:\n+    args_list = [arg if isinstance(arg, Bool) else Bool(arg) for arg in args]  # type: List[Bool]\n+    for arg in args_list:\n         union.append(arg.annotations)\n-    return Bool(z3.And([a.raw for a in args]), union)\n+    return Bool(z3.And([a.raw for a in args_list]), union)\n \n",
+        "source_code_with_indent": "\n<DED><DED><DED>def And(*args: Bool) -> Bool:\n    <IND>\"\"\"Create an And expression.\"\"\"\n    union = []\n    args = [arg if isinstance(arg, Bool) else Bool(arg) for arg in args]\n    for arg in args:\n        <IND>union.append(arg.annotations)\n    <DED>return Bool(z3.And([a.raw for a in args]), union)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>def And(*args: Union[Bool, bool]) -> Bool:\n    <IND>\"\"\"Create an And expression.\"\"\"\n    union = []\n    args_list = [arg if isinstance(arg, Bool) else Bool(arg) for arg in args]  # type: List[Bool]\n    for arg in args_list:\n        <IND>union.append(arg.annotations)\n    <DED>return Bool(z3.And([a.raw for a in args_list]), union)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

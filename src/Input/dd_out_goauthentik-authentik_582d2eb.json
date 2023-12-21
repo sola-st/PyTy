@@ -1,0 +1,36 @@
+[
+  {
+    "project": "goauthentik/authentik",
+    "commit": "582d2eb5eb28b1f8f7ef7397c6cddec381bd663a",
+    "filename": "authentik/sources/oauth/types/manager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goauthentik-authentik/authentik/sources/oauth/types/manager.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "authentik/sources/oauth/types/manager.py:78:36 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `SourceTypeManager.find_type` but got `OAuthSource`.",
+    "message": " Expected `str` for 1st positional only parameter to call `SourceTypeManager.find_type` but got `OAuthSource`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 78,
+    "warning_line": "        found_type = self.find_type(source)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def find(self, source: \"OAuthSource\", kind: RequestKind) -> Callable:\n        \"\"\"Find fitting Source Type\"\"\"\n        found_type = self.find_type(source)\n        if kind == RequestKind.CALLBACK:\n",
+        "source_code_len": 199,
+        "target_code": "\n    def find(self, type_name: str, kind: RequestKind) -> Callable:\n        \"\"\"Find fitting Source Type\"\"\"\n        found_type = self.find_type(type_name)\n        if kind == RequestKind.CALLBACK:\n",
+        "target_code_len": 195,
+        "diff_format": "@@ -75,5 +72,5 @@\n \n-    def find(self, source: \"OAuthSource\", kind: RequestKind) -> Callable:\n+    def find(self, type_name: str, kind: RequestKind) -> Callable:\n         \"\"\"Find fitting Source Type\"\"\"\n-        found_type = self.find_type(source)\n+        found_type = self.find_type(type_name)\n         if kind == RequestKind.CALLBACK:\n",
+        "source_code_with_indent": "\n    <DED>def find(self, source: \"OAuthSource\", kind: RequestKind) -> Callable:\n        <IND>\"\"\"Find fitting Source Type\"\"\"\n        found_type = self.find_type(source)\n        if kind == RequestKind.CALLBACK:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def find(self, type_name: str, kind: RequestKind) -> Callable:\n        <IND>\"\"\"Find fitting Source Type\"\"\"\n        found_type = self.find_type(type_name)\n        if kind == RequestKind.CALLBACK:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "YosefLab/scvi-tools",
+    "commit": "dbeba7e08a499b960b84b4f4581936aaea1f2580",
+    "filename": "scvi/inference/posterior.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/YosefLab-scvi-tools/scvi/inference/posterior.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scvi/inference/posterior.py:596:43 Incompatible parameter type [6]: Expected `Union[typing.Type[typing.Any], typing.Tuple[typing.Type[typing.Any], ...]]` for 2nd positional only parameter to call `isinstance` but got `typing.Callable(callable)[[object], bool]`.",
+    "message": " Expected `Union[typing.Type[typing.Any], typing.Tuple[typing.Type[typing.Any], ...]]` for 2nd positional only parameter to call `isinstance` but got `typing.Callable(callable)[[object], bool]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 596,
+    "warning_line": "            elif not isinstance(change_fn, callable):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                change_fn = lfc\n            elif not isinstance(change_fn, callable):\n                raise ValueError(\"'change_fn' attribute not understood\")\n",
+        "source_code_len": 159,
+        "target_code": "                change_fn = lfc\n            elif not callable(change_fn):\n                raise ValueError(\"'change_fn' attribute not understood\")\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -595,3 +602,3 @@\n                 change_fn = lfc\n-            elif not isinstance(change_fn, callable):\n+            elif not callable(change_fn):\n                 raise ValueError(\"'change_fn' attribute not understood\")\n",
+        "source_code_with_indent": "                <IND>change_fn = lfc\n            <DED>elif not isinstance(change_fn, callable):\n                <IND>raise ValueError(\"'change_fn' attribute not understood\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>change_fn = lfc\n            <DED>elif not callable(change_fn):\n                <IND>raise ValueError(\"'change_fn' attribute not understood\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

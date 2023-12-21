@@ -1,0 +1,51 @@
+[
+  {
+    "project": "hardbyte/python-can",
+    "commit": "be08bc60d20a7d8f9afa3c904c553f3e11abaed9",
+    "filename": "can/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hardbyte-python-can/can/util.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "can/util.py:219:4 Incompatible return type [7]: Expected `typechecking.BusConfig` but got `Dict[str, typing.Any]`.",
+    "message": " Expected `typechecking.BusConfig` but got `Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 219,
+    "warning_line": "    return config",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import warnings\nfrom typing import Any, Dict, Tuple, Optional\nfrom time import time, perf_counter, get_clock_info\n",
+        "source_code_len": 114,
+        "target_code": "import warnings\nfrom typing import Any, Callable, cast, Dict, Iterable, List, Tuple, Optional, Union\nfrom time import time, perf_counter, get_clock_info\n",
+        "target_code_len": 153,
+        "diff_format": "@@ -6,3 +6,3 @@\n import warnings\n-from typing import Any, Dict, Tuple, Optional\n+from typing import Any, Callable, cast, Dict, Iterable, List, Tuple, Optional, Union\n from time import time, perf_counter, get_clock_info\n",
+        "source_code_with_indent": "import warnings\nfrom typing import Any, Dict, Tuple, Optional\nfrom time import time, perf_counter, get_clock_info\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import warnings\nfrom typing import Any, Callable, cast, Dict, Iterable, List, Tuple, Optional, Union\nfrom time import time, perf_counter, get_clock_info\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    can.log.debug(\"can config: %s\", config)\n    return config\n\n",
+        "source_code_len": 63,
+        "target_code": "    can.log.debug(\"can config: %s\", config)\n\n    return cast(typechecking.BusConfig, config)\n\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -218,3 +221,4 @@\n     can.log.debug(\"can config: %s\", config)\n-    return config\n+\n+    return cast(typechecking.BusConfig, config)\n \n",
+        "source_code_with_indent": "    <DED>can.log.debug(\"can config: %s\", config)\n    return config\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>can.log.debug(\"can config: %s\", config)\n\n    return cast(typechecking.BusConfig, config)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

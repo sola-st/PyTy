@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "067e564314435a41d55fdb30359abda47d5adfec",
+    "filename": "mypy/parse.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/parse.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/parse.py:1419:27 Incompatible parameter type [6]: Expected `Union[Token, int]` for 1st positional only parameter to call `Node.set_line` but got `Node`.",
+    "message": " Expected `Union[Token, int]` for 1st positional only parameter to call `Node.set_line` but got `Node`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1419,
+    "warning_line": "            index.set_line(items[0])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            index = TupleExpr(items)\n            index.set_line(items[0])\n        self.expect(']')\n",
+        "source_code_len": 99,
+        "target_code": "            index = TupleExpr(items)\n            index.set_line(items[0].line)\n        self.expect(']')\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -1418,3 +1418,3 @@\n             index = TupleExpr(items)\n-            index.set_line(items[0])\n+            index.set_line(items[0].line)\n         self.expect(']')\n",
+        "source_code_with_indent": "            <DED>index = TupleExpr(items)\n            index.set_line(items[0])\n        <DED>self.expect(']')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>index = TupleExpr(items)\n            index.set_line(items[0].line)\n        <DED>self.expect(']')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

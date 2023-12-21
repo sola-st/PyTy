@@ -1,0 +1,51 @@
+[
+  {
+    "project": "kuzmoyev/google-calendar-simple-api",
+    "commit": "d01e952bcbe9c73bc652629e8a7d9822cac86488",
+    "filename": "gcsa/google_calendar.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kuzmoyev-google-calendar-simple-api/gcsa/google_calendar.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gcsa/google_calendar.py:374:19 Unbound name [10]: Name `gcsa` is used but not defined in the current scope.",
+    "message": " Name `gcsa` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 374,
+    "warning_line": "    ) -> Generator[gcsa.event.Event, None, None]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import os.path\nfrom typing import List, Union, Callable, Generator, Iterator\n\nfrom beautiful_date import BeautifulDate\n",
+        "source_code_len": 119,
+        "target_code": "import os.path\nfrom typing import List, Union, Callable, Iterable, Iterator\n\nfrom gcsa.event import Event\nfrom beautiful_date import BeautifulDate\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -3,4 +3,5 @@\n import os.path\n-from typing import List, Union, Callable, Generator, Iterator\n-\n+from typing import List, Union, Callable, Iterable, Iterator\n+\n+from gcsa.event import Event\n from beautiful_date import BeautifulDate\n",
+        "source_code_with_indent": "import os.path\nfrom typing import List, Union, Callable, Generator, Iterator\n\nfrom beautiful_date import BeautifulDate\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import os.path\nfrom typing import List, Union, Callable, Iterable, Iterator\n\nfrom gcsa.event import Event\nfrom beautiful_date import BeautifulDate\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            **kwargs\n    ) -> Generator[gcsa.event.Event, None, None]:\n        \"\"\" Lists events\n",
+        "source_code_len": 96,
+        "target_code": "            **kwargs\n    ) -> Iterable[Event]:\n        \"\"\" Lists events\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -373,3 +374,3 @@\n             **kwargs\n-    ) -> Generator[gcsa.event.Event, None, None]:\n+    ) -> Iterable[Event]:\n         \"\"\" Lists events\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "            **kwargs\n    ) -> Generator[gcsa.event.Event, None, None]:\n        <IND>",
+        "target_code_with_indent": "            **kwargs\n    ) -> Iterable[Event]:\n        <IND>"
+      }
+    ]
+  }
+]

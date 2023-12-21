@@ -1,0 +1,175 @@
+[
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/front.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/front.py:17:33 Incompatible parameter type [6]: Expected `typing.Dict[str, typing.Any]` for 2nd parameter `_data` to call `praw.models.listing.mixins.subreddit.SubredditListingMixin.__init__` but got `None`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/front.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/front.py:30:57 Incompatible parameter type [6]: Expected `typing.Optional[typing.Dict[str, str]]` for 3rd positional only parameter to call `ListingGenerator.__init__` but got `Union[int, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/listing/generator.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/praw-dev-praw/praw/models/listing/generator.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "praw/models/listing/generator.py:47:31 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 47,
+    "warning_line": "        self.params[\"limit\"] = limit or 1024",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from copy import deepcopy\nfrom typing import Any, Dict, Iterator, Optional, TypeVar\n\n",
+        "source_code_len": 85,
+        "target_code": "from copy import deepcopy\nfrom typing import Any, Dict, Iterator, Optional, TypeVar, Union\n\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -2,3 +2,3 @@\n from copy import deepcopy\n-from typing import Any, Dict, Iterator, Optional, TypeVar\n+from typing import Any, Dict, Iterator, Optional, TypeVar, Union\n \n",
+        "source_code_with_indent": "from copy import deepcopy\nfrom typing import Any, Dict, Iterator, Optional, TypeVar\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from copy import deepcopy\nfrom typing import Any, Dict, Iterator, Optional, TypeVar, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        limit: int = 100,\n        params: Optional[Dict[str, str]] = None,\n    ):\n",
+        "source_code_len": 82,
+        "target_code": "        limit: int = 100,\n        params: Optional[Dict[str, Union[str, int]]] = None,\n    ):\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -25,3 +25,3 @@\n         limit: int = 100,\n-        params: Optional[Dict[str, str]] = None,\n+        params: Optional[Dict[str, Union[str, int]]] = None,\n     ):\n",
+        "source_code_with_indent": "        limit: int = 100,\n        params: Optional[Dict[str, str]] = None,\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        limit: int = 100,\n        params: Optional[Dict[str, Union[str, int]]] = None,\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/emoji.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/reddit/emoji.py:67:33 Incompatible parameter type [6]: Expected `Dict[str, typing.Any]` for 2nd parameter `_data` to call `RedditBase.__init__` but got `Optional[Dict[str, typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/live.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/reddit/live.py:371:33 Incompatible parameter type [6]: Expected `Dict[str, typing.Any]` for 2nd parameter `_data` to call `RedditBase.__init__` but got `Optional[Dict[str, typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/live.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/reddit/live.py:413:53 Incompatible parameter type [6]: Expected `Optional[Dict[str, str]]` for 3rd positional only parameter to call `ListingGenerator.__init__` but got `Union[Dict[str, str], int, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/live.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/reddit/live.py:457:60 Incompatible parameter type [6]: Expected `Optional[Dict[str, str]]` for 3rd positional only parameter to call `ListingGenerator.__init__` but got `Union[Dict[str, str], int, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/modmail.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/reddit/modmail.py:144:33 Incompatible parameter type [6]: Expected `Dict[str, typing.Any]` for 2nd parameter `_data` to call `RedditBase.__init__` but got `Optional[Dict[str, typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/multi.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/praw-dev-praw/praw/models/reddit/multi.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "praw/models/reddit/multi.py:250:45 Incompatible parameter type [6]: Expected `Union[List[Union[Subreddit, str]], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `List[Dict[str, str]]`.",
+    "message": " Expected `Union[List[Union[Subreddit, str]], str]` for 2nd positional only parameter to call `dict.__setitem__` but got `List[Dict[str, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 250,
+    "warning_line": "            updated_settings[\"subreddits\"] = [",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def update(\n        self, **updated_settings: Union[str, List[Union[str, Subreddit]]]\n    ):\n",
+        "source_code_len": 97,
+        "target_code": "    def update(\n        self,\n        **updated_settings: Union[\n            str, List[Union[str, Subreddit, Dict[str, str]]]\n        ]\n    ):\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -218,3 +218,6 @@\n     def update(\n-        self, **updated_settings: Union[str, List[Union[str, Subreddit]]]\n+        self,\n+        **updated_settings: Union[\n+            str, List[Union[str, Subreddit, Dict[str, str]]]\n+        ]\n     ):\n",
+        "source_code_with_indent": "    <DED>def update(\n        self, **updated_settings: Union[str, List[Union[str, Subreddit]]]\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def update(\n        self,\n        **updated_settings: Union[\n            str, List[Union[str, Subreddit, Dict[str, str]]]\n        ]\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/removal_reasons.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/reddit/removal_reasons.py:55:33 Incompatible parameter type [6]: Expected `Dict[str, typing.Any]` for 2nd parameter `_data` to call `RedditBase.__init__` but got `Optional[Dict[str, typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/rules.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/reddit/rules.py:87:33 Incompatible parameter type [6]: Expected `Dict[str, typing.Any]` for 2nd parameter `_data` to call `RedditBase.__init__` but got `Optional[Dict[str, str]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "praw-dev/praw",
+    "commit": "403da7dca8f15d4f38d6d4842f38ad1f7d209f77",
+    "filename": "praw/models/reddit/wikipage.py",
+    "min_patch_found": false,
+    "full_warning_msg": "praw/models/reddit/wikipage.py:183:33 Incompatible parameter type [6]: Expected `Dict[str, typing.Any]` for 2nd parameter `_data` to call `RedditBase.__init__` but got `Optional[Dict[str, typing.Any]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

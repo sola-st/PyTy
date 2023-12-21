@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "9674c54efb089d8445ab3ec84ec649c1b2b5e091",
+    "filename": "plugins/UM3NetworkPrinting/src/Models/Http/ClusterPrintJobStatus.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/UM3NetworkPrinting/src/Models/Http/ClusterPrintJobStatus.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/UM3NetworkPrinting/src/Models/Http/ClusterPrintJobStatus.py:43:17 Incompatible variable type [9]: compatible_machine_families is declared to have type `List[str]` but is used as type `None`.",
+    "message": " compatible_machine_families is declared to have type `List[str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 43,
+    "warning_line": "                 compatible_machine_families: List[str] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 build_plate: Union[Dict[str, Any], ClusterBuildPlate] = None,\n                 compatible_machine_families: List[str] = None,\n                 impediments_to_printing: List[Union[Dict[str, Any], ClusterPrintJobImpediment]] = None,\n",
+        "source_code_len": 248,
+        "target_code": "                 build_plate: Union[Dict[str, Any], ClusterBuildPlate] = None,\n                 compatible_machine_families: Optional[List[str]] = None,\n                 impediments_to_printing: List[Union[Dict[str, Any], ClusterPrintJobImpediment]] = None,\n",
+        "target_code_len": 258,
+        "diff_format": "@@ -42,3 +42,3 @@\n                  build_plate: Union[Dict[str, Any], ClusterBuildPlate] = None,\n-                 compatible_machine_families: List[str] = None,\n+                 compatible_machine_families: Optional[List[str]] = None,\n                  impediments_to_printing: List[Union[Dict[str, Any], ClusterPrintJobImpediment]] = None,\n",
+        "source_code_with_indent": "                 build_plate: Union[Dict[str, Any], ClusterBuildPlate] = None,\n                 compatible_machine_families: List[str] = None,\n                 impediments_to_printing: List[Union[Dict[str, Any], ClusterPrintJobImpediment]] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 build_plate: Union[Dict[str, Any], ClusterBuildPlate] = None,\n                 compatible_machine_families: Optional[List[str]] = None,\n                 impediments_to_printing: List[Union[Dict[str, Any], ClusterPrintJobImpediment]] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

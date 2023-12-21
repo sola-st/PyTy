@@ -1,0 +1,51 @@
+[
+  {
+    "project": "easybuilders/easybuild-framework",
+    "commit": "f73c85ae3c580b390e193ffe6e6018ce9b8100c0",
+    "filename": "easybuild/framework/easyconfig/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/easybuilders-easybuild-framework/easybuild/framework/easyconfig/types.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "easybuild/framework/easyconfig/types.py:500:14 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 500,
+    "warning_line": "EASY_TYPES = [basestring, bool, dict, int, list, str, tuple]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from easybuild.tools.build_log import EasyBuildError\n\n",
+        "source_code_len": 54,
+        "target_code": "from easybuild.tools.build_log import EasyBuildError\nfrom easybuild.tools.py2vs3 import string_type\n\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -36,2 +36,3 @@\n from easybuild.tools.build_log import EasyBuildError\n+from easybuild.tools.py2vs3 import string_type\n \n",
+        "source_code_with_indent": "from easybuild.tools.build_log import EasyBuildError\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from easybuild.tools.build_log import EasyBuildError\nfrom easybuild.tools.py2vs3 import string_type\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# easy types, that can be verified with isinstance\nEASY_TYPES = [basestring, bool, dict, int, list, str, tuple]\n\n",
+        "source_code_len": 113,
+        "target_code": "# easy types, that can be verified with isinstance\nEASY_TYPES = [string_type, bool, dict, int, list, str, tuple]\n\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -499,3 +500,3 @@\n # easy types, that can be verified with isinstance\n-EASY_TYPES = [basestring, bool, dict, int, list, str, tuple]\n+EASY_TYPES = [string_type, bool, dict, int, list, str, tuple]\n \n",
+        "source_code_with_indent": "# easy types, that can be verified with isinstance\nEASY_TYPES = [basestring, bool, dict, int, list, str, tuple]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# easy types, that can be verified with isinstance\nEASY_TYPES = [string_type, bool, dict, int, list, str, tuple]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

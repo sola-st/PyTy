@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "a53ae300e1ac847e443943b4763ff3cb00a81d97",
+    "filename": "tests/samplers_tests/tpe_tests/test_sampler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/samplers_tests/tpe_tests/test_sampler.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/samplers_tests/tpe_tests/test_sampler.py:279:40 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `random.randint` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `random.randint` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 279,
+    "warning_line": "        return step * random.randint(0, 100 / step)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        random.seed(idx)\n        return step * random.randint(0, 100 / step)\n\n",
+        "source_code_len": 78,
+        "target_code": "        random.seed(idx)\n        return step * random.randint(0, 100 // step)\n\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -278,3 +278,3 @@\n         random.seed(idx)\n-        return step * random.randint(0, 100 / step)\n+        return step * random.randint(0, 100 // step)\n \n",
+        "source_code_with_indent": "        <IND>random.seed(idx)\n        return step * random.randint(0, 100 / step)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>random.seed(idx)\n        return step * random.randint(0, 100 // step)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

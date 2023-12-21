@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Rapptz/discord.py",
+    "commit": "ca92f37f180d5832a2169a1356eb8c021e1ee3c9",
+    "filename": "discord/message.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Rapptz-discord.py/discord/message.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/message.py:448:8 Incompatible variable type [9]: result is declared to have type `MessageReferencePayload` but is used as type `Union[typing.Dict[str, int], typing.Dict[Variable[_KT], Variable[_VT]]]`.",
+    "message": " result is declared to have type `MessageReferencePayload` but is used as type `Union[typing.Dict[str, int], typing.Dict[Variable[_KT], Variable[_VT]]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 448,
+    "warning_line": "        result: MessageReferencePayload = {'message_id': self.message_id} if self.message_id is not None else {}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def to_dict(self) -> MessageReferencePayload:\n        result: MessageReferencePayload = {'message_id': self.message_id} if self.message_id is not None else {}\n        result['channel_id'] = self.channel_id\n",
+        "source_code_len": 210,
+        "target_code": "    def to_dict(self) -> MessageReferencePayload:\n        result = {'message_id': self.message_id} if self.message_id is not None else {}\n        result['channel_id'] = self.channel_id\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -447,3 +447,3 @@\n     def to_dict(self) -> MessageReferencePayload:\n-        result: MessageReferencePayload = {'message_id': self.message_id} if self.message_id is not None else {}\n+        result = {'message_id': self.message_id} if self.message_id is not None else {}\n         result['channel_id'] = self.channel_id\n",
+        "source_code_with_indent": "    <DED>def to_dict(self) -> MessageReferencePayload:\n        <IND>result: MessageReferencePayload = {'message_id': self.message_id} if self.message_id is not None else {}\n        result['channel_id'] = self.channel_id\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def to_dict(self) -> MessageReferencePayload:\n        <IND>result = {'message_id': self.message_id} if self.message_id is not None else {}\n        result['channel_id'] = self.channel_id\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            result['fail_if_not_exists'] = self.fail_if_not_exists\n        return result\n\n",
+        "source_code_len": 90,
+        "target_code": "            result['fail_if_not_exists'] = self.fail_if_not_exists\n        return result  # type: ignore\n\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -453,3 +453,3 @@\n             result['fail_if_not_exists'] = self.fail_if_not_exists\n-        return result\n+        return result  # type: ignore\n \n",
+        "source_code_with_indent": "            <IND>result['fail_if_not_exists'] = self.fail_if_not_exists\n        <DED>return result\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>result['fail_if_not_exists'] = self.fail_if_not_exists\n        <DED>return result  # type: ignore\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

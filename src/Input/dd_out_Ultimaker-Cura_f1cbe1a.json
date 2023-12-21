@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "f1cbe1a9587dcbe88c8867e046c41ae8543fde48",
+    "filename": "cura/UI/WhatsNewPagesModel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/UI/WhatsNewPagesModel.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/UI/WhatsNewPagesModel.py:70:34 Incompatible parameter type [6]: Expected `Dict[str, str]` for 1st positional only parameter to call `list.append` but got `Dict[str, Optional[str]]`.",
+    "message": " Expected `Dict[str, str]` for 1st positional only parameter to call `list.append` but got `Dict[str, Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 70,
+    "warning_line": "            self._subpages.append({",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self._subpages = []  #type: List[Dict[str, str]]\n        for n in range(0, highest + 1):\n",
+        "source_code_len": 98,
+        "target_code": "\n        self._subpages = []  #type: List[Dict[str, Optional[str]]]\n        for n in range(0, highest + 1):\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -67,3 +67,3 @@\n \n-        self._subpages = []  #type: List[Dict[str, str]]\n+        self._subpages = []  #type: List[Dict[str, Optional[str]]]\n         for n in range(0, highest + 1):\n",
+        "source_code_with_indent": "\n        self._subpages = []  #type: List[Dict[str, str]]\n        for n in range(0, highest + 1):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        self._subpages = []  #type: List[Dict[str, Optional[str]]]\n        for n in range(0, highest + 1):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

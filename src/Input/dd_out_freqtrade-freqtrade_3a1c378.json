@@ -1,0 +1,70 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "3a1c378325dc97b48bb1ad767fc5ff8281bdf88c",
+    "filename": "freqtrade/freqtradebot.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/freqtradebot.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/freqtradebot.py:482:8 Incompatible variable type [9]: stoploss_order_id is declared to have type `int` but is used as type `None`.",
+    "message": " stoploss_order_id is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 482,
+    "warning_line": "        stoploss_order_id: int = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        stoploss_order_id: int = None\n\n",
+        "source_code_len": 40,
+        "target_code": "\n        stoploss_order_id = None\n\n",
+        "target_code_len": 35,
+        "diff_format": "@@ -481,3 +481,3 @@\n \n-        stoploss_order_id: int = None\n+        stoploss_order_id = None\n \n",
+        "source_code_with_indent": "\n        stoploss_order_id: int = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        stoploss_order_id = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "3a1c378325dc97b48bb1ad767fc5ff8281bdf88c",
+    "filename": "freqtrade/strategy/interface.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/strategy/interface.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/strategy/interface.py:238:12 Incompatible return type [7]: Expected `SellCheckTuple` but got `typing.Union[SellCheckTuple, bool]`.",
+    "message": " Expected `SellCheckTuple` but got `typing.Union[SellCheckTuple, bool]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 238,
+    "warning_line": "            return stoplossflag",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if self.stoploss_on_exchange:\n            stoplossflag = False\n        else:\n",
+        "source_code_len": 85,
+        "target_code": "        if self.stoploss_on_exchange:\n            stoplossflag = SellCheckTuple(sell_flag=False, sell_type=SellType.NONE)\n        else:\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -230,3 +230,3 @@\n         if self.stoploss_on_exchange:\n-            stoplossflag = False\n+            stoplossflag = SellCheckTuple(sell_flag=False, sell_type=SellType.NONE)\n         else:\n",
+        "source_code_with_indent": "        if self.stoploss_on_exchange:\n            <IND>stoplossflag = False\n        <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if self.stoploss_on_exchange:\n            <IND>stoplossflag = SellCheckTuple(sell_flag=False, sell_type=SellType.NONE)\n        <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "project": "python-mario/mario",
+    "commit": "7e9dc5cb9351a2f07d2b0bfcdf3a2fc2e972f962",
+    "filename": "src/mario/traversals.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mario-mario/src/mario/traversals.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/mario/traversals.py:130:54 Incompatible parameter type [6]: Expected `AsyncIterator[Variable[T]]` for 2nd positional only parameter to call `_pull_values_from_async_iterator` but got `AsyncIterable[Variable[T]]`.",
+    "message": " Expected `AsyncIterator[Variable[T]]` for 2nd positional only parameter to call `_pull_values_from_async_iterator` but got `AsyncIterable[Variable[T]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 130,
+    "warning_line": "            _pull_values_from_async_iterator(in_trio, data, send_to_trio)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nasync def sync_apply(\n    sync_function: t.Callable[[t.Iterable[T]], t.Any], data: t.AsyncIterable[T]\n):\n    \"\"\"Apply a sync Callable[Iterable] to an async iterable by pulling values in a\n",
+        "source_code_len": 189,
+        "target_code": "\nasync def sync_apply(sync_function, data):\n    \"\"\"Apply a sync Callable[Iterable] to an async iterable by pulling values in a\n",
+        "target_code_len": 127,
+        "diff_format": "@@ -117,5 +114,3 @@\n \n-async def sync_apply(\n-    sync_function: t.Callable[[t.Iterable[T]], t.Any], data: t.AsyncIterable[T]\n-):\n+async def sync_apply(sync_function, data):\n     \"\"\"Apply a sync Callable[Iterable] to an async iterable by pulling values in a\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>async def sync_apply(\n    sync_function: t.Callable[[t.Iterable[T]], t.Any], data: t.AsyncIterable[T]\n):\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>async def sync_apply(sync_function, data):\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "python-mario/mario",
+    "commit": "7e9dc5cb9351a2f07d2b0bfcdf3a2fc2e972f962",
+    "filename": "src/mario/traversals.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mario-mario/src/mario/traversals.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/mario/traversals.py:214:4 Incompatible return type [7]: Expected `AsyncIterator[AsyncIterable[Variable[U]]]` but got `t.AsyncGenerator[t.Generator[Variable[T], None, None], None]`.",
+    "message": " Expected `AsyncIterator[AsyncIterable[Variable[U]]]` but got `t.AsyncGenerator[t.Generator[Variable[T], None, None], None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 214,
+    "warning_line": "    yield (item async for item in iterable if await function(item))"
+  },
+  {
+    "project": "python-mario/mario",
+    "commit": "7e9dc5cb9351a2f07d2b0bfcdf3a2fc2e972f962",
+    "filename": "src/mario/traversals.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mario-mario/src/mario/traversals.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/mario/traversals.py:223:21 Unbound name [10]: Name `Set` is used but not defined in the current scope.",
+    "message": " Name `Set` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 223,
+    "warning_line": "    remaining_tasks: Set[int] = set()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    limiter = trio.CapacityLimiter(max_concurrent)\n    remaining_tasks: Set[int] = set()\n\n",
+        "source_code_len": 90,
+        "target_code": "    limiter = trio.CapacityLimiter(max_concurrent)\n    remaining_tasks: t.Set[int] = set()\n\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -222,3 +217,3 @@\n     limiter = trio.CapacityLimiter(max_concurrent)\n-    remaining_tasks: Set[int] = set()\n+    remaining_tasks: t.Set[int] = set()\n \n",
+        "source_code_with_indent": "    limiter = trio.CapacityLimiter(max_concurrent)\n    remaining_tasks: Set[int] = set()\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    limiter = trio.CapacityLimiter(max_concurrent)\n    remaining_tasks: t.Set[int] = set()\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

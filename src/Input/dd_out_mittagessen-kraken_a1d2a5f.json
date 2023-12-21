@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mittagessen/kraken",
+    "commit": "a1d2a5f29e02625c0e05c9ff63a7a8217a096fa4",
+    "filename": "kraken/lib/layers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mittagessen-kraken/kraken/lib/layers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kraken/lib/layers.py:116:37 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `list.append` but got `List[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `list.append` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 116,
+    "warning_line": "            self._all_weights.append(param_names)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self.hidden_size = hidden_size\n        self._all_weights: List[str] = []\n        gate_size = 4 * hidden_size\n",
+        "source_code_len": 117,
+        "target_code": "        self.hidden_size = hidden_size\n        self._all_weights: List[List[str]] = []\n        gate_size = 4 * hidden_size\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -97,3 +97,3 @@\n         self.hidden_size = hidden_size\n-        self._all_weights: List[str] = []\n+        self._all_weights: List[List[str]] = []\n         gate_size = 4 * hidden_size\n",
+        "source_code_with_indent": "        self.hidden_size = hidden_size\n        self._all_weights: List[str] = []\n        gate_size = 4 * hidden_size\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.hidden_size = hidden_size\n        self._all_weights: List[List[str]] = []\n        gate_size = 4 * hidden_size\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

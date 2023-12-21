@@ -1,0 +1,36 @@
+[
+  {
+    "project": "hsahovic/poke-env",
+    "commit": "fc1cee29fd70de41672bccc5edf15d2cbbc06ab3",
+    "filename": "src/poke_env/player/player.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hsahovic-poke-env/src/poke_env/player/player.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/poke_env/player/player.py:537:51 Incompatible parameter type [6]: Expected `DoubleBattle` for 1st positional only parameter to call `Player.choose_random_doubles_move` but got `AbstractBattle`.",
+    "message": " Expected `DoubleBattle` for 1st positional only parameter to call `Player.choose_random_doubles_move` but got `AbstractBattle`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 537,
+    "warning_line": "            return self.choose_random_doubles_move(battle)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return self.choose_random_singles_move(battle)\n        else:\n            return self.choose_random_doubles_move(battle)\n\n",
+        "source_code_len": 133,
+        "target_code": "            return self.choose_random_singles_move(battle)\n        elif isinstance(battle, DoubleBattle):\n            return self.choose_random_doubles_move(battle)\n        else:\n            return self.choose_default_move(battle)\n\n",
+        "target_code_len": 232,
+        "diff_format": "@@ -535,4 +535,6 @@\n             return self.choose_random_singles_move(battle)\n+        elif isinstance(battle, DoubleBattle):\n+            return self.choose_random_doubles_move(battle)\n         else:\n-            return self.choose_random_doubles_move(battle)\n+            return self.choose_default_move(battle)\n \n",
+        "source_code_with_indent": "            <IND>return self.choose_random_singles_move(battle)\n        <DED>else:\n            <IND>return self.choose_random_doubles_move(battle)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return self.choose_random_singles_move(battle)\n        <DED>elif isinstance(battle, DoubleBattle):\n            <IND>return self.choose_random_doubles_move(battle)\n        <DED>else:\n            <IND>return self.choose_default_move(battle)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

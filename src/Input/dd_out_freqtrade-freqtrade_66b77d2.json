@@ -1,0 +1,85 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "66b77d2f53cddb752737ae7604d99f9336abd3f5",
+    "filename": "freqtrade/rpc/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/rpc/rpc.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/rpc/rpc.py:716:8 Incompatible variable type [9]: timerange is declared to have type `str` but is used as type `TimeRange`.",
+    "message": " timerange is declared to have type `str` but is used as type `TimeRange`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 716,
+    "warning_line": "        timerange = TimeRange.parse_timerange(timerange)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _rpc_analysed_history_full(self, config: Dict[str, any], pair: str, timeframe: str,\n                                   timerange: str) -> Dict[str, Any]:\n        timerange = TimeRange.parse_timerange(timerange)\n\n",
+        "source_code_len": 221,
+        "target_code": "\n    def _rpc_analysed_history_full(self, config, pair: str, timeframe: str,\n                                   timerange: str) -> Dict[str, Any]:\n        timerange_parsed = TimeRange.parse_timerange(timerange)\n\n",
+        "target_code_len": 212,
+        "diff_format": "@@ -713,5 +713,5 @@\n \n-    def _rpc_analysed_history_full(self, config: Dict[str, any], pair: str, timeframe: str,\n+    def _rpc_analysed_history_full(self, config, pair: str, timeframe: str,\n                                    timerange: str) -> Dict[str, Any]:\n-        timerange = TimeRange.parse_timerange(timerange)\n+        timerange_parsed = TimeRange.parse_timerange(timerange)\n \n",
+        "source_code_with_indent": "\n    <DED>def _rpc_analysed_history_full(self, config: Dict[str, any], pair: str, timeframe: str,\n                                   timerange: str) -> Dict[str, Any]:\n        <IND>timerange = TimeRange.parse_timerange(timerange)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _rpc_analysed_history_full(self, config, pair: str, timeframe: str,\n                                   timerange: str) -> Dict[str, Any]:\n        <IND>timerange_parsed = TimeRange.parse_timerange(timerange)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "66b77d2f53cddb752737ae7604d99f9336abd3f5",
+    "filename": "freqtrade/rpc/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/rpc/rpc.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/rpc/rpc.py:722:12 Incompatible parameter type [6]: Expected `Optional[TimeRange]` for 4th parameter `timerange` to call `freqtrade.data.history.history_utils.load_data` but got `str`.",
+    "message": " Expected `Optional[TimeRange]` for 4th parameter `timerange` to call `freqtrade.data.history.history_utils.load_data` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 722,
+    "warning_line": "            timerange=timerange,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _rpc_analysed_history_full(self, config: Dict[str, any], pair: str, timeframe: str,\n                                   timerange: str) -> Dict[str, Any]:\n        timerange = TimeRange.parse_timerange(timerange)\n\n",
+        "source_code_len": 221,
+        "target_code": "\n    def _rpc_analysed_history_full(self, config, pair: str, timeframe: str,\n                                   timerange: str) -> Dict[str, Any]:\n        timerange_parsed = TimeRange.parse_timerange(timerange)\n\n",
+        "target_code_len": 212,
+        "diff_format": "@@ -713,5 +713,5 @@\n \n-    def _rpc_analysed_history_full(self, config: Dict[str, any], pair: str, timeframe: str,\n+    def _rpc_analysed_history_full(self, config, pair: str, timeframe: str,\n                                    timerange: str) -> Dict[str, Any]:\n-        timerange = TimeRange.parse_timerange(timerange)\n+        timerange_parsed = TimeRange.parse_timerange(timerange)\n \n",
+        "source_code_with_indent": "\n    <DED>def _rpc_analysed_history_full(self, config: Dict[str, any], pair: str, timeframe: str,\n                                   timerange: str) -> Dict[str, Any]:\n        <IND>timerange = TimeRange.parse_timerange(timerange)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _rpc_analysed_history_full(self, config, pair: str, timeframe: str,\n                                   timerange: str) -> Dict[str, Any]:\n        <IND>timerange_parsed = TimeRange.parse_timerange(timerange)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            timeframe=timeframe,\n            timerange=timerange,\n            data_format=config.get('dataformat_ohlcv', 'json'),\n",
+        "source_code_len": 130,
+        "target_code": "            timeframe=timeframe,\n            timerange=timerange_parsed,\n            data_format=config.get('dataformat_ohlcv', 'json'),\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -721,3 +721,3 @@\n             timeframe=timeframe,\n-            timerange=timerange,\n+            timerange=timerange_parsed,\n             data_format=config.get('dataformat_ohlcv', 'json'),\n",
+        "source_code_with_indent": "            timeframe=timeframe,\n            timerange=timerange,\n            data_format=config.get('dataformat_ohlcv', 'json'),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            timeframe=timeframe,\n            timerange=timerange_parsed,\n            data_format=config.get('dataformat_ohlcv', 'json'),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

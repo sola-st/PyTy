@@ -1,0 +1,85 @@
+[
+  {
+    "project": "olirice/flupy",
+    "commit": "d21c517ea2b538e8247f75e7d4800b11de3dd601",
+    "filename": "flupy/cli/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/olirice-flupy/flupy/cli/utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flupy/cli/utils.py:23:4 Incompatible return type [7]: Expected `flu[]` but got `flu`.",
+    "message": " Expected `flu[]` but got `flu`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 23,
+    "warning_line": "    return flu(_impl())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom flupy.fluent import flu\n\n\ndef walk_files(*pathes: str, abspath=True) -> \"flu[str]\":\n    \"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "source_code_len": 163,
+        "target_code": "\nfrom flupy.fluent import Fluent, flu\n\n\ndef walk_files(*pathes: str, abspath=True) -> \"Fluent[str]\":\n    \"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "target_code_len": 174,
+        "diff_format": "@@ -3,6 +3,6 @@\n \n-from flupy.fluent import flu\n+from flupy.fluent import Fluent, flu\n \n \n-def walk_files(*pathes: str, abspath=True) -> \"flu[str]\":\n+def walk_files(*pathes: str, abspath=True) -> \"Fluent[str]\":\n     \"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "source_code_with_indent": "\nfrom flupy.fluent import flu\n\n\ndef walk_files(*pathes: str, abspath=True) -> \"flu[str]\":\n    <IND>\"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom flupy.fluent import Fluent, flu\n\n\ndef walk_files(*pathes: str, abspath=True) -> \"Fluent[str]\":\n    <IND>\"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "olirice/flupy",
+    "commit": "d21c517ea2b538e8247f75e7d4800b11de3dd601",
+    "filename": "flupy/cli/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/olirice-flupy/flupy/cli/utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flupy/cli/utils.py:33:4 Incompatible return type [7]: Expected `flu[]` but got `flu`.",
+    "message": " Expected `flu[]` but got `flu`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 33,
+    "warning_line": "    return flu(_impl())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom flupy.fluent import flu\n\n\ndef walk_files(*pathes: str, abspath=True) -> \"flu[str]\":\n    \"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "source_code_len": 163,
+        "target_code": "\nfrom flupy.fluent import Fluent, flu\n\n\ndef walk_files(*pathes: str, abspath=True) -> \"Fluent[str]\":\n    \"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "target_code_len": 174,
+        "diff_format": "@@ -3,6 +3,6 @@\n \n-from flupy.fluent import flu\n+from flupy.fluent import Fluent, flu\n \n \n-def walk_files(*pathes: str, abspath=True) -> \"flu[str]\":\n+def walk_files(*pathes: str, abspath=True) -> \"Fluent[str]\":\n     \"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "source_code_with_indent": "\nfrom flupy.fluent import flu\n\n\ndef walk_files(*pathes: str, abspath=True) -> \"flu[str]\":\n    <IND>\"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom flupy.fluent import Fluent, flu\n\n\ndef walk_files(*pathes: str, abspath=True) -> \"Fluent[str]\":\n    <IND>\"\"\"Yield files recursively starting from each location in *pathes\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef walk_dirs(path: str = \".\") -> \"flu[str]\":\n    \"\"\"Yield files recursively starting from *path\"\"\"\n",
+        "source_code_len": 101,
+        "target_code": "\ndef walk_dirs(path: str = \".\") -> \"Fluent[str]\":\n    \"\"\"Yield files recursively starting from *path\"\"\"\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -25,3 +25,3 @@\n \n-def walk_dirs(path: str = \".\") -> \"flu[str]\":\n+def walk_dirs(path: str = \".\") -> \"Fluent[str]\":\n     \"\"\"Yield files recursively starting from *path\"\"\"\n",
+        "source_code_with_indent": "\n<DED>def walk_dirs(path: str = \".\") -> \"flu[str]\":\n    <IND>\"\"\"Yield files recursively starting from *path\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def walk_dirs(path: str = \".\") -> \"Fluent[str]\":\n    <IND>\"\"\"Yield files recursively starting from *path\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

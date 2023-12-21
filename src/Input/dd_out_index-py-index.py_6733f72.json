@@ -1,0 +1,36 @@
+[
+  {
+    "project": "index-py/index.py",
+    "commit": "6733f72ca5af8e6cb75754accee5879f9d40c309",
+    "filename": "indexpy/routing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/index-py-index.py/indexpy/routing.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "indexpy/routing.py:387:36 Incompatible variable type [9]: routes is declared to have type `Routes` but is used as type `typing.List[Variable[_T]]`.",
+    "message": " routes is declared to have type `Routes` but is used as type `typing.List[Variable[_T]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 387,
+    "warning_line": "    def __init__(self, prefix: str, routes: Routes = []) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class Mount(Routes):\n    def __init__(self, prefix: str, routes: Routes = []) -> None:\n        self.prefix = prefix\n",
+        "source_code_len": 116,
+        "target_code": "class Mount(Routes):\n    def __init__(self, prefix: str, routes: Routes = typing.cast(Routes, [])) -> None:\n        self.prefix = prefix\n",
+        "target_code_len": 137,
+        "diff_format": "@@ -386,3 +386,3 @@\n class Mount(Routes):\n-    def __init__(self, prefix: str, routes: Routes = []) -> None:\n+    def __init__(self, prefix: str, routes: Routes = typing.cast(Routes, [])) -> None:\n         self.prefix = prefix\n",
+        "source_code_with_indent": "<DED><DED>class Mount(Routes):\n    <IND>def __init__(self, prefix: str, routes: Routes = []) -> None:\n        <IND>self.prefix = prefix\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class Mount(Routes):\n    <IND>def __init__(self, prefix: str, routes: Routes = typing.cast(Routes, [])) -> None:\n        <IND>self.prefix = prefix\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

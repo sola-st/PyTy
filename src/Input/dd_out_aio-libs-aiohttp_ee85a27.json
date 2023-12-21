@@ -1,0 +1,36 @@
+[
+  {
+    "project": "aio-libs/aiohttp",
+    "commit": "ee85a27733040fe3a24ee6a546c1b3dc24c2422e",
+    "filename": "aiohttp/web_protocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aio-libs-aiohttp/aiohttp/web_protocol.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "aiohttp/web_protocol.py:587:12 Incompatible parameter type [6]: Expected `StreamReader` for 2nd positional only parameter to call `BaseRequest.__init__` but got `aiohttp.streams.EmptyStreamReader`.",
+    "message": " Expected `StreamReader` for 2nd positional only parameter to call `BaseRequest.__init__` but got `aiohttp.streams.EmptyStreamReader`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 587,
+    "warning_line": "            EMPTY_PAYLOAD,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                                 message: Optional[str]=None) -> None:\n        request = BaseRequest(  # type: ignore\n            ERROR,\n            EMPTY_PAYLOAD,\n            self, writer,\n",
+        "source_code_len": 190,
+        "target_code": "                                 message: Optional[str]=None) -> None:\n        request = BaseRequest(\n            ERROR,\n            EMPTY_PAYLOAD,  # type: ignore\n            self, writer,\n",
+        "target_code_len": 190,
+        "diff_format": "@@ -584,5 +584,5 @@\n                                  message: Optional[str]=None) -> None:\n-        request = BaseRequest(  # type: ignore\n+        request = BaseRequest(\n             ERROR,\n-            EMPTY_PAYLOAD,\n+            EMPTY_PAYLOAD,  # type: ignore\n             self, writer,\n",
+        "source_code_with_indent": "                                 message: Optional[str]=None) -> None:\n        <IND>request = BaseRequest(  # type: ignore\n            ERROR,\n            EMPTY_PAYLOAD,\n            self, writer,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                                 message: Optional[str]=None) -> None:\n        <IND>request = BaseRequest(\n            ERROR,\n            EMPTY_PAYLOAD,  # type: ignore\n            self, writer,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

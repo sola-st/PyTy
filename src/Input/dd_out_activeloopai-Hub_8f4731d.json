@@ -1,0 +1,54 @@
+[
+  {
+    "project": "activeloopai/Hub",
+    "commit": "8f4731d84b80d964cd11e6ed1b905e6edb5f9034",
+    "filename": "hub/core/tests/test_tensor_dynamic_shape.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hub/core/tests/test_tensor_dynamic_shape.py:89:31 Incompatible parameter type [6]: Expected `Tuple[int]` for 1st positional only parameter to call `get_random_array` but got `int`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "activeloopai/Hub",
+    "commit": "8f4731d84b80d964cd11e6ed1b905e6edb5f9034",
+    "filename": "hub/core/tests/test_tensor_dynamic_shape.py",
+    "min_patch_found": false,
+    "full_warning_msg": "hub/core/tests/test_tensor_dynamic_shape.py:96:61 Incompatible parameter type [6]: Expected `Tuple[int]` for 1st positional only parameter to call `normalize_and_batchify_shape` but got `int`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "activeloopai/Hub",
+    "commit": "8f4731d84b80d964cd11e6ed1b905e6edb5f9034",
+    "filename": "hub/util/array.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/util/array.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/util/array.py:50:41 Incompatible parameter type [6]: Expected `Tuple[int]` for 1st positional only parameter to call `_filter_ones` but got `typing.Tuple[int, ...]`.",
+    "message": " Expected `Tuple[int]` for 1st positional only parameter to call `_filter_ones` but got `typing.Tuple[int, ...]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 50,
+    "warning_line": "        norm_sample_shape = _filter_ones(shape[1:])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _filter_ones(shape: Tuple[int]):\n    out = tuple([x for x in shape if x != 1])\n",
+        "source_code_len": 84,
+        "target_code": "\ndef _filter_ones(shape: Tuple):\n    \"\"\"Removes all 1s from `shape`. If ALL values in `shape` are 1s, `(1,)` is returned as the shape.\"\"\"\n\n    out = tuple([x for x in shape if x != 1])\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -4,3 +4,5 @@\n \n-def _filter_ones(shape: Tuple[int]):\n+def _filter_ones(shape: Tuple):\n+    \"\"\"Removes all 1s from `shape`. If ALL values in `shape` are 1s, `(1,)` is returned as the shape.\"\"\"\n+\n     out = tuple([x for x in shape if x != 1])\n",
+        "source_code_with_indent": "\ndef _filter_ones(shape: Tuple[int]):\n    <IND>out = tuple([x for x in shape if x != 1])\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef _filter_ones(shape: Tuple):\n    <IND>\"\"\"Removes all 1s from `shape`. If ALL values in `shape` are 1s, `(1,)` is returned as the shape.\"\"\"\n\n    out = tuple([x for x in shape if x != 1])\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

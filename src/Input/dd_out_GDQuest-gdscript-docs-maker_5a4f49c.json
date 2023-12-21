@@ -1,0 +1,36 @@
+[
+  {
+    "project": "GDQuest/gdscript-docs-maker",
+    "commit": "5a4f49c3ec6a824b4fb61c43fdeb1b177eeb5749",
+    "filename": "gdscript-docs-maker/modules/config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GDQuest-gdscript-docs-maker/gdscript-docs-maker/modules/config.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gdscript-docs-maker/modules/config.py:5:21 Unsupported operand [58]: `+` is not supported for operand types `typing.List[None]` and `typing.List[int]`.",
+    "message": " `+` is not supported for operand types `typing.List[None]` and `typing.List[int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 5,
+    "warning_line": "LOG_LEVEL = [None] + sorted(LOG_LEVEL, reverse=True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "LOGGER = logging.getLogger(\"GDScript docs maker\")\nLOG_LEVEL = [logging.INFO, logging.DEBUG]\nLOG_LEVEL = [None] + sorted(LOG_LEVEL, reverse=True)\n",
+        "source_code_len": 145,
+        "target_code": "LOGGER = logging.getLogger(\"GDScript docs maker\")\nLOG_LEVELS = [logging.INFO, logging.DEBUG]\nLOG_LEVELS = [0] + sorted(LOG_LEVELS, reverse=True)\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -3,3 +3,3 @@\n LOGGER = logging.getLogger(\"GDScript docs maker\")\n-LOG_LEVEL = [logging.INFO, logging.DEBUG]\n-LOG_LEVEL = [None] + sorted(LOG_LEVEL, reverse=True)\n+LOG_LEVELS = [logging.INFO, logging.DEBUG]\n+LOG_LEVELS = [0] + sorted(LOG_LEVELS, reverse=True)\n",
+        "source_code_with_indent": "LOGGER = logging.getLogger(\"GDScript docs maker\")\nLOG_LEVEL = [logging.INFO, logging.DEBUG]\nLOG_LEVEL = [None] + sorted(LOG_LEVEL, reverse=True)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "LOGGER = logging.getLogger(\"GDScript docs maker\")\nLOG_LEVELS = [logging.INFO, logging.DEBUG]\nLOG_LEVELS = [0] + sorted(LOG_LEVELS, reverse=True)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

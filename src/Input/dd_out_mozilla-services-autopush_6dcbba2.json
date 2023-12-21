@@ -1,0 +1,51 @@
+[
+  {
+    "project": "mozilla-services/autopush",
+    "commit": "6dcbba2057ad2c82491504534e97ee4207648fff",
+    "filename": "autopush/db.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozilla-services-autopush/autopush/db.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "autopush/db.py:507:37 Invalid type [31]: Expression `typing.Optional[int or str]` is not a valid type.",
+    "message": " Expression `typing.Optional[int or str]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 507,
+    "warning_line": "            timestamp=None,  # type: Optional[int or str]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Tuple,\n)\n",
+        "source_code_len": 13,
+        "target_code": "    Tuple,\n    Union,\n)\n",
+        "target_code_len": 24,
+        "diff_format": "@@ -67,2 +67,3 @@\n     Tuple,\n+    Union,\n )\n",
+        "source_code_with_indent": "    Tuple,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Tuple,\n    Union,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            uaid,  # type: uuid.UUID\n            timestamp=None,  # type: Optional[int or str]\n            limit=10,  # type: int\n",
+        "source_code_len": 130,
+        "target_code": "            uaid,  # type: uuid.UUID\n            timestamp=None,  # type: Optional[Union[int, str]]\n            limit=10,  # type: int\n",
+        "target_code_len": 135,
+        "diff_format": "@@ -506,3 +507,3 @@\n             uaid,  # type: uuid.UUID\n-            timestamp=None,  # type: Optional[int or str]\n+            timestamp=None,  # type: Optional[Union[int, str]]\n             limit=10,  # type: int\n",
+        "source_code_with_indent": "            uaid,  # type: uuid.UUID\n            timestamp=None,  # type: Optional[int or str]\n            limit=10,  # type: int\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            uaid,  # type: uuid.UUID\n            timestamp=None,  # type: Optional[Union[int, str]]\n            limit=10,  # type: int\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

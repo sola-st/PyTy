@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "684b59aa98f8aea03eb4455d3b54094261d28737",
+    "filename": "UM/Settings/Models/SettingDefinitionsModel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/Models/SettingDefinitionsModel.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/Models/SettingDefinitionsModel.py:109:16 Incompatible attribute type [8]: Attribute `_container` declared in class `SettingDefinitionsModel` has type `Optional[DefinitionContainer]` but is used as type `UM.Settings.Interfaces.DefinitionContainerInterface`.",
+    "message": " Attribute `_container` declared in class `SettingDefinitionsModel` has type `Optional[DefinitionContainer]` but is used as type `UM.Settings.Interfaces.DefinitionContainerInterface`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 109,
+    "warning_line": "                self._container = containers[0]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._container_id = None  # type: Optional[str]\n        self._container = None  # type: Optional[DefinitionContainer]\n        self._i18n_catalog = None\n",
+        "source_code_len": 161,
+        "target_code": "        self._container_id = None  # type: Optional[str]\n        self._container = None  # type: Optional[DefinitionContainerInterface]\n        self._i18n_catalog = None\n",
+        "target_code_len": 170,
+        "diff_format": "@@ -42,3 +43,3 @@\n         self._container_id = None  # type: Optional[str]\n-        self._container = None  # type: Optional[DefinitionContainer]\n+        self._container = None  # type: Optional[DefinitionContainerInterface]\n         self._i18n_catalog = None\n",
+        "source_code_with_indent": "        self._container_id = None  # type: Optional[str]\n        self._container = None  # type: Optional[DefinitionContainer]\n        self._i18n_catalog = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self._container_id = None  # type: Optional[str]\n        self._container = None  # type: Optional[DefinitionContainerInterface]\n        self._i18n_catalog = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

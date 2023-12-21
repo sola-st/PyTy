@@ -1,0 +1,70 @@
+[
+  {
+    "project": "alisaifee/limits",
+    "commit": "4d189d111880ab40a54d819e145f651df1472bf5",
+    "filename": "limits/limits.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/alisaifee-limits/limits/limits.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "limits/limits.py:90:28 Incompatible parameter type [6]: Expected `Union[bytes, str]` for 1st positional only parameter to call `safe_string` but got `int`.",
+    "message": " Expected `Union[bytes, str]` for 1st positional only parameter to call `safe_string` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 90,
+    "warning_line": "                safe_string(self.amount),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef safe_string(value: Union[bytes, str]) -> str:\n    \"\"\"\n    converts a byte/str to a str\n    \"\"\"\n",
+        "source_code_len": 100,
+        "target_code": "\ndef safe_string(value: Union[bytes, str, int]) -> str:\n    \"\"\"\n    converts a byte/str or int to a str\n    \"\"\"\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -8,5 +8,5 @@\n \n-def safe_string(value: Union[bytes, str]) -> str:\n+def safe_string(value: Union[bytes, str, int]) -> str:\n     \"\"\"\n-    converts a byte/str to a str\n+    converts a byte/str or int to a str\n     \"\"\"\n",
+        "source_code_with_indent": "\ndef safe_string(value: Union[bytes, str]) -> str:\n    <IND>\"\"\"\n    converts a byte/str to a str\n    \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef safe_string(value: Union[bytes, str, int]) -> str:\n    <IND>\"\"\"\n    converts a byte/str or int to a str\n    \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "alisaifee/limits",
+    "commit": "4d189d111880ab40a54d819e145f651df1472bf5",
+    "filename": "limits/limits.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/alisaifee-limits/limits/limits.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "limits/limits.py:91:28 Incompatible parameter type [6]: Expected `Union[bytes, str]` for 1st positional only parameter to call `safe_string` but got `int`.",
+    "message": " Expected `Union[bytes, str]` for 1st positional only parameter to call `safe_string` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 91,
+    "warning_line": "                safe_string(self.multiples),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef safe_string(value: Union[bytes, str]) -> str:\n    \"\"\"\n    converts a byte/str to a str\n    \"\"\"\n",
+        "source_code_len": 100,
+        "target_code": "\ndef safe_string(value: Union[bytes, str, int]) -> str:\n    \"\"\"\n    converts a byte/str or int to a str\n    \"\"\"\n",
+        "target_code_len": 112,
+        "diff_format": "@@ -8,5 +8,5 @@\n \n-def safe_string(value: Union[bytes, str]) -> str:\n+def safe_string(value: Union[bytes, str, int]) -> str:\n     \"\"\"\n-    converts a byte/str to a str\n+    converts a byte/str or int to a str\n     \"\"\"\n",
+        "source_code_with_indent": "\ndef safe_string(value: Union[bytes, str]) -> str:\n    <IND>\"\"\"\n    converts a byte/str to a str\n    \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef safe_string(value: Union[bytes, str, int]) -> str:\n    <IND>\"\"\"\n    converts a byte/str or int to a str\n    \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

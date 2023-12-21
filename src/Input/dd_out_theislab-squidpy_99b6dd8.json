@@ -1,0 +1,70 @@
+[
+  {
+    "project": "theislab/squidpy",
+    "commit": "99b6dd80a56e2bb5d298a0f5d21df70a3dbc0c5b",
+    "filename": "spatial_tools/graph/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theislab-squidpy/spatial_tools/graph/build.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spatial_tools/graph/build.py:39:55 Incompatible parameter type [6]: Expected `float` for 3rd positional only parameter to call `_build_connectivity` but got `None`.",
+    "message": " Expected `float` for 3rd positional only parameter to call `_build_connectivity` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 39,
+    "warning_line": "        Adj = _build_connectivity(adata.obsm[obsm], 6, None, True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _build_connectivity(\n    coords: np.ndarray, n_neigh: int, radius: float, neigh_correct: bool\n):\n",
+        "source_code_len": 101,
+        "target_code": "def _build_connectivity(\n    coords: np.ndarray,\n    n_neigh: int,\n    radius: Optional[float] = None,\n    neigh_correct: bool = False,\n    set_diag: bool = False\n):\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -53,3 +55,7 @@\n def _build_connectivity(\n-    coords: np.ndarray, n_neigh: int, radius: float, neigh_correct: bool\n+    coords: np.ndarray,\n+    n_neigh: int,\n+    radius: Optional[float] = None,\n+    neigh_correct: bool = False,\n+    set_diag: bool = False\n ):\n",
+        "source_code_with_indent": "<DED><DED>def _build_connectivity(\n    coords: np.ndarray, n_neigh: int, radius: float, neigh_correct: bool\n):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>def _build_connectivity(\n    coords: np.ndarray,\n    n_neigh: int,\n    radius: Optional[float] = None,\n    neigh_correct: bool = False,\n    set_diag: bool = False\n):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "theislab/squidpy",
+    "commit": "99b6dd80a56e2bb5d298a0f5d21df70a3dbc0c5b",
+    "filename": "spatial_tools/graph/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theislab-squidpy/spatial_tools/graph/build.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spatial_tools/graph/build.py:49:39 Incompatible parameter type [6]: Expected `float` for 3rd positional only parameter to call `_build_connectivity` but got `Optional[float]`.",
+    "message": " Expected `float` for 3rd positional only parameter to call `_build_connectivity` but got `Optional[float]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 49,
+    "warning_line": "            adata.obsm[obsm], n_neigh, radius, False",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def _build_connectivity(\n    coords: np.ndarray, n_neigh: int, radius: float, neigh_correct: bool\n):\n",
+        "source_code_len": 101,
+        "target_code": "def _build_connectivity(\n    coords: np.ndarray,\n    n_neigh: int,\n    radius: Optional[float] = None,\n    neigh_correct: bool = False,\n    set_diag: bool = False\n):\n",
+        "target_code_len": 166,
+        "diff_format": "@@ -53,3 +55,7 @@\n def _build_connectivity(\n-    coords: np.ndarray, n_neigh: int, radius: float, neigh_correct: bool\n+    coords: np.ndarray,\n+    n_neigh: int,\n+    radius: Optional[float] = None,\n+    neigh_correct: bool = False,\n+    set_diag: bool = False\n ):\n",
+        "source_code_with_indent": "<DED><DED>def _build_connectivity(\n    coords: np.ndarray, n_neigh: int, radius: float, neigh_correct: bool\n):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>def _build_connectivity(\n    coords: np.ndarray,\n    n_neigh: int,\n    radius: Optional[float] = None,\n    neigh_correct: bool = False,\n    set_diag: bool = False\n):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

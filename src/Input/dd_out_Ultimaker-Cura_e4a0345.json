@@ -1,0 +1,53 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "e4a0345fe43030ff479a7077586b66a3119094e6",
+    "filename": "cura/Settings/MachineManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/Settings/MachineManager.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/Settings/MachineManager.py:82:32 Unbound name [10]: Name `ContainerRegistry` is used but not defined in the current scope.",
+    "message": " Name `ContainerRegistry` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 82,
+    "warning_line": "        self._empty_container = ContainerRegistry.getInstance().getEmptyInstanceContainer() #type: InstanceContainer"
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "e4a0345fe43030ff479a7077586b66a3119094e6",
+    "filename": "cura/Settings/MachineManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/Settings/MachineManager.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/Settings/MachineManager.py:797:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 797,
+    "warning_line": "            return containers[0].definition.getId()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @pyqtSlot(str, result = str)\n    def getDefinitionByMachineId(self, machine_id: str) -> str:\n        containers = CuraContainerRegistry.getInstance().findContainerStacks(id = machine_id)\n",
+        "source_code_len": 191,
+        "target_code": "    @pyqtSlot(str, result = str)\n    def getDefinitionByMachineId(self, machine_id: str) -> Optional[str]:\n        containers = CuraContainerRegistry.getInstance().findContainerStacks(id = machine_id)\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -793,3 +793,3 @@\n     @pyqtSlot(str, result = str)\n-    def getDefinitionByMachineId(self, machine_id: str) -> str:\n+    def getDefinitionByMachineId(self, machine_id: str) -> Optional[str]:\n         containers = CuraContainerRegistry.getInstance().findContainerStacks(id = machine_id)\n",
+        "source_code_with_indent": "    <DED>@pyqtSlot(str, result = str)\n    def getDefinitionByMachineId(self, machine_id: str) -> str:\n        <IND>containers = CuraContainerRegistry.getInstance().findContainerStacks(id = machine_id)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@pyqtSlot(str, result = str)\n    def getDefinitionByMachineId(self, machine_id: str) -> Optional[str]:\n        <IND>containers = CuraContainerRegistry.getInstance().findContainerStacks(id = machine_id)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "SiCKRAGE/SiCKRAGE",
+    "commit": "ce64db808c7855c4b26f9bb5f7436c94542e22d6",
+    "filename": "lib/requests/packages/urllib3/connection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/SiCKRAGE-SiCKRAGE/lib/requests/packages/urllib3/connection.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lib/requests/packages/urllib3/connection.py:262:4 Incompatible variable type [9]: lib.requests.packages.urllib3.connection.HTTPSConnection is declared to have type `typing.Type[HTTPSConnection]` but is used as type `typing.Type[VerifiedHTTPSConnection]`.",
+    "message": " lib.requests.packages.urllib3.connection.HTTPSConnection is declared to have type `typing.Type[HTTPSConnection]` but is used as type `typing.Type[VerifiedHTTPSConnection]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 262,
+    "warning_line": "    HTTPSConnection = VerifiedHTTPSConnection",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "try:  # Python 3\n    from http.client import HTTPConnection as _HTTPConnection, HTTPException\nexcept ImportError:\n    from httplib import HTTPConnection as _HTTPConnection, HTTPException\n\n\nclass DummyConnection(object):\n    \"Used to detect a failed ConnectionCls import.\"\n    pass\n\n\ntry:  # Compiled with SSL?\n    HTTPSConnection = DummyConnection\n    import ssl\n",
+        "source_code_len": 363,
+        "target_code": "try:  # Python 3\n    from http.client import HTTPConnection as _HTTPConnection\n    from http.client import HTTPException  # noqa: unused in this module\nexcept ImportError:\n    from httplib import HTTPConnection as _HTTPConnection\n    from httplib import HTTPException  # noqa: unused in this module\n\ntry:  # Compiled with SSL?\n    import ssl\n",
+        "target_code_len": 342,
+        "diff_format": "@@ -8,14 +10,9 @@\n try:  # Python 3\n-    from http.client import HTTPConnection as _HTTPConnection, HTTPException\n+    from http.client import HTTPConnection as _HTTPConnection\n+    from http.client import HTTPException  # noqa: unused in this module\n except ImportError:\n-    from httplib import HTTPConnection as _HTTPConnection, HTTPException\n-\n-\n-class DummyConnection(object):\n-    \"Used to detect a failed ConnectionCls import.\"\n-    pass\n-\n+    from httplib import HTTPConnection as _HTTPConnection\n+    from httplib import HTTPException  # noqa: unused in this module\n \n try:  # Compiled with SSL?\n-    HTTPSConnection = DummyConnection\n     import ssl\n",
+        "source_code_with_indent": "try:  # Python 3\n    <IND>from http.client import HTTPConnection as _HTTPConnection, HTTPException\n<DED>except ImportError:\n    <IND>from httplib import HTTPConnection as _HTTPConnection, HTTPException\n\n\n<DED>class DummyConnection(object):\n    <IND>\"Used to detect a failed ConnectionCls import.\"\n    pass\n\n\n<DED>try:  # Compiled with SSL?\n    <IND>HTTPSConnection = DummyConnection\n    import ssl\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "try:  # Python 3\n    <IND>from http.client import HTTPConnection as _HTTPConnection\n    from http.client import HTTPException  # noqa: unused in this module\n<DED>except ImportError:\n    <IND>from httplib import HTTPConnection as _HTTPConnection\n    from httplib import HTTPException  # noqa: unused in this module\n\n<DED>try:  # Compiled with SSL?\n    <IND>import ssl\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

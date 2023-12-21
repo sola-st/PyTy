@@ -1,0 +1,36 @@
+[
+  {
+    "project": "LonamiWebs/Telethon",
+    "commit": "9121478a2e5d03e9c76c524bfe64dd64823526e3",
+    "filename": "telethon/client/telegrambaseclient.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/LonamiWebs-Telethon/telethon/client/telegrambaseclient.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "telethon/client/telegrambaseclient.py:665:17 Unbound name [10]: Name `TelegramBareClient` is used but not defined in the current scope.",
+    "message": " Name `TelegramBareClient` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 665,
+    "warning_line": "        client = TelegramBareClient(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self._log[__name__].info('Creating new CDN client')\n        client = TelegramBareClient(\n            session, self.api_id, self.api_hash,\n",
+        "source_code_len": 146,
+        "target_code": "        self._log[__name__].info('Creating new CDN client')\n        client = TelegramBaseClient(\n            session, self.api_id, self.api_hash,\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -664,3 +664,3 @@\n         self._log[__name__].info('Creating new CDN client')\n-        client = TelegramBareClient(\n+        client = TelegramBaseClient(\n             session, self.api_id, self.api_hash,\n",
+        "source_code_with_indent": "        <DED>self._log[__name__].info('Creating new CDN client')\n        client = TelegramBareClient(\n            session, self.api_id, self.api_hash,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>self._log[__name__].info('Creating new CDN client')\n        client = TelegramBaseClient(\n            session, self.api_id, self.api_hash,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

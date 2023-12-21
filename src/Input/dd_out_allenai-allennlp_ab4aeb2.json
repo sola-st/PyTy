@@ -1,0 +1,36 @@
+[
+  {
+    "project": "allenai/allennlp",
+    "commit": "ab4aeb28f1b81747c985a188b6c4c569c02aaa75",
+    "filename": "allennlp/modules/text_field_embedders/basic_text_field_embedder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/allenai-allennlp/allennlp/modules/text_field_embedders/basic_text_field_embedder.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "allennlp/modules/text_field_embedders/basic_text_field_embedder.py:47:28 Call error [29]: `TokenEmbedder` is not a function.",
+    "message": " `TokenEmbedder` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 47,
+    "warning_line": "            token_vectors = embedder(tensor)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            tensor = text_field_input[key]\n            embedder = self._token_embedders[key]\n            token_vectors = embedder(tensor)\n",
+        "source_code_len": 138,
+        "target_code": "            tensor = text_field_input[key]\n            # Note: need to use getattr here so that the pytorch voodoo\n            # with submodules works with multiple GPUs.\n            embedder = getattr(self, 'token_embedder_{}'.format(key))\n            token_vectors = embedder(tensor)\n",
+        "target_code_len": 286,
+        "diff_format": "@@ -45,3 +45,5 @@\n             tensor = text_field_input[key]\n-            embedder = self._token_embedders[key]\n+            # Note: need to use getattr here so that the pytorch voodoo\n+            # with submodules works with multiple GPUs.\n+            embedder = getattr(self, 'token_embedder_{}'.format(key))\n             token_vectors = embedder(tensor)\n",
+        "source_code_with_indent": "            <IND>tensor = text_field_input[key]\n            embedder = self._token_embedders[key]\n            token_vectors = embedder(tensor)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>tensor = text_field_input[key]\n            # Note: need to use getattr here so that the pytorch voodoo\n            # with submodules works with multiple GPUs.\n            embedder = getattr(self, 'token_embedder_{}'.format(key))\n            token_vectors = embedder(tensor)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "xonsh/xonsh",
+    "commit": "4dc08232e615a75a524fbf96f17402a7a5b353a5",
+    "filename": "xonsh/xontribs_meta.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/xonsh-xonsh/xonsh/xontribs_meta.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "xonsh/xontribs_meta.py:61:8 Incompatible return type [7]: Expected `str` but got `tp.Optional[str]`.",
+    "message": " Expected `str` but got `tp.Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 61,
+    "warning_line": "        return ast.get_docstring(ast.parse(Path(spec.origin).read_text()))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if spec and spec.has_location and spec.origin:\n        return ast.get_docstring(ast.parse(Path(spec.origin).read_text()))\n    return \"\"\n",
+        "source_code_len": 140,
+        "target_code": "    if spec and spec.has_location and spec.origin:\n        return ast.get_docstring(ast.parse(Path(spec.origin).read_text())) or \"\"\n    return \"\"\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -60,3 +60,3 @@\n     if spec and spec.has_location and spec.origin:\n-        return ast.get_docstring(ast.parse(Path(spec.origin).read_text()))\n+        return ast.get_docstring(ast.parse(Path(spec.origin).read_text())) or \"\"\n     return \"\"\n",
+        "source_code_with_indent": "    if spec and spec.has_location and spec.origin:\n        <IND>return ast.get_docstring(ast.parse(Path(spec.origin).read_text()))\n    <DED>return \"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if spec and spec.has_location and spec.origin:\n        <IND>return ast.get_docstring(ast.parse(Path(spec.origin).read_text())) or \"\"\n    <DED>return \"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

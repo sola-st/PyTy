@@ -1,0 +1,36 @@
+[
+  {
+    "project": "dropbox/pyannotate",
+    "commit": "49056654d2c2a3e44f9f1c369ec3556fa07b3935",
+    "filename": "pyannotate_tools/fixes/fix_annotate.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dropbox-pyannotate/pyannotate_tools/fixes/fix_annotate.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyannotate_tools/fixes/fix_annotate.py:52:57 Incompatible parameter type [6]: Expected `typing.Union[_SupportsTrunc, bytes, str, typing.SupportsInt, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `int.__new__` but got `typing.Optional[str]`.",
+    "message": " Expected `typing.Union[_SupportsTrunc, bytes, str, typing.SupportsInt, typing_extensions.SupportsIndex]` for 1st positional only parameter to call `int.__new__` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 52,
+    "warning_line": "    counter = None if not os.getenv('MAXFIXES') else int(os.getenv('MAXFIXES'))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    counter = None if not os.getenv('MAXFIXES') else int(os.getenv('MAXFIXES'))\n\n",
+        "source_code_len": 82,
+        "target_code": "\n    _maxfixes = os.getenv('MAXFIXES')\n    counter = None if not _maxfixes else int(_maxfixes)\n\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -51,3 +51,4 @@\n \n-    counter = None if not os.getenv('MAXFIXES') else int(os.getenv('MAXFIXES'))\n+    _maxfixes = os.getenv('MAXFIXES')\n+    counter = None if not _maxfixes else int(_maxfixes)\n \n",
+        "source_code_with_indent": "\n    counter = None if not os.getenv('MAXFIXES') else int(os.getenv('MAXFIXES'))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    _maxfixes = os.getenv('MAXFIXES')\n    counter = None if not _maxfixes else int(_maxfixes)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

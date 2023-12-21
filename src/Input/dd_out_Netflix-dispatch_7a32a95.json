@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Netflix/dispatch",
+    "commit": "7a32a95229cc8d8a28a770a875e7de17c428f28a",
+    "filename": "src/dispatch/route/service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Netflix-dispatch/src/dispatch/route/service.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/dispatch/route/service.py:36:4 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got `List[typing.Any]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 36,
+    "warning_line": "    return list(contact_set.values())"
+  },
+  {
+    "project": "Netflix/dispatch",
+    "commit": "7a32a95229cc8d8a28a770a875e7de17c428f28a",
+    "filename": "src/dispatch/route/service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Netflix-dispatch/src/dispatch/route/service.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/dispatch/route/service.py:55:4 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got `List[typing.Any]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 55,
+    "warning_line": "    return unions"
+  },
+  {
+    "project": "Netflix/dispatch",
+    "commit": "7a32a95229cc8d8a28a770a875e7de17c428f28a",
+    "filename": "src/dispatch/route/service.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Netflix-dispatch/src/dispatch/route/service.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/dispatch/route/service.py:212:8 Incompatible parameter type [6]: Expected `List[typing.Any]` for 4th parameter `resources` to call `create_recommendation` but got `Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `List[typing.Any]` for 4th parameter `resources` to call `create_recommendation` but got `Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 212,
+    "warning_line": "        resources=resources,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    resources = deduplicate_resources(resources)\n\n",
+        "source_code_len": 51,
+        "target_code": "\n    resources = list(set(resources))\n\n",
+        "target_code_len": 39,
+        "diff_format": "@@ -204,3 +154,3 @@\n \n-    resources = deduplicate_resources(resources)\n+    resources = list(set(resources))\n \n",
+        "source_code_with_indent": "\n    <DED>resources = deduplicate_resources(resources)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>resources = list(set(resources))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

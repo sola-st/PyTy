@@ -1,0 +1,36 @@
+[
+  {
+    "project": "eth-brownie/brownie",
+    "commit": "54605fbd4a05d5dbde927bb38de19b7b8b5f9143",
+    "filename": "brownie/project/compiler/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/eth-brownie-brownie/brownie/project/compiler/__init__.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "brownie/project/compiler/__init__.py:52:4 Incompatible variable type [9]: evm_version is declared to have type `int` but is used as type `None`.",
+    "message": " evm_version is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 52,
+    "warning_line": "    evm_version: int = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    runs: int = 200,\n    evm_version: int = None,\n    silent: bool = True,\n",
+        "source_code_len": 75,
+        "target_code": "    runs: int = 200,\n    evm_version: Optional[str] = None,\n    silent: bool = True,\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -51,3 +51,3 @@\n     runs: int = 200,\n-    evm_version: int = None,\n+    evm_version: Optional[str] = None,\n     silent: bool = True,\n",
+        "source_code_with_indent": "    runs: int = 200,\n    evm_version: int = None,\n    silent: bool = True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    runs: int = 200,\n    evm_version: Optional[str] = None,\n    silent: bool = True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

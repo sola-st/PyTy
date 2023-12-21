@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jpetrucciani/hubspot3",
+    "commit": "b852b8c279f302cffa5088e2403ce2d6e3258965",
+    "filename": "hubspot3/companies.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jpetrucciani-hubspot3/hubspot3/companies.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hubspot3/companies.py:56:43 Incompatible variable type [9]: extra_properties is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "message": " extra_properties is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 56,
+    "warning_line": "        self, domain: str, limit: int = 1, extra_properties: Dict = None, **options",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def search_domain(\n        self, domain: str, limit: int = 1, extra_properties: Dict = None, **options\n    ) -> Dict:\n",
+        "source_code_len": 122,
+        "target_code": "    def search_domain(\n        self, domain: str, limit: int = 1, extra_properties: Union[List, str, None] = None, **options\n    ) -> Dict:\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -55,3 +55,3 @@\n     def search_domain(\n-        self, domain: str, limit: int = 1, extra_properties: Dict = None, **options\n+        self, domain: str, limit: int = 1, extra_properties: Union[List, str, None] = None, **options\n     ) -> Dict:\n",
+        "source_code_with_indent": "    <DED>def search_domain(\n        self, domain: str, limit: int = 1, extra_properties: Dict = None, **options\n    ) -> Dict:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def search_domain(\n        self, domain: str, limit: int = 1, extra_properties: Union[List, str, None] = None, **options\n    ) -> Dict:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "367350f9077a102fd4aef426320b6e7901f5aedb",
+    "filename": "rasa/cli/x.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/cli/x.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/cli/x.py:362:4 Incompatible return type [7]: Expected `Tuple[Optional[str], str]` but got `Tuple[Optional[str], Optional[str]]`.",
+    "message": " Expected `Tuple[Optional[str], str]` but got `Tuple[Optional[str], Optional[str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 362,
+    "warning_line": "    return credentials_path, endpoints_config_path",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_credentials_and_endpoints_paths(args) -> Tuple[Optional[Text], Text]:\n    config_endpoint = args.config_endpoint\n",
+        "source_code_len": 123,
+        "target_code": "\ndef _get_credentials_and_endpoints_paths(args) -> Tuple[Optional[Text], Optional[Text]]:\n    config_endpoint = args.config_endpoint\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -347,3 +347,3 @@\n \n-def _get_credentials_and_endpoints_paths(args) -> Tuple[Optional[Text], Text]:\n+def _get_credentials_and_endpoints_paths(args) -> Tuple[Optional[Text], Optional[Text]]:\n     config_endpoint = args.config_endpoint\n",
+        "source_code_with_indent": "\n<DED>def _get_credentials_and_endpoints_paths(args) -> Tuple[Optional[Text], Text]:\n    <IND>config_endpoint = args.config_endpoint\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _get_credentials_and_endpoints_paths(args) -> Tuple[Optional[Text], Optional[Text]]:\n    <IND>config_endpoint = args.config_endpoint\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

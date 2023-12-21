@@ -1,0 +1,104 @@
+[
+  {
+    "project": "privacyidea/privacyidea",
+    "commit": "13b47bc1d2db66c914102d85c416b05c735cc168",
+    "filename": "tools/ssha.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/privacyidea-privacyidea/tools/ssha.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tools/ssha.py:4:17 Unsupported operand [58]: `+` is not supported for operand types `str` and `bytes`.",
+    "message": " `+` is not supported for operand types `str` and `bytes`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 4,
+    "warning_line": "print '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#!/usr/bin/env python\nimport base64, getpass, hashlib, os\nsalt = os.urandom(8) # edit the length as you see fit\nprint '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n",
+        "source_code_len": 202,
+        "target_code": "#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n\nfrom __future__ import print_function\nimport base64\nimport getpass\nimport hashlib\nimport os\n\n\ndef get_hash(passwd, salt):\n    \"\"\"\n    Calculate a sha1 hash of a password with salt.\n\n    :param passwd: The password\n    :type passwd: string\n    :param salt: The salt\n    :type salt: bytestring\n    :return: string\n\n    lets see if doctest works:\n\n    >>> print(get_hash('test', b'test'))\n    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n\n    \"\"\"\n    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n\n\nif __name__ == '__main__':\n    salt = os.urandom(8)  # edit the length as you see fit\n    print(get_hash(getpass.getpass(), salt))\n",
+        "target_code_len": 742,
+        "diff_format": "@@ -1,4 +1,33 @@\n #!/usr/bin/env python\n-import base64, getpass, hashlib, os\n-salt = os.urandom(8) # edit the length as you see fit\n-print '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n+# -*- coding: utf-8 -*-\n+\n+from __future__ import print_function\n+import base64\n+import getpass\n+import hashlib\n+import os\n+\n+\n+def get_hash(passwd, salt):\n+    \"\"\"\n+    Calculate a sha1 hash of a password with salt.\n+\n+    :param passwd: The password\n+    :type passwd: string\n+    :param salt: The salt\n+    :type salt: bytestring\n+    :return: string\n+\n+    lets see if doctest works:\n+\n+    >>> print(get_hash('test', b'test'))\n+    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n+\n+    \"\"\"\n+    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n+    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n+\n+\n+if __name__ == '__main__':\n+    salt = os.urandom(8)  # edit the length as you see fit\n+    print(get_hash(getpass.getpass(), salt))\n",
+        "source_code_with_indent": "#!/usr/bin/env python\nimport base64, getpass, hashlib, os\nsalt = os.urandom(8) # edit the length as you see fit\nprint '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n\nfrom __future__ import print_function\nimport base64\nimport getpass\nimport hashlib\nimport os\n\n\ndef get_hash(passwd, salt):\n    <IND>\"\"\"\n    Calculate a sha1 hash of a password with salt.\n\n    :param passwd: The password\n    :type passwd: string\n    :param salt: The salt\n    :type salt: bytestring\n    :return: string\n\n    lets see if doctest works:\n\n    >>> print(get_hash('test', b'test'))\n    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n\n    \"\"\"\n    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n\n\n<DED>if __name__ == '__main__':\n    <IND>salt = os.urandom(8)  # edit the length as you see fit\n    print(get_hash(getpass.getpass(), salt))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "privacyidea/privacyidea",
+    "commit": "13b47bc1d2db66c914102d85c416b05c735cc168",
+    "filename": "tools/ssha.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/privacyidea-privacyidea/tools/ssha.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tools/ssha.py:4:47 Incompatible parameter type [6]: Expected `typing.Union[array.array[typing.Any], bytearray, bytes, memoryview, mmap.mmap]` for 1st positional only parameter to call `hashlib.sha1` but got `str`.",
+    "message": " Expected `typing.Union[array.array[typing.Any], bytearray, bytes, memoryview, mmap.mmap]` for 1st positional only parameter to call `hashlib.sha1` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 4,
+    "warning_line": "print '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#!/usr/bin/env python\nimport base64, getpass, hashlib, os\nsalt = os.urandom(8) # edit the length as you see fit\nprint '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n",
+        "source_code_len": 202,
+        "target_code": "#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n\nfrom __future__ import print_function\nimport base64\nimport getpass\nimport hashlib\nimport os\n\n\ndef get_hash(passwd, salt):\n    \"\"\"\n    Calculate a sha1 hash of a password with salt.\n\n    :param passwd: The password\n    :type passwd: string\n    :param salt: The salt\n    :type salt: bytestring\n    :return: string\n\n    lets see if doctest works:\n\n    >>> print(get_hash('test', b'test'))\n    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n\n    \"\"\"\n    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n\n\nif __name__ == '__main__':\n    salt = os.urandom(8)  # edit the length as you see fit\n    print(get_hash(getpass.getpass(), salt))\n",
+        "target_code_len": 742,
+        "diff_format": "@@ -1,4 +1,33 @@\n #!/usr/bin/env python\n-import base64, getpass, hashlib, os\n-salt = os.urandom(8) # edit the length as you see fit\n-print '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n+# -*- coding: utf-8 -*-\n+\n+from __future__ import print_function\n+import base64\n+import getpass\n+import hashlib\n+import os\n+\n+\n+def get_hash(passwd, salt):\n+    \"\"\"\n+    Calculate a sha1 hash of a password with salt.\n+\n+    :param passwd: The password\n+    :type passwd: string\n+    :param salt: The salt\n+    :type salt: bytestring\n+    :return: string\n+\n+    lets see if doctest works:\n+\n+    >>> print(get_hash('test', b'test'))\n+    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n+\n+    \"\"\"\n+    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n+    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n+\n+\n+if __name__ == '__main__':\n+    salt = os.urandom(8)  # edit the length as you see fit\n+    print(get_hash(getpass.getpass(), salt))\n",
+        "source_code_with_indent": "#!/usr/bin/env python\nimport base64, getpass, hashlib, os\nsalt = os.urandom(8) # edit the length as you see fit\nprint '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n\nfrom __future__ import print_function\nimport base64\nimport getpass\nimport hashlib\nimport os\n\n\ndef get_hash(passwd, salt):\n    <IND>\"\"\"\n    Calculate a sha1 hash of a password with salt.\n\n    :param passwd: The password\n    :type passwd: string\n    :param salt: The salt\n    :type salt: bytestring\n    :return: string\n\n    lets see if doctest works:\n\n    >>> print(get_hash('test', b'test'))\n    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n\n    \"\"\"\n    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n\n\n<DED>if __name__ == '__main__':\n    <IND>salt = os.urandom(8)  # edit the length as you see fit\n    print(get_hash(getpass.getpass(), salt))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "privacyidea/privacyidea",
+    "commit": "13b47bc1d2db66c914102d85c416b05c735cc168",
+    "filename": "tools/ssha.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/privacyidea-privacyidea/tools/ssha.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tools/ssha.py:4:67 Unsupported operand [58]: `+` is not supported for operand types `str` and `bytes`.",
+    "message": " `+` is not supported for operand types `str` and `bytes`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 4,
+    "warning_line": "print '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "#!/usr/bin/env python\nimport base64, getpass, hashlib, os\nsalt = os.urandom(8) # edit the length as you see fit\nprint '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n",
+        "source_code_len": 202,
+        "target_code": "#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n\nfrom __future__ import print_function\nimport base64\nimport getpass\nimport hashlib\nimport os\n\n\ndef get_hash(passwd, salt):\n    \"\"\"\n    Calculate a sha1 hash of a password with salt.\n\n    :param passwd: The password\n    :type passwd: string\n    :param salt: The salt\n    :type salt: bytestring\n    :return: string\n\n    lets see if doctest works:\n\n    >>> print(get_hash('test', b'test'))\n    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n\n    \"\"\"\n    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n\n\nif __name__ == '__main__':\n    salt = os.urandom(8)  # edit the length as you see fit\n    print(get_hash(getpass.getpass(), salt))\n",
+        "target_code_len": 742,
+        "diff_format": "@@ -1,4 +1,33 @@\n #!/usr/bin/env python\n-import base64, getpass, hashlib, os\n-salt = os.urandom(8) # edit the length as you see fit\n-print '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n+# -*- coding: utf-8 -*-\n+\n+from __future__ import print_function\n+import base64\n+import getpass\n+import hashlib\n+import os\n+\n+\n+def get_hash(passwd, salt):\n+    \"\"\"\n+    Calculate a sha1 hash of a password with salt.\n+\n+    :param passwd: The password\n+    :type passwd: string\n+    :param salt: The salt\n+    :type salt: bytestring\n+    :return: string\n+\n+    lets see if doctest works:\n+\n+    >>> print(get_hash('test', b'test'))\n+    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n+\n+    \"\"\"\n+    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n+    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n+\n+\n+if __name__ == '__main__':\n+    salt = os.urandom(8)  # edit the length as you see fit\n+    print(get_hash(getpass.getpass(), salt))\n",
+        "source_code_with_indent": "#!/usr/bin/env python\nimport base64, getpass, hashlib, os\nsalt = os.urandom(8) # edit the length as you see fit\nprint '{SSHA}' + base64.b64encode(hashlib.sha1(getpass.getpass() + salt).digest() + salt)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n\nfrom __future__ import print_function\nimport base64\nimport getpass\nimport hashlib\nimport os\n\n\ndef get_hash(passwd, salt):\n    <IND>\"\"\"\n    Calculate a sha1 hash of a password with salt.\n\n    :param passwd: The password\n    :type passwd: string\n    :param salt: The salt\n    :type salt: bytestring\n    :return: string\n\n    lets see if doctest works:\n\n    >>> print(get_hash('test', b'test'))\n    {SSHA}Uau5Y2B43vv4iNhFenx2+FyPEUx0ZXN0\n\n    \"\"\"\n    h = hashlib.sha1(passwd.encode('utf8') + salt).digest()\n    return '{SSHA}' + base64.b64encode(h + salt).decode('utf8')\n\n\n<DED>if __name__ == '__main__':\n    <IND>salt = os.urandom(8)  # edit the length as you see fit\n    print(get_hash(getpass.getpass(), salt))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

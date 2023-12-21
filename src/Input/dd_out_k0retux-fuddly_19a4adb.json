@@ -1,0 +1,36 @@
+[
+  {
+    "project": "k0retux/fuddly",
+    "commit": "19a4adbc5e9a0399c81dee4c32a7d9b116941818",
+    "filename": "test/integration/test_integration.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/k0retux-fuddly/test/integration/test_integration.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "test/integration/test_integration.py:58:4 Inconsistent override [15]: `values` overrides attribute defined in `framework.value_types.Fuzzy_INT16` inconsistently. Type `typing.List[str]` is not a subtype of the overridden attribute `typing.List[int]`.",
+    "message": " `values` overrides attribute defined in `framework.value_types.Fuzzy_INT16` inconsistently. Type `typing.List[str]` is not a subtype of the overridden attribute `typing.List[int]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 58,
+    "warning_line": "    values = ['TEST_OK', 'BLABLA', 'PLOP']",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class TEST_Fuzzy_INT16(Fuzzy_INT16):\n    values = ['TEST_OK', 'BLABLA', 'PLOP']\n\n    def __init__(self, endian=None, supp_list=None):\n        self.endian = endian\n        self.idx = 0\n        INT.__init__(self, values=self.values, determinist=True)\n\n    def is_compatible(self, integer):\n        return False\n\n    def _convert_value(self, val):\n        return val\n\n\n",
+        "source_code_len": 366,
+        "target_code": "class TEST_Fuzzy_INT16(Fuzzy_INT16):\n    values = [0xDEAD, 0xBEEF, 0xCAFE]\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -57,15 +57,3 @@\n class TEST_Fuzzy_INT16(Fuzzy_INT16):\n-    values = ['TEST_OK', 'BLABLA', 'PLOP']\n-\n-    def __init__(self, endian=None, supp_list=None):\n-        self.endian = endian\n-        self.idx = 0\n-        INT.__init__(self, values=self.values, determinist=True)\n-\n-    def is_compatible(self, integer):\n-        return False\n-\n-    def _convert_value(self, val):\n-        return val\n-\n+    values = [0xDEAD, 0xBEEF, 0xCAFE]\n \n",
+        "source_code_with_indent": "<DED>class TEST_Fuzzy_INT16(Fuzzy_INT16):\n    <IND>values = ['TEST_OK', 'BLABLA', 'PLOP']\n\n    def __init__(self, endian=None, supp_list=None):\n        <IND>self.endian = endian\n        self.idx = 0\n        INT.__init__(self, values=self.values, determinist=True)\n\n    <DED>def is_compatible(self, integer):\n        <IND>return False\n\n    <DED>def _convert_value(self, val):\n        <IND>return val\n\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class TEST_Fuzzy_INT16(Fuzzy_INT16):\n    <IND>values = [0xDEAD, 0xBEEF, 0xCAFE]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

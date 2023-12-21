@@ -1,0 +1,53 @@
+[
+  {
+    "project": "photosynthesis-team/piq",
+    "commit": "b4c4919a6923a20823f2b25f17ed48c8249e1d1b",
+    "filename": "tests/test_vif.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/photosynthesis-team-piq/tests/test_vif.py",
+    "file_hunks_size": 6,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_vif.py:113:17 Call error [29]: `piq.vif.VIFLoss` is not a function.",
+    "message": " `piq.vif.VIFLoss` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 113,
+    "warning_line": "    loss_value = VIFLoss()(prediction, target)"
+  },
+  {
+    "project": "photosynthesis-team/piq",
+    "commit": "b4c4919a6923a20823f2b25f17ed48c8249e1d1b",
+    "filename": "tests/test_vif.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/photosynthesis-team-piq/tests/test_vif.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_vif.py:121:17 Call error [29]: `piq.vif.VIFLoss` is not a function.",
+    "message": " `piq.vif.VIFLoss` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 121,
+    "warning_line": "    loss_value = VIFLoss()(prediction.cuda(), target.cuda())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    assert prediction.grad is not None, NONE_GRAD_ERR_MSG\n\n\n@pytest.mark.skipif(not torch.cuda.is_available(), reason='No need to run test if there is no GPU.')\ndef test_vif_loss_computes_grad_on_gpu(prediction: torch.Tensor, target: torch.Tensor) -> None:\n    prediction.requires_grad_()\n    loss_value = VIFLoss()(prediction.cuda(), target.cuda())\n    loss_value.backward()\n    assert prediction.grad is not None, NONE_GRAD_ERR_MSG\n",
+        "source_code_len": 434,
+        "target_code": "    assert prediction.grad is not None, NONE_GRAD_ERR_MSG\n",
+        "target_code_len": 58,
+        "diff_format": "@@ -115,9 +126,1 @@\n     assert prediction.grad is not None, NONE_GRAD_ERR_MSG\n-\n-\n-@pytest.mark.skipif(not torch.cuda.is_available(), reason='No need to run test if there is no GPU.')\n-def test_vif_loss_computes_grad_on_gpu(prediction: torch.Tensor, target: torch.Tensor) -> None:\n-    prediction.requires_grad_()\n-    loss_value = VIFLoss()(prediction.cuda(), target.cuda())\n-    loss_value.backward()\n-    assert prediction.grad is not None, NONE_GRAD_ERR_MSG\n",
+        "source_code_with_indent": "    assert prediction.grad is not None, NONE_GRAD_ERR_MSG\n\n\n<DED>@pytest.mark.skipif(not torch.cuda.is_available(), reason='No need to run test if there is no GPU.')\ndef test_vif_loss_computes_grad_on_gpu(prediction: torch.Tensor, target: torch.Tensor) -> None:\n    <IND>prediction.requires_grad_()\n    loss_value = VIFLoss()(prediction.cuda(), target.cuda())\n    loss_value.backward()\n    assert prediction.grad is not None, NONE_GRAD_ERR_MSG\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    assert prediction.grad is not None, NONE_GRAD_ERR_MSG\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

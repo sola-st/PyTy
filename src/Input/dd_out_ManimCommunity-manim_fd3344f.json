@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ManimCommunity/manim",
+    "commit": "fd3344f100c83670e85dcb016e9b2f4d261a4d82",
+    "filename": "manim/mobject/functions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ManimCommunity-manim/manim/mobject/functions.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "manim/mobject/functions.py:73:8 Incompatible variable type [9]: discontinuities is declared to have type `bool` but is used as type `None`.",
+    "message": " discontinuities is declared to have type `bool` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 73,
+    "warning_line": "        discontinuities: bool = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Callable, Optional, Sequence\n\n",
+        "source_code_len": 50,
+        "target_code": "\nfrom typing import Callable, Iterable, Optional, Sequence\n\n",
+        "target_code_len": 60,
+        "diff_format": "@@ -5,3 +5,3 @@\n \n-from typing import Callable, Optional, Sequence\n+from typing import Callable, Iterable, Optional, Sequence\n \n",
+        "source_code_with_indent": "\nfrom typing import Callable, Optional, Sequence\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import Callable, Iterable, Optional, Sequence\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        dt: float = 1e-8,\n        discontinuities: bool = None,\n        use_smoothing: bool = True,\n",
+        "source_code_len": 100,
+        "target_code": "        dt: float = 1e-8,\n        discontinuities: Optional[Iterable[float]] = None,\n        use_smoothing: bool = True,\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -72,3 +72,3 @@\n         dt: float = 1e-8,\n-        discontinuities: bool = None,\n+        discontinuities: Optional[Iterable[float]] = None,\n         use_smoothing: bool = True,\n",
+        "source_code_with_indent": "        dt: float = 1e-8,\n        discontinuities: bool = None,\n        use_smoothing: bool = True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        dt: float = 1e-8,\n        discontinuities: Optional[Iterable[float]] = None,\n        use_smoothing: bool = True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

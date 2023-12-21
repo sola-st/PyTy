@@ -1,0 +1,51 @@
+[
+  {
+    "project": "openml/openml-python",
+    "commit": "2db5ec8a1bb53a4a50edc25e33a91b7ffec40c33",
+    "filename": "openml/datasets/dataset.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openml-openml-python/openml/datasets/dataset.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "openml/datasets/dataset.py:420:23 Incompatible variable type [9]: target is declared to have type `str` but is used as type `None`.",
+    "message": " target is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 420,
+    "warning_line": "    def get_data(self, target: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import pickle\nfrom collections import OrderedDict\n\n",
+        "source_code_len": 51,
+        "target_code": "import pickle\nfrom typing import List, Optional, Union\n\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -5,3 +6,3 @@\n import pickle\n-from collections import OrderedDict\n+from typing import List, Optional, Union\n \n",
+        "source_code_with_indent": "import pickle\nfrom collections import OrderedDict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import pickle\nfrom typing import List, Optional, Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_data(self, target: str = None,\n                 include_row_id: bool = False,\n",
+        "source_code_len": 91,
+        "target_code": "\n    def get_data(self, target: Optional[Union[List[str], str]] = None,\n                 include_row_id: bool = False,\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -419,3 +420,3 @@\n \n-    def get_data(self, target: str = None,\n+    def get_data(self, target: Optional[Union[List[str], str]] = None,\n                  include_row_id: bool = False,\n",
+        "source_code_with_indent": "\n    <DED>def get_data(self, target: str = None,\n                 include_row_id: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_data(self, target: Optional[Union[List[str], str]] = None,\n                 include_row_id: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

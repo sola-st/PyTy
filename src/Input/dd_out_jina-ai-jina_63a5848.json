@@ -1,0 +1,70 @@
+[
+  {
+    "project": "jina-ai/jina",
+    "commit": "63a584846594b15cebec93fe5f584e0c0939f805",
+    "filename": "jina/executors/crafters/numeric/io.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jina-ai-jina/jina/executors/crafters/numeric/io.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jina/executors/crafters/numeric/io.py:25:4 Inconsistent override [15]: `jina.executors.crafters.numeric.io.ArrayReader.craft` overrides method defined in `jina.executors.crafters.BaseCrafter` inconsistently. Returned type `List[Dict[typing.Any, typing.Any]]` is not a subtype of the overridden return `Dict[typing.Any, typing.Any]`.",
+    "message": " `jina.executors.crafters.numeric.io.ArrayReader.craft` overrides method defined in `jina.executors.crafters.BaseCrafter` inconsistently. Returned type `List[Dict[typing.Any, typing.Any]]` is not a subtype of the overridden return `Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 25,
+    "warning_line": "    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> List[Dict]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> List[Dict]:\n        \"\"\"\n",
+        "source_code_len": 93,
+        "target_code": "\n    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> Dict:\n        \"\"\"\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -24,3 +24,3 @@\n \n-    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> List[Dict]:\n+    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> Dict:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> List[Dict]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> Dict:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "jina-ai/jina",
+    "commit": "63a584846594b15cebec93fe5f584e0c0939f805",
+    "filename": "jina/executors/crafters/numeric/io.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jina-ai-jina/jina/executors/crafters/numeric/io.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jina/executors/crafters/numeric/io.py:47:8 Incompatible return type [7]: Expected `List[Dict[typing.Any, typing.Any]]` but got `Dict[str, float]`.",
+    "message": " Expected `List[Dict[typing.Any, typing.Any]]` but got `Dict[str, float]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 47,
+    "warning_line": "        return dict(doc_id=doc_id, offset=0, weight=1., blob=_array)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> List[Dict]:\n        \"\"\"\n",
+        "source_code_len": 93,
+        "target_code": "\n    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> Dict:\n        \"\"\"\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -24,3 +24,3 @@\n \n-    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> List[Dict]:\n+    def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> Dict:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> List[Dict]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def craft(self, buffer: bytes, doc_id: int, *args, **kwargs) -> Dict:\n        <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "project": "plone/guillotina",
+    "commit": "b877d947899401c845691be06157ebe1e50c7e80",
+    "filename": "guillotina/contrib/workflows/interfaces.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plone-guillotina/guillotina/contrib/workflows/interfaces.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "guillotina/contrib/workflows/interfaces.py:47:12 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 47,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from zope.interface import interfaces\n\n",
+        "source_code_len": 39,
+        "target_code": "from zope.interface import interfaces\nfrom typing import Optional\n\n",
+        "target_code_len": 67,
+        "diff_format": "@@ -10,2 +10,3 @@\n from zope.interface import interfaces\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from zope.interface import interfaces\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from zope.interface import interfaces\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class DefaultReviewState:\n    def __call__(self, context: IResource) -> str:\n        if context is None:\n",
+        "source_code_len": 105,
+        "target_code": "class DefaultReviewState:\n    def __call__(self, context: IResource) -> Optional[str]:\n        if context is None:\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -44,3 +45,3 @@\n class DefaultReviewState:\n-    def __call__(self, context: IResource) -> str:\n+    def __call__(self, context: IResource) -> Optional[str]:\n         if context is None:\n",
+        "source_code_with_indent": "class DefaultReviewState:\n    <IND>def __call__(self, context: IResource) -> str:\n        <IND>if context is None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class DefaultReviewState:\n    <IND>def __call__(self, context: IResource) -> Optional[str]:\n        <IND>if context is None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "plone/guillotina",
+    "commit": "b877d947899401c845691be06157ebe1e50c7e80",
+    "filename": "guillotina/contrib/workflows/interfaces.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plone-guillotina/guillotina/contrib/workflows/interfaces.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "guillotina/contrib/workflows/interfaces.py:52:12 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 52,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from zope.interface import interfaces\n\n",
+        "source_code_len": 39,
+        "target_code": "from zope.interface import interfaces\nfrom typing import Optional\n\n",
+        "target_code_len": 67,
+        "diff_format": "@@ -10,2 +10,3 @@\n from zope.interface import interfaces\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from zope.interface import interfaces\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from zope.interface import interfaces\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class DefaultReviewState:\n    def __call__(self, context: IResource) -> str:\n        if context is None:\n",
+        "source_code_len": 105,
+        "target_code": "class DefaultReviewState:\n    def __call__(self, context: IResource) -> Optional[str]:\n        if context is None:\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -44,3 +45,3 @@\n class DefaultReviewState:\n-    def __call__(self, context: IResource) -> str:\n+    def __call__(self, context: IResource) -> Optional[str]:\n         if context is None:\n",
+        "source_code_with_indent": "class DefaultReviewState:\n    <IND>def __call__(self, context: IResource) -> str:\n        <IND>if context is None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class DefaultReviewState:\n    <IND>def __call__(self, context: IResource) -> Optional[str]:\n        <IND>if context is None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

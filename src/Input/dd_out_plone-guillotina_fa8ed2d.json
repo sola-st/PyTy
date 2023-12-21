@@ -1,0 +1,70 @@
+[
+  {
+    "project": "plone/guillotina",
+    "commit": "fa8ed2d114463c691690ec1fdd423fdbad4ad55e",
+    "filename": "guillotina/contrib/catalog/pg/utility.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plone-guillotina/guillotina/contrib/catalog/pg/utility.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "guillotina/contrib/catalog/pg/utility.py:291:41 Incompatible parameter type [6]: Expected `guillotina.interfaces.content.IResource` for 1st positional only parameter to call `guillotina.utils.content.get_object_url` but got `typing.Optional[guillotina.interfaces.content.IContainer]`.",
+    "message": " Expected `guillotina.interfaces.content.IResource` for 1st positional only parameter to call `guillotina.utils.content.get_object_url` but got `typing.Optional[guillotina.interfaces.content.IContainer]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 291,
+    "warning_line": "            context_url = get_object_url(container)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        container = find_container(context)\n        try:\n",
+        "source_code_len": 57,
+        "target_code": "        container = find_container(context)\n        if container is None:\n            raise ContainerNotFound()\n\n        try:\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -289,2 +289,5 @@\n         container = find_container(context)\n+        if container is None:\n+            raise ContainerNotFound()\n+\n         try:\n",
+        "source_code_with_indent": "        container = find_container(context)\n        try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        container = find_container(context)\n        if container is None:\n            <IND>raise ContainerNotFound()\n\n        <DED>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "plone/guillotina",
+    "commit": "fa8ed2d114463c691690ec1fdd423fdbad4ad55e",
+    "filename": "guillotina/contrib/catalog/pg/utility.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/plone-guillotina/guillotina/contrib/catalog/pg/utility.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "guillotina/contrib/catalog/pg/utility.py:294:43 Incompatible parameter type [6]: Expected `guillotina.interfaces.content.IResource` for 1st positional only parameter to call `guillotina.utils.content.get_content_path` but got `typing.Optional[guillotina.interfaces.content.IContainer]`.",
+    "message": " Expected `guillotina.interfaces.content.IResource` for 1st positional only parameter to call `guillotina.utils.content.get_content_path` but got `typing.Optional[guillotina.interfaces.content.IContainer]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 294,
+    "warning_line": "            context_url = get_content_path(container)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        container = find_container(context)\n        try:\n",
+        "source_code_len": 57,
+        "target_code": "        container = find_container(context)\n        if container is None:\n            raise ContainerNotFound()\n\n        try:\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -289,2 +289,5 @@\n         container = find_container(context)\n+        if container is None:\n+            raise ContainerNotFound()\n+\n         try:\n",
+        "source_code_with_indent": "        container = find_container(context)\n        try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        container = find_container(context)\n        if container is None:\n            <IND>raise ContainerNotFound()\n\n        <DED>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

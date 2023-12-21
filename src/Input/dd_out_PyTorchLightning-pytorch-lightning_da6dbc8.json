@@ -1,0 +1,87 @@
+[
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "da6dbc8d1d128cf783d7151b012a5502bbd52bf5",
+    "filename": "pytorch_lightning/plugins/training_type/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/plugins/training_type/rpc.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/plugins/training_type/rpc.py:45:8 Incompatible variable type [9]: cluster_environment is declared to have type `ClusterEnvironment` but is used as type `None`.",
+    "message": " cluster_environment is declared to have type `ClusterEnvironment` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 45,
+    "warning_line": "        cluster_environment: ClusterEnvironment = None,"
+  },
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "da6dbc8d1d128cf783d7151b012a5502bbd52bf5",
+    "filename": "pytorch_lightning/plugins/training_type/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/plugins/training_type/rpc.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/plugins/training_type/rpc.py:130:4 Inconsistent override [14]: `pytorch_lightning.plugins.training_type.rpc.RPCPlugin.barrier` overrides method defined in `DDPPlugin` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "message": " `pytorch_lightning.plugins.training_type.rpc.RPCPlugin.barrier` overrides method defined in `DDPPlugin` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 130,
+    "warning_line": "    def barrier(self, name: Optional[str] = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def return_after_exit_rpc_process(self) -> bool:\n        \"\"\"\n        Override to decide whether to skip train/test function after shutdown completed.\n        Usually RPC shutdown is a join/exit function, afterwards we want to exit the process.\n\n        Returns:\n            Whether to return after RPC exit.\n        \"\"\"\n        raise NotImplementedError\n\n    def worker_optimizer_step(self, model: LightningModule, opt_idx: int, *args, **kwargs) -> None:\n        \"\"\"\n        Called when optimizer step is run on the main process. Used to signal any RPC workers to run optimizer step.\n\n        Args:\n            model: The LightningModule.\n            opt_idx: The idx of the optimizer to carry out step on.\n        \"\"\"\n        raise NotImplementedError\n\n    @property\n    def is_main_rpc_process(self) -> bool:\n        \"\"\"\n        Override to add logic to determine current process is main RPC process.\n        \"\"\"\n        raise NotImplementedError\n\n    def barrier(self, name: Optional[str] = None) -> None:\n        \"\"\"\n        Override to define distributed sync communication. This needs to be handled differently due to\n        the RPC connection managing certain processes at the same time.\n        \"\"\"\n        raise NotImplementedError\n",
+        "source_code_len": 1260,
+        "target_code": "    @property\n    def rpc_enabled(self) -> bool:\n        return True\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -102,34 +85,3 @@\n     @property\n-    def return_after_exit_rpc_process(self) -> bool:\n-        \"\"\"\n-        Override to decide whether to skip train/test function after shutdown completed.\n-        Usually RPC shutdown is a join/exit function, afterwards we want to exit the process.\n-\n-        Returns:\n-            Whether to return after RPC exit.\n-        \"\"\"\n-        raise NotImplementedError\n-\n-    def worker_optimizer_step(self, model: LightningModule, opt_idx: int, *args, **kwargs) -> None:\n-        \"\"\"\n-        Called when optimizer step is run on the main process. Used to signal any RPC workers to run optimizer step.\n-\n-        Args:\n-            model: The LightningModule.\n-            opt_idx: The idx of the optimizer to carry out step on.\n-        \"\"\"\n-        raise NotImplementedError\n-\n-    @property\n-    def is_main_rpc_process(self) -> bool:\n-        \"\"\"\n-        Override to add logic to determine current process is main RPC process.\n-        \"\"\"\n-        raise NotImplementedError\n-\n-    def barrier(self, name: Optional[str] = None) -> None:\n-        \"\"\"\n-        Override to define distributed sync communication. This needs to be handled differently due to\n-        the RPC connection managing certain processes at the same time.\n-        \"\"\"\n-        raise NotImplementedError\n+    def rpc_enabled(self) -> bool:\n+        return True\n",
+        "source_code_with_indent": "    <DED><DED>@property\n    def return_after_exit_rpc_process(self) -> bool:\n        <IND>\"\"\"\n        Override to decide whether to skip train/test function after shutdown completed.\n        Usually RPC shutdown is a join/exit function, afterwards we want to exit the process.\n\n        Returns:\n            Whether to return after RPC exit.\n        \"\"\"\n        raise NotImplementedError\n\n    <DED>def worker_optimizer_step(self, model: LightningModule, opt_idx: int, *args, **kwargs) -> None:\n        <IND>\"\"\"\n        Called when optimizer step is run on the main process. Used to signal any RPC workers to run optimizer step.\n\n        Args:\n            model: The LightningModule.\n            opt_idx: The idx of the optimizer to carry out step on.\n        \"\"\"\n        raise NotImplementedError\n\n    <DED>@property\n    def is_main_rpc_process(self) -> bool:\n        <IND>\"\"\"\n        Override to add logic to determine current process is main RPC process.\n        \"\"\"\n        raise NotImplementedError\n\n    <DED>def barrier(self, name: Optional[str] = None) -> None:\n        <IND>\"\"\"\n        Override to define distributed sync communication. This needs to be handled differently due to\n        the RPC connection managing certain processes at the same time.\n        \"\"\"\n        raise NotImplementedError\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@property\n    def rpc_enabled(self) -> bool:\n        <IND>return True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "PyTorchLightning/pytorch-lightning",
+    "commit": "da6dbc8d1d128cf783d7151b012a5502bbd52bf5",
+    "filename": "pytorch_lightning/plugins/training_type/rpc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/PyTorchLightning-pytorch-lightning/pytorch_lightning/plugins/training_type/rpc.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pytorch_lightning/plugins/training_type/rpc.py:130:4 Inconsistent override [14]: `pytorch_lightning.plugins.training_type.rpc.RPCPlugin.barrier` overrides method defined in `DDPPlugin` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "message": " `pytorch_lightning.plugins.training_type.rpc.RPCPlugin.barrier` overrides method defined in `DDPPlugin` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 130,
+    "warning_line": "    def barrier(self, name: Optional[str] = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def return_after_exit_rpc_process(self) -> bool:\n        \"\"\"\n        Override to decide whether to skip train/test function after shutdown completed.\n        Usually RPC shutdown is a join/exit function, afterwards we want to exit the process.\n\n        Returns:\n            Whether to return after RPC exit.\n        \"\"\"\n        raise NotImplementedError\n\n    def worker_optimizer_step(self, model: LightningModule, opt_idx: int, *args, **kwargs) -> None:\n        \"\"\"\n        Called when optimizer step is run on the main process. Used to signal any RPC workers to run optimizer step.\n\n        Args:\n            model: The LightningModule.\n            opt_idx: The idx of the optimizer to carry out step on.\n        \"\"\"\n        raise NotImplementedError\n\n    @property\n    def is_main_rpc_process(self) -> bool:\n        \"\"\"\n        Override to add logic to determine current process is main RPC process.\n        \"\"\"\n        raise NotImplementedError\n\n    def barrier(self, name: Optional[str] = None) -> None:\n        \"\"\"\n        Override to define distributed sync communication. This needs to be handled differently due to\n        the RPC connection managing certain processes at the same time.\n        \"\"\"\n        raise NotImplementedError\n",
+        "source_code_len": 1260,
+        "target_code": "    @property\n    def rpc_enabled(self) -> bool:\n        return True\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -102,34 +85,3 @@\n     @property\n-    def return_after_exit_rpc_process(self) -> bool:\n-        \"\"\"\n-        Override to decide whether to skip train/test function after shutdown completed.\n-        Usually RPC shutdown is a join/exit function, afterwards we want to exit the process.\n-\n-        Returns:\n-            Whether to return after RPC exit.\n-        \"\"\"\n-        raise NotImplementedError\n-\n-    def worker_optimizer_step(self, model: LightningModule, opt_idx: int, *args, **kwargs) -> None:\n-        \"\"\"\n-        Called when optimizer step is run on the main process. Used to signal any RPC workers to run optimizer step.\n-\n-        Args:\n-            model: The LightningModule.\n-            opt_idx: The idx of the optimizer to carry out step on.\n-        \"\"\"\n-        raise NotImplementedError\n-\n-    @property\n-    def is_main_rpc_process(self) -> bool:\n-        \"\"\"\n-        Override to add logic to determine current process is main RPC process.\n-        \"\"\"\n-        raise NotImplementedError\n-\n-    def barrier(self, name: Optional[str] = None) -> None:\n-        \"\"\"\n-        Override to define distributed sync communication. This needs to be handled differently due to\n-        the RPC connection managing certain processes at the same time.\n-        \"\"\"\n-        raise NotImplementedError\n+    def rpc_enabled(self) -> bool:\n+        return True\n",
+        "source_code_with_indent": "    <DED><DED>@property\n    def return_after_exit_rpc_process(self) -> bool:\n        <IND>\"\"\"\n        Override to decide whether to skip train/test function after shutdown completed.\n        Usually RPC shutdown is a join/exit function, afterwards we want to exit the process.\n\n        Returns:\n            Whether to return after RPC exit.\n        \"\"\"\n        raise NotImplementedError\n\n    <DED>def worker_optimizer_step(self, model: LightningModule, opt_idx: int, *args, **kwargs) -> None:\n        <IND>\"\"\"\n        Called when optimizer step is run on the main process. Used to signal any RPC workers to run optimizer step.\n\n        Args:\n            model: The LightningModule.\n            opt_idx: The idx of the optimizer to carry out step on.\n        \"\"\"\n        raise NotImplementedError\n\n    <DED>@property\n    def is_main_rpc_process(self) -> bool:\n        <IND>\"\"\"\n        Override to add logic to determine current process is main RPC process.\n        \"\"\"\n        raise NotImplementedError\n\n    <DED>def barrier(self, name: Optional[str] = None) -> None:\n        <IND>\"\"\"\n        Override to define distributed sync communication. This needs to be handled differently due to\n        the RPC connection managing certain processes at the same time.\n        \"\"\"\n        raise NotImplementedError\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@property\n    def rpc_enabled(self) -> bool:\n        <IND>return True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

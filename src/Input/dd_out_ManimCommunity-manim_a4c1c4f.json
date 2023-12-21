@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ManimCommunity/manim",
+    "commit": "a4c1c4f15a752d7c40a09516c1950f1ea7386948",
+    "filename": "manim/mobject/mobject.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ManimCommunity-manim/manim/mobject/mobject.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "manim/mobject/mobject.py:1635:14 Incompatible variable type [9]: color is declared to have type `Colors` but is used as type `str`.",
+    "message": " color is declared to have type `Colors` but is used as type `str`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1635,
+    "warning_line": "        self, color: Colors = BLACK, opacity: float = 0.75, **kwargs",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def add_background_rectangle(\n        self, color: Colors = BLACK, opacity: float = 0.75, **kwargs\n    ):\n",
+        "source_code_len": 110,
+        "target_code": "    def add_background_rectangle(\n        self, color: Optional[Colors] = None, opacity: float = 0.75, **kwargs\n    ):\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -1634,3 +1634,3 @@\n     def add_background_rectangle(\n-        self, color: Colors = BLACK, opacity: float = 0.75, **kwargs\n+        self, color: Optional[Colors] = None, opacity: float = 0.75, **kwargs\n     ):\n",
+        "source_code_with_indent": "    <DED>def add_background_rectangle(\n        self, color: Colors = BLACK, opacity: float = 0.75, **kwargs\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def add_background_rectangle(\n        self, color: Optional[Colors] = None, opacity: float = 0.75, **kwargs\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

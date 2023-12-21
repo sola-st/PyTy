@@ -1,0 +1,36 @@
+[
+  {
+    "project": "keras-team/keras",
+    "commit": "41d967f573868a7828c8b89bac0df9e9cfcc6785",
+    "filename": "examples/lstm_stateful.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/keras-team-keras/examples/lstm_stateful.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/lstm_stateful.py:157:21 Incompatible variable type [9]: ratio is declared to have type `int` but is used as type `float`.",
+    "message": " ratio is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 157,
+    "warning_line": "def split_data(x, y, ratio: int = 0.8):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# split train/test data\ndef split_data(x, y, ratio: int = 0.8):\n    to_train = int(input_len * ratio)\n",
+        "source_code_len": 102,
+        "target_code": "# split train/test data\ndef split_data(x, y, ratio=0.8):\n    to_train = int(input_len * ratio)\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -156,3 +156,3 @@\n # split train/test data\n-def split_data(x, y, ratio: int = 0.8):\n+def split_data(x, y, ratio=0.8):\n     to_train = int(input_len * ratio)\n",
+        "source_code_with_indent": "# split train/test data\ndef split_data(x, y, ratio: int = 0.8):\n    <IND>to_train = int(input_len * ratio)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# split train/test data\ndef split_data(x, y, ratio=0.8):\n    <IND>to_train = int(input_len * ratio)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

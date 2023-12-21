@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Shougo/denite.nvim",
+    "commit": "74af9d149677bb5aebace3c2139e8279b5396e68",
+    "filename": "action.pyi",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Shougo-denite.nvim/action.pyi",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "action.pyi:12:34 Incompatible variable type [9]: callback is declared to have type `typing.Callable[[Prompt], Optional[int]]` but is used as type `None`.",
+    "message": " callback is declared to have type `typing.Callable[[Prompt], Optional[int]]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 12,
+    "warning_line": "    def register(self, name: str, callback: ActionCallback=None) -> None: ...",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def register(self, name: str, callback: ActionCallback=None) -> None: ...\n\n",
+        "source_code_len": 80,
+        "target_code": "\n    def clear(self) -> None: ...\n\n    def register(self, name: str, callback: ActionCallback) -> None: ...\n\n",
+        "target_code_len": 109,
+        "diff_format": "@@ -11,3 +11,5 @@\n \n-    def register(self, name: str, callback: ActionCallback=None) -> None: ...\n+    def clear(self) -> None: ...\n+\n+    def register(self, name: str, callback: ActionCallback) -> None: ...\n \n",
+        "source_code_with_indent": "\n    def register(self, name: str, callback: ActionCallback=None) -> None: ...\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def clear(self) -> None: ...\n\n    def register(self, name: str, callback: ActionCallback) -> None: ...\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

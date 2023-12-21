@@ -1,0 +1,70 @@
+[
+  {
+    "project": "pytorch/ignite",
+    "commit": "29058e2f0e7d753cbd8dbb254652288afa81bda0",
+    "filename": "ignite/handlers/timing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/handlers/timing.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ignite/handlers/timing.py:90:8 Incompatible variable type [9]: start is declared to have type `str` but is used as type `ignite.engine.events.Events`.",
+    "message": " start is declared to have type `str` but is used as type `ignite.engine.events.Events`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 90,
+    "warning_line": "        start: str = Events.STARTED,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        engine: Engine,\n        start: str = Events.STARTED,\n        pause: str = Events.COMPLETED,\n        resume: Optional[str] = None,\n        step: Optional[str] = None,\n    ):\n",
+        "source_code_len": 181,
+        "target_code": "        engine: Engine,\n        start: Events = Events.STARTED,\n        pause: Events = Events.COMPLETED,\n        resume: Optional[Events] = None,\n        step: Optional[Events] = None,\n    ):\n",
+        "target_code_len": 193,
+        "diff_format": "@@ -89,6 +89,6 @@\n         engine: Engine,\n-        start: str = Events.STARTED,\n-        pause: str = Events.COMPLETED,\n-        resume: Optional[str] = None,\n-        step: Optional[str] = None,\n+        start: Events = Events.STARTED,\n+        pause: Events = Events.COMPLETED,\n+        resume: Optional[Events] = None,\n+        step: Optional[Events] = None,\n     ):\n",
+        "source_code_with_indent": "        engine: Engine,\n        start: str = Events.STARTED,\n        pause: str = Events.COMPLETED,\n        resume: Optional[str] = None,\n        step: Optional[str] = None,\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        engine: Engine,\n        start: Events = Events.STARTED,\n        pause: Events = Events.COMPLETED,\n        resume: Optional[Events] = None,\n        step: Optional[Events] = None,\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pytorch/ignite",
+    "commit": "29058e2f0e7d753cbd8dbb254652288afa81bda0",
+    "filename": "ignite/handlers/timing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/handlers/timing.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ignite/handlers/timing.py:91:8 Incompatible variable type [9]: pause is declared to have type `str` but is used as type `ignite.engine.events.Events`.",
+    "message": " pause is declared to have type `str` but is used as type `ignite.engine.events.Events`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 91,
+    "warning_line": "        pause: str = Events.COMPLETED,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        engine: Engine,\n        start: str = Events.STARTED,\n        pause: str = Events.COMPLETED,\n        resume: Optional[str] = None,\n        step: Optional[str] = None,\n    ):\n",
+        "source_code_len": 181,
+        "target_code": "        engine: Engine,\n        start: Events = Events.STARTED,\n        pause: Events = Events.COMPLETED,\n        resume: Optional[Events] = None,\n        step: Optional[Events] = None,\n    ):\n",
+        "target_code_len": 193,
+        "diff_format": "@@ -89,6 +89,6 @@\n         engine: Engine,\n-        start: str = Events.STARTED,\n-        pause: str = Events.COMPLETED,\n-        resume: Optional[str] = None,\n-        step: Optional[str] = None,\n+        start: Events = Events.STARTED,\n+        pause: Events = Events.COMPLETED,\n+        resume: Optional[Events] = None,\n+        step: Optional[Events] = None,\n     ):\n",
+        "source_code_with_indent": "        engine: Engine,\n        start: str = Events.STARTED,\n        pause: str = Events.COMPLETED,\n        resume: Optional[str] = None,\n        step: Optional[str] = None,\n    ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        engine: Engine,\n        start: Events = Events.STARTED,\n        pause: Events = Events.COMPLETED,\n        resume: Optional[Events] = None,\n        step: Optional[Events] = None,\n    ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

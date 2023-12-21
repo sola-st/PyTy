@@ -1,0 +1,36 @@
+[
+  {
+    "project": "collerek/ormar",
+    "commit": "cc23b5a8796bf71cc3fd04e3d7b48dde562985bf",
+    "filename": "ormar/models/metaclass.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/collerek-ormar/ormar/models/metaclass.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "ormar/models/metaclass.py:365:16 Incompatible variable type [9]: new_meta is declared to have type `ModelMeta` but is used as type `Type[Variable[_T_meta](covariant)]`.",
+    "message": " new_meta is declared to have type `ModelMeta` but is used as type `Type[Variable[_T_meta](covariant)]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 365,
+    "warning_line": "                new_meta: ormar.ModelMeta = type(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                through_class = field.through\n                new_meta: ormar.ModelMeta = type(\n                    \"Meta\",\n                    (),  # type: ignore\n                    dict(through_class.Meta.__dict__),\n                )\n",
+        "source_code_len": 237,
+        "target_code": "                through_class = field.through\n                new_meta: ormar.ModelMeta = type(  # type: ignore\n                    \"Meta\", (), dict(through_class.Meta.__dict__),\n                )\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -364,6 +364,4 @@\n                 through_class = field.through\n-                new_meta: ormar.ModelMeta = type(\n-                    \"Meta\",\n-                    (),  # type: ignore\n-                    dict(through_class.Meta.__dict__),\n+                new_meta: ormar.ModelMeta = type(  # type: ignore\n+                    \"Meta\", (), dict(through_class.Meta.__dict__),\n                 )\n",
+        "source_code_with_indent": "                through_class = field.through\n                new_meta: ormar.ModelMeta = type(\n                    \"Meta\",\n                    (),  # type: ignore\n                    dict(through_class.Meta.__dict__),\n                )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                through_class = field.through\n                new_meta: ormar.ModelMeta = type(  # type: ignore\n                    \"Meta\", (), dict(through_class.Meta.__dict__),\n                )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

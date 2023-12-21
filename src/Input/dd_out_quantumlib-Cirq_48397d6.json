@@ -1,0 +1,51 @@
+[
+  {
+    "project": "quantumlib/Cirq",
+    "commit": "48397d66835668c203b121e0935d88a5708502c6",
+    "filename": "cirq-core/cirq/devices/named_topologies.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-Cirq/cirq-core/cirq/devices/named_topologies.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cirq-core/cirq/devices/named_topologies.py:32:34 Incompatible variable type [9]: namespace is declared to have type `str` but is used as type `None`.",
+    "message": " namespace is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 32,
+    "warning_line": "def dataclass_json_dict(obj: Any, namespace: str = None) -> Dict[str, Any]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from cirq.devices import GridQubit, LineQubit\nfrom cirq.protocols.json_serialization import obj_to_dict_helper\n\n",
+        "source_code_len": 112,
+        "target_code": "from cirq.devices import GridQubit, LineQubit\nfrom cirq.protocols.json_serialization import dataclass_json_dict\n\n",
+        "target_code_len": 113,
+        "diff_format": "@@ -25,3 +24,3 @@\n from cirq.devices import GridQubit, LineQubit\n-from cirq.protocols.json_serialization import obj_to_dict_helper\n+from cirq.protocols.json_serialization import dataclass_json_dict\n \n",
+        "source_code_with_indent": "from cirq.devices import GridQubit, LineQubit\nfrom cirq.protocols.json_serialization import obj_to_dict_helper\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from cirq.devices import GridQubit, LineQubit\nfrom cirq.protocols.json_serialization import dataclass_json_dict\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    import cirq\n\n\ndef dataclass_json_dict(obj: Any, namespace: str = None) -> Dict[str, Any]:\n    return obj_to_dict_helper(obj, [f.name for f in dataclasses.fields(obj)], namespace=namespace)\n\n",
+        "source_code_len": 194,
+        "target_code": "    import cirq\n\n",
+        "target_code_len": 17,
+        "diff_format": "@@ -29,6 +28,2 @@\n     import cirq\n-\n-\n-def dataclass_json_dict(obj: Any, namespace: str = None) -> Dict[str, Any]:\n-    return obj_to_dict_helper(obj, [f.name for f in dataclasses.fields(obj)], namespace=namespace)\n \n",
+        "source_code_with_indent": "    <IND>import cirq\n\n\n<DED>def dataclass_json_dict(obj: Any, namespace: str = None) -> Dict[str, Any]:\n    <IND>return obj_to_dict_helper(obj, [f.name for f in dataclasses.fields(obj)], namespace=namespace)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>import cirq\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

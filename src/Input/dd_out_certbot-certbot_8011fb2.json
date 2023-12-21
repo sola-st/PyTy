@@ -1,0 +1,70 @@
+[
+  {
+    "project": "certbot/certbot",
+    "commit": "8011fb2879659008528e8b6ba5c04ac3de1e63a0",
+    "filename": "acme/acme/jose/jwk.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/certbot-certbot/acme/acme/jose/jwk.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "acme/acme/jose/jwk.py:136:4 Inconsistent override [15]: `cryptography_key_types` overrides attribute defined in `JWK` inconsistently. Type `typing.Tuple[typing.Type[ec.EllipticCurvePublicKey], typing.Type[ec.EllipticCurvePrivateKey]]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "message": " `cryptography_key_types` overrides attribute defined in `JWK` inconsistently. Type `typing.Tuple[typing.Type[ec.EllipticCurvePublicKey], typing.Type[ec.EllipticCurvePrivateKey]]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 136,
+    "warning_line": "    cryptography_key_types = (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    type_field_name = 'kty'\n    TYPES = {}\n    cryptography_key_types = ()\n    \"\"\"Subclasses should override.\"\"\"\n",
+        "source_code_len": 113,
+        "target_code": "    type_field_name = 'kty'\n    TYPES = {}  # type: dict\n    cryptography_key_types = ()  # type: tuple\n    \"\"\"Subclasses should override.\"\"\"\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -27,4 +27,4 @@\n     type_field_name = 'kty'\n-    TYPES = {}\n-    cryptography_key_types = ()\n+    TYPES = {}  # type: dict\n+    cryptography_key_types = ()  # type: tuple\n     \"\"\"Subclasses should override.\"\"\"\n",
+        "source_code_with_indent": "    type_field_name = 'kty'\n    TYPES = {}\n    cryptography_key_types = ()\n    \"\"\"Subclasses should override.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    type_field_name = 'kty'\n    TYPES = {}  # type: dict\n    cryptography_key_types = ()  # type: tuple\n    \"\"\"Subclasses should override.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "certbot/certbot",
+    "commit": "8011fb2879659008528e8b6ba5c04ac3de1e63a0",
+    "filename": "acme/acme/jose/jwk.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/certbot-certbot/acme/acme/jose/jwk.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "acme/acme/jose/jwk.py:183:4 Inconsistent override [15]: `cryptography_key_types` overrides attribute defined in `JWK` inconsistently. Type `typing.Tuple[typing.Type[rsa.RSAPublicKey], typing.Type[rsa.RSAPrivateKey]]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "message": " `cryptography_key_types` overrides attribute defined in `JWK` inconsistently. Type `typing.Tuple[typing.Type[rsa.RSAPublicKey], typing.Type[rsa.RSAPrivateKey]]` is not a subtype of the overridden attribute `typing.Tuple[]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 183,
+    "warning_line": "    cryptography_key_types = (rsa.RSAPublicKey, rsa.RSAPrivateKey)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    type_field_name = 'kty'\n    TYPES = {}\n    cryptography_key_types = ()\n    \"\"\"Subclasses should override.\"\"\"\n",
+        "source_code_len": 113,
+        "target_code": "    type_field_name = 'kty'\n    TYPES = {}  # type: dict\n    cryptography_key_types = ()  # type: tuple\n    \"\"\"Subclasses should override.\"\"\"\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -27,4 +27,4 @@\n     type_field_name = 'kty'\n-    TYPES = {}\n-    cryptography_key_types = ()\n+    TYPES = {}  # type: dict\n+    cryptography_key_types = ()  # type: tuple\n     \"\"\"Subclasses should override.\"\"\"\n",
+        "source_code_with_indent": "    type_field_name = 'kty'\n    TYPES = {}\n    cryptography_key_types = ()\n    \"\"\"Subclasses should override.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    type_field_name = 'kty'\n    TYPES = {}  # type: dict\n    cryptography_key_types = ()  # type: tuple\n    \"\"\"Subclasses should override.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

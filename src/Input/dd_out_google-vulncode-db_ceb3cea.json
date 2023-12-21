@@ -1,0 +1,51 @@
+[
+  {
+    "project": "google/vulncode-db",
+    "commit": "ceb3cea7b9a0f661a3362a976300b5465e5eb994",
+    "filename": "data/models/vulnerability.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/google-vulncode-db/data/models/vulnerability.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "data/models/vulnerability.py:145:8 Inconsistent override [15]: `exclude` overrides attribute defined in `MarshmallowBase.Meta` inconsistently. Type `typing.List[str]` is not a subtype of the overridden attribute `typing.Tuple[str, str, str]`.",
+    "message": " `exclude` overrides attribute defined in `MarshmallowBase.Meta` inconsistently. Type `typing.List[str]` is not a subtype of the overridden attribute `typing.Tuple[str, str, str]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 145,
+    "warning_line": "        exclude = [\"archived_at\", \"active\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import json\n\n",
+        "source_code_len": 13,
+        "target_code": "import json\nfrom typing import Iterable, TYPE_CHECKING\n\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -17,2 +17,3 @@\n import json\n+from typing import Iterable, TYPE_CHECKING\n \n",
+        "source_code_with_indent": "import json\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import json\nfrom typing import Iterable, TYPE_CHECKING\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    class Meta:\n        exclude = (\"id\", \"date_created\", \"date_modified\")\n\n",
+        "source_code_len": 75,
+        "target_code": "    class Meta:\n        exclude: Iterable[str] = (\"id\", \"date_created\", \"date_modified\")\n\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -86,3 +90,3 @@\n     class Meta:\n-        exclude = (\"id\", \"date_created\", \"date_modified\")\n+        exclude: Iterable[str] = (\"id\", \"date_created\", \"date_modified\")\n \n",
+        "source_code_with_indent": "    class Meta:\n        <IND>exclude = (\"id\", \"date_created\", \"date_modified\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    class Meta:\n        <IND>exclude: Iterable[str] = (\"id\", \"date_created\", \"date_modified\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

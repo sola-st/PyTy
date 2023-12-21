@@ -1,0 +1,70 @@
+[
+  {
+    "project": "fossasia/visdom",
+    "commit": "3c749a58b466b76971d5afc5b61fc5b1f613d702",
+    "filename": "example/demo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fossasia-visdom/example/demo.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "example/demo.py:39:8 Incompatible variable type [9]: startup_sec is declared to have type `int` but is used as type `float`.",
+    "message": " startup_sec is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 39,
+    "warning_line": "        startup_sec -= 0.1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    startup_sec = 1\n    while not viz.check_connection() and startup_sec > 0:\n        time.sleep(0.1)\n        startup_sec -= 0.1\n    assert viz.check_connection(), 'No connection could be formed quickly'\n\n",
+        "source_code_len": 206,
+        "target_code": "\n    assert viz.check_connection(timeout_seconds=3), \\\n        'No connection could be formed quickly'\n\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -35,7 +35,4 @@\n \n-    startup_sec = 1\n-    while not viz.check_connection() and startup_sec > 0:\n-        time.sleep(0.1)\n-        startup_sec -= 0.1\n-    assert viz.check_connection(), 'No connection could be formed quickly'\n+    assert viz.check_connection(timeout_seconds=3), \\\n+        'No connection could be formed quickly'\n \n",
+        "source_code_with_indent": "\n    startup_sec = 1\n    while not viz.check_connection() and startup_sec > 0:\n        <IND>time.sleep(0.1)\n        startup_sec -= 0.1\n    <DED>assert viz.check_connection(), 'No connection could be formed quickly'\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n    assert viz.check_connection(timeout_seconds=3),        'No connection could be formed quickly'\n\n"
+      }
+    ]
+  },
+  {
+    "project": "fossasia/visdom",
+    "commit": "3c749a58b466b76971d5afc5b61fc5b1f613d702",
+    "filename": "example/demo-properties.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fossasia-visdom/example/demo-properties.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "example/demo-properties.py:22:8 Incompatible variable type [9]: startup_sec is declared to have type `int` but is used as type `float`.",
+    "message": " startup_sec is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 22,
+    "warning_line": "        startup_sec -= 0.1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    startup_sec = 1\n    while not viz.check_connection() and startup_sec > 0:\n        time.sleep(0.1)\n        startup_sec -= 0.1\n    assert viz.check_connection(), 'No connection could be formed quickly'\n\n",
+        "source_code_len": 206,
+        "target_code": "\n    assert viz.check_connection(timeout_seconds=3), \\\n        'No connection could be formed quickly'\n\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -18,7 +18,4 @@\n \n-    startup_sec = 1\n-    while not viz.check_connection() and startup_sec > 0:\n-        time.sleep(0.1)\n-        startup_sec -= 0.1\n-    assert viz.check_connection(), 'No connection could be formed quickly'\n+    assert viz.check_connection(timeout_seconds=3), \\\n+        'No connection could be formed quickly'\n \n",
+        "source_code_with_indent": "\n    startup_sec = 1\n    while not viz.check_connection() and startup_sec > 0:\n        <IND>time.sleep(0.1)\n        startup_sec -= 0.1\n    <DED>assert viz.check_connection(), 'No connection could be formed quickly'\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent_exact_match": false,
+        "target_code_with_indent": "\n    assert viz.check_connection(timeout_seconds=3),        'No connection could be formed quickly'\n\n"
+      }
+    ]
+  }
+]

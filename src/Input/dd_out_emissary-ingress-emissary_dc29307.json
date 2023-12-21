@@ -1,0 +1,36 @@
+[
+  {
+    "project": "emissary-ingress/emissary",
+    "commit": "dc29307b85c472bdd96b1395969edd134887acbd",
+    "filename": "python/ambassador/ambscout.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/emissary-ingress-emissary/python/ambassador/ambscout.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "python/ambassador/ambscout.py:144:8 Incompatible return type [7]: Expected `Optional[Scout]` but got `Union[None, LocalScout, Scout]`.",
+    "message": " Expected `Optional[Scout]` but got `Union[None, LocalScout, Scout]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 144,
+    "warning_line": "        return self._scout",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def scout(self) -> Optional[Scout]:\n        if not self._scout:\n",
+        "source_code_len": 82,
+        "target_code": "    @property\n    def scout(self) -> Optional[Union[Scout, LocalScout]]:\n        if not self._scout:\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -127,3 +127,3 @@\n     @property\n-    def scout(self) -> Optional[Scout]:\n+    def scout(self) -> Optional[Union[Scout, LocalScout]]:\n         if not self._scout:\n",
+        "source_code_with_indent": "    <DED>@property\n    def scout(self) -> Optional[Scout]:\n        <IND>if not self._scout:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def scout(self) -> Optional[Union[Scout, LocalScout]]:\n        <IND>if not self._scout:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

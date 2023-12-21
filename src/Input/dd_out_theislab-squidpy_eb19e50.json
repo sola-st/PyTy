@@ -1,0 +1,70 @@
+[
+  {
+    "project": "theislab/squidpy",
+    "commit": "eb19e500198daebd59a1fe1b080ec4ae5f41e154",
+    "filename": "spatial_tools/image/segment.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theislab-squidpy/spatial_tools/image/segment.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spatial_tools/image/segment.py:53:8 Incompatible variable type [9]: model_group is declared to have type `str` but is used as type `SegmentationModelBlob`.",
+    "message": " model_group is declared to have type `str` but is used as type `SegmentationModelBlob`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 53,
+    "warning_line": "        model_group = SegmentationModelBlob(data=img, model=model_group)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if model_group == \"skimage_blob\":\n        model_group = SegmentationModelBlob(data=img, model=model_group)\n    elif model_group == \"tensorflow\":\n        model_group = SegmentationModelPretrainedTensorflow(data=img, model=model_instance)\n    else:\n",
+        "source_code_len": 251,
+        "target_code": "    if model_group == \"skimage_blob\":\n        segmentation_model = SegmentationModelBlob(model=model_group)\n    elif model_group == \"tensorflow\":\n        segmentation_model = SegmentationModelPretrainedTensorflow(model=model_instance)\n    else:\n",
+        "target_code_len": 245,
+        "diff_format": "@@ -52,5 +52,5 @@\n     if model_group == \"skimage_blob\":\n-        model_group = SegmentationModelBlob(data=img, model=model_group)\n+        segmentation_model = SegmentationModelBlob(model=model_group)\n     elif model_group == \"tensorflow\":\n-        model_group = SegmentationModelPretrainedTensorflow(data=img, model=model_instance)\n+        segmentation_model = SegmentationModelPretrainedTensorflow(model=model_instance)\n     else:\n",
+        "source_code_with_indent": "    if model_group == \"skimage_blob\":\n        <IND>model_group = SegmentationModelBlob(data=img, model=model_group)\n    <DED>elif model_group == \"tensorflow\":\n        <IND>model_group = SegmentationModelPretrainedTensorflow(data=img, model=model_instance)\n    <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if model_group == \"skimage_blob\":\n        <IND>segmentation_model = SegmentationModelBlob(model=model_group)\n    <DED>elif model_group == \"tensorflow\":\n        <IND>segmentation_model = SegmentationModelPretrainedTensorflow(model=model_instance)\n    <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "theislab/squidpy",
+    "commit": "eb19e500198daebd59a1fe1b080ec4ae5f41e154",
+    "filename": "spatial_tools/image/segment.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/theislab-squidpy/spatial_tools/image/segment.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spatial_tools/image/segment.py:55:8 Incompatible variable type [9]: model_group is declared to have type `str` but is used as type `SegmentationModelPretrainedTensorflow`.",
+    "message": " model_group is declared to have type `str` but is used as type `SegmentationModelPretrainedTensorflow`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 55,
+    "warning_line": "        model_group = SegmentationModelPretrainedTensorflow(data=img, model=model_instance)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if model_group == \"skimage_blob\":\n        model_group = SegmentationModelBlob(data=img, model=model_group)\n    elif model_group == \"tensorflow\":\n        model_group = SegmentationModelPretrainedTensorflow(data=img, model=model_instance)\n    else:\n",
+        "source_code_len": 251,
+        "target_code": "    if model_group == \"skimage_blob\":\n        segmentation_model = SegmentationModelBlob(model=model_group)\n    elif model_group == \"tensorflow\":\n        segmentation_model = SegmentationModelPretrainedTensorflow(model=model_instance)\n    else:\n",
+        "target_code_len": 245,
+        "diff_format": "@@ -52,5 +52,5 @@\n     if model_group == \"skimage_blob\":\n-        model_group = SegmentationModelBlob(data=img, model=model_group)\n+        segmentation_model = SegmentationModelBlob(model=model_group)\n     elif model_group == \"tensorflow\":\n-        model_group = SegmentationModelPretrainedTensorflow(data=img, model=model_instance)\n+        segmentation_model = SegmentationModelPretrainedTensorflow(model=model_instance)\n     else:\n",
+        "source_code_with_indent": "    if model_group == \"skimage_blob\":\n        <IND>model_group = SegmentationModelBlob(data=img, model=model_group)\n    <DED>elif model_group == \"tensorflow\":\n        <IND>model_group = SegmentationModelPretrainedTensorflow(data=img, model=model_instance)\n    <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if model_group == \"skimage_blob\":\n        <IND>segmentation_model = SegmentationModelBlob(model=model_group)\n    <DED>elif model_group == \"tensorflow\":\n        <IND>segmentation_model = SegmentationModelPretrainedTensorflow(model=model_instance)\n    <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

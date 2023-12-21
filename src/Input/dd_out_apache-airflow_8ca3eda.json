@@ -1,0 +1,81 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "8ca3eda02c58ab7ff224e463bd8b7ae389ce4370",
+    "filename": "tests/jobs/test_scheduler_job.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/tests/jobs/test_scheduler_job.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/jobs/test_scheduler_job.py:3452:8 Incompatible return type [7]: Expected `None` but got `typing.Generator[None, None, None]`.",
+    "message": " Expected `None` but got `typing.Generator[None, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 3452,
+    "warning_line": "        yield",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from tempfile import mkdtemp\nfrom unittest import mock\n",
+        "source_code_len": 55,
+        "target_code": "from tempfile import mkdtemp\nfrom typing import Generator, Optional\nfrom unittest import mock\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -24,2 +24,3 @@\n from tempfile import mkdtemp\n+from typing import Generator, Optional\n from unittest import mock\n",
+        "source_code_with_indent": "from tempfile import mkdtemp\nfrom unittest import mock\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from tempfile import mkdtemp\nfrom typing import Generator, Optional\nfrom unittest import mock\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            next_info = dag.next_dagrun_info(None)\n            for _ in range(5):\n",
+        "source_code_len": 82,
+        "target_code": "            next_info = dag.next_dagrun_info(None)\n            assert next_info is not None\n            for _ in range(5):\n",
+        "target_code_len": 123,
+        "diff_format": "@@ -1899,2 +1900,3 @@\n             next_info = dag.next_dagrun_info(None)\n+            assert next_info is not None\n             for _ in range(5):\n",
+        "source_code_with_indent": "            <IND>next_info = dag.next_dagrun_info(None)\n            for _ in range(5):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>next_info = dag.next_dagrun_info(None)\n            assert next_info is not None\n            for _ in range(5):\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                next_info = dag.next_dagrun_info(next_info.data_interval)\n\n",
+        "source_code_len": 75,
+        "target_code": "                next_info = dag.next_dagrun_info(next_info.data_interval)\n                if next_info is None:\n                    break\n\n",
+        "target_code_len": 139,
+        "diff_format": "@@ -1907,2 +1909,4 @@\n                 next_info = dag.next_dagrun_info(next_info.data_interval)\n+                if next_info is None:\n+                    break\n \n",
+        "source_code_with_indent": "                next_info = dag.next_dagrun_info(next_info.data_interval)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                next_info = dag.next_dagrun_info(next_info.data_interval)\n                if next_info is None:\n                    <IND>break\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @pytest.fixture(autouse=True)\n    def per_test(self) -> None:\n        self.clean_db()\n",
+        "source_code_len": 90,
+        "target_code": "    @pytest.fixture(autouse=True)\n    def per_test(self) -> Generator:\n        self.clean_db()\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -3448,3 +3454,3 @@\n     @pytest.fixture(autouse=True)\n-    def per_test(self) -> None:\n+    def per_test(self) -> Generator:\n         self.clean_db()\n",
+        "source_code_with_indent": "    <DED>@pytest.fixture(autouse=True)\n    def per_test(self) -> None:\n        <IND>self.clean_db()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@pytest.fixture(autouse=True)\n    def per_test(self) -> Generator:\n        <IND>self.clean_db()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

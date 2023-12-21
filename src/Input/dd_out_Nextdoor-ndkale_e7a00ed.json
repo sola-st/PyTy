@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Nextdoor/ndkale",
+    "commit": "e7a00ed166b74687d4fe2d16c2e2711d23be6e88",
+    "filename": "setup.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Nextdoor-ndkale/setup.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "setup.py:16:0 Unbound name [10]: Name `execfile` is used but not defined in the current scope.",
+    "message": " Name `execfile` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 16,
+    "warning_line": "execfile(os.path.join('kale', 'version.py'))  # set __version__",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "__version__ = None\nexecfile(os.path.join('kale', 'version.py'))  # set __version__\n\n",
+        "source_code_len": 84,
+        "target_code": "__version__ = None\nwith open(os.path.join('kale', 'version.py')) as f:\n    source = f.read()\ncode = compile(source, os.path.join('kale', 'version.py'), 'exec')\nexec(code)  # set __version__\n\n",
+        "target_code_len": 191,
+        "diff_format": "@@ -15,3 +17,6 @@\n __version__ = None\n-execfile(os.path.join('kale', 'version.py'))  # set __version__\n+with open(os.path.join('kale', 'version.py')) as f:\n+    source = f.read()\n+code = compile(source, os.path.join('kale', 'version.py'), 'exec')\n+exec(code)  # set __version__\n \n",
+        "source_code_with_indent": "__version__ = None\nexecfile(os.path.join('kale', 'version.py'))  # set __version__\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "__version__ = None\nwith open(os.path.join('kale', 'version.py')) as f:\n    <IND>source = f.read()\n<DED>code = compile(source, os.path.join('kale', 'version.py'), 'exec')\nexec(code)  # set __version__\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

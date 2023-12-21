@@ -1,0 +1,102 @@
+[
+  {
+    "project": "bitcartcc/bitcart",
+    "commit": "457d93228cabbdf1e824ca899f2082870760e3ec",
+    "filename": "api/crud/stores.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bitcartcc-bitcart/api/crud/stores.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "api/crud/stores.py:11:8 Incompatible variable type [9]: user is declared to have type `schemes.User` but is used as type `None`.",
+    "message": " user is declared to have type `schemes.User` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 11,
+    "warning_line": "        user = None  # reset User to display only public data",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import Iterable\n\nfrom api import models, pagination, schemes\n\n\nasync def get_store(model_id: int, user: schemes.User, item: models.Store, internal=False):\n    if item is None:\n        item = await models.Store.get(model_id)  # Extra query to fetch public data\n        if item is None:\n            return\n        user = None  # reset User to display only public data\n    await store_add_related(item)\n    if internal:\n",
+        "source_code_len": 429,
+        "target_code": "from api import models, schemes\n\n\nasync def get_store(model_id: int, user: schemes.User, item: models.Store, internal: bool = False):\n    if internal:\n",
+        "target_code_len": 151,
+        "diff_format": "@@ -1,13 +1,5 @@\n-from typing import Iterable\n-\n-from api import models, pagination, schemes\n+from api import models, schemes\n \n \n-async def get_store(model_id: int, user: schemes.User, item: models.Store, internal=False):\n-    if item is None:\n-        item = await models.Store.get(model_id)  # Extra query to fetch public data\n-        if item is None:\n-            return\n-        user = None  # reset User to display only public data\n-    await store_add_related(item)\n+async def get_store(model_id: int, user: schemes.User, item: models.Store, internal: bool = False):\n     if internal:\n",
+        "source_code_with_indent": "from typing import Iterable\n\nfrom api import models, pagination, schemes\n\n\nasync def get_store(model_id: int, user: schemes.User, item: models.Store, internal=False):\n    <IND>if item is None:\n        <IND>item = await models.Store.get(model_id)  # Extra query to fetch public data\n        if item is None:\n            <IND>return\n        <DED>user = None  # reset User to display only public data\n    <DED>await store_add_related(item)\n    if internal:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from api import models, schemes\n\n\nasync def get_store(model_id: int, user: schemes.User, item: models.Store, internal: bool = False):\n    <IND>if internal:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "        return schemes.PublicStore.from_orm(item)\n\n\nasync def get_stores(pagination: pagination.Pagination, user: schemes.User):\n    return await pagination.paginate(models.Store, user.id, postprocess=stores_add_related)\n\n\nasync def delete_store(item: schemes.Store, user: schemes.User):\n    await models.WalletxStore.delete.where(models.WalletxStore.store_id == item.id).gino.status()\n    await models.NotificationxStore.delete.where(models.NotificationxStore.store_id == item.id).gino.status()\n    await item.delete()\n    return item\n\n\nasync def create_store(store: schemes.CreateStore, user: schemes.User):\n    d = store.dict()\n    wallets = d.get(\"wallets\", [])\n    notifications = d.get(\"notifications\", [])\n    obj = await models.Store.create(**d, user_id=user.id)\n    created_wallets = []\n    for i in wallets:  # type: ignore\n        created_wallets.append((await models.WalletxStore.create(store_id=obj.id, wallet_id=i)).wallet_id)\n    obj.wallets = created_wallets\n    created_notifications = []\n    for i in notifications:  # type: ignore\n        created_notifications.append(\n            (await models.NotificationxStore.create(store_id=obj.id, notification_id=i)).notification_id\n        )\n    obj.notifications = created_notifications\n    obj.checkout_settings = schemes.StoreCheckoutSettings()\n    return obj\n\n\nasync def store_add_related(item: models.Store):\n    # add related wallets\n    if not item:\n        return\n    item.checkout_settings = item.get_setting(schemes.StoreCheckoutSettings)\n    result = await models.WalletxStore.select(\"wallet_id\").where(models.WalletxStore.store_id == item.id).gino.all()\n    result2 = (\n        await models.NotificationxStore.select(\"notification_id\")\n        .where(models.NotificationxStore.store_id == item.id)\n        .gino.all()\n    )\n    item.wallets = [wallet_id for wallet_id, in result if wallet_id]\n    item.notifications = [notification_id for notification_id, in result2 if notification_id]\n\n\nasync def stores_add_related(items: Iterable[models.Store]):\n    for item in items:\n        await store_add_related(item)\n    return items\n",
+        "source_code_len": 2101,
+        "target_code": "        return schemes.PublicStore.from_orm(item)\n",
+        "target_code_len": 50,
+        "diff_format": "@@ -18,52 +10,1 @@\n         return schemes.PublicStore.from_orm(item)\n-\n-\n-async def get_stores(pagination: pagination.Pagination, user: schemes.User):\n-    return await pagination.paginate(models.Store, user.id, postprocess=stores_add_related)\n-\n-\n-async def delete_store(item: schemes.Store, user: schemes.User):\n-    await models.WalletxStore.delete.where(models.WalletxStore.store_id == item.id).gino.status()\n-    await models.NotificationxStore.delete.where(models.NotificationxStore.store_id == item.id).gino.status()\n-    await item.delete()\n-    return item\n-\n-\n-async def create_store(store: schemes.CreateStore, user: schemes.User):\n-    d = store.dict()\n-    wallets = d.get(\"wallets\", [])\n-    notifications = d.get(\"notifications\", [])\n-    obj = await models.Store.create(**d, user_id=user.id)\n-    created_wallets = []\n-    for i in wallets:  # type: ignore\n-        created_wallets.append((await models.WalletxStore.create(store_id=obj.id, wallet_id=i)).wallet_id)\n-    obj.wallets = created_wallets\n-    created_notifications = []\n-    for i in notifications:  # type: ignore\n-        created_notifications.append(\n-            (await models.NotificationxStore.create(store_id=obj.id, notification_id=i)).notification_id\n-        )\n-    obj.notifications = created_notifications\n-    obj.checkout_settings = schemes.StoreCheckoutSettings()\n-    return obj\n-\n-\n-async def store_add_related(item: models.Store):\n-    # add related wallets\n-    if not item:\n-        return\n-    item.checkout_settings = item.get_setting(schemes.StoreCheckoutSettings)\n-    result = await models.WalletxStore.select(\"wallet_id\").where(models.WalletxStore.store_id == item.id).gino.all()\n-    result2 = (\n-        await models.NotificationxStore.select(\"notification_id\")\n-        .where(models.NotificationxStore.store_id == item.id)\n-        .gino.all()\n-    )\n-    item.wallets = [wallet_id for wallet_id, in result if wallet_id]\n-    item.notifications = [notification_id for notification_id, in result2 if notification_id]\n-\n-\n-async def stores_add_related(items: Iterable[models.Store]):\n-    for item in items:\n-        await store_add_related(item)\n-    return items\n",
+        "source_code_with_indent": "        <IND>return schemes.PublicStore.from_orm(item)\n\n\n<DED><DED>async def get_stores(pagination: pagination.Pagination, user: schemes.User):\n    <IND>return await pagination.paginate(models.Store, user.id, postprocess=stores_add_related)\n\n\n<DED>async def delete_store(item: schemes.Store, user: schemes.User):\n    <IND>await models.WalletxStore.delete.where(models.WalletxStore.store_id == item.id).gino.status()\n    await models.NotificationxStore.delete.where(models.NotificationxStore.store_id == item.id).gino.status()\n    await item.delete()\n    return item\n\n\n<DED>async def create_store(store: schemes.CreateStore, user: schemes.User):\n    <IND>d = store.dict()\n    wallets = d.get(\"wallets\", [])\n    notifications = d.get(\"notifications\", [])\n    obj = await models.Store.create(**d, user_id=user.id)\n    created_wallets = []\n    for i in wallets:  # type: ignore\n        <IND>created_wallets.append((await models.WalletxStore.create(store_id=obj.id, wallet_id=i)).wallet_id)\n    <DED>obj.wallets = created_wallets\n    created_notifications = []\n    for i in notifications:  # type: ignore\n        <IND>created_notifications.append(\n            (await models.NotificationxStore.create(store_id=obj.id, notification_id=i)).notification_id\n        )\n    <DED>obj.notifications = created_notifications\n    obj.checkout_settings = schemes.StoreCheckoutSettings()\n    return obj\n\n\n<DED>async def store_add_related(item: models.Store):\n    # add related wallets\n    <IND>if not item:\n        <IND>return\n    <DED>item.checkout_settings = item.get_setting(schemes.StoreCheckoutSettings)\n    result = await models.WalletxStore.select(\"wallet_id\").where(models.WalletxStore.store_id == item.id).gino.all()\n    result2 = (\n        await models.NotificationxStore.select(\"notification_id\")\n        .where(models.NotificationxStore.store_id == item.id)\n        .gino.all()\n    )\n    item.wallets = [wallet_id for wallet_id, in result if wallet_id]\n    item.notifications = [notification_id for notification_id, in result2 if notification_id]\n\n\n<DED>async def stores_add_related(items: Iterable[models.Store]):\n    <IND>for item in items:\n        <IND>await store_add_related(item)\n    <DED>return items\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>return schemes.PublicStore.from_orm(item)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "bitcartcc/bitcart",
+    "commit": "457d93228cabbdf1e824ca899f2082870760e3ec",
+    "filename": "api/views/products.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bitcartcc-bitcart/api/views/products.py",
+    "file_hunks_size": 12,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "api/views/products.py:24:8 Incompatible variable type [9]: data is declared to have type `str` but is used as type `schemes.CreateProduct`.",
+    "message": " data is declared to have type `str` but is used as type `schemes.CreateProduct`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 24,
+    "warning_line": "        data = schemes.CreateProduct(**data)"
+  },
+  {
+    "project": "bitcartcc/bitcart",
+    "commit": "457d93228cabbdf1e824ca899f2082870760e3ec",
+    "filename": "api/views/products.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bitcartcc-bitcart/api/views/products.py",
+    "file_hunks_size": 12,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "api/views/products.py:95:44 Incompatible parameter type [6]: Expected `models.Product` for 1st positional only parameter to call `crud.products.product_add_related` but got `schemes.Product`.",
+    "message": " Expected `models.Product` for 1st positional only parameter to call `crud.products.product_add_related` but got `schemes.Product`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 95,
+    "warning_line": "    await crud.products.product_add_related(item)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "async def delete_product(item: schemes.Product, user: schemes.User) -> schemes.Product:\n    await crud.products.product_add_related(item)\n    utils.files.safe_remove(item.image)\n",
+        "source_code_len": 178,
+        "target_code": "async def delete_product(item: schemes.Product, user: schemes.User) -> schemes.Product:\n    utils.files.safe_remove(item.image)\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -94,3 +81,2 @@\n async def delete_product(item: schemes.Product, user: schemes.User) -> schemes.Product:\n-    await crud.products.product_add_related(item)\n     utils.files.safe_remove(item.image)\n",
+        "source_code_with_indent": "<DED>async def delete_product(item: schemes.Product, user: schemes.User) -> schemes.Product:\n    <IND>await crud.products.product_add_related(item)\n    utils.files.safe_remove(item.image)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>async def delete_product(item: schemes.Product, user: schemes.User) -> schemes.Product:\n    <IND>utils.files.safe_remove(item.image)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

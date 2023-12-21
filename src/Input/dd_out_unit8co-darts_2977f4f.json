@@ -1,0 +1,131 @@
+[
+  {
+    "project": "unit8co/darts",
+    "commit": "2977f4f666e255b617ad980eab81d6ff6aad9db3",
+    "filename": "darts/backtesting/backtesting.py",
+    "min_patch_found": false,
+    "full_warning_msg": "darts/backtesting/backtesting.py:271:74 Incompatible parameter type [6]: Expected `Optional[List[int]]` for 5th positional only parameter to call `backtest_forecasting` but got `bool`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/unit8co-darts/darts/backtesting/backtesting.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "unit8co/darts",
+    "commit": "2977f4f666e255b617ad980eab81d6ff6aad9db3",
+    "filename": "darts/backtesting/backtesting.py",
+    "min_patch_found": false,
+    "full_warning_msg": "darts/backtesting/backtesting.py:429:75 Unsupported operand [58]: `+` is not supported for operand types `int` and `Optional[int]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/unit8co-darts/darts/backtesting/backtesting.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "unit8co/darts",
+    "commit": "2977f4f666e255b617ad980eab81d6ff6aad9db3",
+    "filename": "darts/backtesting/backtesting.py",
+    "min_patch_found": false,
+    "full_warning_msg": "darts/backtesting/backtesting.py:448:95 Incompatible parameter type [6]: Expected `int` for 4th positional only parameter to call `backtest_forecasting` but got `Optional[int]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/unit8co-darts/darts/backtesting/backtesting.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "unit8co/darts",
+    "commit": "2977f4f666e255b617ad980eab81d6ff6aad9db3",
+    "filename": "darts/models/theta.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/unit8co-darts/darts/models/theta.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "darts/models/theta.py:218:4 Inconsistent override [14]: `darts.models.theta.FourTheta.fit` overrides method defined in `UnivariateForecastingModel` inconsistently. Could not find parameter `series` in overriding signature.",
+    "message": " `darts.models.theta.FourTheta.fit` overrides method defined in `UnivariateForecastingModel` inconsistently. Could not find parameter `series` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 218,
+    "warning_line": "    def fit(self, ts, component_index: Optional[int] = None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def fit(self, ts, component_index: Optional[int] = None):\n        super().fit(ts, component_index)\n        # Check univariate time series\n",
+        "source_code_len": 143,
+        "target_code": "\n    def fit(self, ts):\n        super().fit(ts)\n        # Check univariate time series\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -217,4 +217,4 @@\n \n-    def fit(self, ts, component_index: Optional[int] = None):\n-        super().fit(ts, component_index)\n+    def fit(self, ts):\n+        super().fit(ts)\n         # Check univariate time series\n",
+        "source_code_with_indent": "\n    <DED>def fit(self, ts, component_index: Optional[int] = None):\n        <IND>super().fit(ts, component_index)\n        # Check univariate time series\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def fit(self, ts):\n        <IND>super().fit(ts)\n        # Check univariate time series\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "unit8co/darts",
+    "commit": "2977f4f666e255b617ad980eab81d6ff6aad9db3",
+    "filename": "darts/models/theta.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/unit8co-darts/darts/models/theta.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "darts/models/theta.py:245:31 Unsupported operand [58]: `>` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `>` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 245,
+    "warning_line": "            self.is_seasonal = self.season_period > 1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def fit(self, ts, component_index: Optional[int] = None):\n        super().fit(ts, component_index)\n        # Check univariate time series\n",
+        "source_code_len": 143,
+        "target_code": "\n    def fit(self, ts):\n        super().fit(ts)\n        # Check univariate time series\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -217,4 +217,4 @@\n \n-    def fit(self, ts, component_index: Optional[int] = None):\n-        super().fit(ts, component_index)\n+    def fit(self, ts):\n+        super().fit(ts)\n         # Check univariate time series\n",
+        "source_code_with_indent": "\n    <DED>def fit(self, ts, component_index: Optional[int] = None):\n        <IND>super().fit(ts, component_index)\n        # Check univariate time series\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def fit(self, ts):\n        <IND>super().fit(ts)\n        # Check univariate time series\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "unit8co/darts",
+    "commit": "2977f4f666e255b617ad980eab81d6ff6aad9db3",
+    "filename": "darts/models/theta.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/unit8co-darts/darts/models/theta.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "darts/models/theta.py:249:72 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `extract_trend_and_seasonality` but got `Optional[int]`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `extract_trend_and_seasonality` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 249,
+    "warning_line": "            _, self.seasonality = extract_trend_and_seasonality(new_ts, self.season_period,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def fit(self, ts, component_index: Optional[int] = None):\n        super().fit(ts, component_index)\n        # Check univariate time series\n",
+        "source_code_len": 143,
+        "target_code": "\n    def fit(self, ts):\n        super().fit(ts)\n        # Check univariate time series\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -217,4 +217,4 @@\n \n-    def fit(self, ts, component_index: Optional[int] = None):\n-        super().fit(ts, component_index)\n+    def fit(self, ts):\n+        super().fit(ts)\n         # Check univariate time series\n",
+        "source_code_with_indent": "\n    <DED>def fit(self, ts, component_index: Optional[int] = None):\n        <IND>super().fit(ts, component_index)\n        # Check univariate time series\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def fit(self, ts):\n        <IND>super().fit(ts)\n        # Check univariate time series\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

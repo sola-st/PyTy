@@ -1,0 +1,70 @@
+[
+  {
+    "project": "datatheorem/strongarm",
+    "commit": "f667fdf6ab9ad9481fd438d7dcae3abeb8033dff",
+    "filename": "strongarm/cli/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/datatheorem-strongarm/strongarm/cli/utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "strongarm/cli/utils.py:223:85 Incompatible parameter type [6]: Expected `strongarm.macho.macho_definitions.VirtualMemoryPointer` for 1st positional only parameter to call `strongarm.macho.macho_binary.MachoBinary.read_string_at_address` but got `int`.",
+    "message": " Expected `strongarm.macho.macho_definitions.VirtualMemoryPointer` for 1st positional only parameter to call `strongarm.macho.macho_binary.MachoBinary.read_string_at_address` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 223,
+    "warning_line": "                        binary_str = function_analyzer.binary.read_string_at_address(register_contents.value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                        # Try reading a string\n                        binary_str = function_analyzer.binary.read_string_at_address(register_contents.value)\n                        if binary_str:\n",
+        "source_code_len": 196,
+        "target_code": "                        # Try reading a string\n                        binary_str = function_analyzer.binary.read_string_at_address(\n                            VirtualMemoryPointer(register_contents.value)\n                        )\n                        if binary_str:\n",
+        "target_code_len": 272,
+        "diff_format": "@@ -222,3 +222,5 @@\n                         # Try reading a string\n-                        binary_str = function_analyzer.binary.read_string_at_address(register_contents.value)\n+                        binary_str = function_analyzer.binary.read_string_at_address(\n+                            VirtualMemoryPointer(register_contents.value)\n+                        )\n                         if binary_str:\n",
+        "source_code_with_indent": "                        # Try reading a string\n                        <IND>binary_str = function_analyzer.binary.read_string_at_address(register_contents.value)\n                        if binary_str:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                        # Try reading a string\n                        <IND>binary_str = function_analyzer.binary.read_string_at_address(\n                            VirtualMemoryPointer(register_contents.value)\n                        )\n                        if binary_str:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "datatheorem/strongarm",
+    "commit": "f667fdf6ab9ad9481fd438d7dcae3abeb8033dff",
+    "filename": "strongarm/objc/objc_analyzer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/datatheorem-strongarm/strongarm/objc/objc_analyzer.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "strongarm/objc/objc_analyzer.py:394:16 Call error [29]: `bool` is not a function.",
+    "message": " `bool` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 394,
+    "warning_line": "                DebugUtil.debug(self, f'Consistency check failed: {branch.address} is not a local branch of {self}')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                # We somehow were given a branch that isn't function-local - move on\n                DebugUtil.debug(self, f'Consistency check failed: {branch.address} is not a local branch of {self}')\n                continue\n",
+        "source_code_len": 227,
+        "target_code": "                # We somehow were given a branch that isn't function-local - move on\n                DebugUtil.log(self, f'Consistency check failed: {branch.address} is not a local branch of {self}')\n                continue\n",
+        "target_code_len": 225,
+        "diff_format": "@@ -393,3 +396,3 @@\n                 # We somehow were given a branch that isn't function-local - move on\n-                DebugUtil.debug(self, f'Consistency check failed: {branch.address} is not a local branch of {self}')\n+                DebugUtil.log(self, f'Consistency check failed: {branch.address} is not a local branch of {self}')\n                 continue\n",
+        "source_code_with_indent": "                # We somehow were given a branch that isn't function-local - move on\n                <IND>DebugUtil.debug(self, f'Consistency check failed: {branch.address} is not a local branch of {self}')\n                continue\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                # We somehow were given a branch that isn't function-local - move on\n                <IND>DebugUtil.log(self, f'Consistency check failed: {branch.address} is not a local branch of {self}')\n                continue\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

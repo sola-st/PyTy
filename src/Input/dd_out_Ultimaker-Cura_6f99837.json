@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "6f99837db575648ffee21715acefd218d7046de0",
+    "filename": "plugins/DigitalLibrary/src/DigitalFactoryApiClient.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/DigitalLibrary/src/DigitalFactoryApiClient.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/DigitalLibrary/src/DigitalFactoryApiClient.py:75:8 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 75,
+    "warning_line": "        self._http.get(f\"{self.CURA_API_ROOT}/feature_budgets\",",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def checkUserHasAccess(self, callback: Callable) -> bool:\n        \"\"\"Checks if the user has any sort of access to the digital library.\n",
+        "source_code_len": 140,
+        "target_code": "\n    def checkUserHasAccess(self, callback: Callable) -> None:\n        \"\"\"Checks if the user has any sort of access to the digital library.\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -60,3 +60,3 @@\n \n-    def checkUserHasAccess(self, callback: Callable) -> bool:\n+    def checkUserHasAccess(self, callback: Callable) -> None:\n         \"\"\"Checks if the user has any sort of access to the digital library.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def checkUserHasAccess(self, callback: Callable) -> bool:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def checkUserHasAccess(self, callback: Callable) -> None:\n        <IND>"
+      }
+    ]
+  }
+]

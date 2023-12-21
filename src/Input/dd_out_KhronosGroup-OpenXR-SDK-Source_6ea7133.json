@@ -1,0 +1,36 @@
+[
+  {
+    "project": "KhronosGroup/OpenXR-SDK-Source",
+    "commit": "6ea713327d85bd004b5968e9761a69f1ad54b3ab",
+    "filename": "specification/scripts/make_ext_dependency.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/KhronosGroup-OpenXR-SDK-Source/specification/scripts/make_ext_dependency.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "specification/scripts/make_ext_dependency.py:179:15 Unsupported operand [58]: `in` is not supported for right operand type `typing.Optional[str]`.",
+    "message": " `in` is not supported for right operand type `typing.Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 179,
+    "warning_line": "            if 'KHR' in name:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        name = elem.get('name')\n        supported = elem.get('supported')\n\n",
+        "source_code_len": 75,
+        "target_code": "        name = elem.get('name')\n        if name is None:\n            raise RuntimeError(\"Extension missing 'name' attribute!\")\n        supported = elem.get('supported')\n        if supported is None:\n            raise RuntimeError(\"Extension missing 'supported' attribute: \" + name)\n\n",
+        "target_code_len": 283,
+        "diff_format": "@@ -171,3 +171,7 @@\n         name = elem.get('name')\n+        if name is None:\n+            raise RuntimeError(\"Extension missing 'name' attribute!\")\n         supported = elem.get('supported')\n+        if supported is None:\n+            raise RuntimeError(\"Extension missing 'supported' attribute: \" + name)\n \n",
+        "source_code_with_indent": "        <IND>name = elem.get('name')\n        supported = elem.get('supported')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>name = elem.get('name')\n        if name is None:\n            <IND>raise RuntimeError(\"Extension missing 'name' attribute!\")\n        <DED>supported = elem.get('supported')\n        if supported is None:\n            <IND>raise RuntimeError(\"Extension missing 'supported' attribute: \" + name)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

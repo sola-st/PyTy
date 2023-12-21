@@ -1,0 +1,36 @@
+[
+  {
+    "project": "project-alice-assistant/ProjectAlice",
+    "commit": "69f8e533d4b75df5838e0d4210918aad864e5381",
+    "filename": "core/base/model/AliceSkill.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/project-alice-assistant-ProjectAlice/core/base/model/AliceSkill.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "core/base/model/AliceSkill.py:315:4 Incompatible return type [7]: Expected `Optional[Intent]` but got `str`.",
+    "message": " Expected `Optional[Intent]` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 315,
+    "warning_line": "\t\t\t\treturn intent",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\t\t# search for intent that has a matching mqtt topic\n\t\tfor intent in self._supportedIntents:\n\t\t\tif MQTTClient.topic_matches_sub(str(intent), session.intentName):\n\t\t\t\treturn intent\n",
+        "source_code_len": 180,
+        "target_code": "\t\t# search for intent that has a matching mqtt topic\n\t\tfor intentName, intent in self._supportedIntents.items():\n\t\t\tif MQTTClient.topic_matches_sub(intentName, session.intentName):\n\t\t\t\treturn intent\n",
+        "target_code_len": 199,
+        "diff_format": "@@ -312,4 +312,4 @@\n \t\t# search for intent that has a matching mqtt topic\n-\t\tfor intent in self._supportedIntents:\n-\t\t\tif MQTTClient.topic_matches_sub(str(intent), session.intentName):\n+\t\tfor intentName, intent in self._supportedIntents.items():\n+\t\t\tif MQTTClient.topic_matches_sub(intentName, session.intentName):\n \t\t\t\treturn intent\n",
+        "source_code_with_indent": "  # search for intent that has a matching mqtt topic\n  <DED>for intent in self._supportedIntents:\n\t\t\t<IND>if MQTTClient.topic_matches_sub(str(intent), session.intentName):\n\t\t\t\t<IND>return intent\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "  # search for intent that has a matching mqtt topic\n  <DED>for intentName, intent in self._supportedIntents.items():\n\t\t\t<IND>if MQTTClient.topic_matches_sub(intentName, session.intentName):\n\t\t\t\t<IND>return intent\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

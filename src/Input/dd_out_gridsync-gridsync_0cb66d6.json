@@ -1,0 +1,70 @@
+[
+  {
+    "project": "gridsync/gridsync",
+    "commit": "0cb66d64deca6c0bd89e3ba1dea982f30b55b04c",
+    "filename": "gridsync/tahoe.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gridsync-gridsync/gridsync/tahoe.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gridsync/tahoe.py:1160:12 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got `typing.Generator[typing.Any, None, None]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got `typing.Generator[typing.Any, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1160,
+    "warning_line": "            return content",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    @inlineCallbacks  # type: ignore\n    def get_voucher(self, voucher: str) -> Dict:\n        url = self.nodeurl + \"storage-plugins/privatestorageio-zkapauthz-v1\"\n",
+        "source_code_len": 164,
+        "target_code": "\n    @inlineCallbacks\n    def get_voucher(self, voucher: str):\n        url = self.nodeurl + \"storage-plugins/privatestorageio-zkapauthz-v1\"\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -1153,4 +1153,4 @@\n \n-    @inlineCallbacks  # type: ignore\n-    def get_voucher(self, voucher: str) -> Dict:\n+    @inlineCallbacks\n+    def get_voucher(self, voucher: str):\n         url = self.nodeurl + \"storage-plugins/privatestorageio-zkapauthz-v1\"\n",
+        "source_code_with_indent": "\n    <DED>@inlineCallbacks  # type: ignore\n    def get_voucher(self, voucher: str) -> Dict:\n        <IND>url = self.nodeurl + \"storage-plugins/privatestorageio-zkapauthz-v1\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@inlineCallbacks\n    def get_voucher(self, voucher: str):\n        <IND>url = self.nodeurl + \"storage-plugins/privatestorageio-zkapauthz-v1\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "gridsync/gridsync",
+    "commit": "0cb66d64deca6c0bd89e3ba1dea982f30b55b04c",
+    "filename": "gridsync/tahoe.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gridsync-gridsync/gridsync/tahoe.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gridsync/tahoe.py:1185:12 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got `typing.Generator[typing.Any, None, None]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got `typing.Generator[typing.Any, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1185,
+    "warning_line": "            return content",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    @inlineCallbacks  # type: ignore\n    def get_zkaps(\n        self, limit: Optional[int] = None, position: Optional[str] = None,\n    ) -> Dict:\n        params = {}\n",
+        "source_code_len": 167,
+        "target_code": "\n    @inlineCallbacks\n    def get_zkaps(\n        self, limit: Optional[int] = None, position: Optional[str] = None,\n    ):\n        params = {}\n",
+        "target_code_len": 143,
+        "diff_format": "@@ -1171,6 +1171,6 @@\n \n-    @inlineCallbacks  # type: ignore\n+    @inlineCallbacks\n     def get_zkaps(\n         self, limit: Optional[int] = None, position: Optional[str] = None,\n-    ) -> Dict:\n+    ):\n         params = {}\n",
+        "source_code_with_indent": "\n    <DED>@inlineCallbacks  # type: ignore\n    def get_zkaps(\n        self, limit: Optional[int] = None, position: Optional[str] = None,\n    ) -> Dict:\n        <IND>params = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>@inlineCallbacks\n    def get_zkaps(\n        self, limit: Optional[int] = None, position: Optional[str] = None,\n    ):\n        <IND>params = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

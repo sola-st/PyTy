@@ -1,0 +1,138 @@
+[
+  {
+    "project": "abersheeran/rpc.py",
+    "commit": "682701fe188d36d5eeedbde6803db8da9699d5f7",
+    "filename": "tests/test_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abersheeran-rpc.py/tests/test_client.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_client.py:23:12 Incompatible return type [7]: Expected `int` but got `typing.Generator[int, None, None]`.",
+    "message": " Expected `int` but got `typing.Generator[int, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 23,
+    "warning_line": "            yield i",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @app.register\n    def yield_data(max_num: int) -> int:\n        for i in range(max_num):\n",
+        "source_code_len": 92,
+        "target_code": "    @app.register\n    def yield_data(max_num: int):\n        for i in range(max_num):\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -20,3 +20,3 @@\n     @app.register\n-    def yield_data(max_num: int) -> int:\n+    def yield_data(max_num: int):\n         for i in range(max_num):\n",
+        "source_code_with_indent": "    <DED>@app.register\n    def yield_data(max_num: int) -> int:\n        <IND>for i in range(max_num):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@app.register\n    def yield_data(max_num: int):\n        <IND>for i in range(max_num):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "abersheeran/rpc.py",
+    "commit": "682701fe188d36d5eeedbde6803db8da9699d5f7",
+    "filename": "tests/test_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abersheeran-rpc.py/tests/test_client.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_client.py:43:12 Incompatible return type [7]: Expected `int` but got `typing.AsyncGenerator[int, None]`.",
+    "message": " Expected `int` but got `typing.AsyncGenerator[int, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 43,
+    "warning_line": "            yield i",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @app.register\n    async def yield_data(max_num: int) -> int:\n        for i in range(max_num):\n",
+        "source_code_len": 98,
+        "target_code": "    @app.register\n    async def yield_data(max_num: int):\n        for i in range(max_num):\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -40,3 +40,3 @@\n     @app.register\n-    async def yield_data(max_num: int) -> int:\n+    async def yield_data(max_num: int):\n         for i in range(max_num):\n",
+        "source_code_with_indent": "    <DED>@app.register\n    async def yield_data(max_num: int) -> int:\n        <IND>for i in range(max_num):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@app.register\n    async def yield_data(max_num: int):\n        <IND>for i in range(max_num):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "abersheeran/rpc.py",
+    "commit": "682701fe188d36d5eeedbde6803db8da9699d5f7",
+    "filename": "tests/test_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abersheeran-rpc.py/tests/test_client.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_client.py:76:8 Incompatible return type [7]: Expected `int` but got `typing.Generator[None, None, None]`.",
+    "message": " Expected `int` but got `typing.Generator[None, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 76,
+    "warning_line": "        yield",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @sync_client.remote_call\n    def yield_data(max_num: int) -> int:\n        yield\n",
+        "source_code_len": 84,
+        "target_code": "    @sync_client.remote_call\n    def yield_data(max_num: int):\n        yield\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -74,3 +74,3 @@\n     @sync_client.remote_call\n-    def yield_data(max_num: int) -> int:\n+    def yield_data(max_num: int):\n         yield\n",
+        "source_code_with_indent": "    <DED><DED>@sync_client.remote_call\n    def yield_data(max_num: int) -> int:\n        <IND>yield\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@sync_client.remote_call\n    def yield_data(max_num: int):\n        <IND>yield\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "abersheeran/rpc.py",
+    "commit": "682701fe188d36d5eeedbde6803db8da9699d5f7",
+    "filename": "tests/test_client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/abersheeran-rpc.py/tests/test_client.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_client.py:103:8 Incompatible return type [7]: Expected `int` but got `typing.AsyncGenerator[None, None]`.",
+    "message": " Expected `int` but got `typing.AsyncGenerator[None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 103,
+    "warning_line": "        yield",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @async_client.remote_call\n    async def yield_data(max_num: int) -> int:\n        yield\n",
+        "source_code_len": 91,
+        "target_code": "    @async_client.remote_call\n    async def yield_data(max_num: int):\n        yield\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -101,3 +101,3 @@\n     @async_client.remote_call\n-    async def yield_data(max_num: int) -> int:\n+    async def yield_data(max_num: int):\n         yield\n",
+        "source_code_with_indent": "    <DED><DED>@async_client.remote_call\n    async def yield_data(max_num: int) -> int:\n        <IND>yield\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@async_client.remote_call\n    async def yield_data(max_num: int):\n        <IND>yield\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

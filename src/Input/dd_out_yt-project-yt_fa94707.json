@@ -1,0 +1,36 @@
+[
+  {
+    "project": "yt-project/yt",
+    "commit": "fa947070f2814e04b64e27180b2f9d7310898e30",
+    "filename": "yt/frontends/adaptahop/data_structures.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/yt-project-yt/yt/frontends/adaptahop/data_structures.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "yt/frontends/adaptahop/data_structures.py:138:8 Incompatible return type [7]: Expected `typing.Tuple[typing.Tuple[typing.Union[str, typing.Tuple[str, ...]], int, str], ...]` but got implicit return value of `None`.",
+    "message": " Expected `typing.Tuple[typing.Tuple[typing.Union[str, typing.Tuple[str, ...]], int, str], ...]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 138,
+    "warning_line": "        self._halo_attributes = attributes",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _guess_headers_from_file(self, filename) -> ATTR_T:\n        with FortranFile(filename) as fpu:\n",
+        "source_code_len": 104,
+        "target_code": "\n    def _guess_headers_from_file(self, filename) -> None:\n        with FortranFile(filename) as fpu:\n",
+        "target_code_len": 102,
+        "diff_format": "@@ -97,3 +97,3 @@\n \n-    def _guess_headers_from_file(self, filename) -> ATTR_T:\n+    def _guess_headers_from_file(self, filename) -> None:\n         with FortranFile(filename) as fpu:\n",
+        "source_code_with_indent": "\n    <DED>def _guess_headers_from_file(self, filename) -> ATTR_T:\n        <IND>with FortranFile(filename) as fpu:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _guess_headers_from_file(self, filename) -> None:\n        <IND>with FortranFile(filename) as fpu:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

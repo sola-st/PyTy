@@ -1,0 +1,70 @@
+[
+  {
+    "project": "omnilib/aiomultiprocess",
+    "commit": "1a2fa7556dc79404458ed24d5c3a55c34934e040",
+    "filename": "aiomultiprocess/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/omnilib-aiomultiprocess/aiomultiprocess/core.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiomultiprocess/core.py:151:8 Incompatible return type [7]: Expected `Variable[R]` but got `None`.",
+    "message": " Expected `Variable[R]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 151,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"Easy access to the resulting value from the coroutine.\"\"\"\n        if self.exitcode is not None:\n            return self.aio_namespace.result\n\n        return None\n\n",
+        "source_code_len": 174,
+        "target_code": "        \"\"\"Easy access to the resulting value from the coroutine.\"\"\"\n        if self.exitcode is None:\n            raise ValueError(\"coroutine not completed\")\n\n        return self.aio_namespace.result\n\n",
+        "target_code_len": 202,
+        "diff_format": "@@ -147,6 +147,6 @@\n         \"\"\"Easy access to the resulting value from the coroutine.\"\"\"\n-        if self.exitcode is not None:\n-            return self.aio_namespace.result\n-\n-        return None\n+        if self.exitcode is None:\n+            raise ValueError(\"coroutine not completed\")\n+\n+        return self.aio_namespace.result\n \n",
+        "source_code_with_indent": "        <IND>\"\"\"Easy access to the resulting value from the coroutine.\"\"\"\n        if self.exitcode is not None:\n            <IND>return self.aio_namespace.result\n\n        <DED>return None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>\"\"\"Easy access to the resulting value from the coroutine.\"\"\"\n        if self.exitcode is None:\n            <IND>raise ValueError(\"coroutine not completed\")\n\n        <DED>return self.aio_namespace.result\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "omnilib/aiomultiprocess",
+    "commit": "1a2fa7556dc79404458ed24d5c3a55c34934e040",
+    "filename": "aiomultiprocess/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/omnilib-aiomultiprocess/aiomultiprocess/core.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiomultiprocess/core.py:227:36 Incompatible parameter type [6]: Expected `Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]` for 2nd positional only parameter to call `max` but got `Optional[int]`.",
+    "message": " Expected `Variable[_typeshed.SupportsLessThanT (bound to _typeshed.SupportsLessThan)]` for 2nd positional only parameter to call `max` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 227,
+    "warning_line": "        self.process_count = max(1, processes or os.cpu_count())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ) -> None:\n        self.process_count = max(1, processes or os.cpu_count())\n        self.initializer = initializer\n",
+        "source_code_len": 119,
+        "target_code": "    ) -> None:\n        self.process_count = max(1, processes or os.cpu_count() or 2)\n        self.initializer = initializer\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -226,3 +227,3 @@\n     ) -> None:\n-        self.process_count = max(1, processes or os.cpu_count())\n+        self.process_count = max(1, processes or os.cpu_count() or 2)\n         self.initializer = initializer\n",
+        "source_code_with_indent": "    ) -> None:\n        <IND>self.process_count = max(1, processes or os.cpu_count())\n        self.initializer = initializer\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> None:\n        <IND>self.process_count = max(1, processes or os.cpu_count() or 2)\n        self.initializer = initializer\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "awslabs/gluon-ts",
+    "commit": "a2cc8664070a5d507c28a77b5e0f444c914764b1",
+    "filename": "src/gluonts/evaluation/backtest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/awslabs-gluon-ts/src/gluonts/evaluation/backtest.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/gluonts/evaluation/backtest.py:123:4 Incompatible variable type [9]: logging_file is declared to have type `str` but is used as type `None`.",
+    "message": " logging_file is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 123,
+    "warning_line": "    logging_file: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    num_eval_samples: int = 100,\n    logging_file: str = None,\n    use_symbol_block_predictor: bool = False,\n",
+        "source_code_len": 109,
+        "target_code": "    num_eval_samples: int = 100,\n    logging_file: Optional[str] = None,\n    use_symbol_block_predictor: bool = False,\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -122,3 +122,3 @@\n     num_eval_samples: int = 100,\n-    logging_file: str = None,\n+    logging_file: Optional[str] = None,\n     use_symbol_block_predictor: bool = False,\n",
+        "source_code_with_indent": "    num_eval_samples: int = 100,\n    logging_file: str = None,\n    use_symbol_block_predictor: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    num_eval_samples: int = 100,\n    logging_file: Optional[str] = None,\n    use_symbol_block_predictor: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

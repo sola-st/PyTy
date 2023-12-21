@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ocrmypdf/OCRmyPDF",
+    "commit": "e402d5cb4b368980f07e63986d11b17e2e1751c9",
+    "filename": "src/ocrmypdf/_exec/tesseract.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ocrmypdf-OCRmyPDF/src/ocrmypdf/_exec/tesseract.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ocrmypdf/_exec/tesseract.py:253:26 Incompatible parameter type [6]: Expected `typing.Iterable[str]` for 1st positional only parameter to call `list.extend` but got `List[typing.Union[Path, str]]`.",
+    "message": " Expected `typing.Iterable[str]` for 1st positional only parameter to call `list.extend` but got `List[typing.Union[Path, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 253,
+    "warning_line": "    args_tesseract.extend([input_file, prefix, 'hocr', 'txt'] + tessconfig)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # to the number of order parameters here\n    args_tesseract.extend([input_file, prefix, 'hocr', 'txt'] + tessconfig)\n    try:\n",
+        "source_code_len": 130,
+        "target_code": "    # to the number of order parameters here\n    args_tesseract.extend([os.fspath(input_file), os.fspath(prefix), 'hocr', 'txt'])\n    args_tesseract.extend(tessconfig)\n    try:\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -252,3 +253,4 @@\n     # to the number of order parameters here\n-    args_tesseract.extend([input_file, prefix, 'hocr', 'txt'] + tessconfig)\n+    args_tesseract.extend([os.fspath(input_file), os.fspath(prefix), 'hocr', 'txt'])\n+    args_tesseract.extend(tessconfig)\n     try:\n",
+        "source_code_with_indent": "    # to the number of order parameters here\n    <DED>args_tesseract.extend([input_file, prefix, 'hocr', 'txt'] + tessconfig)\n    try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # to the number of order parameters here\n    <DED>args_tesseract.extend([os.fspath(input_file), os.fspath(prefix), 'hocr', 'txt'])\n    args_tesseract.extend(tessconfig)\n    try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ocrmypdf/OCRmyPDF",
+    "commit": "e402d5cb4b368980f07e63986d11b17e2e1751c9",
+    "filename": "src/ocrmypdf/_exec/tesseract.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ocrmypdf-OCRmyPDF/src/ocrmypdf/_exec/tesseract.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ocrmypdf/_exec/tesseract.py:253:64 Unsupported operand [58]: `+` is not supported for operand types `List[typing.Union[Path, str]]` and `List[str]`.",
+    "message": " `+` is not supported for operand types `List[typing.Union[Path, str]]` and `List[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 253,
+    "warning_line": "    args_tesseract.extend([input_file, prefix, 'hocr', 'txt'] + tessconfig)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # to the number of order parameters here\n    args_tesseract.extend([input_file, prefix, 'hocr', 'txt'] + tessconfig)\n    try:\n",
+        "source_code_len": 130,
+        "target_code": "    # to the number of order parameters here\n    args_tesseract.extend([os.fspath(input_file), os.fspath(prefix), 'hocr', 'txt'])\n    args_tesseract.extend(tessconfig)\n    try:\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -252,3 +253,4 @@\n     # to the number of order parameters here\n-    args_tesseract.extend([input_file, prefix, 'hocr', 'txt'] + tessconfig)\n+    args_tesseract.extend([os.fspath(input_file), os.fspath(prefix), 'hocr', 'txt'])\n+    args_tesseract.extend(tessconfig)\n     try:\n",
+        "source_code_with_indent": "    # to the number of order parameters here\n    <DED>args_tesseract.extend([input_file, prefix, 'hocr', 'txt'] + tessconfig)\n    try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # to the number of order parameters here\n    <DED>args_tesseract.extend([os.fspath(input_file), os.fspath(prefix), 'hocr', 'txt'])\n    args_tesseract.extend(tessconfig)\n    try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

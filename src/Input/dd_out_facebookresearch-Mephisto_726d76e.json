@@ -1,0 +1,45 @@
+[
+  {
+    "project": "facebookresearch/Mephisto",
+    "commit": "726d76efc340ec9c289a236a2ec489b0564f5b5d",
+    "filename": "mephisto/server/architects/heroku_architect.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-Mephisto/mephisto/server/architects/heroku_architect.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mephisto/server/architects/heroku_architect.py:108:36 Unbound name [10]: Name `Any` is used but not defined in the current scope.",
+    "message": " Name `Any` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 108,
+    "warning_line": "    def assert_task_args(cls, args: Any):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from mephisto.server.architects.router.build_router import build_router\nfrom typing import Tuple, List, Dict, Optional, TYPE_CHECKING\n\n",
+        "source_code_len": 135,
+        "target_code": "from mephisto.server.architects.router.build_router import build_router\nfrom typing import Any, Tuple, List, Dict, Optional, TYPE_CHECKING\n\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -21,3 +21,3 @@\n from mephisto.server.architects.router.build_router import build_router\n-from typing import Tuple, List, Dict, Optional, TYPE_CHECKING\n+from typing import Any, Tuple, List, Dict, Optional, TYPE_CHECKING\n \n",
+        "source_code_with_indent": "from mephisto.server.architects.router.build_router import build_router\nfrom typing import Tuple, List, Dict, Optional, TYPE_CHECKING\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from mephisto.server.architects.router.build_router import build_router\nfrom typing import Any, Tuple, List, Dict, Optional, TYPE_CHECKING\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/Mephisto",
+    "commit": "726d76efc340ec9c289a236a2ec489b0564f5b5d",
+    "filename": "test/server/architects/test_heroku_architect.py",
+    "min_patch_found": false,
+    "full_warning_msg": "test/server/architects/test_heroku_architect.py:42:21 Incompatible parameter type [6]: Expected `typing.Dict[str, str]` for 2nd positional only parameter to call `HerokuArchitect.__init__` but got `typing.Dict[str, Optional[bool]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

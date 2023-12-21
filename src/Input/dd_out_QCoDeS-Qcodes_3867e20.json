@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "3867e2050205de416fd2b77b69a7c7a9902b023d",
+    "filename": "qcodes/station.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/station.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/station.py:553:38 Incompatible parameter type [6]: Expected `Instrument` for 1st positional only parameter to anonymous call but got `InstrumentBase`.",
+    "message": " Expected `Instrument` for 1st positional only parameter to anonymous call but got `InstrumentBase`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 553,
+    "warning_line": "            setup_parameter_from_dict(instr, name, options)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        def setup_parameter_from_dict(\n            instr: Instrument,\n            name: str,\n",
+        "source_code_len": 93,
+        "target_code": "        def setup_parameter_from_dict(\n            instr: InstrumentBase,\n            name: str,\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -495,3 +495,3 @@\n         def setup_parameter_from_dict(\n-            instr: Instrument,\n+            instr: InstrumentBase,\n             name: str,\n",
+        "source_code_with_indent": "        <DED><DED>def setup_parameter_from_dict(\n            instr: Instrument,\n            name: str,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED><DED>def setup_parameter_from_dict(\n            instr: InstrumentBase,\n            name: str,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

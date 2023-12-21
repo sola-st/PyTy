@@ -1,0 +1,104 @@
+[
+  {
+    "project": "actionless/pikaur",
+    "commit": "ec6e806aa132ebf62a260b5c8df407df962698c3",
+    "filename": "pikaur/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/actionless-pikaur/pikaur/build.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pikaur/build.py:64:8 Incompatible return type [7]: Expected `List[str]` but got `str`.",
+    "message": " Expected `List[str]` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 64,
+    "warning_line": "        return self.get_values(field)[0]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_value(self, field: str) -> List[str]:\n        return self.get_values(field)[0]\n",
+        "source_code_len": 92,
+        "target_code": "\n    def get_value(self, field: str) -> str:\n        return self.get_values(field)[0]\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -62,3 +62,3 @@\n \n-    def get_value(self, field: str) -> List[str]:\n+    def get_value(self, field: str) -> str:\n         return self.get_values(field)[0]\n",
+        "source_code_with_indent": "\n    <DED>def get_value(self, field: str) -> List[str]:\n        <IND>return self.get_values(field)[0]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_value(self, field: str) -> str:\n        <IND>return self.get_values(field)[0]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "actionless/pikaur",
+    "commit": "ec6e806aa132ebf62a260b5c8df407df962698c3",
+    "filename": "pikaur/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/actionless-pikaur/pikaur/build.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pikaur/build.py:82:8 Incompatible return type [7]: Expected `List[str]` but got `List[Tuple[str, VersionMatcher]]`.",
+    "message": " Expected `List[str]` but got `List[Tuple[str, VersionMatcher]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 82,
+    "warning_line": "        return self._get_depends('makedepends')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_makedepends(self) -> List[str]:\n        return self._get_depends('makedepends')\n\n    def get_depends(self) -> List[str]:\n        return self._get_depends('depends')\n",
+        "source_code_len": 178,
+        "target_code": "\n    def get_makedepends(self) -> List[Tuple[str, VersionMatcher]]:\n        return self._get_depends('makedepends')\n\n    def get_depends(self) -> List[Tuple[str, VersionMatcher]]:\n        return self._get_depends('depends')\n",
+        "target_code_len": 224,
+        "diff_format": "@@ -80,6 +80,6 @@\n \n-    def get_makedepends(self) -> List[str]:\n+    def get_makedepends(self) -> List[Tuple[str, VersionMatcher]]:\n         return self._get_depends('makedepends')\n \n-    def get_depends(self) -> List[str]:\n+    def get_depends(self) -> List[Tuple[str, VersionMatcher]]:\n         return self._get_depends('depends')\n",
+        "source_code_with_indent": "\n    <DED>def get_makedepends(self) -> List[str]:\n        <IND>return self._get_depends('makedepends')\n\n    <DED>def get_depends(self) -> List[str]:\n        <IND>return self._get_depends('depends')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_makedepends(self) -> List[Tuple[str, VersionMatcher]]:\n        <IND>return self._get_depends('makedepends')\n\n    <DED>def get_depends(self) -> List[Tuple[str, VersionMatcher]]:\n        <IND>return self._get_depends('depends')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "actionless/pikaur",
+    "commit": "ec6e806aa132ebf62a260b5c8df407df962698c3",
+    "filename": "pikaur/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/actionless-pikaur/pikaur/build.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pikaur/build.py:85:8 Incompatible return type [7]: Expected `List[str]` but got `List[Tuple[str, VersionMatcher]]`.",
+    "message": " Expected `List[str]` but got `List[Tuple[str, VersionMatcher]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 85,
+    "warning_line": "        return self._get_depends('depends')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_makedepends(self) -> List[str]:\n        return self._get_depends('makedepends')\n\n    def get_depends(self) -> List[str]:\n        return self._get_depends('depends')\n",
+        "source_code_len": 178,
+        "target_code": "\n    def get_makedepends(self) -> List[Tuple[str, VersionMatcher]]:\n        return self._get_depends('makedepends')\n\n    def get_depends(self) -> List[Tuple[str, VersionMatcher]]:\n        return self._get_depends('depends')\n",
+        "target_code_len": 224,
+        "diff_format": "@@ -80,6 +80,6 @@\n \n-    def get_makedepends(self) -> List[str]:\n+    def get_makedepends(self) -> List[Tuple[str, VersionMatcher]]:\n         return self._get_depends('makedepends')\n \n-    def get_depends(self) -> List[str]:\n+    def get_depends(self) -> List[Tuple[str, VersionMatcher]]:\n         return self._get_depends('depends')\n",
+        "source_code_with_indent": "\n    <DED>def get_makedepends(self) -> List[str]:\n        <IND>return self._get_depends('makedepends')\n\n    <DED>def get_depends(self) -> List[str]:\n        <IND>return self._get_depends('depends')\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_makedepends(self) -> List[Tuple[str, VersionMatcher]]:\n        <IND>return self._get_depends('makedepends')\n\n    <DED>def get_depends(self) -> List[Tuple[str, VersionMatcher]]:\n        <IND>return self._get_depends('depends')\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

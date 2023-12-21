@@ -1,0 +1,53 @@
+[
+  {
+    "project": "DisnakeDev/disnake",
+    "commit": "7d9074db8a434995d9e0ae27adb2432b51219c99",
+    "filename": "discord/http.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DisnakeDev-disnake/discord/http.py",
+    "file_hunks_size": 15,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/http.py:604:30 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[int, str]`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 604,
+    "warning_line": "            params['after'] = after",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        params = {\n            'limit': limit,\n",
+        "source_code_len": 48,
+        "target_code": "\n        params: Dict[str, Any] = {\n            'limit': limit,\n",
+        "target_code_len": 64,
+        "diff_format": "@@ -599,3 +606,3 @@\n \n-        params = {\n+        params: Dict[str, Any] = {\n             'limit': limit,\n",
+        "source_code_with_indent": "\n        params = {\n            'limit': limit,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        params: Dict[str, Any] = {\n            'limit': limit,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "DisnakeDev/disnake",
+    "commit": "7d9074db8a434995d9e0ae27adb2432b51219c99",
+    "filename": "discord/http.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DisnakeDev-disnake/discord/http.py",
+    "file_hunks_size": 15,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/http.py:1293:40 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[int, str]`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Union[int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1293,
+    "warning_line": "            payload['target_user_id'] = target_user_id"
+  }
+]

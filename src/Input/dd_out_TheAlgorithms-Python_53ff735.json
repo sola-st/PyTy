@@ -1,0 +1,36 @@
+[
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "53ff735701db42d2609416ff6772db17383c3f10",
+    "filename": "maths/prime_numbers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/maths/prime_numbers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "maths/prime_numbers.py:24:4 Incompatible return type [7]: Expected `int` but got `typing.List[typing.Any]`.",
+    "message": " Expected `int` but got `typing.List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 24,
+    "warning_line": "    return ret",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\"\"\"Prime numbers calculation.\"\"\"\n\n\ndef primes(max: int) -> int:\n    \"\"\"\n    Return a list of all primes up to max.\n    >>> primes(10)\n",
+        "source_code_len": 134,
+        "target_code": "from typing import List\n\n\ndef primes(max: int) -> List[int]:\n    \"\"\"\n    Return a list of all primes numbers up to max.\n    >>> primes(10)\n",
+        "target_code_len": 139,
+        "diff_format": "@@ -1,7 +1,7 @@\n-\"\"\"Prime numbers calculation.\"\"\"\n+from typing import List\n \n \n-def primes(max: int) -> int:\n+def primes(max: int) -> List[int]:\n     \"\"\"\n-    Return a list of all primes up to max.\n+    Return a list of all primes numbers up to max.\n     >>> primes(10)\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\"\"\"Prime numbers calculation.\"\"\"\n\n\ndef primes(max: int) -> int:\n    <IND>",
+        "target_code_with_indent": "from typing import List\n\n\ndef primes(max: int) -> List[int]:\n    <IND>"
+      }
+    ]
+  }
+]

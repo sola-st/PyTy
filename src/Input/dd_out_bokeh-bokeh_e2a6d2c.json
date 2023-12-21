@@ -1,0 +1,66 @@
+[
+  {
+    "project": "bokeh/bokeh",
+    "commit": "e2a6d2c473b51cfd80c2b903deeb3984808527b8",
+    "filename": "examples/models/file/custom.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bokeh-bokeh/examples/models/file/custom.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "examples/models/file/custom.py:52:4 Inconsistent override [15]: `__implementation__` overrides attribute defined in `MyRow` inconsistently. Type `CoffeeScript` is not a subtype of the overridden attribute `str`.",
+    "message": " `__implementation__` overrides attribute defined in `MyRow` inconsistently. Type `CoffeeScript` is not a subtype of the overridden attribute `str`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 52,
+    "warning_line": "    __implementation__ = CoffeeScript(\"\"\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom bokeh.core.properties import String, Int, Color\nfrom bokeh.document import Document\n",
+        "source_code_len": 90,
+        "target_code": "\nfrom bokeh.core.properties import String, Float, Color, List, Override\nfrom bokeh.document import Document\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -2,3 +2,3 @@\n \n-from bokeh.core.properties import String, Int, Color\n+from bokeh.core.properties import String, Float, Color, List, Override\n from bokeh.document import Document\n",
+        "source_code_with_indent": "\nfrom bokeh.core.properties import String, Int, Color\nfrom bokeh.document import Document\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom bokeh.core.properties import String, Float, Color, List, Override\nfrom bokeh.document import Document\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    border_width = Int(3)\n    border_color = Color(\"black\")\n\nclass MyRow2(MyRow):\n\n    __implementation__ = CoffeeScript(\"\"\"\nimport {MyRow, MyRowView} from \"custom/my_row\"\n\nexport class MyRow2View extends MyRowView\n  render: () ->\n    super()\n\nexport class MyRow2 extends MyRow\n  type: \"MyRow2\"\n  default_view: MyRow2View\n\"\"\")\n\n",
+        "source_code_len": 329,
+        "target_code": "\n    gradient_angle = Float(default=0)\n    gradient_step = Float(default=20)\n    gradient_colors = List(Color, default=[\"white\", \"gray\"])\n\n    background_fill_alpha = Override(default=0.0)\n    border_fill_alpha = Override(default=0.0)\n\n",
+        "target_code_len": 236,
+        "diff_format": "@@ -46,18 +61,8 @@\n \n-    border_width = Int(3)\n-    border_color = Color(\"black\")\n+    gradient_angle = Float(default=0)\n+    gradient_step = Float(default=20)\n+    gradient_colors = List(Color, default=[\"white\", \"gray\"])\n \n-class MyRow2(MyRow):\n-\n-    __implementation__ = CoffeeScript(\"\"\"\n-import {MyRow, MyRowView} from \"custom/my_row\"\n-\n-export class MyRow2View extends MyRowView\n-  render: () ->\n-    super()\n-\n-export class MyRow2 extends MyRow\n-  type: \"MyRow2\"\n-  default_view: MyRow2View\n-\"\"\")\n+    background_fill_alpha = Override(default=0.0)\n+    border_fill_alpha = Override(default=0.0)\n \n",
+        "source_code_with_indent": "\n    border_width = Int(3)\n    border_color = Color(\"black\")\n\n<DED>class MyRow2(MyRow):\n\n    <IND>__implementation__ = CoffeeScript(\"\"\"\nimport {MyRow, MyRowView} from \"custom/my_row\"\n\nexport class MyRow2View extends MyRowView\n  render: () ->\n    super()\n\nexport class MyRow2 extends MyRow\n  type: \"MyRow2\"\n  default_view: MyRow2View\n\"\"\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    gradient_angle = Float(default=0)\n    gradient_step = Float(default=20)\n    gradient_colors = List(Color, default=[\"white\", \"gray\"])\n\n    background_fill_alpha = Override(default=0.0)\n    border_fill_alpha = Override(default=0.0)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "doc = Document()\ndoc.add_root(MyRow2(children=[plot]))\n\n",
+        "source_code_len": 56,
+        "target_code": "doc = Document()\ndoc.add_root(plot)\n\n",
+        "target_code_len": 37,
+        "diff_format": "@@ -83,3 +88,3 @@\n doc = Document()\n-doc.add_root(MyRow2(children=[plot]))\n+doc.add_root(plot)\n \n",
+        "source_code_with_indent": "doc = Document()\ndoc.add_root(MyRow2(children=[plot]))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "doc = Document()\ndoc.add_root(plot)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "e13f26e378c6b6afe7517fbfac40a130dd6e5573",
+    "filename": "src/idom/testing.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/idom/testing.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/idom/testing.py:177:4 Inconsistent override [15]: `src.idom.testing._LogRecordCaptor.handle` overrides method defined in `logging.Handler` inconsistently. Returned type `None` is not a subtype of the overridden return `bool`.",
+    "message": " `src.idom.testing._LogRecordCaptor.handle` overrides method defined in `logging.Handler` inconsistently. Returned type `None` is not a subtype of the overridden return `bool`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 177,
+    "warning_line": "    def handle(self, record: logging.LogRecord) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def handle(self, record: logging.LogRecord) -> None:\n        self.records.append(record)\n\n",
+        "source_code_len": 95,
+        "target_code": "\n    def handle(self, record: logging.LogRecord) -> bool:\n        self.records.append(record)\n        return True\n\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -176,4 +176,5 @@\n \n-    def handle(self, record: logging.LogRecord) -> None:\n+    def handle(self, record: logging.LogRecord) -> bool:\n         self.records.append(record)\n+        return True\n \n",
+        "source_code_with_indent": "\n    <DED>def handle(self, record: logging.LogRecord) -> None:\n        <IND>self.records.append(record)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def handle(self, record: logging.LogRecord) -> bool:\n        <IND>self.records.append(record)\n        return True\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

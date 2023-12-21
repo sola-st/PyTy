@@ -1,0 +1,100 @@
+[
+  {
+    "project": "gandersen101/spaczz",
+    "commit": "11a04bda470ae070b0453871f41e15da2ba618c2",
+    "filename": "src/spaczz/matcher/spaczzmatcher.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gandersen101-spaczz/src/spaczz/matcher/spaczzmatcher.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/spaczz/matcher/spaczzmatcher.py:99:77 Incompatible parameter type [6]: Expected `Sequence[Dict[str, typing.Any]]` for 2nd positional only parameter to call `_mapback` but got `Dict[str, typing.Any]`.",
+    "message": " Expected `Sequence[Dict[str, typing.Any]]` for 2nd positional only parameter to call `_mapback` but got `Dict[str, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 99,
+    "warning_line": "                        self._searcher.match(doc, pattern, **self.defaults), pattern",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ] = {}\n        self._patterns: DefaultDict[str, List[Dict[str, Any]]] = defaultdict(list)\n        self._searcher = TokenSearcher(vocab=vocab)\n",
+        "source_code_len": 150,
+        "target_code": "        ] = {}\n        self._patterns: DefaultDict[str, List[List[Dict[str, Any]]]] = defaultdict(list)\n        self._searcher = TokenSearcher(vocab=vocab)\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -70,3 +70,3 @@\n         ] = {}\n-        self._patterns: DefaultDict[str, List[Dict[str, Any]]] = defaultdict(list)\n+        self._patterns: DefaultDict[str, List[List[Dict[str, Any]]]] = defaultdict(list)\n         self._searcher = TokenSearcher(vocab=vocab)\n",
+        "source_code_with_indent": "        ] = {}\n        self._patterns: DefaultDict[str, List[Dict[str, Any]]] = defaultdict(list)\n        self._searcher = TokenSearcher(vocab=vocab)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ] = {}\n        self._patterns: DefaultDict[str, List[List[Dict[str, Any]]]] = defaultdict(list)\n        self._searcher = TokenSearcher(vocab=vocab)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if isinstance(pattern, Sequence):\n                self._patterns[label].append(pattern)\n            else:\n                raise TypeError(\"Patterns must be sequences of dictionaries.\")\n        self._callbacks[label] = on_match\n",
+        "source_code_len": 239,
+        "target_code": "            if isinstance(pattern, Sequence):\n                self._patterns[label].append(list(pattern))\n            else:\n                raise TypeError(\"Patterns must be lists of dictionaries.\")\n        self._callbacks[label] = on_match\n",
+        "target_code_len": 241,
+        "diff_format": "@@ -212,5 +212,5 @@\n             if isinstance(pattern, Sequence):\n-                self._patterns[label].append(pattern)\n+                self._patterns[label].append(list(pattern))\n             else:\n-                raise TypeError(\"Patterns must be sequences of dictionaries.\")\n+                raise TypeError(\"Patterns must be lists of dictionaries.\")\n         self._callbacks[label] = on_match\n",
+        "source_code_with_indent": "            <IND>if isinstance(pattern, Sequence):\n                <IND>self._patterns[label].append(pattern)\n            <DED>else:\n                <IND>raise TypeError(\"Patterns must be sequences of dictionaries.\")\n        <DED><DED>self._callbacks[label] = on_match\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>if isinstance(pattern, Sequence):\n                <IND>self._patterns[label].append(list(pattern))\n            <DED>else:\n                <IND>raise TypeError(\"Patterns must be lists of dictionaries.\")\n        <DED><DED>self._callbacks[label] = on_match\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "gandersen101/spaczz",
+    "commit": "11a04bda470ae070b0453871f41e15da2ba618c2",
+    "filename": "src/spaczz/matcher/spaczzmatcher.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/gandersen101-spaczz/src/spaczz/matcher/spaczzmatcher.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/spaczz/matcher/spaczzmatcher.py:213:45 Incompatible parameter type [6]: Expected `Dict[str, typing.Any]` for 1st positional only parameter to call `list.append` but got `Sequence[Dict[str, typing.Any]]`.",
+    "message": " Expected `Dict[str, typing.Any]` for 1st positional only parameter to call `list.append` but got `Sequence[Dict[str, typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 213,
+    "warning_line": "                self._patterns[label].append(pattern)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ] = {}\n        self._patterns: DefaultDict[str, List[Dict[str, Any]]] = defaultdict(list)\n        self._searcher = TokenSearcher(vocab=vocab)\n",
+        "source_code_len": 150,
+        "target_code": "        ] = {}\n        self._patterns: DefaultDict[str, List[List[Dict[str, Any]]]] = defaultdict(list)\n        self._searcher = TokenSearcher(vocab=vocab)\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -70,3 +70,3 @@\n         ] = {}\n-        self._patterns: DefaultDict[str, List[Dict[str, Any]]] = defaultdict(list)\n+        self._patterns: DefaultDict[str, List[List[Dict[str, Any]]]] = defaultdict(list)\n         self._searcher = TokenSearcher(vocab=vocab)\n",
+        "source_code_with_indent": "        ] = {}\n        self._patterns: DefaultDict[str, List[Dict[str, Any]]] = defaultdict(list)\n        self._searcher = TokenSearcher(vocab=vocab)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ] = {}\n        self._patterns: DefaultDict[str, List[List[Dict[str, Any]]]] = defaultdict(list)\n        self._searcher = TokenSearcher(vocab=vocab)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if isinstance(pattern, Sequence):\n                self._patterns[label].append(pattern)\n            else:\n                raise TypeError(\"Patterns must be sequences of dictionaries.\")\n        self._callbacks[label] = on_match\n",
+        "source_code_len": 239,
+        "target_code": "            if isinstance(pattern, Sequence):\n                self._patterns[label].append(list(pattern))\n            else:\n                raise TypeError(\"Patterns must be lists of dictionaries.\")\n        self._callbacks[label] = on_match\n",
+        "target_code_len": 241,
+        "diff_format": "@@ -212,5 +212,5 @@\n             if isinstance(pattern, Sequence):\n-                self._patterns[label].append(pattern)\n+                self._patterns[label].append(list(pattern))\n             else:\n-                raise TypeError(\"Patterns must be sequences of dictionaries.\")\n+                raise TypeError(\"Patterns must be lists of dictionaries.\")\n         self._callbacks[label] = on_match\n",
+        "source_code_with_indent": "            <IND>if isinstance(pattern, Sequence):\n                <IND>self._patterns[label].append(pattern)\n            <DED>else:\n                <IND>raise TypeError(\"Patterns must be sequences of dictionaries.\")\n        <DED><DED>self._callbacks[label] = on_match\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>if isinstance(pattern, Sequence):\n                <IND>self._patterns[label].append(list(pattern))\n            <DED>else:\n                <IND>raise TypeError(\"Patterns must be lists of dictionaries.\")\n        <DED><DED>self._callbacks[label] = on_match\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "1f662571b2133df09da22aea35936bb10b8ebffa",
+    "filename": "airflow/providers/google/cloud/hooks/datafusion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/google/cloud/hooks/datafusion.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/google/cloud/hooks/datafusion.py:111:41 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "message": " Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 111,
+    "warning_line": "                current_state = workflow[\"status\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        namespace: str = \"default\",\n    ) -> str:\n        url = os.path.join(\n",
+        "source_code_len": 78,
+        "target_code": "        namespace: str = \"default\",\n    ) -> Any:\n        url = os.path.join(\n",
+        "target_code_len": 78,
+        "diff_format": "@@ -409,3 +409,3 @@\n         namespace: str = \"default\",\n-    ) -> str:\n+    ) -> Any:\n         url = os.path.join(\n",
+        "source_code_with_indent": "        namespace: str = \"default\",\n    ) -> str:\n        <IND>url = os.path.join(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        namespace: str = \"default\",\n    ) -> Any:\n        <IND>url = os.path.join(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "1f662571b2133df09da22aea35936bb10b8ebffa",
+    "filename": "airflow/providers/google/cloud/sensors/datafusion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/google/cloud/sensors/datafusion.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/google/cloud/sensors/datafusion.py:75:8 Incompatible variable type [9]: failure_statuses is declared to have type `Set[str]` but is used as type `None`.",
+    "message": " failure_statuses is declared to have type `Set[str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 75,
+    "warning_line": "        failure_statuses: Set[str] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        location: str,\n        failure_statuses: Set[str] = None,\n        project_id: Optional[str] = None,\n",
+        "source_code_len": 108,
+        "target_code": "        location: str,\n        failure_statuses: Optional[Set[str]] = None,\n        project_id: Optional[str] = None,\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -74,3 +74,3 @@\n         location: str,\n-        failure_statuses: Set[str] = None,\n+        failure_statuses: Optional[Set[str]] = None,\n         project_id: Optional[str] = None,\n",
+        "source_code_with_indent": "        location: str,\n        failure_statuses: Set[str] = None,\n        project_id: Optional[str] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        location: str,\n        failure_statuses: Optional[Set[str]] = None,\n        project_id: Optional[str] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "1f662571b2133df09da22aea35936bb10b8ebffa",
+    "filename": "airflow/providers/google/cloud/sensors/datafusion.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/google/cloud/sensors/datafusion.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/google/cloud/sensors/datafusion.py:122:48 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "message": " Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 122,
+    "warning_line": "            pipeline_status = pipeline_workflow[\"status\"]"
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "1f662571b2133df09da22aea35936bb10b8ebffa",
+    "filename": "airflow/providers/google/cloud/sensors/dataproc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/google/cloud/sensors/dataproc.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/google/cloud/sensors/dataproc.py:59:8 Incompatible variable type [9]: region is declared to have type `str` but is used as type `None`.",
+    "message": " region is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 59,
+    "warning_line": "        region: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        dataproc_job_id: str,\n        region: str = None,\n        location: Optional[str] = None,\n",
+        "source_code_len": 98,
+        "target_code": "        dataproc_job_id: str,\n        region: Optional[str] = None,\n        location: Optional[str] = None,\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -58,3 +58,3 @@\n         dataproc_job_id: str,\n-        region: str = None,\n+        region: Optional[str] = None,\n         location: Optional[str] = None,\n",
+        "source_code_with_indent": "        dataproc_job_id: str,\n        region: str = None,\n        location: Optional[str] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        dataproc_job_id: str,\n        region: Optional[str] = None,\n        location: Optional[str] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

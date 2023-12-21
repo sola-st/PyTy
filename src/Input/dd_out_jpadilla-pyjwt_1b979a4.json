@@ -1,0 +1,68 @@
+[
+  {
+    "project": "jpadilla/pyjwt",
+    "commit": "1b979a42dcd57588fa1d7c169b6627f1f0cd3e1b",
+    "filename": "jwt/api_jws.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jpadilla-pyjwt/jwt/api_jws.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jwt/api_jws.py:102:16 Incompatible parameter type [6]: Expected `Optional[typing.Type[json.encoder.JSONEncoder]]` for 3rd parameter `cls` to call `json.dumps` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "message": " Expected `Optional[typing.Type[json.encoder.JSONEncoder]]` for 3rd parameter `cls` to call `json.dumps` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 102,
+    "warning_line": "                cls=json_encoder",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # import required by mypy to perform type checking, not used for normal execution\n    from typing import Callable, Dict, List, Optional, Union # NOQA\nexcept ImportError:\n",
+        "source_code_len": 174,
+        "target_code": "    # import required by mypy to perform type checking, not used for normal execution\n    from typing import Callable, Dict, List, Optional, Type, Union # NOQA\nexcept ImportError:\n",
+        "target_code_len": 180,
+        "diff_format": "@@ -5,3 +5,3 @@\n     # import required by mypy to perform type checking, not used for normal execution\n-    from typing import Callable, Dict, List, Optional, Union # NOQA\n+    from typing import Callable, Dict, List, Optional, Type, Union # NOQA\n except ImportError:\n",
+        "source_code_with_indent": "    # import required by mypy to perform type checking, not used for normal execution\n    <IND>from typing import Callable, Dict, List, Optional, Union # NOQA\n<DED>except ImportError:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # import required by mypy to perform type checking, not used for normal execution\n    <IND>from typing import Callable, Dict, List, Optional, Type, Union # NOQA\n<DED>except ImportError:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "               headers=None,  # type: Optional[Dict]\n               json_encoder=None  # type: Optional[Callable]\n               ):\n",
+        "source_code_len": 132,
+        "target_code": "               headers=None,  # type: Optional[Dict]\n               json_encoder=None  # type: Optional[Type[json.JSONEncoder]]\n               ):\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -80,3 +80,3 @@\n                headers=None,  # type: Optional[Dict]\n-               json_encoder=None  # type: Optional[Callable]\n+               json_encoder=None  # type: Optional[Type[json.JSONEncoder]]\n                ):\n",
+        "source_code_with_indent": "               headers=None,  # type: Optional[Dict]\n               json_encoder=None  # type: Optional[Callable]\n               ):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "               headers=None,  # type: Optional[Dict]\n               json_encoder=None  # type: Optional[Type[json.JSONEncoder]]\n               ):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jpadilla/pyjwt",
+    "commit": "1b979a42dcd57588fa1d7c169b6627f1f0cd3e1b",
+    "filename": "jwt/api_jwt.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jpadilla-pyjwt/jwt/api_jwt.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "jwt/api_jwt.py:61:12 Incompatible parameter type [6]: Expected `Optional[typing.Type[json.encoder.JSONEncoder]]` for 3rd parameter `cls` to call `json.dumps` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "message": " Expected `Optional[typing.Type[json.encoder.JSONEncoder]]` for 3rd parameter `cls` to call `json.dumps` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 61,
+    "warning_line": "            cls=json_encoder"
+  }
+]

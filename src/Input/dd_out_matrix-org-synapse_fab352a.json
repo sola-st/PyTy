@@ -1,0 +1,138 @@
+[
+  {
+    "project": "matrix-org/synapse",
+    "commit": "fab352ac2cb6a9d69a74be6d4255a9b71e0f7945",
+    "filename": "tests/handlers/test_space_summary.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-synapse/tests/handlers/test_space_summary.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/handlers/test_space_summary.py:132:31 Incompatible parameter type [6]: Expected `typing.List[]` for 2nd positional only parameter to call `dict.__setitem__` but got `str`.",
+    "message": " Expected `typing.List[]` for 2nd positional only parameter to call `dict.__setitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 132,
+    "warning_line": "            content[\"order\"] = order",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"Add a child room to a space.\"\"\"\n        content = {\"via\": [self.hs.hostname]}\n        if order is not None:\n",
+        "source_code_len": 119,
+        "target_code": "        \"\"\"Add a child room to a space.\"\"\"\n        content: JsonDict = {\"via\": [self.hs.hostname]}\n        if order is not None:\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -129,3 +129,3 @@\n         \"\"\"Add a child room to a space.\"\"\"\n-        content = {\"via\": [self.hs.hostname]}\n+        content: JsonDict = {\"via\": [self.hs.hostname]}\n         if order is not None:\n",
+        "source_code_with_indent": "        <IND>\"\"\"Add a child room to a space.\"\"\"\n        content = {\"via\": [self.hs.hostname]}\n        if order is not None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>\"\"\"Add a child room to a space.\"\"\"\n        content: JsonDict = {\"via\": [self.hs.hostname]}\n        if order is not None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "matrix-org/synapse",
+    "commit": "fab352ac2cb6a9d69a74be6d4255a9b71e0f7945",
+    "filename": "tests/rest/client/v1/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-synapse/tests/rest/client/v1/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/rest/client/v1/utils.py:50:8 Incompatible variable type [9]: room_creator is declared to have type `str` but is used as type `None`.",
+    "message": " room_creator is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 50,
+    "warning_line": "        room_creator: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        room_creator: str = None,\n        is_public: bool = True,\n        room_version: str = None,\n        tok: str = None,\n        expect_code: int = 200,\n",
+        "source_code_len": 171,
+        "target_code": "        self,\n        room_creator: Optional[str] = None,\n        is_public: bool = True,\n        room_version: Optional[str] = None,\n        tok: Optional[str] = None,\n        expect_code: int = 200,\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -49,6 +49,6 @@\n         self,\n-        room_creator: str = None,\n+        room_creator: Optional[str] = None,\n         is_public: bool = True,\n-        room_version: str = None,\n-        tok: str = None,\n+        room_version: Optional[str] = None,\n+        tok: Optional[str] = None,\n         expect_code: int = 200,\n",
+        "source_code_with_indent": "        self,\n        room_creator: str = None,\n        is_public: bool = True,\n        room_version: str = None,\n        tok: str = None,\n        expect_code: int = 200,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        room_creator: Optional[str] = None,\n        is_public: bool = True,\n        room_version: Optional[str] = None,\n        tok: Optional[str] = None,\n        expect_code: int = 200,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "matrix-org/synapse",
+    "commit": "fab352ac2cb6a9d69a74be6d4255a9b71e0f7945",
+    "filename": "tests/rest/client/v1/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-synapse/tests/rest/client/v1/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/rest/client/v1/utils.py:52:8 Incompatible variable type [9]: room_version is declared to have type `str` but is used as type `None`.",
+    "message": " room_version is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 52,
+    "warning_line": "        room_version: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        room_creator: str = None,\n        is_public: bool = True,\n        room_version: str = None,\n        tok: str = None,\n        expect_code: int = 200,\n",
+        "source_code_len": 171,
+        "target_code": "        self,\n        room_creator: Optional[str] = None,\n        is_public: bool = True,\n        room_version: Optional[str] = None,\n        tok: Optional[str] = None,\n        expect_code: int = 200,\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -49,6 +49,6 @@\n         self,\n-        room_creator: str = None,\n+        room_creator: Optional[str] = None,\n         is_public: bool = True,\n-        room_version: str = None,\n-        tok: str = None,\n+        room_version: Optional[str] = None,\n+        tok: Optional[str] = None,\n         expect_code: int = 200,\n",
+        "source_code_with_indent": "        self,\n        room_creator: str = None,\n        is_public: bool = True,\n        room_version: str = None,\n        tok: str = None,\n        expect_code: int = 200,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        room_creator: Optional[str] = None,\n        is_public: bool = True,\n        room_version: Optional[str] = None,\n        tok: Optional[str] = None,\n        expect_code: int = 200,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "matrix-org/synapse",
+    "commit": "fab352ac2cb6a9d69a74be6d4255a9b71e0f7945",
+    "filename": "tests/rest/client/v1/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-synapse/tests/rest/client/v1/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/rest/client/v1/utils.py:53:8 Incompatible variable type [9]: tok is declared to have type `str` but is used as type `None`.",
+    "message": " tok is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 53,
+    "warning_line": "        tok: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        room_creator: str = None,\n        is_public: bool = True,\n        room_version: str = None,\n        tok: str = None,\n        expect_code: int = 200,\n",
+        "source_code_len": 171,
+        "target_code": "        self,\n        room_creator: Optional[str] = None,\n        is_public: bool = True,\n        room_version: Optional[str] = None,\n        tok: Optional[str] = None,\n        expect_code: int = 200,\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -49,6 +49,6 @@\n         self,\n-        room_creator: str = None,\n+        room_creator: Optional[str] = None,\n         is_public: bool = True,\n-        room_version: str = None,\n-        tok: str = None,\n+        room_version: Optional[str] = None,\n+        tok: Optional[str] = None,\n         expect_code: int = 200,\n",
+        "source_code_with_indent": "        self,\n        room_creator: str = None,\n        is_public: bool = True,\n        room_version: str = None,\n        tok: str = None,\n        expect_code: int = 200,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        room_creator: Optional[str] = None,\n        is_public: bool = True,\n        room_version: Optional[str] = None,\n        tok: Optional[str] = None,\n        expect_code: int = 200,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

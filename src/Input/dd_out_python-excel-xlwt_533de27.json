@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python-excel/xlwt",
+    "commit": "533de27cbc65d1ed817a30b3672ad2fab19af1cd",
+    "filename": "xlwt/Row.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-excel-xlwt/xlwt/Row.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "xlwt/Row.py:146:5 Unbound name [10]: Name `accepts` is used but not defined in the current scope.",
+    "message": " Name `accepts` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 146,
+    "warning_line": "    @accepts(object, Style.XFStyle)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    @accepts(object, Style.XFStyle)\n    def set_style(self, style):\n",
+        "source_code_len": 69,
+        "target_code": "\n    # @accepts(object, Style.XFStyle)\n    def set_style(self, style):\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -145,3 +152,3 @@\n \n-    @accepts(object, Style.XFStyle)\n+    # @accepts(object, Style.XFStyle)\n     def set_style(self, style):\n",
+        "source_code_with_indent": "\n    <DED>@accepts(object, Style.XFStyle)\n    def set_style(self, style):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    # @accepts(object, Style.XFStyle)\n    <DED>def set_style(self, style):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python-excel/xlwt",
+    "commit": "533de27cbc65d1ed817a30b3672ad2fab19af1cd",
+    "filename": "xlwt/Row.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-excel-xlwt/xlwt/Row.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "xlwt/Row.py:238:32 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 238,
+    "warning_line": "    @accepts(object, int, (str, unicode, int, float, dt.datetime, dt.time, dt.date, ExcelFormula.Formula), Style.XFStyle)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def set_cell_formula(self, colx, formula_text, style=Style.default_style):\n        self.__adjust_height(style)\n        self.__adjust_bound_col_idx(colx)\n        xf_index = self.__parent_wb.add_style(style)\n        self.__cells.append(NumberCell(self, colx, xf_index, formula_text))\n\n    @accepts(object, int, (str, unicode, int, float, dt.datetime, dt.time, dt.date, ExcelFormula.Formula), Style.XFStyle)\n    def write(self, col, label, style):\n",
+        "source_code_len": 450,
+        "target_code": "\n    def set_cell_formula(self, colx, formula, style=Style.default_style):\n        self.__adjust_height(style)\n        self.__adjust_bound_col_idx(colx)\n        xf_index = self.__parent_wb.add_style(style)\n        self.__cells.append(FormulaCell(self, colx, xf_index, formula))\n        \n    def set_cell_boolean(self, colx, value, style=Style.default_style):\n        self.__adjust_height(style)\n        self.__adjust_bound_col_idx(colx)\n        xf_index = self.__parent_wb.add_style(style)\n        self.__cells.append(BooleanCell(self, colx, xf_index, bool(value)))\n\n    def set_cell_error(self, colx, error_string_or_code, style=Style.default_style):\n        self.__adjust_height(style)\n        self.__adjust_bound_col_idx(colx)\n        xf_index = self.__parent_wb.add_style(style)\n        self.__cells.append(ErrorCell(self, colx, xf_index, error_string_or_code))\n\n    # @accepts(object, int, (str, unicode, int, long, float, dt.datetime, dt.time, dt.date, ExcelFormula.Formula), Style.XFStyle)\n    def write(self, col, label, style):\n",
+        "target_code_len": 1037,
+        "diff_format": "@@ -231,9 +238,21 @@\n \n-    def set_cell_formula(self, colx, formula_text, style=Style.default_style):\n-        self.__adjust_height(style)\n-        self.__adjust_bound_col_idx(colx)\n-        xf_index = self.__parent_wb.add_style(style)\n-        self.__cells.append(NumberCell(self, colx, xf_index, formula_text))\n-\n-    @accepts(object, int, (str, unicode, int, float, dt.datetime, dt.time, dt.date, ExcelFormula.Formula), Style.XFStyle)\n+    def set_cell_formula(self, colx, formula, style=Style.default_style):\n+        self.__adjust_height(style)\n+        self.__adjust_bound_col_idx(colx)\n+        xf_index = self.__parent_wb.add_style(style)\n+        self.__cells.append(FormulaCell(self, colx, xf_index, formula))\n+        \n+    def set_cell_boolean(self, colx, value, style=Style.default_style):\n+        self.__adjust_height(style)\n+        self.__adjust_bound_col_idx(colx)\n+        xf_index = self.__parent_wb.add_style(style)\n+        self.__cells.append(BooleanCell(self, colx, xf_index, bool(value)))\n+\n+    def set_cell_error(self, colx, error_string_or_code, style=Style.default_style):\n+        self.__adjust_height(style)\n+        self.__adjust_bound_col_idx(colx)\n+        xf_index = self.__parent_wb.add_style(style)\n+        self.__cells.append(ErrorCell(self, colx, xf_index, error_string_or_code))\n+\n+    # @accepts(object, int, (str, unicode, int, long, float, dt.datetime, dt.time, dt.date, ExcelFormula.Formula), Style.XFStyle)\n     def write(self, col, label, style):\n",
+        "source_code_with_indent": "\n    <DED>def set_cell_formula(self, colx, formula_text, style=Style.default_style):\n        <IND>self.__adjust_height(style)\n        self.__adjust_bound_col_idx(colx)\n        xf_index = self.__parent_wb.add_style(style)\n        self.__cells.append(NumberCell(self, colx, xf_index, formula_text))\n\n    <DED>@accepts(object, int, (str, unicode, int, float, dt.datetime, dt.time, dt.date, ExcelFormula.Formula), Style.XFStyle)\n    def write(self, col, label, style):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def set_cell_formula(self, colx, formula, style=Style.default_style):\n        <IND>self.__adjust_height(style)\n        self.__adjust_bound_col_idx(colx)\n        xf_index = self.__parent_wb.add_style(style)\n        self.__cells.append(FormulaCell(self, colx, xf_index, formula))\n        \n    <DED>def set_cell_boolean(self, colx, value, style=Style.default_style):\n        <IND>self.__adjust_height(style)\n        self.__adjust_bound_col_idx(colx)\n        xf_index = self.__parent_wb.add_style(style)\n        self.__cells.append(BooleanCell(self, colx, xf_index, bool(value)))\n\n    <DED>def set_cell_error(self, colx, error_string_or_code, style=Style.default_style):\n        <IND>self.__adjust_height(style)\n        self.__adjust_bound_col_idx(colx)\n        xf_index = self.__parent_wb.add_style(style)\n        self.__cells.append(ErrorCell(self, colx, xf_index, error_string_or_code))\n\n    # @accepts(object, int, (str, unicode, int, long, float, dt.datetime, dt.time, dt.date, ExcelFormula.Formula), Style.XFStyle)\n    <DED>def write(self, col, label, style):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

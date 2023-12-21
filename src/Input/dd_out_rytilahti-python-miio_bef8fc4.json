@@ -1,0 +1,36 @@
+[
+  {
+    "project": "rytilahti/python-miio",
+    "commit": "bef8fc4512f38d0b9e5665a3ad8a2f0d8c68997d",
+    "filename": "mirobo/containers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rytilahti-python-miio/mirobo/containers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mirobo/containers.py:287:27 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `pretty_time` but got `float`.",
+    "message": " Expected `int` for 1st positional only parameter to call `pretty_time` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 287,
+    "warning_line": "        return pretty_time(int(self.data[0]) / 1000)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef pretty_time(x: int) -> datetime:\n    return datetime.fromtimestamp(x)\n",
+        "source_code_len": 75,
+        "target_code": "\ndef pretty_time(x: float) -> datetime:\n    return datetime.fromtimestamp(x)\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -13,3 +13,3 @@\n \n-def pretty_time(x: int) -> datetime:\n+def pretty_time(x: float) -> datetime:\n     return datetime.fromtimestamp(x)\n",
+        "source_code_with_indent": "\n<DED>def pretty_time(x: int) -> datetime:\n    <IND>return datetime.fromtimestamp(x)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def pretty_time(x: float) -> datetime:\n    <IND>return datetime.fromtimestamp(x)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

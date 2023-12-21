@@ -1,0 +1,104 @@
+[
+  {
+    "project": "aio-libs/aiozipkin",
+    "commit": "f8f076c0202c4b5f73486ab332d04d78b4549251",
+    "filename": "aiozipkin/helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aio-libs-aiozipkin/aiozipkin/helpers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiozipkin/helpers.py:114:8 Incompatible parameter type [6]: Expected `str` for 1st parameter `trace_id` to call `_TraceContext.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st parameter `trace_id` to call `_TraceContext.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 114,
+    "warning_line": "        trace_id=headers.get(TRACE_ID_HEADER.lower()),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    context = TraceContext(\n        trace_id=headers.get(TRACE_ID_HEADER.lower()),\n        parent_id=headers.get(PARENT_ID_HEADER.lower(), None),\n        span_id=headers.get(SPAN_ID_HEADER.lower()),\n        sampled=parse_sampled(headers),\n",
+        "source_code_len": 239,
+        "target_code": "    context = TraceContext(\n        trace_id=headers[TRACE_ID_HEADER.lower()],\n        parent_id=headers.get(PARENT_ID_HEADER.lower()),\n        span_id=headers[SPAN_ID_HEADER.lower()],\n        sampled=parse_sampled(headers),\n",
+        "target_code_len": 225,
+        "diff_format": "@@ -113,5 +113,5 @@\n     context = TraceContext(\n-        trace_id=headers.get(TRACE_ID_HEADER.lower()),\n-        parent_id=headers.get(PARENT_ID_HEADER.lower(), None),\n-        span_id=headers.get(SPAN_ID_HEADER.lower()),\n+        trace_id=headers[TRACE_ID_HEADER.lower()],\n+        parent_id=headers.get(PARENT_ID_HEADER.lower()),\n+        span_id=headers[SPAN_ID_HEADER.lower()],\n         sampled=parse_sampled(headers),\n",
+        "source_code_with_indent": "    <DED>context = TraceContext(\n        trace_id=headers.get(TRACE_ID_HEADER.lower()),\n        parent_id=headers.get(PARENT_ID_HEADER.lower(), None),\n        span_id=headers.get(SPAN_ID_HEADER.lower()),\n        sampled=parse_sampled(headers),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>context = TraceContext(\n        trace_id=headers[TRACE_ID_HEADER.lower()],\n        parent_id=headers.get(PARENT_ID_HEADER.lower()),\n        span_id=headers[SPAN_ID_HEADER.lower()],\n        sampled=parse_sampled(headers),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "aio-libs/aiozipkin",
+    "commit": "f8f076c0202c4b5f73486ab332d04d78b4549251",
+    "filename": "aiozipkin/helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aio-libs-aiozipkin/aiozipkin/helpers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiozipkin/helpers.py:116:8 Incompatible parameter type [6]: Expected `str` for 3rd parameter `span_id` to call `_TraceContext.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 3rd parameter `span_id` to call `_TraceContext.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 116,
+    "warning_line": "        span_id=headers.get(SPAN_ID_HEADER.lower()),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    context = TraceContext(\n        trace_id=headers.get(TRACE_ID_HEADER.lower()),\n        parent_id=headers.get(PARENT_ID_HEADER.lower(), None),\n        span_id=headers.get(SPAN_ID_HEADER.lower()),\n        sampled=parse_sampled(headers),\n",
+        "source_code_len": 239,
+        "target_code": "    context = TraceContext(\n        trace_id=headers[TRACE_ID_HEADER.lower()],\n        parent_id=headers.get(PARENT_ID_HEADER.lower()),\n        span_id=headers[SPAN_ID_HEADER.lower()],\n        sampled=parse_sampled(headers),\n",
+        "target_code_len": 225,
+        "diff_format": "@@ -113,5 +113,5 @@\n     context = TraceContext(\n-        trace_id=headers.get(TRACE_ID_HEADER.lower()),\n-        parent_id=headers.get(PARENT_ID_HEADER.lower(), None),\n-        span_id=headers.get(SPAN_ID_HEADER.lower()),\n+        trace_id=headers[TRACE_ID_HEADER.lower()],\n+        parent_id=headers.get(PARENT_ID_HEADER.lower()),\n+        span_id=headers[SPAN_ID_HEADER.lower()],\n         sampled=parse_sampled(headers),\n",
+        "source_code_with_indent": "    <DED>context = TraceContext(\n        trace_id=headers.get(TRACE_ID_HEADER.lower()),\n        parent_id=headers.get(PARENT_ID_HEADER.lower(), None),\n        span_id=headers.get(SPAN_ID_HEADER.lower()),\n        sampled=parse_sampled(headers),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>context = TraceContext(\n        trace_id=headers[TRACE_ID_HEADER.lower()],\n        parent_id=headers.get(PARENT_ID_HEADER.lower()),\n        span_id=headers[SPAN_ID_HEADER.lower()],\n        sampled=parse_sampled(headers),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "aio-libs/aiozipkin",
+    "commit": "f8f076c0202c4b5f73486ab332d04d78b4549251",
+    "filename": "aiozipkin/helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aio-libs-aiozipkin/aiozipkin/helpers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiozipkin/helpers.py:117:8 Incompatible parameter type [6]: Expected `bool` for 4th parameter `sampled` to call `_TraceContext.__init__` but got `Optional[bool]`.",
+    "message": " Expected `bool` for 4th parameter `sampled` to call `_TraceContext.__init__` but got `Optional[bool]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 117,
+    "warning_line": "        sampled=parse_sampled(headers),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ('span_id', str),\n        ('sampled', bool),\n        ('debug', bool),\n",
+        "source_code_len": 78,
+        "target_code": "        ('span_id', str),\n        ('sampled', OptBool),\n        ('debug', bool),\n",
+        "target_code_len": 81,
+        "diff_format": "@@ -27,3 +27,3 @@\n         ('span_id', str),\n-        ('sampled', bool),\n+        ('sampled', OptBool),\n         ('debug', bool),\n",
+        "source_code_with_indent": "        ('span_id', str),\n        ('sampled', bool),\n        ('debug', bool),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ('span_id', str),\n        ('sampled', OptBool),\n        ('debug', bool),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

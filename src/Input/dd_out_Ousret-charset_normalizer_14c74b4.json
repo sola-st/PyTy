@@ -1,0 +1,119 @@
+[
+  {
+    "project": "Ousret/charset_normalizer",
+    "commit": "14c74b49c73cc04e4044ca9c93e31e34d60e857f",
+    "filename": "charset_normalizer/cd.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ousret-charset_normalizer/charset_normalizer/cd.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "charset_normalizer/cd.py:163:8 Incompatible variable type [9]: character_range is declared to have type `str` but is used as type `Optional[str]`.",
+    "message": " character_range is declared to have type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 163,
+    "warning_line": "        character_range = unicode_range(character)  # type: str",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        character_range = unicode_range(character)  # type: str\n\n",
+        "source_code_len": 66,
+        "target_code": "\n        character_range = unicode_range(character)  # type: Optional[str]\n\n        if character_range is None:\n            continue\n\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -162,3 +186,6 @@\n \n-        character_range = unicode_range(character)  # type: str\n+        character_range = unicode_range(character)  # type: Optional[str]\n+\n+        if character_range is None:\n+            continue\n \n",
+        "source_code_with_indent": "\n        <DED>character_range = unicode_range(character)  # type: str\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>character_range = unicode_range(character)  # type: Optional[str]\n\n        if character_range is None:\n            <IND>continue\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ousret/charset_normalizer",
+    "commit": "14c74b49c73cc04e4044ca9c93e31e34d60e857f",
+    "filename": "charset_normalizer/cd.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ousret-charset_normalizer/charset_normalizer/cd.py",
+    "file_hunks_size": 16,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "charset_normalizer/cd.py:230:8 Incompatible variable type [9]: lg_inclusion is declared to have type `Optional[str]` but is used as type `List[str]`.",
+    "message": " lg_inclusion is declared to have type `Optional[str]` but is used as type `List[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 230,
+    "warning_line": "        lg_inclusion = lg_inclusion.split(\",\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    results = []  # type: List[Tuple[str, float]]\n\n",
+        "source_code_len": 51,
+        "target_code": "    results = []  # type: List[Tuple[str, float]]\n    lg_inclusion_list = []  # type: List[str]\n\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -225,2 +254,3 @@\n     results = []  # type: List[Tuple[str, float]]\n+    lg_inclusion_list = []  # type: List[str]\n \n",
+        "source_code_with_indent": "    results = []  # type: List[Tuple[str, float]]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    results = []  # type: List[Tuple[str, float]]\n    lg_inclusion_list = []  # type: List[str]\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if lg_inclusion is not None:\n        lg_inclusion = lg_inclusion.split(\",\")\n\n    if lg_inclusion is not None and \"Latin Based\" in lg_inclusion:\n        lg_inclusion.remove(\"Latin Based\")\n\n",
+        "source_code_len": 192,
+        "target_code": "    if lg_inclusion is not None:\n        lg_inclusion_list = lg_inclusion.split(\",\")\n\n    if \"Latin Based\" in lg_inclusion_list:\n        lg_inclusion_list.remove(\"Latin Based\")\n\n",
+        "target_code_len": 178,
+        "diff_format": "@@ -229,6 +259,6 @@\n     if lg_inclusion is not None:\n-        lg_inclusion = lg_inclusion.split(\",\")\n-\n-    if lg_inclusion is not None and \"Latin Based\" in lg_inclusion:\n-        lg_inclusion.remove(\"Latin Based\")\n+        lg_inclusion_list = lg_inclusion.split(\",\")\n+\n+    if \"Latin Based\" in lg_inclusion_list:\n+        lg_inclusion_list.remove(\"Latin Based\")\n \n",
+        "source_code_with_indent": "    if lg_inclusion is not None:\n        <IND>lg_inclusion = lg_inclusion.split(\",\")\n\n    <DED>if lg_inclusion is not None and \"Latin Based\" in lg_inclusion:\n        <IND>lg_inclusion.remove(\"Latin Based\")\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if lg_inclusion is not None:\n        <IND>lg_inclusion_list = lg_inclusion.split(\",\")\n\n    <DED>if \"Latin Based\" in lg_inclusion_list:\n        <IND>lg_inclusion_list.remove(\"Latin Based\")\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ousret/charset_normalizer",
+    "commit": "14c74b49c73cc04e4044ca9c93e31e34d60e857f",
+    "filename": "charset_normalizer/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ousret-charset_normalizer/charset_normalizer/models.py",
+    "file_hunks_size": 19,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "charset_normalizer/models.py:209:20 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `set.add` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `set.add` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 209,
+    "warning_line": "                    unicode_range(character)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if detected_range:\n                detected_ranges.add(\n                    unicode_range(character)\n                )\n        self._unicode_ranges = sorted(list(detected_ranges))\n",
+        "source_code_len": 192,
+        "target_code": "            if detected_range:\n                detected_ranges.add(detected_range)\n        self._unicode_ranges = sorted(list(detected_ranges))\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -207,5 +224,3 @@\n             if detected_range:\n-                detected_ranges.add(\n-                    unicode_range(character)\n-                )\n+                detected_ranges.add(detected_range)\n         self._unicode_ranges = sorted(list(detected_ranges))\n",
+        "source_code_with_indent": "            if detected_range:\n                <IND>detected_ranges.add(\n                    unicode_range(character)\n                )\n        <DED><DED>self._unicode_ranges = sorted(list(detected_ranges))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            if detected_range:\n                <IND>detected_ranges.add(detected_range)\n        <DED><DED>self._unicode_ranges = sorted(list(detected_ranges))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

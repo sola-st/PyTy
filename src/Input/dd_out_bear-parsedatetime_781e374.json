@@ -1,0 +1,36 @@
+[
+  {
+    "project": "bear/parsedatetime",
+    "commit": "781e37481b09b48148a04bc2d1b1123d3af8433f",
+    "filename": "parsedatetime/pdt_locales/icu.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/bear-parsedatetime/parsedatetime/pdt_locales/icu.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "parsedatetime/pdt_locales/icu.py:12:12 Unbound name [10]: Name `xrange` is used but not defined in the current scope.",
+    "message": " Name `xrange` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 12,
+    "warning_line": "    range = xrange",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "try:\n    range = xrange\nexcept NameError:\n    pass\n\ntry:\n    import PyICU as pyicu\nexcept ImportError:\n",
+        "source_code_len": 103,
+        "target_code": "try:\n    import pyicu  # type: ignore\nexcept ImportError:\n",
+        "target_code_len": 58,
+        "diff_format": "@@ -11,8 +11,3 @@\n try:\n-    range = xrange\n-except NameError:\n-    pass\n-\n-try:\n-    import PyICU as pyicu\n+    import pyicu  # type: ignore\n except ImportError:\n",
+        "source_code_with_indent": "try:\n    <IND>range = xrange\n<DED>except NameError:\n    <IND>pass\n\n<DED>try:\n    <IND>import PyICU as pyicu\n<DED>except ImportError:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "try:\n    <IND>import pyicu  # type: ignore\n<DED>except ImportError:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

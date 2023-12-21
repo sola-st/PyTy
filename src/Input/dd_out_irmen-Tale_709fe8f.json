@@ -1,0 +1,100 @@
+[
+  {
+    "project": "irmen/Tale",
+    "commit": "709fe8f6d7f10705bcdc818c6766bd3aaafded2c",
+    "filename": "tale/driver_if.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/irmen-Tale/tale/driver_if.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tale/driver_if.py:367:8 Incompatible return type [7]: Expected `base.Location` but got `base.Living`.",
+    "message": " Expected `base.Location` but got `base.Living`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 367,
+    "warning_line": "        return liv",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if baseclassname == \"tale.base.Item\":\n            return self.resolve_item_ref(vnum, name, classname, baseclassname, new_items)\n        elif baseclassname == \"tale.base.Location\":\n",
+        "source_code_len": 188,
+        "target_code": "        if baseclassname == \"tale.base.Item\":\n            return self.resolve_item_ref(vnum, name, classname, baseclassname, new_items=new_items)\n        elif baseclassname == \"tale.base.Location\":\n",
+        "target_code_len": 198,
+        "diff_format": "@@ -344,3 +344,3 @@\n         if baseclassname == \"tale.base.Item\":\n-            return self.resolve_item_ref(vnum, name, classname, baseclassname, new_items)\n+            return self.resolve_item_ref(vnum, name, classname, baseclassname, new_items=new_items)\n         elif baseclassname == \"tale.base.Location\":\n",
+        "source_code_with_indent": "        <IND>if baseclassname == \"tale.base.Item\":\n            <IND>return self.resolve_item_ref(vnum, name, classname, baseclassname, new_items)\n        <DED>elif baseclassname == \"tale.base.Location\":\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>if baseclassname == \"tale.base.Item\":\n            <IND>return self.resolve_item_ref(vnum, name, classname, baseclassname, new_items=new_items)\n        <DED>elif baseclassname == \"tale.base.Location\":\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if not loc:\n            raise LookupError(\"location vnum not found: \"+str(vnum))\n        if loc.name != name or savegames.qual_classname(loc) != classname or savegames.qual_baseclassname(loc) != baseclassname:\n            raise errors.TaleError(\"location inconsistency for vnum \"+str(vnum))\n        return loc\n\n    def resolve_living_ref(self, vnum: int, name: str, classname: str, baseclassname: str) -> base.Location:\n        liv = base.MudObject.all_livings.get(vnum, None)\n        if not liv:\n            raise LookupError(\"living vnum not found: \"+str(vnum))\n        if liv.name != name or savegames.qual_classname(liv) != classname or savegames.qual_baseclassname(liv) != baseclassname:\n            raise errors.TaleError(\"living inconsistency for vnum \"+str(vnum))\n        return liv\n\n    def resolve_item_ref(self, vnum: int, name: str, classname: str, baseclassname: str, new_items: List[Dict[str, Any]]) -> base.Item:\n        item = base.MudObject.all_items.get(vnum, None)\n",
+        "source_code_len": 992,
+        "target_code": "        if not loc:\n            raise LookupError(\"location vnum not found: \" + str(vnum))\n        if loc.name != name or savegames.qual_classname(loc) != classname or savegames.qual_baseclassname(loc) != baseclassname:\n            raise errors.TaleError(\"location inconsistency for vnum \" + str(vnum))\n        return loc\n\n    def resolve_living_ref(self, vnum: int, name: str, classname: str, baseclassname: str) -> base.Living:\n        liv = base.MudObject.all_livings.get(vnum, None)\n        if not liv:\n            raise LookupError(\"living vnum not found: \" + str(vnum))\n        if liv.name != name or savegames.qual_classname(liv) != classname or savegames.qual_baseclassname(liv) != baseclassname:\n            raise errors.TaleError(\"living inconsistency for vnum \" + str(vnum))\n        return liv\n\n    def resolve_item_ref(self, vnum: int, name: str, classname: str, baseclassname: str,\n                         *, new_items: List[Dict[str, Any]]=[]) -> base.Item:\n        item = base.MudObject.all_items.get(vnum, None)\n",
+        "target_code_len": 1029,
+        "diff_format": "@@ -355,16 +355,17 @@\n         if not loc:\n-            raise LookupError(\"location vnum not found: \"+str(vnum))\n+            raise LookupError(\"location vnum not found: \" + str(vnum))\n         if loc.name != name or savegames.qual_classname(loc) != classname or savegames.qual_baseclassname(loc) != baseclassname:\n-            raise errors.TaleError(\"location inconsistency for vnum \"+str(vnum))\n+            raise errors.TaleError(\"location inconsistency for vnum \" + str(vnum))\n         return loc\n \n-    def resolve_living_ref(self, vnum: int, name: str, classname: str, baseclassname: str) -> base.Location:\n+    def resolve_living_ref(self, vnum: int, name: str, classname: str, baseclassname: str) -> base.Living:\n         liv = base.MudObject.all_livings.get(vnum, None)\n         if not liv:\n-            raise LookupError(\"living vnum not found: \"+str(vnum))\n+            raise LookupError(\"living vnum not found: \" + str(vnum))\n         if liv.name != name or savegames.qual_classname(liv) != classname or savegames.qual_baseclassname(liv) != baseclassname:\n-            raise errors.TaleError(\"living inconsistency for vnum \"+str(vnum))\n+            raise errors.TaleError(\"living inconsistency for vnum \" + str(vnum))\n         return liv\n \n-    def resolve_item_ref(self, vnum: int, name: str, classname: str, baseclassname: str, new_items: List[Dict[str, Any]]) -> base.Item:\n+    def resolve_item_ref(self, vnum: int, name: str, classname: str, baseclassname: str,\n+                         *, new_items: List[Dict[str, Any]]=[]) -> base.Item:\n         item = base.MudObject.all_items.get(vnum, None)\n",
+        "source_code_with_indent": "        if not loc:\n            <IND>raise LookupError(\"location vnum not found: \"+str(vnum))\n        <DED>if loc.name != name or savegames.qual_classname(loc) != classname or savegames.qual_baseclassname(loc) != baseclassname:\n            <IND>raise errors.TaleError(\"location inconsistency for vnum \"+str(vnum))\n        <DED>return loc\n\n    <DED>def resolve_living_ref(self, vnum: int, name: str, classname: str, baseclassname: str) -> base.Location:\n        <IND>liv = base.MudObject.all_livings.get(vnum, None)\n        if not liv:\n            <IND>raise LookupError(\"living vnum not found: \"+str(vnum))\n        <DED>if liv.name != name or savegames.qual_classname(liv) != classname or savegames.qual_baseclassname(liv) != baseclassname:\n            <IND>raise errors.TaleError(\"living inconsistency for vnum \"+str(vnum))\n        <DED>return liv\n\n    <DED>def resolve_item_ref(self, vnum: int, name: str, classname: str, baseclassname: str, new_items: List[Dict[str, Any]]) -> base.Item:\n        <IND>item = base.MudObject.all_items.get(vnum, None)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if not loc:\n            <IND>raise LookupError(\"location vnum not found: \" + str(vnum))\n        <DED>if loc.name != name or savegames.qual_classname(loc) != classname or savegames.qual_baseclassname(loc) != baseclassname:\n            <IND>raise errors.TaleError(\"location inconsistency for vnum \" + str(vnum))\n        <DED>return loc\n\n    <DED>def resolve_living_ref(self, vnum: int, name: str, classname: str, baseclassname: str) -> base.Living:\n        <IND>liv = base.MudObject.all_livings.get(vnum, None)\n        if not liv:\n            <IND>raise LookupError(\"living vnum not found: \" + str(vnum))\n        <DED>if liv.name != name or savegames.qual_classname(liv) != classname or savegames.qual_baseclassname(liv) != baseclassname:\n            <IND>raise errors.TaleError(\"living inconsistency for vnum \" + str(vnum))\n        <DED>return liv\n\n    <DED>def resolve_item_ref(self, vnum: int, name: str, classname: str, baseclassname: str,\n                         *, new_items: List[Dict[str, Any]]=[]) -> base.Item:\n        <IND>item = base.MudObject.all_items.get(vnum, None)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "irmen/Tale",
+    "commit": "709fe8f6d7f10705bcdc818c6766bd3aaafded2c",
+    "filename": "tale/driver_if.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/irmen-Tale/tale/driver_if.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tale/driver_if.py:402:34 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "message": " Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 402,
+    "warning_line": "            new_deferred = d_info[\"deferred\"]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def hookup_deferreds(self, deferreds_info: Dict[str, Any], new_items: List[Dict[str, Any]]) -> List[driver.Deferred]:\n        result = []\n        for d_info in deferreds_info:\n",
+        "source_code_len": 181,
+        "target_code": "\n    def hookup_deferreds(self, deferreds_info: List[Dict[str, driver.Deferred]], new_items: List[Dict[str, Any]]) -> List[driver.Deferred]:\n        result = []  # type: List[driver.Deferred]\n        for d_info in deferreds_info:\n",
+        "target_code_len": 230,
+        "diff_format": "@@ -398,4 +399,4 @@\n \n-    def hookup_deferreds(self, deferreds_info: Dict[str, Any], new_items: List[Dict[str, Any]]) -> List[driver.Deferred]:\n-        result = []\n+    def hookup_deferreds(self, deferreds_info: List[Dict[str, driver.Deferred]], new_items: List[Dict[str, Any]]) -> List[driver.Deferred]:\n+        result = []  # type: List[driver.Deferred]\n         for d_info in deferreds_info:\n",
+        "source_code_with_indent": "\n    <DED>def hookup_deferreds(self, deferreds_info: Dict[str, Any], new_items: List[Dict[str, Any]]) -> List[driver.Deferred]:\n        <IND>result = []\n        for d_info in deferreds_info:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def hookup_deferreds(self, deferreds_info: List[Dict[str, driver.Deferred]], new_items: List[Dict[str, Any]]) -> List[driver.Deferred]:\n        <IND>result = []  # type: List[driver.Deferred]\n        for d_info in deferreds_info:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            assert isinstance(new_deferred, driver.Deferred)\n            new_deferred.owner = self.resolve_ref(*d_info[\"owner\"], new_items=new_items)\n            result.append(new_deferred)\n",
+        "source_code_len": 190,
+        "target_code": "            assert isinstance(new_deferred, driver.Deferred)\n            new_deferred.owner = self.resolve_ref(*d_info[\"owner\"], new_items=new_items)   # type: ignore\n            result.append(new_deferred)\n",
+        "target_code_len": 207,
+        "diff_format": "@@ -403,3 +404,3 @@\n             assert isinstance(new_deferred, driver.Deferred)\n-            new_deferred.owner = self.resolve_ref(*d_info[\"owner\"], new_items=new_items)\n+            new_deferred.owner = self.resolve_ref(*d_info[\"owner\"], new_items=new_items)   # type: ignore\n             result.append(new_deferred)\n",
+        "source_code_with_indent": "            assert isinstance(new_deferred, driver.Deferred)\n            new_deferred.owner = self.resolve_ref(*d_info[\"owner\"], new_items=new_items)\n            result.append(new_deferred)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            assert isinstance(new_deferred, driver.Deferred)\n            new_deferred.owner = self.resolve_ref(*d_info[\"owner\"], new_items=new_items)   # type: ignore\n            result.append(new_deferred)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

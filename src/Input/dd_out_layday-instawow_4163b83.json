@@ -1,0 +1,51 @@
+[
+  {
+    "project": "layday/instawow",
+    "commit": "4163b83073d6d14e62821bae33a99ca590e9594a",
+    "filename": "instawow/matchers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/layday-instawow/instawow/matchers.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "instawow/matchers.py:63:27 Unsupported operand [58]: `<` is not supported for operand types `str` and `typing.Union[AddonFolder, str]`.",
+    "message": " `<` is not supported for operand types `str` and `typing.Union[AddonFolder, str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 63,
+    "warning_line": "        return self.name < other",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return NotImplemented\n        return self.name < other\n\n\ndef get_folders(manager: Manager, exclude_own: bool = True) -> FrozenSet[AddonFolder]:\n    def make_addon_folder(path: Path):\n",
+        "source_code_len": 195,
+        "target_code": "            return NotImplemented\n        return self.name < cast(str, other)\n\n\ndef get_folders(manager: Manager) -> FrozenSet[AddonFolder]:\n    def make_addon_folder(path: Path):\n",
+        "target_code_len": 180,
+        "diff_format": "@@ -62,6 +62,6 @@\n             return NotImplemented\n-        return self.name < other\n+        return self.name < cast(str, other)\n \n \n-def get_folders(manager: Manager, exclude_own: bool = True) -> FrozenSet[AddonFolder]:\n+def get_folders(manager: Manager) -> FrozenSet[AddonFolder]:\n     def make_addon_folder(path: Path):\n",
+        "source_code_with_indent": "            <IND>return NotImplemented\n        <DED>return self.name < other\n\n\n<DED><DED>def get_folders(manager: Manager, exclude_own: bool = True) -> FrozenSet[AddonFolder]:\n    <IND>def make_addon_folder(path: Path):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return NotImplemented\n        <DED>return self.name < cast(str, other)\n\n\n<DED><DED>def get_folders(manager: Manager) -> FrozenSet[AddonFolder]:\n    <IND>def make_addon_folder(path: Path):\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    if exclude_own:\n        own_folders = {f.name for f in manager.database.query(PkgFolder).all()}\n    else:\n        own_folders = set()\n    return frozenset(f for f in map(make_addon_folder, manager.config.addon_dir.iterdir()) if f)\n\n",
+        "source_code_len": 237,
+        "target_code": "\n    own_folders = {f.name for f in manager.database.query(PkgFolder).all()}\n    return frozenset(filter(None, map(make_addon_folder, manager.config.addon_dir.iterdir())))\n\n",
+        "target_code_len": 173,
+        "diff_format": "@@ -71,7 +71,4 @@\n \n-    if exclude_own:\n-        own_folders = {f.name for f in manager.database.query(PkgFolder).all()}\n-    else:\n-        own_folders = set()\n-    return frozenset(f for f in map(make_addon_folder, manager.config.addon_dir.iterdir()) if f)\n+    own_folders = {f.name for f in manager.database.query(PkgFolder).all()}\n+    return frozenset(filter(None, map(make_addon_folder, manager.config.addon_dir.iterdir())))\n \n",
+        "source_code_with_indent": "\n    <DED><DED><DED>if exclude_own:\n        <IND>own_folders = {f.name for f in manager.database.query(PkgFolder).all()}\n    <DED>else:\n        <IND>own_folders = set()\n    <DED>return frozenset(f for f in map(make_addon_folder, manager.config.addon_dir.iterdir()) if f)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED><DED>own_folders = {f.name for f in manager.database.query(PkgFolder).all()}\n    return frozenset(filter(None, map(make_addon_folder, manager.config.addon_dir.iterdir())))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

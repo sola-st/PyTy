@@ -1,0 +1,51 @@
+[
+  {
+    "project": "divelab/DIG",
+    "commit": "5ef46285616ae69ab134ac435c6bfa49a156a389",
+    "filename": "dig/xgraph/method/shapley.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/divelab-DIG/dig/xgraph/method/shapley.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dig/xgraph/method/shapley.py:234:12 Call error [29]: `str` is not a function.",
+    "message": " `str` is not a function.",
+    "rule_id": "Call error [29]",
+    "warning_line_no": 234,
+    "warning_line": "    score = value_func(mask_data)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import numpy as np\nfrom typing import Union\nfrom scipy.special import comb\n",
+        "source_code_len": 75,
+        "target_code": "import numpy as np\nfrom typing import Callable, Union\nfrom scipy.special import comb\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -3,3 +3,3 @@\n import numpy as np\n-from typing import Union\n+from typing import Callable, Union\n from scipy.special import comb\n",
+        "source_code_with_indent": "import numpy as np\nfrom typing import Union\nfrom scipy.special import comb\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import numpy as np\nfrom typing import Callable, Union\nfrom scipy.special import comb\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef gnn_score(coalition: list, data: Data, value_func: str,\n              subgraph_building_method='zero_filling') -> torch.Tensor:\n",
+        "source_code_len": 133,
+        "target_code": "\ndef gnn_score(coalition: list, data: Data, value_func: Callable,\n              subgraph_building_method='zero_filling') -> torch.Tensor:\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -223,3 +223,3 @@\n \n-def gnn_score(coalition: list, data: Data, value_func: str,\n+def gnn_score(coalition: list, data: Data, value_func: Callable,\n               subgraph_building_method='zero_filling') -> torch.Tensor:\n",
+        "source_code_with_indent": "\n<DED>def gnn_score(coalition: list, data: Data, value_func: str,\n              subgraph_building_method='zero_filling') -> torch.Tensor:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def gnn_score(coalition: list, data: Data, value_func: Callable,\n              subgraph_building_method='zero_filling') -> torch.Tensor:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

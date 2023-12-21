@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jpetrucciani/hubspot3",
+    "commit": "a8e86ac89e242177ff4fba64be1d6839bc6fc020",
+    "filename": "hubspot3/__main__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jpetrucciani-hubspot3/hubspot3/__main__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hubspot3/__main__.py:123:16 Incompatible parameter type [6]: Expected `typing.Type[LeadsClient]` for 1st positional only parameter to call `typing.Mapping.get` but got `typing.Type[BaseClient]`.",
+    "message": " Expected `typing.Type[LeadsClient]` for 1st positional only parameter to call `typing.Mapping.get` but got `typing.Type[BaseClient]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 123,
+    "warning_line": "                client.__class__, ()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # a client class.\n    IGNORED_METHODS = {LeadsClient: (\"camelcase_search_options\",)}\n    STDIN_TOKEN = \"__stdin__\"  # Argument value to trigger stdin parsing.\n",
+        "source_code_len": 163,
+        "target_code": "    # a client class.\n    IGNORED_METHODS = {LeadsClient: (\"camelcase_search_options\",)}  # type: Dict\n    STDIN_TOKEN = \"__stdin__\"  # Argument value to trigger stdin parsing.\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -100,3 +100,3 @@\n     # a client class.\n-    IGNORED_METHODS = {LeadsClient: (\"camelcase_search_options\",)}\n+    IGNORED_METHODS = {LeadsClient: (\"camelcase_search_options\",)}  # type: Dict\n     STDIN_TOKEN = \"__stdin__\"  # Argument value to trigger stdin parsing.\n",
+        "source_code_with_indent": "    # a client class.\n    IGNORED_METHODS = {LeadsClient: (\"camelcase_search_options\",)}\n    STDIN_TOKEN = \"__stdin__\"  # Argument value to trigger stdin parsing.\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # a client class.\n    IGNORED_METHODS = {LeadsClient: (\"camelcase_search_options\",)}  # type: Dict\n    STDIN_TOKEN = \"__stdin__\"  # Argument value to trigger stdin parsing.\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

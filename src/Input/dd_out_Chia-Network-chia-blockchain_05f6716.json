@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Chia-Network/chia-blockchain",
+    "commit": "05f67167fe26bc0fb539363976344e2fbc115f13",
+    "filename": "chia/wallet/wallet.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Chia-Network-chia-blockchain/chia/wallet/wallet.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chia/wallet/wallet.py:387:8 Incompatible variable type [9]: announcements_to_consume is declared to have type `Set[Announcement]` but is used as type `None`.",
+    "message": " announcements_to_consume is declared to have type `Set[Announcement]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 387,
+    "warning_line": "        announcements_to_consume: Set[Announcement] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ignore_max_send_amount: bool = False,\n        announcements_to_consume: Set[Announcement] = None,\n    ) -> TransactionRecord:\n",
+        "source_code_len": 134,
+        "target_code": "        ignore_max_send_amount: bool = False,\n        announcements_to_consume: Set[bytes32] = None,\n    ) -> TransactionRecord:\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -386,3 +386,3 @@\n         ignore_max_send_amount: bool = False,\n-        announcements_to_consume: Set[Announcement] = None,\n+        announcements_to_consume: Set[bytes32] = None,\n     ) -> TransactionRecord:\n",
+        "source_code_with_indent": "        ignore_max_send_amount: bool = False,\n        announcements_to_consume: Set[Announcement] = None,\n    ) -> TransactionRecord:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ignore_max_send_amount: bool = False,\n        announcements_to_consume: Set[bytes32] = None,\n    ) -> TransactionRecord:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

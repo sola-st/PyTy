@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "97edef8275215c40980f7469adb8b2f00acf67d9",
+    "filename": "tests/test_trial.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/tests/test_trial.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_trial.py:859:31 Unsupported operand [58]: `+` is not supported for operand types `float` and `typing.Union[None, bool, float, int, str]`.",
+    "message": " `+` is not supported for operand types `float` and `typing.Union[None, bool, float, int, str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 859,
+    "warning_line": "        return a + b + c + d + e + f",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        return a + b + c + d + e + f\n",
+        "source_code_len": 38,
+        "target_code": "\n        assert isinstance(e, int)\n        return a + b + c + d + e + f\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -858,2 +858,3 @@\n \n+        assert isinstance(e, int)\n         return a + b + c + d + e + f\n",
+        "source_code_with_indent": "\n        return a + b + c + d + e + f\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        assert isinstance(e, int)\n        return a + b + c + d + e + f\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

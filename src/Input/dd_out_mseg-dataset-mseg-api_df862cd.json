@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mseg-dataset/mseg-api",
+    "commit": "df862cdc31f9a2a2a8085d5f4e904abf8c8a4ba1",
+    "filename": "mseg/taxonomy/taxonomy_converter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mseg-dataset-mseg-api/mseg/taxonomy/taxonomy_converter.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mseg/taxonomy/taxonomy_converter.py:340:1 Incompatible return type [7]: Expected `Tuple[List[str], str]` but got `List[typing.Any]`.",
+    "message": " Expected `Tuple[List[str], str]` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 340,
+    "warning_line": "\treturn classes",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef parse_entry(entry: str) -> Tuple[List[str], str]:\n\t\"\"\" Parse a spreadsheet entry from dataset's column, return list of classes in this spreadsheet cell.\n",
+        "source_code_len": 158,
+        "target_code": "\ndef parse_entry(entry: str) -> List[str]:\n\t\"\"\" Parse a spreadsheet entry from dataset's column, return list of classes in this spreadsheet cell.\n",
+        "target_code_len": 146,
+        "diff_format": "@@ -317,3 +317,3 @@\n \n-def parse_entry(entry: str) -> Tuple[List[str], str]:\n+def parse_entry(entry: str) -> List[str]:\n \t\"\"\" Parse a spreadsheet entry from dataset's column, return list of classes in this spreadsheet cell.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def parse_entry(entry: str) -> Tuple[List[str], str]:\n\t<IND>",
+        "target_code_with_indent": "\n<DED>def parse_entry(entry: str) -> List[str]:\n\t<IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "project": "sphinx-doc/sphinx",
+    "commit": "5da68c3de3a05f0498b1576f01397be6bad82f2d",
+    "filename": "sphinx/domains/python.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sphinx-doc-sphinx/sphinx/domains/python.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sphinx/domains/python.py:420:41 Incompatible variable type [9]: env is declared to have type `BuildEnvironment` but is used as type `None`.",
+    "message": " env is declared to have type `BuildEnvironment` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 420,
+    "warning_line": "                  contnode: Node = None, env: BuildEnvironment = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class PyField(PyXrefMixin, Field):\n    def make_xref(self, rolename: str, domain: str, target: str,\n                  innernode: Type[TextlikeNode] = nodes.emphasis,\n                  contnode: Node = None, env: BuildEnvironment = None,\n                  inliner: Inliner = None, location: Node = None) -> Node:\n        if rolename == 'class' and target == 'None':\n            # None is not a type, so use obj role instead.\n            rolename = 'obj'\n\n        return super().make_xref(rolename, domain, target, innernode, contnode,\n                                 env, inliner, location)\n\n",
+        "source_code_len": 592,
+        "target_code": "class PyField(PyXrefMixin, Field):\n    pass\n\n",
+        "target_code_len": 45,
+        "diff_format": "@@ -417,12 +417,3 @@\n class PyField(PyXrefMixin, Field):\n-    def make_xref(self, rolename: str, domain: str, target: str,\n-                  innernode: Type[TextlikeNode] = nodes.emphasis,\n-                  contnode: Node = None, env: BuildEnvironment = None,\n-                  inliner: Inliner = None, location: Node = None) -> Node:\n-        if rolename == 'class' and target == 'None':\n-            # None is not a type, so use obj role instead.\n-            rolename = 'obj'\n-\n-        return super().make_xref(rolename, domain, target, innernode, contnode,\n-                                 env, inliner, location)\n+    pass\n \n",
+        "source_code_with_indent": "<DED><DED>class PyField(PyXrefMixin, Field):\n    <IND>def make_xref(self, rolename: str, domain: str, target: str,\n                  innernode: Type[TextlikeNode] = nodes.emphasis,\n                  contnode: Node = None, env: BuildEnvironment = None,\n                  inliner: Inliner = None, location: Node = None) -> Node:\n        <IND>if rolename == 'class' and target == 'None':\n            # None is not a type, so use obj role instead.\n            <IND>rolename = 'obj'\n\n        <DED>return super().make_xref(rolename, domain, target, innernode, contnode,\n                                 env, inliner, location)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class PyField(PyXrefMixin, Field):\n    <IND>pass\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sphinx-doc/sphinx",
+    "commit": "5da68c3de3a05f0498b1576f01397be6bad82f2d",
+    "filename": "sphinx/domains/python.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sphinx-doc-sphinx/sphinx/domains/python.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sphinx/domains/python.py:421:18 Incompatible variable type [9]: inliner is declared to have type `Inliner` but is used as type `None`.",
+    "message": " inliner is declared to have type `Inliner` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 421,
+    "warning_line": "                  inliner: Inliner = None, location: Node = None) -> Node:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class PyField(PyXrefMixin, Field):\n    def make_xref(self, rolename: str, domain: str, target: str,\n                  innernode: Type[TextlikeNode] = nodes.emphasis,\n                  contnode: Node = None, env: BuildEnvironment = None,\n                  inliner: Inliner = None, location: Node = None) -> Node:\n        if rolename == 'class' and target == 'None':\n            # None is not a type, so use obj role instead.\n            rolename = 'obj'\n\n        return super().make_xref(rolename, domain, target, innernode, contnode,\n                                 env, inliner, location)\n\n",
+        "source_code_len": 592,
+        "target_code": "class PyField(PyXrefMixin, Field):\n    pass\n\n",
+        "target_code_len": 45,
+        "diff_format": "@@ -417,12 +417,3 @@\n class PyField(PyXrefMixin, Field):\n-    def make_xref(self, rolename: str, domain: str, target: str,\n-                  innernode: Type[TextlikeNode] = nodes.emphasis,\n-                  contnode: Node = None, env: BuildEnvironment = None,\n-                  inliner: Inliner = None, location: Node = None) -> Node:\n-        if rolename == 'class' and target == 'None':\n-            # None is not a type, so use obj role instead.\n-            rolename = 'obj'\n-\n-        return super().make_xref(rolename, domain, target, innernode, contnode,\n-                                 env, inliner, location)\n+    pass\n \n",
+        "source_code_with_indent": "<DED><DED>class PyField(PyXrefMixin, Field):\n    <IND>def make_xref(self, rolename: str, domain: str, target: str,\n                  innernode: Type[TextlikeNode] = nodes.emphasis,\n                  contnode: Node = None, env: BuildEnvironment = None,\n                  inliner: Inliner = None, location: Node = None) -> Node:\n        <IND>if rolename == 'class' and target == 'None':\n            # None is not a type, so use obj role instead.\n            <IND>rolename = 'obj'\n\n        <DED>return super().make_xref(rolename, domain, target, innernode, contnode,\n                                 env, inliner, location)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class PyField(PyXrefMixin, Field):\n    <IND>pass\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sphinx-doc/sphinx",
+    "commit": "5da68c3de3a05f0498b1576f01397be6bad82f2d",
+    "filename": "sphinx/domains/python.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sphinx-doc-sphinx/sphinx/domains/python.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sphinx/domains/python.py:437:41 Incompatible variable type [9]: env is declared to have type `BuildEnvironment` but is used as type `None`.",
+    "message": " env is declared to have type `BuildEnvironment` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 437,
+    "warning_line": "                  contnode: Node = None, env: BuildEnvironment = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class PyTypedField(PyXrefMixin, TypedField):\n    def make_xref(self, rolename: str, domain: str, target: str,\n                  innernode: Type[TextlikeNode] = nodes.emphasis,\n                  contnode: Node = None, env: BuildEnvironment = None,\n                  inliner: Inliner = None, location: Node = None) -> Node:\n        if rolename == 'class' and target == 'None':\n            # None is not a type, so use obj role instead.\n            rolename = 'obj'\n\n        return super().make_xref(rolename, domain, target, innernode, contnode,\n                                 env, inliner, location)\n\n",
+        "source_code_len": 602,
+        "target_code": "class PyTypedField(PyXrefMixin, TypedField):\n    pass\n\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -434,12 +425,3 @@\n class PyTypedField(PyXrefMixin, TypedField):\n-    def make_xref(self, rolename: str, domain: str, target: str,\n-                  innernode: Type[TextlikeNode] = nodes.emphasis,\n-                  contnode: Node = None, env: BuildEnvironment = None,\n-                  inliner: Inliner = None, location: Node = None) -> Node:\n-        if rolename == 'class' and target == 'None':\n-            # None is not a type, so use obj role instead.\n-            rolename = 'obj'\n-\n-        return super().make_xref(rolename, domain, target, innernode, contnode,\n-                                 env, inliner, location)\n+    pass\n \n",
+        "source_code_with_indent": "<DED>class PyTypedField(PyXrefMixin, TypedField):\n    <IND>def make_xref(self, rolename: str, domain: str, target: str,\n                  innernode: Type[TextlikeNode] = nodes.emphasis,\n                  contnode: Node = None, env: BuildEnvironment = None,\n                  inliner: Inliner = None, location: Node = None) -> Node:\n        <IND>if rolename == 'class' and target == 'None':\n            # None is not a type, so use obj role instead.\n            <IND>rolename = 'obj'\n\n        <DED>return super().make_xref(rolename, domain, target, innernode, contnode,\n                                 env, inliner, location)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class PyTypedField(PyXrefMixin, TypedField):\n    <IND>pass\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sphinx-doc/sphinx",
+    "commit": "5da68c3de3a05f0498b1576f01397be6bad82f2d",
+    "filename": "sphinx/domains/python.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sphinx-doc-sphinx/sphinx/domains/python.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sphinx/domains/python.py:438:18 Incompatible variable type [9]: inliner is declared to have type `Inliner` but is used as type `None`.",
+    "message": " inliner is declared to have type `Inliner` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 438,
+    "warning_line": "                  inliner: Inliner = None, location: Node = None) -> Node:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class PyTypedField(PyXrefMixin, TypedField):\n    def make_xref(self, rolename: str, domain: str, target: str,\n                  innernode: Type[TextlikeNode] = nodes.emphasis,\n                  contnode: Node = None, env: BuildEnvironment = None,\n                  inliner: Inliner = None, location: Node = None) -> Node:\n        if rolename == 'class' and target == 'None':\n            # None is not a type, so use obj role instead.\n            rolename = 'obj'\n\n        return super().make_xref(rolename, domain, target, innernode, contnode,\n                                 env, inliner, location)\n\n",
+        "source_code_len": 602,
+        "target_code": "class PyTypedField(PyXrefMixin, TypedField):\n    pass\n\n",
+        "target_code_len": 55,
+        "diff_format": "@@ -434,12 +425,3 @@\n class PyTypedField(PyXrefMixin, TypedField):\n-    def make_xref(self, rolename: str, domain: str, target: str,\n-                  innernode: Type[TextlikeNode] = nodes.emphasis,\n-                  contnode: Node = None, env: BuildEnvironment = None,\n-                  inliner: Inliner = None, location: Node = None) -> Node:\n-        if rolename == 'class' and target == 'None':\n-            # None is not a type, so use obj role instead.\n-            rolename = 'obj'\n-\n-        return super().make_xref(rolename, domain, target, innernode, contnode,\n-                                 env, inliner, location)\n+    pass\n \n",
+        "source_code_with_indent": "<DED>class PyTypedField(PyXrefMixin, TypedField):\n    <IND>def make_xref(self, rolename: str, domain: str, target: str,\n                  innernode: Type[TextlikeNode] = nodes.emphasis,\n                  contnode: Node = None, env: BuildEnvironment = None,\n                  inliner: Inliner = None, location: Node = None) -> Node:\n        <IND>if rolename == 'class' and target == 'None':\n            # None is not a type, so use obj role instead.\n            <IND>rolename = 'obj'\n\n        <DED>return super().make_xref(rolename, domain, target, innernode, contnode,\n                                 env, inliner, location)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class PyTypedField(PyXrefMixin, TypedField):\n    <IND>pass\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

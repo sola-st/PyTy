@@ -1,0 +1,172 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "f7a9fd757454e4e6e9686b765cb088caccaba8c3",
+    "filename": "airflow/cli/commands/cheat_sheet_command.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/cli/commands/cheat_sheet_command.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/cli/commands/cheat_sheet_command.py:42:8 Incompatible variable type [9]: actions is declared to have type `List[ActionCommand]` but is used as type `List[Union[ActionCommand, GroupCommand]]`.",
+    "message": " actions is declared to have type `List[ActionCommand]` but is used as type `List[Union[ActionCommand, GroupCommand]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 42,
+    "warning_line": "        actions, groups = list(actions_iter), list(groups_iter)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        groups: List[GroupCommand]\n        actions_iter, groups_iter = partition(lambda x: isinstance(x, GroupCommand), commands)\n        actions, groups = list(actions_iter), list(groups_iter)\n\n",
+        "source_code_len": 195,
+        "target_code": "        groups: List[GroupCommand]\n        actions: List[ActionCommand] = []\n        groups: List[GroupCommand] = []\n        for command in commands:\n            if isinstance(command, GroupCommand):\n                groups.append(command)\n            else:\n                actions.append(command)\n\n",
+        "target_code_len": 298,
+        "diff_format": "@@ -40,4 +39,9 @@\n         groups: List[GroupCommand]\n-        actions_iter, groups_iter = partition(lambda x: isinstance(x, GroupCommand), commands)\n-        actions, groups = list(actions_iter), list(groups_iter)\n+        actions: List[ActionCommand] = []\n+        groups: List[GroupCommand] = []\n+        for command in commands:\n+            if isinstance(command, GroupCommand):\n+                groups.append(command)\n+            else:\n+                actions.append(command)\n \n",
+        "source_code_with_indent": "        groups: List[GroupCommand]\n        actions_iter, groups_iter = partition(lambda x: isinstance(x, GroupCommand), commands)\n        actions, groups = list(actions_iter), list(groups_iter)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        groups: List[GroupCommand]\n        actions: List[ActionCommand] = []\n        groups: List[GroupCommand] = []\n        for command in commands:\n            <IND>if isinstance(command, GroupCommand):\n                <IND>groups.append(command)\n            <DED>else:\n                <IND>actions.append(command)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "f7a9fd757454e4e6e9686b765cb088caccaba8c3",
+    "filename": "airflow/cli/commands/cheat_sheet_command.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/cli/commands/cheat_sheet_command.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/cli/commands/cheat_sheet_command.py:42:17 Incompatible variable type [9]: groups is declared to have type `List[GroupCommand]` but is used as type `List[Union[ActionCommand, GroupCommand]]`.",
+    "message": " groups is declared to have type `List[GroupCommand]` but is used as type `List[Union[ActionCommand, GroupCommand]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 42,
+    "warning_line": "        actions, groups = list(actions_iter), list(groups_iter)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        groups: List[GroupCommand]\n        actions_iter, groups_iter = partition(lambda x: isinstance(x, GroupCommand), commands)\n        actions, groups = list(actions_iter), list(groups_iter)\n\n",
+        "source_code_len": 195,
+        "target_code": "        groups: List[GroupCommand]\n        actions: List[ActionCommand] = []\n        groups: List[GroupCommand] = []\n        for command in commands:\n            if isinstance(command, GroupCommand):\n                groups.append(command)\n            else:\n                actions.append(command)\n\n",
+        "target_code_len": 298,
+        "diff_format": "@@ -40,4 +39,9 @@\n         groups: List[GroupCommand]\n-        actions_iter, groups_iter = partition(lambda x: isinstance(x, GroupCommand), commands)\n-        actions, groups = list(actions_iter), list(groups_iter)\n+        actions: List[ActionCommand] = []\n+        groups: List[GroupCommand] = []\n+        for command in commands:\n+            if isinstance(command, GroupCommand):\n+                groups.append(command)\n+            else:\n+                actions.append(command)\n \n",
+        "source_code_with_indent": "        groups: List[GroupCommand]\n        actions_iter, groups_iter = partition(lambda x: isinstance(x, GroupCommand), commands)\n        actions, groups = list(actions_iter), list(groups_iter)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        groups: List[GroupCommand]\n        actions: List[ActionCommand] = []\n        groups: List[GroupCommand] = []\n        for command in commands:\n            <IND>if isinstance(command, GroupCommand):\n                <IND>groups.append(command)\n            <DED>else:\n                <IND>actions.append(command)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "f7a9fd757454e4e6e9686b765cb088caccaba8c3",
+    "filename": "airflow/cli/simple_table.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/cli/simple_table.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/cli/simple_table.py:73:50 Incompatible parameter type [6]: Expected `Union[Dict[str, str], typing.Sequence[str], str]` for 3rd parameter `headers` to call `tabulate` but got `typing.KeysView[typing.Any]`.",
+    "message": " Expected `Union[Dict[str, str], typing.Sequence[str], str]` for 3rd parameter `headers` to call `tabulate` but got `typing.KeysView[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 73,
+    "warning_line": "        output = tabulate(rows, tablefmt=\"plain\", headers=data[0].keys())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        rows = [d.values() for d in data]\n        output = tabulate(rows, tablefmt=\"plain\", headers=data[0].keys())\n        print(output)\n",
+        "source_code_len": 138,
+        "target_code": "        rows = [d.values() for d in data]\n        output = tabulate(rows, tablefmt=\"plain\", headers=list(data[0].keys()))\n        print(output)\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -72,3 +72,3 @@\n         rows = [d.values() for d in data]\n-        output = tabulate(rows, tablefmt=\"plain\", headers=data[0].keys())\n+        output = tabulate(rows, tablefmt=\"plain\", headers=list(data[0].keys()))\n         print(output)\n",
+        "source_code_with_indent": "        <DED>rows = [d.values() for d in data]\n        output = tabulate(rows, tablefmt=\"plain\", headers=data[0].keys())\n        print(output)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>rows = [d.values() for d in data]\n        output = tabulate(rows, tablefmt=\"plain\", headers=list(data[0].keys()))\n        print(output)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "f7a9fd757454e4e6e9686b765cb088caccaba8c3",
+    "filename": "airflow/cli/simple_table.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/cli/simple_table.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/cli/simple_table.py:79:32 Incompatible parameter type [6]: Expected `typing.Iterable[str]` for 1st positional only parameter to call `str.join` but got `typing.Generator[Union[None, Dict[typing.Any, typing.Any], List[typing.Any], str], None, None]`.",
+    "message": " Expected `typing.Iterable[str]` for 1st positional only parameter to call `str.join` but got `typing.Generator[Union[None, Dict[typing.Any, typing.Any], List[typing.Any], str], None, None]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 79,
+    "warning_line": "                return \",\".join(self._normalize_data(x, output) for x in value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if output == \"table\":\n                return \",\".join(self._normalize_data(x, output) for x in value)\n            return [self._normalize_data(x, output) for x in value]\n",
+        "source_code_len": 182,
+        "target_code": "            if output == \"table\":\n                return \",\".join(str(self._normalize_data(x, output)) for x in value)\n            return [self._normalize_data(x, output) for x in value]\n",
+        "target_code_len": 187,
+        "diff_format": "@@ -78,3 +78,3 @@\n             if output == \"table\":\n-                return \",\".join(self._normalize_data(x, output) for x in value)\n+                return \",\".join(str(self._normalize_data(x, output)) for x in value)\n             return [self._normalize_data(x, output) for x in value]\n",
+        "source_code_with_indent": "            <IND>if output == \"table\":\n                <IND>return \",\".join(self._normalize_data(x, output) for x in value)\n            <DED>return [self._normalize_data(x, output) for x in value]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>if output == \"table\":\n                <IND>return \",\".join(str(self._normalize_data(x, output)) for x in value)\n            <DED>return [self._normalize_data(x, output) for x in value]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "f7a9fd757454e4e6e9686b765cb088caccaba8c3",
+    "filename": "airflow/cli/simple_table.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/cli/simple_table.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/cli/simple_table.py:111:17 Incompatible parameter type [6]: Expected `Dict[typing.Any, typing.Any]` for 1st positional only parameter to call `AirflowConsole.print_as_json` but got `List[Dict[typing.Any, typing.Any]]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` for 1st positional only parameter to call `AirflowConsole.print_as_json` but got `List[Dict[typing.Any, typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 111,
+    "warning_line": "        renderer(dict_data)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"Prints provided using format specified by output argument\"\"\"\n        output_to_renderer = {\n            \"json\": self.print_as_json,\n",
+        "source_code_len": 143,
+        "target_code": "        \"\"\"Prints provided using format specified by output argument\"\"\"\n        output_to_renderer: Dict[str, Callable[[Any], None]] = {\n            \"json\": self.print_as_json,\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -90,3 +90,3 @@\n         \"\"\"Prints provided using format specified by output argument\"\"\"\n-        output_to_renderer = {\n+        output_to_renderer: Dict[str, Callable[[Any], None]] = {\n             \"json\": self.print_as_json,\n",
+        "source_code_with_indent": "        <IND>\"\"\"Prints provided using format specified by output argument\"\"\"\n        output_to_renderer = {\n            \"json\": self.print_as_json,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>\"\"\"Prints provided using format specified by output argument\"\"\"\n        output_to_renderer: Dict[str, Callable[[Any], None]] = {\n            \"json\": self.print_as_json,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "sahana/eden",
+    "commit": "df2608f90f9453ae99e5b7ae3e74753cc2574b95",
+    "filename": "modules/eden/project.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sahana-eden/modules/eden/project.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "modules/eden/project.py:49:13 Unbound name [10]: Name `sys` is used but not defined in the current scope.",
+    "message": " Name `sys` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 49,
+    "warning_line": "    print >> sys.stderr, \"ERROR: lxml module needed for XML handling\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "except ImportError:\n    print >> sys.stderr, \"ERROR: lxml module needed for XML handling\"\n",
+        "source_code_len": 90,
+        "target_code": "except ImportError:\n    import sys\n    print >> sys.stderr, \"ERROR: lxml module needed for XML handling\"\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -48,2 +48,3 @@\n except ImportError:\n+    import sys\n     print >> sys.stderr, \"ERROR: lxml module needed for XML handling\"\n",
+        "source_code_with_indent": "<DED>except ImportError:\n    <IND>print >> sys.stderr, \"ERROR: lxml module needed for XML handling\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>except ImportError:\n    <IND>import sys\n    print >> sys.stderr, \"ERROR: lxml module needed for XML handling\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

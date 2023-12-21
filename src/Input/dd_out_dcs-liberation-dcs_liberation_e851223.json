@@ -1,0 +1,94 @@
+[
+  {
+    "project": "dcs-liberation/dcs_liberation",
+    "commit": "e851223733ca24b8479dc9c4cfaf76cb724661a3",
+    "filename": "game/settings.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dcs-liberation-dcs_liberation/game/settings.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "game/settings.py:24:4 Incompatible attribute type [8]: Attribute `multiplier` declared in class `Settings` has type `bool` but is used as type `int`.",
+    "message": " Attribute `multiplier` declared in class `Settings` has type `bool` but is used as type `int`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 24,
+    "warning_line": "    multiplier: bool = 1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    supercarrier: bool = False\n    multiplier: bool = 1\n    generate_marks: bool = True\n",
+        "source_code_len": 88,
+        "target_code": "    supercarrier: bool = False\n    multiplier: float = 1\n    generate_marks: bool = True\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -23,3 +23,3 @@\n     supercarrier: bool = False\n-    multiplier: bool = 1\n+    multiplier: float = 1\n     generate_marks: bool = True\n",
+        "source_code_with_indent": "    supercarrier: bool = False\n    multiplier: bool = 1\n    generate_marks: bool = True\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    supercarrier: bool = False\n    multiplier: float = 1\n    generate_marks: bool = True\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dcs-liberation/dcs_liberation",
+    "commit": "e851223733ca24b8479dc9c4cfaf76cb724661a3",
+    "filename": "game/settings.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dcs-liberation-dcs_liberation/game/settings.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "game/settings.py:28:4 Incompatible attribute type [8]: Attribute `version` declared in class `Settings` has type `bool` but is used as type `None`.",
+    "message": " Attribute `version` declared in class `Settings` has type `bool` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 28,
+    "warning_line": "    version: bool = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from dataclasses import dataclass, field\nfrom typing import Dict\n\n",
+        "source_code_len": 66,
+        "target_code": "from dataclasses import dataclass, field\nfrom typing import Dict, Optional\n\n",
+        "target_code_len": 76,
+        "diff_format": "@@ -1,3 +1,3 @@\n from dataclasses import dataclass, field\n-from typing import Dict\n+from typing import Dict, Optional\n \n",
+        "source_code_with_indent": "from dataclasses import dataclass, field\nfrom typing import Dict\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from dataclasses import dataclass, field\nfrom typing import Dict, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    cold_start: bool = False  # Legacy parameter do not use\n    version: bool = None\n\n",
+        "source_code_len": 86,
+        "target_code": "    cold_start: bool = False  # Legacy parameter do not use\n    version: Optional[str] = None\n\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -27,3 +27,3 @@\n     cold_start: bool = False  # Legacy parameter do not use\n-    version: bool = None\n+    version: Optional[str] = None\n \n",
+        "source_code_with_indent": "    cold_start: bool = False  # Legacy parameter do not use\n    version: bool = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    cold_start: bool = False  # Legacy parameter do not use\n    version: Optional[str] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "dcs-liberation/dcs_liberation",
+    "commit": "e851223733ca24b8479dc9c4cfaf76cb724661a3",
+    "filename": "game/theater/start_generator.py",
+    "min_patch_found": false,
+    "full_warning_msg": "game/theater/start_generator.py:89:8 Incompatible attribute type [8]: Attribute `multiplier` declared in class `Settings` has type `bool` but is used as type `float`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

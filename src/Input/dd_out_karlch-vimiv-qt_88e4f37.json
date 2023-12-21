@@ -1,0 +1,51 @@
+[
+  {
+    "project": "karlch/vimiv-qt",
+    "commit": "88e4f37d5887e368a603d19a91cdc438ca9df13f",
+    "filename": "vimiv/imutils/filelist.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlch-vimiv-qt/vimiv/imutils/filelist.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vimiv/imutils/filelist.py:55:20 Incompatible parameter type [6]: Expected `List[str]` for 1st positional only parameter to call `_load_paths` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `List[str]` for 1st positional only parameter to call `_load_paths` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 55,
+    "warning_line": "        _load_paths(paths, paths[0])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from random import shuffle\nfrom typing import List\n\n",
+        "source_code_len": 52,
+        "target_code": "from random import shuffle\nfrom typing import List, Iterable\n\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -16,3 +16,3 @@\n from random import shuffle\n-from typing import List\n+from typing import List, Iterable\n \n",
+        "source_code_with_indent": "from random import shuffle\nfrom typing import List\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from random import shuffle\nfrom typing import List, Iterable\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _load_paths(paths: List[str], focused_path: str) -> None:\n    \"\"\"Populate imstorage with a new list of paths.\n",
+        "source_code_len": 115,
+        "target_code": "\ndef _load_paths(paths: Iterable[str], focused_path: str) -> None:\n    \"\"\"Populate imstorage with a new list of paths.\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -227,3 +227,3 @@\n \n-def _load_paths(paths: List[str], focused_path: str) -> None:\n+def _load_paths(paths: Iterable[str], focused_path: str) -> None:\n     \"\"\"Populate imstorage with a new list of paths.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED>def _load_paths(paths: List[str], focused_path: str) -> None:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED>def _load_paths(paths: Iterable[str], focused_path: str) -> None:\n    <IND>"
+      }
+    ]
+  }
+]

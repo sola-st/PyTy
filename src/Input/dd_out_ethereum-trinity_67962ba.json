@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ethereum/trinity",
+    "commit": "67962ba2bebe0ee682e9d9d638ceb2c3e06cc0db",
+    "filename": "p2p/kademlia.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/p2p/kademlia.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "p2p/kademlia.py:331:17 Incompatible variable type [9]: timeout is declared to have type `int` but is used as type `float`.",
+    "message": " timeout is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 331,
+    "warning_line": "                 timeout: int=2 * k_request_timeout) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 callback: Callable,\n                 timeout: int=2 * k_request_timeout) -> None:\n        self.callback = callback\n",
+        "source_code_len": 132,
+        "target_code": "                 callback: Callable,\n                 timeout: float=2 * k_request_timeout) -> None:\n        self.callback = callback\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -330,3 +330,3 @@\n                  callback: Callable,\n-                 timeout: int=2 * k_request_timeout) -> None:\n+                 timeout: float=2 * k_request_timeout) -> None:\n         self.callback = callback\n",
+        "source_code_with_indent": "                 callback: Callable,\n                 timeout: int=2 * k_request_timeout) -> None:\n        <IND>self.callback = callback\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 callback: Callable,\n                 timeout: float=2 * k_request_timeout) -> None:\n        <IND>self.callback = callback\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

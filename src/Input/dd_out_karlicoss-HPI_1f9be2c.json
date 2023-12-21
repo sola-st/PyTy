@@ -1,0 +1,36 @@
+[
+  {
+    "project": "karlicoss/HPI",
+    "commit": "1f9be2c2367366397a9941f19849ecffee33515c",
+    "filename": "my/kython/kompress.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlicoss-HPI/my/kython/kompress.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "my/kython/kompress.py:31:8 Incompatible return type [7]: Expected `IO[str]` but got `Union[lzma.LZMAFile, typing.TextIO]`.",
+    "message": " Expected `IO[str]` but got `Union[lzma.LZMAFile, typing.TextIO]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 31,
+    "warning_line": "        return lzma.open(pp, mode, *args, **kwargs)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        import lzma\n        return lzma.open(pp, mode, *args, **kwargs)\n    elif suf in {'.zip'}:\n",
+        "source_code_len": 98,
+        "target_code": "        import lzma\n        r = lzma.open(pp, mode, *args, **kwargs)\n        # should only happen for binary mode?\n        # file:///usr/share/doc/python3/html/library/lzma.html?highlight=lzma#lzma.open\n        assert not isinstance(r, lzma.LZMAFile), r\n        return r\n    elif suf in {'.zip'}:\n",
+        "target_code_len": 297,
+        "diff_format": "@@ -30,3 +30,7 @@\n         import lzma\n-        return lzma.open(pp, mode, *args, **kwargs)\n+        r = lzma.open(pp, mode, *args, **kwargs)\n+        # should only happen for binary mode?\n+        # file:///usr/share/doc/python3/html/library/lzma.html?highlight=lzma#lzma.open\n+        assert not isinstance(r, lzma.LZMAFile), r\n+        return r\n     elif suf in {'.zip'}:\n",
+        "source_code_with_indent": "        <IND>import lzma\n        return lzma.open(pp, mode, *args, **kwargs)\n    <DED>elif suf in {'.zip'}:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <IND>import lzma\n        r = lzma.open(pp, mode, *args, **kwargs)\n        # should only happen for binary mode?\n        # file:///usr/share/doc/python3/html/library/lzma.html?highlight=lzma#lzma.open\n        assert not isinstance(r, lzma.LZMAFile), r\n        return r\n    <DED>elif suf in {'.zip'}:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

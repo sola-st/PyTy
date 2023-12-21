@@ -1,0 +1,36 @@
+[
+  {
+    "project": "kovidgoyal/kitty",
+    "commit": "d3d3e99979a63e73534651aecd912087518b6807",
+    "filename": "kitty/rc/send_text.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kovidgoyal-kitty/kitty/rc/send_text.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kitty/rc/send_text.py:149:57 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `decode_key_event_as_window_system_key` but got `bytes`.",
+    "message": " Expected `str` for 1st positional only parameter to call `decode_key_event_as_window_system_key` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 149,
+    "warning_line": "            data = decode_key_event_as_window_system_key(data)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        elif encoding == 'kitty-key':\n            data = base64.standard_b64decode(q)\n            data = decode_key_event_as_window_system_key(data)\n        else:\n",
+        "source_code_len": 163,
+        "target_code": "        elif encoding == 'kitty-key':\n            bdata = base64.standard_b64decode(q)\n            data = decode_key_event_as_window_system_key(bdata.decode('ascii'))\n        else:\n",
+        "target_code_len": 181,
+        "diff_format": "@@ -147,4 +147,4 @@\n         elif encoding == 'kitty-key':\n-            data = base64.standard_b64decode(q)\n-            data = decode_key_event_as_window_system_key(data)\n+            bdata = base64.standard_b64decode(q)\n+            data = decode_key_event_as_window_system_key(bdata.decode('ascii'))\n         else:\n",
+        "source_code_with_indent": "        <DED>elif encoding == 'kitty-key':\n            <IND>data = base64.standard_b64decode(q)\n            data = decode_key_event_as_window_system_key(data)\n        <DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>elif encoding == 'kitty-key':\n            <IND>bdata = base64.standard_b64decode(q)\n            data = decode_key_event_as_window_system_key(bdata.decode('ascii'))\n        <DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

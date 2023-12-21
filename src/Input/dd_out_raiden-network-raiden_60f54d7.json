@@ -1,0 +1,66 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "60f54d7a9a54cfc111e7fa200ecf709df93d40fc",
+    "filename": "raiden/utils/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/utils/__init__.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/utils/__init__.py:160:4 Incompatible return type [7]: Expected `typing.Tuple[typing.Host, typing.Optional[typing.Port]]` but got `typing.Tuple[typing.Any, typing.Optional[int]]`.",
+    "message": " Expected `typing.Tuple[typing.Host, typing.Optional[typing.Port]]` but got `typing.Tuple[typing.Any, typing.Optional[int]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 160,
+    "warning_line": "    return host, returned_port",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Dict,\n    HostPort,\n",
+        "source_code_len": 24,
+        "target_code": "    Dict,\n    Host,\n    HostPort,\n",
+        "target_code_len": 34,
+        "diff_format": "@@ -32,2 +32,3 @@\n     Dict,\n+    Host,\n     HostPort,\n",
+        "source_code_with_indent": "    Dict,\n    HostPort,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Dict,\n    Host,\n    HostPort,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Optional,\n    TokenAddress,\n",
+        "source_code_len": 32,
+        "target_code": "    Optional,\n    Port,\n    TokenAddress,\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -36,2 +37,3 @@\n     Optional,\n+    Port,\n     TokenAddress,\n",
+        "source_code_with_indent": "    Optional,\n    TokenAddress,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Optional,\n    Port,\n    TokenAddress,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if port:\n        returned_port = int(port)\n    return host, returned_port\n\n",
+        "source_code_len": 79,
+        "target_code": "    if port:\n        returned_port = Port(int(port))\n    return Host(host), returned_port\n\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -158,4 +160,4 @@\n     if port:\n-        returned_port = int(port)\n-    return host, returned_port\n+        returned_port = Port(int(port))\n+    return Host(host), returned_port\n \n",
+        "source_code_with_indent": "    if port:\n        <IND>returned_port = int(port)\n    <DED>return host, returned_port\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if port:\n        <IND>returned_port = Port(int(port))\n    <DED>return Host(host), returned_port\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

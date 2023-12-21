@@ -1,0 +1,36 @@
+[
+  {
+    "project": "johnwmillr/LyricsGenius",
+    "commit": "f9c08ba00e1a19ef81cf03ff5e63b5af148fdb38",
+    "filename": "lyricsgenius/api/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/johnwmillr-LyricsGenius/lyricsgenius/api/base.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "lyricsgenius/api/base.py:11:4 Incompatible attribute type [8]: Attribute `headers` declared in class `requests.sessions.Session` has type `requests.structures.CaseInsensitiveDict[str]` but is used as type `typing.Dict[str, str]`.",
+    "message": " Attribute `headers` declared in class `requests.sessions.Session` has type `requests.structures.CaseInsensitiveDict[str]` but is used as type `typing.Dict[str, str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 11,
+    "warning_line": "    _session.headers = {'application': 'LyricsGenius',",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # Create a persistent requests connection\n    _session = requests.Session()\n    _session.headers = {'application': 'LyricsGenius',\n                        'User-Agent': 'https://github.com/johnwmillr/LyricsGenius'}\n    _SLEEP_MIN = 0.2  # Enforce minimum wait time between API calls (seconds)\n    API_ROOT = 'https://api.genius.com/'\n    PUBLIC_API_ROOT = 'https://genius.com/api/'\n\n",
+        "source_code_len": 387,
+        "target_code": "    # Create a persistent requests connection\n    API_ROOT = 'https://api.genius.com/'\n    PUBLIC_API_ROOT = 'https://genius.com/api/'\n    WEB_ROOT = 'https://genius.com/'\n\n",
+        "target_code_len": 173,
+        "diff_format": "@@ -9,8 +10,5 @@\n     # Create a persistent requests connection\n-    _session = requests.Session()\n-    _session.headers = {'application': 'LyricsGenius',\n-                        'User-Agent': 'https://github.com/johnwmillr/LyricsGenius'}\n-    _SLEEP_MIN = 0.2  # Enforce minimum wait time between API calls (seconds)\n     API_ROOT = 'https://api.genius.com/'\n     PUBLIC_API_ROOT = 'https://genius.com/api/'\n+    WEB_ROOT = 'https://genius.com/'\n \n",
+        "source_code_with_indent": "    # Create a persistent requests connection\n    _session = requests.Session()\n    _session.headers = {'application': 'LyricsGenius',\n                        'User-Agent': 'https://github.com/johnwmillr/LyricsGenius'}\n    _SLEEP_MIN = 0.2  # Enforce minimum wait time between API calls (seconds)\n    API_ROOT = 'https://api.genius.com/'\n    PUBLIC_API_ROOT = 'https://genius.com/api/'\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # Create a persistent requests connection\n    API_ROOT = 'https://api.genius.com/'\n    PUBLIC_API_ROOT = 'https://genius.com/api/'\n    WEB_ROOT = 'https://genius.com/'\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

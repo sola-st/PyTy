@@ -1,0 +1,84 @@
+[
+  {
+    "project": "kinnala/scikit-fem",
+    "commit": "5302923e1fc145589f58e3f851f53519683cd4ff",
+    "filename": "skfem/assembly/basis/basis.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kinnala-scikit-fem/skfem/assembly/basis/basis.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "skfem/assembly/basis/basis.py:72:16 Incompatible parameter type [6]: Expected `typing.Type[typing.Any]` for 1st positional only parameter to call `get_quadrature` but got `str`.",
+    "message": " Expected `typing.Type[typing.Any]` for 1st positional only parameter to call `get_quadrature` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 72,
+    "warning_line": "                refdom,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import warnings\nfrom typing import Any, Dict, List, Optional, Tuple, Union\n\n",
+        "source_code_len": 76,
+        "target_code": "import warnings\nfrom typing import Any, Dict, List, Optional, Tuple, Union, Type\n\n",
+        "target_code_len": 82,
+        "diff_format": "@@ -1,3 +1,3 @@\n import warnings\n-from typing import Any, Dict, List, Optional, Tuple, Union\n+from typing import Any, Dict, List, Optional, Tuple, Union, Type\n \n",
+        "source_code_with_indent": "import warnings\nfrom typing import Any, Dict, List, Optional, Tuple, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import warnings\nfrom typing import Any, Dict, List, Optional, Tuple, Union, Type\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from skfem.quadrature import get_quadrature\n\n",
+        "source_code_len": 45,
+        "target_code": "from skfem.quadrature import get_quadrature\nfrom skfem.refdom import Refdom\n\n",
+        "target_code_len": 77,
+        "diff_format": "@@ -10,2 +10,3 @@\n from skfem.quadrature import get_quadrature\n+from skfem.refdom import Refdom\n \n",
+        "source_code_with_indent": "from skfem.quadrature import get_quadrature\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from skfem.quadrature import get_quadrature\nfrom skfem.refdom import Refdom\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 quadrature: Optional[Tuple[ndarray, ndarray]] = None,\n                 refdom: str = \"none\"):\n\n",
+        "source_code_len": 112,
+        "target_code": "                 quadrature: Optional[Tuple[ndarray, ndarray]] = None,\n                 refdom: Type[Refdom] = Refdom):\n\n",
+        "target_code_len": 121,
+        "diff_format": "@@ -38,3 +39,3 @@\n                  quadrature: Optional[Tuple[ndarray, ndarray]] = None,\n-                 refdom: str = \"none\"):\n+                 refdom: Type[Refdom] = Refdom):\n \n",
+        "source_code_with_indent": "                 quadrature: Optional[Tuple[ndarray, ndarray]] = None,\n                 refdom: str = \"none\"):\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                 quadrature: Optional[Tuple[ndarray, ndarray]] = None,\n                 refdom: Type[Refdom] = Refdom):\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "kinnala/scikit-fem",
+    "commit": "5302923e1fc145589f58e3f851f53519683cd4ff",
+    "filename": "skfem/assembly/basis/interior_basis.py",
+    "min_patch_found": false,
+    "full_warning_msg": "skfem/assembly/basis/interior_basis.py:65:44 Incompatible parameter type [6]: Expected `str` for 6th positional only parameter to call `Basis.__init__` but got `typing.Type[typing.Any]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "kinnala/scikit-fem",
+    "commit": "5302923e1fc145589f58e3f851f53519683cd4ff",
+    "filename": "skfem/element/element_quad/element_quadp.py",
+    "min_patch_found": false,
+    "full_warning_msg": "skfem/element/element_quad/element_quadp.py:10:4 Inconsistent override [15]: `refdom` overrides attribute defined in `skfem.element.element_line.element_line_pp.ElementLinePp` inconsistently. Type `typing.Type[RefQuad]` is not a subtype of the overridden attribute `typing.Type[skfem.refdom.RefLine]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

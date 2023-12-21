@@ -1,0 +1,36 @@
+[
+  {
+    "project": "hyperledger/aries-cloudagent-python",
+    "commit": "8a0f511eca2e3f2190f4aa172a027da35db7699e",
+    "filename": "aries_cloudagent/protocols/issue_credential/v2_0/formats/ld_proof/handler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hyperledger-aries-cloudagent-python/aries_cloudagent/protocols/issue_credential/v2_0/formats/ld_proof/handler.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aries_cloudagent/protocols/issue_credential/v2_0/formats/ld_proof/handler.py:337:16 Incompatible parameter type [6]: Expected `typing.Sequence[str]` for 4th parameter `subject_ids` to call `VCRecord.__init__` but got `typing.Sequence[typing.List[str]]`.",
+    "message": " Expected `typing.Sequence[str]` for 4th parameter `subject_ids` to call `VCRecord.__init__` but got `typing.Sequence[typing.List[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 337,
+    "warning_line": "                subject_ids=[credential.credential_subject_ids],",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                issuer_id=credential.issuer_id,\n                subject_ids=[credential.credential_subject_ids],\n                schema_ids=[],  # Schemas not supported yet\n",
+        "source_code_len": 173,
+        "target_code": "                issuer_id=credential.issuer_id,\n                subject_ids=credential.credential_subject_ids,\n                schema_ids=[],  # Schemas not supported yet\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -336,3 +336,3 @@\n                 issuer_id=credential.issuer_id,\n-                subject_ids=[credential.credential_subject_ids],\n+                subject_ids=credential.credential_subject_ids,\n                 schema_ids=[],  # Schemas not supported yet\n",
+        "source_code_with_indent": "                issuer_id=credential.issuer_id,\n                subject_ids=[credential.credential_subject_ids],\n                schema_ids=[],  # Schemas not supported yet\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                issuer_id=credential.issuer_id,\n                subject_ids=credential.credential_subject_ids,\n                schema_ids=[],  # Schemas not supported yet\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

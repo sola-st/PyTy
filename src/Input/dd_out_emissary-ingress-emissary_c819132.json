@@ -1,0 +1,36 @@
+[
+  {
+    "project": "emissary-ingress/emissary",
+    "commit": "c819132ccb9336c6fd05e0f62eddf02624350a03",
+    "filename": "python/tests/unit/test_cache.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/emissary-ingress-emissary/python/tests/unit/test_cache.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "python/tests/unit/test_cache.py:59:34 Incompatible parameter type [6]: Expected `typing.Sequence[typing.Any]` for 1st positional only parameter to call `yaml.safe_dump_all` but got `typing.ValuesView[typing.Any]`.",
+    "message": " Expected `typing.Sequence[typing.Any]` for 1st positional only parameter to call `yaml.safe_dump_all` but got `typing.ValuesView[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 59,
+    "warning_line": "        return yaml.safe_dump_all(self.resources.values())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def current_yaml(self) -> str:\n        return yaml.safe_dump_all(self.resources.values())\n\n",
+        "source_code_len": 95,
+        "target_code": "    def current_yaml(self) -> str:\n        return yaml.safe_dump_all(list(self.resources.values()))\n\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -58,3 +58,3 @@\n     def current_yaml(self) -> str:\n-        return yaml.safe_dump_all(self.resources.values())\n+        return yaml.safe_dump_all(list(self.resources.values()))\n \n",
+        "source_code_with_indent": "    <DED>def current_yaml(self) -> str:\n        <IND>return yaml.safe_dump_all(self.resources.values())\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def current_yaml(self) -> str:\n        <IND>return yaml.safe_dump_all(list(self.resources.values()))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

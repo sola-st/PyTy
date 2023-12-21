@@ -1,0 +1,36 @@
+[
+  {
+    "project": "splitgraph/splitgraph",
+    "commit": "15237282161f3035c8e5db57d0d9fed05c4c8734",
+    "filename": "splitgraph/ingestion/socrata/mount.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/splitgraph-splitgraph/splitgraph/ingestion/socrata/mount.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "splitgraph/ingestion/socrata/mount.py:47:58 Incompatible parameter type [6]: Expected `Optional[Dict[str, Optional[str]]]` for 4th parameter `server_options` to call `init_fdw` but got `Dict[str, str]`.",
+    "message": " Expected `Optional[Dict[str, Optional[str]]]` for 4th parameter `server_options` to call `init_fdw` but got `Dict[str, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 47,
+    "warning_line": "        engine, server_id=server_id, wrapper=\"multicorn\", server_options=options,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    options = {\n        \"wrapper\": \"splitgraph.ingestion.socrata.fdw.SocrataForeignDataWrapper\",\n",
+        "source_code_len": 98,
+        "target_code": "\n    options: Dict[str, Optional[str]] = {\n        \"wrapper\": \"splitgraph.ingestion.socrata.fdw.SocrataForeignDataWrapper\",\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -36,3 +38,3 @@\n \n-    options = {\n+    options: Dict[str, Optional[str]] = {\n         \"wrapper\": \"splitgraph.ingestion.socrata.fdw.SocrataForeignDataWrapper\",\n",
+        "source_code_with_indent": "\n    options = {\n        \"wrapper\": \"splitgraph.ingestion.socrata.fdw.SocrataForeignDataWrapper\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    options: Dict[str, Optional[str]] = {\n        \"wrapper\": \"splitgraph.ingestion.socrata.fdw.SocrataForeignDataWrapper\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

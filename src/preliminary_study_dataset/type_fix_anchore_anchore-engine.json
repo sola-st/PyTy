@@ -1,0 +1,22 @@
+[
+  {
+    "isolated_code_change": "-pdata = FH.read().decode('utf8')\n+pdata = str(FH.read(), 'utf-8')\n",
+    "type_error": "Undefined attribute [16]",
+    "code_transform": "CASTING",
+    "involved_types": [
+      "str"
+    ],
+    "type_change": {
+      "kind": "NONE",
+      "from": "",
+      "to": ""
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "anchore_engine/analyzers/modules/12_gem_package_list.py:48:28 Undefined attribute [16]: `str` has no attribute `decode`.",
+    "url": "https://github.com/anchore/anchore-engine/commit/e18868031a2913a7f9a0ef4ac3beef12ac9218c3",
+    "repo": "https://github.com/anchore/anchore-engine",
+    "change_runtime": true,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "CAST_STR_ENCODING"
+  }
+]

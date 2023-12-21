@@ -1,0 +1,45 @@
+[
+  {
+    "project": "eth-brownie/brownie",
+    "commit": "315d4f8504e53522836aef08c895e20646ab2efc",
+    "filename": "brownie/network/contract.py",
+    "min_patch_found": false,
+    "full_warning_msg": "brownie/network/contract.py:135:37 Incompatible parameter type [6]: Expected `Optional[Accounts]` for 2nd positional only parameter to call `ContractContainer.at` but got `Union[_AccountBase, str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "eth-brownie/brownie",
+    "commit": "315d4f8504e53522836aef08c895e20646ab2efc",
+    "filename": "brownie/network/transaction.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/eth-brownie-brownie/brownie/network/transaction.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "brownie/network/transaction.py:105:12 Incompatible variable type [9]: sender is declared to have type `Union[_AccountBase, str]` but is used as type `None`.",
+    "message": " sender is declared to have type `Union[_AccountBase, str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 105,
+    "warning_line": "            sender: Union[str, '_AccountBase'] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            txid: Any,\n            sender: Union[str, '_AccountBase'] = None,\n            silent: bool = False,\n",
+        "source_code_len": 112,
+        "target_code": "            txid: Any,\n            sender: Any = None,\n            silent: bool = False,\n",
+        "target_code_len": 89,
+        "diff_format": "@@ -104,3 +104,3 @@\n             txid: Any,\n-            sender: Union[str, '_AccountBase'] = None,\n+            sender: Any = None,\n             silent: bool = False,\n",
+        "source_code_with_indent": "            txid: Any,\n            sender: Union[str, '_AccountBase'] = None,\n            silent: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            txid: Any,\n            sender: Any = None,\n            silent: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

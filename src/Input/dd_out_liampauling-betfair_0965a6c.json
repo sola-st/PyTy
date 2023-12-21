@@ -1,0 +1,70 @@
+[
+  {
+    "project": "liampauling/betfair",
+    "commit": "0965a6cc5ef4cfd8f9231c3fc25d18f4bc0a859a",
+    "filename": "betfairlightweight/endpoints/streaming.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/liampauling-betfair/betfairlightweight/endpoints/streaming.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "betfairlightweight/endpoints/streaming.py:70:33 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `betfairlightweight.streaming.listener.BaseListener.register_stream` but got `str`.",
+    "message": " Expected `int` for 1st positional only parameter to call `betfairlightweight.streaming.listener.BaseListener.register_stream` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 70,
+    "warning_line": "        listener.register_stream(\"HISTORICAL\", \"marketSubscription\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        listener = listener if listener else BaseListener()\n        listener.register_stream(\"HISTORICAL\", \"marketSubscription\")\n        return HistoricalStream(directory, listener)\n",
+        "source_code_len": 182,
+        "target_code": "        listener = listener if listener else BaseListener()\n        listener.register_stream(0, \"marketSubscription\")\n        return HistoricalStream(directory, listener)\n",
+        "target_code_len": 171,
+        "diff_format": "@@ -69,3 +69,3 @@\n         listener = listener if listener else BaseListener()\n-        listener.register_stream(\"HISTORICAL\", \"marketSubscription\")\n+        listener.register_stream(0, \"marketSubscription\")\n         return HistoricalStream(directory, listener)\n",
+        "source_code_with_indent": "        listener = listener if listener else BaseListener()\n        listener.register_stream(\"HISTORICAL\", \"marketSubscription\")\n        return HistoricalStream(directory, listener)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        listener = listener if listener else BaseListener()\n        listener.register_stream(0, \"marketSubscription\")\n        return HistoricalStream(directory, listener)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "liampauling/betfair",
+    "commit": "0965a6cc5ef4cfd8f9231c3fc25d18f4bc0a859a",
+    "filename": "betfairlightweight/endpoints/streaming.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/liampauling-betfair/betfairlightweight/endpoints/streaming.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "betfairlightweight/endpoints/streaming.py:88:33 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `betfairlightweight.streaming.listener.BaseListener.register_stream` but got `str`.",
+    "message": " Expected `int` for 1st positional only parameter to call `betfairlightweight.streaming.listener.BaseListener.register_stream` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 88,
+    "warning_line": "        listener.register_stream(\"HISTORICAL\", \"marketSubscription\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        listener = listener if listener else StreamListener()\n        listener.register_stream(\"HISTORICAL\", \"marketSubscription\")\n        return HistoricalGeneratorStream(directory, listener)\n",
+        "source_code_len": 193,
+        "target_code": "        listener = listener if listener else StreamListener()\n        listener.register_stream(0, \"marketSubscription\")\n        return HistoricalGeneratorStream(directory, listener)\n",
+        "target_code_len": 182,
+        "diff_format": "@@ -87,3 +87,3 @@\n         listener = listener if listener else StreamListener()\n-        listener.register_stream(\"HISTORICAL\", \"marketSubscription\")\n+        listener.register_stream(0, \"marketSubscription\")\n         return HistoricalGeneratorStream(directory, listener)\n",
+        "source_code_with_indent": "        listener = listener if listener else StreamListener()\n        listener.register_stream(\"HISTORICAL\", \"marketSubscription\")\n        return HistoricalGeneratorStream(directory, listener)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        listener = listener if listener else StreamListener()\n        listener.register_stream(0, \"marketSubscription\")\n        return HistoricalGeneratorStream(directory, listener)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

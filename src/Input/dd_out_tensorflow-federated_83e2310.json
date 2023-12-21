@@ -1,0 +1,36 @@
+[
+  {
+    "project": "tensorflow/federated",
+    "commit": "83e2310074df01d2a3b446a8e1c508d79a549119",
+    "filename": "tensorflow_federated/python/core/impl/types/computation_types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/tensorflow-federated/tensorflow_federated/python/core/impl/types/computation_types.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tensorflow_federated/python/core/impl/types/computation_types.py:309:0 Incompatible variable type [9]: _intern_pool is declared to have type `Dict[TypingType[typing.Any], Dict[typing.Any, typing.Any]]` but is used as type `typing.DefaultDict[Variable[collections._KT], weakref.WeakValueDictionary[Variable[weakref._KT], Variable[weakref._VT]]]`.",
+    "message": " _intern_pool is declared to have type `Dict[TypingType[typing.Any], Dict[typing.Any, typing.Any]]` but is used as type `typing.DefaultDict[Variable[collections._KT], weakref.WeakValueDictionary[Variable[weakref._KT], Variable[weakref._VT]]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 309,
+    "warning_line": "_intern_pool: Dict[typing.Type[Any], Dict[Any, Any]] = (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "_intern_pool: Dict[typing.Type[Any], Dict[Any, Any]] = (\n    collections.defaultdict(lambda: weakref.WeakValueDictionary({})))\n\n",
+        "source_code_len": 128,
+        "target_code": "_intern_pool: Dict[typing.Type[Any], Dict[Any, Any]] = (\n    collections.defaultdict(lambda: {}))\n\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -309,3 +306,3 @@\n _intern_pool: Dict[typing.Type[Any], Dict[Any, Any]] = (\n-    collections.defaultdict(lambda: weakref.WeakValueDictionary({})))\n+    collections.defaultdict(lambda: {}))\n \n",
+        "source_code_with_indent": "<DED><DED>_intern_pool: Dict[typing.Type[Any], Dict[Any, Any]] = (\n    collections.defaultdict(lambda: weakref.WeakValueDictionary({})))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>_intern_pool: Dict[typing.Type[Any], Dict[Any, Any]] = (\n    collections.defaultdict(lambda: {}))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

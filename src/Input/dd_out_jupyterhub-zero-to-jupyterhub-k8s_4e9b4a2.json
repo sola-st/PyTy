@@ -1,0 +1,138 @@
+[
+  {
+    "project": "jupyterhub/zero-to-jupyterhub-k8s",
+    "commit": "4e9b4a22f516a7f7545c1cfebe440f0b2dde5a6d",
+    "filename": "images/hub/jupyterhub_config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jupyterhub-zero-to-jupyterhub-k8s/images/hub/jupyterhub_config.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "images/hub/jupyterhub_config.py:275:81 Unsupported operand [58]: `+` is not supported for operand types `str` and `typing.Optional[str]`.",
+    "message": " `+` is not supported for operand types `str` and `typing.Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 275,
+    "warning_line": "        set_config_if_not_none(c.CILogonOAuthenticator, trait, 'auth.cilogon.' + cfg_key)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    for trait, cfg_key in common_oauth_traits:\n        set_config_if_not_none(c.CILogonOAuthenticator, trait, 'auth.cilogon.' + cfg_key)\n",
+        "source_code_len": 137,
+        "target_code": "    for trait, cfg_key in common_oauth_traits:\n        if cfg_key is None:\n            cfg_key = camelCaseify(trait)\n        set_config_if_not_none(c.CILogonOAuthenticator, trait, 'auth.cilogon.' + cfg_key)\n",
+        "target_code_len": 207,
+        "diff_format": "@@ -274,2 +274,4 @@\n     for trait, cfg_key in common_oauth_traits:\n+        if cfg_key is None:\n+            cfg_key = camelCaseify(trait)\n         set_config_if_not_none(c.CILogonOAuthenticator, trait, 'auth.cilogon.' + cfg_key)\n",
+        "source_code_with_indent": "    for trait, cfg_key in common_oauth_traits:\n        <IND>set_config_if_not_none(c.CILogonOAuthenticator, trait, 'auth.cilogon.' + cfg_key)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    for trait, cfg_key in common_oauth_traits:\n        <IND>if cfg_key is None:\n            <IND>cfg_key = camelCaseify(trait)\n        <DED>set_config_if_not_none(c.CILogonOAuthenticator, trait, 'auth.cilogon.' + cfg_key)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jupyterhub/zero-to-jupyterhub-k8s",
+    "commit": "4e9b4a22f516a7f7545c1cfebe440f0b2dde5a6d",
+    "filename": "images/hub/jupyterhub_config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jupyterhub-zero-to-jupyterhub-k8s/images/hub/jupyterhub_config.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "images/hub/jupyterhub_config.py:279:79 Unsupported operand [58]: `+` is not supported for operand types `str` and `typing.Optional[str]`.",
+    "message": " `+` is not supported for operand types `str` and `typing.Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 279,
+    "warning_line": "        set_config_if_not_none(c.GitLabOAuthenticator, trait, 'auth.gitlab.' + cfg_key)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    for trait, cfg_key in common_oauth_traits:\n        set_config_if_not_none(c.GitLabOAuthenticator, trait, 'auth.gitlab.' + cfg_key)\n",
+        "source_code_len": 135,
+        "target_code": "    for trait, cfg_key in common_oauth_traits:\n        if cfg_key is None:\n            cfg_key = camelCaseify(trait)\n        set_config_if_not_none(c.GitLabOAuthenticator, trait, 'auth.gitlab.' + cfg_key)\n",
+        "target_code_len": 205,
+        "diff_format": "@@ -278,2 +280,4 @@\n     for trait, cfg_key in common_oauth_traits:\n+        if cfg_key is None:\n+            cfg_key = camelCaseify(trait)\n         set_config_if_not_none(c.GitLabOAuthenticator, trait, 'auth.gitlab.' + cfg_key)\n",
+        "source_code_with_indent": "    for trait, cfg_key in common_oauth_traits:\n        <IND>set_config_if_not_none(c.GitLabOAuthenticator, trait, 'auth.gitlab.' + cfg_key)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    for trait, cfg_key in common_oauth_traits:\n        <IND>if cfg_key is None:\n            <IND>cfg_key = camelCaseify(trait)\n        <DED>set_config_if_not_none(c.GitLabOAuthenticator, trait, 'auth.gitlab.' + cfg_key)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jupyterhub/zero-to-jupyterhub-k8s",
+    "commit": "4e9b4a22f516a7f7545c1cfebe440f0b2dde5a6d",
+    "filename": "images/hub/jupyterhub_config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jupyterhub-zero-to-jupyterhub-k8s/images/hub/jupyterhub_config.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "images/hub/jupyterhub_config.py:285:78 Unsupported operand [58]: `+` is not supported for operand types `str` and `typing.Optional[str]`.",
+    "message": " `+` is not supported for operand types `str` and `typing.Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 285,
+    "warning_line": "        set_config_if_not_none(c.MWOAuthenticator, trait, 'auth.mediawiki.' + cfg_key)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ):\n        set_config_if_not_none(c.MWOAuthenticator, trait, 'auth.mediawiki.' + cfg_key)\n",
+        "source_code_len": 94,
+        "target_code": "    ):\n        if cfg_key is None:\n            cfg_key = camelCaseify(trait)\n        set_config_if_not_none(c.MWOAuthenticator, trait, 'auth.mediawiki.' + cfg_key)\n",
+        "target_code_len": 164,
+        "diff_format": "@@ -284,2 +288,4 @@\n     ):\n+        if cfg_key is None:\n+            cfg_key = camelCaseify(trait)\n         set_config_if_not_none(c.MWOAuthenticator, trait, 'auth.mediawiki.' + cfg_key)\n",
+        "source_code_with_indent": "    ):\n        <IND>set_config_if_not_none(c.MWOAuthenticator, trait, 'auth.mediawiki.' + cfg_key)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ):\n        <IND>if cfg_key is None:\n            <IND>cfg_key = camelCaseify(trait)\n        <DED>set_config_if_not_none(c.MWOAuthenticator, trait, 'auth.mediawiki.' + cfg_key)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "jupyterhub/zero-to-jupyterhub-k8s",
+    "commit": "4e9b4a22f516a7f7545c1cfebe440f0b2dde5a6d",
+    "filename": "images/hub/jupyterhub_config.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jupyterhub-zero-to-jupyterhub-k8s/images/hub/jupyterhub_config.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "images/hub/jupyterhub_config.py:291:79 Unsupported operand [58]: `+` is not supported for operand types `str` and `typing.Optional[str]`.",
+    "message": " `+` is not supported for operand types `str` and `typing.Optional[str]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 291,
+    "warning_line": "        set_config_if_not_none(c.GlobusOAuthenticator, trait, 'auth.globus.' + cfg_key)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ):\n        set_config_if_not_none(c.GlobusOAuthenticator, trait, 'auth.globus.' + cfg_key)\n",
+        "source_code_len": 95,
+        "target_code": "    ):\n        if cfg_key is None:\n            cfg_key = camelCaseify(trait)\n        set_config_if_not_none(c.GlobusOAuthenticator, trait, 'auth.globus.' + cfg_key)\n",
+        "target_code_len": 165,
+        "diff_format": "@@ -290,2 +296,4 @@\n     ):\n+        if cfg_key is None:\n+            cfg_key = camelCaseify(trait)\n         set_config_if_not_none(c.GlobusOAuthenticator, trait, 'auth.globus.' + cfg_key)\n",
+        "source_code_with_indent": "    ):\n        <IND>set_config_if_not_none(c.GlobusOAuthenticator, trait, 'auth.globus.' + cfg_key)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ):\n        <IND>if cfg_key is None:\n            <IND>cfg_key = camelCaseify(trait)\n        <DED>set_config_if_not_none(c.GlobusOAuthenticator, trait, 'auth.globus.' + cfg_key)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "sio2project/oioioi",
+    "commit": "25617feb8d747cbfa3fa36264f1d10e1cbea109c",
+    "filename": "oioioi/default_settings.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sio2project-oioioi/oioioi/default_settings.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "oioioi/default_settings.py:512:0 Unbound name [10]: Name `CELERY_ROUTES` is used but not defined in the current scope.",
+    "message": " Name `CELERY_ROUTES` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 512,
+    "warning_line": "CELERY_ROUTES.update({",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nCELERY_ROUTES.update({\n    'oioioi.evalmgr.tasks.evalmgr_job': dict(queue='evalmgr'),\n    'oioioi.problems.unpackmgr.unpackmgr_job': dict(queue='unpackmgr'),\n})\n\n",
+        "source_code_len": 163,
+        "target_code": "\nCELERY_ROUTES = {\n    'oioioi.evalmgr.tasks.evalmgr_job': dict(queue='evalmgr'),\n    'oioioi.problems.unpackmgr.unpackmgr_job': dict(queue='unpackmgr'),\n}\n\n",
+        "target_code_len": 157,
+        "diff_format": "@@ -511,6 +511,6 @@\n \n-CELERY_ROUTES.update({\n+CELERY_ROUTES = {\n     'oioioi.evalmgr.tasks.evalmgr_job': dict(queue='evalmgr'),\n     'oioioi.problems.unpackmgr.unpackmgr_job': dict(queue='unpackmgr'),\n-})\n+}\n \n",
+        "source_code_with_indent": "\nCELERY_ROUTES.update({\n    'oioioi.evalmgr.tasks.evalmgr_job': dict(queue='evalmgr'),\n    'oioioi.problems.unpackmgr.unpackmgr_job': dict(queue='unpackmgr'),\n})\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nCELERY_ROUTES = {\n    'oioioi.evalmgr.tasks.evalmgr_job': dict(queue='evalmgr'),\n    'oioioi.problems.unpackmgr.unpackmgr_job': dict(queue='unpackmgr'),\n}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

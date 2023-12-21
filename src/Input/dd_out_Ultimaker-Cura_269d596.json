@@ -1,0 +1,66 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "269d596f5da45dc1d61a6002901092e00c0546a1",
+    "filename": "plugins/UM3NetworkPrinting/src/Cloud/CloudOutputDeviceManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/UM3NetworkPrinting/src/Cloud/CloudOutputDeviceManager.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/UM3NetworkPrinting/src/Cloud/CloudOutputDeviceManager.py:79:63 Unbound name [10]: Name `Cluster` is used but not defined in the current scope.",
+    "message": " Name `Cluster` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 79,
+    "warning_line": "    def _parseStatusResponse(reply: QNetworkReply) -> Optional[Cluster]:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import json\nfrom typing import Dict, Optional\n\n",
+        "source_code_len": 47,
+        "target_code": "import json\nfrom typing import Dict, Optional, List\n\n",
+        "target_code_len": 53,
+        "diff_format": "@@ -3,3 +3,3 @@\n import json\n-from typing import Dict, Optional\n+from typing import Dict, Optional, List\n \n",
+        "source_code_with_indent": "import json\nfrom typing import Dict, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import json\nfrom typing import Dict, Optional, List\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def _parseStatusResponse(reply: QNetworkReply) -> Optional[Cluster]:\n        try:\n",
+        "source_code_len": 104,
+        "target_code": "    @staticmethod\n    def _parseStatusResponse(reply: QNetworkReply) -> List[CloudCluster]:\n        try:\n",
+        "target_code_len": 105,
+        "diff_format": "@@ -78,3 +78,3 @@\n     @staticmethod\n-    def _parseStatusResponse(reply: QNetworkReply) -> Optional[Cluster]:\n+    def _parseStatusResponse(reply: QNetworkReply) -> List[CloudCluster]:\n         try:\n",
+        "source_code_with_indent": "    <DED><DED>@staticmethod\n    def _parseStatusResponse(reply: QNetworkReply) -> Optional[Cluster]:\n        <IND>try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@staticmethod\n    def _parseStatusResponse(reply: QNetworkReply) -> List[CloudCluster]:\n        <IND>try:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            Logger.logException(\"w\", \"Response was missing values.\")\n        return None\n\n",
+        "source_code_len": 90,
+        "target_code": "            Logger.logException(\"w\", \"Response was missing values.\")\n        return []\n\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -87,3 +87,3 @@\n             Logger.logException(\"w\", \"Response was missing values.\")\n-        return None\n+        return []\n \n",
+        "source_code_with_indent": "            <IND>Logger.logException(\"w\", \"Response was missing values.\")\n        <DED>return None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>Logger.logException(\"w\", \"Response was missing values.\")\n        <DED>return []\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

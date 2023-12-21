@@ -1,0 +1,36 @@
+[
+  {
+    "project": "p1c2u/openapi-core",
+    "commit": "ff4a6c81eeda0e2274aa9dc03597779c141e5728",
+    "filename": "openapi_core/contrib/requests/requests.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/p1c2u-openapi-core/openapi_core/contrib/requests/requests.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "openapi_core/contrib/requests/requests.py:35:21 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `urlparse` but got `typing.Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `urlparse` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 35,
+    "warning_line": "        o = urlparse(request.url)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def create(cls, request: Union[Request, PreparedRequest]) -> OpenAPIRequest:\n        \"\"\"\n",
+        "source_code_len": 110,
+        "target_code": "    @classmethod\n    def create(cls, request):\n        \"\"\"\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -14,3 +14,3 @@\n     @classmethod\n-    def create(cls, request: Union[Request, PreparedRequest]) -> OpenAPIRequest:\n+    def create(cls, request):\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <IND>@classmethod\n    def create(cls, request: Union[Request, PreparedRequest]) -> OpenAPIRequest:\n        <IND>",
+        "target_code_with_indent": "    <IND>@classmethod\n    def create(cls, request):\n        <IND>"
+      }
+    ]
+  }
+]

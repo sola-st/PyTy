@@ -1,0 +1,36 @@
+[
+  {
+    "project": "espnet/espnet",
+    "commit": "2f80c167525bc46b8ae63e9981491c799ef1d04d",
+    "filename": "espnet2/train/reporter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/espnet-espnet/espnet2/train/reporter.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "espnet2/train/reporter.py:183:8 Incompatible return type [7]: Expected `None` but got `str`.",
+    "message": " Expected `None` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 183,
+    "warning_line": "        return message",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def log_message(self, nlatest: int = None) -> None:\n        if self._finished:\n",
+        "source_code_len": 84,
+        "target_code": "\n    def log_message(self, nlatest: int = None) -> str:\n        if self._finished:\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -156,3 +156,3 @@\n \n-    def log_message(self, nlatest: int = None) -> None:\n+    def log_message(self, nlatest: int = None) -> str:\n         if self._finished:\n",
+        "source_code_with_indent": "\n    <DED><DED>def log_message(self, nlatest: int = None) -> None:\n        <IND>if self._finished:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def log_message(self, nlatest: int = None) -> str:\n        <IND>if self._finished:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

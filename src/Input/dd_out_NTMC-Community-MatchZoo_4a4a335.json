@@ -1,0 +1,265 @@
+[
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/data_generator/dpool_data_generator.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/data_generator/dpool_data_generator.py:59:34 Incompatible parameter type [6]: Expected `int` for 4th positional only parameter to anonymous call but got `float`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/data_generator/dpool_data_generator.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/data_generator/dpool_data_generator.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/data_generator/dpool_data_generator.py:60:34 Incompatible parameter type [6]: Expected `int` for 5th positional only parameter to anonymous call but got `float`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/data_generator/dpool_data_generator.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/engine/base_metric.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/engine/base_metric.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "matchzoo/engine/base_metric.py:80:8 Incompatible return type [7]: Expected `BaseMetric` but got `str`.",
+    "message": " Expected `BaseMetric` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 80,
+    "warning_line": "        return metric  # keras native metrics",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n\n\ndef parse_metric(metric: typing.Union[str,\n                                      typing.Type[BaseMetric],\n                                      BaseMetric]) -> 'BaseMetric':\n    \"\"\"\n    Parse input metric in any form into a :class:`BaseMetric` instance.\n\n    :param metric: Input metric in any form.\n    :return: A :class:`BaseMetric` instance\n\n    Examples::\n        >>> from matchzoo import engine, metrics\n\n    Use `str` as keras native metrics:\n        >>> engine.parse_metric('mse')\n        'mse'\n\n    Use `str` as MatchZoo metrics:\n        >>> mz_metric = engine.parse_metric('map')\n        >>> type(mz_metric)\n        <class 'matchzoo.metrics.mean_average_precision.MeanAveragePrecision'>\n\n    Use :class:`matchzoo.engine.BaseMetric` subclasses as MatchZoo metrics:\n        >>> type(engine.parse_metric(metrics.AveragePrecision))\n        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n\n    Use :class:`matchzoo.engine.BaseMetric` instances as MatchZoo metrics:\n        >>> type(engine.parse_metric(metrics.AveragePrecision()))\n        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n\n    \"\"\"\n    if isinstance(metric, BaseMetric):\n        return metric\n    elif isinstance(metric, str):\n        metric = metric.lower()  # ignore case\n        for subclass in BaseMetric.__subclasses__():\n            if metric == subclass.ALIAS or metric in subclass.ALIAS:\n                return subclass()\n        return metric  # keras native metrics\n    elif issubclass(metric, BaseMetric):\n        return metric()\n",
+        "source_code_len": 1609,
+        "target_code": "    return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -40,43 +39,1 @@\n     return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n-\n-\n-def parse_metric(metric: typing.Union[str,\n-                                      typing.Type[BaseMetric],\n-                                      BaseMetric]) -> 'BaseMetric':\n-    \"\"\"\n-    Parse input metric in any form into a :class:`BaseMetric` instance.\n-\n-    :param metric: Input metric in any form.\n-    :return: A :class:`BaseMetric` instance\n-\n-    Examples::\n-        >>> from matchzoo import engine, metrics\n-\n-    Use `str` as keras native metrics:\n-        >>> engine.parse_metric('mse')\n-        'mse'\n-\n-    Use `str` as MatchZoo metrics:\n-        >>> mz_metric = engine.parse_metric('map')\n-        >>> type(mz_metric)\n-        <class 'matchzoo.metrics.mean_average_precision.MeanAveragePrecision'>\n-\n-    Use :class:`matchzoo.engine.BaseMetric` subclasses as MatchZoo metrics:\n-        >>> type(engine.parse_metric(metrics.AveragePrecision))\n-        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n-\n-    Use :class:`matchzoo.engine.BaseMetric` instances as MatchZoo metrics:\n-        >>> type(engine.parse_metric(metrics.AveragePrecision()))\n-        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n-\n-    \"\"\"\n-    if isinstance(metric, BaseMetric):\n-        return metric\n-    elif isinstance(metric, str):\n-        metric = metric.lower()  # ignore case\n-        for subclass in BaseMetric.__subclasses__():\n-            if metric == subclass.ALIAS or metric in subclass.ALIAS:\n-                return subclass()\n-        return metric  # keras native metrics\n-    elif issubclass(metric, BaseMetric):\n-        return metric()\n",
+        "source_code_with_indent": "    return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n\n\n<DED>def parse_metric(metric: typing.Union[str,\n                                      typing.Type[BaseMetric],\n                                      BaseMetric]) -> 'BaseMetric':\n    <IND>\"\"\"\n    Parse input metric in any form into a :class:`BaseMetric` instance.\n\n    :param metric: Input metric in any form.\n    :return: A :class:`BaseMetric` instance\n\n    Examples::\n        >>> from matchzoo import engine, metrics\n\n    Use `str` as keras native metrics:\n        >>> engine.parse_metric('mse')\n        'mse'\n\n    Use `str` as MatchZoo metrics:\n        >>> mz_metric = engine.parse_metric('map')\n        >>> type(mz_metric)\n        <class 'matchzoo.metrics.mean_average_precision.MeanAveragePrecision'>\n\n    Use :class:`matchzoo.engine.BaseMetric` subclasses as MatchZoo metrics:\n        >>> type(engine.parse_metric(metrics.AveragePrecision))\n        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n\n    Use :class:`matchzoo.engine.BaseMetric` instances as MatchZoo metrics:\n        >>> type(engine.parse_metric(metrics.AveragePrecision()))\n        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n\n    \"\"\"\n    if isinstance(metric, BaseMetric):\n        <IND>return metric\n    <DED>elif isinstance(metric, str):\n        <IND>metric = metric.lower()  # ignore case\n        for subclass in BaseMetric.__subclasses__():\n            <IND>if metric == subclass.ALIAS or metric in subclass.ALIAS:\n                <IND>return subclass()\n        <DED><DED>return metric  # keras native metrics\n    <DED>elif issubclass(metric, BaseMetric):\n        <IND>return metric()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/engine/base_metric.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/engine/base_metric.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "matchzoo/engine/base_metric.py:82:8 Incompatible return type [7]: Expected `BaseMetric` but got implicit return value of `None`.",
+    "message": " Expected `BaseMetric` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 82,
+    "warning_line": "        return metric()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n\n\ndef parse_metric(metric: typing.Union[str,\n                                      typing.Type[BaseMetric],\n                                      BaseMetric]) -> 'BaseMetric':\n    \"\"\"\n    Parse input metric in any form into a :class:`BaseMetric` instance.\n\n    :param metric: Input metric in any form.\n    :return: A :class:`BaseMetric` instance\n\n    Examples::\n        >>> from matchzoo import engine, metrics\n\n    Use `str` as keras native metrics:\n        >>> engine.parse_metric('mse')\n        'mse'\n\n    Use `str` as MatchZoo metrics:\n        >>> mz_metric = engine.parse_metric('map')\n        >>> type(mz_metric)\n        <class 'matchzoo.metrics.mean_average_precision.MeanAveragePrecision'>\n\n    Use :class:`matchzoo.engine.BaseMetric` subclasses as MatchZoo metrics:\n        >>> type(engine.parse_metric(metrics.AveragePrecision))\n        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n\n    Use :class:`matchzoo.engine.BaseMetric` instances as MatchZoo metrics:\n        >>> type(engine.parse_metric(metrics.AveragePrecision()))\n        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n\n    \"\"\"\n    if isinstance(metric, BaseMetric):\n        return metric\n    elif isinstance(metric, str):\n        metric = metric.lower()  # ignore case\n        for subclass in BaseMetric.__subclasses__():\n            if metric == subclass.ALIAS or metric in subclass.ALIAS:\n                return subclass()\n        return metric  # keras native metrics\n    elif issubclass(metric, BaseMetric):\n        return metric()\n",
+        "source_code_len": 1609,
+        "target_code": "    return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -40,43 +39,1 @@\n     return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n-\n-\n-def parse_metric(metric: typing.Union[str,\n-                                      typing.Type[BaseMetric],\n-                                      BaseMetric]) -> 'BaseMetric':\n-    \"\"\"\n-    Parse input metric in any form into a :class:`BaseMetric` instance.\n-\n-    :param metric: Input metric in any form.\n-    :return: A :class:`BaseMetric` instance\n-\n-    Examples::\n-        >>> from matchzoo import engine, metrics\n-\n-    Use `str` as keras native metrics:\n-        >>> engine.parse_metric('mse')\n-        'mse'\n-\n-    Use `str` as MatchZoo metrics:\n-        >>> mz_metric = engine.parse_metric('map')\n-        >>> type(mz_metric)\n-        <class 'matchzoo.metrics.mean_average_precision.MeanAveragePrecision'>\n-\n-    Use :class:`matchzoo.engine.BaseMetric` subclasses as MatchZoo metrics:\n-        >>> type(engine.parse_metric(metrics.AveragePrecision))\n-        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n-\n-    Use :class:`matchzoo.engine.BaseMetric` instances as MatchZoo metrics:\n-        >>> type(engine.parse_metric(metrics.AveragePrecision()))\n-        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n-\n-    \"\"\"\n-    if isinstance(metric, BaseMetric):\n-        return metric\n-    elif isinstance(metric, str):\n-        metric = metric.lower()  # ignore case\n-        for subclass in BaseMetric.__subclasses__():\n-            if metric == subclass.ALIAS or metric in subclass.ALIAS:\n-                return subclass()\n-        return metric  # keras native metrics\n-    elif issubclass(metric, BaseMetric):\n-        return metric()\n",
+        "source_code_with_indent": "    return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n\n\n<DED>def parse_metric(metric: typing.Union[str,\n                                      typing.Type[BaseMetric],\n                                      BaseMetric]) -> 'BaseMetric':\n    <IND>\"\"\"\n    Parse input metric in any form into a :class:`BaseMetric` instance.\n\n    :param metric: Input metric in any form.\n    :return: A :class:`BaseMetric` instance\n\n    Examples::\n        >>> from matchzoo import engine, metrics\n\n    Use `str` as keras native metrics:\n        >>> engine.parse_metric('mse')\n        'mse'\n\n    Use `str` as MatchZoo metrics:\n        >>> mz_metric = engine.parse_metric('map')\n        >>> type(mz_metric)\n        <class 'matchzoo.metrics.mean_average_precision.MeanAveragePrecision'>\n\n    Use :class:`matchzoo.engine.BaseMetric` subclasses as MatchZoo metrics:\n        >>> type(engine.parse_metric(metrics.AveragePrecision))\n        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n\n    Use :class:`matchzoo.engine.BaseMetric` instances as MatchZoo metrics:\n        >>> type(engine.parse_metric(metrics.AveragePrecision()))\n        <class 'matchzoo.metrics.average_precision.AveragePrecision'>\n\n    \"\"\"\n    if isinstance(metric, BaseMetric):\n        <IND>return metric\n    <DED>elif isinstance(metric, str):\n        <IND>metric = metric.lower()  # ignore case\n        for subclass in BaseMetric.__subclasses__():\n            <IND>if metric == subclass.ALIAS or metric in subclass.ALIAS:\n                <IND>return subclass()\n        <DED><DED>return metric  # keras native metrics\n    <DED>elif issubclass(metric, BaseMetric):\n        <IND>return metric()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    return np.array(sorted(couple, key=lambda x: x[1], reverse=True))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/preprocessors/cdssm_preprocessor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/preprocessors/cdssm_preprocessor.py",
+    "file_hunks_size": 12,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "matchzoo/preprocessors/cdssm_preprocessor.py:56:12 Incompatible parameter type [6]: Expected `int` for 2nd parameter `pad_value` to call `processor_units.processor_units.FixedLengthUnit.__init__` but got `str`.",
+    "message": " Expected `int` for 2nd parameter `pad_value` to call `processor_units.processor_units.FixedLengthUnit.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 56,
+    "warning_line": "            pad_value='0', pad_mode='post'"
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/preprocessors/cdssm_preprocessor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/preprocessors/cdssm_preprocessor.py",
+    "file_hunks_size": 12,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "matchzoo/preprocessors/cdssm_preprocessor.py:60:12 Incompatible parameter type [6]: Expected `int` for 2nd parameter `pad_value` to call `processor_units.processor_units.FixedLengthUnit.__init__` but got `str`.",
+    "message": " Expected `int` for 2nd parameter `pad_value` to call `processor_units.processor_units.FixedLengthUnit.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 60,
+    "warning_line": "            pad_value='0', pad_mode='post'"
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/preprocessors/cdssm_preprocessor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/preprocessors/cdssm_preprocessor.py",
+    "file_hunks_size": 12,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "matchzoo/preprocessors/cdssm_preprocessor.py:107:30 Incompatible parameter type [6]: Expected `processor_units.processor_units.NgramLetterUnit` for 1st positional only parameter to call `list.append` but got `processor_units.processor_units.WordHashingUnit`.",
+    "message": " Expected `processor_units.processor_units.NgramLetterUnit` for 1st positional only parameter to call `list.append` but got `processor_units.processor_units.WordHashingUnit`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 107,
+    "warning_line": "            post_units.append(processor_units.WordHashingUnit(term_index))"
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:61:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.LowercaseUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:75:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.PuncRemovalUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:89:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.DigitRemovalUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:117:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.StopRemovalUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:149:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.StemmingUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:175:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.LemmatizationUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:221:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.NgramLetterUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:299:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.VocabularyUnit.fit` overrides method defined in `StatefulProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:308:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.VocabularyUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:356:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.FrequencyFilterUnit.fit` overrides method defined in `StatefulProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:374:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.FrequencyFilterUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:440:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.WordHashingUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:503:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.FixedLengthUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "NTMC-Community/MatchZoo",
+    "commit": "4a4a335e46b337c183d2b48b53850f7b12569c76",
+    "filename": "matchzoo/processor_units/processor_units.py",
+    "min_patch_found": false,
+    "full_warning_msg": "matchzoo/processor_units/processor_units.py:575:4 Inconsistent override [14]: `matchzoo.processor_units.processor_units.MatchingHistogramUnit.transform` overrides method defined in `ProcessorUnit` inconsistently. Could not find parameter `input` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/NTMC-Community-MatchZoo/matchzoo/processor_units/processor_units.py'",
+    "dd_fail": true
+  }
+]

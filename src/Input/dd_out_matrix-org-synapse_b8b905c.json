@@ -1,0 +1,36 @@
+[
+  {
+    "project": "matrix-org/synapse",
+    "commit": "b8b905c4ea8a0d922d34d469f7d220f53def1b53",
+    "filename": "synapse/storage/databases/main/client_ips.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/matrix-org-synapse/synapse/storage/databases/main/client_ips.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "synapse/storage/databases/main/client_ips.py:547:25 Incompatible parameter type [6]: Expected `Tuple[str, str]` for 1st positional only parameter to call `dict.__setitem__` but got `Tuple[str, Optional[str]]`.",
+    "message": " Expected `Tuple[str, str]` for 1st positional only parameter to call `dict.__setitem__` but got `Tuple[str, Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 547,
+    "warning_line": "                    ret[(user_id, device_id)] = {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        # Update what is retrieved from the database with data which is pending insertion.\n        for key in self._batch_row_update:\n            uid, access_token, ip = key\n            if uid == user_id:\n                user_agent, did, last_seen = self._batch_row_update[key]\n                if not device_id or did == device_id:\n                    ret[(user_id, device_id)] = {\n                        \"user_id\": user_id,\n                        \"access_token\": access_token,\n                        \"ip\": ip,\n",
+        "source_code_len": 515,
+        "target_code": "\n        # Update what is retrieved from the database with data which is pending\n        # insertion, as if it has already been stored in the database.\n        for key in self._batch_row_update:\n            uid, _access_token, ip = key\n            if uid == user_id:\n                user_agent, did, last_seen = self._batch_row_update[key]\n\n                if did is None:\n                    # These updates don't make it to the `devices` table\n                    continue\n\n                if not device_id or did == device_id:\n                    ret[(user_id, did)] = {\n                        \"user_id\": user_id,\n                        \"ip\": ip,\n",
+        "target_code_len": 652,
+        "diff_format": "@@ -540,11 +540,16 @@\n \n-        # Update what is retrieved from the database with data which is pending insertion.\n+        # Update what is retrieved from the database with data which is pending\n+        # insertion, as if it has already been stored in the database.\n         for key in self._batch_row_update:\n-            uid, access_token, ip = key\n+            uid, _access_token, ip = key\n             if uid == user_id:\n                 user_agent, did, last_seen = self._batch_row_update[key]\n+\n+                if did is None:\n+                    # These updates don't make it to the `devices` table\n+                    continue\n+\n                 if not device_id or did == device_id:\n-                    ret[(user_id, device_id)] = {\n+                    ret[(user_id, did)] = {\n                         \"user_id\": user_id,\n-                        \"access_token\": access_token,\n                         \"ip\": ip,\n",
+        "source_code_with_indent": "\n        # Update what is retrieved from the database with data which is pending insertion.\n        for key in self._batch_row_update:\n            <IND>uid, access_token, ip = key\n            if uid == user_id:\n                <IND>user_agent, did, last_seen = self._batch_row_update[key]\n                if not device_id or did == device_id:\n                    <IND>ret[(user_id, device_id)] = {\n                        \"user_id\": user_id,\n                        \"access_token\": access_token,\n                        \"ip\": ip,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        # Update what is retrieved from the database with data which is pending\n        # insertion, as if it has already been stored in the database.\n        for key in self._batch_row_update:\n            <IND>uid, _access_token, ip = key\n            if uid == user_id:\n                <IND>user_agent, did, last_seen = self._batch_row_update[key]\n\n                if did is None:\n                    # These updates don't make it to the `devices` table\n                    <IND>continue\n\n                <DED>if not device_id or did == device_id:\n                    <IND>ret[(user_id, did)] = {\n                        \"user_id\": user_id,\n                        \"ip\": ip,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

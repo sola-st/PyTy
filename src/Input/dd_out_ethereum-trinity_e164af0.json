@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ethereum/trinity",
+    "commit": "e164af0dbfdeb9a2b34553094426de4ee7f72c9a",
+    "filename": "p2p/discv5/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/p2p/discv5/messages.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "p2p/discv5/messages.py:70:36 Unsupported operand [58]: `+` is not supported for operand types `bytes` and `int`.",
+    "message": " `+` is not supported for operand types `bytes` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 70,
+    "warning_line": "            expected_message_type = max(self.keys()) + 1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "if TYPE_CHECKING:\n    MessageTypeRegistryBaseType = UserDict[bytes, Type[\"MessageData\"]]\nelse:\n",
+        "source_code_len": 95,
+        "target_code": "if TYPE_CHECKING:\n    MessageTypeRegistryBaseType = UserDict[int, Type[\"MessageData\"]]\nelse:\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -30,3 +29,3 @@\n if TYPE_CHECKING:\n-    MessageTypeRegistryBaseType = UserDict[bytes, Type[\"MessageData\"]]\n+    MessageTypeRegistryBaseType = UserDict[int, Type[\"MessageData\"]]\n else:\n",
+        "source_code_with_indent": "if TYPE_CHECKING:\n    <IND>MessageTypeRegistryBaseType = UserDict[bytes, Type[\"MessageData\"]]\n<DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "if TYPE_CHECKING:\n    <IND>MessageTypeRegistryBaseType = UserDict[int, Type[\"MessageData\"]]\n<DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/trinity",
+    "commit": "e164af0dbfdeb9a2b34553094426de4ee7f72c9a",
+    "filename": "p2p/discv5/messages.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/p2p/discv5/messages.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "p2p/discv5/messages.py:77:13 Incompatible parameter type [6]: Expected `bytes` for 1st positional only parameter to call `UserDict.__setitem__` but got `int`.",
+    "message": " Expected `bytes` for 1st positional only parameter to call `UserDict.__setitem__` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 77,
+    "warning_line": "        self[message_type] = message_data_class",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "if TYPE_CHECKING:\n    MessageTypeRegistryBaseType = UserDict[bytes, Type[\"MessageData\"]]\nelse:\n",
+        "source_code_len": 95,
+        "target_code": "if TYPE_CHECKING:\n    MessageTypeRegistryBaseType = UserDict[int, Type[\"MessageData\"]]\nelse:\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -30,3 +29,3 @@\n if TYPE_CHECKING:\n-    MessageTypeRegistryBaseType = UserDict[bytes, Type[\"MessageData\"]]\n+    MessageTypeRegistryBaseType = UserDict[int, Type[\"MessageData\"]]\n else:\n",
+        "source_code_with_indent": "if TYPE_CHECKING:\n    <IND>MessageTypeRegistryBaseType = UserDict[bytes, Type[\"MessageData\"]]\n<DED>else:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "if TYPE_CHECKING:\n    <IND>MessageTypeRegistryBaseType = UserDict[int, Type[\"MessageData\"]]\n<DED>else:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "GoSecure/pyrdp",
+    "commit": "b7789eadb2f216aa682a65d17288ecef946a2d21",
+    "filename": "pyrdp/pdu/rdp/virtual_channel/device_redirection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GoSecure-pyrdp/pyrdp/pdu/rdp/virtual_channel/device_redirection.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyrdp/pdu/rdp/virtual_channel/device_redirection.py:194:135 Invalid type [31]: Expression `[pyrdp.pdu.rdp.virtual_channel.device_redirection.FileInformationBase]` is not a valid type.",
+    "message": " Expression `[pyrdp.pdu.rdp.virtual_channel.device_redirection.FileInformationBase]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 194,
+    "warning_line": "    def __init__(self, deviceID: int, completionID: int, ioStatus: int, informationClass: FileSystemInformationClass, fileInformation: [FileInformationBase], endByte: bytes):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class DeviceQueryDirectoryResponsePDU(DeviceDirectoryControlResponsePDU):\n    def __init__(self, deviceID: int, completionID: int, ioStatus: int, informationClass: FileSystemInformationClass, fileInformation: [FileInformationBase], endByte: bytes):\n        super().__init__(MinorFunction.IRP_MN_QUERY_DIRECTORY, deviceID, completionID, ioStatus)\n",
+        "source_code_len": 346,
+        "target_code": "class DeviceQueryDirectoryResponsePDU(DeviceDirectoryControlResponsePDU):\n    def __init__(self, deviceID: int, completionID: int, ioStatus: int, informationClass: FileSystemInformationClass, fileInformation: List[FileInformationBase], endByte: bytes):\n        super().__init__(MinorFunction.IRP_MN_QUERY_DIRECTORY, deviceID, completionID, ioStatus)\n",
+        "target_code_len": 350,
+        "diff_format": "@@ -193,3 +193,3 @@\n class DeviceQueryDirectoryResponsePDU(DeviceDirectoryControlResponsePDU):\n-    def __init__(self, deviceID: int, completionID: int, ioStatus: int, informationClass: FileSystemInformationClass, fileInformation: [FileInformationBase], endByte: bytes):\n+    def __init__(self, deviceID: int, completionID: int, ioStatus: int, informationClass: FileSystemInformationClass, fileInformation: List[FileInformationBase], endByte: bytes):\n         super().__init__(MinorFunction.IRP_MN_QUERY_DIRECTORY, deviceID, completionID, ioStatus)\n",
+        "source_code_with_indent": "<DED><DED>class DeviceQueryDirectoryResponsePDU(DeviceDirectoryControlResponsePDU):\n    <IND>def __init__(self, deviceID: int, completionID: int, ioStatus: int, informationClass: FileSystemInformationClass, fileInformation: [FileInformationBase], endByte: bytes):\n        <IND>super().__init__(MinorFunction.IRP_MN_QUERY_DIRECTORY, deviceID, completionID, ioStatus)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>class DeviceQueryDirectoryResponsePDU(DeviceDirectoryControlResponsePDU):\n    <IND>def __init__(self, deviceID: int, completionID: int, ioStatus: int, informationClass: FileSystemInformationClass, fileInformation: List[FileInformationBase], endByte: bytes):\n        <IND>super().__init__(MinorFunction.IRP_MN_QUERY_DIRECTORY, deviceID, completionID, ioStatus)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

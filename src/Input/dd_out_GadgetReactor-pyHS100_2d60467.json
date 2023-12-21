@@ -1,0 +1,100 @@
+[
+  {
+    "project": "GadgetReactor/pyHS100",
+    "commit": "2d60467beab8c95ec3006a559a4a98bae830ba89",
+    "filename": "pyHS100/discover.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GadgetReactor-pyHS100/pyHS100/discover.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyHS100/discover.py:88:12 Incompatible return type [7]: Expected `pyHS100.smartdevice.SmartDevice` but got `None`.",
+    "message": " Expected `pyHS100.smartdevice.SmartDevice` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 88,
+    "warning_line": "            return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import json\nfrom typing import Dict, Type\n\nfrom pyHS100 import (TPLinkSmartHomeProtocol, SmartDevice, SmartPlug,\n                     SmartBulb, SmartStrip)\n\n",
+        "source_code_len": 158,
+        "target_code": "import json\nfrom typing import Dict, Type, Optional\n\nfrom pyHS100 import (\n    TPLinkSmartHomeProtocol,\n    SmartDevice,\n    SmartPlug,\n    SmartBulb,\n    SmartStrip,\n    SmartDeviceException,\n)\n\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -3,6 +3,12 @@\n import json\n-from typing import Dict, Type\n+from typing import Dict, Type, Optional\n \n-from pyHS100 import (TPLinkSmartHomeProtocol, SmartDevice, SmartPlug,\n-                     SmartBulb, SmartStrip)\n+from pyHS100 import (\n+    TPLinkSmartHomeProtocol,\n+    SmartDevice,\n+    SmartPlug,\n+    SmartBulb,\n+    SmartStrip,\n+    SmartDeviceException,\n+)\n \n",
+        "source_code_with_indent": "import json\nfrom typing import Dict, Type\n\nfrom pyHS100 import (TPLinkSmartHomeProtocol, SmartDevice, SmartPlug,\n                     SmartBulb, SmartStrip)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import json\nfrom typing import Dict, Type, Optional\n\nfrom pyHS100 import (\n    TPLinkSmartHomeProtocol,\n    SmartDevice,\n    SmartPlug,\n    SmartBulb,\n    SmartStrip,\n    SmartDeviceException,\n)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def discover_single(host: str,\n                        protocol: TPLinkSmartHomeProtocol = None\n                        ) -> SmartDevice:\n        \"\"\"\n        Similar to discover(), except only return device object for a single\n        host.\n\n",
+        "source_code_len": 264,
+        "target_code": "    @staticmethod\n    def discover_single(\n        host: str, protocol: TPLinkSmartHomeProtocol = None\n    ) -> Optional[SmartDevice]:\n        \"\"\"Discover a single device by the given IP address.\n\n",
+        "target_code_len": 197,
+        "diff_format": "@@ -66,8 +100,6 @@\n     @staticmethod\n-    def discover_single(host: str,\n-                        protocol: TPLinkSmartHomeProtocol = None\n-                        ) -> SmartDevice:\n-        \"\"\"\n-        Similar to discover(), except only return device object for a single\n-        host.\n+    def discover_single(\n+        host: str, protocol: TPLinkSmartHomeProtocol = None\n+    ) -> Optional[SmartDevice]:\n+        \"\"\"Discover a single device by the given IP address.\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@staticmethod\n    def discover_single(host: str,\n                        protocol: TPLinkSmartHomeProtocol = None\n                        ) -> SmartDevice:\n        <IND>",
+        "target_code_with_indent": "    <DED>@staticmethod\n    def discover_single(\n        host: str, protocol: TPLinkSmartHomeProtocol = None\n    ) -> Optional[SmartDevice]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "GadgetReactor/pyHS100",
+    "commit": "2d60467beab8c95ec3006a559a4a98bae830ba89",
+    "filename": "pyHS100/discover.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/GadgetReactor-pyHS100/pyHS100/discover.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyHS100/discover.py:112:8 Incompatible return type [7]: Expected `Type[pyHS100.smartdevice.SmartDevice]` but got `None`.",
+    "message": " Expected `Type[pyHS100.smartdevice.SmartDevice]` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 112,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import json\nfrom typing import Dict, Type\n\nfrom pyHS100 import (TPLinkSmartHomeProtocol, SmartDevice, SmartPlug,\n                     SmartBulb, SmartStrip)\n\n",
+        "source_code_len": 158,
+        "target_code": "import json\nfrom typing import Dict, Type, Optional\n\nfrom pyHS100 import (\n    TPLinkSmartHomeProtocol,\n    SmartDevice,\n    SmartPlug,\n    SmartBulb,\n    SmartStrip,\n    SmartDeviceException,\n)\n\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -3,6 +3,12 @@\n import json\n-from typing import Dict, Type\n+from typing import Dict, Type, Optional\n \n-from pyHS100 import (TPLinkSmartHomeProtocol, SmartDevice, SmartPlug,\n-                     SmartBulb, SmartStrip)\n+from pyHS100 import (\n+    TPLinkSmartHomeProtocol,\n+    SmartDevice,\n+    SmartPlug,\n+    SmartBulb,\n+    SmartStrip,\n+    SmartDeviceException,\n+)\n \n",
+        "source_code_with_indent": "import json\nfrom typing import Dict, Type\n\nfrom pyHS100 import (TPLinkSmartHomeProtocol, SmartDevice, SmartPlug,\n                     SmartBulb, SmartStrip)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import json\nfrom typing import Dict, Type, Optional\n\nfrom pyHS100 import (\n    TPLinkSmartHomeProtocol,\n    SmartDevice,\n    SmartPlug,\n    SmartBulb,\n    SmartStrip,\n    SmartDeviceException,\n)\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return device_class(host)\n        else:\n            return None\n\n    @staticmethod\n    def _get_device_class(info: dict) -> Type[SmartDevice]:\n        \"\"\"Find SmartDevice subclass for device described by passed data.\"\"\"\n",
+        "source_code_len": 232,
+        "target_code": "            return device_class(host)\n\n        return None\n\n    @staticmethod\n    def _get_device_class(info: dict) -> Optional[Type[SmartDevice]]:\n        \"\"\"Find SmartDevice subclass for device described by passed data.\"\"\"\n",
+        "target_code_len": 225,
+        "diff_format": "@@ -86,7 +118,7 @@\n             return device_class(host)\n-        else:\n-            return None\n+\n+        return None\n \n     @staticmethod\n-    def _get_device_class(info: dict) -> Type[SmartDevice]:\n+    def _get_device_class(info: dict) -> Optional[Type[SmartDevice]]:\n         \"\"\"Find SmartDevice subclass for device described by passed data.\"\"\"\n",
+        "source_code_with_indent": "            <IND>return device_class(host)\n        <DED>else:\n            <IND>return None\n\n    <DED><DED>@staticmethod\n    def _get_device_class(info: dict) -> Type[SmartDevice]:\n        <IND>\"\"\"Find SmartDevice subclass for device described by passed data.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return device_class(host)\n\n        <DED>return None\n\n    <DED>@staticmethod\n    def _get_device_class(info: dict) -> Optional[Type[SmartDevice]]:\n        <IND>\"\"\"Find SmartDevice subclass for device described by passed data.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

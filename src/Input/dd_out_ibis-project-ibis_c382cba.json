@@ -1,0 +1,70 @@
+[
+  {
+    "project": "ibis-project/ibis",
+    "commit": "c382cba2be496e26802022954e7b1c66de770a42",
+    "filename": "ibis/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ibis-project-ibis/ibis/client.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ibis/client.py:67:16 Invalid type [31]: Expression `six.with_metaclass(abc.ABCMeta, ibis.client.Client)` is not a valid type.",
+    "message": " Expression `six.with_metaclass(abc.ABCMeta, ibis.client.Client)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 67,
+    "warning_line": "class SQLClient(six.with_metaclass(abc.ABCMeta, Client)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass SQLClient(six.with_metaclass(abc.ABCMeta, Client)):\n\n",
+        "source_code_len": 60,
+        "target_code": "\nclass SQLClient(Client, metaclass=abc.ABCMeta):\n\n",
+        "target_code_len": 50,
+        "diff_format": "@@ -66,3 +64,3 @@\n \n-class SQLClient(six.with_metaclass(abc.ABCMeta, Client)):\n+class SQLClient(Client, metaclass=abc.ABCMeta):\n \n",
+        "source_code_with_indent": "\n<DED><DED><DED>class SQLClient(six.with_metaclass(abc.ABCMeta, Client)):\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>class SQLClient(Client, metaclass=abc.ABCMeta):\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ibis-project/ibis",
+    "commit": "c382cba2be496e26802022954e7b1c66de770a42",
+    "filename": "ibis/compat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ibis-project-ibis/ibis/compat.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ibis/compat.py:42:19 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 42,
+    "warning_line": "    unicode_type = unicode  # noqa: F821"
+  },
+  {
+    "project": "ibis-project/ibis",
+    "commit": "c382cba2be496e26802022954e7b1c66de770a42",
+    "filename": "ibis/compat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ibis-project-ibis/ibis/compat.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ibis/compat.py:58:12 Unbound name [10]: Name `xrange` is used but not defined in the current scope.",
+    "message": " Name `xrange` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 58,
+    "warning_line": "    range = xrange  # noqa: F821"
+  }
+]

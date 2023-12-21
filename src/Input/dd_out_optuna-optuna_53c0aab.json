@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "53c0aab03c569ce5a8e87d7c4869645db9eabfb2",
+    "filename": "optuna/integration/chainermn.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/integration/chainermn.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/integration/chainermn.py:230:4 Inconsistent override [14]: `optuna.integration.chainermn.ChainerMNTrial.suggest_int` overrides method defined in `optuna.trial._base.BaseTrial` inconsistently. Could not find parameter `log` in overriding signature.",
+    "message": " `optuna.integration.chainermn.ChainerMNTrial.suggest_int` overrides method defined in `optuna.trial._base.BaseTrial` inconsistently. Could not find parameter `log` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 230,
+    "warning_line": "    def suggest_int(self, name, low, high, step=1):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def suggest_int(self, name, low, high, step=1):\n        # type: (str, int, int, int) -> int\n\n",
+        "source_code_len": 98,
+        "target_code": "\n    def suggest_int(self, name, low, high, *, log=False, step=1):\n        # type: (str, int, int, bool, int) -> int\n\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -229,4 +229,4 @@\n \n-    def suggest_int(self, name, low, high, step=1):\n-        # type: (str, int, int, int) -> int\n+    def suggest_int(self, name, low, high, *, log=False, step=1):\n+        # type: (str, int, int, bool, int) -> int\n \n",
+        "source_code_with_indent": "\n    <DED>def suggest_int(self, name, low, high, step=1):\n        # type: (str, int, int, int) -> int\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def suggest_int(self, name, low, high, *, log=False, step=1):\n        # type: (str, int, int, bool, int) -> int\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

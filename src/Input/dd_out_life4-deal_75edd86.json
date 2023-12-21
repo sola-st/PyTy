@@ -1,0 +1,36 @@
+[
+  {
+    "project": "life4/deal",
+    "commit": "75edd864728821f700a645f547da3bcac3225b3e",
+    "filename": "deal/linter/_extractors/exceptions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/life4-deal/deal/linter/_extractors/exceptions.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deal/linter/_extractors/exceptions.py:78:8 Incompatible return type [7]: Expected `Iterator[Token]` but got implicit return value of `None`.",
+    "message": " Expected `Iterator[Token]` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 78,
+    "warning_line": "        return _exceptions_from_funcs(expr=expr)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if dive:\n        return _exceptions_from_funcs(expr=expr)\n\n",
+        "source_code_len": 63,
+        "target_code": "    if dive:\n        yield from _exceptions_from_funcs(expr=expr)\n\n",
+        "target_code_len": 67,
+        "diff_format": "@@ -77,3 +80,3 @@\n     if dive:\n-        return _exceptions_from_funcs(expr=expr)\n+        yield from _exceptions_from_funcs(expr=expr)\n \n",
+        "source_code_with_indent": "    <IND>if dive:\n        <IND>return _exceptions_from_funcs(expr=expr)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>if dive:\n        <IND>yield from _exceptions_from_funcs(expr=expr)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

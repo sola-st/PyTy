@@ -1,0 +1,36 @@
+[
+  {
+    "project": "CodeForPhilly/chime",
+    "commit": "b0da967b878cb8632d8a6c2eda438e0c2bfb3fbc",
+    "filename": "src/penn_chime/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/CodeForPhilly-chime/src/penn_chime/models.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/penn_chime/models.py:249:24 Unbound name [10]: Name `DataFrame` is used but not defined in the current scope.",
+    "message": " Name `DataFrame` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 249,
+    "warning_line": "def get_loss(census_df: DataFrame, current_hospitalized: float, n_days_since: int) -> float:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_loss(census_df: DataFrame, current_hospitalized: float, n_days_since: int) -> float:\n    \"\"\"Squared error: predicted vs. actual current hospitalized.\"\"\"\n",
+        "source_code_len": 162,
+        "target_code": "\ndef get_loss(census_df: pd.DataFrame, current_hospitalized: float, n_days_since: int) -> float:\n    \"\"\"Squared error: predicted vs. actual current hospitalized.\"\"\"\n",
+        "target_code_len": 165,
+        "diff_format": "@@ -248,3 +258,3 @@\n \n-def get_loss(census_df: DataFrame, current_hospitalized: float, n_days_since: int) -> float:\n+def get_loss(census_df: pd.DataFrame, current_hospitalized: float, n_days_since: int) -> float:\n     \"\"\"Squared error: predicted vs. actual current hospitalized.\"\"\"\n",
+        "source_code_with_indent": "\n<DED>def get_loss(census_df: DataFrame, current_hospitalized: float, n_days_since: int) -> float:\n    <IND>\"\"\"Squared error: predicted vs. actual current hospitalized.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def get_loss(census_df: pd.DataFrame, current_hospitalized: float, n_days_since: int) -> float:\n    <IND>\"\"\"Squared error: predicted vs. actual current hospitalized.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

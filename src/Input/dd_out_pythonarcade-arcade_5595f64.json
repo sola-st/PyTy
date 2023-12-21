@@ -1,0 +1,51 @@
+[
+  {
+    "project": "pythonarcade/arcade",
+    "commit": "5595f64ad7abd98dc964723bb693da22d4d4baf8",
+    "filename": "arcade/sprite.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pythonarcade-arcade/arcade/sprite.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arcade/sprite.py:290:12 Incompatible attribute type [8]: Attribute `_points` declared in class `Sprite` has type `Optional[List[List[float]]]` but is used as type `Tuple[Tuple[float, float], Tuple[float, float], Tuple[float, float], Tuple[float, float]]`.",
+    "message": " Attribute `_points` declared in class `Sprite` has type `Optional[List[List[float]]]` but is used as type `Tuple[Tuple[float, float], Tuple[float, float], Tuple[float, float], Tuple[float, float]]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 290,
+    "warning_line": "            self._points = ((x1, y1), (x2, y2), (x3, y3), (x4, y4))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom arcade.arcade_types import RGB, Point\nif TYPE_CHECKING:  # handle import cycle caused by type hinting\n",
+        "source_code_len": 108,
+        "target_code": "\nfrom arcade.arcade_types import RGB, Point, PointList\nif TYPE_CHECKING:  # handle import cycle caused by type hinting\n",
+        "target_code_len": 119,
+        "diff_format": "@@ -32,3 +32,3 @@\n \n-from arcade.arcade_types import RGB, Point\n+from arcade.arcade_types import RGB, Point, PointList\n if TYPE_CHECKING:  # handle import cycle caused by type hinting\n",
+        "source_code_with_indent": "\nfrom arcade.arcade_types import RGB, Point\nif TYPE_CHECKING:  # handle import cycle caused by type hinting\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom arcade.arcade_types import RGB, Point, PointList\nif TYPE_CHECKING:  # handle import cycle caused by type hinting\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        self._points: Optional[List[List[float]]] = None\n\n",
+        "source_code_len": 59,
+        "target_code": "\n        self._points: Optional[PointList] = None\n\n",
+        "target_code_len": 51,
+        "diff_format": "@@ -179,3 +179,3 @@\n \n-        self._points: Optional[List[List[float]]] = None\n+        self._points: Optional[PointList] = None\n \n",
+        "source_code_with_indent": "\n        self._points: Optional[List[List[float]]] = None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        self._points: Optional[PointList] = None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

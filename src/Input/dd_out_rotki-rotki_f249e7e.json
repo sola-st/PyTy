@@ -1,0 +1,70 @@
+[
+  {
+    "project": "rotki/rotki",
+    "commit": "f249e7ee05a1a9d6fe2294e651df78f00f18f726",
+    "filename": "rotkehlchen/api/server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/api/server.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/api/server.py:506:32 Incompatible parameter type [6]: Expected `Optional[str]` for 2nd positional only parameter to call `dict.__setitem__` but got `bool`.",
+    "message": " Expected `Optional[str]` for 2nd positional only parameter to call `dict.__setitem__` but got `bool`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 506,
+    "warning_line": "        result_dict['result'] = True",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def user_logout(self, name: str) -> Response:\n        result_dict = {'result': None, 'message': ''}\n        if not self.user_is_logged_in:\n            result_dict['message'] = 'No user is currently logged in'\n",
+        "source_code_len": 213,
+        "target_code": "    def user_logout(self, name: str) -> Response:\n        result_dict: Dict[str, Any] = {'result': None, 'message': ''}\n        if not self.rotkehlchen.user_is_logged_in:\n            result_dict['message'] = 'No user is currently logged in'\n",
+        "target_code_len": 241,
+        "diff_format": "@@ -496,4 +502,4 @@\n     def user_logout(self, name: str) -> Response:\n-        result_dict = {'result': None, 'message': ''}\n-        if not self.user_is_logged_in:\n+        result_dict: Dict[str, Any] = {'result': None, 'message': ''}\n+        if not self.rotkehlchen.user_is_logged_in:\n             result_dict['message'] = 'No user is currently logged in'\n",
+        "source_code_with_indent": "    <DED>def user_logout(self, name: str) -> Response:\n        <IND>result_dict = {'result': None, 'message': ''}\n        if not self.user_is_logged_in:\n            <IND>result_dict['message'] = 'No user is currently logged in'\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def user_logout(self, name: str) -> Response:\n        <IND>result_dict: Dict[str, Any] = {'result': None, 'message': ''}\n        if not self.rotkehlchen.user_is_logged_in:\n            <IND>result_dict['message'] = 'No user is currently logged in'\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "rotki/rotki",
+    "commit": "f249e7ee05a1a9d6fe2294e651df78f00f18f726",
+    "filename": "rotkehlchen/api/server.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/rotki-rotki/rotkehlchen/api/server.py",
+    "file_hunks_size": 13,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rotkehlchen/api/server.py:530:32 Incompatible parameter type [6]: Expected `Optional[str]` for 2nd positional only parameter to call `dict.__setitem__` but got `bool`.",
+    "message": " Expected `Optional[str]` for 2nd positional only parameter to call `dict.__setitem__` but got `bool`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 530,
+    "warning_line": "        result_dict['result'] = True",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ) -> Response:\n        result_dict = {'result': None, 'message': ''}\n        if not self.user_is_logged_in:\n            result_dict['message'] = 'No user is currently logged in'\n",
+        "source_code_len": 182,
+        "target_code": "    ) -> Response:\n        result_dict: Dict[str, Any] = {'result': None, 'message': ''}\n        if not self.rotkehlchen.user_is_logged_in:\n            result_dict['message'] = 'No user is currently logged in'\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -514,4 +520,4 @@\n     ) -> Response:\n-        result_dict = {'result': None, 'message': ''}\n-        if not self.user_is_logged_in:\n+        result_dict: Dict[str, Any] = {'result': None, 'message': ''}\n+        if not self.rotkehlchen.user_is_logged_in:\n             result_dict['message'] = 'No user is currently logged in'\n",
+        "source_code_with_indent": "    ) -> Response:\n        <IND>result_dict = {'result': None, 'message': ''}\n        if not self.user_is_logged_in:\n            <IND>result_dict['message'] = 'No user is currently logged in'\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> Response:\n        <IND>result_dict: Dict[str, Any] = {'result': None, 'message': ''}\n        if not self.rotkehlchen.user_is_logged_in:\n            <IND>result_dict['message'] = 'No user is currently logged in'\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

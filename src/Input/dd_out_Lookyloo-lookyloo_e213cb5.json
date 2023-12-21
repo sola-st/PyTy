@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Lookyloo/lookyloo",
+    "commit": "e213cb5ae86d70cbc226d01960e3833765cd3493",
+    "filename": "website/web/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Lookyloo-lookyloo/website/web/__init__.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "website/web/__init__.py:780:37 Incompatible parameter type [6]: Expected `str` for 1st parameter `user_ua` to call `_prepare_capture_template` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st parameter `user_ua` to call `_prepare_capture_template` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 780,
+    "warning_line": "    return _prepare_capture_template(user_ua=request.headers.get('User-Agent'), predefined_url=cache.url)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _prepare_capture_template(user_ua: str, predefined_url: Optional[str]=None):\n    user_agents: Dict[str, Any] = {}\n",
+        "source_code_len": 119,
+        "target_code": "\ndef _prepare_capture_template(user_ua: Optional[str], predefined_url: Optional[str]=None):\n    user_agents: Dict[str, Any] = {}\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -756,3 +756,3 @@\n \n-def _prepare_capture_template(user_ua: str, predefined_url: Optional[str]=None):\n+def _prepare_capture_template(user_ua: Optional[str], predefined_url: Optional[str]=None):\n     user_agents: Dict[str, Any] = {}\n",
+        "source_code_with_indent": "\n<DED>def _prepare_capture_template(user_ua: str, predefined_url: Optional[str]=None):\n    <IND>user_agents: Dict[str, Any] = {}\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _prepare_capture_template(user_ua: Optional[str], predefined_url: Optional[str]=None):\n    <IND>user_agents: Dict[str, Any] = {}\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

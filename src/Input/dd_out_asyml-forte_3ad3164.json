@@ -1,0 +1,36 @@
+[
+  {
+    "project": "asyml/forte",
+    "commit": "3ad3164fdf2b6c3649d0977f2b6074caa6971fba",
+    "filename": "forte/processors/base/data_augment_processor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asyml-forte/forte/processors/base/data_augment_processor.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "forte/processors/base/data_augment_processor.py:114:41 Incompatible parameter type [6]: Expected `Tuple[Annotation, str]` for 1st positional only parameter to call `list.append` but got `Tuple[Entry[typing.Any], str]`.",
+    "message": " Expected `Tuple[Annotation, str]` for 1st positional only parameter to call `list.append` but got `Tuple[Entry[typing.Any], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 114,
+    "warning_line": "        self.replaced_spans[pid].append((input, replaced_text))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def replace(self, replacement_op: TextReplacementOp, input: Entry) -> bool:\n        r\"\"\"\n",
+        "source_code_len": 94,
+        "target_code": "\n    def replace(self, replacement_op: TextReplacementOp, input: Annotation) -> bool:\n        r\"\"\"\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -93,3 +93,3 @@\n \n-    def replace(self, replacement_op: TextReplacementOp, input: Entry) -> bool:\n+    def replace(self, replacement_op: TextReplacementOp, input: Annotation) -> bool:\n         r\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def replace(self, replacement_op: TextReplacementOp, input: Entry) -> bool:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def replace(self, replacement_op: TextReplacementOp, input: Annotation) -> bool:\n        <IND>"
+      }
+    ]
+  }
+]

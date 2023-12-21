@@ -1,0 +1,71 @@
+[
+  {
+    "project": "libp2p/py-libp2p",
+    "commit": "82dcce214a5a0b21dff38087bc128fe105a20438",
+    "filename": "libp2p/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libp2p-py-libp2p/libp2p/__init__.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libp2p/__init__.py:49:56 Incompatible variable type [9]: storage is declared to have type `IStorage` but is used as type `None`.",
+    "message": " storage is declared to have type `IStorage` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 49,
+    "warning_line": "    ksize: int = 20, alpha: int = 3, id_opt: ID = None, storage: IStorage = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    return ID.from_pubkey(public_key)\n\n\ndef initialize_default_kademlia_router(\n    ksize: int = 20, alpha: int = 3, id_opt: ID = None, storage: IStorage = None\n) -> KadmeliaPeerRouter:\n    \"\"\"\n    initialize kadmelia router when no kademlia router is passed in.\n\n    :param ksize: The k parameter from the paper\n    :param alpha: The alpha parameter from the paper\n    :param id_opt: optional id for host\n    :param storage: An instance that implements\n        :class:`~kademlia.storage.IStorage`\n    :return: return a default kademlia instance\n    \"\"\"\n    if not id_opt:\n        key_pair = generate_new_rsa_identity()\n        id_opt = generate_peer_id_from(key_pair)\n\n    node_id = id_opt.to_bytes()\n    # ignore type for Kademlia module\n    server = KademliaServer(  # type: ignore\n        ksize=ksize, alpha=alpha, node_id=node_id, storage=storage\n    )\n    return KadmeliaPeerRouter(server)\n\n",
+        "source_code_len": 897,
+        "target_code": "    return ID.from_pubkey(public_key)\n\n",
+        "target_code_len": 39,
+        "diff_format": "@@ -45,27 +42,2 @@\n     return ID.from_pubkey(public_key)\n-\n-\n-def initialize_default_kademlia_router(\n-    ksize: int = 20, alpha: int = 3, id_opt: ID = None, storage: IStorage = None\n-) -> KadmeliaPeerRouter:\n-    \"\"\"\n-    initialize kadmelia router when no kademlia router is passed in.\n-\n-    :param ksize: The k parameter from the paper\n-    :param alpha: The alpha parameter from the paper\n-    :param id_opt: optional id for host\n-    :param storage: An instance that implements\n-        :class:`~kademlia.storage.IStorage`\n-    :return: return a default kademlia instance\n-    \"\"\"\n-    if not id_opt:\n-        key_pair = generate_new_rsa_identity()\n-        id_opt = generate_peer_id_from(key_pair)\n-\n-    node_id = id_opt.to_bytes()\n-    # ignore type for Kademlia module\n-    server = KademliaServer(  # type: ignore\n-        ksize=ksize, alpha=alpha, node_id=node_id, storage=storage\n-    )\n-    return KadmeliaPeerRouter(server)\n \n",
+        "source_code_with_indent": "    return ID.from_pubkey(public_key)\n\n\n<DED>def initialize_default_kademlia_router(\n    ksize: int = 20, alpha: int = 3, id_opt: ID = None, storage: IStorage = None\n) -> KadmeliaPeerRouter:\n    <IND>\"\"\"\n    initialize kadmelia router when no kademlia router is passed in.\n\n    :param ksize: The k parameter from the paper\n    :param alpha: The alpha parameter from the paper\n    :param id_opt: optional id for host\n    :param storage: An instance that implements\n        :class:`~kademlia.storage.IStorage`\n    :return: return a default kademlia instance\n    \"\"\"\n    if not id_opt:\n        <IND>key_pair = generate_new_rsa_identity()\n        id_opt = generate_peer_id_from(key_pair)\n\n    <DED>node_id = id_opt.to_bytes()\n    # ignore type for Kademlia module\n    server = KademliaServer(  # type: ignore\n        ksize=ksize, alpha=alpha, node_id=node_id, storage=storage\n    )\n    return KadmeliaPeerRouter(server)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    return ID.from_pubkey(public_key)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "libp2p/py-libp2p",
+    "commit": "82dcce214a5a0b21dff38087bc128fe105a20438",
+    "filename": "libp2p/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/libp2p-py-libp2p/libp2p/__init__.py",
+    "file_hunks_size": 3,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "libp2p/__init__.py:75:4 Incompatible variable type [9]: id_opt is declared to have type `ID` but is used as type `None`.",
+    "message": " id_opt is declared to have type `ID` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 75,
+    "warning_line": "    id_opt: ID = None,"
+  },
+  {
+    "project": "libp2p/py-libp2p",
+    "commit": "82dcce214a5a0b21dff38087bc128fe105a20438",
+    "filename": "libp2p/routing/kademlia/kademlia_content_router.py",
+    "min_patch_found": false,
+    "full_warning_msg": "libp2p/routing/kademlia/kademlia_content_router.py:20:8 Incompatible return type [7]: Expected `Iterable[PeerInfo]` but got implicit return value of `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/libp2p-py-libp2p/libp2p/routing/kademlia/kademlia_content_router.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "libp2p/py-libp2p",
+    "commit": "82dcce214a5a0b21dff38087bc128fe105a20438",
+    "filename": "libp2p/routing/kademlia/kademlia_peer_router.py",
+    "min_patch_found": false,
+    "full_warning_msg": "libp2p/routing/kademlia/kademlia_peer_router.py:28:8 Incompatible return type [7]: Expected `PeerInfo` but got `typing.Optional[PeerInfo]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/libp2p-py-libp2p/libp2p/routing/kademlia/kademlia_peer_router.py'",
+    "dd_fail": true
+  }
+]

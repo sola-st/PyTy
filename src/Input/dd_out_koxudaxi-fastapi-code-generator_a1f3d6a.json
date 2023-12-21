@@ -1,0 +1,36 @@
+[
+  {
+    "project": "koxudaxi/fastapi-code-generator",
+    "commit": "a1f3d6a16b64c59d7e164dd0a7456f0f2db1019d",
+    "filename": "fastapi_code_generator/parser.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/koxudaxi-fastapi-code-generator/fastapi_code_generator/parser.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "fastapi_code_generator/parser.py:162:61 Incompatible parameter type [6]: Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "message": " Expected `Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 162,
+    "warning_line": "        type_ = json_schema_data_formats[parameter[\"schema\"][\"type\"]][format_]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    ) -> str:\n        format_ = parameter[\"schema\"].get(\"format\", \"default\")\n        type_ = json_schema_data_formats[parameter[\"schema\"][\"type\"]][format_]\n        return self.get_data_type_hint(\n",
+        "source_code_len": 196,
+        "target_code": "    ) -> str:\n        format_ = parameter[\"schema\"].get(\"format\", \"default\")  # type: ignore\n        type_ = json_schema_data_formats[parameter[\"schema\"][\"type\"]][format_]  # type: ignore\n        return self.get_data_type_hint(\n",
+        "target_code_len": 228,
+        "diff_format": "@@ -160,4 +160,4 @@\n     ) -> str:\n-        format_ = parameter[\"schema\"].get(\"format\", \"default\")\n-        type_ = json_schema_data_formats[parameter[\"schema\"][\"type\"]][format_]\n+        format_ = parameter[\"schema\"].get(\"format\", \"default\")  # type: ignore\n+        type_ = json_schema_data_formats[parameter[\"schema\"][\"type\"]][format_]  # type: ignore\n         return self.get_data_type_hint(\n",
+        "source_code_with_indent": "    ) -> str:\n        <IND>format_ = parameter[\"schema\"].get(\"format\", \"default\")\n        type_ = json_schema_data_formats[parameter[\"schema\"][\"type\"]][format_]\n        return self.get_data_type_hint(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> str:\n        <IND>format_ = parameter[\"schema\"].get(\"format\", \"default\")  # type: ignore\n        type_ = json_schema_data_formats[parameter[\"schema\"][\"type\"]][format_]  # type: ignore\n        return self.get_data_type_hint(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "stlehmann/pyads",
+    "commit": "3dc2b78cc8268252e0769ae655f85ebc2d889444",
+    "filename": "pyads/ads.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stlehmann-pyads/pyads/ads.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyads/ads.py:738:12 Incompatible return type [7]: Expected `typing.Callable[[AmsAddr, typing.Any, int], None]` but got `typing.Callable[[Named(notification, typing.Any), Named(data_name, str)], None]`.",
+    "message": " Expected `typing.Callable[[AmsAddr, typing.Any, int], None]` but got `typing.Callable[[Named(notification, typing.Any), Named(data_name, str)], None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 738,
+    "warning_line": "            return func_wrapper",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        def notification_decorator(func):\n            # type: (Callable[[int, str, datetime, Any], None]) -> Callable[[AmsAddr, Any, int], None] # noqa: E501\n\n",
+        "source_code_len": 159,
+        "target_code": "        def notification_decorator(func):\n            # type: (Callable[[int, str, datetime, Any], None]) -> Callable[[Any, str], None] # noqa: E501\n\n",
+        "target_code_len": 150,
+        "diff_format": "@@ -695,3 +695,3 @@\n         def notification_decorator(func):\n-            # type: (Callable[[int, str, datetime, Any], None]) -> Callable[[AmsAddr, Any, int], None] # noqa: E501\n+            # type: (Callable[[int, str, datetime, Any], None]) -> Callable[[Any, str], None] # noqa: E501\n \n",
+        "source_code_with_indent": "        def notification_decorator(func):\n            # type: (Callable[[int, str, datetime, Any], None]) -> Callable[[AmsAddr, Any, int], None] # noqa: E501\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        def notification_decorator(func):\n            # type: (Callable[[int, str, datetime, Any], None]) -> Callable[[Any, str], None] # noqa: E501\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

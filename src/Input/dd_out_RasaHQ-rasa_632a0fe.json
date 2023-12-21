@@ -1,0 +1,51 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "632a0fe435002ed3cae4b896815f5f6298ee0f4e",
+    "filename": "rasa/core/evaluation/marker_tracker_loader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/core/evaluation/marker_tracker_loader.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/core/evaluation/marker_tracker_loader.py:21:26 Incompatible parameter type [6]: Expected `typing.Sequence[Variable[random._T]]` for 1st positional only parameter to call `random.choices` but got `Iterable[str]`.",
+    "message": " Expected `typing.Sequence[Variable[random._T]]` for 1st positional only parameter to call `random.choices` but got `Iterable[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 21,
+    "warning_line": "    return random.choices(keys, k=count)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from rasa.shared.core.trackers import DialogueStateTracker\nfrom typing import Any, Iterable, Iterator, Text, Optional\nfrom rasa.core.tracker_store import TrackerStore\n",
+        "source_code_len": 167,
+        "target_code": "from rasa.shared.core.trackers import DialogueStateTracker\nfrom typing import Any, Iterable, Iterator, List, Text, Optional\nfrom rasa.core.tracker_store import TrackerStore\n",
+        "target_code_len": 173,
+        "diff_format": "@@ -3,3 +3,3 @@\n from rasa.shared.core.trackers import DialogueStateTracker\n-from typing import Any, Iterable, Iterator, Text, Optional\n+from typing import Any, Iterable, Iterator, List, Text, Optional\n from rasa.core.tracker_store import TrackerStore\n",
+        "source_code_with_indent": "from rasa.shared.core.trackers import DialogueStateTracker\nfrom typing import Any, Iterable, Iterator, Text, Optional\nfrom rasa.core.tracker_store import TrackerStore\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from rasa.shared.core.trackers import DialogueStateTracker\nfrom typing import Any, Iterable, Iterator, List, Text, Optional\nfrom rasa.core.tracker_store import TrackerStore\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef strategy_sample(count: int, keys: Iterable[Text]) -> Iterable[Text]:\n    \"\"\"Takes a sample of N keys from the set of keys.\"\"\"\n",
+        "source_code_len": 131,
+        "target_code": "\ndef strategy_sample(count: int, keys: List[Text]) -> Iterable[Text]:\n    \"\"\"Takes a sample of N keys from the set of keys.\"\"\"\n",
+        "target_code_len": 127,
+        "diff_format": "@@ -18,3 +18,3 @@\n \n-def strategy_sample(count: int, keys: Iterable[Text]) -> Iterable[Text]:\n+def strategy_sample(count: int, keys: List[Text]) -> Iterable[Text]:\n     \"\"\"Takes a sample of N keys from the set of keys.\"\"\"\n",
+        "source_code_with_indent": "\n<DED>def strategy_sample(count: int, keys: Iterable[Text]) -> Iterable[Text]:\n    <IND>\"\"\"Takes a sample of N keys from the set of keys.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def strategy_sample(count: int, keys: List[Text]) -> Iterable[Text]:\n    <IND>\"\"\"Takes a sample of N keys from the set of keys.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

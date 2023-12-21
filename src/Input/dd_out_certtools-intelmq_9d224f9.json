@@ -1,0 +1,119 @@
+[
+  {
+    "project": "certtools/intelmq",
+    "commit": "9d224f90debc08fec705691d65fc59940d18daa1",
+    "filename": "intelmq/bots/experts/threshold/expert.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/certtools-intelmq/intelmq/bots/experts/threshold/expert.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "intelmq/bots/experts/threshold/expert.py:63:4 Incompatible attribute type [8]: Attribute `redis_cache_password` declared in class `ThresholdExpertBot` has type `str` but is used as type `None`.",
+    "message": " Attribute `redis_cache_password` declared in class `ThresholdExpertBot` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 63,
+    "warning_line": "    redis_cache_password: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\"\"\"\n\n",
+        "source_code_len": 5,
+        "target_code": "\"\"\"\nfrom typing import Iterable, Optional\n\n",
+        "target_code_len": 43,
+        "diff_format": "@@ -49,2 +49,3 @@\n \"\"\"\n+from typing import Iterable, Optional\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n\n",
+        "target_code_with_indent": "\nfrom typing import Iterable, Optional\n\n"
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    redis_cache_host: str = \"127.0.0.1\"  # TODO: could be ipaddress\n    redis_cache_password: str = None\n    redis_cache_port: int = 6379\n",
+        "source_code_len": 138,
+        "target_code": "    redis_cache_host: str = \"127.0.0.1\"  # TODO: could be ipaddress\n    redis_cache_password: Optional[str] = None\n    redis_cache_port: int = 6379\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -62,3 +63,3 @@\n     redis_cache_host: str = \"127.0.0.1\"  # TODO: could be ipaddress\n-    redis_cache_password: str = None\n+    redis_cache_password: Optional[str] = None\n     redis_cache_port: int = 6379\n",
+        "source_code_with_indent": "    redis_cache_host: str = \"127.0.0.1\"  # TODO: could be ipaddress\n    redis_cache_password: str = None\n    redis_cache_port: int = 6379\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    redis_cache_host: str = \"127.0.0.1\"  # TODO: could be ipaddress\n    redis_cache_password: Optional[str] = None\n    redis_cache_port: int = 6379\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "certtools/intelmq",
+    "commit": "9d224f90debc08fec705691d65fc59940d18daa1",
+    "filename": "intelmq/bots/outputs/rt/output.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/certtools-intelmq/intelmq/bots/outputs/rt/output.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "intelmq/bots/outputs/rt/output.py:38:4 Incompatible attribute type [8]: Attribute `final_status` declared in class `RTOutputBot` has type `str` but is used as type `None`.",
+    "message": " Attribute `final_status` declared in class `RTOutputBot` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 38,
+    "warning_line": "    final_status: str = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    description_attr: str = \"event_description.text\"\n    final_status: str = None\n    investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n    queue: str = None  # \"Incidents\"\n    rt_password: str = None\n",
+        "source_code_len": 423,
+        "target_code": "    description_attr: str = \"event_description.text\"\n    final_status: str = \"resolved\"\n    investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n    queue: str = \"Incidents\"\n    rt_password: str = None\n",
+        "target_code_len": 421,
+        "diff_format": "@@ -37,5 +37,5 @@\n     description_attr: str = \"event_description.text\"\n-    final_status: str = None\n+    final_status: str = \"resolved\"\n     investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n-    queue: str = None  # \"Incidents\"\n+    queue: str = \"Incidents\"\n     rt_password: str = None\n",
+        "source_code_with_indent": "    description_attr: str = \"event_description.text\"\n    final_status: str = None\n    investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n    queue: str = None  # \"Incidents\"\n    rt_password: str = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    description_attr: str = \"event_description.text\"\n    final_status: str = \"resolved\"\n    investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n    queue: str = \"Incidents\"\n    rt_password: str = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "certtools/intelmq",
+    "commit": "9d224f90debc08fec705691d65fc59940d18daa1",
+    "filename": "intelmq/bots/outputs/rt/output.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/certtools-intelmq/intelmq/bots/outputs/rt/output.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "intelmq/bots/outputs/rt/output.py:40:4 Incompatible attribute type [8]: Attribute `queue` declared in class `RTOutputBot` has type `str` but is used as type `None`.",
+    "message": " Attribute `queue` declared in class `RTOutputBot` has type `str` but is used as type `None`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 40,
+    "warning_line": "    queue: str = None  # \"Incidents\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    description_attr: str = \"event_description.text\"\n    final_status: str = None\n    investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n    queue: str = None  # \"Incidents\"\n    rt_password: str = None\n",
+        "source_code_len": 423,
+        "target_code": "    description_attr: str = \"event_description.text\"\n    final_status: str = \"resolved\"\n    investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n    queue: str = \"Incidents\"\n    rt_password: str = None\n",
+        "target_code_len": 421,
+        "diff_format": "@@ -37,5 +37,5 @@\n     description_attr: str = \"event_description.text\"\n-    final_status: str = None\n+    final_status: str = \"resolved\"\n     investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n-    queue: str = None  # \"Incidents\"\n+    queue: str = \"Incidents\"\n     rt_password: str = None\n",
+        "source_code_with_indent": "    description_attr: str = \"event_description.text\"\n    final_status: str = None\n    investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n    queue: str = None  # \"Incidents\"\n    rt_password: str = None\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    description_attr: str = \"event_description.text\"\n    final_status: str = \"resolved\"\n    investigation_fields: str = \"time.source,time.observation,source.ip,source.port,source.fqdn,source.url,classification.taxonomy,classification.type,classification.identifier,event_description.url,event_description.text,malware.name,protocol.application,protocol.transport\"\n    queue: str = \"Incidents\"\n    rt_password: str = None\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

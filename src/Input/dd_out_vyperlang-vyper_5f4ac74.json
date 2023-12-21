@@ -1,0 +1,36 @@
+[
+  {
+    "project": "vyperlang/vyper",
+    "commit": "5f4ac74cc78328791fd458bb714d59bf1e78809c",
+    "filename": "vyper/semantics/types/function.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/vyperlang-vyper/vyper/semantics/types/function.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "vyper/semantics/types/function.py:484:54 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `BaseTypeDefinition`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `BaseTypeDefinition`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 484,
+    "warning_line": "        elif isinstance(typ, TupleDefinition) and len(typ.value_type) > 1:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            abi_dict[\"outputs\"] = []\n        elif isinstance(typ, TupleDefinition) and len(typ.value_type) > 1:\n            abi_dict[\"outputs\"] = [_generate_abi_type(i) for i in typ.value_type]  # type: ignore\n",
+        "source_code_len": 210,
+        "target_code": "            abi_dict[\"outputs\"] = []\n        elif isinstance(typ, TupleDefinition) and len(typ.value_type) > 1:  # type: ignore\n            abi_dict[\"outputs\"] = [_generate_abi_type(i) for i in typ.value_type]  # type: ignore\n",
+        "target_code_len": 226,
+        "diff_format": "@@ -483,3 +483,3 @@\n             abi_dict[\"outputs\"] = []\n-        elif isinstance(typ, TupleDefinition) and len(typ.value_type) > 1:\n+        elif isinstance(typ, TupleDefinition) and len(typ.value_type) > 1:  # type: ignore\n             abi_dict[\"outputs\"] = [_generate_abi_type(i) for i in typ.value_type]  # type: ignore\n",
+        "source_code_with_indent": "            <IND>abi_dict[\"outputs\"] = []\n        <DED>elif isinstance(typ, TupleDefinition) and len(typ.value_type) > 1:\n            <IND>abi_dict[\"outputs\"] = [_generate_abi_type(i) for i in typ.value_type]  # type: ignore\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>abi_dict[\"outputs\"] = []\n        <DED>elif isinstance(typ, TupleDefinition) and len(typ.value_type) > 1:  # type: ignore\n            <IND>abi_dict[\"outputs\"] = [_generate_abi_type(i) for i in typ.value_type]  # type: ignore\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

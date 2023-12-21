@@ -1,0 +1,70 @@
+[
+  {
+    "project": "hummingbot/hummingbot",
+    "commit": "9ce28f18505f4db83aa83b6cf8e0c66751573d5b",
+    "filename": "hummingbot/connector/exchange/coinzoom/coinzoom_exchange.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hummingbot-hummingbot/hummingbot/connector/exchange/coinzoom/coinzoom_exchange.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hummingbot/connector/exchange/coinzoom/coinzoom_exchange.py:558:12 Incompatible return type [7]: Expected `str` but got `CancellationResult`.",
+    "message": " Expected `str` but got `CancellationResult`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 558,
+    "warning_line": "            return CancellationResult(order_id, True)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def _execute_cancel(self, trading_pair: str, order_id: str) -> str:\n        \"\"\"\n",
+        "source_code_len": 91,
+        "target_code": "\n    async def _execute_cancel(self, trading_pair: str, order_id: str) -> CancellationResult:\n        \"\"\"\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -517,3 +517,3 @@\n \n-    async def _execute_cancel(self, trading_pair: str, order_id: str) -> str:\n+    async def _execute_cancel(self, trading_pair: str, order_id: str) -> CancellationResult:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>async def _execute_cancel(self, trading_pair: str, order_id: str) -> str:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>async def _execute_cancel(self, trading_pair: str, order_id: str) -> CancellationResult:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "hummingbot/hummingbot",
+    "commit": "9ce28f18505f4db83aa83b6cf8e0c66751573d5b",
+    "filename": "hummingbot/connector/exchange/coinzoom/coinzoom_exchange.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/hummingbot-hummingbot/hummingbot/connector/exchange/coinzoom/coinzoom_exchange.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hummingbot/connector/exchange/coinzoom/coinzoom_exchange.py:566:12 Incompatible return type [7]: Expected `str` but got `CancellationResult`.",
+    "message": " Expected `str` but got `CancellationResult`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 566,
+    "warning_line": "            return CancellationResult(order_id, False)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def _execute_cancel(self, trading_pair: str, order_id: str) -> str:\n        \"\"\"\n",
+        "source_code_len": 91,
+        "target_code": "\n    async def _execute_cancel(self, trading_pair: str, order_id: str) -> CancellationResult:\n        \"\"\"\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -517,3 +517,3 @@\n \n-    async def _execute_cancel(self, trading_pair: str, order_id: str) -> str:\n+    async def _execute_cancel(self, trading_pair: str, order_id: str) -> CancellationResult:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>async def _execute_cancel(self, trading_pair: str, order_id: str) -> str:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>async def _execute_cancel(self, trading_pair: str, order_id: str) -> CancellationResult:\n        <IND>"
+      }
+    ]
+  }
+]

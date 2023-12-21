@@ -1,0 +1,172 @@
+[
+  {
+    "project": "fedden/poker_ai",
+    "commit": "1b85ecd7bf6957cc276a2e1d9e18cf830aac13d9",
+    "filename": "poker_ai/clustering/card_combos.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fedden-poker_ai/poker_ai/clustering/card_combos.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poker_ai/clustering/card_combos.py:76:15 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Card`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Card`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 76,
+    "warning_line": "        if len(publics[0]) == 3:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        -------\n            Combos of cards (Card) -> np.array\n        \"\"\"\n        return list(combinations(self._cards, num_cards))\n\n    def create_info_combos(\n        self, start_combos: List[Card], publics: List[Card]\n    ) -> np.ndarray:\n",
+        "source_code_len": 243,
+        "target_code": "        -------\n            Combos of cards (Card) -> np.ndarray\n        \"\"\"\n        return np.array([c for c in combinations(self._cards, num_cards)])\n\n    def create_info_combos(\n        self, start_combos: np.ndarray, publics: np.ndarray\n    ) -> np.ndarray:\n",
+        "target_code_len": 262,
+        "diff_format": "@@ -51,8 +53,8 @@\n         -------\n-            Combos of cards (Card) -> np.array\n+            Combos of cards (Card) -> np.ndarray\n         \"\"\"\n-        return list(combinations(self._cards, num_cards))\n+        return np.array([c for c in combinations(self._cards, num_cards)])\n \n     def create_info_combos(\n-        self, start_combos: List[Card], publics: List[Card]\n+        self, start_combos: np.ndarray, publics: np.ndarray\n     ) -> np.ndarray:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        return list(combinations(self._cards, num_cards))\n\n    <DED>def create_info_combos(\n        self, start_combos: List[Card], publics: List[Card]\n    ) -> np.ndarray:\n",
+        "target_code_with_indent": "\n        return np.array([c for c in combinations(self._cards, num_cards)])\n\n    <DED>def create_info_combos(\n        self, start_combos: np.ndarray, publics: np.ndarray\n    ) -> np.ndarray:\n"
+      }
+    ]
+  },
+  {
+    "project": "fedden/poker_ai",
+    "commit": "1b85ecd7bf6957cc276a2e1d9e18cf830aac13d9",
+    "filename": "poker_ai/clustering/card_combos.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fedden-poker_ai/poker_ai/clustering/card_combos.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poker_ai/clustering/card_combos.py:78:17 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Card`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Card`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 78,
+    "warning_line": "        elif len(publics[0]) == 4:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        -------\n            Combos of cards (Card) -> np.array\n        \"\"\"\n        return list(combinations(self._cards, num_cards))\n\n    def create_info_combos(\n        self, start_combos: List[Card], publics: List[Card]\n    ) -> np.ndarray:\n",
+        "source_code_len": 243,
+        "target_code": "        -------\n            Combos of cards (Card) -> np.ndarray\n        \"\"\"\n        return np.array([c for c in combinations(self._cards, num_cards)])\n\n    def create_info_combos(\n        self, start_combos: np.ndarray, publics: np.ndarray\n    ) -> np.ndarray:\n",
+        "target_code_len": 262,
+        "diff_format": "@@ -51,8 +53,8 @@\n         -------\n-            Combos of cards (Card) -> np.array\n+            Combos of cards (Card) -> np.ndarray\n         \"\"\"\n-        return list(combinations(self._cards, num_cards))\n+        return np.array([c for c in combinations(self._cards, num_cards)])\n \n     def create_info_combos(\n-        self, start_combos: List[Card], publics: List[Card]\n+        self, start_combos: np.ndarray, publics: np.ndarray\n     ) -> np.ndarray:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        return list(combinations(self._cards, num_cards))\n\n    <DED>def create_info_combos(\n        self, start_combos: List[Card], publics: List[Card]\n    ) -> np.ndarray:\n",
+        "target_code_with_indent": "\n        return np.array([c for c in combinations(self._cards, num_cards)])\n\n    <DED>def create_info_combos(\n        self, start_combos: np.ndarray, publics: np.ndarray\n    ) -> np.ndarray:\n"
+      }
+    ]
+  },
+  {
+    "project": "fedden/poker_ai",
+    "commit": "1b85ecd7bf6957cc276a2e1d9e18cf830aac13d9",
+    "filename": "poker_ai/clustering/card_combos.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fedden-poker_ai/poker_ai/clustering/card_combos.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poker_ai/clustering/card_combos.py:80:17 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Card`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Card`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 80,
+    "warning_line": "        elif len(publics[0]) == 5:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        -------\n            Combos of cards (Card) -> np.array\n        \"\"\"\n        return list(combinations(self._cards, num_cards))\n\n    def create_info_combos(\n        self, start_combos: List[Card], publics: List[Card]\n    ) -> np.ndarray:\n",
+        "source_code_len": 243,
+        "target_code": "        -------\n            Combos of cards (Card) -> np.ndarray\n        \"\"\"\n        return np.array([c for c in combinations(self._cards, num_cards)])\n\n    def create_info_combos(\n        self, start_combos: np.ndarray, publics: np.ndarray\n    ) -> np.ndarray:\n",
+        "target_code_len": 262,
+        "diff_format": "@@ -51,8 +53,8 @@\n         -------\n-            Combos of cards (Card) -> np.array\n+            Combos of cards (Card) -> np.ndarray\n         \"\"\"\n-        return list(combinations(self._cards, num_cards))\n+        return np.array([c for c in combinations(self._cards, num_cards)])\n \n     def create_info_combos(\n-        self, start_combos: List[Card], publics: List[Card]\n+        self, start_combos: np.ndarray, publics: np.ndarray\n     ) -> np.ndarray:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        return list(combinations(self._cards, num_cards))\n\n    <DED>def create_info_combos(\n        self, start_combos: List[Card], publics: List[Card]\n    ) -> np.ndarray:\n",
+        "target_code_with_indent": "\n        return np.array([c for c in combinations(self._cards, num_cards)])\n\n    <DED>def create_info_combos(\n        self, start_combos: np.ndarray, publics: np.ndarray\n    ) -> np.ndarray:\n"
+      }
+    ]
+  },
+  {
+    "project": "fedden/poker_ai",
+    "commit": "1b85ecd7bf6957cc276a2e1d9e18cf830aac13d9",
+    "filename": "poker_ai/clustering/card_combos.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fedden-poker_ai/poker_ai/clustering/card_combos.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poker_ai/clustering/card_combos.py:99:20 Incompatible parameter type [6]: Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `sorted` but got `Card`.",
+    "message": " Expected `typing.Iterable[Variable[_T]]` for 1st positional only parameter to call `sorted` but got `Card`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 99,
+    "warning_line": "                    public_combo,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        -------\n            Combos of cards (Card) -> np.array\n        \"\"\"\n        return list(combinations(self._cards, num_cards))\n\n    def create_info_combos(\n        self, start_combos: List[Card], publics: List[Card]\n    ) -> np.ndarray:\n",
+        "source_code_len": 243,
+        "target_code": "        -------\n            Combos of cards (Card) -> np.ndarray\n        \"\"\"\n        return np.array([c for c in combinations(self._cards, num_cards)])\n\n    def create_info_combos(\n        self, start_combos: np.ndarray, publics: np.ndarray\n    ) -> np.ndarray:\n",
+        "target_code_len": 262,
+        "diff_format": "@@ -51,8 +53,8 @@\n         -------\n-            Combos of cards (Card) -> np.array\n+            Combos of cards (Card) -> np.ndarray\n         \"\"\"\n-        return list(combinations(self._cards, num_cards))\n+        return np.array([c for c in combinations(self._cards, num_cards)])\n \n     def create_info_combos(\n-        self, start_combos: List[Card], publics: List[Card]\n+        self, start_combos: np.ndarray, publics: np.ndarray\n     ) -> np.ndarray:\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        return list(combinations(self._cards, num_cards))\n\n    <DED>def create_info_combos(\n        self, start_combos: List[Card], publics: List[Card]\n    ) -> np.ndarray:\n",
+        "target_code_with_indent": "\n        return np.array([c for c in combinations(self._cards, num_cards)])\n\n    <DED>def create_info_combos(\n        self, start_combos: np.ndarray, publics: np.ndarray\n    ) -> np.ndarray:\n"
+      }
+    ]
+  },
+  {
+    "project": "fedden/poker_ai",
+    "commit": "1b85ecd7bf6957cc276a2e1d9e18cf830aac13d9",
+    "filename": "poker_ai/clustering/card_info_lut_builder.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fedden-poker_ai/poker_ai/clustering/card_info_lut_builder.py",
+    "file_hunks_size": 20,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "poker_ai/clustering/card_info_lut_builder.py:326:12 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `list.__setitem__` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 326,
+    "warning_line": "            potential_aware_distribution_flop[min_idx] += 1 / self.n_simulations_flop",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        )\n        potential_aware_distribution_flop = [0] * len(self.centroids[\"turn\"])\n        for j in range(self.n_simulations_flop):\n",
+        "source_code_len": 137,
+        "target_code": "        )\n        potential_aware_distribution_flop = np.zeros(len(self.centroids[\"turn\"]))\n        for j in range(self.n_simulations_flop):\n",
+        "target_code_len": 141,
+        "diff_format": "@@ -302,3 +304,3 @@\n         )\n-        potential_aware_distribution_flop = [0] * len(self.centroids[\"turn\"])\n+        potential_aware_distribution_flop = np.zeros(len(self.centroids[\"turn\"]))\n         for j in range(self.n_simulations_flop):\n",
+        "source_code_with_indent": "        )\n        potential_aware_distribution_flop = [0] * len(self.centroids[\"turn\"])\n        for j in range(self.n_simulations_flop):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        )\n        potential_aware_distribution_flop = np.zeros(len(self.centroids[\"turn\"]))\n        for j in range(self.n_simulations_flop):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "darrenburns/ward",
+    "commit": "c91165829c0a29536ce6e9ed90d8996487a4b969",
+    "filename": "ward/expect.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/darrenburns-ward/ward/expect.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ward/expect.py:41:26 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `issubclass` but got `Optional[Type[BaseException]]`.",
+    "message": " Expected `Type[typing.Any]` for 1st positional only parameter to call `issubclass` but got `Optional[Type[BaseException]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 41,
+    "warning_line": "        if not issubclass(exc_type, self.expected_ex_type):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ) -> bool:\n        if not issubclass(exc_type, self.expected_ex_type):\n            raise AssertionError(\n",
+        "source_code_len": 109,
+        "target_code": "    ) -> bool:\n        if exc_type and not issubclass(exc_type, self.expected_ex_type):\n            raise AssertionError(\n",
+        "target_code_len": 122,
+        "diff_format": "@@ -40,3 +40,3 @@\n     ) -> bool:\n-        if not issubclass(exc_type, self.expected_ex_type):\n+        if exc_type and not issubclass(exc_type, self.expected_ex_type):\n             raise AssertionError(\n",
+        "source_code_with_indent": "    ) -> bool:\n        <IND>if not issubclass(exc_type, self.expected_ex_type):\n            <IND>raise AssertionError(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> bool:\n        <IND>if exc_type and not issubclass(exc_type, self.expected_ex_type):\n            <IND>raise AssertionError(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "isolated_code_change": "-if sys.version_info >= '3':\n+if sys.version_info.major >= 3:",
+    "type_error": "Unsupported operand [58]",
+    "code_transform": "OTHER",
+    "involved_types": [
+      "sys._version_info",
+      "str",
+      "int"
+    ],
+    "type_change": {
+      "kind": "REPLACED",
+      "from": "sys._version_info",
+      "to": "int"
+    },
+    "location": "EXACT_LINE",
+    "full_warning_msg": "objectpath/core/parser.py:14:3 Unsupported operand [58]: `>=` is not supported for operand types `sys._version_info` and `str`.",
+    "url": "https://github.com/adriank/ObjectPath/commit/aafb622",
+    "repo": "https://github.com/adriank/ObjectPath",
+    "change_runtime": true,
+    "mentioned_by_pyre": false,
+    "pyre_detail": "USE_ANOTHER_TYPE"
+  }
+]
+

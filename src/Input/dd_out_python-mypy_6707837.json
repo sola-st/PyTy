@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "6707837ef5a37af470b1cf77e25745dbee2a3e1b",
+    "filename": "mypy/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/build.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/build.py:521:14 Unbound name [10]: Name `cgen` is used but not defined in the current scope.",
+    "message": " Name `cgen` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 521,
+    "warning_line": "        gen = cgen.CGenerator()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def generate_c_and_compile(self, files: List[MypyFile]) -> None:\n        gen = cgen.CGenerator()\n\n        for fn, icode in self.icode.items():\n            gen.generate_function('M' + fn, icode)\n\n        program_name = os.path.splitext(basename(files[0].path))[0]\n        c_file = '%s.c' % program_name\n\n        # Write C file.\n        self.log('writing %s' % c_file)\n        out = open(c_file, 'w')\n        out.writelines(gen.output())\n        out.close()\n\n        if COMPILE_ONLY not in self.flags:\n            # Generate binary file.\n            data_dir = self.data_dir\n            vm_dir = os.path.join(data_dir, 'vm')\n            cc = os.getenv('CC', 'gcc')\n            cflags = shlex.split(os.getenv('CFLAGS', '-O2'))\n            cmdline = [cc] + cflags + ['-I%s' % vm_dir,\n                                       '-o%s' % program_name,\n                                       c_file,\n                                       os.path.join(vm_dir, 'runtime.c')]\n            self.log(' '.join(cmdline))\n            status = subprocess.call(cmdline)\n            # TODO check status\n            self.log('removing %s' % c_file)\n            os.remove(c_file)\n            self.binary_path = os.path.join('.', program_name)\n\n    def log(self, message: str) -> None:\n",
+        "source_code_len": 1266,
+        "target_code": "\n    def log(self, message: str) -> None:\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -519,34 +520,2 @@\n \n-    def generate_c_and_compile(self, files: List[MypyFile]) -> None:\n-        gen = cgen.CGenerator()\n-\n-        for fn, icode in self.icode.items():\n-            gen.generate_function('M' + fn, icode)\n-\n-        program_name = os.path.splitext(basename(files[0].path))[0]\n-        c_file = '%s.c' % program_name\n-\n-        # Write C file.\n-        self.log('writing %s' % c_file)\n-        out = open(c_file, 'w')\n-        out.writelines(gen.output())\n-        out.close()\n-\n-        if COMPILE_ONLY not in self.flags:\n-            # Generate binary file.\n-            data_dir = self.data_dir\n-            vm_dir = os.path.join(data_dir, 'vm')\n-            cc = os.getenv('CC', 'gcc')\n-            cflags = shlex.split(os.getenv('CFLAGS', '-O2'))\n-            cmdline = [cc] + cflags + ['-I%s' % vm_dir,\n-                                       '-o%s' % program_name,\n-                                       c_file,\n-                                       os.path.join(vm_dir, 'runtime.c')]\n-            self.log(' '.join(cmdline))\n-            status = subprocess.call(cmdline)\n-            # TODO check status\n-            self.log('removing %s' % c_file)\n-            os.remove(c_file)\n-            self.binary_path = os.path.join('.', program_name)\n-\n     def log(self, message: str) -> None:\n",
+        "source_code_with_indent": "\n    <DED>def generate_c_and_compile(self, files: List[MypyFile]) -> None:\n        <IND>gen = cgen.CGenerator()\n\n        for fn, icode in self.icode.items():\n            <IND>gen.generate_function('M' + fn, icode)\n\n        <DED>program_name = os.path.splitext(basename(files[0].path))[0]\n        c_file = '%s.c' % program_name\n\n        # Write C file.\n        self.log('writing %s' % c_file)\n        out = open(c_file, 'w')\n        out.writelines(gen.output())\n        out.close()\n\n        if COMPILE_ONLY not in self.flags:\n            # Generate binary file.\n            <IND>data_dir = self.data_dir\n            vm_dir = os.path.join(data_dir, 'vm')\n            cc = os.getenv('CC', 'gcc')\n            cflags = shlex.split(os.getenv('CFLAGS', '-O2'))\n            cmdline = [cc] + cflags + ['-I%s' % vm_dir,\n                                       '-o%s' % program_name,\n                                       c_file,\n                                       os.path.join(vm_dir, 'runtime.c')]\n            self.log(' '.join(cmdline))\n            status = subprocess.call(cmdline)\n            # TODO check status\n            self.log('removing %s' % c_file)\n            os.remove(c_file)\n            self.binary_path = os.path.join('.', program_name)\n\n    <DED><DED>def log(self, message: str) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def log(self, message: str) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "6707837ef5a37af470b1cf77e25745dbee2a3e1b",
+    "filename": "mypy/build.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/build.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/build.py:535:11 Unbound name [10]: Name `COMPILE_ONLY` is used but not defined in the current scope.",
+    "message": " Name `COMPILE_ONLY` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 535,
+    "warning_line": "        if COMPILE_ONLY not in self.flags:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def generate_c_and_compile(self, files: List[MypyFile]) -> None:\n        gen = cgen.CGenerator()\n\n        for fn, icode in self.icode.items():\n            gen.generate_function('M' + fn, icode)\n\n        program_name = os.path.splitext(basename(files[0].path))[0]\n        c_file = '%s.c' % program_name\n\n        # Write C file.\n        self.log('writing %s' % c_file)\n        out = open(c_file, 'w')\n        out.writelines(gen.output())\n        out.close()\n\n        if COMPILE_ONLY not in self.flags:\n            # Generate binary file.\n            data_dir = self.data_dir\n            vm_dir = os.path.join(data_dir, 'vm')\n            cc = os.getenv('CC', 'gcc')\n            cflags = shlex.split(os.getenv('CFLAGS', '-O2'))\n            cmdline = [cc] + cflags + ['-I%s' % vm_dir,\n                                       '-o%s' % program_name,\n                                       c_file,\n                                       os.path.join(vm_dir, 'runtime.c')]\n            self.log(' '.join(cmdline))\n            status = subprocess.call(cmdline)\n            # TODO check status\n            self.log('removing %s' % c_file)\n            os.remove(c_file)\n            self.binary_path = os.path.join('.', program_name)\n\n    def log(self, message: str) -> None:\n",
+        "source_code_len": 1266,
+        "target_code": "\n    def log(self, message: str) -> None:\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -519,34 +520,2 @@\n \n-    def generate_c_and_compile(self, files: List[MypyFile]) -> None:\n-        gen = cgen.CGenerator()\n-\n-        for fn, icode in self.icode.items():\n-            gen.generate_function('M' + fn, icode)\n-\n-        program_name = os.path.splitext(basename(files[0].path))[0]\n-        c_file = '%s.c' % program_name\n-\n-        # Write C file.\n-        self.log('writing %s' % c_file)\n-        out = open(c_file, 'w')\n-        out.writelines(gen.output())\n-        out.close()\n-\n-        if COMPILE_ONLY not in self.flags:\n-            # Generate binary file.\n-            data_dir = self.data_dir\n-            vm_dir = os.path.join(data_dir, 'vm')\n-            cc = os.getenv('CC', 'gcc')\n-            cflags = shlex.split(os.getenv('CFLAGS', '-O2'))\n-            cmdline = [cc] + cflags + ['-I%s' % vm_dir,\n-                                       '-o%s' % program_name,\n-                                       c_file,\n-                                       os.path.join(vm_dir, 'runtime.c')]\n-            self.log(' '.join(cmdline))\n-            status = subprocess.call(cmdline)\n-            # TODO check status\n-            self.log('removing %s' % c_file)\n-            os.remove(c_file)\n-            self.binary_path = os.path.join('.', program_name)\n-\n     def log(self, message: str) -> None:\n",
+        "source_code_with_indent": "\n    <DED>def generate_c_and_compile(self, files: List[MypyFile]) -> None:\n        <IND>gen = cgen.CGenerator()\n\n        for fn, icode in self.icode.items():\n            <IND>gen.generate_function('M' + fn, icode)\n\n        <DED>program_name = os.path.splitext(basename(files[0].path))[0]\n        c_file = '%s.c' % program_name\n\n        # Write C file.\n        self.log('writing %s' % c_file)\n        out = open(c_file, 'w')\n        out.writelines(gen.output())\n        out.close()\n\n        if COMPILE_ONLY not in self.flags:\n            # Generate binary file.\n            <IND>data_dir = self.data_dir\n            vm_dir = os.path.join(data_dir, 'vm')\n            cc = os.getenv('CC', 'gcc')\n            cflags = shlex.split(os.getenv('CFLAGS', '-O2'))\n            cmdline = [cc] + cflags + ['-I%s' % vm_dir,\n                                       '-o%s' % program_name,\n                                       c_file,\n                                       os.path.join(vm_dir, 'runtime.c')]\n            self.log(' '.join(cmdline))\n            status = subprocess.call(cmdline)\n            # TODO check status\n            self.log('removing %s' % c_file)\n            os.remove(c_file)\n            self.binary_path = os.path.join('.', program_name)\n\n    <DED><DED>def log(self, message: str) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def log(self, message: str) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

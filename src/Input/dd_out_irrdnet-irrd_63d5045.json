@@ -1,0 +1,70 @@
+[
+  {
+    "project": "irrdnet/irrd",
+    "commit": "63d5045f249a67233a668007d323389323e45dd1",
+    "filename": "irrd/rpsl/fields.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/irrdnet-irrd/irrd/rpsl/fields.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "irrd/rpsl/fields.py:174:8 Incompatible return type [7]: Expected `str` but got `Optional[str]`.",
+    "message": " Expected `str` but got `Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 174,
+    "warning_line": "        return cleaned_value",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"Field for a single AS number (in ASxxxx syntax).\"\"\"\n    def clean(self, value: str, messages: RPSLParserMessages) -> str:\n        cleaned_value = clean_as_number(value, messages)\n",
+        "source_code_len": 186,
+        "target_code": "    \"\"\"Field for a single AS number (in ASxxxx syntax).\"\"\"\n    def clean(self, value: str, messages: RPSLParserMessages) -> Optional[str]:\n        cleaned_value = clean_as_number(value, messages)\n",
+        "target_code_len": 196,
+        "diff_format": "@@ -169,3 +169,3 @@\n     \"\"\"Field for a single AS number (in ASxxxx syntax).\"\"\"\n-    def clean(self, value: str, messages: RPSLParserMessages) -> str:\n+    def clean(self, value: str, messages: RPSLParserMessages) -> Optional[str]:\n         cleaned_value = clean_as_number(value, messages)\n",
+        "source_code_with_indent": "    <IND>\"\"\"Field for a single AS number (in ASxxxx syntax).\"\"\"\n    def clean(self, value: str, messages: RPSLParserMessages) -> str:\n        <IND>cleaned_value = clean_as_number(value, messages)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\"Field for a single AS number (in ASxxxx syntax).\"\"\"\n    def clean(self, value: str, messages: RPSLParserMessages) -> Optional[str]:\n        <IND>cleaned_value = clean_as_number(value, messages)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "irrdnet/irrd",
+    "commit": "63d5045f249a67233a668007d323389323e45dd1",
+    "filename": "irrd/rpsl/fields.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/irrdnet-irrd/irrd/rpsl/fields.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "irrd/rpsl/fields.py:362:8 Incompatible return type [7]: Expected `str` but got `Optional[str]`.",
+    "message": " Expected `str` but got `Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 362,
+    "warning_line": "        return super().clean(value, messages)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def clean(self, value: str, messages: RPSLParserMessages) -> str:\n        if self.allow_kw_any and value.upper() == \"ANY\":\n",
+        "source_code_len": 128,
+        "target_code": "\n    def clean(self, value: str, messages: RPSLParserMessages) -> Optional[str]:\n        if self.allow_kw_any and value.upper() == \"ANY\":\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -358,3 +357,3 @@\n \n-    def clean(self, value: str, messages: RPSLParserMessages) -> str:\n+    def clean(self, value: str, messages: RPSLParserMessages) -> Optional[str]:\n         if self.allow_kw_any and value.upper() == \"ANY\":\n",
+        "source_code_with_indent": "\n    <DED>def clean(self, value: str, messages: RPSLParserMessages) -> str:\n        <IND>if self.allow_kw_any and value.upper() == \"ANY\":\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def clean(self, value: str, messages: RPSLParserMessages) -> Optional[str]:\n        <IND>if self.allow_kw_any and value.upper() == \"ANY\":\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

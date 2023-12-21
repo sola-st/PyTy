@@ -1,0 +1,85 @@
+[
+  {
+    "project": "grapl-security/grapl",
+    "commit": "360826873131008105127b9d0f46257ccdd096e1",
+    "filename": "src/python/grapl_analyzerlib/test_utils/dgraph_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/grapl-security-grapl/src/python/grapl_analyzerlib/test_utils/dgraph_utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/python/grapl_analyzerlib/test_utils/dgraph_utils.py:23:4 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 23,
+    "warning_line": "    with client.txn_context(read_only=False) as txn:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            new_uid = uids[\"blank-0\"]\n        if isinstance(new_uid, str):\n            return int(new_uid, 16)\n\n",
+        "source_code_len": 112,
+        "target_code": "            new_uid = uids[\"blank-0\"]\n        return int(new_uid, 16)\n\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -36,4 +35,3 @@\n             new_uid = uids[\"blank-0\"]\n-        if isinstance(new_uid, str):\n-            return int(new_uid, 16)\n+        return int(new_uid, 16)\n \n",
+        "source_code_with_indent": "            <IND>new_uid = uids[\"blank-0\"]\n        <DED>if isinstance(new_uid, str):\n            <IND>return int(new_uid, 16)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>new_uid = uids[\"blank-0\"]\n        <DED>return int(new_uid, 16)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "grapl-security/grapl",
+    "commit": "360826873131008105127b9d0f46257ccdd096e1",
+    "filename": "src/python/grapl_analyzerlib/test_utils/dgraph_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/grapl-security-grapl/src/python/grapl_analyzerlib/test_utils/dgraph_utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/python/grapl_analyzerlib/test_utils/dgraph_utils.py:38:12 Incompatible return type [7]: Expected `str` but got `int`.",
+    "message": " Expected `str` but got `int`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 38,
+    "warning_line": "            return int(new_uid, 16)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom grapl_analyzerlib.node_types import PropType\nfrom grapl_analyzerlib.viewable import Viewable\nfrom grapl_analyzerlib.grapl_client import GraphClient\n\n\ndef _upsert(client: GraphClient, node_dict: Dict[str, Any]) -> str:\n    node_dict[\"uid\"] = \"_:blank-0\"\n",
+        "source_code_len": 259,
+        "target_code": "\nfrom grapl_analyzerlib.grapl_client import GraphClient\nfrom grapl_analyzerlib.viewable import Viewable\n\n\ndef _upsert(client: GraphClient, node_dict: Dict[str, Any]) -> int:\n    node_dict[\"uid\"] = \"_:blank-0\"\n",
+        "target_code_len": 209,
+        "diff_format": "@@ -4,8 +4,7 @@\n \n-from grapl_analyzerlib.node_types import PropType\n+from grapl_analyzerlib.grapl_client import GraphClient\n from grapl_analyzerlib.viewable import Viewable\n-from grapl_analyzerlib.grapl_client import GraphClient\n \n \n-def _upsert(client: GraphClient, node_dict: Dict[str, Any]) -> str:\n+def _upsert(client: GraphClient, node_dict: Dict[str, Any]) -> int:\n     node_dict[\"uid\"] = \"_:blank-0\"\n",
+        "source_code_with_indent": "\nfrom grapl_analyzerlib.node_types import PropType\nfrom grapl_analyzerlib.viewable import Viewable\nfrom grapl_analyzerlib.grapl_client import GraphClient\n\n\ndef _upsert(client: GraphClient, node_dict: Dict[str, Any]) -> str:\n    <IND>node_dict[\"uid\"] = \"_:blank-0\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom grapl_analyzerlib.grapl_client import GraphClient\nfrom grapl_analyzerlib.viewable import Viewable\n\n\ndef _upsert(client: GraphClient, node_dict: Dict[str, Any]) -> int:\n    <IND>node_dict[\"uid\"] = \"_:blank-0\"\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            new_uid = uids[\"blank-0\"]\n        if isinstance(new_uid, str):\n            return int(new_uid, 16)\n\n",
+        "source_code_len": 112,
+        "target_code": "            new_uid = uids[\"blank-0\"]\n        return int(new_uid, 16)\n\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -36,4 +35,3 @@\n             new_uid = uids[\"blank-0\"]\n-        if isinstance(new_uid, str):\n-            return int(new_uid, 16)\n+        return int(new_uid, 16)\n \n",
+        "source_code_with_indent": "            <IND>new_uid = uids[\"blank-0\"]\n        <DED>if isinstance(new_uid, str):\n            <IND>return int(new_uid, 16)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>new_uid = uids[\"blank-0\"]\n        <DED>return int(new_uid, 16)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

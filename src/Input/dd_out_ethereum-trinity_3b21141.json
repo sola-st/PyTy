@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ethereum/trinity",
+    "commit": "3b211413db6e195d77fea4d982d32e9c320437f9",
+    "filename": "eth/beacon/helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/eth/beacon/helpers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eth/beacon/helpers.py:296:33 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[int]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 296,
+    "warning_line": "    active_validators_size = len(active_validators)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Sequence,\n    TYPE_CHECKING,\n",
+        "source_code_len": 33,
+        "target_code": "    Sequence,\n    Tuple,\n    TYPE_CHECKING,\n",
+        "target_code_len": 44,
+        "diff_format": "@@ -8,2 +8,3 @@\n     Sequence,\n+    Tuple,\n     TYPE_CHECKING,\n",
+        "source_code_with_indent": "    Sequence,\n    TYPE_CHECKING,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Sequence,\n    Tuple,\n    TYPE_CHECKING,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_active_validator_indices(validators: Sequence['ValidatorRecord']) -> Iterable[int]:\n    \"\"\"\n",
+        "source_code_len": 101,
+        "target_code": "\ndef get_active_validator_indices(validators: Sequence['ValidatorRecord']) -> Tuple[int, ...]:\n    \"\"\"\n",
+        "target_code_len": 103,
+        "diff_format": "@@ -216,3 +217,3 @@\n \n-def get_active_validator_indices(validators: Sequence['ValidatorRecord']) -> Iterable[int]:\n+def get_active_validator_indices(validators: Sequence['ValidatorRecord']) -> Tuple[int, ...]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED><DED>def get_active_validator_indices(validators: Sequence['ValidatorRecord']) -> Iterable[int]:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED><DED>def get_active_validator_indices(validators: Sequence['ValidatorRecord']) -> Tuple[int, ...]:\n    <IND>"
+      }
+    ]
+  }
+]

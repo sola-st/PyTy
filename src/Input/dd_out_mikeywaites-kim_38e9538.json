@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mikeywaites/kim",
+    "commit": "38e9538b712f43ce3e1a0e0ec8d716c92771ae9d",
+    "filename": "kim/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mikeywaites-kim/kim/types.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kim/types.py:376:4 Inconsistent override [15]: `type_` overrides attribute defined in `DateTime` inconsistently. Type `typing.Type[date]` is not a subtype of the overridden attribute `typing.Type[datetime]`.",
+    "message": " `type_` overrides attribute defined in `DateTime` inconsistently. Type `typing.Type[date]` is not a subtype of the overridden attribute `typing.Type[datetime]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 376,
+    "warning_line": "    type_ = date",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass DateTime(TypedType):\n\n    type_ = datetime\n\n",
+        "source_code_len": 51,
+        "target_code": "\nclass DateTime(BaseType):\n\n",
+        "target_code_len": 28,
+        "diff_format": "@@ -350,5 +350,3 @@\n \n-class DateTime(TypedType):\n-\n-    type_ = datetime\n+class DateTime(BaseType):\n \n",
+        "source_code_with_indent": "\n<DED><DED>class DateTime(TypedType):\n\n    <IND>type_ = datetime\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class DateTime(BaseType):\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

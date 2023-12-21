@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Project-MONAI/MONAI",
+    "commit": "b154f5811cf94290db9cc1ad0588d5891fc7a05d",
+    "filename": "monai/transforms/croppad/array.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Project-MONAI-MONAI/monai/transforms/croppad/array.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "monai/transforms/croppad/array.py:485:64 Incompatible parameter type [6]: Expected `Optional[Sequence[int]]` for 2nd parameter `roi_size` to call `SpatialCrop.__init__` but got `Union[Sequence[int], int]`.",
+    "message": " Expected `Optional[Sequence[int]]` for 2nd parameter `roi_size` to call `SpatialCrop.__init__` but got `Union[Sequence[int], int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 485,
+    "warning_line": "                cropper = SpatialCrop(roi_center=tuple(center), roi_size=self.spatial_size)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ) -> None:\n        self.spatial_size = spatial_size\n        self.label = label\n",
+        "source_code_len": 83,
+        "target_code": "    ) -> None:\n        self.spatial_size = ensure_tuple(spatial_size)\n        self.label = label\n",
+        "target_code_len": 97,
+        "diff_format": "@@ -450,3 +450,3 @@\n     ) -> None:\n-        self.spatial_size = spatial_size\n+        self.spatial_size = ensure_tuple(spatial_size)\n         self.label = label\n",
+        "source_code_with_indent": "    ) -> None:\n        <IND>self.spatial_size = spatial_size\n        self.label = label\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ) -> None:\n        <IND>self.spatial_size = ensure_tuple(spatial_size)\n        self.label = label\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Project-MONAI/MONAI",
+    "commit": "b154f5811cf94290db9cc1ad0588d5891fc7a05d",
+    "filename": "monai/utils/misc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Project-MONAI-MONAI/monai/utils/misc.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "monai/utils/misc.py:158:41 Incompatible variable type [9]: desc is declared to have type `str` but is used as type `None`.",
+    "message": " desc is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 158,
+    "warning_line": "def progress_bar(index: int, count: int, desc: str = None, bar_len: int = 30, newline: bool = False) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef progress_bar(index: int, count: int, desc: str = None, bar_len: int = 30, newline: bool = False) -> None:\n    \"\"\"print a progress bar to track some time consuming task.\n",
+        "source_code_len": 174,
+        "target_code": "\ndef progress_bar(index: int, count: int, desc: Optional[str] = None, bar_len: int = 30, newline: bool = False) -> None:\n    \"\"\"print a progress bar to track some time consuming task.\n",
+        "target_code_len": 184,
+        "diff_format": "@@ -157,3 +157,3 @@\n \n-def progress_bar(index: int, count: int, desc: str = None, bar_len: int = 30, newline: bool = False) -> None:\n+def progress_bar(index: int, count: int, desc: Optional[str] = None, bar_len: int = 30, newline: bool = False) -> None:\n     \"\"\"print a progress bar to track some time consuming task.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def progress_bar(index: int, count: int, desc: str = None, bar_len: int = 30, newline: bool = False) -> None:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def progress_bar(index: int, count: int, desc: Optional[str] = None, bar_len: int = 30, newline: bool = False) -> None:\n    <IND>"
+      }
+    ]
+  }
+]

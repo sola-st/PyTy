@@ -1,0 +1,104 @@
+[
+  {
+    "project": "stoq/stoq",
+    "commit": "5854e6478c8dee517c54288ab956cd2a45929bc4",
+    "filename": "stoqlib/domain/address.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stoq-stoq/stoqlib/domain/address.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "stoqlib/domain/address.py:119:28 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 119,
+    "warning_line": "    @argcheck(StoqlibStore, basestring, basestring, basestring)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    @argcheck(StoqlibStore, basestring, basestring, basestring)\n    def get_or_create(cls, store, city, state, country):\n",
+        "source_code_len": 138,
+        "target_code": "    @classmethod\n    def get_or_create(cls, store, city, state, country):\n",
+        "target_code_len": 74,
+        "diff_format": "@@ -118,3 +115,2 @@\n     @classmethod\n-    @argcheck(StoqlibStore, basestring, basestring, basestring)\n     def get_or_create(cls, store, city, state, country):\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    @argcheck(StoqlibStore, basestring, basestring, basestring)\n    def get_or_create(cls, store, city, state, country):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def get_or_create(cls, store, city, state, country):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "stoq/stoq",
+    "commit": "5854e6478c8dee517c54288ab956cd2a45929bc4",
+    "filename": "stoqlib/domain/payment/method.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stoq-stoq/stoqlib/domain/payment/method.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "stoqlib/domain/payment/method.py:206:14 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 206,
+    "warning_line": "              basestring, basestring, object, basestring)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    #       factory singleton.\n    @argcheck(int, PaymentGroup, Branch, Decimal, datetime.datetime,\n              basestring, basestring, object, basestring)\n    def create_payment(self, payment_type, payment_group, branch, value,\n",
+        "source_code_len": 231,
+        "target_code": "    #       factory singleton.\n    def create_payment(self, payment_type, payment_group, branch, value,\n",
+        "target_code_len": 104,
+        "diff_format": "@@ -204,4 +200,2 @@\n     #       factory singleton.\n-    @argcheck(int, PaymentGroup, Branch, Decimal, datetime.datetime,\n-              basestring, basestring, object, basestring)\n     def create_payment(self, payment_type, payment_group, branch, value,\n",
+        "source_code_with_indent": "    #       factory singleton.\n    <DED>@argcheck(int, PaymentGroup, Branch, Decimal, datetime.datetime,\n              basestring, basestring, object, basestring)\n    def create_payment(self, payment_type, payment_group, branch, value,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    #       factory singleton.\n    <DED>def create_payment(self, payment_type, payment_group, branch, value,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "stoq/stoq",
+    "commit": "5854e6478c8dee517c54288ab956cd2a45929bc4",
+    "filename": "stoqlib/gui/base/search.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stoq-stoq/stoqlib/gui/base/search.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "stoqlib/gui/base/search.py:293:44 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 293,
+    "warning_line": "    @argcheck(object, object, object, bool, basestring, int, bool)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    @argcheck(object, object, object, bool, basestring, int, bool)\n    def __init__(self, store, table=None, search_table=None, hide_footer=True,\n",
+        "source_code_len": 147,
+        "target_code": "\n    def __init__(self, store, table=None, search_table=None, hide_footer=True,\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -292,3 +291,2 @@\n \n-    @argcheck(object, object, object, bool, basestring, int, bool)\n     def __init__(self, store, table=None, search_table=None, hide_footer=True,\n",
+        "source_code_with_indent": "\n    @argcheck(object, object, object, bool, basestring, int, bool)\n    def __init__(self, store, table=None, search_table=None, hide_footer=True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, store, table=None, search_table=None, hide_footer=True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "97ae5f1fbf966aece39273928398a3b5d891495a",
+    "filename": "tests/core/actions/test_forms.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/tests/core/actions/test_forms.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/core/actions/test_forms.py:1302:4 Incompatible variable type [9]: domain is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `Domain`.",
+    "message": " domain is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `Domain`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1302,
+    "warning_line": "    domain = Domain.from_dict(domain)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "async def test_ask_for_slot(\n    domain: Dict,\n    expected_action: Text,\n",
+        "source_code_len": 74,
+        "target_code": "async def test_ask_for_slot(\n    domain_dict: Dict,\n    expected_action: Text,\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -1287,3 +1287,3 @@\n async def test_ask_for_slot(\n-    domain: Dict,\n+    domain_dict: Dict,\n     expected_action: Text,\n",
+        "source_code_with_indent": "async def test_ask_for_slot(\n    domain: Dict,\n    expected_action: Text,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "async def test_ask_for_slot(\n    domain_dict: Dict,\n    expected_action: Text,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "97ae5f1fbf966aece39273928398a3b5d891495a",
+    "filename": "tests/core/actions/test_forms.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/tests/core/actions/test_forms.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/core/actions/test_forms.py:1304:8 Incompatible parameter type [6]: Expected `Domain` for 1st positional only parameter to call `FormAction._ask_for_slot` but got `Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `Domain` for 1st positional only parameter to call `FormAction._ask_for_slot` but got `Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1304,
+    "warning_line": "        domain,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "async def test_ask_for_slot(\n    domain: Dict,\n    expected_action: Text,\n",
+        "source_code_len": 74,
+        "target_code": "async def test_ask_for_slot(\n    domain_dict: Dict,\n    expected_action: Text,\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -1287,3 +1287,3 @@\n async def test_ask_for_slot(\n-    domain: Dict,\n+    domain_dict: Dict,\n     expected_action: Text,\n",
+        "source_code_with_indent": "async def test_ask_for_slot(\n    domain: Dict,\n    expected_action: Text,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "async def test_ask_for_slot(\n    domain_dict: Dict,\n    expected_action: Text,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "97ae5f1fbf966aece39273928398a3b5d891495a",
+    "filename": "tests/shared/core/test_domain.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/tests/shared/core/test_domain.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/shared/core/test_domain.py:1033:4 Incompatible variable type [9]: domain is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `Domain`.",
+    "message": " domain is declared to have type `Dict[typing.Any, typing.Any]` but is used as type `Domain`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1033,
+    "warning_line": "    domain = Domain.from_dict(domain)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@pytest.mark.parametrize(\n    \"domain\", [{}, {\"intents\": DEFAULT_INTENTS}, {\"intents\": [DEFAULT_INTENTS[0]]}]\n)\ndef test_add_default_intents(domain: Dict):\n    domain = Domain.from_dict(domain)\n\n",
+        "source_code_len": 195,
+        "target_code": "@pytest.mark.parametrize(\n    \"domain_dict\", [{}, {\"intents\": DEFAULT_INTENTS}, {\"intents\": [DEFAULT_INTENTS[0]]}]\n)\ndef test_add_default_intents(domain_dict: Dict):\n    domain = Domain.from_dict(domain_dict)\n\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -1029,6 +1017,6 @@\n @pytest.mark.parametrize(\n-    \"domain\", [{}, {\"intents\": DEFAULT_INTENTS}, {\"intents\": [DEFAULT_INTENTS[0]]}]\n+    \"domain_dict\", [{}, {\"intents\": DEFAULT_INTENTS}, {\"intents\": [DEFAULT_INTENTS[0]]}]\n )\n-def test_add_default_intents(domain: Dict):\n-    domain = Domain.from_dict(domain)\n+def test_add_default_intents(domain_dict: Dict):\n+    domain = Domain.from_dict(domain_dict)\n \n",
+        "source_code_with_indent": "<DED>@pytest.mark.parametrize(\n    \"domain\", [{}, {\"intents\": DEFAULT_INTENTS}, {\"intents\": [DEFAULT_INTENTS[0]]}]\n)\ndef test_add_default_intents(domain: Dict):\n    <IND>domain = Domain.from_dict(domain)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>@pytest.mark.parametrize(\n    \"domain_dict\", [{}, {\"intents\": DEFAULT_INTENTS}, {\"intents\": [DEFAULT_INTENTS[0]]}]\n)\ndef test_add_default_intents(domain_dict: Dict):\n    <IND>domain = Domain.from_dict(domain_dict)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

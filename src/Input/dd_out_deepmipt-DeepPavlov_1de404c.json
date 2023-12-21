@@ -1,0 +1,70 @@
+[
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "1de404c11bc5f40b766e966573506921980ff524",
+    "filename": "deeppavlov/dataset_readers/amazon_ecommerce_reader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/dataset_readers/amazon_ecommerce_reader.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/dataset_readers/amazon_ecommerce_reader.py:53:8 Incompatible return type [7]: Expected `Dict[str, List[Tuple[typing.Any, typing.Any]]]` but got `Dict[str, typing.Union[List[typing.Any], List[Tuple[Tuple[typing.Any, Dict[typing.Any, typing.Any]]]]]]`.",
+    "message": " Expected `Dict[str, List[Tuple[typing.Any, typing.Any]]]` but got `Dict[str, typing.Union[List[typing.Any], List[Tuple[Tuple[typing.Any, Dict[typing.Any, typing.Any]]]]]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 53,
+    "warning_line": "        return dataset",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        dataset = {\n            'train': [((item, {}), ) for item in ec_data_global],\n            'valid': [],\n",
+        "source_code_len": 111,
+        "target_code": "        dataset = {\n            'train': [((item['Title'], [], {}), item) for item in ec_data_global],\n            'valid': [],\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -47,3 +56,3 @@\n         dataset = {\n-            'train': [((item, {}), ) for item in ec_data_global],\n+            'train': [((item['Title'], [], {}), item) for item in ec_data_global],\n             'valid': [],\n",
+        "source_code_with_indent": "        <DED><DED><DED>dataset = {\n            'train': [((item, {}), ) for item in ec_data_global],\n            'valid': [],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED><DED><DED>dataset = {\n            'train': [((item['Title'], [], {}), item) for item in ec_data_global],\n            'valid': [],\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "deepmipt/DeepPavlov",
+    "commit": "1de404c11bc5f40b766e966573506921980ff524",
+    "filename": "deeppavlov/skills/ecommerce_bot/bot.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepmipt-DeepPavlov/deeppavlov/skills/ecommerce_skill/bleu_retrieve.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deeppavlov/skills/ecommerce_bot/bot.py:86:20 Incompatible parameter type [6]: Expected `Dict[typing.Any, typing.Any]` for 1st positional only parameter to call `save_pickle` but got `List[typing.Any]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` for 1st positional only parameter to call `save_pickle` but got `List[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 86,
+    "warning_line": "        save_pickle(self.ec_data, self.save_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        log.info(f\"Saving model to {self.save_path}\")\n        self.save_path.parent.mkdir(parents=True, exist_ok=True)\n        save_pickle(self.ec_data, self.save_path)\n\n",
+        "source_code_len": 170,
+        "target_code": "        log.info(f\"Saving model to {self.save_path}\")\n        save_pickle(self.ec_data, self.save_path)\n\n\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -84,4 +95,4 @@\n         log.info(f\"Saving model to {self.save_path}\")\n-        self.save_path.parent.mkdir(parents=True, exist_ok=True)\n         save_pickle(self.ec_data, self.save_path)\n+\n \n",
+        "source_code_with_indent": "        log.info(f\"Saving model to {self.save_path}\")\n        self.save_path.parent.mkdir(parents=True, exist_ok=True)\n        save_pickle(self.ec_data, self.save_path)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        log.info(f\"Saving model to {self.save_path}\")\n        save_pickle(self.ec_data, self.save_path)\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

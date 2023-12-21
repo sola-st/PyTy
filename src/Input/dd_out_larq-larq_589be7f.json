@@ -1,0 +1,36 @@
+[
+  {
+    "project": "larq/larq",
+    "commit": "589be7f527eed33c9abcfaffc3133fa9760af432",
+    "filename": "larq/models.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/larq-larq/larq/models.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "larq/models.py:436:4 Incompatible variable type [9]: print_fn is declared to have type `typing.Callable[[str], typing.Any]` but is used as type `None`.",
+    "message": " print_fn is declared to have type `typing.Callable[[str], typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 436,
+    "warning_line": "    print_fn: Callable[[str], Any] = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    model: tf.keras.models.Model,\n    print_fn: Callable[[str], Any] = None,\n    include_macs: bool = True,\n",
+        "source_code_len": 108,
+        "target_code": "    model: tf.keras.models.Model,\n    print_fn: Optional[Callable[[str], Any]] = None,\n    include_macs: bool = True,\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -435,3 +435,3 @@\n     model: tf.keras.models.Model,\n-    print_fn: Callable[[str], Any] = None,\n+    print_fn: Optional[Callable[[str], Any]] = None,\n     include_macs: bool = True,\n",
+        "source_code_with_indent": "    model: tf.keras.models.Model,\n    print_fn: Callable[[str], Any] = None,\n    include_macs: bool = True,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    model: tf.keras.models.Model,\n    print_fn: Optional[Callable[[str], Any]] = None,\n    include_macs: bool = True,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

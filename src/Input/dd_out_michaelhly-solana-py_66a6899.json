@@ -1,0 +1,70 @@
+[
+  {
+    "project": "michaelhly/solana-py",
+    "commit": "66a6899fc27312b666c2a44fcfa37d78c4f912af",
+    "filename": "solana/rpc/api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/michaelhly-solana-py/solana/rpc/api.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "solana/rpc/api.py:1125:63 Incompatible variable type [9]: sleep_seconds is declared to have type `int` but is used as type `float`.",
+    "message": " sleep_seconds is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1125,
+    "warning_line": "        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: int = 0.5",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def confirm_transaction(\n        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: int = 0.5\n    ) -> types.RPCResponse:\n",
+        "source_code_len": 145,
+        "target_code": "    def confirm_transaction(\n        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: float = 0.5\n    ) -> types.RPCResponse:\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -1124,3 +1124,3 @@\n     def confirm_transaction(\n-        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: int = 0.5\n+        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: float = 0.5\n     ) -> types.RPCResponse:\n",
+        "source_code_with_indent": "    <DED>def confirm_transaction(\n        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: int = 0.5\n    ) -> types.RPCResponse:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def confirm_transaction(\n        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: float = 0.5\n    ) -> types.RPCResponse:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "michaelhly/solana-py",
+    "commit": "66a6899fc27312b666c2a44fcfa37d78c4f912af",
+    "filename": "solana/rpc/async_api.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/michaelhly-solana-py/solana/rpc/async_api.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "solana/rpc/async_api.py:1123:63 Incompatible variable type [9]: sleep_seconds is declared to have type `int` but is used as type `float`.",
+    "message": " sleep_seconds is declared to have type `int` but is used as type `float`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1123,
+    "warning_line": "        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: int = 0.5",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    async def confirm_transaction(\n        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: int = 0.5\n    ) -> types.RPCResponse:\n",
+        "source_code_len": 151,
+        "target_code": "    async def confirm_transaction(\n        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: float = 0.5\n    ) -> types.RPCResponse:\n",
+        "target_code_len": 153,
+        "diff_format": "@@ -1122,3 +1122,3 @@\n     async def confirm_transaction(\n-        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: int = 0.5\n+        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: float = 0.5\n     ) -> types.RPCResponse:\n",
+        "source_code_with_indent": "    <DED>async def confirm_transaction(\n        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: int = 0.5\n    ) -> types.RPCResponse:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>async def confirm_transaction(\n        self, tx_sig: str, commitment: Commitment = Finalized, sleep_seconds: float = 0.5\n    ) -> types.RPCResponse:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

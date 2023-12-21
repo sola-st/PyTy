@@ -1,0 +1,87 @@
+[
+  {
+    "project": "getsentry/snuba",
+    "commit": "57dc96c5ccbc35caffd1759cb40cacd530978a31",
+    "filename": "tests/utils/streams/processing/strategies/test_streaming.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/tests/utils/streams/processing/strategies/test_streaming.py",
+    "file_hunks_size": 14,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/utils/streams/processing/strategies/test_streaming.py:143:61 Incompatible parameter type [6]: Expected `typing.Sequence[typing.Tuple[str, bytes]]` for 3rd positional only parameter to call `KafkaPayload.__init__` but got `None`.",
+    "message": " Expected `typing.Sequence[typing.Tuple[str, bytes]]` for 3rd positional only parameter to call `KafkaPayload.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 143,
+    "warning_line": "            partition, 0, KafkaPayload(None, b\"\\x00\" * 4000, None), datetime.now()"
+  },
+  {
+    "project": "getsentry/snuba",
+    "commit": "57dc96c5ccbc35caffd1759cb40cacd530978a31",
+    "filename": "tests/utils/streams/processing/strategies/test_streaming.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/tests/utils/streams/processing/strategies/test_streaming.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/utils/streams/processing/strategies/test_streaming.py:170:47 Incompatible parameter type [6]: Expected `typing.Sequence[typing.Tuple[str, bytes]]` for 3rd positional only parameter to call `KafkaPayload.__init__` but got `None`.",
+    "message": " Expected `typing.Sequence[typing.Tuple[str, bytes]]` for 3rd positional only parameter to call `KafkaPayload.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 170,
+    "warning_line": "            KafkaPayload(None, b\"\\x00\" * size, None),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            i,\n            KafkaPayload(None, b\"\\x00\" * size, None),\n            datetime.now(),\n",
+        "source_code_len": 97,
+        "target_code": "            i,\n            KafkaPayload(None, b\"\\x00\" * size, []),\n            datetime.now(),\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -169,3 +172,3 @@\n             i,\n-            KafkaPayload(None, b\"\\x00\" * size, None),\n+            KafkaPayload(None, b\"\\x00\" * size, []),\n             datetime.now(),\n",
+        "source_code_with_indent": "            i,\n            KafkaPayload(None, b\"\\x00\" * size, None),\n            datetime.now(),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            i,\n            KafkaPayload(None, b\"\\x00\" * size, []),\n            datetime.now(),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "getsentry/snuba",
+    "commit": "57dc96c5ccbc35caffd1759cb40cacd530978a31",
+    "filename": "tests/utils/streams/processing/strategies/test_streaming.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/getsentry-snuba/tests/utils/streams/processing/strategies/test_streaming.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/utils/streams/processing/strategies/test_streaming.py:223:47 Incompatible parameter type [6]: Expected `typing.Sequence[typing.Tuple[str, bytes]]` for 3rd positional only parameter to call `KafkaPayload.__init__` but got `None`.",
+    "message": " Expected `typing.Sequence[typing.Tuple[str, bytes]]` for 3rd positional only parameter to call `KafkaPayload.__init__` but got `None`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 223,
+    "warning_line": "            KafkaPayload(None, b\"\\x00\" * size, None),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            i,\n            KafkaPayload(None, b\"\\x00\" * size, None),\n            datetime.now(),\n",
+        "source_code_len": 97,
+        "target_code": "            i,\n            KafkaPayload(None, b\"\\x00\" * size, []),\n            datetime.now(),\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -222,3 +227,3 @@\n             i,\n-            KafkaPayload(None, b\"\\x00\" * size, None),\n+            KafkaPayload(None, b\"\\x00\" * size, []),\n             datetime.now(),\n",
+        "source_code_with_indent": "            i,\n            KafkaPayload(None, b\"\\x00\" * size, None),\n            datetime.now(),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            i,\n            KafkaPayload(None, b\"\\x00\" * size, []),\n            datetime.now(),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

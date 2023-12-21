@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pytorch/botorch",
+    "commit": "8f68dcd86001cc2a0872699a7767dfa007f25ff0",
+    "filename": "botorch/optim/optimize.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-botorch/botorch/optim/optimize.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "botorch/optim/optimize.py:135:12 Incompatible parameter type [6]: Expected `int` for 3rd parameter `q` to call `gen_batch_initial_conditions` but got `Optional[int]`.",
+    "message": " Expected `int` for 3rd parameter `q` to call `gen_batch_initial_conditions` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 135,
+    "warning_line": "            q=None if isinstance(acq_function, AnalyticAcquisitionFunction) else q,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            bounds=bounds,\n            q=None if isinstance(acq_function, AnalyticAcquisitionFunction) else q,\n            num_restarts=num_restarts,\n",
+        "source_code_len": 150,
+        "target_code": "            bounds=bounds,\n            q=q,\n            num_restarts=num_restarts,\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -134,3 +133,3 @@\n             bounds=bounds,\n-            q=None if isinstance(acq_function, AnalyticAcquisitionFunction) else q,\n+            q=q,\n             num_restarts=num_restarts,\n",
+        "source_code_with_indent": "            bounds=bounds,\n            q=None if isinstance(acq_function, AnalyticAcquisitionFunction) else q,\n            num_restarts=num_restarts,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            bounds=bounds,\n            q=q,\n            num_restarts=num_restarts,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

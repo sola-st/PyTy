@@ -1,0 +1,104 @@
+[
+  {
+    "project": "ehForwarderBot/efb-telegram-master",
+    "commit": "4265376796345c913cf92e93ac7aa26cea8bae11",
+    "filename": "efb_telegram_master/master_message.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ehForwarderBot-efb-telegram-master/efb_telegram_master/master_message.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "efb_telegram_master/master_message.py:393:12 Incompatible return type [7]: Expected `ETMMsg` but got `typing.Type[ETMMsg]`.",
+    "message": " Expected `ETMMsg` but got `typing.Type[ETMMsg]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 393,
+    "warning_line": "            return ETMMsg",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                              tg_msg.message_id, target_channel, channel)\n            return ETMMsg\n        target_msg: ETMMsg = target_log.build_etm_msg(self.chat_manager, recur=False)\n",
+        "source_code_len": 186,
+        "target_code": "                              tg_msg.message_id, target_channel, channel)\n            return etm_msg\n        target_msg: ETMMsg = target_log.build_etm_msg(self.chat_manager, recur=False)\n",
+        "target_code_len": 187,
+        "diff_format": "@@ -392,3 +392,3 @@\n                               tg_msg.message_id, target_channel, channel)\n-            return ETMMsg\n+            return etm_msg\n         target_msg: ETMMsg = target_log.build_etm_msg(self.chat_manager, recur=False)\n",
+        "source_code_with_indent": "                              tg_msg.message_id, target_channel, channel)\n            return ETMMsg\n        <DED>target_msg: ETMMsg = target_log.build_etm_msg(self.chat_manager, recur=False)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                              tg_msg.message_id, target_channel, channel)\n            return etm_msg\n        <DED>target_msg: ETMMsg = target_log.build_etm_msg(self.chat_manager, recur=False)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ehForwarderBot/efb-telegram-master",
+    "commit": "4265376796345c913cf92e93ac7aa26cea8bae11",
+    "filename": "efb_telegram_master/master_message.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ehForwarderBot-efb-telegram-master/efb_telegram_master/master_message.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "efb_telegram_master/master_message.py:401:8 Incompatible return type [7]: Expected `ETMMsg` but got `typing.Type[ETMMsg]`.",
+    "message": " Expected `ETMMsg` but got `typing.Type[ETMMsg]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 401,
+    "warning_line": "        return ETMMsg",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                          tg_msg.message_id, target_msg.chat.chat_uid, target_msg.uid)\n        return ETMMsg\n\n",
+        "source_code_len": 110,
+        "target_code": "                          tg_msg.message_id, target_msg.chat.chat_uid, target_msg.uid)\n        return etm_msg\n\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -400,3 +400,3 @@\n                           tg_msg.message_id, target_msg.chat.chat_uid, target_msg.uid)\n-        return ETMMsg\n+        return etm_msg\n \n",
+        "source_code_with_indent": "                          tg_msg.message_id, target_msg.chat.chat_uid, target_msg.uid)\n        return ETMMsg\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                          tg_msg.message_id, target_msg.chat.chat_uid, target_msg.uid)\n        return etm_msg\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ehForwarderBot/efb-telegram-master",
+    "commit": "4265376796345c913cf92e93ac7aa26cea8bae11",
+    "filename": "efb_telegram_master/slave_message.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ehForwarderBot-efb-telegram-master/efb_telegram_master/slave_message.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "efb_telegram_master/slave_message.py:277:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 277,
+    "warning_line": "            return html.escape(text)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return html.escape(text)\n\n",
+        "source_code_len": 38,
+        "target_code": "            return html.escape(text)\n        return text\n\n",
+        "target_code_len": 58,
+        "diff_format": "@@ -277,2 +277,3 @@\n             return html.escape(text)\n+        return text\n \n",
+        "source_code_with_indent": "            <IND>return html.escape(text)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return html.escape(text)\n        <DED>return text\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "project": "procrastinate-org/procrastinate",
+    "commit": "57ea0a369fc1e90de9c77f9e758fee6f39e516bc",
+    "filename": "procrastinate/contrib/sqlalchemy/psycopg2_connector.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/procrastinate-org-procrastinate/procrastinate/contrib/sqlalchemy/psycopg2_connector.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "procrastinate/contrib/sqlalchemy/psycopg2_connector.py:116:47 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `SQLAlchemyPsycopg2Connector._create_engine` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `SQLAlchemyPsycopg2Connector._create_engine` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 116,
+    "warning_line": "            self._engine = self._create_engine(self._engine_dsn, self._engine_args)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        *,\n        dsn: Optional[str] = None,\n        json_dumps: Optional[Callable] = None,\n",
+        "source_code_len": 93,
+        "target_code": "        *,\n        dsn: str = \"postgresql://\",\n        json_dumps: Optional[Callable] = None,\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -63,3 +63,3 @@\n         *,\n-        dsn: Optional[str] = None,\n+        dsn: str = \"postgresql://\",\n         json_dumps: Optional[Callable] = None,\n",
+        "source_code_with_indent": "        *,\n        dsn: Optional[str] = None,\n        json_dumps: Optional[Callable] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        *,\n        dsn: str = \"postgresql://\",\n        json_dumps: Optional[Callable] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "procrastinate-org/procrastinate",
+    "commit": "57ea0a369fc1e90de9c77f9e758fee6f39e516bc",
+    "filename": "procrastinate/psycopg2_connector.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/procrastinate-org-procrastinate/procrastinate/psycopg2_connector.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "procrastinate/psycopg2_connector.py:190:12 Incompatible return type [7]: Expected `psycopg2._psycopg.connection` but got `typing.Generator[typing.Any, None, None]`.",
+    "message": " Expected `psycopg2._psycopg.connection` but got `typing.Generator[typing.Any, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 190,
+    "warning_line": "            yield connection",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import re\nfrom typing import Any, Callable, Dict, Optional\n\n",
+        "source_code_len": 60,
+        "target_code": "import re\nfrom typing import Any, Callable, Dict, Iterator, Optional\n\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -4,3 +4,3 @@\n import re\n-from typing import Any, Callable, Dict, Optional\n+from typing import Any, Callable, Dict, Iterator, Optional\n \n",
+        "source_code_with_indent": "import re\nfrom typing import Any, Callable, Dict, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import re\nfrom typing import Any, Callable, Dict, Iterator, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @contextlib.contextmanager\n    def _connection(self) -> psycopg2.extensions.connection:\n        # in case of an admin shutdown (Postgres error code 57P01) we do not\n",
+        "source_code_len": 169,
+        "target_code": "    @contextlib.contextmanager\n    def _connection(self) -> Iterator[psycopg2.extensions.connection]:\n        # in case of an admin shutdown (Postgres error code 57P01) we do not\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -183,3 +183,3 @@\n     @contextlib.contextmanager\n-    def _connection(self) -> psycopg2.extensions.connection:\n+    def _connection(self) -> Iterator[psycopg2.extensions.connection]:\n         # in case of an admin shutdown (Postgres error code 57P01) we do not\n",
+        "source_code_with_indent": "    <DED>@contextlib.contextmanager\n    def _connection(self) -> psycopg2.extensions.connection:\n        # in case of an admin shutdown (Postgres error code 57P01) we do not\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@contextlib.contextmanager\n    def _connection(self) -> Iterator[psycopg2.extensions.connection]:\n        # in case of an admin shutdown (Postgres error code 57P01) we do not\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pdm-project/pdm",
+    "commit": "271559d31a7363e60d2c95e51972ad9654e18fbb",
+    "filename": "pdm/core.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pdm-project-pdm/pdm/core.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pdm/core.py:124:37 Incompatible parameter type [6]: Expected `Optional[pdm.project.core.Project]` for 2nd positional only parameter to call `Core.ensure_project` but got `Optional[object]`.",
+    "message": " Expected `Optional[pdm.project.core.Project]` for 2nd positional only parameter to call `Core.ensure_project` but got `Optional[object]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 124,
+    "warning_line": "        self.ensure_project(options, obj)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        prog_name: str = None,\n        obj: Optional[object] = None,\n        **extra: Any,\n",
+        "source_code_len": 91,
+        "target_code": "        prog_name: str = None,\n        obj: Optional[Project] = None,\n        **extra: Any,\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -105,3 +105,3 @@\n         prog_name: str = None,\n-        obj: Optional[object] = None,\n+        obj: Optional[Project] = None,\n         **extra: Any,\n",
+        "source_code_with_indent": "        prog_name: str = None,\n        obj: Optional[object] = None,\n        **extra: Any,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        prog_name: str = None,\n        obj: Optional[Project] = None,\n        **extra: Any,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

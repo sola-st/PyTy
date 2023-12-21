@@ -1,0 +1,70 @@
+[
+  {
+    "project": "raiden-network/raiden",
+    "commit": "1d8b5e04c5d9d0862d60cfc5d0506de1da18c3d9",
+    "filename": "raiden/transfer/mediated_transfer/state_change.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/transfer/mediated_transfer/state_change.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/transfer/mediated_transfer/state_change.py:229:8 Incompatible return type [7]: Expected `ActionInitTarget` but got `ActionCancelRoute`.",
+    "message": " Expected `ActionInitTarget` but got `ActionCancelRoute`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 229,
+    "warning_line": "        return cls(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def from_dict(cls, data) -> 'ActionInitTarget':\n        return cls(\n",
+        "source_code_len": 89,
+        "target_code": "    @classmethod\n    def from_dict(cls, data) -> 'ActionCancelRoute':\n        return cls(\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -227,3 +227,3 @@\n     @classmethod\n-    def from_dict(cls, data) -> 'ActionInitTarget':\n+    def from_dict(cls, data) -> 'ActionCancelRoute':\n         return cls(\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def from_dict(cls, data) -> 'ActionInitTarget':\n        <IND>return cls(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def from_dict(cls, data) -> 'ActionCancelRoute':\n        <IND>return cls(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "raiden-network/raiden",
+    "commit": "1d8b5e04c5d9d0862d60cfc5d0506de1da18c3d9",
+    "filename": "raiden/utils/serialization.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/raiden-network-raiden/raiden/utils/serialization.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "raiden/utils/serialization.py:52:4 Incompatible variable type [9]: data is declared to have type `str` but is used as type `typing.List[typing.Tuple[typing.Any, typing.Any]]`.",
+    "message": " data is declared to have type `str` but is used as type `typing.List[typing.Tuple[typing.Any, typing.Any]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 52,
+    "warning_line": "    data = [",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    raw_data = json.loads(data)\n    data = [\n        (to_canonical_address(edge[0]), to_canonical_address(edge[1]))\n",
+        "source_code_len": 116,
+        "target_code": "    raw_data = json.loads(data)\n    canonical_addresses = [\n        (to_canonical_address(edge[0]), to_canonical_address(edge[1]))\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -51,3 +51,3 @@\n     raw_data = json.loads(data)\n-    data = [\n+    canonical_addresses = [\n         (to_canonical_address(edge[0]), to_canonical_address(edge[1]))\n",
+        "source_code_with_indent": "    <IND>raw_data = json.loads(data)\n    data = [\n        (to_canonical_address(edge[0]), to_canonical_address(edge[1]))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>raw_data = json.loads(data)\n    canonical_addresses = [\n        (to_canonical_address(edge[0]), to_canonical_address(edge[1]))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

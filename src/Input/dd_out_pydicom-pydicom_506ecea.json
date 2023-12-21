@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pydicom/pydicom",
+    "commit": "506ecea8f378dc687d5c504788fc78810a190b7a",
+    "filename": "pydicom/util/codify.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pydicom-pydicom/pydicom/util/codify.py",
+    "file_hunks_size": 18,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydicom/util/codify.py:270:4 Incompatible return type [7]: Expected `List[str]` but got `str`.",
+    "message": " Expected `List[str]` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 270,
+    "warning_line": "    return line_term.join(lines)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    is_file_meta: bool = False,\n) -> List[str]:\n    \"\"\"Return python code lines for import statements needed by other code\n\n",
+        "source_code_len": 124,
+        "target_code": "    is_file_meta: bool = False,\n) -> str:\n    \"\"\"Return Python code for creating `ds`.\n\n",
+        "target_code_len": 88,
+        "diff_format": "@@ -230,4 +228,4 @@\n     is_file_meta: bool = False,\n-) -> List[str]:\n-    \"\"\"Return python code lines for import statements needed by other code\n+) -> str:\n+    \"\"\"Return Python code for creating `ds`.\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    is_file_meta: bool = False,\n) -> List[str]:\n    <IND>",
+        "target_code_with_indent": "    is_file_meta: bool = False,\n) -> str:\n    <IND>"
+      }
+    ]
+  }
+]

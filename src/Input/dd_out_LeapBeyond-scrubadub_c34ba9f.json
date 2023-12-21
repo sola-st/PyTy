@@ -1,0 +1,36 @@
+[
+  {
+    "project": "LeapBeyond/scrubadub",
+    "commit": "c34ba9f42b4224277d36b52187b9cfa7754bafb0",
+    "filename": "scrubadub/detectors/spacy.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/LeapBeyond-scrubadub/scrubadub/detectors/spacy.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scrubadub/detectors/spacy.py:204:15 Unsupported operand [58]: `in` is not supported for right operand type `Optional[Set[str]]`.",
+    "message": " `in` is not supported for right operand type `Optional[Set[str]]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 204,
+    "warning_line": "            if ent.text in self.yielded_filth:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            # This section searches for text with the inverse of the preprocessing step.\n            if ent.text in self.yielded_filth:\n                return\n            self.yielded_filth.add(ent.text)\n\n",
+        "source_code_len": 205,
+        "target_code": "            # This section searches for text with the inverse of the preprocessing step.\n            if self.yielded_filth is not None:\n                if ent.text in self.yielded_filth:\n                    return\n                self.yielded_filth.add(ent.text)\n\n",
+        "target_code_len": 264,
+        "diff_format": "@@ -203,5 +207,6 @@\n             # This section searches for text with the inverse of the preprocessing step.\n-            if ent.text in self.yielded_filth:\n-                return\n-            self.yielded_filth.add(ent.text)\n+            if self.yielded_filth is not None:\n+                if ent.text in self.yielded_filth:\n+                    return\n+                self.yielded_filth.add(ent.text)\n \n",
+        "source_code_with_indent": "            # This section searches for text with the inverse of the preprocessing step.\n            <IND>if ent.text in self.yielded_filth:\n                <IND>return\n            <DED>self.yielded_filth.add(ent.text)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            # This section searches for text with the inverse of the preprocessing step.\n            <IND>if self.yielded_filth is not None:\n                <IND>if ent.text in self.yielded_filth:\n                    <IND>return\n                <DED>self.yielded_filth.add(ent.text)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

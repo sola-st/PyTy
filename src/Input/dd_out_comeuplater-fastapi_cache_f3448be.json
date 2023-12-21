@@ -1,0 +1,51 @@
+[
+  {
+    "project": "comeuplater/fastapi_cache",
+    "commit": "f3448be1f65614df6733334862ebe964481942b8",
+    "filename": "fastapi_cache/backends/redis.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/comeuplater-fastapi_cache/fastapi_cache/backends/redis.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "fastapi_cache/backends/redis.py:87:4 Inconsistent override [14]: `fastapi_cache.backends.redis.RedisCacheBackend.exists` overrides method defined in `BaseCacheBackend` inconsistently. Parameter of type `Union[int, str]` is not a supertype of the overridden parameter `typing.Tuple[Union[int, str]]`.",
+    "message": " `fastapi_cache.backends.redis.RedisCacheBackend.exists` overrides method defined in `BaseCacheBackend` inconsistently. Parameter of type `Union[int, str]` is not a supertype of the overridden parameter `typing.Tuple[Union[int, str]]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 87,
+    "warning_line": "    async def exists(self, *keys: Union[RedisAcceptable]) -> bool:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import Union, Any, Optional\n\n",
+        "source_code_len": 41,
+        "target_code": "from typing import Union, Any, Optional, AnyStr\n\n",
+        "target_code_len": 49,
+        "diff_format": "@@ -1,2 +1,2 @@\n-from typing import Union, Any, Optional\n+from typing import Union, Any, Optional, AnyStr\n \n",
+        "source_code_with_indent": "from typing import Union, Any, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import Union, Any, Optional, AnyStr\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nRedisAcceptable = Union[str, int]\n\n",
+        "source_code_len": 36,
+        "target_code": "\nRedisAcceptable = Union[AnyStr, int]\n\n",
+        "target_code_len": 39,
+        "diff_format": "@@ -11,3 +11,3 @@\n \n-RedisAcceptable = Union[str, int]\n+RedisAcceptable = Union[AnyStr, int]\n \n",
+        "source_code_with_indent": "\nRedisAcceptable = Union[str, int]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nRedisAcceptable = Union[AnyStr, int]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

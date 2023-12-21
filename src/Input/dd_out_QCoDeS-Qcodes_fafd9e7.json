@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "fafd9e7dcfc7a0f6d2e4b1a204169e526c8f9dd8",
+    "filename": "qcodes/dataset/param_spec.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/dataset/param_spec.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/dataset/param_spec.py:95:8 Incompatible return type [7]: Expected `ParamSpec` but got `ParamSpecBase`.",
+    "message": " Expected `ParamSpec` but got `ParamSpecBase`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 95,
+    "warning_line": "        return ParamSpecBase(name=ser['name'],",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def deserialize(cls, ser: Dict[str, Any]) -> 'ParamSpec':\n        \"\"\"\n",
+        "source_code_len": 91,
+        "target_code": "    @classmethod\n    def deserialize(cls, ser: Dict[str, Any]) -> 'ParamSpecBase':\n        \"\"\"\n",
+        "target_code_len": 95,
+        "diff_format": "@@ -85,3 +85,3 @@\n     @classmethod\n-    def deserialize(cls, ser: Dict[str, Any]) -> 'ParamSpec':\n+    def deserialize(cls, ser: Dict[str, Any]) -> 'ParamSpecBase':\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@classmethod\n    def deserialize(cls, ser: Dict[str, Any]) -> 'ParamSpec':\n        <IND>",
+        "target_code_with_indent": "    <DED>@classmethod\n    def deserialize(cls, ser: Dict[str, Any]) -> 'ParamSpecBase':\n        <IND>"
+      }
+    ]
+  }
+]

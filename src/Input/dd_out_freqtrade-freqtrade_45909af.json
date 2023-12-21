@@ -1,0 +1,54 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "45909af7e003770d903460e40051d8b79d49655b",
+    "filename": "freqtrade/misc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/misc.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/misc.py:91:34 Unsupported operand [58]: `/` is not supported for operand types `str` and `float`.",
+    "message": " `/` is not supported for operand types `str` and `float`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 91,
+    "warning_line": "    return datetime.fromtimestamp(date/1000.0).strftime('%Y-%m-%dT%H:%M:%S')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef format_ms_time(date: str) -> str:\n    \"\"\"\n",
+        "source_code_len": 47,
+        "target_code": "\ndef format_ms_time(date: int) -> str:\n    \"\"\"\n",
+        "target_code_len": 47,
+        "diff_format": "@@ -85,3 +85,3 @@\n \n-def format_ms_time(date: str) -> str:\n+def format_ms_time(date: int) -> str:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED><DED><DED>def format_ms_time(date: str) -> str:\n    <IND>",
+        "target_code_with_indent": "\n<DED><DED><DED>def format_ms_time(date: int) -> str:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "45909af7e003770d903460e40051d8b79d49655b",
+    "filename": "freqtrade/tests/test_misc.py",
+    "min_patch_found": false,
+    "full_warning_msg": "freqtrade/tests/test_misc.py:86:26 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `format_ms_time` but got `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "45909af7e003770d903460e40051d8b79d49655b",
+    "filename": "freqtrade/tests/test_misc.py",
+    "min_patch_found": false,
+    "full_warning_msg": "freqtrade/tests/test_misc.py:93:26 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `format_ms_time` but got `int`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

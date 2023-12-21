@@ -1,0 +1,36 @@
+[
+  {
+    "project": "mkdocstrings/mkdocstrings",
+    "commit": "2895152a4b5852c579248f9633593a00887318b9",
+    "filename": "src/mkdocstrings/extension.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mkdocstrings-mkdocstrings/src/mkdocstrings/extension.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/mkdocstrings/extension.py:82:4 Inconsistent override [15]: `src.mkdocstrings.extension.AutoDocProcessor.test` overrides method defined in `BlockProcessor` inconsistently. Returned type `bool` is not a subtype of the overridden return `None`.",
+    "message": " `src.mkdocstrings.extension.AutoDocProcessor.test` overrides method defined in `BlockProcessor` inconsistently. Returned type `bool` is not a subtype of the overridden return `None`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 82,
+    "warning_line": "    def test(self, parent: Element, block: str) -> bool:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "\n    def test(self, parent: Element, block: str) -> bool:\n        \"\"\"Match our autodoc instructions.\n",
+        "source_code_len": 101,
+        "target_code": "\n    def test(self, parent: Element, block: str) -> bool:  # type: ignore\n        \"\"\"Match our autodoc instructions.\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -81,3 +81,3 @@\n \n-    def test(self, parent: Element, block: str) -> bool:\n+    def test(self, parent: Element, block: str) -> bool:  # type: ignore\n         \"\"\"Match our autodoc instructions.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def test(self, parent: Element, block: str) -> bool:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def test(self, parent: Element, block: str) -> bool:  # type: ignore\n        <IND>"
+      }
+    ]
+  }
+]

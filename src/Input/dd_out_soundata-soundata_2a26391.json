@@ -1,0 +1,70 @@
+[
+  {
+    "project": "soundata/soundata",
+    "commit": "2a26391837bf21bfecd293e689aa46f96b6b99fc",
+    "filename": "mirdata/datasets/tonality_classicaldb.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/soundata-soundata/mirdata/datasets/tonality_classicaldb.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mirdata/datasets/tonality_classicaldb.py:145:8 Incompatible return type [7]: Expected `str` but got `Optional[str]`.",
+    "message": " Expected `str` but got `Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 145,
+    "warning_line": "        return load_key(self.key_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @core.cached_property\n    def key(self) -> str:\n        return load_key(self.key_path)\n",
+        "source_code_len": 91,
+        "target_code": "    @core.cached_property\n    def key(self) -> Optional[str]:\n        return load_key(self.key_path)\n",
+        "target_code_len": 101,
+        "diff_format": "@@ -143,3 +143,3 @@\n     @core.cached_property\n-    def key(self) -> str:\n+    def key(self) -> Optional[str]:\n         return load_key(self.key_path)\n",
+        "source_code_with_indent": "    <DED>@core.cached_property\n    def key(self) -> str:\n        <IND>return load_key(self.key_path)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@core.cached_property\n    def key(self) -> Optional[str]:\n        <IND>return load_key(self.key_path)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "soundata/soundata",
+    "commit": "2a26391837bf21bfecd293e689aa46f96b6b99fc",
+    "filename": "mirdata/datasets/tonality_classicaldb.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/soundata-soundata/mirdata/datasets/tonality_classicaldb.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mirdata/datasets/tonality_classicaldb.py:157:8 Incompatible return type [7]: Expected `Dict[typing.Any, typing.Any]` but got `Optional[Dict[typing.Any, typing.Any]]`.",
+    "message": " Expected `Dict[typing.Any, typing.Any]` but got `Optional[Dict[typing.Any, typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 157,
+    "warning_line": "        return load_musicbrainz(self.musicbrainz_path)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @core.cached_property\n    def musicbrainz_metadata(self) -> Dict[Any, Any]:\n        return load_musicbrainz(self.musicbrainz_path)\n",
+        "source_code_len": 135,
+        "target_code": "    @core.cached_property\n    def musicbrainz_metadata(self) -> Optional[Dict[Any, Any]]:\n        return load_musicbrainz(self.musicbrainz_path)\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -155,3 +155,3 @@\n     @core.cached_property\n-    def musicbrainz_metadata(self) -> Dict[Any, Any]:\n+    def musicbrainz_metadata(self) -> Optional[Dict[Any, Any]]:\n         return load_musicbrainz(self.musicbrainz_path)\n",
+        "source_code_with_indent": "    <DED>@core.cached_property\n    def musicbrainz_metadata(self) -> Dict[Any, Any]:\n        <IND>return load_musicbrainz(self.musicbrainz_path)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@core.cached_property\n    def musicbrainz_metadata(self) -> Optional[Dict[Any, Any]]:\n        <IND>return load_musicbrainz(self.musicbrainz_path)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

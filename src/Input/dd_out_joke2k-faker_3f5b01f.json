@@ -1,0 +1,104 @@
+[
+  {
+    "project": "joke2k/faker",
+    "commit": "3f5b01f4f6b7dd334bf98d259c5b2e1feb96d826",
+    "filename": "faker/build_docs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/joke2k-faker/faker/build_docs.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "faker/build_docs.py:12:16 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 12,
+    "warning_line": "    text_type = unicode",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\nif sys.version < '3':\n    text_type = unicode\n    binary_type = str\nelse:\n    text_type = str\n    binary_type = bytes\n\n",
+        "source_code_len": 121,
+        "target_code": "\nimport six\n\n",
+        "target_code_len": 13,
+        "diff_format": "@@ -9,9 +9,3 @@\n \n-\n-if sys.version < '3':\n-    text_type = unicode\n-    binary_type = str\n-else:\n-    text_type = str\n-    binary_type = bytes\n+import six\n \n",
+        "source_code_with_indent": "\n\nif sys.version < '3':\n    <IND>text_type = unicode\n    binary_type = str\n<DED>else:\n    <IND>text_type = str\n    binary_type = bytes\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport six\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "joke2k/faker",
+    "commit": "3f5b01f4f6b7dd334bf98d259c5b2e1feb96d826",
+    "filename": "faker/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/joke2k-faker/faker/cli.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "faker/cli.py:19:16 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 19,
+    "warning_line": "    text_type = unicode",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "import logging\n\nif sys.version < '3':\n    text_type = unicode\n    binary_type = str\nelse:\n    text_type = str\n    binary_type = bytes\n\n",
+        "source_code_len": 135,
+        "target_code": "import logging\n\n",
+        "target_code_len": 16,
+        "diff_format": "@@ -16,9 +17,2 @@\n import logging\n-\n-if sys.version < '3':\n-    text_type = unicode\n-    binary_type = str\n-else:\n-    text_type = str\n-    binary_type = bytes\n \n",
+        "source_code_with_indent": "import logging\n\nif sys.version < '3':\n    <IND>text_type = unicode\n    binary_type = str\n<DED>else:\n    <IND>text_type = str\n    binary_type = bytes\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import logging\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "joke2k/faker",
+    "commit": "3f5b01f4f6b7dd334bf98d259c5b2e1feb96d826",
+    "filename": "tests/__init__.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/joke2k-faker/tests/__init__.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/__init__.py:2:20 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 2,
+    "warning_line": "    string_types = (basestring,)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "try:\n    string_types = (basestring,)\nexcept NameError:  # pragma: no cover\n    string_types = (str,)\n",
+        "source_code_len": 102,
+        "target_code": "",
+        "target_code_len": 0,
+        "diff_format": "@@ -1,4 +0,0 @@\n-try:\n-    string_types = (basestring,)\n-except NameError:  # pragma: no cover\n-    string_types = (str,)\n",
+        "source_code_with_indent": "try:\n    <IND>string_types = (basestring,)\n<DED>except NameError:  # pragma: no cover\n    <IND>string_types = (str,)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

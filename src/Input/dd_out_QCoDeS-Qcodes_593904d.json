@@ -1,0 +1,70 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "593904d8136539f5e25eed9855b702e2c0d5edf2",
+    "filename": "qcodes/instrument/parameter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument/parameter.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument/parameter.py:435:12 Incompatible return type [7]: Expected `List[Union[float, int]]` but got `List[Union[Sized, float, int]]`.",
+    "message": " Expected `List[Union[float, int]]` but got `List[Union[Sized, float, int]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 435,
+    "warning_line": "            return [value]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                        step: Union[float, int]=None) -> List[Union[float,\n                                                                    int]]:\n        \"\"\"\n",
+        "source_code_len": 162,
+        "target_code": "                        step: Union[float, int]=None) -> List[Union[float,\n                                                                    int,\n                                                                    Sized]]:\n        \"\"\"\n",
+        "target_code_len": 237,
+        "diff_format": "@@ -421,3 +423,4 @@\n                         step: Union[float, int]=None) -> List[Union[float,\n-                                                                    int]]:\n+                                                                    int,\n+                                                                    Sized]]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                        step: Union[float, int]=None) -> List[Union[float,\n                                                                    int]]:\n        <IND>",
+        "target_code_with_indent": "                        step: Union[float, int]=None) -> List[Union[float,\n                                                                    int,\n                                                                    Sized]]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "593904d8136539f5e25eed9855b702e2c0d5edf2",
+    "filename": "qcodes/instrument/parameter.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument/parameter.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument/parameter.py:437:63 Incompatible parameter type [6]: Expected `Sized` for 1st positional only parameter to call `len` but got `Union[Sized, float, int]`.",
+    "message": " Expected `Sized` for 1st positional only parameter to call `len` but got `Union[Sized, float, int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 437,
+    "warning_line": "            if isinstance(value, collections.Iterable) and len(value) > 1:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        else:\n            if isinstance(value, collections.Iterable) and len(value) > 1:\n                raise RuntimeError(\"Don't know how to step a parameter with more than one value\")\n",
+        "source_code_len": 187,
+        "target_code": "        else:\n            if isinstance(value, collections.Sized) and len(value) > 1:\n                raise RuntimeError(\"Don't know how to step a parameter with more than one value\")\n",
+        "target_code_len": 184,
+        "diff_format": "@@ -436,3 +439,3 @@\n         else:\n-            if isinstance(value, collections.Iterable) and len(value) > 1:\n+            if isinstance(value, collections.Sized) and len(value) > 1:\n                 raise RuntimeError(\"Don't know how to step a parameter with more than one value\")\n",
+        "source_code_with_indent": "        <DED>else:\n            <IND>if isinstance(value, collections.Iterable) and len(value) > 1:\n                <IND>raise RuntimeError(\"Don't know how to step a parameter with more than one value\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>else:\n            <IND>if isinstance(value, collections.Sized) and len(value) > 1:\n                <IND>raise RuntimeError(\"Don't know how to step a parameter with more than one value\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

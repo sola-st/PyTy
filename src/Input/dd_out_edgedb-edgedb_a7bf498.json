@@ -1,0 +1,70 @@
+[
+  {
+    "project": "edgedb/edgedb",
+    "commit": "a7bf498d0e15d52827fdd9f24e0190e69a47745d",
+    "filename": "edb/schema/functions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/schema/functions.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/schema/functions.py:713:8 Incompatible return type [7]: Expected `typing.List[ParameterDesc]` but got `typing.Tuple[typing.Any, typing.List[typing.Any]]`.",
+    "message": " Expected `typing.List[ParameterDesc]` but got `typing.Tuple[typing.Any, typing.List[typing.Any]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 713,
+    "warning_line": "        return schema, params",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        cmd\n    ) -> List[ParameterDesc]:\n        params = []\n",
+        "source_code_len": 62,
+        "target_code": "        cmd\n    ) -> Tuple[s_schema.Schema, List[ParameterDesc]]:\n        params = []\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -705,3 +705,3 @@\n         cmd\n-    ) -> List[ParameterDesc]:\n+    ) -> Tuple[s_schema.Schema, List[ParameterDesc]]:\n         params = []\n",
+        "source_code_with_indent": "        cmd\n    ) -> List[ParameterDesc]:\n        <IND>params = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        cmd\n    ) -> Tuple[s_schema.Schema, List[ParameterDesc]]:\n        <IND>params = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "edgedb/edgedb",
+    "commit": "a7bf498d0e15d52827fdd9f24e0190e69a47745d",
+    "filename": "edb/schema/functions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/schema/functions.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/schema/functions.py:882:8 Incompatible variable type [9]: schema is declared to have type `s_schema.Schema` but is used as type `ParameterDesc`.",
+    "message": " schema is declared to have type `s_schema.Schema` but is used as type `ParameterDesc`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 882,
+    "warning_line": "        schema, cp = self._get_param_desc_from_delta(schema, context, self)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        cmd\n    ) -> List[ParameterDesc]:\n        params = []\n",
+        "source_code_len": 62,
+        "target_code": "        cmd\n    ) -> Tuple[s_schema.Schema, List[ParameterDesc]]:\n        params = []\n",
+        "target_code_len": 86,
+        "diff_format": "@@ -705,3 +705,3 @@\n         cmd\n-    ) -> List[ParameterDesc]:\n+    ) -> Tuple[s_schema.Schema, List[ParameterDesc]]:\n         params = []\n",
+        "source_code_with_indent": "        cmd\n    ) -> List[ParameterDesc]:\n        <IND>params = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        cmd\n    ) -> Tuple[s_schema.Schema, List[ParameterDesc]]:\n        <IND>params = []\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

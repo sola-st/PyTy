@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "c9d98c80b61a9754d5c14ffd245ff998f17bc242",
+    "filename": "mypy/typeanal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/typeanal.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/typeanal.py:37:15 Unbound name [10]: Name `Set` is used but not defined in the current scope.",
+    "message": " Name `Set` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 37,
+    "warning_line": "        return Set",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    elif name == 'typing.List':\n        return List\n    elif name == 'typing.Dict':\n        return Dict\n    elif name == 'typing.Set':\n        return Set\n    elif name == 'typing.Union':\n        return UnionType\n\n",
+        "source_code_len": 213,
+        "target_code": "    elif name == 'typing.List':\n        raise NotImplementedError\n    elif name == 'typing.Dict':\n        raise NotImplementedError\n    elif name == 'typing.Set':\n        raise NotImplementedError\n    elif name == 'typing.Union':\n        return UnionType\n\n\n",
+        "target_code_len": 257,
+        "diff_format": "@@ -32,9 +34,10 @@\n     elif name == 'typing.List':\n-        return List\n+        raise NotImplementedError\n     elif name == 'typing.Dict':\n-        return Dict\n+        raise NotImplementedError\n     elif name == 'typing.Set':\n-        return Set\n+        raise NotImplementedError\n     elif name == 'typing.Union':\n         return UnionType\n+\n \n",
+        "source_code_with_indent": "    <DED>elif name == 'typing.List':\n        <IND>return List\n    <DED>elif name == 'typing.Dict':\n        <IND>return Dict\n    <DED>elif name == 'typing.Set':\n        <IND>return Set\n    <DED>elif name == 'typing.Union':\n        <IND>return UnionType\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>elif name == 'typing.List':\n        <IND>raise NotImplementedError\n    <DED>elif name == 'typing.Dict':\n        <IND>raise NotImplementedError\n    <DED>elif name == 'typing.Set':\n        <IND>raise NotImplementedError\n    <DED>elif name == 'typing.Union':\n        <IND>return UnionType\n\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

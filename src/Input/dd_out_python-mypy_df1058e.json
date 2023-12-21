@@ -1,0 +1,70 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "df1058e37472068bf95649d7d8bc29c17c954ebb",
+    "filename": "mypy/checkexpr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checkexpr.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checkexpr.py:780:68 Incompatible parameter type [6]: Expected `MessageBuilder` for 7th positional only parameter to call `analyse_member_access` but got `Errors`.",
+    "message": " Expected `MessageBuilder` for 7th positional only parameter to call `analyse_member_access` but got `Errors`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 780,
+    "warning_line": "                                            self.chk.basic_types(), local_errors)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def check_op_local(self, method: str, base_type: Type, arg: Node,\n                 context: Context, local_errors: 'Errors') -> Tuple[Type, Type]:\n        \"\"\"Type check a binary operation which maps to a method call.\n",
+        "source_code_len": 221,
+        "target_code": "    def check_op_local(self, method: str, base_type: Type, arg: Node,\n                 context: Context, local_errors: MessageBuilder) -> Tuple[Type, Type]:\n        \"\"\"Type check a binary operation which maps to a method call.\n",
+        "target_code_len": 227,
+        "diff_format": "@@ -773,3 +772,3 @@\n     def check_op_local(self, method: str, base_type: Type, arg: Node,\n-                 context: Context, local_errors: 'Errors') -> Tuple[Type, Type]:\n+                 context: Context, local_errors: MessageBuilder) -> Tuple[Type, Type]:\n         \"\"\"Type check a binary operation which maps to a method call.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED><DED>def check_op_local(self, method: str, base_type: Type, arg: Node,\n                 context: Context, local_errors: 'Errors') -> Tuple[Type, Type]:\n        <IND>",
+        "target_code_with_indent": "    <DED><DED>def check_op_local(self, method: str, base_type: Type, arg: Node,\n                 context: Context, local_errors: MessageBuilder) -> Tuple[Type, Type]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "df1058e37472068bf95649d7d8bc29c17c954ebb",
+    "filename": "mypy/checkexpr.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/checkexpr.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/checkexpr.py:782:40 Incompatible parameter type [6]: Expected `MessageBuilder` for 5th parameter `arg_messages` to call `ExpressionChecker.check_call` but got `Errors`.",
+    "message": " Expected `MessageBuilder` for 5th parameter `arg_messages` to call `ExpressionChecker.check_call` but got `Errors`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 782,
+    "warning_line": "                               context, arg_messages=local_errors)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def check_op_local(self, method: str, base_type: Type, arg: Node,\n                 context: Context, local_errors: 'Errors') -> Tuple[Type, Type]:\n        \"\"\"Type check a binary operation which maps to a method call.\n",
+        "source_code_len": 221,
+        "target_code": "    def check_op_local(self, method: str, base_type: Type, arg: Node,\n                 context: Context, local_errors: MessageBuilder) -> Tuple[Type, Type]:\n        \"\"\"Type check a binary operation which maps to a method call.\n",
+        "target_code_len": 227,
+        "diff_format": "@@ -773,3 +772,3 @@\n     def check_op_local(self, method: str, base_type: Type, arg: Node,\n-                 context: Context, local_errors: 'Errors') -> Tuple[Type, Type]:\n+                 context: Context, local_errors: MessageBuilder) -> Tuple[Type, Type]:\n         \"\"\"Type check a binary operation which maps to a method call.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED><DED>def check_op_local(self, method: str, base_type: Type, arg: Node,\n                 context: Context, local_errors: 'Errors') -> Tuple[Type, Type]:\n        <IND>",
+        "target_code_with_indent": "    <DED><DED>def check_op_local(self, method: str, base_type: Type, arg: Node,\n                 context: Context, local_errors: MessageBuilder) -> Tuple[Type, Type]:\n        <IND>"
+      }
+    ]
+  }
+]

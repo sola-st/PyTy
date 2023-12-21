@@ -1,0 +1,36 @@
+[
+  {
+    "project": "pangeo-data/climpred",
+    "commit": "a1b80a2c52bad23dd1fa3a3317ee1907018d8165",
+    "filename": "climpred/tests/test_comparisons.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pangeo-data-climpred/climpred/tests/test_comparisons.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "climpred/tests/test_comparisons.py:162:0 Incompatible variable type [9]: my_m2me_comparison is declared to have type `typing.Callable(my_m2me_comparison)[[Named(ds, unknown), Named(metric, unknown, default)], typing.Any]` but is used as type `Comparison`.",
+    "message": " my_m2me_comparison is declared to have type `typing.Callable(my_m2me_comparison)[[Named(ds, unknown), Named(metric, unknown, default)], typing.Any]` but is used as type `Comparison`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 162,
+    "warning_line": "my_m2me_comparison = Comparison(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\ndef my_m2me_comparison(ds, metric=None):\n    \"\"\"Identical to m2e but median.\"\"\"\n    reference_list = []\n    forecast_list = []\n    supervector_dim = \"member\"\n    for m in ds.member.values:\n        forecast = ds.drop_sel(member=m).median(\"member\")\n        reference = ds.sel(member=m).squeeze()\n        forecast_list.append(forecast)\n        reference_list.append(reference)\n    reference = xr.concat(reference_list, supervector_dim)\n    forecast = xr.concat(forecast_list, supervector_dim)\n    forecast[supervector_dim] = np.arange(forecast[supervector_dim].size)\n    reference[supervector_dim] = np.arange(reference[supervector_dim].size)\n    return forecast, reference\n\n\nmy_m2me_comparison = Comparison(\n    name=\"m2me\",\n    function=my_m2me_comparison,\n    probabilistic=False,\n    hindcast=False,\n)\n\n\n@pytest.mark.parametrize(\"metric\", (\"rmse\", \"pearson_r\"))\n",
+        "source_code_len": 864,
+        "target_code": "\n@pytest.mark.parametrize(\"metric\", (\"rmse\", \"pearson_r\"))\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -144,27 +144,2 @@\n \n-def my_m2me_comparison(ds, metric=None):\n-    \"\"\"Identical to m2e but median.\"\"\"\n-    reference_list = []\n-    forecast_list = []\n-    supervector_dim = \"member\"\n-    for m in ds.member.values:\n-        forecast = ds.drop_sel(member=m).median(\"member\")\n-        reference = ds.sel(member=m).squeeze()\n-        forecast_list.append(forecast)\n-        reference_list.append(reference)\n-    reference = xr.concat(reference_list, supervector_dim)\n-    forecast = xr.concat(forecast_list, supervector_dim)\n-    forecast[supervector_dim] = np.arange(forecast[supervector_dim].size)\n-    reference[supervector_dim] = np.arange(reference[supervector_dim].size)\n-    return forecast, reference\n-\n-\n-my_m2me_comparison = Comparison(\n-    name=\"m2me\",\n-    function=my_m2me_comparison,\n-    probabilistic=False,\n-    hindcast=False,\n-)\n-\n-\n @pytest.mark.parametrize(\"metric\", (\"rmse\", \"pearson_r\"))\n",
+        "source_code_with_indent": "\n<DED><DED><DED>def my_m2me_comparison(ds, metric=None):\n    <IND>\"\"\"Identical to m2e but median.\"\"\"\n    reference_list = []\n    forecast_list = []\n    supervector_dim = \"member\"\n    for m in ds.member.values:\n        <IND>forecast = ds.drop_sel(member=m).median(\"member\")\n        reference = ds.sel(member=m).squeeze()\n        forecast_list.append(forecast)\n        reference_list.append(reference)\n    <DED>reference = xr.concat(reference_list, supervector_dim)\n    forecast = xr.concat(forecast_list, supervector_dim)\n    forecast[supervector_dim] = np.arange(forecast[supervector_dim].size)\n    reference[supervector_dim] = np.arange(reference[supervector_dim].size)\n    return forecast, reference\n\n\n<DED>my_m2me_comparison = Comparison(\n    name=\"m2me\",\n    function=my_m2me_comparison,\n    probabilistic=False,\n    hindcast=False,\n)\n\n\n@pytest.mark.parametrize(\"metric\", (\"rmse\", \"pearson_r\"))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED><DED>@pytest.mark.parametrize(\"metric\", (\"rmse\", \"pearson_r\"))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

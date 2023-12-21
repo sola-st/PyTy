@@ -1,0 +1,70 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "7d84196519fcdbf96204d754d95c4dbca1ba9121",
+    "filename": "airflow/providers/qubole/operators/qubole_check.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/qubole/operators/qubole_check.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/qubole/operators/qubole_check.py:110:57 Incompatible variable type [9]: results_parser_callable is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " results_parser_callable is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 110,
+    "warning_line": "        self, *, qubole_conn_id: str = \"qubole_default\", results_parser_callable: Callable = None, **kwargs",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def __init__(\n        self, *, qubole_conn_id: str = \"qubole_default\", results_parser_callable: Callable = None, **kwargs\n    ) -> None:\n",
+        "source_code_len": 141,
+        "target_code": "    def __init__(\n        self,\n        *,\n        qubole_conn_id: str = \"qubole_default\",\n        results_parser_callable: Optional[Callable] = None,\n        **kwargs,\n    ) -> None:\n",
+        "target_code_len": 184,
+        "diff_format": "@@ -109,3 +114,7 @@\n     def __init__(\n-        self, *, qubole_conn_id: str = \"qubole_default\", results_parser_callable: Callable = None, **kwargs\n+        self,\n+        *,\n+        qubole_conn_id: str = \"qubole_default\",\n+        results_parser_callable: Optional[Callable] = None,\n+        **kwargs,\n     ) -> None:\n",
+        "source_code_with_indent": "    def __init__(\n        self, *, qubole_conn_id: str = \"qubole_default\", results_parser_callable: Callable = None, **kwargs\n    ) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def __init__(\n        self,\n        *,\n        qubole_conn_id: str = \"qubole_default\",\n        results_parser_callable: Optional[Callable] = None,\n        **kwargs,\n    ) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "7d84196519fcdbf96204d754d95c4dbca1ba9121",
+    "filename": "airflow/providers/qubole/operators/qubole_check.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/qubole/operators/qubole_check.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/qubole/operators/qubole_check.py:171:8 Incompatible variable type [9]: results_parser_callable is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "message": " results_parser_callable is declared to have type `typing.Callable[..., typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 171,
+    "warning_line": "        results_parser_callable: Callable = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        tolerance: Optional[Union[int, float]] = None,\n        results_parser_callable: Callable = None,\n        qubole_conn_id: str = \"qubole_default\",\n",
+        "source_code_len": 153,
+        "target_code": "        tolerance: Optional[Union[int, float]] = None,\n        results_parser_callable: Optional[Callable] = None,\n        qubole_conn_id: str = \"qubole_default\",\n",
+        "target_code_len": 163,
+        "diff_format": "@@ -170,3 +179,3 @@\n         tolerance: Optional[Union[int, float]] = None,\n-        results_parser_callable: Callable = None,\n+        results_parser_callable: Optional[Callable] = None,\n         qubole_conn_id: str = \"qubole_default\",\n",
+        "source_code_with_indent": "        tolerance: Optional[Union[int, float]] = None,\n        results_parser_callable: Callable = None,\n        qubole_conn_id: str = \"qubole_default\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        tolerance: Optional[Union[int, float]] = None,\n        results_parser_callable: Optional[Callable] = None,\n        qubole_conn_id: str = \"qubole_default\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

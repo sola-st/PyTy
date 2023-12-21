@@ -1,0 +1,106 @@
+[
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "1e892e3867115b5bf15c3f145814c37d8a1c28ee",
+    "filename": "rx/concurrency/schedulerbase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ReactiveX-RxPY/rx/concurrency/schedulerbase.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rx/concurrency/schedulerbase.py:109:38 Unsupported operand [58]: `>` is not supported for operand types `Union[float, timedelta]` and `timedelta`.",
+    "message": " `>` is not supported for operand types `Union[float, timedelta]` and `timedelta`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 109,
+    "warning_line": "        if not timespan or timespan < nospan:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            The specified timespan value if it is zero or positive;\n            otherwise, 0\n        \"\"\"\n\n        nospan = timedelta(0) if isinstance(timespan, timedelta) else 0.0\n        if not timespan or timespan < nospan:\n            timespan = nospan\n\n",
+        "source_code_len": 257,
+        "target_code": "            The specified timespan value if it is zero or positive;\n            otherwise, 0.0\n        \"\"\"\n\n        if isinstance(timespan, timedelta):\n            nospan = timedelta(0)\n            if not timespan or timespan < nospan:\n                return nospan\n\n        elif isinstance(timespan, float):\n            if not timespan or timespan < 0.0:\n                return 0.0\n\n",
+        "target_code_len": 384,
+        "diff_format": "@@ -104,8 +106,13 @@\n             The specified timespan value if it is zero or positive;\n-            otherwise, 0\n+            otherwise, 0.0\n         \"\"\"\n \n-        nospan = timedelta(0) if isinstance(timespan, timedelta) else 0.0\n-        if not timespan or timespan < nospan:\n-            timespan = nospan\n+        if isinstance(timespan, timedelta):\n+            nospan = timedelta(0)\n+            if not timespan or timespan < nospan:\n+                return nospan\n+\n+        elif isinstance(timespan, float):\n+            if not timespan or timespan < 0.0:\n+                return 0.0\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n\n        nospan = timedelta(0) if isinstance(timespan, timedelta) else 0.0\n        if not timespan or timespan < nospan:\n            <IND>timespan = nospan\n\n",
+        "target_code_with_indent": "\n\n        if isinstance(timespan, timedelta):\n            <IND>nospan = timedelta(0)\n            if not timespan or timespan < nospan:\n                <IND>return nospan\n\n        <DED><DED>elif isinstance(timespan, float):\n            <IND>if not timespan or timespan < 0.0:\n                <IND>return 0.0\n\n"
+      }
+    ]
+  },
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "1e892e3867115b5bf15c3f145814c37d8a1c28ee",
+    "filename": "rx/core/observable/empty.py",
+    "min_patch_found": false,
+    "full_warning_msg": "rx/core/observable/empty.py:15:35 Incompatible parameter type [6]: Expected `typing.Callable[[rx.core.abc.scheduler.Scheduler, typing.Any], None]` for 1st positional only parameter to call `typing.Scheduler.schedule` but got `typing.Callable[[Named(_, typing.Scheduler), typing.Any], None]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "1e892e3867115b5bf15c3f145814c37d8a1c28ee",
+    "filename": "rx/core/observable/fromiterable.py",
+    "min_patch_found": false,
+    "full_warning_msg": "rx/core/observable/fromiterable.py:45:55 Incompatible parameter type [6]: Expected `typing.Callable[[rx.core.abc.scheduler.Scheduler, typing.Any], None]` for 1st positional only parameter to call `typing.Scheduler.schedule` but got `typing.Callable[[Named(_, typing.Scheduler), typing.Any, default], None]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "1e892e3867115b5bf15c3f145814c37d8a1c28ee",
+    "filename": "rx/core/observable/returnvalue.py",
+    "min_patch_found": false,
+    "full_warning_msg": "rx/core/observable/returnvalue.py:33:35 Incompatible parameter type [6]: Expected `typing.Callable[[Scheduler, typing.Any], None]` for 1st positional only parameter to call `typing.Scheduler.schedule` but got `typing.Callable[[Named(scheduler, typing.Scheduler), Named(state, typing.Any, default)], typing.Any]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "1e892e3867115b5bf15c3f145814c37d8a1c28ee",
+    "filename": "rx/core/observable/throw.py",
+    "min_patch_found": false,
+    "full_warning_msg": "rx/core/observable/throw.py:18:35 Incompatible parameter type [6]: Expected `typing.Callable[[rx.core.abc.scheduler.Scheduler, typing.Any], None]` for 1st positional only parameter to call `typing.Scheduler.schedule` but got `typing.Callable[[Named(scheduler, typing.Scheduler), Named(state, typing.Any)], typing.Any]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "ReactiveX/RxPY",
+    "commit": "1e892e3867115b5bf15c3f145814c37d8a1c28ee",
+    "filename": "rx/core/operators/delay.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ReactiveX-RxPY/rx/core/operators/delay.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rx/core/operators/delay.py:116:49 Incompatible parameter type [6]: Expected `Union[int, timedelta]` for 2nd positional only parameter to call `observable_delay_timespan` but got `Union[float, timedelta]`.",
+    "message": " Expected `Union[int, timedelta]` for 2nd positional only parameter to call `observable_delay_timespan` but got `Union[float, timedelta]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 116,
+    "warning_line": "        return observable_delay_timespan(source, duetime, scheduler)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef observable_delay_timespan(source: Observable, duetime: Union[timedelta, int],\n                              scheduler: typing.Scheduler = None) -> Observable:\n",
+        "source_code_len": 164,
+        "target_code": "\ndef observable_delay_timespan(source: Observable, duetime: typing.RelativeTime,\n                              scheduler: typing.Scheduler = None) -> Observable:\n",
+        "target_code_len": 162,
+        "diff_format": "@@ -15,3 +15,3 @@\n \n-def observable_delay_timespan(source: Observable, duetime: Union[timedelta, int],\n+def observable_delay_timespan(source: Observable, duetime: typing.RelativeTime,\n                               scheduler: typing.Scheduler = None) -> Observable:\n",
+        "source_code_with_indent": "\n<DED><DED>def observable_delay_timespan(source: Observable, duetime: Union[timedelta, int],\n                              scheduler: typing.Scheduler = None) -> Observable:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>def observable_delay_timespan(source: Observable, duetime: typing.RelativeTime,\n                              scheduler: typing.Scheduler = None) -> Observable:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

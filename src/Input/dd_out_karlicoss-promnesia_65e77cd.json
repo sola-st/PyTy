@@ -1,0 +1,51 @@
+[
+  {
+    "project": "karlicoss/promnesia",
+    "commit": "65e77cd67740ef391cba73bc9eac200d9a5b6e63",
+    "filename": "src/promnesia/sources/viber.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlicoss-promnesia/src/promnesia/sources/viber.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/promnesia/sources/viber.py:96:12 Incompatible return type [7]: Expected `str` but got implicit return value of `None`.",
+    "message": " Expected `str` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 96,
+    "warning_line": "            return js.get(\"Title\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from pathlib import Path\nfrom typing import Iterable\n\n",
+        "source_code_len": 54,
+        "target_code": "from pathlib import Path\nfrom typing import Iterable, Optional\n\n",
+        "target_code_len": 64,
+        "diff_format": "@@ -9,3 +9,3 @@\n from pathlib import Path\n-from typing import Iterable\n+from typing import Iterable, Optional\n \n",
+        "source_code_with_indent": "from pathlib import Path\nfrom typing import Iterable\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from pathlib import Path\nfrom typing import Iterable, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _parse_json_title(js) -> str:\n    if js and js.strip():\n",
+        "source_code_len": 61,
+        "target_code": "\ndef _parse_json_title(js) -> Optional[str]:\n    if js and js.strip():\n",
+        "target_code_len": 71,
+        "diff_format": "@@ -91,3 +91,3 @@\n \n-def _parse_json_title(js) -> str:\n+def _parse_json_title(js) -> Optional[str]:\n     if js and js.strip():\n",
+        "source_code_with_indent": "\n<DED>def _parse_json_title(js) -> str:\n    <IND>if js and js.strip():\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _parse_json_title(js) -> Optional[str]:\n    <IND>if js and js.strip():\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

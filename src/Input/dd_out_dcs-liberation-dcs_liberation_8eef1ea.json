@@ -1,0 +1,36 @@
+[
+  {
+    "project": "dcs-liberation/dcs_liberation",
+    "commit": "8eef1eaa7cdcd8f9672a93dc5e8f9771a1ce9a3d",
+    "filename": "gen/flights/traveltime.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/dcs-liberation-dcs_liberation/gen/flights/traveltime.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "gen/flights/traveltime.py:136:15 Unsupported operand [58]: `-` is not supported for operand types `Optional[timedelta]` and `timedelta`.",
+    "message": " `-` is not supported for operand types `Optional[timedelta]` and `timedelta`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 136,
+    "warning_line": "        return tot - travel_time - self.HOLD_TIME",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                tot = flight.flight_plan.tot_for_waypoint(tot_waypoint)\n        return tot - travel_time - self.HOLD_TIME\n",
+        "source_code_len": 122,
+        "target_code": "                tot = flight.flight_plan.tot_for_waypoint(tot_waypoint)\n                if tot is None:\n                    logging.error(f\"TOT waypoint for {flight} has no TOT\")\n                    tot = self.package.time_over_target\n        return tot - travel_time - self.HOLD_TIME\n",
+        "target_code_len": 285,
+        "diff_format": "@@ -135,2 +135,5 @@\n                 tot = flight.flight_plan.tot_for_waypoint(tot_waypoint)\n+                if tot is None:\n+                    logging.error(f\"TOT waypoint for {flight} has no TOT\")\n+                    tot = self.package.time_over_target\n         return tot - travel_time - self.HOLD_TIME\n",
+        "source_code_with_indent": "                <IND>tot = flight.flight_plan.tot_for_waypoint(tot_waypoint)\n        <DED><DED>return tot - travel_time - self.HOLD_TIME\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>tot = flight.flight_plan.tot_for_waypoint(tot_waypoint)\n                if tot is None:\n                    <IND>logging.error(f\"TOT waypoint for {flight} has no TOT\")\n                    tot = self.package.time_over_target\n        <DED><DED><DED>return tot - travel_time - self.HOLD_TIME\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

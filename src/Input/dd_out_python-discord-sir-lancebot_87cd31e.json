@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python-discord/sir-lancebot",
+    "commit": "87cd31e1af470d5ac52beb1edbb9e552eed9ece1",
+    "filename": "bot/pagination.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-discord-sir-lancebot/bot/pagination.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bot/pagination.py:392:35 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `int`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 392,
+    "warning_line": "                current_page = len(paginator.pages - 1)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n                current_page = len(paginator.pages - 1)\n                reaction_type = \"last\"\n",
+        "source_code_len": 96,
+        "target_code": "\n                current_page = len(paginator.pages) - 1\n                reaction_type = \"last\"\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -391,3 +391,3 @@\n \n-                current_page = len(paginator.pages - 1)\n+                current_page = len(paginator.pages) - 1\n                 reaction_type = \"last\"\n",
+        "source_code_with_indent": "\n                <DED>current_page = len(paginator.pages - 1)\n                reaction_type = \"last\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n                <DED>current_page = len(paginator.pages) - 1\n                reaction_type = \"last\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "038c6b884e5cbba4db2a3275375c39aaac8ae876",
+    "filename": "rasa/nlu/extractors/crf_entity_extractor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/nlu/extractors/crf_entity_extractor.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/nlu/extractors/crf_entity_extractor.py:621:46 Incompatible parameter type [6]: Expected `List[Tuple[Optional[str], Optional[str], str, Dict[str, typing.Any], Optional[Dict[str, typing.Any]]]]` for 1st positional only parameter to call `CRFEntityExtractor._sentence_to_features` but got `List[Tuple[Optional[str], Optional[str], str, Dict[str, typing.Any]]]`.",
+    "message": " Expected `List[Tuple[Optional[str], Optional[str], str, Dict[str, typing.Any], Optional[Dict[str, typing.Any]]]]` for 1st positional only parameter to call `CRFEntityExtractor._sentence_to_features` but got `List[Tuple[Optional[str], Optional[str], str, Dict[str, typing.Any]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 621,
+    "warning_line": "        X_train = [self._sentence_to_features(sent) for sent in df_train]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self, examples: List[Message]\n    ) -> List[List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]]:\n        dataset = []\n",
+        "source_code_len": 142,
+        "target_code": "        self, examples: List[Message]\n    ) -> List[\n        List[\n            Tuple[\n                Optional[Text],\n                Optional[Text],\n                Text,\n                Dict[Text, Any],\n                Optional[Dict[Text, Any]],\n            ]\n        ]\n    ]:\n        dataset = []\n",
+        "target_code_len": 300,
+        "diff_format": "@@ -156,3 +156,13 @@\n         self, examples: List[Message]\n-    ) -> List[List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]]:\n+    ) -> List[\n+        List[\n+            Tuple[\n+                Optional[Text],\n+                Optional[Text],\n+                Text,\n+                Dict[Text, Any],\n+                Optional[Dict[Text, Any]],\n+            ]\n+        ]\n+    ]:\n         dataset = []\n",
+        "source_code_with_indent": "        self, examples: List[Message]\n    ) -> List[List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]]:\n        <IND>dataset = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self, examples: List[Message]\n    ) -> List[\n        List[\n            Tuple[\n                Optional[Text],\n                Optional[Text],\n                Text,\n                Dict[Text, Any],\n                Optional[Dict[Text, Any]],\n            ]\n        ]\n    ]:\n        <IND>dataset = []\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        df_train: List[\n            List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]\n        ],\n",
+        "source_code_len": 114,
+        "target_code": "        df_train: List[\n            List[\n                Tuple[\n                    Optional[Text],\n                    Optional[Text],\n                    Text,\n                    Dict[Text, Any],\n                    Optional[Dict[Text, Any]],\n                ]\n            ]\n        ],\n",
+        "target_code_len": 290,
+        "diff_format": "@@ -614,3 +624,11 @@\n         df_train: List[\n-            List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]\n+            List[\n+                Tuple[\n+                    Optional[Text],\n+                    Optional[Text],\n+                    Text,\n+                    Dict[Text, Any],\n+                    Optional[Dict[Text, Any]],\n+                ]\n+            ]\n         ],\n",
+        "source_code_with_indent": "        df_train: List[\n            List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]\n        ],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        df_train: List[\n            List[\n                Tuple[\n                    Optional[Text],\n                    Optional[Text],\n                    Text,\n                    Dict[Text, Any],\n                    Optional[Dict[Text, Any]],\n                ]\n            ]\n        ],\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "038c6b884e5cbba4db2a3275375c39aaac8ae876",
+    "filename": "rasa/nlu/extractors/crf_entity_extractor.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/nlu/extractors/crf_entity_extractor.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/nlu/extractors/crf_entity_extractor.py:622:44 Incompatible parameter type [6]: Expected `List[Tuple[Optional[str], Optional[str], str, Dict[str, typing.Any], Optional[Dict[str, typing.Any]]]]` for 1st positional only parameter to call `CRFEntityExtractor._sentence_to_labels` but got `List[Tuple[Optional[str], Optional[str], str, Dict[str, typing.Any]]]`.",
+    "message": " Expected `List[Tuple[Optional[str], Optional[str], str, Dict[str, typing.Any], Optional[Dict[str, typing.Any]]]]` for 1st positional only parameter to call `CRFEntityExtractor._sentence_to_labels` but got `List[Tuple[Optional[str], Optional[str], str, Dict[str, typing.Any]]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 622,
+    "warning_line": "        y_train = [self._sentence_to_labels(sent) for sent in df_train]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self, examples: List[Message]\n    ) -> List[List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]]:\n        dataset = []\n",
+        "source_code_len": 142,
+        "target_code": "        self, examples: List[Message]\n    ) -> List[\n        List[\n            Tuple[\n                Optional[Text],\n                Optional[Text],\n                Text,\n                Dict[Text, Any],\n                Optional[Dict[Text, Any]],\n            ]\n        ]\n    ]:\n        dataset = []\n",
+        "target_code_len": 300,
+        "diff_format": "@@ -156,3 +156,13 @@\n         self, examples: List[Message]\n-    ) -> List[List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]]:\n+    ) -> List[\n+        List[\n+            Tuple[\n+                Optional[Text],\n+                Optional[Text],\n+                Text,\n+                Dict[Text, Any],\n+                Optional[Dict[Text, Any]],\n+            ]\n+        ]\n+    ]:\n         dataset = []\n",
+        "source_code_with_indent": "        self, examples: List[Message]\n    ) -> List[List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]]:\n        <IND>dataset = []\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self, examples: List[Message]\n    ) -> List[\n        List[\n            Tuple[\n                Optional[Text],\n                Optional[Text],\n                Text,\n                Dict[Text, Any],\n                Optional[Dict[Text, Any]],\n            ]\n        ]\n    ]:\n        <IND>dataset = []\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        df_train: List[\n            List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]\n        ],\n",
+        "source_code_len": 114,
+        "target_code": "        df_train: List[\n            List[\n                Tuple[\n                    Optional[Text],\n                    Optional[Text],\n                    Text,\n                    Dict[Text, Any],\n                    Optional[Dict[Text, Any]],\n                ]\n            ]\n        ],\n",
+        "target_code_len": 290,
+        "diff_format": "@@ -614,3 +624,11 @@\n         df_train: List[\n-            List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]\n+            List[\n+                Tuple[\n+                    Optional[Text],\n+                    Optional[Text],\n+                    Text,\n+                    Dict[Text, Any],\n+                    Optional[Dict[Text, Any]],\n+                ]\n+            ]\n         ],\n",
+        "source_code_with_indent": "        df_train: List[\n            List[Tuple[Optional[Text], Optional[Text], Text, Dict[Text, Any]]]\n        ],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        df_train: List[\n            List[\n                Tuple[\n                    Optional[Text],\n                    Optional[Text],\n                    Text,\n                    Dict[Text, Any],\n                    Optional[Dict[Text, Any]],\n                ]\n            ]\n        ],\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

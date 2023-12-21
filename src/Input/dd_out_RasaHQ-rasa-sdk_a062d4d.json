@@ -1,0 +1,51 @@
+[
+  {
+    "project": "RasaHQ/rasa-sdk",
+    "commit": "a062d4d46952a7dba6a6b031b1bf3bd6d6cf6c1f",
+    "filename": "rasa_sdk/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa-sdk/rasa_sdk/utils.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa_sdk/utils.py:91:4 Incompatible return type [7]: Expected `List[str]` but got `typing.AbstractSet[str]`.",
+    "message": " Expected `List[str]` but got `typing.AbstractSet[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 91,
+    "warning_line": "    return inspect.signature(func).parameters.keys()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import Any, List, Text, Optional\n\n",
+        "source_code_len": 47,
+        "target_code": "\nfrom typing import AbstractSet, Any, List, Text, Optional\n\n",
+        "target_code_len": 60,
+        "diff_format": "@@ -5,3 +5,3 @@\n \n-from typing import Any, List, Text, Optional\n+from typing import AbstractSet, Any, List, Text, Optional\n \n",
+        "source_code_with_indent": "\nfrom typing import Any, List, Text, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import AbstractSet, Any, List, Text, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef arguments_of(func) -> List[Text]:\n    \"\"\"Return the parameters of the function `func` as a list of their names.\"\"\"\n",
+        "source_code_len": 120,
+        "target_code": "\ndef arguments_of(func) -> AbstractSet[Text]:\n    \"\"\"Return the parameters of the function `func` as a list of their names.\"\"\"\n",
+        "target_code_len": 127,
+        "diff_format": "@@ -87,3 +87,3 @@\n \n-def arguments_of(func) -> List[Text]:\n+def arguments_of(func) -> AbstractSet[Text]:\n     \"\"\"Return the parameters of the function `func` as a list of their names.\"\"\"\n",
+        "source_code_with_indent": "\n<DED>def arguments_of(func) -> List[Text]:\n    <IND>\"\"\"Return the parameters of the function `func` as a list of their names.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def arguments_of(func) -> AbstractSet[Text]:\n    <IND>\"\"\"Return the parameters of the function `func` as a list of their names.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "project": "HazyResearch/fonduer",
+    "commit": "b768dae586d9a79780c6b0fbd41185531602f031",
+    "filename": "src/fonduer/utils/data_model_utils/tabular.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HazyResearch-fonduer/src/fonduer/utils/data_model_utils/tabular.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/fonduer/utils/data_model_utils/tabular.py:357:12 Incompatible return type [7]: Expected `Iterator[str]` but got `typing.Generator[Optional[str], None, None]`.",
+    "message": " Expected `Iterator[str]` but got `typing.Generator[Optional[str], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 357,
+    "warning_line": "            yield ngram",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    lower: bool = True,\n) -> Iterator[Union[str, None]]:\n    span = _to_span(mention)\n",
+        "source_code_len": 86,
+        "target_code": "    lower: bool = True,\n) -> Iterator[str]:\n    span = _to_span(mention)\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -504,3 +504,3 @@\n     lower: bool = True,\n-) -> Iterator[Union[str, None]]:\n+) -> Iterator[str]:\n     span = _to_span(mention)\n",
+        "source_code_with_indent": "    lower: bool = True,\n) -> Iterator[Union[str, None]]:\n    <IND>span = _to_span(mention)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    lower: bool = True,\n) -> Iterator[str]:\n    <IND>span = _to_span(mention)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if not span.sentence.is_tabular():\n        yield None\n        return\n\n",
+        "source_code_len": 74,
+        "target_code": "    if not span.sentence.is_tabular():\n        return\n        yield\n\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -508,4 +508,4 @@\n     if not span.sentence.is_tabular():\n-        yield None\n         return\n+        yield\n \n",
+        "source_code_with_indent": "    if not span.sentence.is_tabular():\n        <IND>yield None\n        return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if not span.sentence.is_tabular():\n        <IND>return\n        yield\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "HazyResearch/fonduer",
+    "commit": "b768dae586d9a79780c6b0fbd41185531602f031",
+    "filename": "src/fonduer/utils/data_model_utils/tabular.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/HazyResearch-fonduer/src/fonduer/utils/data_model_utils/tabular.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/fonduer/utils/data_model_utils/tabular.py:390:12 Incompatible return type [7]: Expected `Iterator[str]` but got `typing.Generator[Optional[str], None, None]`.",
+    "message": " Expected `Iterator[str]` but got `typing.Generator[Optional[str], None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 390,
+    "warning_line": "            yield ngram",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    lower: bool = True,\n) -> Iterator[Union[str, None]]:\n    span = _to_span(mention)\n",
+        "source_code_len": 86,
+        "target_code": "    lower: bool = True,\n) -> Iterator[str]:\n    span = _to_span(mention)\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -504,3 +504,3 @@\n     lower: bool = True,\n-) -> Iterator[Union[str, None]]:\n+) -> Iterator[str]:\n     span = _to_span(mention)\n",
+        "source_code_with_indent": "    lower: bool = True,\n) -> Iterator[Union[str, None]]:\n    <IND>span = _to_span(mention)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    lower: bool = True,\n) -> Iterator[str]:\n    <IND>span = _to_span(mention)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if not span.sentence.is_tabular():\n        yield None\n        return\n\n",
+        "source_code_len": 74,
+        "target_code": "    if not span.sentence.is_tabular():\n        return\n        yield\n\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -508,4 +508,4 @@\n     if not span.sentence.is_tabular():\n-        yield None\n         return\n+        yield\n \n",
+        "source_code_with_indent": "    if not span.sentence.is_tabular():\n        <IND>yield None\n        return\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    if not span.sentence.is_tabular():\n        <IND>return\n        yield\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

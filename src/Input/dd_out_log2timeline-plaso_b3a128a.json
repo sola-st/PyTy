@@ -1,0 +1,36 @@
+[
+  {
+    "project": "log2timeline/plaso",
+    "commit": "b3a128ae2c06eeffc7528ef3df41d02585da80e3",
+    "filename": "parsers/firefox.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/log2timeline-plaso/parsers/firefox.py",
+    "file_hunks_size": 6,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "parsers/firefox.py:198:24 Incompatible parameter type [6]: Expected `int` for 1st positional only parameter to call `dict.setdefault` but got `str`.",
+    "message": " Expected `int` for 1st positional only parameter to call `dict.setdefault` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 198,
+    "warning_line": "  _URL_TYPES.setdefault('N/A')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n  # TODO: move to formatter.\n  _URL_TYPES = {\n      1: 'LINK',\n      2: 'TYPED',\n      3: 'BOOKMARK',\n      4: 'EMBED',\n      5: 'REDIRECT_PERMANENT',\n      6: 'REDIRECT_TEMPORARY',\n      7: 'DOWNLOAD'\n  }\n  _URL_TYPES.setdefault('N/A')\n\n  __pychecker__ = 'unusednames=kwargs'\n",
+        "source_code_len": 278,
+        "target_code": "\n  __pychecker__ = 'unusednames=kwargs'\n",
+        "target_code_len": 40,
+        "diff_format": "@@ -187,14 +189,2 @@\n \n-  # TODO: move to formatter.\n-  _URL_TYPES = {\n-      1: 'LINK',\n-      2: 'TYPED',\n-      3: 'BOOKMARK',\n-      4: 'EMBED',\n-      5: 'REDIRECT_PERMANENT',\n-      6: 'REDIRECT_TEMPORARY',\n-      7: 'DOWNLOAD'\n-  }\n-  _URL_TYPES.setdefault('N/A')\n-\n   __pychecker__ = 'unusednames=kwargs'\n",
+        "source_code_with_indent": "\n  # TODO: move to formatter.\n  _URL_TYPES = {\n      1: 'LINK',\n      2: 'TYPED',\n      3: 'BOOKMARK',\n      4: 'EMBED',\n      5: 'REDIRECT_PERMANENT',\n      6: 'REDIRECT_TEMPORARY',\n      7: 'DOWNLOAD'\n  }\n  _URL_TYPES.setdefault('N/A')\n\n  __pychecker__ = 'unusednames=kwargs'\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n  __pychecker__ = 'unusednames=kwargs'\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "cc9ae324e35ef54e418133f15dc30844a86aa963",
+    "filename": "UM/TaskManagement/HttpRequestManager.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/TaskManagement/HttpRequestManager.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/TaskManagement/HttpRequestManager.py:340:39 Unsupported operand [58]: `-` is not supported for operand types `float` and `Optional[float]`.",
+    "message": " `-` is not supported for operand types `float` and `Optional[float]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 340,
+    "warning_line": "            time_spent = time.time() - request_data.start_time",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if self._enable_request_benchmarking:\n            time_spent = time.time() - request_data.start_time\n            Logger.log(\"d\", \"Request [%s] finished, took %s seconds, pending for %s seconds\",\n",
+        "source_code_len": 203,
+        "target_code": "        if self._enable_request_benchmarking:\n            time_spent = None  # type: Optional[float]\n            if request_data.start_time is not None:\n                time_spent = time.time() - request_data.start_time\n            Logger.log(\"d\", \"Request [%s] finished, took %s seconds, pending for %s seconds\",\n",
+        "target_code_len": 314,
+        "diff_format": "@@ -339,3 +339,5 @@\n         if self._enable_request_benchmarking:\n-            time_spent = time.time() - request_data.start_time\n+            time_spent = None  # type: Optional[float]\n+            if request_data.start_time is not None:\n+                time_spent = time.time() - request_data.start_time\n             Logger.log(\"d\", \"Request [%s] finished, took %s seconds, pending for %s seconds\",\n",
+        "source_code_with_indent": "        if self._enable_request_benchmarking:\n            <IND>time_spent = time.time() - request_data.start_time\n            Logger.log(\"d\", \"Request [%s] finished, took %s seconds, pending for %s seconds\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if self._enable_request_benchmarking:\n            <IND>time_spent = None  # type: Optional[float]\n            if request_data.start_time is not None:\n                <IND>time_spent = time.time() - request_data.start_time\n            <DED>Logger.log(\"d\", \"Request [%s] finished, took %s seconds, pending for %s seconds\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

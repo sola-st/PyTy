@@ -1,0 +1,70 @@
+[
+  {
+    "project": "citruz/beacontools",
+    "commit": "7ea8dd5d80b955f8c53bd8833cd46c6f729156b6",
+    "filename": "beacontools/structs/eddystone.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/citruz-beacontools/beacontools/structs/eddystone.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "beacontools/structs/eddystone.py:77:4 Unsupported operand [58]: `/` is not supported for operand types `str` and `typing.Any`.",
+    "message": " `/` is not supported for operand types `str` and `typing.Any`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 77,
+    "warning_line": "    \"value\" / Switch(lambda ctx: ctx.type, {",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": ")\n\n\nLTV = Struct(\n    \"length\" / Byte,\n    \"type\" / Byte,\n    \"value\" / Switch(lambda ctx: ctx.type, {\n        FLAGS_DATA_TYPE: BitStruct(\n            \"reserved\" / BitsInteger(3),\n            \"le_br_edr_support_host\" / Flag,\n            \"le_br_edr_support_controller\" / Flag,\n            \"br_edr_not_supported\" / Flag,\n            \"le_general_discoverable_mode\" / Flag,\n            \"le_limited_discoverable_mode\" / Flag,\n        ),\n        COMPLETE_SERVICE_UUIDS_DATA_TYPE: OneOf(Bytes(2), [EDDYSTONE_UUID, ESTIMOTE_UUID]),\n        SERVICE_DATA_TYPE: ServiceData\n    }, default=Array(lambda ctx: ctx.length - 1, Byte)),\n)\n\nLTVFrame = GreedyRange(LTV)\n",
+        "source_code_len": 651,
+        "target_code": ")\n",
+        "target_code_len": 2,
+        "diff_format": "@@ -71,21 +68,1 @@\n )\n-\n-\n-LTV = Struct(\n-    \"length\" / Byte,\n-    \"type\" / Byte,\n-    \"value\" / Switch(lambda ctx: ctx.type, {\n-        FLAGS_DATA_TYPE: BitStruct(\n-            \"reserved\" / BitsInteger(3),\n-            \"le_br_edr_support_host\" / Flag,\n-            \"le_br_edr_support_controller\" / Flag,\n-            \"br_edr_not_supported\" / Flag,\n-            \"le_general_discoverable_mode\" / Flag,\n-            \"le_limited_discoverable_mode\" / Flag,\n-        ),\n-        COMPLETE_SERVICE_UUIDS_DATA_TYPE: OneOf(Bytes(2), [EDDYSTONE_UUID, ESTIMOTE_UUID]),\n-        SERVICE_DATA_TYPE: ServiceData\n-    }, default=Array(lambda ctx: ctx.length - 1, Byte)),\n-)\n-\n-LTVFrame = GreedyRange(LTV)\n",
+        "source_code_with_indent": ")\n\n\nLTV = Struct(\n    \"length\" / Byte,\n    \"type\" / Byte,\n    \"value\" / Switch(lambda ctx: ctx.type, {\n        FLAGS_DATA_TYPE: BitStruct(\n            \"reserved\" / BitsInteger(3),\n            \"le_br_edr_support_host\" / Flag,\n            \"le_br_edr_support_controller\" / Flag,\n            \"br_edr_not_supported\" / Flag,\n            \"le_general_discoverable_mode\" / Flag,\n            \"le_limited_discoverable_mode\" / Flag,\n        ),\n        COMPLETE_SERVICE_UUIDS_DATA_TYPE: OneOf(Bytes(2), [EDDYSTONE_UUID, ESTIMOTE_UUID]),\n        SERVICE_DATA_TYPE: ServiceData\n    }, default=Array(lambda ctx: ctx.length - 1, Byte)),\n)\n\nLTVFrame = GreedyRange(LTV)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": ")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "citruz/beacontools",
+    "commit": "7ea8dd5d80b955f8c53bd8833cd46c6f729156b6",
+    "filename": "beacontools/structs/eddystone.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/citruz-beacontools/beacontools/structs/eddystone.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "beacontools/structs/eddystone.py:79:12 Unsupported operand [58]: `/` is not supported for operand types `str` and `typing.Any`.",
+    "message": " `/` is not supported for operand types `str` and `typing.Any`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 79,
+    "warning_line": "            \"reserved\" / BitsInteger(3),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": ")\n\n\nLTV = Struct(\n    \"length\" / Byte,\n    \"type\" / Byte,\n    \"value\" / Switch(lambda ctx: ctx.type, {\n        FLAGS_DATA_TYPE: BitStruct(\n            \"reserved\" / BitsInteger(3),\n            \"le_br_edr_support_host\" / Flag,\n            \"le_br_edr_support_controller\" / Flag,\n            \"br_edr_not_supported\" / Flag,\n            \"le_general_discoverable_mode\" / Flag,\n            \"le_limited_discoverable_mode\" / Flag,\n        ),\n        COMPLETE_SERVICE_UUIDS_DATA_TYPE: OneOf(Bytes(2), [EDDYSTONE_UUID, ESTIMOTE_UUID]),\n        SERVICE_DATA_TYPE: ServiceData\n    }, default=Array(lambda ctx: ctx.length - 1, Byte)),\n)\n\nLTVFrame = GreedyRange(LTV)\n",
+        "source_code_len": 651,
+        "target_code": ")\n",
+        "target_code_len": 2,
+        "diff_format": "@@ -71,21 +68,1 @@\n )\n-\n-\n-LTV = Struct(\n-    \"length\" / Byte,\n-    \"type\" / Byte,\n-    \"value\" / Switch(lambda ctx: ctx.type, {\n-        FLAGS_DATA_TYPE: BitStruct(\n-            \"reserved\" / BitsInteger(3),\n-            \"le_br_edr_support_host\" / Flag,\n-            \"le_br_edr_support_controller\" / Flag,\n-            \"br_edr_not_supported\" / Flag,\n-            \"le_general_discoverable_mode\" / Flag,\n-            \"le_limited_discoverable_mode\" / Flag,\n-        ),\n-        COMPLETE_SERVICE_UUIDS_DATA_TYPE: OneOf(Bytes(2), [EDDYSTONE_UUID, ESTIMOTE_UUID]),\n-        SERVICE_DATA_TYPE: ServiceData\n-    }, default=Array(lambda ctx: ctx.length - 1, Byte)),\n-)\n-\n-LTVFrame = GreedyRange(LTV)\n",
+        "source_code_with_indent": ")\n\n\nLTV = Struct(\n    \"length\" / Byte,\n    \"type\" / Byte,\n    \"value\" / Switch(lambda ctx: ctx.type, {\n        FLAGS_DATA_TYPE: BitStruct(\n            \"reserved\" / BitsInteger(3),\n            \"le_br_edr_support_host\" / Flag,\n            \"le_br_edr_support_controller\" / Flag,\n            \"br_edr_not_supported\" / Flag,\n            \"le_general_discoverable_mode\" / Flag,\n            \"le_limited_discoverable_mode\" / Flag,\n        ),\n        COMPLETE_SERVICE_UUIDS_DATA_TYPE: OneOf(Bytes(2), [EDDYSTONE_UUID, ESTIMOTE_UUID]),\n        SERVICE_DATA_TYPE: ServiceData\n    }, default=Array(lambda ctx: ctx.length - 1, Byte)),\n)\n\nLTVFrame = GreedyRange(LTV)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": ")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

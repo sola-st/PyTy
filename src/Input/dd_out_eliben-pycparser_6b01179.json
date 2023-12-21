@@ -1,0 +1,36 @@
+[
+  {
+    "project": "eliben/pycparser",
+    "commit": "6b0117989691942c2d736a0a8950e55e1bdf9950",
+    "filename": "z_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/eliben-pycparser/z_test.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "z_test.py:99:4 Incompatible variable type [9]: nv is declared to have type `NodeVisitor` but is used as type `pycparser.c_ast.NodeVisitor`.",
+    "message": " nv is declared to have type `NodeVisitor` but is used as type `pycparser.c_ast.NodeVisitor`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 99,
+    "warning_line": "    nv=NodeVisitor()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    ast.show(showcoord=False)\n    nv=NodeVisitor()\n    nv.visit(ast)\n    \n",
+        "source_code_len": 74,
+        "target_code": "    ast.show(showcoord=False)\n    #~ nv=NodeVisitor()\n    #~ nv.visit(ast)\n    \n",
+        "target_code_len": 80,
+        "diff_format": "@@ -98,4 +115,4 @@\n     ast.show(showcoord=False)\n-    nv=NodeVisitor()\n-    nv.visit(ast)\n+    #~ nv=NodeVisitor()\n+    #~ nv.visit(ast)\n     \n",
+        "source_code_with_indent": "    ast.show(showcoord=False)\n    nv=NodeVisitor()\n    nv.visit(ast)\n    \n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    ast.show(showcoord=False)\n    #~ nv=NodeVisitor()\n    #~ nv.visit(ast)\n    \n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

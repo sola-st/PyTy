@@ -1,0 +1,36 @@
+[
+  {
+    "project": "determined-ai/determined",
+    "commit": "767fb018f98c0bffa2d849c689fd8db8ff16f9ef",
+    "filename": "harness/determined/gpu.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/determined-ai-determined/harness/determined/gpu.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "harness/determined/gpu.py:41:37 Incompatible parameter type [6]: Expected `typing.Iterable[str]` for 1st positional only parameter to call `_csv.reader` but got `Optional[typing.IO[typing.Any]]`.",
+    "message": " Expected `typing.Iterable[str]` for 1st positional only parameter to call `_csv.reader` but got `Optional[typing.IO[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 41,
+    "warning_line": "        for field_list in csv.reader(proc.stdout):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "    with proc:\n        for field_list in csv.reader(proc.stdout):\n            if len(field_list) != len(gpu_fields):\n",
+        "source_code_len": 117,
+        "target_code": "    with proc:\n        for field_list in csv.reader(proc.stdout.read()):  # type: ignore\n            if len(field_list) != len(gpu_fields):\n",
+        "target_code_len": 140,
+        "diff_format": "@@ -40,3 +40,3 @@\n     with proc:\n-        for field_list in csv.reader(proc.stdout):\n+        for field_list in csv.reader(proc.stdout.read()):  # type: ignore\n             if len(field_list) != len(gpu_fields):\n",
+        "source_code_with_indent": "    with proc:\n        <IND>for field_list in csv.reader(proc.stdout):\n            <IND>if len(field_list) != len(gpu_fields):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    with proc:\n        <IND>for field_list in csv.reader(proc.stdout.read()):  # type: ignore\n            <IND>if len(field_list) != len(gpu_fields):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

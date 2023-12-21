@@ -1,0 +1,36 @@
+[
+  {
+    "project": "automl/NASLib",
+    "commit": "178d6b3d7f610138889959129521e0707536eb0d",
+    "filename": "naslib/benchmarks/predictors/runner.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/automl-NASLib/naslib/benchmarks/predictors/runner.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "naslib/benchmarks/predictors/runner.py:32:19 Unbound name [10]: Name `FeedforwardPredictor` is used but not defined in the current scope.",
+    "message": " Name `FeedforwardPredictor` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 32,
+    "warning_line": "    'feedforward': FeedforwardPredictor(encoding_type='adjacency_one_hot', hpo_wrapper=True),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "    'gpwl1': GPWLPredictor(ss_type=config.search_space, kernel_type='wloa', optimize_gp_hyper=True, h=1),\n    'feedforward': FeedforwardPredictor(encoding_type='adjacency_one_hot', hpo_wrapper=True),\n    'bananas': Ensemble(predictor_type='bananas', num_ensemble=3, hpo_wrapper=True),\n",
+        "source_code_len": 285,
+        "target_code": "    'gpwl1': GPWLPredictor(ss_type=config.search_space, kernel_type='wloa', optimize_gp_hyper=True, h=1),\n    'bananas': Ensemble(predictor_type='bananas', num_ensemble=3, hpo_wrapper=True),\n",
+        "target_code_len": 191,
+        "diff_format": "@@ -31,3 +31,2 @@\n     'gpwl1': GPWLPredictor(ss_type=config.search_space, kernel_type='wloa', optimize_gp_hyper=True, h=1),\n-    'feedforward': FeedforwardPredictor(encoding_type='adjacency_one_hot', hpo_wrapper=True),\n     'bananas': Ensemble(predictor_type='bananas', num_ensemble=3, hpo_wrapper=True),\n",
+        "source_code_with_indent": "    'gpwl1': GPWLPredictor(ss_type=config.search_space, kernel_type='wloa', optimize_gp_hyper=True, h=1),\n    'feedforward': FeedforwardPredictor(encoding_type='adjacency_one_hot', hpo_wrapper=True),\n    'bananas': Ensemble(predictor_type='bananas', num_ensemble=3, hpo_wrapper=True),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    'gpwl1': GPWLPredictor(ss_type=config.search_space, kernel_type='wloa', optimize_gp_hyper=True, h=1),\n    'bananas': Ensemble(predictor_type='bananas', num_ensemble=3, hpo_wrapper=True),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

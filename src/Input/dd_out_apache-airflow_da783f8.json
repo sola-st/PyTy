@@ -1,0 +1,113 @@
+[
+  {
+    "project": "apache/airflow",
+    "commit": "da783f88a16e20211d7087bd5c8802dc002c78a8",
+    "filename": "airflow/providers/sftp/hooks/sftp.py",
+    "min_patch_found": false,
+    "full_warning_msg": "airflow/providers/sftp/hooks/sftp.py:132:40 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `paramiko.hostkeys.HostKeys.add` but got `Optional[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "da783f88a16e20211d7087bd5c8802dc002c78a8",
+    "filename": "airflow/providers/ssh/hooks/ssh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/ssh/hooks/ssh.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/ssh/hooks/ssh.py:243:40 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `paramiko.config.SSHConfig.lookup` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `paramiko.config.SSHConfig.lookup` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 243,
+    "warning_line": "            host_info = ssh_conf.lookup(self.remote_host)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ssh_conn_id: Optional[str] = None,\n        remote_host: Optional[str] = None,\n        username: Optional[str] = None,\n",
+        "source_code_len": 126,
+        "target_code": "        ssh_conn_id: Optional[str] = None,\n        remote_host: str = '',\n        username: Optional[str] = None,\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -105,3 +105,3 @@\n         ssh_conn_id: Optional[str] = None,\n-        remote_host: Optional[str] = None,\n+        remote_host: str = '',\n         username: Optional[str] = None,\n",
+        "source_code_with_indent": "        ssh_conn_id: Optional[str] = None,\n        remote_host: Optional[str] = None,\n        username: Optional[str] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ssh_conn_id: Optional[str] = None,\n        remote_host: str = '',\n        username: Optional[str] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "da783f88a16e20211d7087bd5c8802dc002c78a8",
+    "filename": "airflow/providers/ssh/hooks/ssh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/ssh/hooks/ssh.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/ssh/hooks/ssh.py:245:56 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `paramiko.proxy.ProxyCommand.__init__` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `paramiko.proxy.ProxyCommand.__init__` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 245,
+    "warning_line": "                self.host_proxy = paramiko.ProxyCommand(host_info.get('proxycommand'))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if host_info and host_info.get('proxycommand'):\n                self.host_proxy = paramiko.ProxyCommand(host_info.get('proxycommand'))\n\n",
+        "source_code_len": 148,
+        "target_code": "            if host_info and host_info.get('proxycommand'):\n                self.host_proxy = paramiko.ProxyCommand(host_info['proxycommand'])\n\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -244,3 +244,3 @@\n             if host_info and host_info.get('proxycommand'):\n-                self.host_proxy = paramiko.ProxyCommand(host_info.get('proxycommand'))\n+                self.host_proxy = paramiko.ProxyCommand(host_info['proxycommand'])\n \n",
+        "source_code_with_indent": "            if host_info and host_info.get('proxycommand'):\n                <IND>self.host_proxy = paramiko.ProxyCommand(host_info.get('proxycommand'))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            if host_info and host_info.get('proxycommand'):\n                <IND>self.host_proxy = paramiko.ProxyCommand(host_info['proxycommand'])\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "apache/airflow",
+    "commit": "da783f88a16e20211d7087bd5c8802dc002c78a8",
+    "filename": "airflow/providers/ssh/hooks/ssh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/apache-airflow/airflow/providers/ssh/hooks/ssh.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "airflow/providers/ssh/hooks/ssh.py:277:41 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `paramiko.hostkeys.HostKeys.add` but got `Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `paramiko.hostkeys.HostKeys.add` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 277,
+    "warning_line": "                    client_host_keys.add(self.remote_host, self.host_key.get_name(), self.host_key)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ssh_conn_id: Optional[str] = None,\n        remote_host: Optional[str] = None,\n        username: Optional[str] = None,\n",
+        "source_code_len": 126,
+        "target_code": "        ssh_conn_id: Optional[str] = None,\n        remote_host: str = '',\n        username: Optional[str] = None,\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -105,3 +105,3 @@\n         ssh_conn_id: Optional[str] = None,\n-        remote_host: Optional[str] = None,\n+        remote_host: str = '',\n         username: Optional[str] = None,\n",
+        "source_code_with_indent": "        ssh_conn_id: Optional[str] = None,\n        remote_host: Optional[str] = None,\n        username: Optional[str] = None,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ssh_conn_id: Optional[str] = None,\n        remote_host: str = '',\n        username: Optional[str] = None,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

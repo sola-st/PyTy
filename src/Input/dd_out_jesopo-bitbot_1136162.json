@@ -1,0 +1,36 @@
+[
+  {
+    "project": "jesopo/bitbot",
+    "commit": "1136162057279730a42b77924af22bda9c019647",
+    "filename": "src/utils/irc.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/jesopo-bitbot/src/utils/irc.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/utils/irc.py:118:20 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `list.append` but got `typing.Optional[str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `list.append` but got `typing.Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 118,
+    "warning_line": "        args.append(arbitrary)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    if not arbitrary == None:\n        args.append(arbitrary)\n\n",
+        "source_code_len": 62,
+        "target_code": "    if not arbitrary == None:\n        args.append(typing.cast(str, arbitrary))\n\n",
+        "target_code_len": 80,
+        "diff_format": "@@ -117,3 +117,3 @@\n     if not arbitrary == None:\n-        args.append(arbitrary)\n+        args.append(typing.cast(str, arbitrary))\n \n",
+        "source_code_with_indent": "    <DED>if not arbitrary == None:\n        <IND>args.append(arbitrary)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>if not arbitrary == None:\n        <IND>args.append(typing.cast(str, arbitrary))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

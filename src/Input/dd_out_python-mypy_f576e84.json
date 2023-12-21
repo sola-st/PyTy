@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "f576e84caaa3c89bbddde76d4d10b0dfe4a6c227",
+    "filename": "mypy/fastparse.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/fastparse.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/fastparse.py:401:80 Incompatible parameter type [6]: Expected `Errors` for 3rd positional only parameter to call `parse_type_comment` but got `int`.",
+    "message": " Expected `Errors` for 3rd positional only parameter to call `parse_type_comment` but got `int`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 401,
+    "warning_line": "                    arg_type = parse_type_comment(arg.type_comment, arg.lineno, arg.col_offset)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                elif arg.type_comment is not None:\n                    arg_type = parse_type_comment(arg.type_comment, arg.lineno, arg.col_offset)\n            return Argument(Var(arg.arg), arg_type, self.visit(default), kind)\n",
+        "source_code_len": 226,
+        "target_code": "                elif arg.type_comment is not None:\n                    arg_type = parse_type_comment(arg.type_comment, arg.lineno, self.errors)\n            return Argument(Var(arg.arg), arg_type, self.visit(default), kind)\n",
+        "target_code_len": 223,
+        "diff_format": "@@ -400,3 +400,3 @@\n                 elif arg.type_comment is not None:\n-                    arg_type = parse_type_comment(arg.type_comment, arg.lineno, arg.col_offset)\n+                    arg_type = parse_type_comment(arg.type_comment, arg.lineno, self.errors)\n             return Argument(Var(arg.arg), arg_type, self.visit(default), kind)\n",
+        "source_code_with_indent": "                <DED>elif arg.type_comment is not None:\n                    <IND>arg_type = parse_type_comment(arg.type_comment, arg.lineno, arg.col_offset)\n            <DED><DED>return Argument(Var(arg.arg), arg_type, self.visit(default), kind)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <DED>elif arg.type_comment is not None:\n                    <IND>arg_type = parse_type_comment(arg.type_comment, arg.lineno, self.errors)\n            <DED><DED>return Argument(Var(arg.arg), arg_type, self.visit(default), kind)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

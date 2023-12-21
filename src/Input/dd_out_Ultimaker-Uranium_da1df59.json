@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "da1df5993293198c724412b9026178e7f3b14d73",
+    "filename": "UM/Settings/Models/InstanceContainersModel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/Models/InstanceContainersModel.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/Models/InstanceContainersModel.py:144:8 Incompatible return type [7]: Expected `Dict[str, str]` but got `typing.Optional[Dict[str, str]]`.",
+    "message": " Expected `Dict[str, str]` but got `typing.Optional[Dict[str, str]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 144,
+    "warning_line": "        return self._filter_dicts[0] if len(self._filter_dicts) != 0 else None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def filter(self) -> Dict[str, str]:\n        return self._filter_dicts[0] if len(self._filter_dicts) != 0 else None\n\n",
+        "source_code_len": 120,
+        "target_code": "    def filter(self) -> Dict[str, str]:\n        return self._filter_dicts[0] if len(self._filter_dicts) != 0 else {}\n\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -143,3 +143,3 @@\n     def filter(self) -> Dict[str, str]:\n-        return self._filter_dicts[0] if len(self._filter_dicts) != 0 else None\n+        return self._filter_dicts[0] if len(self._filter_dicts) != 0 else {}\n \n",
+        "source_code_with_indent": "    def filter(self) -> Dict[str, str]:\n        <IND>return self._filter_dicts[0] if len(self._filter_dicts) != 0 else None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def filter(self) -> Dict[str, str]:\n        <IND>return self._filter_dicts[0] if len(self._filter_dicts) != 0 else {}\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

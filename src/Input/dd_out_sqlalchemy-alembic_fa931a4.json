@@ -1,0 +1,60 @@
+[
+  {
+    "project": "sqlalchemy/alembic",
+    "commit": "fa931a444b078df031280a580b9768193e45b6fa",
+    "filename": "alembic/script/revision.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sqlalchemy-alembic/alembic/script/revision.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "alembic/script/revision.py:1208:28 Incompatible parameter type [6]: Expected `Sequence[Variable[_T (bound to Union[Revision, str])]]` for 1st positional only parameter to call `RevisionMap.filter_for_lineage` but got `Iterator[Revision]`.",
+    "message": " Expected `Sequence[Variable[_T (bound to Union[Revision, str])]]` for 1st positional only parameter to call `RevisionMap.filter_for_lineage` but got `Iterator[Revision]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1208,
+    "warning_line": "                            self._get_ancestor_nodes(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from typing import FrozenSet\nfrom typing import Iterator\n",
+        "source_code_len": 57,
+        "target_code": "from typing import FrozenSet\nfrom typing import Iterable\nfrom typing import Iterator\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -9,2 +9,3 @@\n from typing import FrozenSet\n+from typing import Iterable\n from typing import Iterator\n",
+        "source_code_with_indent": "from typing import FrozenSet\nfrom typing import Iterator\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from typing import FrozenSet\nfrom typing import Iterable\nfrom typing import Iterator\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        targets: Sequence[_T],\n        check_against: Optional[str],\n",
+        "source_code_len": 83,
+        "target_code": "        self,\n        targets: Iterable[_T],\n        check_against: Optional[str],\n",
+        "target_code_len": 83,
+        "diff_format": "@@ -667,3 +668,3 @@\n         self,\n-        targets: Sequence[_T],\n+        targets: Iterable[_T],\n         check_against: Optional[str],\n",
+        "source_code_with_indent": "        self,\n        targets: Sequence[_T],\n        check_against: Optional[str],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        targets: Iterable[_T],\n        check_against: Optional[str],\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "sqlalchemy/alembic",
+    "commit": "fa931a444b078df031280a580b9768193e45b6fa",
+    "filename": "tests/_large_map.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/_large_map.py:149:19 Incompatible parameter type [6]: Expected `typing.Callable[[], typing.Iterator[Revision]]` for 1st positional only parameter to call `RevisionMap.__init__` but got `typing.Callable[[], typing.List[Revision]]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

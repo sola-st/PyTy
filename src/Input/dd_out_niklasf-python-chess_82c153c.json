@@ -1,0 +1,51 @@
+[
+  {
+    "project": "niklasf/python-chess",
+    "commit": "82c153c83487b75fd7e694cbdbf3c46fe7f48c59",
+    "filename": "chess/polyglot.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/niklasf-python-chess/chess/polyglot.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "chess/polyglot.py:329:12 Incompatible attribute type [8]: Attribute `mmap` declared in class `MemoryMappedReader` has type `Optional[mmap.mmap]` but is used as type `_EmptyMmap`.",
+    "message": " Attribute `mmap` declared in class `MemoryMappedReader` has type `Optional[mmap.mmap]` but is used as type `_EmptyMmap`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 329,
+    "warning_line": "            self.mmap = _EmptyMmap()  # Workaround for empty opening books.",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        try:\n            self.mmap: Optional[mmap.mmap] = mmap.mmap(self.fd, 0, access=mmap.ACCESS_READ)\n        except (ValueError, mmap.error):  # type: ignore\n            self.mmap = _EmptyMmap()  # Workaround for empty opening books.\n",
+        "source_code_len": 238,
+        "target_code": "        try:\n            self.mmap: Union[mmap.mmap, _EmptyMmap] = mmap.mmap(self.fd, 0, access=mmap.ACCESS_READ)\n        except (ValueError, OSError):\n            self.mmap = _EmptyMmap()  # Workaround for empty opening books.\n",
+        "target_code_len": 228,
+        "diff_format": "@@ -326,4 +326,4 @@\n         try:\n-            self.mmap: Optional[mmap.mmap] = mmap.mmap(self.fd, 0, access=mmap.ACCESS_READ)\n-        except (ValueError, mmap.error):  # type: ignore\n+            self.mmap: Union[mmap.mmap, _EmptyMmap] = mmap.mmap(self.fd, 0, access=mmap.ACCESS_READ)\n+        except (ValueError, OSError):\n             self.mmap = _EmptyMmap()  # Workaround for empty opening books.\n",
+        "source_code_with_indent": "        try:\n            <IND>self.mmap: Optional[mmap.mmap] = mmap.mmap(self.fd, 0, access=mmap.ACCESS_READ)\n        <DED>except (ValueError, mmap.error):  # type: ignore\n            <IND>self.mmap = _EmptyMmap()  # Workaround for empty opening books.\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        try:\n            <IND>self.mmap: Union[mmap.mmap, _EmptyMmap] = mmap.mmap(self.fd, 0, access=mmap.ACCESS_READ)\n        <DED>except (ValueError, OSError):\n            <IND>self.mmap = _EmptyMmap()  # Workaround for empty opening books.\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            # Python 3.8\n            self.mmap.madvise(mmap.MADV_RANDOM)\n        except AttributeError:\n",
+        "source_code_len": 104,
+        "target_code": "            # Python 3.8\n            self.mmap.madvise(mmap.MADV_RANDOM)  # type: ignore\n        except AttributeError:\n",
+        "target_code_len": 120,
+        "diff_format": "@@ -332,3 +332,3 @@\n             # Python 3.8\n-            self.mmap.madvise(mmap.MADV_RANDOM)\n+            self.mmap.madvise(mmap.MADV_RANDOM)  # type: ignore\n         except AttributeError:\n",
+        "source_code_with_indent": "            # Python 3.8\n            <IND>self.mmap.madvise(mmap.MADV_RANDOM)\n        <DED>except AttributeError:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            # Python 3.8\n            <IND>self.mmap.madvise(mmap.MADV_RANDOM)  # type: ignore\n        <DED>except AttributeError:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

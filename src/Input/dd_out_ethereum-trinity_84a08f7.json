@@ -1,0 +1,104 @@
+[
+  {
+    "project": "ethereum/trinity",
+    "commit": "84a08f7803e7307524b8b132184dffe83ca73705",
+    "filename": "eth2/beacon/committee_helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/eth2/beacon/committee_helpers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eth2/beacon/committee_helpers.py:350:36 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[ValidatorIndex]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Iterable[ValidatorIndex]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 350,
+    "warning_line": "    validate_bitfield(bitfield, len(committee))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@to_tuple\ndef get_members_from_bitfield(committee: Iterable[ValidatorIndex],\n                              bitfield: Bitfield) -> Iterable[ValidatorIndex]:\n",
+        "source_code_len": 156,
+        "target_code": "@to_tuple\ndef get_members_from_bitfield(committee: Sequence[ValidatorIndex],\n                              bitfield: Bitfield) -> Iterable[ValidatorIndex]:\n",
+        "target_code_len": 156,
+        "diff_format": "@@ -339,3 +339,3 @@\n @to_tuple\n-def get_members_from_bitfield(committee: Iterable[ValidatorIndex],\n+def get_members_from_bitfield(committee: Sequence[ValidatorIndex],\n                               bitfield: Bitfield) -> Iterable[ValidatorIndex]:\n",
+        "source_code_with_indent": "<DED><DED>@to_tuple\ndef get_members_from_bitfield(committee: Iterable[ValidatorIndex],\n                              bitfield: Bitfield) -> Iterable[ValidatorIndex]:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>@to_tuple\ndef get_members_from_bitfield(committee: Sequence[ValidatorIndex],\n                              bitfield: Bitfield) -> Iterable[ValidatorIndex]:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/trinity",
+    "commit": "84a08f7803e7307524b8b132184dffe83ca73705",
+    "filename": "eth2/beacon/helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/eth2/beacon/helpers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eth2/beacon/helpers.py:234:4 Incompatible return type [7]: Expected `BLSPubkey` but got `map[BLSPubkey]`.",
+    "message": " Expected `BLSPubkey` but got `map[BLSPubkey]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 234,
+    "warning_line": "    return map(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        validators: Sequence['ValidatorRecord'],\n        *indices: Sequence[Sequence['ValidatorIndex']]) -> BLSPubkey:\n    get_pubkeys = functools.partial(get_pubkey_for_indices, validators)\n",
+        "source_code_len": 191,
+        "target_code": "        validators: Sequence['ValidatorRecord'],\n        *indices: Sequence[Sequence['ValidatorIndex']]) -> Iterable[BLSPubkey]:\n    get_pubkeys = functools.partial(get_pubkey_for_indices, validators)\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -231,3 +231,3 @@\n         validators: Sequence['ValidatorRecord'],\n-        *indices: Sequence[Sequence['ValidatorIndex']]) -> BLSPubkey:\n+        *indices: Sequence[Sequence['ValidatorIndex']]) -> Iterable[BLSPubkey]:\n     get_pubkeys = functools.partial(get_pubkey_for_indices, validators)\n",
+        "source_code_with_indent": "        validators: Sequence['ValidatorRecord'],\n        *indices: Sequence[Sequence['ValidatorIndex']]) -> BLSPubkey:\n    <IND>get_pubkeys = functools.partial(get_pubkey_for_indices, validators)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        validators: Sequence['ValidatorRecord'],\n        *indices: Sequence[Sequence['ValidatorIndex']]) -> Iterable[BLSPubkey]:\n    <IND>get_pubkeys = functools.partial(get_pubkey_for_indices, validators)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ethereum/trinity",
+    "commit": "84a08f7803e7307524b8b132184dffe83ca73705",
+    "filename": "eth2/beacon/helpers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ethereum-trinity/eth2/beacon/helpers.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "eth2/beacon/helpers.py:270:8 Incompatible parameter type [6]: Expected `Sequence[BLSPubkey]` for 1st parameter `pubkeys` to call `bls.verify_multiple` but got `Iterable[BLSPubkey]`.",
+    "message": " Expected `Sequence[BLSPubkey]` for 1st parameter `pubkeys` to call `bls.verify_multiple` but got `Iterable[BLSPubkey]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 270,
+    "warning_line": "        pubkeys=pubkeys,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        validators: Sequence['ValidatorRecord'],\n        slashable_attestation: 'SlashableAttestation') -> Iterable[BLSPubkey]:\n    \"\"\"\n",
+        "source_code_len": 136,
+        "target_code": "        validators: Sequence['ValidatorRecord'],\n        slashable_attestation: 'SlashableAttestation') -> Sequence[BLSPubkey]:\n    \"\"\"\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -241,3 +241,3 @@\n         validators: Sequence['ValidatorRecord'],\n-        slashable_attestation: 'SlashableAttestation') -> Iterable[BLSPubkey]:\n+        slashable_attestation: 'SlashableAttestation') -> Sequence[BLSPubkey]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        validators: Sequence['ValidatorRecord'],\n        slashable_attestation: 'SlashableAttestation') -> Iterable[BLSPubkey]:\n    <IND>",
+        "target_code_with_indent": "        validators: Sequence['ValidatorRecord'],\n        slashable_attestation: 'SlashableAttestation') -> Sequence[BLSPubkey]:\n    <IND>"
+      }
+    ]
+  }
+]

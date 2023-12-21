@@ -1,0 +1,36 @@
+[
+  {
+    "project": "0xZDH/o365spray",
+    "commit": "26ba53bf7d3e47464a35072d64320ad4aa484f97",
+    "filename": "o365spray/core/handlers/sprayer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/0xZDH-o365spray/o365spray/core/handlers/sprayer.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "o365spray/core/handlers/sprayer.py:419:33 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Tuple[str]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.__setitem__` but got `typing.Tuple[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 419,
+    "warning_line": "            headers[\"Accept\"] = (\"application/json\",)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            headers = Defaults.HTTP_HEADERS\n            headers[\"Accept\"] = (\"application/json\",)\n            headers[\"Content-Type\"] = \"application/x-www-form-urlencoded\"\n",
+        "source_code_len": 172,
+        "target_code": "            headers = Defaults.HTTP_HEADERS\n            headers[\"Accept\"] = \"application/json\"\n            headers[\"Content-Type\"] = \"application/x-www-form-urlencoded\"\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -418,3 +418,3 @@\n             headers = Defaults.HTTP_HEADERS\n-            headers[\"Accept\"] = (\"application/json\",)\n+            headers[\"Accept\"] = \"application/json\"\n             headers[\"Content-Type\"] = \"application/x-www-form-urlencoded\"\n",
+        "source_code_with_indent": "            headers = Defaults.HTTP_HEADERS\n            headers[\"Accept\"] = (\"application/json\",)\n            headers[\"Content-Type\"] = \"application/x-www-form-urlencoded\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            headers = Defaults.HTTP_HEADERS\n            headers[\"Accept\"] = \"application/json\"\n            headers[\"Content-Type\"] = \"application/x-www-form-urlencoded\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

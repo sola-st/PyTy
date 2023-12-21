@@ -1,0 +1,119 @@
+[
+  {
+    "project": "facebookresearch/ReAgent",
+    "commit": "87fffc9fe31af7d7b1e224d9bb70615d501bace2",
+    "filename": "ml/rl/test/gridworld/gridworld.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-ReAgent/ml/rl/test/gridworld/gridworld.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ml/rl/test/gridworld/gridworld.py:22:8 Incompatible return type [7]: Expected `ml.rl.test.environment.environment.Samples` but got `typing.Union[ml.rl.test.environment.environment.MultiStepSamples, ml.rl.test.environment.environment.Samples]`.",
+    "message": " Expected `ml.rl.test.environment.environment.Samples` but got `typing.Union[ml.rl.test.environment.environment.MultiStepSamples, ml.rl.test.environment.environment.Samples]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 22,
+    "warning_line": "        return self.generate_random_samples(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom typing import List, Optional\n\nfrom ml.rl.test.gridworld.gridworld_base import GridworldBase, Samples\n",
+        "source_code_len": 107,
+        "target_code": "\nfrom typing import List, Optional, Union\n\nfrom ml.rl.test.environment.environment import MultiStepSamples\nfrom ml.rl.test.gridworld.gridworld_base import GridworldBase, Samples\n",
+        "target_code_len": 178,
+        "diff_format": "@@ -4,4 +4,5 @@\n \n-from typing import List, Optional\n+from typing import List, Optional, Union\n \n+from ml.rl.test.environment.environment import MultiStepSamples\n from ml.rl.test.gridworld.gridworld_base import GridworldBase, Samples\n",
+        "source_code_with_indent": "\nfrom typing import List, Optional\n\nfrom ml.rl.test.gridworld.gridworld_base import GridworldBase, Samples\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom typing import List, Optional, Union\n\nfrom ml.rl.test.environment.environment import MultiStepSamples\nfrom ml.rl.test.gridworld.gridworld_base import GridworldBase, Samples\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        multi_steps: Optional[int] = None,\n    ) -> Samples:\n        return self.generate_random_samples(\n",
+        "source_code_len": 106,
+        "target_code": "        multi_steps: Optional[int] = None,\n    ) -> Union[Samples, MultiStepSamples]:\n        return self.generate_random_samples(\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -20,3 +21,3 @@\n         multi_steps: Optional[int] = None,\n-    ) -> Samples:\n+    ) -> Union[Samples, MultiStepSamples]:\n         return self.generate_random_samples(\n",
+        "source_code_with_indent": "        multi_steps: Optional[int] = None,\n    ) -> Samples:\n        <IND>return self.generate_random_samples(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        multi_steps: Optional[int] = None,\n    ) -> Union[Samples, MultiStepSamples]:\n        <IND>return self.generate_random_samples(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/ReAgent",
+    "commit": "87fffc9fe31af7d7b1e224d9bb70615d501bace2",
+    "filename": "ml/rl/test/gridworld/gridworld_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-ReAgent/ml/rl/test/gridworld/gridworld_base.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ml/rl/test/gridworld/gridworld_base.py:343:4 Inconsistent override [14]: `ml.rl.test.gridworld.gridworld_base.GridworldBase.possible_actions` overrides method defined in `Environment` inconsistently. Could not find parameter `terminal` in overriding signature.",
+    "message": " `ml.rl.test.gridworld.gridworld_base.GridworldBase.possible_actions` overrides method defined in `Environment` inconsistently. Could not find parameter `terminal` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 343,
+    "warning_line": "    def possible_actions(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        state,\n        ignore_terminal=False,\n",
+        "source_code_len": 46,
+        "target_code": "        state,\n        terminal=False,\n        ignore_terminal=False,\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -345,2 +337,3 @@\n         state,\n+        terminal=False,\n         ignore_terminal=False,\n",
+        "source_code_with_indent": "        state,\n        ignore_terminal=False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        state,\n        terminal=False,\n        ignore_terminal=False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/ReAgent",
+    "commit": "87fffc9fe31af7d7b1e224d9bb70615d501bace2",
+    "filename": "ml/rl/test/gym/open_ai_gym_environment.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-ReAgent/ml/rl/test/gym/open_ai_gym_environment.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ml/rl/test/gym/open_ai_gym_environment.py:393:4 Inconsistent override [14]: `ml.rl.test.gym.open_ai_gym_environment.OpenAIGymEnvironment.possible_actions` overrides method defined in `Environment` inconsistently. Could not find parameter `ignore_terminal` in overriding signature.",
+    "message": " `ml.rl.test.gym.open_ai_gym_environment.OpenAIGymEnvironment.possible_actions` overrides method defined in `Environment` inconsistently. Could not find parameter `ignore_terminal` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 393,
+    "warning_line": "    def possible_actions(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        terminal: bool = False,\n        use_continuous_action: bool = False,\n",
+        "source_code_len": 77,
+        "target_code": "        terminal: bool = False,\n        ignore_terminal=False,\n        use_continuous_action: bool = False,\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -396,2 +396,3 @@\n         terminal: bool = False,\n+        ignore_terminal=False,\n         use_continuous_action: bool = False,\n",
+        "source_code_with_indent": "        terminal: bool = False,\n        use_continuous_action: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        terminal: bool = False,\n        ignore_terminal=False,\n        use_continuous_action: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "project": "snowflakedb/SnowAlert",
+    "commit": "cfb0142be917b1ebbf6a2a55286e8bdc08c94d98",
+    "filename": "src/connectors/assetpanda.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snowflakedb-SnowAlert/src/connectors/assetpanda.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/connectors/assetpanda.py:50:65 Invalid type [31]: Expression `(list, int)` is not a valid type.",
+    "message": " Expression `(list, int)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 50,
+    "warning_line": "def get_list_objects_and_total_from_get_object(result: dict) -> (list, int):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom runners.helpers import db, log\n",
+        "source_code_len": 37,
+        "target_code": "\nfrom datetime import datetime\nfrom functools import reduce\nimport re\nimport requests\nfrom typing import Tuple\nfrom urllib.error import HTTPError\n\nfrom runners.helpers import db, log\n",
+        "target_code_len": 183,
+        "diff_format": "@@ -4,2 +4,9 @@\n \n+from datetime import datetime\n+from functools import reduce\n+import re\n+import requests\n+from typing import Tuple\n+from urllib.error import HTTPError\n+\n from runners.helpers import db, log\n",
+        "source_code_with_indent": "\nfrom runners.helpers import db, log\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom datetime import datetime\nfrom functools import reduce\nimport re\nimport requests\nfrom typing import Tuple\nfrom urllib.error import HTTPError\n\nfrom runners.helpers import db, log\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef get_list_objects_and_total_from_get_object(result: dict) -> (list, int):\n    \"\"\"Retrieve the values needed from the results objects\"\"\"\n",
+        "source_code_len": 140,
+        "target_code": "\ndef get_list_objects_and_total_from_get_object(result: dict) -> Tuple[list, int]:\n    \"\"\"Retrieve the values needed from the results objects\"\"\"\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -49,3 +50,3 @@\n \n-def get_list_objects_and_total_from_get_object(result: dict) -> (list, int):\n+def get_list_objects_and_total_from_get_object(result: dict) -> Tuple[list, int]:\n     \"\"\"Retrieve the values needed from the results objects\"\"\"\n",
+        "source_code_with_indent": "\ndef get_list_objects_and_total_from_get_object(result: dict) -> (list, int):\n    <IND>\"\"\"Retrieve the values needed from the results objects\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\ndef get_list_objects_and_total_from_get_object(result: dict) -> Tuple[list, int]:\n    <IND>\"\"\"Retrieve the values needed from the results objects\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "snowflakedb/SnowAlert",
+    "commit": "cfb0142be917b1ebbf6a2a55286e8bdc08c94d98",
+    "filename": "src/connectors/assetpanda.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/snowflakedb-SnowAlert/src/connectors/assetpanda.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/connectors/assetpanda.py:67:4 Incompatible return type [7]: Expected `str` but got `typing.Dict[typing.Any, typing.Any]`.",
+    "message": " Expected `str` but got `typing.Dict[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 67,
+    "warning_line": "    return accumulated_value",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef reduce_fields(accumulated_value: dict, field: dict) -> str:\n    \"\"\"Because AssetPanda has custom fields that are named via free-text in the tool we need to perform cleanup\n",
+        "source_code_len": 177,
+        "target_code": "\ndef reduce_fields(accumulated_value: dict, field: dict) -> dict:\n    \"\"\"Because AssetPanda has custom fields that are named via free-text in the tool we need to perform cleanup\n",
+        "target_code_len": 178,
+        "diff_format": "@@ -59,3 +60,3 @@\n \n-def reduce_fields(accumulated_value: dict, field: dict) -> str:\n+def reduce_fields(accumulated_value: dict, field: dict) -> dict:\n     \"\"\"Because AssetPanda has custom fields that are named via free-text in the tool we need to perform cleanup\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def reduce_fields(accumulated_value: dict, field: dict) -> str:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def reduce_fields(accumulated_value: dict, field: dict) -> dict:\n    <IND>"
+      }
+    ]
+  }
+]

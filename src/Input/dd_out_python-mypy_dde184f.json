@@ -1,0 +1,87 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "dde184f51db578cbb7a0c29052a595f2fd5d340b",
+    "filename": "mypy/fixup.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/fixup.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/fixup.py:180:4 Inconsistent override [14]: `mypy.fixup.TypeFixer.visit_ellipsis_type` overrides method defined in `TypeVisitor` inconsistently. Could not find parameter `t` in overriding signature.",
+    "message": " `mypy.fixup.TypeFixer.visit_ellipsis_type` overrides method defined in `TypeVisitor` inconsistently. Could not find parameter `t` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 180,
+    "warning_line": "    def visit_ellipsis_type(self, e: EllipsisType) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def visit_ellipsis_type(self, e: EllipsisType) -> None:\n        pass  # Nothing to descend into.\n\n    def visit_overloaded(self, t: Overloaded) -> None:\n",
+        "source_code_len": 158,
+        "target_code": "\n    def visit_overloaded(self, t: Overloaded) -> None:\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -179,5 +179,2 @@\n \n-    def visit_ellipsis_type(self, e: EllipsisType) -> None:\n-        pass  # Nothing to descend into.\n-\n     def visit_overloaded(self, t: Overloaded) -> None:\n",
+        "source_code_with_indent": "\n    <DED><DED>def visit_ellipsis_type(self, e: EllipsisType) -> None:\n        <IND>pass  # Nothing to descend into.\n\n    <DED>def visit_overloaded(self, t: Overloaded) -> None:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def visit_overloaded(self, t: Overloaded) -> None:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "dde184f51db578cbb7a0c29052a595f2fd5d340b",
+    "filename": "mypy/fixup.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/fixup.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/fixup.py:213:4 Inconsistent override [14]: `mypy.fixup.TypeFixer.visit_type_list` overrides method defined in `TypeVisitor` inconsistently. Could not find parameter `t` in overriding signature.",
+    "message": " `mypy.fixup.TypeFixer.visit_type_list` overrides method defined in `TypeVisitor` inconsistently. Could not find parameter `t` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 213,
+    "warning_line": "    def visit_type_list(self, tl: TypeList) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "            tdt.fallback.accept(self)\n\n    def visit_type_list(self, tl: TypeList) -> None:\n        for t in tl.items:\n            t.accept(self)\n\n",
+        "source_code_len": 147,
+        "target_code": "            tdt.fallback.accept(self)\n\n",
+        "target_code_len": 39,
+        "diff_format": "@@ -211,6 +208,2 @@\n             tdt.fallback.accept(self)\n-\n-    def visit_type_list(self, tl: TypeList) -> None:\n-        for t in tl.items:\n-            t.accept(self)\n \n",
+        "source_code_with_indent": "            <IND>tdt.fallback.accept(self)\n\n    <DED><DED>def visit_type_list(self, tl: TypeList) -> None:\n        <IND>for t in tl.items:\n            <IND>t.accept(self)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>tdt.fallback.accept(self)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "python/mypy",
+    "commit": "dde184f51db578cbb7a0c29052a595f2fd5d340b",
+    "filename": "mypy/subtypes.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/subtypes.py",
+    "file_hunks_size": 2,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/subtypes.py:566:4 Inconsistent override [14]: `mypy.subtypes.ProperSubtypeVisitor.visit_type_list` overrides method defined in `TypeVisitor` inconsistently. Could not find parameter `t` in overriding signature.",
+    "message": " `mypy.subtypes.ProperSubtypeVisitor.visit_type_list` overrides method defined in `TypeVisitor` inconsistently. Could not find parameter `t` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 566,
+    "warning_line": "    def visit_type_list(self, left: TypeList) -> bool:"
+  }
+]

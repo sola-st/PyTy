@@ -1,0 +1,190 @@
+[
+  {
+    "project": "ydkhatri/mac_apt",
+    "commit": "efabc9695e513bd936c701abd750f5d5a1e2534f",
+    "filename": "plugins/basicinfo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ydkhatri-mac_apt/plugins/basicinfo.py",
+    "file_hunks_size": 11,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/basicinfo.py:35:33 Unbound name [10]: Name `DataType` is used but not defined in the current scope.",
+    "message": " Name `DataType` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 35,
+    "warning_line": "basic_data_info = [ ('INFO_TYPE',DataType.TEXT),('Name',DataType.TEXT),('Data',DataType.TEXT),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "'''\nfrom __future__ import print_function\nfrom __future__ import unicode_literals\nimport os\nimport sqlite3\nimport logging\nfrom helpers.macinfo import *\nfrom helpers.writer import *\nfrom helpers.common import *\n\n\n\n",
+        "source_code_len": 213,
+        "target_code": "'''\n\nimport logging\nimport os\nimport sqlite3\nfrom plugins.helpers.common import *\nfrom plugins.helpers.macinfo import *\nfrom plugins.helpers.writer import *\n\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -8,12 +8,9 @@\n '''\n-from __future__ import print_function\n-from __future__ import unicode_literals\n+\n+import logging\n import os\n import sqlite3\n-import logging\n-from helpers.macinfo import *\n-from helpers.writer import *\n-from helpers.common import *\n-\n-\n+from plugins.helpers.common import *\n+from plugins.helpers.macinfo import *\n+from plugins.helpers.writer import *\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nfrom __future__ import print_function\nfrom __future__ import unicode_literals\nimport os\nimport sqlite3\nimport logging\nfrom helpers.macinfo import *\nfrom helpers.writer import *\nfrom helpers.common import *\n\n\n\n",
+        "target_code_with_indent": "\n\nimport logging\nimport os\nimport sqlite3\nfrom plugins.helpers.common import *\nfrom plugins.helpers.macinfo import *\nfrom plugins.helpers.writer import *\n\n"
+      }
+    ]
+  },
+  {
+    "project": "ydkhatri/mac_apt",
+    "commit": "efabc9695e513bd936c701abd750f5d5a1e2534f",
+    "filename": "plugins/helpers/apfs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ydkhatri-mac_apt/plugins/helpers/apfs.py",
+    "file_hunks_size": 30,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/helpers/apfs.py:72:8 Inconsistent override [15]: `name` overrides attribute defined in `Enum` inconsistently. Type `Apfs.EntryType` is not a subtype of the overridden attribute `str`.",
+    "message": " `name` overrides attribute defined in `Enum` inconsistently. Type `Apfs.EntryType` is not a subtype of the overridden attribute `str`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 72,
+    "warning_line": "        name = 9",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    class ContentType(Enum):\n        empty = 0\n        history = 9\n        location = 11\n        files = 14\n        extents = 15\n        unknown3 = 16\n\n    class EaType(Enum):\n        unknown_1 = 1\n        generic = 2\n        symlink = 6\n        unknown_17 = 17 # new unknown one!\n\n    class BlockType(Enum):\n        containersuperblock = 1\n        rootnode = 2\n        node = 3\n        spaceman = 5\n        allocationinfofile = 7\n        btree = 11\n        checkpoint = 12\n        volumesuperblock = 13\n        unknown = 17\n\n    class ItemType(Enum):\n        empty = 0\n        unknown_1 = 1\n        folder = 4\n        file = 8\n        symlink = 10\n        unknown_12 = 12\n\n    class EntryType(Enum):\n        location = 0\n        inode = 2\n        thread = 3\n        extattr = 4\n        hardlink = 5\n        entry6 = 6\n        extent = 8\n        name = 9\n        entry12 = 12\n    def __init__(self, _io, _parent=None, _root=None):\n",
+        "source_code_len": 932,
+        "target_code": "\n    class InodeFlags(Enum):\n        IS_APFS_PRIVATE = 0x00000001\n        MAINTAIN_DIR_STATS = 0x00000002\n        DIR_STATS_ORIGIN = 0x00000004\n        PROT_CLASS_EXPLICIT = 0x00000008\n        WAS_CLONED = 0x00000010\n        FLAG_UNUSED = 0x00000020\n        HAS_SECURITY_EA = 0x00000040\n        BEING_TRUNCATED = 0x00000080\n        HAS_FINDER_INFO = 0x00000100\n        IS_SPARSE = 0x00000200\n        WAS_EVER_CLONED = 0x00000400\n        ACTIVE_FILE_TRIMMED = 0x00000800\n        PINNED_TO_MAIN = 0x00001000\n        PINNED_TO_TIER2 = 0x00002000\n        HAS_RSRC_FORK = 0x00004000\n        NO_RSRC_FORK = 0x00008000\n        ALLOCATION_SPILLEDOVER = 0x00010000\n    \n    class ObjectTypeFlag(Enum):\n        VIRTUAL = 0\n        EPHEMERAL = 0x80000000\n        PHYSICAL = 0x40000000\n        NOHEADER = 0x20000000\n        ENCRYPTED = 0x10000000\n        NONPERSISTENT = 0x08000000\n\n    class ObjType(Enum):\n        none = 0\n        containersuperblock = 1\n        btree = 2\n        btree_node = 3\n        reserved = 4\n        spaceman = 5\n        spaceman_cab = 6\n        allocationinfofile = 7\n        spaceman_bitmap = 8\n        spaceman_free_queue = 9\n        extent_list_tree = 10\n        omap = 11\n        checkpoint = 12\n        volumesuperblock = 13\n        fstree = 14\n        blockreftree = 15\n        snapmetatree = 16\n        nx_reaper = 0x11\n        nx_reap_list = 0x12\n        omap_snapshot = 0x13\n        efi_jumpstart = 0x14\n        fusion_middle_tree = 0x15\n        nx_fusion_wbc = 0x16\n        nx_fusion_wbc_list = 0x17\n        er_stat = 0x18\n        gbitmap = 0x19\n        gbitmap_tree = 0x1a\n        gbitmap_block = 0x1b\n        # There are more types seen, like 0x1D\n        unk1 = 0x1C\n        unk2 = 0x1D\n        unk3 = 0x1E\n        unk4 = 0x1F\n\n    class ItemType(Enum):\n        unknown = 0\n        fifo_named_pipe = 1\n        character_special_file = 2\n        folder = 4\n        block_special_file = 6\n        regular_file = 8\n        symlink = 10\n        socket = 12\n        whiteout = 14\n\n    class EntryType(Enum):\n        location = 0 # any\n        snap_metadata = 1\n        extent = 2\n        inode = 3\n        xattr = 4\n        sibling_link = 5\n        dstream_id = 6\n        crypto_state = 7\n        file_extent = 8\n        dir_rec = 9\n        dir_stats = 10\n        snap_name = 11\n        sibling_map = 12\n        unknown_reserved = 13\n        unknown_reserved2 = 14\n        invalid = 15\n\n    class SnapshotFlag(Enum):\n        deleted = 1\n        reverted = 2\n\n    def __init__(self, _io, _parent=None, _root=None):\n",
+        "target_code_len": 2538,
+        "diff_format": "@@ -30,45 +67,97 @@\n \n-    class ContentType(Enum):\n-        empty = 0\n-        history = 9\n-        location = 11\n-        files = 14\n-        extents = 15\n-        unknown3 = 16\n-\n-    class EaType(Enum):\n-        unknown_1 = 1\n-        generic = 2\n-        symlink = 6\n-        unknown_17 = 17 # new unknown one!\n-\n-    class BlockType(Enum):\n+    class InodeFlags(Enum):\n+        IS_APFS_PRIVATE = 0x00000001\n+        MAINTAIN_DIR_STATS = 0x00000002\n+        DIR_STATS_ORIGIN = 0x00000004\n+        PROT_CLASS_EXPLICIT = 0x00000008\n+        WAS_CLONED = 0x00000010\n+        FLAG_UNUSED = 0x00000020\n+        HAS_SECURITY_EA = 0x00000040\n+        BEING_TRUNCATED = 0x00000080\n+        HAS_FINDER_INFO = 0x00000100\n+        IS_SPARSE = 0x00000200\n+        WAS_EVER_CLONED = 0x00000400\n+        ACTIVE_FILE_TRIMMED = 0x00000800\n+        PINNED_TO_MAIN = 0x00001000\n+        PINNED_TO_TIER2 = 0x00002000\n+        HAS_RSRC_FORK = 0x00004000\n+        NO_RSRC_FORK = 0x00008000\n+        ALLOCATION_SPILLEDOVER = 0x00010000\n+    \n+    class ObjectTypeFlag(Enum):\n+        VIRTUAL = 0\n+        EPHEMERAL = 0x80000000\n+        PHYSICAL = 0x40000000\n+        NOHEADER = 0x20000000\n+        ENCRYPTED = 0x10000000\n+        NONPERSISTENT = 0x08000000\n+\n+    class ObjType(Enum):\n+        none = 0\n         containersuperblock = 1\n-        rootnode = 2\n-        node = 3\n+        btree = 2\n+        btree_node = 3\n+        reserved = 4\n         spaceman = 5\n+        spaceman_cab = 6\n         allocationinfofile = 7\n-        btree = 11\n+        spaceman_bitmap = 8\n+        spaceman_free_queue = 9\n+        extent_list_tree = 10\n+        omap = 11\n         checkpoint = 12\n         volumesuperblock = 13\n-        unknown = 17\n+        fstree = 14\n+        blockreftree = 15\n+        snapmetatree = 16\n+        nx_reaper = 0x11\n+        nx_reap_list = 0x12\n+        omap_snapshot = 0x13\n+        efi_jumpstart = 0x14\n+        fusion_middle_tree = 0x15\n+        nx_fusion_wbc = 0x16\n+        nx_fusion_wbc_list = 0x17\n+        er_stat = 0x18\n+        gbitmap = 0x19\n+        gbitmap_tree = 0x1a\n+        gbitmap_block = 0x1b\n+        # There are more types seen, like 0x1D\n+        unk1 = 0x1C\n+        unk2 = 0x1D\n+        unk3 = 0x1E\n+        unk4 = 0x1F\n \n     class ItemType(Enum):\n-        empty = 0\n-        unknown_1 = 1\n+        unknown = 0\n+        fifo_named_pipe = 1\n+        character_special_file = 2\n         folder = 4\n-        file = 8\n+        block_special_file = 6\n+        regular_file = 8\n         symlink = 10\n-        unknown_12 = 12\n+        socket = 12\n+        whiteout = 14\n \n     class EntryType(Enum):\n-        location = 0\n-        inode = 2\n-        thread = 3\n-        extattr = 4\n-        hardlink = 5\n-        entry6 = 6\n-        extent = 8\n-        name = 9\n-        entry12 = 12\n+        location = 0 # any\n+        snap_metadata = 1\n+        extent = 2\n+        inode = 3\n+        xattr = 4\n+        sibling_link = 5\n+        dstream_id = 6\n+        crypto_state = 7\n+        file_extent = 8\n+        dir_rec = 9\n+        dir_stats = 10\n+        snap_name = 11\n+        sibling_map = 12\n+        unknown_reserved = 13\n+        unknown_reserved2 = 14\n+        invalid = 15\n+\n+    class SnapshotFlag(Enum):\n+        deleted = 1\n+        reverted = 2\n+\n     def __init__(self, _io, _parent=None, _root=None):\n",
+        "source_code_with_indent": "\n    <IND>class ContentType(Enum):\n        <IND>empty = 0\n        history = 9\n        location = 11\n        files = 14\n        extents = 15\n        unknown3 = 16\n\n    <DED>class EaType(Enum):\n        <IND>unknown_1 = 1\n        generic = 2\n        symlink = 6\n        unknown_17 = 17 # new unknown one!\n\n    <DED>class BlockType(Enum):\n        <IND>containersuperblock = 1\n        rootnode = 2\n        node = 3\n        spaceman = 5\n        allocationinfofile = 7\n        btree = 11\n        checkpoint = 12\n        volumesuperblock = 13\n        unknown = 17\n\n    <DED>class ItemType(Enum):\n        <IND>empty = 0\n        unknown_1 = 1\n        folder = 4\n        file = 8\n        symlink = 10\n        unknown_12 = 12\n\n    <DED>class EntryType(Enum):\n        <IND>location = 0\n        inode = 2\n        thread = 3\n        extattr = 4\n        hardlink = 5\n        entry6 = 6\n        extent = 8\n        name = 9\n        entry12 = 12\n    <DED>def __init__(self, _io, _parent=None, _root=None):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <IND>class InodeFlags(Enum):\n        <IND>IS_APFS_PRIVATE = 0x00000001\n        MAINTAIN_DIR_STATS = 0x00000002\n        DIR_STATS_ORIGIN = 0x00000004\n        PROT_CLASS_EXPLICIT = 0x00000008\n        WAS_CLONED = 0x00000010\n        FLAG_UNUSED = 0x00000020\n        HAS_SECURITY_EA = 0x00000040\n        BEING_TRUNCATED = 0x00000080\n        HAS_FINDER_INFO = 0x00000100\n        IS_SPARSE = 0x00000200\n        WAS_EVER_CLONED = 0x00000400\n        ACTIVE_FILE_TRIMMED = 0x00000800\n        PINNED_TO_MAIN = 0x00001000\n        PINNED_TO_TIER2 = 0x00002000\n        HAS_RSRC_FORK = 0x00004000\n        NO_RSRC_FORK = 0x00008000\n        ALLOCATION_SPILLEDOVER = 0x00010000\n    \n    <DED>class ObjectTypeFlag(Enum):\n        <IND>VIRTUAL = 0\n        EPHEMERAL = 0x80000000\n        PHYSICAL = 0x40000000\n        NOHEADER = 0x20000000\n        ENCRYPTED = 0x10000000\n        NONPERSISTENT = 0x08000000\n\n    <DED>class ObjType(Enum):\n        <IND>none = 0\n        containersuperblock = 1\n        btree = 2\n        btree_node = 3\n        reserved = 4\n        spaceman = 5\n        spaceman_cab = 6\n        allocationinfofile = 7\n        spaceman_bitmap = 8\n        spaceman_free_queue = 9\n        extent_list_tree = 10\n        omap = 11\n        checkpoint = 12\n        volumesuperblock = 13\n        fstree = 14\n        blockreftree = 15\n        snapmetatree = 16\n        nx_reaper = 0x11\n        nx_reap_list = 0x12\n        omap_snapshot = 0x13\n        efi_jumpstart = 0x14\n        fusion_middle_tree = 0x15\n        nx_fusion_wbc = 0x16\n        nx_fusion_wbc_list = 0x17\n        er_stat = 0x18\n        gbitmap = 0x19\n        gbitmap_tree = 0x1a\n        gbitmap_block = 0x1b\n        # There are more types seen, like 0x1D\n        unk1 = 0x1C\n        unk2 = 0x1D\n        unk3 = 0x1E\n        unk4 = 0x1F\n\n    <DED>class ItemType(Enum):\n        <IND>unknown = 0\n        fifo_named_pipe = 1\n        character_special_file = 2\n        folder = 4\n        block_special_file = 6\n        regular_file = 8\n        symlink = 10\n        socket = 12\n        whiteout = 14\n\n    <DED>class EntryType(Enum):\n        <IND>location = 0 # any\n        snap_metadata = 1\n        extent = 2\n        inode = 3\n        xattr = 4\n        sibling_link = 5\n        dstream_id = 6\n        crypto_state = 7\n        file_extent = 8\n        dir_rec = 9\n        dir_stats = 10\n        snap_name = 11\n        sibling_map = 12\n        unknown_reserved = 13\n        unknown_reserved2 = 14\n        invalid = 15\n\n    <DED>class SnapshotFlag(Enum):\n        <IND>deleted = 1\n        reverted = 2\n\n    <DED>def __init__(self, _io, _parent=None, _root=None):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ydkhatri/mac_apt",
+    "commit": "efabc9695e513bd936c701abd750f5d5a1e2534f",
+    "filename": "plugins/helpers/apfs_reader.py",
+    "min_patch_found": false,
+    "full_warning_msg": "plugins/helpers/apfs_reader.py:524:43 Unbound name [10]: Name `EntryType` is used but not defined in the current scope.",
+    "exception": "Cannot have more than 64 hunks in a file",
+    "dd_fail": true
+  },
+  {
+    "project": "ydkhatri/mac_apt",
+    "commit": "efabc9695e513bd936c701abd750f5d5a1e2534f",
+    "filename": "plugins/helpers/hfs_alt.py",
+    "min_patch_found": false,
+    "full_warning_msg": "plugins/helpers/hfs_alt.py:251:69 Unbound name [10]: Name `kForkTypeData` is used but not defined in the current scope.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "ydkhatri/mac_apt",
+    "commit": "efabc9695e513bd936c701abd750f5d5a1e2534f",
+    "filename": "plugins/helpers/macinfo.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ydkhatri-mac_apt/plugins/helpers/macinfo.py",
+    "file_hunks_size": 52,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/helpers/macinfo.py:241:57 Unbound name [10]: Name `EntryType` is used but not defined in the current scope.",
+    "message": " Name `EntryType` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 241,
+    "warning_line": "    def ListItemsInFolder(self, path='/', types_to_fetch=EntryType.FILES_AND_FOLDERS, include_dates=False):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import ast\nfrom apfs_reader import *\nfrom hfs_alt import HFSVolume\nfrom common import *\nfrom structs import *\n\n",
+        "source_code_len": 111,
+        "target_code": "import ast\nfrom plugins.helpers.apfs_reader import *\nfrom plugins.helpers.hfs_alt import HFSVolume\nfrom plugins.helpers.common import *\nfrom plugins.helpers.structs import *\n\n",
+        "target_code_len": 175,
+        "diff_format": "@@ -23,6 +23,6 @@\n import ast\n-from apfs_reader import *\n-from hfs_alt import HFSVolume\n-from common import *\n-from structs import *\n+from plugins.helpers.apfs_reader import *\n+from plugins.helpers.hfs_alt import HFSVolume\n+from plugins.helpers.common import *\n+from plugins.helpers.structs import *\n \n",
+        "source_code_with_indent": "import ast\nfrom apfs_reader import *\nfrom hfs_alt import HFSVolume\nfrom common import *\nfrom structs import *\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import ast\nfrom plugins.helpers.apfs_reader import *\nfrom plugins.helpers.hfs_alt import HFSVolume\nfrom plugins.helpers.common import *\nfrom plugins.helpers.structs import *\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "ydkhatri/mac_apt",
+    "commit": "efabc9695e513bd936c701abd750f5d5a1e2534f",
+    "filename": "plugins/helpers/writer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ydkhatri-mac_apt/plugins/helpers/writer.py",
+    "file_hunks_size": 27,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/helpers/writer.py:629:43 Unbound name [10]: Name `CommonFunctions` is used but not defined in the current scope.",
+    "message": " Name `CommonFunctions` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 629,
+    "warning_line": "    print(\"Testing mac HFS+ time : \" + str(CommonFunctions.ReadMacHFSTime(0xD4DA7B9F)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "'''\nfrom __future__ import print_function\nfrom __future__ import unicode_literals\n\nimport codecs\nimport sqlite3\nimport sys, os\nimport collections\nimport logging\nimport binascii\nimport xlsxwriter\n\nfrom common import *\nfrom enum import IntEnum\n\n",
+        "source_code_len": 243,
+        "target_code": "'''\n\nimport binascii\nimport codecs\nimport collections\nimport logging\nimport os\nimport sqlite3\nimport sys\nimport xlsxwriter\n\nfrom enum import IntEnum\nfrom plugins.helpers.common import *\n\n",
+        "target_code_len": 187,
+        "diff_format": "@@ -8,15 +8,14 @@\n '''\n-from __future__ import print_function\n-from __future__ import unicode_literals\n-\n+\n+import binascii\n import codecs\n-import sqlite3\n-import sys, os\n import collections\n import logging\n-import binascii\n+import os\n+import sqlite3\n+import sys\n import xlsxwriter\n \n-from common import *\n from enum import IntEnum\n+from plugins.helpers.common import *\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nfrom __future__ import print_function\nfrom __future__ import unicode_literals\n\nimport codecs\nimport sqlite3\nimport sys, os\nimport collections\nimport logging\nimport binascii\nimport xlsxwriter\n\nfrom common import *\nfrom enum import IntEnum\n\n",
+        "target_code_with_indent": "\n\nimport binascii\nimport codecs\nimport collections\nimport logging\nimport os\nimport sqlite3\nimport sys\nimport xlsxwriter\n\nfrom enum import IntEnum\nfrom plugins.helpers.common import *\n\n"
+      }
+    ]
+  },
+  {
+    "project": "ydkhatri/mac_apt",
+    "commit": "efabc9695e513bd936c701abd750f5d5a1e2534f",
+    "filename": "plugins/networking.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ydkhatri-mac_apt/plugins/networking.py",
+    "file_hunks_size": 15,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/networking.py:35:33 Unbound name [10]: Name `DataType` is used but not defined in the current scope.",
+    "message": " Name `DataType` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 35,
+    "warning_line": "dhcp_data_info =  [ ('Interface',DataType.TEXT),('MAC_Address',DataType.TEXT),('IPAddress',DataType.TEXT),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "'''\nfrom __future__ import print_function\nfrom __future__ import unicode_literals\nimport os\nfrom helpers.macinfo import *\nfrom helpers.writer import *\nimport logging\n",
+        "source_code_len": 166,
+        "target_code": "'''\n\n\nimport os\nfrom plugins.helpers.macinfo import *\nfrom plugins.helpers.writer import *\nimport logging\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -8,7 +8,7 @@\n '''\n-from __future__ import print_function\n-from __future__ import unicode_literals\n+\n+\n import os\n-from helpers.macinfo import *\n-from helpers.writer import *\n+from plugins.helpers.macinfo import *\n+from plugins.helpers.writer import *\n import logging\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nfrom __future__ import print_function\nfrom __future__ import unicode_literals\nimport os\nfrom helpers.macinfo import *\nfrom helpers.writer import *\nimport logging\n",
+        "target_code_with_indent": "\n\n\nimport os\nfrom plugins.helpers.macinfo import *\nfrom plugins.helpers.writer import *\nimport logging\n"
+      }
+    ]
+  }
+]

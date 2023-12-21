@@ -1,0 +1,36 @@
+[
+  {
+    "project": "blakeblackshear/frigate-hass-integration",
+    "commit": "202378747f5e9d483988f729bdbbaa0917192613",
+    "filename": "custom_components/frigate/views.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/blakeblackshear-frigate-hass-integration/custom_components/frigate/views.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "custom_components/frigate/views.py:138:8 Incompatible variable type [9]: path is declared to have type `str` but is used as type `Optional[str]`.",
+    "message": " path is declared to have type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 138,
+    "warning_line": "        path = self._create_path(path=path, **kwargs)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        path = self._create_path(path=path, **kwargs)\n        if not path:\n            return web.Response(status=HTTP_NOT_FOUND)\n\n        url = str(URL(config_entry.data[CONF_URL]) / path)\n        data = await request.read()\n",
+        "source_code_len": 227,
+        "target_code": "\n        full_path = self._create_path(path=path, **kwargs)\n        if not full_path:\n            return web.Response(status=HTTP_NOT_FOUND)\n\n        url = str(URL(config_entry.data[CONF_URL]) / full_path)\n        data = await request.read()\n",
+        "target_code_len": 242,
+        "diff_format": "@@ -137,7 +136,7 @@\n \n-        path = self._create_path(path=path, **kwargs)\n-        if not path:\n+        full_path = self._create_path(path=path, **kwargs)\n+        if not full_path:\n             return web.Response(status=HTTP_NOT_FOUND)\n \n-        url = str(URL(config_entry.data[CONF_URL]) / path)\n+        url = str(URL(config_entry.data[CONF_URL]) / full_path)\n         data = await request.read()\n",
+        "source_code_with_indent": "\n        <DED>path = self._create_path(path=path, **kwargs)\n        if not path:\n            <IND>return web.Response(status=HTTP_NOT_FOUND)\n\n        <DED>url = str(URL(config_entry.data[CONF_URL]) / path)\n        data = await request.read()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>full_path = self._create_path(path=path, **kwargs)\n        if not full_path:\n            <IND>return web.Response(status=HTTP_NOT_FOUND)\n\n        <DED>url = str(URL(config_entry.data[CONF_URL]) / full_path)\n        data = await request.read()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "project": "mindee/doctr",
+    "commit": "93a32de4e2dcaae5323e935590ffcd04b4091805",
+    "filename": "doctr/datasets/loaders/recognition.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mindee-doctr/doctr/datasets/recognition.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "doctr/datasets/loaders/recognition.py:40:35 Unbound name [10]: Name `Dict` is used but not defined in the current scope.",
+    "message": " Name `Dict` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 40,
+    "warning_line": "        self.data: List[Tuple[str, Dict[str, Any]]] = []",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        input_size: Tuple[int, int],\n        img_folder: str,\n        labels_path: str,\n        batch_size: int = 64,\n        shuffle: bool = True,\n    ) -> None:\n        self.input_size = input_size\n        self.batch_size = batch_size\n        self.root = img_folder\n        self.shuffle = shuffle\n\n        self.data: List[Tuple[str, Dict[str, Any]]] = []\n        with open(labels_path) as f:\n",
+        "source_code_len": 408,
+        "target_code": "        self,\n        img_folder: str,\n        labels_path: str,\n        input_size: Tuple[int, int],\n    ) -> None:\n        self.input_size = input_size\n        self.root = img_folder\n\n        self.data: List[Tuple[str, str]] = []\n        with open(labels_path) as f:\n",
+        "target_code_len": 269,
+        "diff_format": "@@ -28,14 +28,10 @@\n         self,\n-        input_size: Tuple[int, int],\n         img_folder: str,\n         labels_path: str,\n-        batch_size: int = 64,\n-        shuffle: bool = True,\n+        input_size: Tuple[int, int],\n     ) -> None:\n         self.input_size = input_size\n-        self.batch_size = batch_size\n         self.root = img_folder\n-        self.shuffle = shuffle\n \n-        self.data: List[Tuple[str, Dict[str, Any]]] = []\n+        self.data: List[Tuple[str, str]] = []\n         with open(labels_path) as f:\n",
+        "source_code_with_indent": "        self,\n        input_size: Tuple[int, int],\n        img_folder: str,\n        labels_path: str,\n        batch_size: int = 64,\n        shuffle: bool = True,\n    ) -> None:\n        <IND>self.input_size = input_size\n        self.batch_size = batch_size\n        self.root = img_folder\n        self.shuffle = shuffle\n\n        self.data: List[Tuple[str, Dict[str, Any]]] = []\n        with open(labels_path) as f:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        img_folder: str,\n        labels_path: str,\n        input_size: Tuple[int, int],\n    ) -> None:\n        <IND>self.input_size = input_size\n        self.root = img_folder\n\n        self.data: List[Tuple[str, str]] = []\n        with open(labels_path) as f:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        index: int\n    ) -> Tuple[tf.Tensor, List[str]]:\n        # Get one batch of data\n        indices = self.indices[\n            index * self.batch_size:min(len(self.data), (index + 1) * self.batch_size)\n        ]\n        # Find list of paths\n        samples = [self.data[k] for k in indices]\n        # Generate data\n        return self.__data_generation(samples)\n\n    def __data_generation(\n        self,\n        samples: List[Tuple[str, str]],\n    ) -> Tuple[tf.Tensor, List[str]]:\n        # Init batch lists\n        batch_images, batch_labels = [], []\n        for img_name, label in samples:\n            image = cv2.imread(os.path.join(self.root, img_name))\n            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)\n            # Cast, resize\n            image = tf.cast(image, tf.float32)\n            image = tf.image.resize(image, [*self.input_size], method='bilinear')\n            # Batch\n            batch_images.append(image)\n            batch_labels.append(label)\n        batch_images = tf.stack(batch_images, axis=0)\n\n        return batch_images, batch_labels\n",
+        "source_code_len": 1075,
+        "target_code": "        index: int\n    ) -> Tuple[tf.Tensor, str]:\n\n        img_name, label = self.data[index]\n        img = tf.io.read_file(os.path.join(self.root, img_name))\n        img = tf.image.decode_jpeg(img, channels=3)\n        img = tf.image.resize(img, self.input_size, method='bilinear')\n\n        return img, label\n\n    def extra_repr(self) -> str:\n        return f\"input_size={self.input_size}\"\n\n    @staticmethod\n    def collate_fn(samples: List[Tuple[tf.Tensor, str]]) -> Tuple[tf.Tensor, List[str]]:\n\n        images, labels = zip(*samples)\n        images = tf.stack(images, axis=0)\n\n        return images, list(labels)\n",
+        "target_code_len": 618,
+        "diff_format": "@@ -62,29 +47,20 @@\n         index: int\n-    ) -> Tuple[tf.Tensor, List[str]]:\n-        # Get one batch of data\n-        indices = self.indices[\n-            index * self.batch_size:min(len(self.data), (index + 1) * self.batch_size)\n-        ]\n-        # Find list of paths\n-        samples = [self.data[k] for k in indices]\n-        # Generate data\n-        return self.__data_generation(samples)\n+    ) -> Tuple[tf.Tensor, str]:\n \n-    def __data_generation(\n-        self,\n-        samples: List[Tuple[str, str]],\n-    ) -> Tuple[tf.Tensor, List[str]]:\n-        # Init batch lists\n-        batch_images, batch_labels = [], []\n-        for img_name, label in samples:\n-            image = cv2.imread(os.path.join(self.root, img_name))\n-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)\n-            # Cast, resize\n-            image = tf.cast(image, tf.float32)\n-            image = tf.image.resize(image, [*self.input_size], method='bilinear')\n-            # Batch\n-            batch_images.append(image)\n-            batch_labels.append(label)\n-        batch_images = tf.stack(batch_images, axis=0)\n+        img_name, label = self.data[index]\n+        img = tf.io.read_file(os.path.join(self.root, img_name))\n+        img = tf.image.decode_jpeg(img, channels=3)\n+        img = tf.image.resize(img, self.input_size, method='bilinear')\n \n-        return batch_images, batch_labels\n+        return img, label\n+\n+    def extra_repr(self) -> str:\n+        return f\"input_size={self.input_size}\"\n+\n+    @staticmethod\n+    def collate_fn(samples: List[Tuple[tf.Tensor, str]]) -> Tuple[tf.Tensor, List[str]]:\n+\n+        images, labels = zip(*samples)\n+        images = tf.stack(images, axis=0)\n+\n+        return images, list(labels)\n",
+        "source_code_with_indent": "        index: int\n    ) -> Tuple[tf.Tensor, List[str]]:\n        # Get one batch of data\n        <IND>indices = self.indices[\n            index * self.batch_size:min(len(self.data), (index + 1) * self.batch_size)\n        ]\n        # Find list of paths\n        samples = [self.data[k] for k in indices]\n        # Generate data\n        return self.__data_generation(samples)\n\n    <DED>def __data_generation(\n        self,\n        samples: List[Tuple[str, str]],\n    ) -> Tuple[tf.Tensor, List[str]]:\n        # Init batch lists\n        <IND>batch_images, batch_labels = [], []\n        for img_name, label in samples:\n            <IND>image = cv2.imread(os.path.join(self.root, img_name))\n            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)\n            # Cast, resize\n            image = tf.cast(image, tf.float32)\n            image = tf.image.resize(image, [*self.input_size], method='bilinear')\n            # Batch\n            batch_images.append(image)\n            batch_labels.append(label)\n        <DED>batch_images = tf.stack(batch_images, axis=0)\n\n        return batch_images, batch_labels\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        index: int\n    ) -> Tuple[tf.Tensor, str]:\n\n        <IND>img_name, label = self.data[index]\n        img = tf.io.read_file(os.path.join(self.root, img_name))\n        img = tf.image.decode_jpeg(img, channels=3)\n        img = tf.image.resize(img, self.input_size, method='bilinear')\n\n        return img, label\n\n    <DED>def extra_repr(self) -> str:\n        <IND>return f\"input_size={self.input_size}\"\n\n    <DED>@staticmethod\n    def collate_fn(samples: List[Tuple[tf.Tensor, str]]) -> Tuple[tf.Tensor, List[str]]:\n\n        <IND>images, labels = zip(*samples)\n        images = tf.stack(images, axis=0)\n\n        return images, list(labels)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mindee/doctr",
+    "commit": "93a32de4e2dcaae5323e935590ffcd04b4091805",
+    "filename": "doctr/datasets/loaders/recognition.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mindee-doctr/doctr/datasets/recognition.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "doctr/datasets/loaders/recognition.py:40:45 Unbound name [10]: Name `Any` is used but not defined in the current scope.",
+    "message": " Name `Any` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 40,
+    "warning_line": "        self.data: List[Tuple[str, Dict[str, Any]]] = []",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        input_size: Tuple[int, int],\n        img_folder: str,\n        labels_path: str,\n        batch_size: int = 64,\n        shuffle: bool = True,\n    ) -> None:\n        self.input_size = input_size\n        self.batch_size = batch_size\n        self.root = img_folder\n        self.shuffle = shuffle\n\n        self.data: List[Tuple[str, Dict[str, Any]]] = []\n        with open(labels_path) as f:\n",
+        "source_code_len": 408,
+        "target_code": "        self,\n        img_folder: str,\n        labels_path: str,\n        input_size: Tuple[int, int],\n    ) -> None:\n        self.input_size = input_size\n        self.root = img_folder\n\n        self.data: List[Tuple[str, str]] = []\n        with open(labels_path) as f:\n",
+        "target_code_len": 269,
+        "diff_format": "@@ -28,14 +28,10 @@\n         self,\n-        input_size: Tuple[int, int],\n         img_folder: str,\n         labels_path: str,\n-        batch_size: int = 64,\n-        shuffle: bool = True,\n+        input_size: Tuple[int, int],\n     ) -> None:\n         self.input_size = input_size\n-        self.batch_size = batch_size\n         self.root = img_folder\n-        self.shuffle = shuffle\n \n-        self.data: List[Tuple[str, Dict[str, Any]]] = []\n+        self.data: List[Tuple[str, str]] = []\n         with open(labels_path) as f:\n",
+        "source_code_with_indent": "        self,\n        input_size: Tuple[int, int],\n        img_folder: str,\n        labels_path: str,\n        batch_size: int = 64,\n        shuffle: bool = True,\n    ) -> None:\n        <IND>self.input_size = input_size\n        self.batch_size = batch_size\n        self.root = img_folder\n        self.shuffle = shuffle\n\n        self.data: List[Tuple[str, Dict[str, Any]]] = []\n        with open(labels_path) as f:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        img_folder: str,\n        labels_path: str,\n        input_size: Tuple[int, int],\n    ) -> None:\n        <IND>self.input_size = input_size\n        self.root = img_folder\n\n        self.data: List[Tuple[str, str]] = []\n        with open(labels_path) as f:\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        index: int\n    ) -> Tuple[tf.Tensor, List[str]]:\n        # Get one batch of data\n        indices = self.indices[\n            index * self.batch_size:min(len(self.data), (index + 1) * self.batch_size)\n        ]\n        # Find list of paths\n        samples = [self.data[k] for k in indices]\n        # Generate data\n        return self.__data_generation(samples)\n\n    def __data_generation(\n        self,\n        samples: List[Tuple[str, str]],\n    ) -> Tuple[tf.Tensor, List[str]]:\n        # Init batch lists\n        batch_images, batch_labels = [], []\n        for img_name, label in samples:\n            image = cv2.imread(os.path.join(self.root, img_name))\n            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)\n            # Cast, resize\n            image = tf.cast(image, tf.float32)\n            image = tf.image.resize(image, [*self.input_size], method='bilinear')\n            # Batch\n            batch_images.append(image)\n            batch_labels.append(label)\n        batch_images = tf.stack(batch_images, axis=0)\n\n        return batch_images, batch_labels\n",
+        "source_code_len": 1075,
+        "target_code": "        index: int\n    ) -> Tuple[tf.Tensor, str]:\n\n        img_name, label = self.data[index]\n        img = tf.io.read_file(os.path.join(self.root, img_name))\n        img = tf.image.decode_jpeg(img, channels=3)\n        img = tf.image.resize(img, self.input_size, method='bilinear')\n\n        return img, label\n\n    def extra_repr(self) -> str:\n        return f\"input_size={self.input_size}\"\n\n    @staticmethod\n    def collate_fn(samples: List[Tuple[tf.Tensor, str]]) -> Tuple[tf.Tensor, List[str]]:\n\n        images, labels = zip(*samples)\n        images = tf.stack(images, axis=0)\n\n        return images, list(labels)\n",
+        "target_code_len": 618,
+        "diff_format": "@@ -62,29 +47,20 @@\n         index: int\n-    ) -> Tuple[tf.Tensor, List[str]]:\n-        # Get one batch of data\n-        indices = self.indices[\n-            index * self.batch_size:min(len(self.data), (index + 1) * self.batch_size)\n-        ]\n-        # Find list of paths\n-        samples = [self.data[k] for k in indices]\n-        # Generate data\n-        return self.__data_generation(samples)\n+    ) -> Tuple[tf.Tensor, str]:\n \n-    def __data_generation(\n-        self,\n-        samples: List[Tuple[str, str]],\n-    ) -> Tuple[tf.Tensor, List[str]]:\n-        # Init batch lists\n-        batch_images, batch_labels = [], []\n-        for img_name, label in samples:\n-            image = cv2.imread(os.path.join(self.root, img_name))\n-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)\n-            # Cast, resize\n-            image = tf.cast(image, tf.float32)\n-            image = tf.image.resize(image, [*self.input_size], method='bilinear')\n-            # Batch\n-            batch_images.append(image)\n-            batch_labels.append(label)\n-        batch_images = tf.stack(batch_images, axis=0)\n+        img_name, label = self.data[index]\n+        img = tf.io.read_file(os.path.join(self.root, img_name))\n+        img = tf.image.decode_jpeg(img, channels=3)\n+        img = tf.image.resize(img, self.input_size, method='bilinear')\n \n-        return batch_images, batch_labels\n+        return img, label\n+\n+    def extra_repr(self) -> str:\n+        return f\"input_size={self.input_size}\"\n+\n+    @staticmethod\n+    def collate_fn(samples: List[Tuple[tf.Tensor, str]]) -> Tuple[tf.Tensor, List[str]]:\n+\n+        images, labels = zip(*samples)\n+        images = tf.stack(images, axis=0)\n+\n+        return images, list(labels)\n",
+        "source_code_with_indent": "        index: int\n    ) -> Tuple[tf.Tensor, List[str]]:\n        # Get one batch of data\n        <IND>indices = self.indices[\n            index * self.batch_size:min(len(self.data), (index + 1) * self.batch_size)\n        ]\n        # Find list of paths\n        samples = [self.data[k] for k in indices]\n        # Generate data\n        return self.__data_generation(samples)\n\n    <DED>def __data_generation(\n        self,\n        samples: List[Tuple[str, str]],\n    ) -> Tuple[tf.Tensor, List[str]]:\n        # Init batch lists\n        <IND>batch_images, batch_labels = [], []\n        for img_name, label in samples:\n            <IND>image = cv2.imread(os.path.join(self.root, img_name))\n            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)\n            # Cast, resize\n            image = tf.cast(image, tf.float32)\n            image = tf.image.resize(image, [*self.input_size], method='bilinear')\n            # Batch\n            batch_images.append(image)\n            batch_labels.append(label)\n        <DED>batch_images = tf.stack(batch_images, axis=0)\n\n        return batch_images, batch_labels\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        index: int\n    ) -> Tuple[tf.Tensor, str]:\n\n        <IND>img_name, label = self.data[index]\n        img = tf.io.read_file(os.path.join(self.root, img_name))\n        img = tf.image.decode_jpeg(img, channels=3)\n        img = tf.image.resize(img, self.input_size, method='bilinear')\n\n        return img, label\n\n    <DED>def extra_repr(self) -> str:\n        <IND>return f\"input_size={self.input_size}\"\n\n    <DED>@staticmethod\n    def collate_fn(samples: List[Tuple[tf.Tensor, str]]) -> Tuple[tf.Tensor, List[str]]:\n\n        <IND>images, labels = zip(*samples)\n        images = tf.stack(images, axis=0)\n\n        return images, list(labels)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

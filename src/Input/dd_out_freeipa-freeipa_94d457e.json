@@ -1,0 +1,70 @@
+[
+  {
+    "project": "freeipa/freeipa",
+    "commit": "94d457e83c172320707fbf13f7a1587dad128ece",
+    "filename": "tests/test_xmlrpc/test_dns_plugin.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freeipa-freeipa/tests/test_xmlrpc/test_dns_plugin.py",
+    "file_hunks_size": 30,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_xmlrpc/test_dns_plugin.py:142:26 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 142,
+    "warning_line": "                    'dn': unicode(dnszone1_dn),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                'result': {\n                    'dn': unicode(dnszone1_dn),\n                    'idnsname': [dnszone1],\n",
+        "source_code_len": 120,
+        "target_code": "                'result': {\n                    'dn': dnszone1_dn,\n                    'idnsname': [dnszone1],\n",
+        "target_code_len": 111,
+        "diff_format": "@@ -141,3 +141,3 @@\n                 'result': {\n-                    'dn': unicode(dnszone1_dn),\n+                    'dn': dnszone1_dn,\n                     'idnsname': [dnszone1],\n",
+        "source_code_with_indent": "                'result': {\n                    'dn': unicode(dnszone1_dn),\n                    'idnsname': [dnszone1],\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                'result': {\n                    'dn': dnszone1_dn,\n                    'idnsname': [dnszone1],\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "freeipa/freeipa",
+    "commit": "94d457e83c172320707fbf13f7a1587dad128ece",
+    "filename": "tests/test_xmlrpc/test_permission_plugin.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freeipa-freeipa/tests/test_xmlrpc/test_permission_plugin.py",
+    "file_hunks_size": 35,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/test_xmlrpc/test_permission_plugin.py:199:26 Unbound name [10]: Name `unicode` is used but not defined in the current scope.",
+    "message": " Name `unicode` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 199,
+    "warning_line": "                    'dn': unicode(permission1_dn),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                result={\n                    'dn': unicode(permission1_dn),\n                    'cn': [permission1],\n                    'member': [unicode(privilege1_dn)],\n                    'aci': u'(target = \"ldap:///uid=*,cn=users,cn=accounts,%s\")(version 3.0;acl \"permission:testperm\";allow (write) groupdn = \"ldap:///cn=testperm,cn=permissions,cn=pbac,%s\";)' \\\n                            % (api.env.basedn, api.env.basedn),\n                },\n",
+        "source_code_len": 451,
+        "target_code": "                result={\n                    'dn': permission1_dn,\n                    'cn': [permission1],\n                    'member': [privilege1_dn],\n                    'aci': u'(target = \"ldap:///%s\")(version 3.0;acl \"permission:testperm\";allow (write) groupdn = \"ldap:///%s\";)' % \\\n                        (DN(('uid', '*'), ('cn', 'users'), ('cn', 'accounts'), api.env.basedn),\n                         DN(('cn', 'testperm'), ('cn', 'permissions'), ('cn', 'pbac'), api.env.basedn))\n                },\n",
+        "target_code_len": 509,
+        "diff_format": "@@ -198,7 +198,8 @@\n                 result={\n-                    'dn': unicode(permission1_dn),\n+                    'dn': permission1_dn,\n                     'cn': [permission1],\n-                    'member': [unicode(privilege1_dn)],\n-                    'aci': u'(target = \"ldap:///uid=*,cn=users,cn=accounts,%s\")(version 3.0;acl \"permission:testperm\";allow (write) groupdn = \"ldap:///cn=testperm,cn=permissions,cn=pbac,%s\";)' \\\n-                            % (api.env.basedn, api.env.basedn),\n+                    'member': [privilege1_dn],\n+                    'aci': u'(target = \"ldap:///%s\")(version 3.0;acl \"permission:testperm\";allow (write) groupdn = \"ldap:///%s\";)' % \\\n+                        (DN(('uid', '*'), ('cn', 'users'), ('cn', 'accounts'), api.env.basedn),\n+                         DN(('cn', 'testperm'), ('cn', 'permissions'), ('cn', 'pbac'), api.env.basedn))\n                 },\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                result={\n                    'dn': unicode(permission1_dn),\n                    'cn': [permission1],\n                    'member': [unicode(privilege1_dn)],\n                    'aci': u'(target = \"ldap:///uid=*,cn=users,cn=accounts,%s\")(version 3.0;acl \"permission:testperm\";allow (write) groupdn = \"ldap:///cn=testperm,cn=permissions,cn=pbac,%s\";)'                            % (api.env.basedn, api.env.basedn),\n                },\n",
+        "target_code_with_indent": "                result={\n                    'dn': permission1_dn,\n                    'cn': [permission1],\n                    'member': [privilege1_dn],\n                    'aci': u'(target = \"ldap:///%s\")(version 3.0;acl \"permission:testperm\";allow (write) groupdn = \"ldap:///%s\";)' %                        (DN(('uid', '*'), ('cn', 'users'), ('cn', 'accounts'), api.env.basedn),\n                         DN(('cn', 'testperm'), ('cn', 'permissions'), ('cn', 'pbac'), api.env.basedn))\n                },\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "599dcb34bc7e45b329ce53404f8c4cc52ab734f0",
+    "filename": "cura/Machines/MachineNode.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/Machines/MachineNode.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/Machines/MachineNode.py:83:96 Incompatible parameter type [6]: Expected `typing.Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "message": " Expected `typing.Union[int, slice]` for 1st positional only parameter to call `str.__getitem__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 83,
+    "warning_line": "                quality_groups[quality_type].nodes_for_extruders[extruder] = qualities_per_type[quality_type]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            quality_groups[quality_type].node_for_global = global_quality_node\n            for extruder, qualities_per_type in qualities_per_type_per_extruder:\n                quality_groups[quality_type].nodes_for_extruders[extruder] = qualities_per_type[quality_type]\n\n",
+        "source_code_len": 271,
+        "target_code": "            quality_groups[quality_type].node_for_global = global_quality_node\n            for extruder, qualities_per_type in enumerate(qualities_per_type_per_extruder):\n                if quality_type in qualities_per_type:\n                    quality_groups[quality_type].nodes_for_extruders[extruder] = qualities_per_type[quality_type]\n\n",
+        "target_code_len": 341,
+        "diff_format": "@@ -81,4 +81,5 @@\n             quality_groups[quality_type].node_for_global = global_quality_node\n-            for extruder, qualities_per_type in qualities_per_type_per_extruder:\n-                quality_groups[quality_type].nodes_for_extruders[extruder] = qualities_per_type[quality_type]\n+            for extruder, qualities_per_type in enumerate(qualities_per_type_per_extruder):\n+                if quality_type in qualities_per_type:\n+                    quality_groups[quality_type].nodes_for_extruders[extruder] = qualities_per_type[quality_type]\n \n",
+        "source_code_with_indent": "            quality_groups[quality_type].node_for_global = global_quality_node\n            for extruder, qualities_per_type in qualities_per_type_per_extruder:\n                <IND>quality_groups[quality_type].nodes_for_extruders[extruder] = qualities_per_type[quality_type]\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            quality_groups[quality_type].node_for_global = global_quality_node\n            for extruder, qualities_per_type in enumerate(qualities_per_type_per_extruder):\n                <IND>if quality_type in qualities_per_type:\n                    <IND>quality_groups[quality_type].nodes_for_extruders[extruder] = qualities_per_type[quality_type]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

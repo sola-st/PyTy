@@ -1,0 +1,36 @@
+[
+  {
+    "project": "opencobra/cobrapy",
+    "commit": "6969f1f464872ceb99898ddbbbfa73f327ecd569",
+    "filename": "cobra/io/mat.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/opencobra-cobrapy/cobra/io/mat.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cobra/io/mat.py:18:4 Incompatible variable type [9]: collections.OrderedDict is declared to have type `typing.Type[dicttype]` but is used as type `typing.Type[dict]`.",
+    "message": " collections.OrderedDict is declared to have type `typing.Type[dicttype]` but is used as type `typing.Type[dict]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 18,
+    "warning_line": "    dicttype = dict",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# try to use an ordered dict\ntry:\n    from collections import OrderedDict as dicttype\nexcept ImportError:\n    dicttype = dict\n# if scipy version is earlier than 0.11, OrderedDict will not work, so use dict\ntry:\n    import scipy\nexcept ImportError, e:\n    raise e\n    \ntry:\n",
+        "source_code_len": 273,
+        "target_code": "#This section is used to load the appropriate package for writing mat files\n#from Python or Jython.  Currently, only the section for Python that depends\n#on scipy has been written.\ntry:\n    from numpy import array, object as np_object\n    from scipy.io import loadmat, savemat\n    from scipy.sparse import coo_matrix\n\n\nexcept ImportError, e:\n    raise e\n\n\n# try to use an ordered dict\ntry:\n",
+        "target_code_len": 390,
+        "diff_format": "@@ -1,12 +1,15 @@\n-# try to use an ordered dict\n+#This section is used to load the appropriate package for writing mat files\n+#from Python or Jython.  Currently, only the section for Python that depends\n+#on scipy has been written.\n try:\n-    from collections import OrderedDict as dicttype\n-except ImportError:\n-    dicttype = dict\n-# if scipy version is earlier than 0.11, OrderedDict will not work, so use dict\n-try:\n-    import scipy\n+    from numpy import array, object as np_object\n+    from scipy.io import loadmat, savemat\n+    from scipy.sparse import coo_matrix\n+\n+\n except ImportError, e:\n     raise e\n-    \n+\n+\n+# try to use an ordered dict\n try:\n",
+        "source_code_with_indent": "# try to use an ordered dict\ntry:\n    <IND>from collections import OrderedDict as dicttype\n<DED>except ImportError:\n    <IND>dicttype = dict\n# if scipy version is earlier than 0.11, OrderedDict will not work, so use dict\n<DED>try:\n    <IND>import scipy\n<DED>except ImportError, e:\n    <IND>raise e\n    \n<DED>try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "#This section is used to load the appropriate package for writing mat files\n#from Python or Jython.  Currently, only the section for Python that depends\n#on scipy has been written.\ntry:\n    <IND>from numpy import array, object as np_object\n    from scipy.io import loadmat, savemat\n    from scipy.sparse import coo_matrix\n\n\n<DED>except ImportError, e:\n    <IND>raise e\n\n\n# try to use an ordered dict\n<DED>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

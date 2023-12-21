@@ -1,0 +1,70 @@
+[
+  {
+    "project": "pykickstart/pykickstart",
+    "commit": "fda1b78666c0a20c7d28884a3ddca23c5a5920ab",
+    "filename": "pykickstart/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykickstart-pykickstart/pykickstart/base.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pykickstart/base.py:442:27 Incompatible parameter type [6]: Expected `BaseData` for 1st positional only parameter to call `list.append` but got `typing.Optional[BaseData]`.",
+    "message": " Expected `BaseData` for 1st positional only parameter to call `list.append` but got `typing.Optional[BaseData]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 442,
+    "warning_line": "                lst.append(obj)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            # The parser returns the data object that was modified.  This could\n            # be a BaseData subclass that should be put into a list, or it\n            # could be the command handler object itself.\n            obj = self.commands[cmd].parse(args[1:])\n            lst = self.commands[cmd].dataList()\n            if lst is not None:\n                lst.append(obj)\n",
+        "source_code_len": 379,
+        "target_code": "\n            # The parser returns the data object that was modified.  This is either\n            # the command handler object itself (a KickstartCommand object), or it's\n            # a BaseData subclass instance that should be put into the command's\n            # dataList.  The latter is done via side effects.\n            #\n            # Regardless, return the object that was given to us by the parser.\n            obj = self.commands[cmd].parse(args[1:])\n\n            # Here's the side effect part - don't worry about lst not being returned.\n            lst = self.commands[cmd].dataList()\n            if isinstance(obj, BaseData) and lst is not None:\n                lst.append(obj)\n",
+        "target_code_len": 689,
+        "diff_format": "@@ -435,8 +435,13 @@\n \n-            # The parser returns the data object that was modified.  This could\n-            # be a BaseData subclass that should be put into a list, or it\n-            # could be the command handler object itself.\n+            # The parser returns the data object that was modified.  This is either\n+            # the command handler object itself (a KickstartCommand object), or it's\n+            # a BaseData subclass instance that should be put into the command's\n+            # dataList.  The latter is done via side effects.\n+            #\n+            # Regardless, return the object that was given to us by the parser.\n             obj = self.commands[cmd].parse(args[1:])\n+\n+            # Here's the side effect part - don't worry about lst not being returned.\n             lst = self.commands[cmd].dataList()\n-            if lst is not None:\n+            if isinstance(obj, BaseData) and lst is not None:\n                 lst.append(obj)\n",
+        "source_code_with_indent": "\n            # The parser returns the data object that was modified.  This could\n            # be a BaseData subclass that should be put into a list, or it\n            # could be the command handler object itself.\n            obj = self.commands[cmd].parse(args[1:])\n            lst = self.commands[cmd].dataList()\n            if lst is not None:\n                <IND>lst.append(obj)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            # The parser returns the data object that was modified.  This is either\n            # the command handler object itself (a KickstartCommand object), or it's\n            # a BaseData subclass instance that should be put into the command's\n            # dataList.  The latter is done via side effects.\n            #\n            # Regardless, return the object that was given to us by the parser.\n            obj = self.commands[cmd].parse(args[1:])\n\n            # Here's the side effect part - don't worry about lst not being returned.\n            lst = self.commands[cmd].dataList()\n            if isinstance(obj, BaseData) and lst is not None:\n                <IND>lst.append(obj)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pykickstart/pykickstart",
+    "commit": "fda1b78666c0a20c7d28884a3ddca23c5a5920ab",
+    "filename": "pykickstart/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykickstart-pykickstart/pykickstart/base.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pykickstart/base.py:444:12 Incompatible return type [7]: Expected `BaseData` but got implicit return value of `None`.",
+    "message": " Expected `BaseData` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 444,
+    "warning_line": "            return obj"
+  },
+  {
+    "project": "pykickstart/pykickstart",
+    "commit": "fda1b78666c0a20c7d28884a3ddca23c5a5920ab",
+    "filename": "pykickstart/base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pykickstart-pykickstart/pykickstart/base.py",
+    "file_hunks_size": 5,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pykickstart/base.py:444:12 Incompatible return type [7]: Expected `BaseData` but got `typing.Optional[BaseData]`.",
+    "message": " Expected `BaseData` but got `typing.Optional[BaseData]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 444,
+    "warning_line": "            return obj"
+  }
+]

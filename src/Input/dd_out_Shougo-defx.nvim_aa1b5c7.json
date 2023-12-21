@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Shougo/defx.nvim",
+    "commit": "aa1b5c762bbabaeeb5f3eca976e65bbb2f82a883",
+    "filename": "rplugin/python3/defx/util.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Shougo-defx.nvim/rplugin/python3/defx/util.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rplugin/python3/defx/util.py:74:8 Incompatible return type [7]: Expected `bool` but got `typing.Union[bool, os.stat_result]`.",
+    "message": " Expected `bool` but got `typing.Union[bool, os.stat_result]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 74,
+    "warning_line": "        return os.access(str(path), os.R_OK) and path.stat()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    try:\n        return os.access(str(path), os.R_OK) and path.stat()\n    except Exception:\n",
+        "source_code_len": 92,
+        "target_code": "    try:\n        if os.access(str(path), os.R_OK) and path.stat():\n            return True\n        else:\n            return False\n    except Exception:\n",
+        "target_code_len": 152,
+        "diff_format": "@@ -73,3 +73,6 @@\n     try:\n-        return os.access(str(path), os.R_OK) and path.stat()\n+        if os.access(str(path), os.R_OK) and path.stat():\n+            return True\n+        else:\n+            return False\n     except Exception:\n",
+        "source_code_with_indent": "    try:\n        <IND>return os.access(str(path), os.R_OK) and path.stat()\n    <DED>except Exception:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    try:\n        <IND>if os.access(str(path), os.R_OK) and path.stat():\n            <IND>return True\n        <DED>else:\n            <IND>return False\n    <DED><DED>except Exception:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

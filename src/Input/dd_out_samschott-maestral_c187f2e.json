@@ -1,0 +1,70 @@
+[
+  {
+    "project": "samschott/maestral",
+    "commit": "c187f2eeb3199ec090db4a0e8118f992e9d01378",
+    "filename": "src/maestral/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/src/maestral/cli.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/maestral/cli.py:1569:12 Incompatible parameter type [6]: Expected `str` for 5th parameter `fromfiledate` to call `difflib.context_diff` but got `Optional[str]`.",
+    "message": " Expected `str` for 5th parameter `fromfiledate` to call `difflib.context_diff` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1569,
+    "warning_line": "            fromfiledate=new_date,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        new_date = check_rev(entries, entries[0][\"rev\"])\n        od = check_rev(entries, old_rev)\n        if od == None:\n            click.echo(\"Selected revision was not found\")\n            return\n        old_date = cast(str, od)\n\n",
+        "source_code_len": 232,
+        "target_code": "        new_date = check_rev(entries, entries[0][\"rev\"])\n        if new_date is None:\n            click.echo(\"Selected revision was not found\")\n            return \n        old_date = check_rev(entries, old_rev)\n        if old_date is None:\n            click.echo(\"Selected revision was not found\")\n            return\n\n",
+        "target_code_len": 318,
+        "diff_format": "@@ -1535,7 +1533,9 @@\n         new_date = check_rev(entries, entries[0][\"rev\"])\n-        od = check_rev(entries, old_rev)\n-        if od == None:\n+        if new_date is None:\n+            click.echo(\"Selected revision was not found\")\n+            return \n+        old_date = check_rev(entries, old_rev)\n+        if old_date is None:\n             click.echo(\"Selected revision was not found\")\n             return\n-        old_date = cast(str, od)\n \n",
+        "source_code_with_indent": "        new_date = check_rev(entries, entries[0][\"rev\"])\n        od = check_rev(entries, old_rev)\n        if od == None:\n            <IND>click.echo(\"Selected revision was not found\")\n            return\n        <DED>old_date = cast(str, od)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        new_date = check_rev(entries, entries[0][\"rev\"])\n        if new_date is None:\n            <IND>click.echo(\"Selected revision was not found\")\n            return \n        <DED>old_date = check_rev(entries, old_rev)\n        if old_date is None:\n            <IND>click.echo(\"Selected revision was not found\")\n            return\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "samschott/maestral",
+    "commit": "c187f2eeb3199ec090db4a0e8118f992e9d01378",
+    "filename": "src/maestral/cli.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/samschott-maestral/src/maestral/cli.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/maestral/cli.py:1579:45 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `datetime.strptime` but got `Union[None, bool, float, str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `datetime.strptime` but got `Union[None, bool, float, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 1579,
+    "warning_line": "                return str(datetime.strptime(d, \"%Y-%m-%dT%H:%M:%S%z\").astimezone())",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            if r[\"rev\"] == rev:\n                d = r[\"client_modified\"]\n                return str(datetime.strptime(d, \"%Y-%m-%dT%H:%M:%S%z\").astimezone())\n",
+        "source_code_len": 158,
+        "target_code": "            if r[\"rev\"] == rev:\n                d = cast(str, r[\"client_modified\"])\n                return str(datetime.strptime(d, \"%Y-%m-%dT%H:%M:%S%z\").astimezone())\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -1577,3 +1576,3 @@\n             if r[\"rev\"] == rev:\n-                d = r[\"client_modified\"]\n+                d = cast(str, r[\"client_modified\"])\n                 return str(datetime.strptime(d, \"%Y-%m-%dT%H:%M:%S%z\").astimezone())\n",
+        "source_code_with_indent": "            <IND>if r[\"rev\"] == rev:\n                <IND>d = r[\"client_modified\"]\n                return str(datetime.strptime(d, \"%Y-%m-%dT%H:%M:%S%z\").astimezone())\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>if r[\"rev\"] == rev:\n                <IND>d = cast(str, r[\"client_modified\"])\n                return str(datetime.strptime(d, \"%Y-%m-%dT%H:%M:%S%z\").astimezone())\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

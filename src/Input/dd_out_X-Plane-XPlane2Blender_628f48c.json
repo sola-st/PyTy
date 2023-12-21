@@ -1,0 +1,100 @@
+[
+  {
+    "project": "X-Plane/XPlane2Blender",
+    "commit": "628f48cf046a51a7c0c02b98ea6268008d3c44c4",
+    "filename": "io_xplane2blender/xplane_types/xplane_attribute.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/X-Plane-XPlane2Blender/io_xplane2blender/xplane_types/xplane_attribute.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "io_xplane2blender/xplane_types/xplane_attribute.py:80:73 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[str]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 80,
+    "warning_line": "        elif isinstance(value, list) or isinstance(value, tuple) and len(value) > 0:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n# Class: XPlaneAttribute\n# An Attribute\nclass XPlaneAttribute():\n    def __init__(self, name:str, value:Optional[Union[bool,float,int,str]] = None, weight:int = 0):\n        '''\n        XPlaneAttributes are the data class for what will eventually be written as commands in the\n        OBJ. Names usually start with \"ATTR_\"\n        weight indicates where the attribute should be in the OBJ File\n",
+        "source_code_len": 394,
+        "target_code": "\nAttributeValueType = Union[bool, float, int, str]\nAttributeValueTypeList = List[Optional[AttributeValueType]]\n\nclass XPlaneAttribute():\n    '''\n    XPlaneAttributes are the data class for what will eventually be written as commands in the\n    OBJ. Names usually start with \"ATTR_\"\n    '''\n    def __init__(self, name: str, value: Optional[AttributeValueType] = None, weight: int = 0):\n        '''\n        weight indicates where the attribute should be in the OBJ File\n",
+        "target_code_len": 469,
+        "diff_format": "@@ -6,9 +5,12 @@\n \n-# Class: XPlaneAttribute\n-# An Attribute\n+AttributeValueType = Union[bool, float, int, str]\n+AttributeValueTypeList = List[Optional[AttributeValueType]]\n+\n class XPlaneAttribute():\n-    def __init__(self, name:str, value:Optional[Union[bool,float,int,str]] = None, weight:int = 0):\n+    '''\n+    XPlaneAttributes are the data class for what will eventually be written as commands in the\n+    OBJ. Names usually start with \"ATTR_\"\n+    '''\n+    def __init__(self, name: str, value: Optional[AttributeValueType] = None, weight: int = 0):\n         '''\n-        XPlaneAttributes are the data class for what will eventually be written as commands in the\n-        OBJ. Names usually start with \"ATTR_\"\n         weight indicates where the attribute should be in the OBJ File\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n# Class: XPlaneAttribute\n# An Attribute\nclass XPlaneAttribute():\n    <IND>def __init__(self, name:str, value:Optional[Union[bool,float,int,str]] = None, weight:int = 0):\n        <IND>",
+        "target_code_with_indent": "\nAttributeValueType = Union[bool, float, int, str]\nAttributeValueTypeList = List[Optional[AttributeValueType]]\n\nclass XPlaneAttribute():\n    <IND>'''\n    XPlaneAttributes are the data class for what will eventually be written as commands in the\n    OBJ. Names usually start with \"ATTR_\"\n    '''\n    def __init__(self, name: str, value: Optional[AttributeValueType] = None, weight: int = 0):\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    # Method: setValue\n    # Overwrites the current attribute value.\n    #\n    # Parameters:\n    #   mixed value - Either a string or boolean\n    #   int i - (default = 0) The index of the value.\n    def setValue(self, value:Union[bool,float,int,str], i:int = 0):\n        self.value[i] =  value\n\n    # Method: getValue\n    # Return the current value of the attribute.\n    #\n    # Paramters:\n    #   int i - (default = 0) The index of the value.\n    #\n    # Returns:\n    #   mixed - The value\n    def getValue(self, i:int = 0)->Optional[Union[bool,float,int,str]]:\n        return self.value[i]\n\n    # Method: getValueAsString\n    # Returns the current value of the attribute as a string\n    #\n    # Parameters:\n    #   int i - (default = 0) The index of the value.\n    #\n    # Returns:\n    #   string - The value as string\n    def getValueAsString(self, i:int = 0)->str:\n        value = self.getValue(i)\n\n        if value == None:\n            return ''\n",
+        "source_code_len": 953,
+        "target_code": "\n    def setValue(self, value: AttributeValueType, i: int = 0):\n        '''Overwrites the current attribute value. Will throw is i is out of bounds'''\n        self.value[i] = value\n\n    def getValue(self, i: int = 0)->Optional[AttributeValueType]:\n        '''\n        Return value from the value list at a certain index i\n        (because, remember, value is a list of values...)\n        '''\n        return self.value[i]\n\n    def getValueAsString(self, i: int = 0)->str:\n        '''\n        Gets the value of value[i] as a formatted string.\n        If self.value[i] is a list, the list's string representation\n        will be seperated with '\\t's instead of ','s\n        '''\n        value = self.getValue(i)\n\n        if value is None:\n            return ''\n",
+        "target_code_len": 757,
+        "diff_format": "@@ -38,34 +37,22 @@\n \n-    # Method: setValue\n-    # Overwrites the current attribute value.\n-    #\n-    # Parameters:\n-    #   mixed value - Either a string or boolean\n-    #   int i - (default = 0) The index of the value.\n-    def setValue(self, value:Union[bool,float,int,str], i:int = 0):\n-        self.value[i] =  value\n+    def setValue(self, value: AttributeValueType, i: int = 0):\n+        '''Overwrites the current attribute value. Will throw is i is out of bounds'''\n+        self.value[i] = value\n \n-    # Method: getValue\n-    # Return the current value of the attribute.\n-    #\n-    # Paramters:\n-    #   int i - (default = 0) The index of the value.\n-    #\n-    # Returns:\n-    #   mixed - The value\n-    def getValue(self, i:int = 0)->Optional[Union[bool,float,int,str]]:\n+    def getValue(self, i: int = 0)->Optional[AttributeValueType]:\n+        '''\n+        Return value from the value list at a certain index i\n+        (because, remember, value is a list of values...)\n+        '''\n         return self.value[i]\n \n-    # Method: getValueAsString\n-    # Returns the current value of the attribute as a string\n-    #\n-    # Parameters:\n-    #   int i - (default = 0) The index of the value.\n-    #\n-    # Returns:\n-    #   string - The value as string\n-    def getValueAsString(self, i:int = 0)->str:\n+    def getValueAsString(self, i: int = 0)->str:\n+        '''\n+        Gets the value of value[i] as a formatted string.\n+        If self.value[i] is a list, the list's string representation\n+        will be seperated with '\\t's instead of ','s\n+        '''\n         value = self.getValue(i)\n \n-        if value == None:\n+        if value is None:\n             return ''\n",
+        "source_code_with_indent": "\n    # Method: setValue\n    # Overwrites the current attribute value.\n    #\n    # Parameters:\n    #   mixed value - Either a string or boolean\n    #   int i - (default = 0) The index of the value.\n    <DED><DED><DED>def setValue(self, value:Union[bool,float,int,str], i:int = 0):\n        <IND>self.value[i] =  value\n\n    # Method: getValue\n    # Return the current value of the attribute.\n    #\n    # Paramters:\n    #   int i - (default = 0) The index of the value.\n    #\n    # Returns:\n    #   mixed - The value\n    <DED>def getValue(self, i:int = 0)->Optional[Union[bool,float,int,str]]:\n        <IND>return self.value[i]\n\n    # Method: getValueAsString\n    # Returns the current value of the attribute as a string\n    #\n    # Parameters:\n    #   int i - (default = 0) The index of the value.\n    #\n    # Returns:\n    #   string - The value as string\n    <DED>def getValueAsString(self, i:int = 0)->str:\n        <IND>value = self.getValue(i)\n\n        if value == None:\n            <IND>return ''\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED><DED>def setValue(self, value: AttributeValueType, i: int = 0):\n        <IND>'''Overwrites the current attribute value. Will throw is i is out of bounds'''\n        self.value[i] = value\n\n    <DED>def getValue(self, i: int = 0)->Optional[AttributeValueType]:\n        <IND>'''\n        Return value from the value list at a certain index i\n        (because, remember, value is a list of values...)\n        '''\n        return self.value[i]\n\n    <DED>def getValueAsString(self, i: int = 0)->str:\n        <IND>'''\n        Gets the value of value[i] as a formatted string.\n        If self.value[i] is a list, the list's string representation\n        will be seperated with '\\t's instead of ','s\n        '''\n        value = self.getValue(i)\n\n        if value is None:\n            <IND>return ''\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "X-Plane/XPlane2Blender",
+    "commit": "628f48cf046a51a7c0c02b98ea6268008d3c44c4",
+    "filename": "io_xplane2blender/xplane_types/xplane_attribute.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/X-Plane-XPlane2Blender/io_xplane2blender/xplane_types/xplane_attribute.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "io_xplane2blender/xplane_types/xplane_attribute.py:82:34 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[str]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 82,
+    "warning_line": "            for i in range(0, len(value)):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n# Class: XPlaneAttribute\n# An Attribute\nclass XPlaneAttribute():\n    def __init__(self, name:str, value:Optional[Union[bool,float,int,str]] = None, weight:int = 0):\n        '''\n        XPlaneAttributes are the data class for what will eventually be written as commands in the\n        OBJ. Names usually start with \"ATTR_\"\n        weight indicates where the attribute should be in the OBJ File\n",
+        "source_code_len": 394,
+        "target_code": "\nAttributeValueType = Union[bool, float, int, str]\nAttributeValueTypeList = List[Optional[AttributeValueType]]\n\nclass XPlaneAttribute():\n    '''\n    XPlaneAttributes are the data class for what will eventually be written as commands in the\n    OBJ. Names usually start with \"ATTR_\"\n    '''\n    def __init__(self, name: str, value: Optional[AttributeValueType] = None, weight: int = 0):\n        '''\n        weight indicates where the attribute should be in the OBJ File\n",
+        "target_code_len": 469,
+        "diff_format": "@@ -6,9 +5,12 @@\n \n-# Class: XPlaneAttribute\n-# An Attribute\n+AttributeValueType = Union[bool, float, int, str]\n+AttributeValueTypeList = List[Optional[AttributeValueType]]\n+\n class XPlaneAttribute():\n-    def __init__(self, name:str, value:Optional[Union[bool,float,int,str]] = None, weight:int = 0):\n+    '''\n+    XPlaneAttributes are the data class for what will eventually be written as commands in the\n+    OBJ. Names usually start with \"ATTR_\"\n+    '''\n+    def __init__(self, name: str, value: Optional[AttributeValueType] = None, weight: int = 0):\n         '''\n-        XPlaneAttributes are the data class for what will eventually be written as commands in the\n-        OBJ. Names usually start with \"ATTR_\"\n         weight indicates where the attribute should be in the OBJ File\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n# Class: XPlaneAttribute\n# An Attribute\nclass XPlaneAttribute():\n    <IND>def __init__(self, name:str, value:Optional[Union[bool,float,int,str]] = None, weight:int = 0):\n        <IND>",
+        "target_code_with_indent": "\nAttributeValueType = Union[bool, float, int, str]\nAttributeValueTypeList = List[Optional[AttributeValueType]]\n\nclass XPlaneAttribute():\n    <IND>'''\n    XPlaneAttributes are the data class for what will eventually be written as commands in the\n    OBJ. Names usually start with \"ATTR_\"\n    '''\n    def __init__(self, name: str, value: Optional[AttributeValueType] = None, weight: int = 0):\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    # Method: setValue\n    # Overwrites the current attribute value.\n    #\n    # Parameters:\n    #   mixed value - Either a string or boolean\n    #   int i - (default = 0) The index of the value.\n    def setValue(self, value:Union[bool,float,int,str], i:int = 0):\n        self.value[i] =  value\n\n    # Method: getValue\n    # Return the current value of the attribute.\n    #\n    # Paramters:\n    #   int i - (default = 0) The index of the value.\n    #\n    # Returns:\n    #   mixed - The value\n    def getValue(self, i:int = 0)->Optional[Union[bool,float,int,str]]:\n        return self.value[i]\n\n    # Method: getValueAsString\n    # Returns the current value of the attribute as a string\n    #\n    # Parameters:\n    #   int i - (default = 0) The index of the value.\n    #\n    # Returns:\n    #   string - The value as string\n    def getValueAsString(self, i:int = 0)->str:\n        value = self.getValue(i)\n\n        if value == None:\n            return ''\n",
+        "source_code_len": 953,
+        "target_code": "\n    def setValue(self, value: AttributeValueType, i: int = 0):\n        '''Overwrites the current attribute value. Will throw is i is out of bounds'''\n        self.value[i] = value\n\n    def getValue(self, i: int = 0)->Optional[AttributeValueType]:\n        '''\n        Return value from the value list at a certain index i\n        (because, remember, value is a list of values...)\n        '''\n        return self.value[i]\n\n    def getValueAsString(self, i: int = 0)->str:\n        '''\n        Gets the value of value[i] as a formatted string.\n        If self.value[i] is a list, the list's string representation\n        will be seperated with '\\t's instead of ','s\n        '''\n        value = self.getValue(i)\n\n        if value is None:\n            return ''\n",
+        "target_code_len": 757,
+        "diff_format": "@@ -38,34 +37,22 @@\n \n-    # Method: setValue\n-    # Overwrites the current attribute value.\n-    #\n-    # Parameters:\n-    #   mixed value - Either a string or boolean\n-    #   int i - (default = 0) The index of the value.\n-    def setValue(self, value:Union[bool,float,int,str], i:int = 0):\n-        self.value[i] =  value\n+    def setValue(self, value: AttributeValueType, i: int = 0):\n+        '''Overwrites the current attribute value. Will throw is i is out of bounds'''\n+        self.value[i] = value\n \n-    # Method: getValue\n-    # Return the current value of the attribute.\n-    #\n-    # Paramters:\n-    #   int i - (default = 0) The index of the value.\n-    #\n-    # Returns:\n-    #   mixed - The value\n-    def getValue(self, i:int = 0)->Optional[Union[bool,float,int,str]]:\n+    def getValue(self, i: int = 0)->Optional[AttributeValueType]:\n+        '''\n+        Return value from the value list at a certain index i\n+        (because, remember, value is a list of values...)\n+        '''\n         return self.value[i]\n \n-    # Method: getValueAsString\n-    # Returns the current value of the attribute as a string\n-    #\n-    # Parameters:\n-    #   int i - (default = 0) The index of the value.\n-    #\n-    # Returns:\n-    #   string - The value as string\n-    def getValueAsString(self, i:int = 0)->str:\n+    def getValueAsString(self, i: int = 0)->str:\n+        '''\n+        Gets the value of value[i] as a formatted string.\n+        If self.value[i] is a list, the list's string representation\n+        will be seperated with '\\t's instead of ','s\n+        '''\n         value = self.getValue(i)\n \n-        if value == None:\n+        if value is None:\n             return ''\n",
+        "source_code_with_indent": "\n    # Method: setValue\n    # Overwrites the current attribute value.\n    #\n    # Parameters:\n    #   mixed value - Either a string or boolean\n    #   int i - (default = 0) The index of the value.\n    <DED><DED><DED>def setValue(self, value:Union[bool,float,int,str], i:int = 0):\n        <IND>self.value[i] =  value\n\n    # Method: getValue\n    # Return the current value of the attribute.\n    #\n    # Paramters:\n    #   int i - (default = 0) The index of the value.\n    #\n    # Returns:\n    #   mixed - The value\n    <DED>def getValue(self, i:int = 0)->Optional[Union[bool,float,int,str]]:\n        <IND>return self.value[i]\n\n    # Method: getValueAsString\n    # Returns the current value of the attribute as a string\n    #\n    # Parameters:\n    #   int i - (default = 0) The index of the value.\n    #\n    # Returns:\n    #   string - The value as string\n    <DED>def getValueAsString(self, i:int = 0)->str:\n        <IND>value = self.getValue(i)\n\n        if value == None:\n            <IND>return ''\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED><DED>def setValue(self, value: AttributeValueType, i: int = 0):\n        <IND>'''Overwrites the current attribute value. Will throw is i is out of bounds'''\n        self.value[i] = value\n\n    <DED>def getValue(self, i: int = 0)->Optional[AttributeValueType]:\n        <IND>'''\n        Return value from the value list at a certain index i\n        (because, remember, value is a list of values...)\n        '''\n        return self.value[i]\n\n    <DED>def getValueAsString(self, i: int = 0)->str:\n        <IND>'''\n        Gets the value of value[i] as a formatted string.\n        If self.value[i] is a list, the list's string representation\n        will be seperated with '\\t's instead of ','s\n        '''\n        value = self.getValue(i)\n\n        if value is None:\n            <IND>return ''\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "project": "idom-team/idom",
+    "commit": "b7e729247b622a390f08fb8f1cc1bf23aa9ecad6",
+    "filename": "src/idom/core/component.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/idom/core/component.py",
+    "file_hunks_size": 7,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/idom/core/component.py:51:4 Inconsistent override [15]: `__slots__` overrides attribute defined in `AbstractComponent` inconsistently. Type `Tuple[str, str, str]` is not a subtype of the overridden attribute `typing.List[str]`.",
+    "message": " `__slots__` overrides attribute defined in `AbstractComponent` inconsistently. Type `Tuple[str, str, str]` is not a subtype of the overridden attribute `typing.List[str]`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 51,
+    "warning_line": "    __slots__ = \"_func\", \"_args\", \"_kwargs\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nclass Component(AbstractComponent):\n    \"\"\"An object for rending component models.\"\"\"\n\n    __slots__ = \"_func\", \"_args\", \"_kwargs\"\n\n",
+        "source_code_len": 133,
+        "target_code": "\nclass Component:\n    \"\"\"An object for rending component models.\"\"\"\n\n    __slots__ = \"__weakref__\", \"_func\", \"_args\", \"_kwargs\", \"id\", \"key\"\n\n",
+        "target_code_len": 142,
+        "diff_format": "@@ -47,6 +48,6 @@\n \n-class Component(AbstractComponent):\n+class Component:\n     \"\"\"An object for rending component models.\"\"\"\n \n-    __slots__ = \"_func\", \"_args\", \"_kwargs\"\n+    __slots__ = \"__weakref__\", \"_func\", \"_args\", \"_kwargs\", \"id\", \"key\"\n \n",
+        "source_code_with_indent": "\n<DED><DED>class Component(AbstractComponent):\n    <IND>\"\"\"An object for rending component models.\"\"\"\n\n    __slots__ = \"_func\", \"_args\", \"_kwargs\"\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED><DED>class Component:\n    <IND>\"\"\"An object for rending component models.\"\"\"\n\n    __slots__ = \"__weakref__\", \"_func\", \"_args\", \"_kwargs\", \"id\", \"key\"\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "idom-team/idom",
+    "commit": "b7e729247b622a390f08fb8f1cc1bf23aa9ecad6",
+    "filename": "src/idom/core/component.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/idom/core/component.py",
+    "file_hunks_size": 7,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/idom/core/component.py:71:8 Incompatible return type [7]: Expected `VdomDict` but got `Union[Dict[str, Union[typing.List[AbstractComponent], str]], VdomDict]`.",
+    "message": " Expected `VdomDict` but got `Union[Dict[str, Union[typing.List[AbstractComponent], str]], VdomDict]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 71,
+    "warning_line": "        return model"
+  },
+  {
+    "project": "idom-team/idom",
+    "commit": "b7e729247b622a390f08fb8f1cc1bf23aa9ecad6",
+    "filename": "src/idom/core/vdom.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/idom-team-idom/src/idom/core/vdom.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/idom/core/vdom.py:208:4 Incompatible attribute type [8]: Attribute `__module__` declared in class `object` has type `str` but is used as type `Optional[str]`.",
+    "message": " Attribute `__module__` declared in class `object` has type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 208,
+    "warning_line": "    constructor.__module__ = module"
+  }
+]

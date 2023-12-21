@@ -1,0 +1,51 @@
+[
+  {
+    "project": "python-discord/sir-lancebot",
+    "commit": "eaaeadc76dd859e5d462d648169559b434f76883",
+    "filename": "bot/seasons/evergreen/movie.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-discord-sir-lancebot/bot/seasons/evergreen/movie.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "bot/seasons/evergreen/movie.py:168:49 Invalid type [31]: Expression `(str, str)` is not a valid type.",
+    "message": " Expression `(str, str)` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 168,
+    "warning_line": "    async def create_page(self, movie: Dict) -> (str, str):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from os import environ\nfrom typing import Dict, List, Tuple\nfrom urllib.parse import urlencode\n",
+        "source_code_len": 95,
+        "target_code": "from os import environ\nfrom typing import Any, Dict, List, Tuple\nfrom urllib.parse import urlencode\n",
+        "target_code_len": 100,
+        "diff_format": "@@ -4,3 +4,3 @@\n from os import environ\n-from typing import Dict, List, Tuple\n+from typing import Any, Dict, List, Tuple\n from urllib.parse import urlencode\n",
+        "source_code_with_indent": "from os import environ\nfrom typing import Dict, List, Tuple\nfrom urllib.parse import urlencode\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from os import environ\nfrom typing import Any, Dict, List, Tuple\nfrom urllib.parse import urlencode\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def create_page(self, movie: Dict) -> (str, str):\n        \"\"\"Create page from TMDB movie request result. Return formatted page + image.\"\"\"\n",
+        "source_code_len": 150,
+        "target_code": "\n    async def create_page(self, movie: Dict[str, Any]) -> Tuple[str, str]:\n        \"\"\"Create page from TMDB movie request result. Return formatted page + image.\"\"\"\n",
+        "target_code_len": 165,
+        "diff_format": "@@ -167,3 +158,3 @@\n \n-    async def create_page(self, movie: Dict) -> (str, str):\n+    async def create_page(self, movie: Dict[str, Any]) -> Tuple[str, str]:\n         \"\"\"Create page from TMDB movie request result. Return formatted page + image.\"\"\"\n",
+        "source_code_with_indent": "\n    <DED><DED>async def create_page(self, movie: Dict) -> (str, str):\n        <IND>\"\"\"Create page from TMDB movie request result. Return formatted page + image.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>async def create_page(self, movie: Dict[str, Any]) -> Tuple[str, str]:\n        <IND>\"\"\"Create page from TMDB movie request result. Return formatted page + image.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

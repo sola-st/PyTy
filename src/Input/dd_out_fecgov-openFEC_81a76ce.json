@@ -1,0 +1,36 @@
+[
+  {
+    "project": "fecgov/openFEC",
+    "commit": "81a76ce978b45c6e3f9afb45d6d2e3c4b6916bde",
+    "filename": "webservices/legal_docs/index_management.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/fecgov-openFEC/webservices/legal_docs/index_management.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "webservices/legal_docs/index_management.py:235:25 Incompatible parameter type [6]: Expected `typing.Mapping[str, typing.Union[typing.Dict[str, typing.Union[typing.Dict[str, typing.Dict[str, typing.Dict[str, str]]], typing.Dict[str, typing.Union[typing.Dict[str, typing.Dict[str, str]], str]], typing.Dict[str, typing.Union[bool, str]], typing.Dict[str, str]]], str]]` for 1st positional only parameter to call `dict.update` but got `typing.Dict[str, typing.Dict[str, str]]`.",
+    "message": " Expected `typing.Mapping[str, typing.Union[typing.Dict[str, typing.Union[typing.Dict[str, typing.Dict[str, typing.Dict[str, str]]], typing.Dict[str, typing.Union[typing.Dict[str, typing.Dict[str, str]], str]], typing.Dict[str, typing.Union[bool, str]], typing.Dict[str, str]]], str]]` for 1st positional only parameter to call `dict.update` but got `typing.Dict[str, typing.Dict[str, str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 235,
+    "warning_line": "ARCH_MUR_MAPPINGS.update(SORT_MAPPINGS)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"documents\": ARCH_MUR_DOCUMENT_MAPPINGS,\n    }\n}\nARCH_MUR_MAPPINGS.update(SORT_MAPPINGS)\n\n# ==== end define mapping for index: archived_murs\n\n\n",
+        "source_code_len": 151,
+        "target_code": "        \"documents\": ARCH_MUR_DOCUMENT_MAPPINGS,\n        \"sort1\": {\"type\": \"integer\"},\n        \"sort2\": {\"type\": \"integer\"}\n    }\n}\n\n# ==== end define mapping for index: archived_murs\n\n",
+        "target_code_len": 185,
+        "diff_format": "@@ -232,8 +230,8 @@\n         \"documents\": ARCH_MUR_DOCUMENT_MAPPINGS,\n+        \"sort1\": {\"type\": \"integer\"},\n+        \"sort2\": {\"type\": \"integer\"}\n     }\n }\n-ARCH_MUR_MAPPINGS.update(SORT_MAPPINGS)\n \n # ==== end define mapping for index: archived_murs\n-\n \n",
+        "source_code_with_indent": "        \"documents\": ARCH_MUR_DOCUMENT_MAPPINGS,\n    }\n}\nARCH_MUR_MAPPINGS.update(SORT_MAPPINGS)\n\n# ==== end define mapping for index: archived_murs\n\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        \"documents\": ARCH_MUR_DOCUMENT_MAPPINGS,\n        \"sort1\": {\"type\": \"integer\"},\n        \"sort2\": {\"type\": \"integer\"}\n    }\n}\n\n# ==== end define mapping for index: archived_murs\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

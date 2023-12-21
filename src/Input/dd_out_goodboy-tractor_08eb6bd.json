@@ -1,0 +1,85 @@
+[
+  {
+    "project": "goodboy/tractor",
+    "commit": "08eb6bd0190f5e10781d4e929b5093beb3ede30e",
+    "filename": "tractor/_portal.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/_portal.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/_portal.py:382:12 Incompatible return type [7]: Expected `Context` but got `AsyncGenerator[Tuple[Context, typing.Any], None]`.",
+    "message": " Expected `Context` but got `AsyncGenerator[Tuple[Context, typing.Any], None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 382,
+    "warning_line": "            yield ctx, first",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        **kwargs,\n    ) -> Context:\n        \"\"\"Open an inter-actor task context.\n",
+        "source_code_len": 81,
+        "target_code": "        **kwargs,\n    ) -> AsyncGenerator[Tuple[Context, Any], None]:\n        \"\"\"Open an inter-actor task context.\n",
+        "target_code_len": 115,
+        "diff_format": "@@ -342,3 +342,3 @@\n         **kwargs,\n-    ) -> Context:\n+    ) -> AsyncGenerator[Tuple[Context, Any], None]:\n         \"\"\"Open an inter-actor task context.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        **kwargs,\n    ) -> Context:\n        <IND>",
+        "target_code_with_indent": "        **kwargs,\n    ) -> AsyncGenerator[Tuple[Context, Any], None]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "goodboy/tractor",
+    "commit": "08eb6bd0190f5e10781d4e929b5093beb3ede30e",
+    "filename": "tractor/_streaming.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/goodboy-tractor/tractor/_streaming.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tractor/_streaming.py:319:16 Incompatible return type [7]: Expected `MsgStream` but got `typing.AsyncGenerator[typing.Any, None]`.",
+    "message": " Expected `MsgStream` but got `typing.AsyncGenerator[typing.Any, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 319,
+    "warning_line": "                yield rchan",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from dataclasses import dataclass\nfrom typing import Any, Iterator, Optional, Callable\nimport warnings\n",
+        "source_code_len": 103,
+        "target_code": "from dataclasses import dataclass\nfrom typing import (\n    Any, Iterator, Optional, Callable,\n    AsyncGenerator,\n)\n\nimport warnings\n",
+        "target_code_len": 133,
+        "diff_format": "@@ -3,3 +7,7 @@\n from dataclasses import dataclass\n-from typing import Any, Iterator, Optional, Callable\n+from typing import (\n+    Any, Iterator, Optional, Callable,\n+    AsyncGenerator,\n+)\n+\n import warnings\n",
+        "source_code_with_indent": "from dataclasses import dataclass\nfrom typing import Any, Iterator, Optional, Callable\nimport warnings\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from dataclasses import dataclass\nfrom typing import (\n    Any, Iterator, Optional, Callable,\n    AsyncGenerator,\n)\n\nimport warnings\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        shield: bool = False,\n    ) -> MsgStream:\n        # TODO\n",
+        "source_code_len": 65,
+        "target_code": "        shield: bool = False,\n    ) -> AsyncGenerator[MsgStream, None]:\n        # TODO\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -290,3 +298,3 @@\n         shield: bool = False,\n-    ) -> MsgStream:\n+    ) -> AsyncGenerator[MsgStream, None]:\n         # TODO\n",
+        "source_code_with_indent": "        shield: bool = False,\n    ) -> MsgStream:\n        # TODO\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        shield: bool = False,\n    ) -> AsyncGenerator[MsgStream, None]:\n        # TODO\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

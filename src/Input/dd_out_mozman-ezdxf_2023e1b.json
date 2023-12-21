@@ -1,0 +1,85 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "2023e1b988b2814333f06031a26e67541fded125",
+    "filename": "src/ezdxf/addons/browser/data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/browser/data.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/browser/data.py:71:16 Unsupported operand [58]: `+` is not supported for operand types `Optional[int]` and `int`.",
+    "message": " `+` is not supported for operand types `Optional[int]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 71,
+    "warning_line": "                self.line_index.get_start_line_for_entity(entity) + offset * 2",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_start_line_for_entity(self, entity: Tags) -> Optional[int]:\n        entry = self._entity_index.get(id(entity))\n",
+        "source_code_len": 124,
+        "target_code": "\n    def get_start_line_for_entity(self, entity: Tags) -> int:\n        entry = self._entity_index.get(id(entity))\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -187,3 +187,3 @@\n \n-    def get_start_line_for_entity(self, entity: Tags) -> Optional[int]:\n+    def get_start_line_for_entity(self, entity: Tags) -> int:\n         entry = self._entity_index.get(id(entity))\n",
+        "source_code_with_indent": "\n    <DED>def get_start_line_for_entity(self, entity: Tags) -> Optional[int]:\n        <IND>entry = self._entity_index.get(id(entity))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_start_line_for_entity(self, entity: Tags) -> int:\n        <IND>entry = self._entity_index.get(id(entity))\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            return entry[0]\n        return None\n\n",
+        "source_code_len": 49,
+        "target_code": "            return entry[0]\n        return 0\n\n",
+        "target_code_len": 46,
+        "diff_format": "@@ -191,3 +191,3 @@\n             return entry[0]\n-        return None\n+        return 0\n \n",
+        "source_code_with_indent": "            <IND>return entry[0]\n        <DED>return None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>return entry[0]\n        <DED>return 0\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "2023e1b988b2814333f06031a26e67541fded125",
+    "filename": "src/ezdxf/addons/browser/data.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/addons/browser/data.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/addons/browser/data.py:311:8 Incompatible return type [7]: Expected `str` but got `Optional[str]`.",
+    "message": " Expected `str` but got `Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 311,
+    "warning_line": "        return self._search_term",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def search_term(self) -> str:\n        return self._search_term\n",
+        "source_code_len": 81,
+        "target_code": "    @property\n    def search_term(self) -> Optional[str]:\n        return self._search_term\n",
+        "target_code_len": 91,
+        "diff_format": "@@ -309,3 +309,3 @@\n     @property\n-    def search_term(self) -> str:\n+    def search_term(self) -> Optional[str]:\n         return self._search_term\n",
+        "source_code_with_indent": "    <DED>@property\n    def search_term(self) -> str:\n        <IND>return self._search_term\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def search_term(self) -> Optional[str]:\n        <IND>return self._search_term\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

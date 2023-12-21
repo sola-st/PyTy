@@ -1,0 +1,36 @@
+[
+  {
+    "project": "stlehmann/pyads",
+    "commit": "22c62cfeb4dc1b62722ca33f1aa42e59e8c2ebd5",
+    "filename": "pyads/ads.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/stlehmann-pyads/pyads/ads.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pyads/ads.py:723:50 Incompatible parameter type [6]: Expected `Optional[bytes]` for 1st positional only parameter to call `bytearray.split` but got `str`.",
+    "message": " Expected `Optional[bytes]` for 1st positional only parameter to call `bytearray.split` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 723,
+    "warning_line": "                    value = bytearray(dest).split('\\0',1)[0].decode('utf-8')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    memmove(addressof(dest), addressof(data), data_size)\n                    # I had some NULL bytes in my string...\n                    value = bytearray(dest).split('\\0',1)[0].decode('utf-8')\n\n",
+        "source_code_len": 211,
+        "target_code": "                    memmove(addressof(dest), addressof(data), data_size)\n                    value = bytearray(dest).split(b'\\x00', 1)[0].decode('utf-8')\n\n",
+        "target_code_len": 155,
+        "diff_format": "@@ -721,4 +721,3 @@\n                     memmove(addressof(dest), addressof(data), data_size)\n-                    # I had some NULL bytes in my string...\n-                    value = bytearray(dest).split('\\0',1)[0].decode('utf-8')\n+                    value = bytearray(dest).split(b'\\x00', 1)[0].decode('utf-8')\n \n",
+        "source_code_with_indent": "                    memmove(addressof(dest), addressof(data), data_size)\n                    # I had some NULL bytes in my string...\n                    value = bytearray(dest).split('\\0',1)[0].decode('utf-8')\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    memmove(addressof(dest), addressof(data), data_size)\n                    value = bytearray(dest).split(b'\\x00', 1)[0].decode('utf-8')\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

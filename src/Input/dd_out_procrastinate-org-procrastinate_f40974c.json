@@ -1,0 +1,36 @@
+[
+  {
+    "project": "procrastinate-org/procrastinate",
+    "commit": "f40974c5f07de827d1aa1fadb1ca4c45cc2ed871",
+    "filename": "tests/acceptance/param.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/procrastinate-org-procrastinate/tests/acceptance/param.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/acceptance/param.py:5:8 Incompatible attribute type [8]: Attribute `p` declared in class `Param` has type `int` but is used as type `str`.",
+    "message": " Attribute `p` declared in class `Param` has type `int` but is used as type `str`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 5,
+    "warning_line": "        self.p = p",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, p: str):\n        self.p = p\n",
+        "source_code_len": 52,
+        "target_code": "\n    def __init__(self, p: int):\n        self.p = p\n",
+        "target_code_len": 52,
+        "diff_format": "@@ -3,3 +3,3 @@\n \n-    def __init__(self, p: str):\n+    def __init__(self, p: int):\n         self.p = p\n",
+        "source_code_with_indent": "\n    def __init__(self, p: str):\n        <IND>self.p = p\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, p: int):\n        <IND>self.p = p\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

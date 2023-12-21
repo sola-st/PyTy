@@ -1,0 +1,51 @@
+[
+  {
+    "project": "nabla-c0d3/sslyze",
+    "commit": "1ecc9696e199a24c4ba4e4e533480b7cfeb2d4b8",
+    "filename": "sslyze/cli/json_output.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/nabla-c0d3-sslyze/sslyze/cli/json_output.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sslyze/cli/json_output.py:130:8 Incompatible return type [7]: Expected `Union[Dict[str, typing.Any], bool, float, int, str]` but got `Union[Dict[typing.Any, typing.Any], object]`.",
+    "message": " Expected `Union[Dict[str, typing.Any], bool, float, int, str]` but got `Union[Dict[typing.Any, typing.Any], object]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 130,
+    "warning_line": "        return result",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def default(self, obj: Any) -> Union[bool, int, float, str, Dict[str, Any]]:\n        if isinstance(obj, Enum):\n",
+        "source_code_len": 115,
+        "target_code": "    def default(self, obj: Any) -> Union[bool, int, float, str, Dict[str, Any]]:\n        result: Union[bool, int, float, str, Dict[str, Any]]\n\n        if isinstance(obj, Enum):\n",
+        "target_code_len": 177,
+        "diff_format": "@@ -74,2 +74,4 @@\n     def default(self, obj: Any) -> Union[bool, int, float, str, Dict[str, Any]]:\n+        result: Union[bool, int, float, str, Dict[str, Any]]\n+\n         if isinstance(obj, Enum):\n",
+        "source_code_with_indent": "    <IND>def default(self, obj: Any) -> Union[bool, int, float, str, Dict[str, Any]]:\n        <IND>if isinstance(obj, Enum):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>def default(self, obj: Any) -> Union[bool, int, float, str, Dict[str, Any]]:\n        <IND>result: Union[bool, int, float, str, Dict[str, Any]]\n\n        if isinstance(obj, Enum):\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "                # Simple object like a bool\n                result = obj\n\n",
+        "source_code_len": 74,
+        "target_code": "                # Simple object like a bool\n                result = obj  # type: ignore\n\n",
+        "target_code_len": 90,
+        "diff_format": "@@ -124,3 +126,3 @@\n                 # Simple object like a bool\n-                result = obj\n+                result = obj  # type: ignore\n \n",
+        "source_code_with_indent": "                # Simple object like a bool\n                <IND>result = obj\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                # Simple object like a bool\n                <IND>result = obj  # type: ignore\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

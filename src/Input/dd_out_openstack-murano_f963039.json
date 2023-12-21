@@ -1,0 +1,36 @@
+[
+  {
+    "project": "openstack/murano",
+    "commit": "f963039bd76a6e35629cac8fcb7a48593521e15a",
+    "filename": "murano/common/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openstack-murano/murano/common/utils.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "murano/common/utils.py:30:18 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 30,
+    "warning_line": "    value_type = (basestring, int, float, bool)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class TraverseHelper(object):\n    value_type = (basestring, int, float, bool)\n\n",
+        "source_code_len": 79,
+        "target_code": "class TraverseHelper(object):\n    value_type = (six.string_types, int, float, bool)\n\n",
+        "target_code_len": 85,
+        "diff_format": "@@ -29,3 +29,3 @@\n class TraverseHelper(object):\n-    value_type = (basestring, int, float, bool)\n+    value_type = (six.string_types, int, float, bool)\n \n",
+        "source_code_with_indent": "class TraverseHelper(object):\n    <IND>value_type = (basestring, int, float, bool)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class TraverseHelper(object):\n    <IND>value_type = (six.string_types, int, float, bool)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

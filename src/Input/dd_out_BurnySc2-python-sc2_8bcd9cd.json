@@ -1,0 +1,36 @@
+[
+  {
+    "project": "BurnySc2/python-sc2",
+    "commit": "8bcd9cd56c9aff0d09c35dee961bb86b269f7655",
+    "filename": "sc2/position.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/BurnySc2-python-sc2/sc2/position.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sc2/position.py:240:18 Invalid type [31]: Expression `[sc2.position.Point2]` is not a valid type.",
+    "message": " Expression `[sc2.position.Point2]` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 240,
+    "warning_line": "    def center(a: [\"Point2\"]) -> \"Point2\":",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @staticmethod\n    def center(a: [\"Point2\"]) -> \"Point2\":\n        \"\"\" Returns the central point for points in list \"\"\"\n",
+        "source_code_len": 122,
+        "target_code": "    @staticmethod\n    def center(a: Union[Set[\"Point2\"], List[\"Point2\"]]) -> \"Point2\":\n        \"\"\" Returns the central point for points in list \"\"\"\n",
+        "target_code_len": 148,
+        "diff_format": "@@ -239,3 +239,3 @@\n     @staticmethod\n-    def center(a: [\"Point2\"]) -> \"Point2\":\n+    def center(a: Union[Set[\"Point2\"], List[\"Point2\"]]) -> \"Point2\":\n         \"\"\" Returns the central point for points in list \"\"\"\n",
+        "source_code_with_indent": "    <DED>@staticmethod\n    def center(a: [\"Point2\"]) -> \"Point2\":\n        <IND>\"\"\" Returns the central point for points in list \"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@staticmethod\n    def center(a: Union[Set[\"Point2\"], List[\"Point2\"]]) -> \"Point2\":\n        <IND>\"\"\" Returns the central point for points in list \"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

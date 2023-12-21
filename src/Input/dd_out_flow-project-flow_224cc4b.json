@@ -1,0 +1,36 @@
+[
+  {
+    "project": "flow-project/flow",
+    "commit": "224cc4b6ac454db300811301e3a8d6ae45fd9950",
+    "filename": "cistar-dev/two-lane-two-controller-rl.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/flow-project-flow/cistar-dev/two-lane-two-controller-rl.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cistar-dev/two-lane-two-controller-rl.py:17:44 Unbound name [10]: Name `stochastic_lane_changer` is used but not defined in the current scope.",
+    "message": " Name `stochastic_lane_changer` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 17,
+    "warning_line": " \"cfm-fast\": (6, make_better_cfm(v_des=10), stochastic_lane_changer())}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ntype_params = { \"cfm-slow\": (6, make_better_cfm(v_des=6),  never_change_lanes_controller()),\\\n \"cfm-fast\": (6, make_better_cfm(v_des=10), stochastic_lane_changer())}\n\n",
+        "source_code_len": 168,
+        "target_code": "\ntype_params = { \"cfm-slow\": (6, make_better_cfm(v_des=6),  never_change_lanes_controller(), 0),\\\n \"cfm-fast\": (6, make_better_cfm(v_des=10), never_change_lanes_controller(), 0)}\n\n",
+        "target_code_len": 180,
+        "diff_format": "@@ -15,4 +15,4 @@\n \n-type_params = { \"cfm-slow\": (6, make_better_cfm(v_des=6),  never_change_lanes_controller()),\\\n- \"cfm-fast\": (6, make_better_cfm(v_des=10), stochastic_lane_changer())}\n+type_params = { \"cfm-slow\": (6, make_better_cfm(v_des=6),  never_change_lanes_controller(), 0),\\\n+ \"cfm-fast\": (6, make_better_cfm(v_des=10), never_change_lanes_controller(), 0)}\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ntype_params = { \"cfm-slow\": (6, make_better_cfm(v_des=6),  never_change_lanes_controller()), \"cfm-fast\": (6, make_better_cfm(v_des=10), stochastic_lane_changer())}\n\n",
+        "target_code_with_indent": "\ntype_params = { \"cfm-slow\": (6, make_better_cfm(v_des=6),  never_change_lanes_controller(), 0), \"cfm-fast\": (6, make_better_cfm(v_des=10), never_change_lanes_controller(), 0)}\n\n"
+      }
+    ]
+  }
+]

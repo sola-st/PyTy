@@ -1,0 +1,138 @@
+[
+  {
+    "project": "codalab/codalab-worksheets",
+    "commit": "5b9390b5ecdead2ef736c4e43dc94037f2aeb161",
+    "filename": "codalab/bundles/named_bundle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/codalab-codalab-worksheets/codalab/bundles/named_bundle.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "codalab/bundles/named_bundle.py:20:29 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 20,
+    "warning_line": "        MetadataSpec('name', basestring, 'Short variable name (not necessarily unique); must conform to %s.' % spec_util.NAME_REGEX.pattern, short_key='n',),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    METADATA_SPECS = (\n        MetadataSpec('name', basestring, 'Short variable name (not necessarily unique); must conform to %s.' % spec_util.NAME_REGEX.pattern, short_key='n',),\n        MetadataSpec('description', basestring, 'Full description of the bundle.', short_key='d'),\n        MetadataSpec('tags', list, 'Space-separated list of tags used for search (e.g., machine-learning).', metavar='TAG',),\n",
+        "source_code_len": 406,
+        "target_code": "    METADATA_SPECS = (\n        MetadataSpec('name', str, 'Short variable name (not necessarily unique); must conform to %s.' % spec_util.NAME_REGEX.pattern, short_key='n',),\n        MetadataSpec('description', str, 'Full description of the bundle.', short_key='d'),\n        MetadataSpec('tags', list, 'Space-separated list of tags used for search (e.g., machine-learning).', metavar='TAG',),\n",
+        "target_code_len": 392,
+        "diff_format": "@@ -19,4 +19,4 @@\n     METADATA_SPECS = (\n-        MetadataSpec('name', basestring, 'Short variable name (not necessarily unique); must conform to %s.' % spec_util.NAME_REGEX.pattern, short_key='n',),\n-        MetadataSpec('description', basestring, 'Full description of the bundle.', short_key='d'),\n+        MetadataSpec('name', str, 'Short variable name (not necessarily unique); must conform to %s.' % spec_util.NAME_REGEX.pattern, short_key='n',),\n+        MetadataSpec('description', str, 'Full description of the bundle.', short_key='d'),\n         MetadataSpec('tags', list, 'Space-separated list of tags used for search (e.g., machine-learning).', metavar='TAG',),\n",
+        "source_code_with_indent": "    METADATA_SPECS = (\n        MetadataSpec('name', basestring, 'Short variable name (not necessarily unique); must conform to %s.' % spec_util.NAME_REGEX.pattern, short_key='n',),\n        MetadataSpec('description', basestring, 'Full description of the bundle.', short_key='d'),\n        MetadataSpec('tags', list, 'Space-separated list of tags used for search (e.g., machine-learning).', metavar='TAG',),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    METADATA_SPECS = (\n        MetadataSpec('name', str, 'Short variable name (not necessarily unique); must conform to %s.' % spec_util.NAME_REGEX.pattern, short_key='n',),\n        MetadataSpec('description', str, 'Full description of the bundle.', short_key='d'),\n        MetadataSpec('tags', list, 'Space-separated list of tags used for search (e.g., machine-learning).', metavar='TAG',),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "codalab/codalab-worksheets",
+    "commit": "5b9390b5ecdead2ef736c4e43dc94037f2aeb161",
+    "filename": "codalab/bundles/run_bundle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/codalab-codalab-worksheets/codalab/bundles/run_bundle.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "codalab/bundles/run_bundle.py:26:63 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 26,
+    "warning_line": "    METADATA_SPECS.append(MetadataSpec('request_docker_image', basestring, 'Which docker image (either tag or digest, e.g., codalab/default-cpu:latest) we wish to use.', completer=DockerImagesCompleter, hide_when_anonymous=True, default=None))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    # fmt: off\n    METADATA_SPECS.append(MetadataSpec('request_docker_image', basestring, 'Which docker image (either tag or digest, e.g., codalab/default-cpu:latest) we wish to use.', completer=DockerImagesCompleter, hide_when_anonymous=True, default=None))\n    METADATA_SPECS.append(MetadataSpec('request_time', basestring, 'Amount of time (e.g., 3, 3m, 3h, 3d) allowed for this run. Defaults to user time quota left.', formatting='duration', default=None))\n    METADATA_SPECS.append(MetadataSpec('request_memory', basestring, 'Amount of memory (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run.', formatting='size', default='2g'))\n    METADATA_SPECS.append(MetadataSpec('request_disk', basestring, 'Amount of disk space (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run. Defaults to user disk quota left.', formatting='size', default=None))\n    METADATA_SPECS.append(MetadataSpec('request_cpus', int, 'Number of CPUs allowed for this run.', default=1))\n    METADATA_SPECS.append(MetadataSpec('request_gpus', int, 'Number of GPUs allowed for this run.', default=0))\n    METADATA_SPECS.append(MetadataSpec('request_queue', basestring, 'Submit run to this job queue.', hide_when_anonymous=True, default=None))\n    METADATA_SPECS.append(MetadataSpec('request_priority', int, 'Job priority (higher is more important).', default=None))\n",
+        "source_code_len": 1327,
+        "target_code": "    # fmt: off\n    METADATA_SPECS.append(MetadataSpec('request_docker_image', str, 'Which docker image (either tag or digest, e.g., codalab/default-cpu:latest) we wish to use.', completer=DockerImagesCompleter, hide_when_anonymous=True, default=None))\n    METADATA_SPECS.append(MetadataSpec('request_time', str, 'Amount of time (e.g., 3, 3m, 3h, 3d) allowed for this run. Defaults to user time quota left.', formatting='duration', default=None))\n    METADATA_SPECS.append(MetadataSpec('request_memory', str, 'Amount of memory (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run.', formatting='size', default='2g'))\n    METADATA_SPECS.append(MetadataSpec('request_disk', str, 'Amount of disk space (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run. Defaults to user disk quota left.', formatting='size', default=None))\n    METADATA_SPECS.append(MetadataSpec('request_cpus', int, 'Number of CPUs allowed for this run.', default=1))\n    METADATA_SPECS.append(MetadataSpec('request_gpus', int, 'Number of GPUs allowed for this run.', default=0))\n    METADATA_SPECS.append(MetadataSpec('request_queue', str, 'Submit run to this job queue.', hide_when_anonymous=True, default=None))\n    METADATA_SPECS.append(MetadataSpec('request_priority', int, 'Job priority (higher is more important).', default=None))\n",
+        "target_code_len": 1292,
+        "diff_format": "@@ -25,9 +25,9 @@\n     # fmt: off\n-    METADATA_SPECS.append(MetadataSpec('request_docker_image', basestring, 'Which docker image (either tag or digest, e.g., codalab/default-cpu:latest) we wish to use.', completer=DockerImagesCompleter, hide_when_anonymous=True, default=None))\n-    METADATA_SPECS.append(MetadataSpec('request_time', basestring, 'Amount of time (e.g., 3, 3m, 3h, 3d) allowed for this run. Defaults to user time quota left.', formatting='duration', default=None))\n-    METADATA_SPECS.append(MetadataSpec('request_memory', basestring, 'Amount of memory (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run.', formatting='size', default='2g'))\n-    METADATA_SPECS.append(MetadataSpec('request_disk', basestring, 'Amount of disk space (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run. Defaults to user disk quota left.', formatting='size', default=None))\n+    METADATA_SPECS.append(MetadataSpec('request_docker_image', str, 'Which docker image (either tag or digest, e.g., codalab/default-cpu:latest) we wish to use.', completer=DockerImagesCompleter, hide_when_anonymous=True, default=None))\n+    METADATA_SPECS.append(MetadataSpec('request_time', str, 'Amount of time (e.g., 3, 3m, 3h, 3d) allowed for this run. Defaults to user time quota left.', formatting='duration', default=None))\n+    METADATA_SPECS.append(MetadataSpec('request_memory', str, 'Amount of memory (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run.', formatting='size', default='2g'))\n+    METADATA_SPECS.append(MetadataSpec('request_disk', str, 'Amount of disk space (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run. Defaults to user disk quota left.', formatting='size', default=None))\n     METADATA_SPECS.append(MetadataSpec('request_cpus', int, 'Number of CPUs allowed for this run.', default=1))\n     METADATA_SPECS.append(MetadataSpec('request_gpus', int, 'Number of GPUs allowed for this run.', default=0))\n-    METADATA_SPECS.append(MetadataSpec('request_queue', basestring, 'Submit run to this job queue.', hide_when_anonymous=True, default=None))\n+    METADATA_SPECS.append(MetadataSpec('request_queue', str, 'Submit run to this job queue.', hide_when_anonymous=True, default=None))\n     METADATA_SPECS.append(MetadataSpec('request_priority', int, 'Job priority (higher is more important).', default=None))\n",
+        "source_code_with_indent": "    # fmt: off\n    METADATA_SPECS.append(MetadataSpec('request_docker_image', basestring, 'Which docker image (either tag or digest, e.g., codalab/default-cpu:latest) we wish to use.', completer=DockerImagesCompleter, hide_when_anonymous=True, default=None))\n    METADATA_SPECS.append(MetadataSpec('request_time', basestring, 'Amount of time (e.g., 3, 3m, 3h, 3d) allowed for this run. Defaults to user time quota left.', formatting='duration', default=None))\n    METADATA_SPECS.append(MetadataSpec('request_memory', basestring, 'Amount of memory (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run.', formatting='size', default='2g'))\n    METADATA_SPECS.append(MetadataSpec('request_disk', basestring, 'Amount of disk space (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run. Defaults to user disk quota left.', formatting='size', default=None))\n    METADATA_SPECS.append(MetadataSpec('request_cpus', int, 'Number of CPUs allowed for this run.', default=1))\n    METADATA_SPECS.append(MetadataSpec('request_gpus', int, 'Number of GPUs allowed for this run.', default=0))\n    METADATA_SPECS.append(MetadataSpec('request_queue', basestring, 'Submit run to this job queue.', hide_when_anonymous=True, default=None))\n    METADATA_SPECS.append(MetadataSpec('request_priority', int, 'Job priority (higher is more important).', default=None))\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    # fmt: off\n    METADATA_SPECS.append(MetadataSpec('request_docker_image', str, 'Which docker image (either tag or digest, e.g., codalab/default-cpu:latest) we wish to use.', completer=DockerImagesCompleter, hide_when_anonymous=True, default=None))\n    METADATA_SPECS.append(MetadataSpec('request_time', str, 'Amount of time (e.g., 3, 3m, 3h, 3d) allowed for this run. Defaults to user time quota left.', formatting='duration', default=None))\n    METADATA_SPECS.append(MetadataSpec('request_memory', str, 'Amount of memory (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run.', formatting='size', default='2g'))\n    METADATA_SPECS.append(MetadataSpec('request_disk', str, 'Amount of disk space (e.g., 3, 3k, 3m, 3g, 3t) allowed for this run. Defaults to user disk quota left.', formatting='size', default=None))\n    METADATA_SPECS.append(MetadataSpec('request_cpus', int, 'Number of CPUs allowed for this run.', default=1))\n    METADATA_SPECS.append(MetadataSpec('request_gpus', int, 'Number of GPUs allowed for this run.', default=0))\n    METADATA_SPECS.append(MetadataSpec('request_queue', str, 'Submit run to this job queue.', hide_when_anonymous=True, default=None))\n    METADATA_SPECS.append(MetadataSpec('request_priority', int, 'Job priority (higher is more important).', default=None))\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "codalab/codalab-worksheets",
+    "commit": "5b9390b5ecdead2ef736c4e43dc94037f2aeb161",
+    "filename": "codalab/bundles/uploaded_bundle.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/codalab-codalab-worksheets/codalab/bundles/uploaded_bundle.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "codalab/bundles/uploaded_bundle.py:16:32 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 16,
+    "warning_line": "        MetadataSpec('license', basestring, 'The license under which this program/dataset is released.')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    METADATA_SPECS.append(\n        MetadataSpec('license', basestring, 'The license under which this program/dataset is released.')\n    )\n    METADATA_SPECS.append(\n        MetadataSpec('source_url', basestring, 'URL corresponding to the original source of this bundle.')\n    )\n",
+        "source_code_len": 278,
+        "target_code": "    METADATA_SPECS.append(\n        MetadataSpec('license', str, 'The license under which this program/dataset is released.')\n    )\n    METADATA_SPECS.append(\n        MetadataSpec('source_url', str, 'URL corresponding to the original source of this bundle.')\n    )\n",
+        "target_code_len": 264,
+        "diff_format": "@@ -15,6 +15,6 @@\n     METADATA_SPECS.append(\n-        MetadataSpec('license', basestring, 'The license under which this program/dataset is released.')\n+        MetadataSpec('license', str, 'The license under which this program/dataset is released.')\n     )\n     METADATA_SPECS.append(\n-        MetadataSpec('source_url', basestring, 'URL corresponding to the original source of this bundle.')\n+        MetadataSpec('source_url', str, 'URL corresponding to the original source of this bundle.')\n     )\n",
+        "source_code_with_indent": "    METADATA_SPECS.append(\n        MetadataSpec('license', basestring, 'The license under which this program/dataset is released.')\n    )\n    METADATA_SPECS.append(\n        MetadataSpec('source_url', basestring, 'URL corresponding to the original source of this bundle.')\n    )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    METADATA_SPECS.append(\n        MetadataSpec('license', str, 'The license under which this program/dataset is released.')\n    )\n    METADATA_SPECS.append(\n        MetadataSpec('source_url', str, 'URL corresponding to the original source of this bundle.')\n    )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "codalab/codalab-worksheets",
+    "commit": "5b9390b5ecdead2ef736c4e43dc94037f2aeb161",
+    "filename": "tests/objects/bundle_test.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/codalab-codalab-worksheets/tests/objects/bundle_test.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "tests/objects/bundle_test.py:12:37 Unbound name [10]: Name `basestring` is used but not defined in the current scope.",
+    "message": " Name `basestring` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 12,
+    "warning_line": "        MetadataSpec('str_metadata', basestring, 'test str metadata'),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    METADATA_SPECS = (\n        MetadataSpec('str_metadata', basestring, 'test str metadata'),\n        MetadataSpec('int_metadata', int, 'test int metadata'),\n",
+        "source_code_len": 158,
+        "target_code": "    METADATA_SPECS = (\n        MetadataSpec('str_metadata', str, 'test str metadata'),\n        MetadataSpec('int_metadata', int, 'test int metadata'),\n",
+        "target_code_len": 151,
+        "diff_format": "@@ -11,3 +11,3 @@\n     METADATA_SPECS = (\n-        MetadataSpec('str_metadata', basestring, 'test str metadata'),\n+        MetadataSpec('str_metadata', str, 'test str metadata'),\n         MetadataSpec('int_metadata', int, 'test int metadata'),\n",
+        "source_code_with_indent": "    METADATA_SPECS = (\n        MetadataSpec('str_metadata', basestring, 'test str metadata'),\n        MetadataSpec('int_metadata', int, 'test int metadata'),\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    METADATA_SPECS = (\n        MetadataSpec('str_metadata', str, 'test str metadata'),\n        MetadataSpec('int_metadata', int, 'test int metadata'),\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

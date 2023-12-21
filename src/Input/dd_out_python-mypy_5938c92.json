@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "5938c9212918aadbf26300ab52c6fe7173a35da7",
+    "filename": "mypy/parsetype.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/parsetype.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/parsetype.py:153:30 Unbound name [10]: Name `line` is used but not defined in the current scope.",
+    "message": " Name `line` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 153,
+    "warning_line": "        return StarType(type, line)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        type = self.parse_type()\n        return StarType(type, line)\n\n",
+        "source_code_len": 70,
+        "target_code": "        type = self.parse_type()\n        return StarType(type, star.line)\n\n",
+        "target_code_len": 75,
+        "diff_format": "@@ -152,3 +152,3 @@\n         type = self.parse_type()\n-        return StarType(type, line)\n+        return StarType(type, star.line)\n \n",
+        "source_code_with_indent": "        type = self.parse_type()\n        return StarType(type, line)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        type = self.parse_type()\n        return StarType(type, star.line)\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

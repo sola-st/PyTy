@@ -1,0 +1,90 @@
+[
+  {
+    "project": "mesonbuild/meson",
+    "commit": "b8e4600bb84c94c1efde93c186eba7a2f5305836",
+    "filename": "mesonbuild/interpreter.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/interpreter.py:730:36 Incompatible parameter type [6]: Expected `InterpreterObject` for 2nd positional only parameter to call `ObjectHolder.__init__` but got `build.Headers`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "b8e4600bb84c94c1efde93c186eba7a2f5305836",
+    "filename": "mesonbuild/interpreter.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/interpreter.py:765:36 Incompatible parameter type [6]: Expected `InterpreterObject` for 2nd positional only parameter to call `ObjectHolder.__init__` but got `build.InstallDir`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "b8e4600bb84c94c1efde93c186eba7a2f5305836",
+    "filename": "mesonbuild/interpreter.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/interpreter.py:771:36 Incompatible parameter type [6]: Expected `InterpreterObject` for 2nd positional only parameter to call `ObjectHolder.__init__` but got `build.Man`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "b8e4600bb84c94c1efde93c186eba7a2f5305836",
+    "filename": "mesonbuild/interpreter.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/interpreter.py:1792:36 Incompatible parameter type [6]: Expected `InterpreterObject` for 2nd positional only parameter to call `ObjectHolder.__init__` but got `ExtensionModule`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "b8e4600bb84c94c1efde93c186eba7a2f5305836",
+    "filename": "mesonbuild/interpreter.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/interpreter.py:4139:8 Incompatible return type [7]: Expected `build.EnvironmentVariables` but got `InterpreterObject`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "b8e4600bb84c94c1efde93c186eba7a2f5305836",
+    "filename": "mesonbuild/interpreter.py",
+    "min_patch_found": false,
+    "full_warning_msg": "mesonbuild/interpreter.py:4347:31 Incompatible parameter type [6]: Expected `build.Data` for 1st positional only parameter to call `list.append` but got `InterpreterObject`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  },
+  {
+    "project": "mesonbuild/meson",
+    "commit": "b8e4600bb84c94c1efde93c186eba7a2f5305836",
+    "filename": "mesonbuild/interpreterbase.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mesonbuild-meson/mesonbuild/interpreterbase.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mesonbuild/interpreterbase.py:65:8 Incompatible attribute type [8]: Attribute `subproject` declared in class `ObjectHolder` has type `str` but is used as type `T.Optional[str]`.",
+    "message": " Attribute `subproject` declared in class `ObjectHolder` has type `str` but is used as type `T.Optional[str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 65,
+    "warning_line": "        self.subproject = subproject  # type: str",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class ObjectHolder(T.Generic[TV_InterpreterObject]):\n    def __init__(self, obj: InterpreterObject, subproject: T.Optional[str] = None) -> None:\n        self.held_object = obj        # type: InterpreterObject\n        self.subproject = subproject  # type: str\n\n",
+        "source_code_len": 260,
+        "target_code": "class ObjectHolder(T.Generic[TV_InterpreterObject]):\n    def __init__(self, obj: TV_InterpreterObject, subproject: str = '') -> None:\n        self.held_object = obj\n        self.subproject = subproject\n\n",
+        "target_code_len": 203,
+        "diff_format": "@@ -62,5 +62,5 @@\n class ObjectHolder(T.Generic[TV_InterpreterObject]):\n-    def __init__(self, obj: InterpreterObject, subproject: T.Optional[str] = None) -> None:\n-        self.held_object = obj        # type: InterpreterObject\n-        self.subproject = subproject  # type: str\n+    def __init__(self, obj: TV_InterpreterObject, subproject: str = '') -> None:\n+        self.held_object = obj\n+        self.subproject = subproject\n \n",
+        "source_code_with_indent": "class ObjectHolder(T.Generic[TV_InterpreterObject]):\n    <IND>def __init__(self, obj: InterpreterObject, subproject: T.Optional[str] = None) -> None:\n        <IND>self.held_object = obj        # type: InterpreterObject\n        self.subproject = subproject  # type: str\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "class ObjectHolder(T.Generic[TV_InterpreterObject]):\n    <IND>def __init__(self, obj: TV_InterpreterObject, subproject: str = '') -> None:\n        <IND>self.held_object = obj\n        self.subproject = subproject\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

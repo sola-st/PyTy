@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "6f4276c5cce2148ac1426b3b5c7285d4d6ff493b",
+    "filename": "plugins/CuraDrive/src/CreateBackupJob.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/plugins/CuraDrive/src/CreateBackupJob.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "plugins/CuraDrive/src/CreateBackupJob.py:101:97 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[bytes]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `Optional[bytes]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 101,
+    "warning_line": "                    sentry_sdk.capture_message(\"backup failed: exceeded max size: {}\".format(len(self._backup_zip)), level = \"warning\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                if \"moreThanMaximum\" in [error[\"code\"] for error in errors if error[\"meta\"] and error[\"meta\"][\"field_name\"] == \"backup_size\"]:\n                    sentry_sdk.capture_message(\"backup failed: exceeded max size: {}\".format(len(self._backup_zip)), level = \"warning\")\n                    self.backup_upload_error_message = catalog.i18nc(\"@error:file_size\", \"The backup exceeds the maximum file size.\")\n",
+        "source_code_len": 413,
+        "target_code": "                if \"moreThanMaximum\" in [error[\"code\"] for error in errors if error[\"meta\"] and error[\"meta\"][\"field_name\"] == \"backup_size\"]:\n                    if self._backup_zip is None:  # will never happen; keep mypy happy\n                        zip_error = \"backup is None.\"\n                    else:\n                        zip_error = \"{} exceeds max size.\".format(str(len(self._backup_zip)))\n                    sentry_sdk.capture_message(\"backup failed: {}\".format(zip_error), level =\"warning\")\n                    self.backup_upload_error_message = catalog.i18nc(\"@error:file_size\", \"The backup exceeds the maximum file size.\")\n",
+        "target_code_len": 642,
+        "diff_format": "@@ -100,3 +100,7 @@\n                 if \"moreThanMaximum\" in [error[\"code\"] for error in errors if error[\"meta\"] and error[\"meta\"][\"field_name\"] == \"backup_size\"]:\n-                    sentry_sdk.capture_message(\"backup failed: exceeded max size: {}\".format(len(self._backup_zip)), level = \"warning\")\n+                    if self._backup_zip is None:  # will never happen; keep mypy happy\n+                        zip_error = \"backup is None.\"\n+                    else:\n+                        zip_error = \"{} exceeds max size.\".format(str(len(self._backup_zip)))\n+                    sentry_sdk.capture_message(\"backup failed: {}\".format(zip_error), level =\"warning\")\n                     self.backup_upload_error_message = catalog.i18nc(\"@error:file_size\", \"The backup exceeds the maximum file size.\")\n",
+        "source_code_with_indent": "                if \"moreThanMaximum\" in [error[\"code\"] for error in errors if error[\"meta\"] and error[\"meta\"][\"field_name\"] == \"backup_size\"]:\n                    <IND>sentry_sdk.capture_message(\"backup failed: exceeded max size: {}\".format(len(self._backup_zip)), level = \"warning\")\n                    self.backup_upload_error_message = catalog.i18nc(\"@error:file_size\", \"The backup exceeds the maximum file size.\")\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                if \"moreThanMaximum\" in [error[\"code\"] for error in errors if error[\"meta\"] and error[\"meta\"][\"field_name\"] == \"backup_size\"]:\n                    <IND>if self._backup_zip is None:  # will never happen; keep mypy happy\n                        <IND>zip_error = \"backup is None.\"\n                    <DED>else:\n                        <IND>zip_error = \"{} exceeds max size.\".format(str(len(self._backup_zip)))\n                    <DED>sentry_sdk.capture_message(\"backup failed: {}\".format(zip_error), level =\"warning\")\n                    self.backup_upload_error_message = catalog.i18nc(\"@error:file_size\", \"The backup exceeds the maximum file size.\")\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

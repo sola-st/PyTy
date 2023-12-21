@@ -1,0 +1,36 @@
+[
+  {
+    "project": "ishepard/pydriller",
+    "commit": "a25fc3d7be04c7c914992cd9fc362898b0dc3671",
+    "filename": "pydriller/repository_mining.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ishepard-pydriller/pydriller/repository_mining.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pydriller/repository_mining.py:180:8 Incompatible return type [7]: Expected `GitRepository` but got `Generator[GitRepository, None, None]`.",
+    "message": " Expected `GitRepository` but got `Generator[GitRepository, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 180,
+    "warning_line": "        yield git_repo",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @contextmanager\n    def _prep_repo(self, path_repo: str) -> GitRepository:\n        local_path_repo = path_repo\n",
+        "source_code_len": 115,
+        "target_code": "    @contextmanager\n    def _prep_repo(self, path_repo: str) -> Generator[GitRepository, None, None]:\n        local_path_repo = path_repo\n",
+        "target_code_len": 138,
+        "diff_format": "@@ -163,3 +163,3 @@\n     @contextmanager\n-    def _prep_repo(self, path_repo: str) -> GitRepository:\n+    def _prep_repo(self, path_repo: str) -> Generator[GitRepository, None, None]:\n         local_path_repo = path_repo\n",
+        "source_code_with_indent": "    <DED>@contextmanager\n    def _prep_repo(self, path_repo: str) -> GitRepository:\n        <IND>local_path_repo = path_repo\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@contextmanager\n    def _prep_repo(self, path_repo: str) -> Generator[GitRepository, None, None]:\n        <IND>local_path_repo = path_repo\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

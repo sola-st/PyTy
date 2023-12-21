@@ -1,0 +1,70 @@
+[
+  {
+    "project": "karlch/vimiv-qt",
+    "commit": "ff36984b5136a6133f799ad6694a3c4f98d82b82",
+    "filename": "vimiv/utils/files.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlch-vimiv-qt/vimiv/utils/files.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vimiv/utils/files.py:192:18 Incompatible parameter type [6]: Expected `typing.Callable[[bytes, Optional[BinaryIO]], Optional[str]]` for 2nd positional only parameter to call `list.__setitem__` but got `typing.Callable(test_jpg)[[Named(h, bytes), Named(_f, BinaryIO)], Optional[str]]`.",
+    "message": " Expected `typing.Callable[[bytes, Optional[BinaryIO]], Optional[str]]` for 2nd positional only parameter to call `list.__setitem__` but got `typing.Callable(test_jpg)[[Named(h, bytes), Named(_f, BinaryIO)], Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 192,
+    "warning_line": "imghdr.tests[0] = test_jpg",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# See e.g. https://bugs.python.org/issue16512\ndef test_jpg(h: bytes, _f: BinaryIO) -> Optional[str]:\n    \"\"\"Custom jpg test function.\n",
+        "source_code_len": 134,
+        "target_code": "# See e.g. https://bugs.python.org/issue16512\ndef test_jpg(h: bytes, _f: Optional[BinaryIO]) -> Optional[str]:\n    \"\"\"Custom jpg test function.\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -174,3 +174,3 @@\n # See e.g. https://bugs.python.org/issue16512\n-def test_jpg(h: bytes, _f: BinaryIO) -> Optional[str]:\n+def test_jpg(h: bytes, _f: Optional[BinaryIO]) -> Optional[str]:\n     \"\"\"Custom jpg test function.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "# See e.g. https://bugs.python.org/issue16512\ndef test_jpg(h: bytes, _f: BinaryIO) -> Optional[str]:\n    <IND>",
+        "target_code_with_indent": "# See e.g. https://bugs.python.org/issue16512\ndef test_jpg(h: bytes, _f: Optional[BinaryIO]) -> Optional[str]:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "karlch/vimiv-qt",
+    "commit": "ff36984b5136a6133f799ad6694a3c4f98d82b82",
+    "filename": "vimiv/utils/files.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/karlch-vimiv-qt/vimiv/utils/files.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "vimiv/utils/files.py:193:20 Incompatible parameter type [6]: Expected `typing.Callable[[bytes, Optional[BinaryIO]], Optional[str]]` for 1st positional only parameter to call `list.append` but got `typing.Callable(test_jpg_fallback)[[Named(h, bytes), Named(_f, BinaryIO)], Optional[str]]`.",
+    "message": " Expected `typing.Callable[[bytes, Optional[BinaryIO]], Optional[str]]` for 1st positional only parameter to call `list.append` but got `typing.Callable(test_jpg_fallback)[[Named(h, bytes), Named(_f, BinaryIO)], Optional[str]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 193,
+    "warning_line": "imghdr.tests.append(test_jpg_fallback)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef test_jpg_fallback(h: bytes, _f: BinaryIO) -> Optional[str]:\n    \"\"\"Fallback test for jpg files with no headers, only the two starting bits.\"\"\"\n",
+        "source_code_len": 148,
+        "target_code": "\ndef test_jpg_fallback(h: bytes, _f: Optional[BinaryIO]) -> Optional[str]:\n    \"\"\"Fallback test for jpg files with no headers, only the two starting bits.\"\"\"\n",
+        "target_code_len": 158,
+        "diff_format": "@@ -186,3 +186,3 @@\n \n-def test_jpg_fallback(h: bytes, _f: BinaryIO) -> Optional[str]:\n+def test_jpg_fallback(h: bytes, _f: Optional[BinaryIO]) -> Optional[str]:\n     \"\"\"Fallback test for jpg files with no headers, only the two starting bits.\"\"\"\n",
+        "source_code_with_indent": "\n<DED>def test_jpg_fallback(h: bytes, _f: BinaryIO) -> Optional[str]:\n    <IND>\"\"\"Fallback test for jpg files with no headers, only the two starting bits.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def test_jpg_fallback(h: bytes, _f: Optional[BinaryIO]) -> Optional[str]:\n    <IND>\"\"\"Fallback test for jpg files with no headers, only the two starting bits.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

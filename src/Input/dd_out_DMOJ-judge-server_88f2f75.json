@@ -1,0 +1,36 @@
+[
+  {
+    "project": "DMOJ/judge-server",
+    "commit": "88f2f7510ebc6fef2449859ea7d924d5219cfe8b",
+    "filename": "dmoj/cptbox/syscalls/generate_linux.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DMOJ-judge-server/dmoj/cptbox/syscalls/generate_linux.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dmoj/cptbox/syscalls/generate_linux.py:56:12 Incompatible variable type [9]: id is declared to have type `int` but is used as type `str`.",
+    "message": " id is declared to have type `int` but is used as type `str`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 56,
+    "warning_line": "            id = syscall[0]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            syscall = line.split()\n            id = syscall[0]\n            name = syscall[2].strip('_')\n        else:\n            id, func = match.groups()\n            if func in func_to_name:\n",
+        "source_code_len": 193,
+        "target_code": "            syscall = line.split()\n            id_str = syscall[0]\n            name = syscall[2].strip('_')\n        else:\n            id_str, func = match.groups()\n            if func in func_to_name:\n",
+        "target_code_len": 201,
+        "diff_format": "@@ -55,6 +55,6 @@\n             syscall = line.split()\n-            id = syscall[0]\n+            id_str = syscall[0]\n             name = syscall[2].strip('_')\n         else:\n-            id, func = match.groups()\n+            id_str, func = match.groups()\n             if func in func_to_name:\n",
+        "source_code_with_indent": "            <DED>syscall = line.split()\n            id = syscall[0]\n            name = syscall[2].strip('_')\n        <DED>else:\n            <IND>id, func = match.groups()\n            if func in func_to_name:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <DED>syscall = line.split()\n            id_str = syscall[0]\n            name = syscall[2].strip('_')\n        <DED>else:\n            <IND>id_str, func = match.groups()\n            if func in func_to_name:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

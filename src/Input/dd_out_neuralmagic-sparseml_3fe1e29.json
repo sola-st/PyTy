@@ -1,0 +1,36 @@
+[
+  {
+    "project": "neuralmagic/sparseml",
+    "commit": "3fe1e29f08a2369b7764b3853155b6668f077c4a",
+    "filename": "neuralmagicML/onnx/recal/sensitivity_info.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/neuralmagic-sparseml/neuralmagicML/onnx/recal/sensitivity_info.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "neuralmagicML/onnx/recal/sensitivity_info.py:226:8 Incompatible attribute type [8]: Attribute `_nodes` declared in class `SensitivityModelInfo` has type `Dict[str, SensitivityNodeInfo]` but is used as type `OrderedDict[typing.Any, NodeAnalyzer]`.",
+    "message": " Attribute `_nodes` declared in class `SensitivityModelInfo` has type `Dict[str, SensitivityNodeInfo]` but is used as type `OrderedDict[typing.Any, NodeAnalyzer]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 226,
+    "warning_line": "        model_info._nodes = OrderedDict(",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            [\n                (key, NodeAnalyzer(model=None, node=None, **val))\n                for (key, val) in dictionary[\"nodes\"]\n",
+        "source_code_len": 134,
+        "target_code": "            [\n                (key, SensitivityNodeInfo.from_dict(val))\n                for (key, val) in dictionary[\"nodes\"]\n",
+        "target_code_len": 126,
+        "diff_format": "@@ -227,3 +227,3 @@\n             [\n-                (key, NodeAnalyzer(model=None, node=None, **val))\n+                (key, SensitivityNodeInfo.from_dict(val))\n                 for (key, val) in dictionary[\"nodes\"]\n",
+        "source_code_with_indent": "            [\n                (key, NodeAnalyzer(model=None, node=None, **val))\n                for (key, val) in dictionary[\"nodes\"]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            [\n                (key, SensitivityNodeInfo.from_dict(val))\n                for (key, val) in dictionary[\"nodes\"]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "project": "ipython/ipython",
+    "commit": "f99a8b177609a942cfa69e82d8aaac1a39563587",
+    "filename": "IPython/core/completer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/ipython-ipython/IPython/core/completer.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "IPython/core/completer.py:828:75 Incompatible parameter type [6]: Expected `typing.Tuple[Union[bytes, str], ...]` for 1st positional only parameter to call `tuple.__add__` but got `bytes`.",
+    "message": " Expected `typing.Tuple[Union[bytes, str], ...]` for 1st positional only parameter to call `tuple.__add__` but got `bytes`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 828,
+    "warning_line": "        rem_repr = repr(rem + '\"') if isinstance(rem, str) else repr(rem + b'\"')",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                return False\n        return True\n\n    new_keys = []\n    for k in keys:\n        if isinstance(k, (str, bytes)):\n            new_keys.append(k)\n        elif isinstance(k, tuple) and filter_by_prefix_tuple(k):\n            new_keys.append(k[Nprefix])\n\n    keys = new_keys\n    if not prefix:\n        return '', 0, [repr(k) for k in keys\n                      if isinstance(k, (str, bytes))]\n    quote_match = re.search('[\"\\']', prefix)\n",
+        "source_code_len": 447,
+        "target_code": "                return False\n        else:\n            return True\n\n    filtered_keys:List[Union[str,bytes]] = []\n    def _add_to_filtered_keys(key):\n        if isinstance(key, (str, bytes)):\n            filtered_keys.append(key)\n\n    for k in keys:\n        if isinstance(k, tuple):\n            if filter_by_prefix_tuple(k):\n                _add_to_filtered_keys(k[Nprefix])\n        else:\n            _add_to_filtered_keys(k)\n\n    if not prefix:\n        return '', 0, [repr(k) for k in filtered_keys]\n    quote_match = re.search('[\"\\']', prefix)\n",
+        "target_code_len": 546,
+        "diff_format": "@@ -788,15 +788,19 @@\n                 return False\n-        return True\n-\n-    new_keys = []\n+        else:\n+            return True\n+\n+    filtered_keys:List[Union[str,bytes]] = []\n+    def _add_to_filtered_keys(key):\n+        if isinstance(key, (str, bytes)):\n+            filtered_keys.append(key)\n+\n     for k in keys:\n-        if isinstance(k, (str, bytes)):\n-            new_keys.append(k)\n-        elif isinstance(k, tuple) and filter_by_prefix_tuple(k):\n-            new_keys.append(k[Nprefix])\n-\n-    keys = new_keys\n+        if isinstance(k, tuple):\n+            if filter_by_prefix_tuple(k):\n+                _add_to_filtered_keys(k[Nprefix])\n+        else:\n+            _add_to_filtered_keys(k)\n+\n     if not prefix:\n-        return '', 0, [repr(k) for k in keys\n-                      if isinstance(k, (str, bytes))]\n+        return '', 0, [repr(k) for k in filtered_keys]\n     quote_match = re.search('[\"\\']', prefix)\n",
+        "source_code_with_indent": "                <IND>return False\n        <DED><DED>return True\n\n    <DED>new_keys = []\n    for k in keys:\n        <IND>if isinstance(k, (str, bytes)):\n            <IND>new_keys.append(k)\n        <DED>elif isinstance(k, tuple) and filter_by_prefix_tuple(k):\n            <IND>new_keys.append(k[Nprefix])\n\n    <DED><DED>keys = new_keys\n    if not prefix:\n        <IND>return '', 0, [repr(k) for k in keys\n                      if isinstance(k, (str, bytes))]\n    <DED>quote_match = re.search('[\"\\']', prefix)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                <IND>return False\n        <DED><DED>else:\n            <IND>return True\n\n    <DED><DED>filtered_keys:List[Union[str,bytes]] = []\n    def _add_to_filtered_keys(key):\n        <IND>if isinstance(key, (str, bytes)):\n            <IND>filtered_keys.append(key)\n\n    <DED><DED>for k in keys:\n        <IND>if isinstance(k, tuple):\n            <IND>if filter_by_prefix_tuple(k):\n                <IND>_add_to_filtered_keys(k[Nprefix])\n        <DED><DED>else:\n            <IND>_add_to_filtered_keys(k)\n\n    <DED><DED>if not prefix:\n        <IND>return '', 0, [repr(k) for k in filtered_keys]\n    <DED>quote_match = re.search('[\"\\']', prefix)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    matched:List[str] = []\n    for key in keys:\n        try:\n",
+        "source_code_len": 61,
+        "target_code": "    matched:List[str] = []\n    for key in filtered_keys:\n        try:\n",
+        "target_code_len": 70,
+        "diff_format": "@@ -816,3 +820,3 @@\n     matched:List[str] = []\n-    for key in keys:\n+    for key in filtered_keys:\n         try:\n",
+        "source_code_with_indent": "    matched:List[str] = []\n    for key in keys:\n        <IND>try:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    matched:List[str] = []\n    for key in filtered_keys:\n        <IND>try:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

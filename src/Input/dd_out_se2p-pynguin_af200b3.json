@@ -1,0 +1,36 @@
+[
+  {
+    "project": "se2p/pynguin",
+    "commit": "af200b3e0b48b7d074bc69e65c2e1fac745bd34e",
+    "filename": "pynguin/analyses/seeding/dynamicseeding.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/se2p-pynguin/pynguin/analyses/seeding/dynamicseeding.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pynguin/analyses/seeding/dynamicseeding.py:96:19 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Optional[Set[typing.Any]]`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `typing.Optional[Set[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 96,
+    "warning_line": "        return len(self._dynamic_pool.get(type_)) > 0",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        assert type_ in self._dynamic_pool\n        return len(self._dynamic_pool.get(type_)) > 0\n\n",
+        "source_code_len": 98,
+        "target_code": "        assert type_ in self._dynamic_pool\n        return len(self._dynamic_pool[type_]) > 0\n\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -95,3 +95,3 @@\n         assert type_ in self._dynamic_pool\n-        return len(self._dynamic_pool.get(type_)) > 0\n+        return len(self._dynamic_pool[type_]) > 0\n \n",
+        "source_code_with_indent": "        assert type_ in self._dynamic_pool\n        return len(self._dynamic_pool.get(type_)) > 0\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        assert type_ in self._dynamic_pool\n        return len(self._dynamic_pool[type_]) > 0\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

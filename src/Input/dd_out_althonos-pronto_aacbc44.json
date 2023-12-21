@@ -1,0 +1,36 @@
+[
+  {
+    "project": "althonos/pronto",
+    "commit": "aacbc440d5de4c694074567029ecfe2191723d91",
+    "filename": "pronto/entity.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/althonos-pronto/pronto/entity.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "pronto/entity.py:452:47 Incompatible parameter type [6]: Expected `Optional[str]` for 3rd positional only parameter to call `SynonymData.__init__` but got `Optional[SynonymType]`.",
+    "message": " Expected `Optional[str]` for 3rd positional only parameter to call `SynonymData.__init__` but got `Optional[SynonymType]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 452,
+    "warning_line": "        data = SynonymData(description, scope, type_id, xrefs=xrefs)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            try:\n                type_id = self._ontology().get_synonym_type(type.id)\n            except KeyError as ke:\n",
+        "source_code_len": 121,
+        "target_code": "            try:\n                type_id = self._ontology().get_synonym_type(type.id).id\n            except KeyError as ke:\n",
+        "target_code_len": 124,
+        "diff_format": "@@ -445,3 +445,3 @@\n             try:\n-                type_id = self._ontology().get_synonym_type(type.id)\n+                type_id = self._ontology().get_synonym_type(type.id).id\n             except KeyError as ke:\n",
+        "source_code_with_indent": "            <IND>try:\n                <IND>type_id = self._ontology().get_synonym_type(type.id)\n            <DED>except KeyError as ke:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>try:\n                <IND>type_id = self._ontology().get_synonym_type(type.id).id\n            <DED>except KeyError as ke:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "745390e51fe2fc761ba11aa8b79aa5ab7dc4388a",
+    "filename": "cura/Machines/MachineNode.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/Machines/MachineNode.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/Machines/MachineNode.py:146:8 Incompatible return type [7]: Expected `QualityNode` but got `typing.Union[QualityNode, str]`.",
+    "message": " Expected `QualityNode` but got `typing.Union[QualityNode, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 146,
+    "warning_line": "        return self.global_qualities.get(self.preferred_quality_type, next(iter(self.global_qualities)))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def preferredGlobalQuality(self) -> QualityNode:\n        return self.global_qualities.get(self.preferred_quality_type, next(iter(self.global_qualities)))\n\n",
+        "source_code_len": 159,
+        "target_code": "    def preferredGlobalQuality(self) -> QualityNode:\n        return self.global_qualities.get(self.preferred_quality_type, next(iter(self.global_qualities.values())))\n\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -145,3 +148,3 @@\n     def preferredGlobalQuality(self) -> QualityNode:\n-        return self.global_qualities.get(self.preferred_quality_type, next(iter(self.global_qualities)))\n+        return self.global_qualities.get(self.preferred_quality_type, next(iter(self.global_qualities.values())))\n \n",
+        "source_code_with_indent": "    <DED>def preferredGlobalQuality(self) -> QualityNode:\n        <IND>return self.global_qualities.get(self.preferred_quality_type, next(iter(self.global_qualities)))\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def preferredGlobalQuality(self) -> QualityNode:\n        <IND>return self.global_qualities.get(self.preferred_quality_type, next(iter(self.global_qualities.values())))\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

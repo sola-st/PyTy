@@ -1,0 +1,51 @@
+[
+  {
+    "project": "kovidgoyal/kitty",
+    "commit": "25e9ddb4a4afc02e530ea62b3d157633b23e233e",
+    "filename": "kitty/tabs.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/kovidgoyal-kitty/kitty/tabs.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "kitty/tabs.py:939:8 Incompatible return type [7]: Expected `typing.Tuple[Rect, ...]` but got `Union[Tuple[], typing.Tuple[kitty.borders.Border, ...]]`.",
+    "message": " Expected `typing.Tuple[Rect, ...]` but got `Union[Tuple[], typing.Tuple[kitty.borders.Border, ...]]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 939,
+    "warning_line": "        return self.tab_bar.blank_rects if self.tab_bar_should_be_visible else ()",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nfrom .borders import Borders\nfrom .child import Child\n",
+        "source_code_len": 55,
+        "target_code": "\nfrom .borders import Border, Borders\nfrom .child import Child\n",
+        "target_code_len": 63,
+        "diff_format": "@@ -16,3 +16,3 @@\n \n-from .borders import Borders\n+from .borders import Border, Borders\n from .child import Child\n",
+        "source_code_with_indent": "\nfrom .borders import Borders\nfrom .child import Child\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nfrom .borders import Border, Borders\nfrom .child import Child\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def tab_bar_rects(self) -> Tuple[Rect, ...]:\n        return self.tab_bar.blank_rects if self.tab_bar_should_be_visible else ()\n",
+        "source_code_len": 145,
+        "target_code": "    @property\n    def tab_bar_rects(self) -> Tuple[Border, ...]:\n        return self.tab_bar.blank_rects if self.tab_bar_should_be_visible else ()\n",
+        "target_code_len": 147,
+        "diff_format": "@@ -937,3 +937,3 @@\n     @property\n-    def tab_bar_rects(self) -> Tuple[Rect, ...]:\n+    def tab_bar_rects(self) -> Tuple[Border, ...]:\n         return self.tab_bar.blank_rects if self.tab_bar_should_be_visible else ()\n",
+        "source_code_with_indent": "    <DED><DED>@property\n    def tab_bar_rects(self) -> Tuple[Rect, ...]:\n        <IND>return self.tab_bar.blank_rects if self.tab_bar_should_be_visible else ()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@property\n    def tab_bar_rects(self) -> Tuple[Border, ...]:\n        <IND>return self.tab_bar.blank_rects if self.tab_bar_should_be_visible else ()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

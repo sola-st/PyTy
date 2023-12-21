@@ -1,0 +1,51 @@
+[
+  {
+    "project": "python-cmd2/cmd2",
+    "commit": "ccb50f33b5cdff1f354bdc24618a6c665f3ab68a",
+    "filename": "cmd2/argparse_custom.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-cmd2-cmd2/cmd2/argparse_custom.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cmd2/argparse_custom.py:815:4 Inconsistent override [15]: `cmd2.argparse_custom.Cmd2ArgumentParser.error` overrides method defined in `argparse.ArgumentParser` inconsistently. Returned type `None` is not a subtype of the overridden return `typing.NoReturn`.",
+    "message": " `cmd2.argparse_custom.Cmd2ArgumentParser.error` overrides method defined in `argparse.ArgumentParser` inconsistently. Returned type `None` is not a subtype of the overridden return `typing.NoReturn`.",
+    "rule_id": "Inconsistent override [15]",
+    "warning_line_no": 815,
+    "warning_line": "    def error(self, message: str) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    Callable,\n    Optional,\n",
+        "source_code_len": 28,
+        "target_code": "    Callable,\n    NoReturn,\n    Optional,\n",
+        "target_code_len": 42,
+        "diff_format": "@@ -205,2 +205,3 @@\n     Callable,\n+    NoReturn,\n     Optional,\n",
+        "source_code_with_indent": "    Callable,\n    Optional,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    Callable,\n    NoReturn,\n    Optional,\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def error(self, message: str) -> None:\n        \"\"\"Custom override that applies custom formatting to the error message\"\"\"\n",
+        "source_code_len": 126,
+        "target_code": "\n    def error(self, message: str) -> NoReturn:\n        \"\"\"Custom override that applies custom formatting to the error message\"\"\"\n",
+        "target_code_len": 130,
+        "diff_format": "@@ -814,3 +815,3 @@\n \n-    def error(self, message: str) -> None:\n+    def error(self, message: str) -> NoReturn:\n         \"\"\"Custom override that applies custom formatting to the error message\"\"\"\n",
+        "source_code_with_indent": "\n    <DED>def error(self, message: str) -> None:\n        <IND>\"\"\"Custom override that applies custom formatting to the error message\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def error(self, message: str) -> NoReturn:\n        <IND>\"\"\"Custom override that applies custom formatting to the error message\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

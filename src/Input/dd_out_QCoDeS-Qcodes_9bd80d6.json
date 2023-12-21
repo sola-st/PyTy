@@ -1,0 +1,36 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "9bd80d6abb280e7fef84c9a22c464bfdeb491c3b",
+    "filename": "qcodes/dataset/sqlite_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/dataset/sqlite_base.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/dataset/sqlite_base.py:1436:19 Unsupported operand [58]: `-` is not supported for operand types `int` and `Optional[int]`.",
+    "message": " `-` is not supported for operand types `int` and `Optional[int]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 1436,
+    "warning_line": "    limit = (end - start + 1) if end is not None else -1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    offset = (start - 1) if start is not None else 0\n    limit = (end - start + 1) if end is not None else -1\n\n",
+        "source_code_len": 111,
+        "target_code": "    offset = (start - 1) if start is not None else 0\n    limit = (end - offset) if end is not None else -1\n\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -1435,3 +1435,3 @@\n     offset = (start - 1) if start is not None else 0\n-    limit = (end - start + 1) if end is not None else -1\n+    limit = (end - offset) if end is not None else -1\n \n",
+        "source_code_with_indent": "    offset = (start - 1) if start is not None else 0\n    limit = (end - start + 1) if end is not None else -1\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    offset = (start - 1) if start is not None else 0\n    limit = (end - offset) if end is not None else -1\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

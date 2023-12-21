@@ -1,0 +1,51 @@
+[
+  {
+    "project": "opendatacube/datacube-core",
+    "commit": "873c0d76581f97ffd7cb33b9595774ec368920f6",
+    "filename": "datacube/scripts/ingest.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/opendatacube-datacube-core/datacube/scripts/ingest.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "datacube/scripts/ingest.py:131:83 Invalid type [31]: Expression `\"(datacube.model.DatasetType, datacube.model.DatasetType)\"` is not a valid type.",
+    "message": " Expression `\"(datacube.model.DatasetType, datacube.model.DatasetType)\"` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 131,
+    "warning_line": "def ensure_output_type(index, config, storage_format, allow_product_changes=False):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from datetime import datetime\n\n",
+        "source_code_len": 31,
+        "target_code": "from datetime import datetime\nfrom typing import Tuple\n\n",
+        "target_code_len": 56,
+        "diff_format": "@@ -12,2 +10,3 @@\n from datetime import datetime\n+from typing import Tuple\n \n",
+        "source_code_with_indent": "from datetime import datetime\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from datetime import datetime\nfrom typing import Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef ensure_output_type(index, config, storage_format, allow_product_changes=False):\n    # type: (Index, dict, bool) -> (DatasetType, DatasetType)\n    \"\"\"\n",
+        "source_code_len": 155,
+        "target_code": "\ndef ensure_output_type(index: Index,\n                       config: dict,\n                       storage_format: str,\n                       allow_product_changes: bool = False) -> Tuple[DatasetType, DatasetType]:\n    \"\"\"\n",
+        "target_code_len": 223,
+        "diff_format": "@@ -130,4 +129,6 @@\n \n-def ensure_output_type(index, config, storage_format, allow_product_changes=False):\n-    # type: (Index, dict, bool) -> (DatasetType, DatasetType)\n+def ensure_output_type(index: Index,\n+                       config: dict,\n+                       storage_format: str,\n+                       allow_product_changes: bool = False) -> Tuple[DatasetType, DatasetType]:\n     \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def ensure_output_type(index, config, storage_format, allow_product_changes=False):\n    # type: (Index, dict, bool) -> (DatasetType, DatasetType)\n    <IND>",
+        "target_code_with_indent": "\n<DED>def ensure_output_type(index: Index,\n                       config: dict,\n                       storage_format: str,\n                       allow_product_changes: bool = False) -> Tuple[DatasetType, DatasetType]:\n    <IND>"
+      }
+    ]
+  }
+]

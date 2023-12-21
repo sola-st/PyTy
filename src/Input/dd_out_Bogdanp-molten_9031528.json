@@ -1,0 +1,51 @@
+[
+  {
+    "project": "Bogdanp/molten",
+    "commit": "9031528dbe45545bccf62d689ed06ff363358533",
+    "filename": "molten/contrib/toml_settings.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Bogdanp-molten/molten/contrib/toml_settings.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "molten/contrib/toml_settings.py:46:8 Incompatible variable type [9]: env is declared to have type `Dict[str, str]` but is used as type `os._Environ[str]`.",
+    "message": " env is declared to have type `Dict[str, str]` but is used as type `os._Environ[str]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 46,
+    "warning_line": "        env: Dict[str, str] = os.environ,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from string import Template\nfrom typing import Any, Dict, List, Optional, Union\n\n",
+        "source_code_len": 81,
+        "target_code": "from string import Template\nfrom typing import Any, Dict, List, Optional, Union, cast\n\n",
+        "target_code_len": 87,
+        "diff_format": "@@ -20,3 +20,3 @@\n from string import Template\n-from typing import Any, Dict, List, Optional, Union\n+from typing import Any, Dict, List, Optional, Union, cast\n \n",
+        "source_code_with_indent": "from string import Template\nfrom typing import Any, Dict, List, Optional, Union\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from string import Template\nfrom typing import Any, Dict, List, Optional, Union, cast\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        ob: Union[Dict[str, Any], List[Any]],\n        env: Dict[str, str] = os.environ,\n        parent: str = \"$\",\n",
+        "source_code_len": 115,
+        "target_code": "        ob: Union[Dict[str, Any], List[Any]],\n        env: Dict[str, str] = cast(Dict[str, str], os.environ),  # noqa\n        parent: str = \"$\",\n",
+        "target_code_len": 145,
+        "diff_format": "@@ -45,3 +45,3 @@\n         ob: Union[Dict[str, Any], List[Any]],\n-        env: Dict[str, str] = os.environ,\n+        env: Dict[str, str] = cast(Dict[str, str], os.environ),  # noqa\n         parent: str = \"$\",\n",
+        "source_code_with_indent": "        ob: Union[Dict[str, Any], List[Any]],\n        env: Dict[str, str] = os.environ,\n        parent: str = \"$\",\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        ob: Union[Dict[str, Any], List[Any]],\n        env: Dict[str, str] = cast(Dict[str, str], os.environ),  # noqa\n        parent: str = \"$\",\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

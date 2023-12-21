@@ -1,0 +1,53 @@
+[
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "495e87353f455377a0a294a53b53aada13589da7",
+    "filename": "qcodes/instrument_drivers/Keysight/keysight_e4980a.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Keysight/keysight_e4980a.py",
+    "file_hunks_size": 4,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Keysight/keysight_e4980a.py:71:8 Incompatible attribute type [8]: Attribute `value` declared in class `MeasurementPair` has type `Tuple[]` but is used as type `Tuple[float, float]`.",
+    "message": " Attribute `value` declared in class `MeasurementPair` has type `Tuple[]` but is used as type `Tuple[float, float]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 71,
+    "warning_line": "        self.value = value"
+  },
+  {
+    "project": "QCoDeS/Qcodes",
+    "commit": "495e87353f455377a0a294a53b53aada13589da7",
+    "filename": "qcodes/instrument_drivers/Keysight/keysight_e4980a.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/QCoDeS-Qcodes/qcodes/instrument_drivers/Keysight/keysight_e4980a.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "qcodes/instrument_drivers/Keysight/keysight_e4980a.py:76:8 Incompatible return type [7]: Expected `Tuple[float, float]` but got `Tuple[]`.",
+    "message": " Expected `Tuple[float, float]` but got `Tuple[]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 76,
+    "warning_line": "        return self.value",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_raw(self) -> Tuple[float, float]:\n        return self.value\n",
+        "source_code_len": 73,
+        "target_code": "\n    def get_raw(self) -> tuple:\n        return self.value\n",
+        "target_code_len": 59,
+        "diff_format": "@@ -74,3 +74,3 @@\n \n-    def get_raw(self) -> Tuple[float, float]:\n+    def get_raw(self) -> tuple:\n         return self.value\n",
+        "source_code_with_indent": "\n    <DED>def get_raw(self) -> Tuple[float, float]:\n        <IND>return self.value\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def get_raw(self) -> tuple:\n        <IND>return self.value\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

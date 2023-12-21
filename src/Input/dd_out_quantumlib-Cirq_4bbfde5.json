@@ -1,0 +1,36 @@
+[
+  {
+    "project": "quantumlib/Cirq",
+    "commit": "4bbfde5fdb485de2970f679c92a700277a32c4d9",
+    "filename": "cirq/circuits/ascii_drawer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/quantumlib-Cirq/cirq/circuits/ascii_drawer.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cirq/circuits/ascii_drawer.py:164:4 Incompatible return type [7]: Expected `List[str]` but got `int`.",
+    "message": " Expected `List[str]` but got `int`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 164,
+    "warning_line": "    return 1",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _get_operation_exponent(op: ops.Operation, ext: Extensions) -> List[str]:\n    ascii_gate = ext.try_cast(op.gate, ops.AsciiDiagrammableGate)\n",
+        "source_code_len": 145,
+        "target_code": "\ndef _get_operation_exponent(op: ops.Operation, ext: Extensions) -> float:\n    ascii_gate = ext.try_cast(op.gate, ops.AsciiDiagrammableGate)\n",
+        "target_code_len": 141,
+        "diff_format": "@@ -159,3 +159,3 @@\n \n-def _get_operation_exponent(op: ops.Operation, ext: Extensions) -> List[str]:\n+def _get_operation_exponent(op: ops.Operation, ext: Extensions) -> float:\n     ascii_gate = ext.try_cast(op.gate, ops.AsciiDiagrammableGate)\n",
+        "source_code_with_indent": "\n<DED>def _get_operation_exponent(op: ops.Operation, ext: Extensions) -> List[str]:\n    <IND>ascii_gate = ext.try_cast(op.gate, ops.AsciiDiagrammableGate)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n<DED>def _get_operation_exponent(op: ops.Operation, ext: Extensions) -> float:\n    <IND>ascii_gate = ext.try_cast(op.gate, ops.AsciiDiagrammableGate)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

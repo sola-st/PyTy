@@ -1,0 +1,51 @@
+[
+  {
+    "project": "activeloopai/Hub",
+    "commit": "4360418e896533ac1c844381b5ea5d3c55d43f95",
+    "filename": "hub/core/storage/s3/s3_boto_storage.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/activeloopai-Hub/hub/core/storage/s3/s3_boto_storage.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "hub/core/storage/s3/s3_boto_storage.py:11:8 Incompatible variable type [9]: url is declared to have type `str` but is used as type `None`.",
+    "message": " url is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 11,
+    "warning_line": "        url: str = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from botocore.exceptions import ClientError\n\n",
+        "source_code_len": 45,
+        "target_code": "from botocore.exceptions import ClientError\nfrom typing import Optional\n\n",
+        "target_code_len": 73,
+        "diff_format": "@@ -5,2 +5,3 @@\n from botocore.exceptions import ClientError\n+from typing import Optional\n \n",
+        "source_code_with_indent": "from botocore.exceptions import ClientError\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from botocore.exceptions import ClientError\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        self,\n        url: str = None,\n        public=False,\n        aws_access_key_id=None,\n        aws_secret_access_key=None,\n        aws_session_token=None,\n        endpoint_url=None,\n        aws_region=None,\n        parallel=25,\n    ):\n        self.root = {}\n        self.url = url\n        self.public = public\n        self.parallel = parallel\n",
+        "source_code_len": 349,
+        "target_code": "        self,\n        url: str,\n        aws_access_key_id: Optional[str] = None,\n        aws_secret_access_key: Optional[str] = None,\n        aws_session_token: Optional[str] = None,\n        endpoint_url: Optional[str] = None,\n        aws_region: Optional[str] = None,\n        parallel: Optional[int] = 25,\n    ):\n        self.url = url\n        self.parallel = parallel\n",
+        "target_code_len": 370,
+        "diff_format": "@@ -10,14 +11,11 @@\n         self,\n-        url: str = None,\n-        public=False,\n-        aws_access_key_id=None,\n-        aws_secret_access_key=None,\n-        aws_session_token=None,\n-        endpoint_url=None,\n-        aws_region=None,\n-        parallel=25,\n+        url: str,\n+        aws_access_key_id: Optional[str] = None,\n+        aws_secret_access_key: Optional[str] = None,\n+        aws_session_token: Optional[str] = None,\n+        endpoint_url: Optional[str] = None,\n+        aws_region: Optional[str] = None,\n+        parallel: Optional[int] = 25,\n     ):\n-        self.root = {}\n         self.url = url\n-        self.public = public\n         self.parallel = parallel\n",
+        "source_code_with_indent": "        self,\n        url: str = None,\n        public=False,\n        aws_access_key_id=None,\n        aws_secret_access_key=None,\n        aws_session_token=None,\n        endpoint_url=None,\n        aws_region=None,\n        parallel=25,\n    ):\n        <IND>self.root = {}\n        self.url = url\n        self.public = public\n        self.parallel = parallel\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self,\n        url: str,\n        aws_access_key_id: Optional[str] = None,\n        aws_secret_access_key: Optional[str] = None,\n        aws_session_token: Optional[str] = None,\n        endpoint_url: Optional[str] = None,\n        aws_region: Optional[str] = None,\n        parallel: Optional[int] = 25,\n    ):\n        <IND>self.url = url\n        self.parallel = parallel\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

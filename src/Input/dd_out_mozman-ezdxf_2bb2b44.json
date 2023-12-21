@@ -1,0 +1,51 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "2bb2b4482402d11c4bd0fdd5f755d281e80a1793",
+    "filename": "src/ezdxf/render/dim_base.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/render/dim_base.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/render/dim_base.py:1128:44 Incompatible variable type [9]: dxfattribs is declared to have type `Dict[str, typing.Any]` but is used as type `None`.",
+    "message": " dxfattribs is declared to have type `Dict[str, typing.Any]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1128,
+    "warning_line": "        self, p1: Vec2, p2: Vec2, p3: Vec2, dxfattribs: Dict[str, Any] = None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def add_leader(\n        self, p1: Vec2, p2: Vec2, p3: Vec2, dxfattribs: Dict[str, Any] = None\n    ):\n        \"\"\"\n",
+        "source_code_len": 118,
+        "target_code": "\n    def add_leader(self, p1: Vec2, p2: Vec2, p3: Vec2):\n        \"\"\"\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -1126,5 +1126,3 @@\n \n-    def add_leader(\n-        self, p1: Vec2, p2: Vec2, p3: Vec2, dxfattribs: Dict[str, Any] = None\n-    ):\n+    def add_leader(self, p1: Vec2, p2: Vec2, p3: Vec2):\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED>def add_leader(\n        self, p1: Vec2, p2: Vec2, p3: Vec2, dxfattribs: Dict[str, Any] = None\n    ):\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED>def add_leader(self, p1: Vec2, p2: Vec2, p3: Vec2):\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            p3: second text point\n            dxfattribs: DXF attribute\n\n        \"\"\"\n        self.add_line(p1, p2, dxfattribs)\n",
+        "source_code_len": 127,
+        "target_code": "            p3: second text point\n\n        \"\"\"\n        # use only  color and ignore linetype!\n        dxfattribs = {\"color\": self.dimension_line.color}\n        self.add_line(p1, p2, dxfattribs)\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -1136,5 +1134,6 @@\n             p3: second text point\n-            dxfattribs: DXF attribute\n-\n-        \"\"\"\n+\n+        \"\"\"\n+        # use only  color and ignore linetype!\n+        dxfattribs = {\"color\": self.dimension_line.color}\n         self.add_line(p1, p2, dxfattribs)\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        self.add_line(p1, p2, dxfattribs)\n",
+        "target_code_with_indent": "\n        # use only  color and ignore linetype!\n        dxfattribs = {\"color\": self.dimension_line.color}\n        self.add_line(p1, p2, dxfattribs)\n"
+      }
+    ]
+  }
+]

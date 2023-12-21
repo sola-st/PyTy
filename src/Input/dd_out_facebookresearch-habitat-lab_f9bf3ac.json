@@ -1,0 +1,121 @@
+[
+  {
+    "project": "facebookresearch/habitat-lab",
+    "commit": "f9bf3ac229577934d1939211440d9959eb1fb252",
+    "filename": "habitat_baselines/common/env_utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-habitat-lab/habitat_baselines/common/env_utils.py",
+    "file_hunks_size": 10,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "habitat_baselines/common/env_utils.py:93:8 Incompatible parameter type [6]: Expected `typing.Tuple[typing.Tuple[typing.Any, ...]]` for 2nd parameter `env_fn_args` to call `habitat.core.vector_env.VectorEnv.__init__` but got `typing.Tuple[typing.Any, ...]`.",
+    "message": " Expected `typing.Tuple[typing.Tuple[typing.Any, ...]]` for 2nd parameter `env_fn_args` to call `habitat.core.vector_env.VectorEnv.__init__` but got `typing.Tuple[typing.Any, ...]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 93,
+    "warning_line": "        env_fn_args=tuple("
+  },
+  {
+    "project": "facebookresearch/habitat-lab",
+    "commit": "f9bf3ac229577934d1939211440d9959eb1fb252",
+    "filename": "habitat_baselines/rl/ppo/ppo_trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-habitat-lab/habitat_baselines/rl/ppo/ppo_trainer.py",
+    "file_hunks_size": 23,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "habitat_baselines/rl/ppo/ppo_trainer.py:463:12 Unbound name [10]: Name `actor_critic` is used but not defined in the current scope.",
+    "message": " Name `actor_critic` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 463,
+    "warning_line": "            actor_critic.net.num_recurrent_layers,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        test_recurrent_hidden_states = torch.zeros(\n            actor_critic.net.num_recurrent_layers,\n            ppo_cfg.num_processes,\n            ppo_cfg.hidden_size,\n",
+        "source_code_len": 171,
+        "target_code": "        test_recurrent_hidden_states = torch.zeros(\n            self.actor_critic.net.num_recurrent_layers,\n            self.config.NUM_PROCESSES,\n            ppo_cfg.hidden_size,\n",
+        "target_code_len": 180,
+        "diff_format": "@@ -462,4 +391,4 @@\n         test_recurrent_hidden_states = torch.zeros(\n-            actor_critic.net.num_recurrent_layers,\n-            ppo_cfg.num_processes,\n+            self.actor_critic.net.num_recurrent_layers,\n+            self.config.NUM_PROCESSES,\n             ppo_cfg.hidden_size,\n",
+        "source_code_with_indent": "        test_recurrent_hidden_states = torch.zeros(\n            actor_critic.net.num_recurrent_layers,\n            ppo_cfg.num_processes,\n            ppo_cfg.hidden_size,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        test_recurrent_hidden_states = torch.zeros(\n            self.actor_critic.net.num_recurrent_layers,\n            self.config.NUM_PROCESSES,\n            ppo_cfg.hidden_size,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/habitat-lab",
+    "commit": "f9bf3ac229577934d1939211440d9959eb1fb252",
+    "filename": "habitat_baselines/rl/ppo/ppo_trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-habitat-lab/habitat_baselines/rl/ppo/ppo_trainer.py",
+    "file_hunks_size": 23,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "habitat_baselines/rl/ppo/ppo_trainer.py:469:12 Unbound name [10]: Name `args` is used but not defined in the current scope.",
+    "message": " Name `args` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 469,
+    "warning_line": "            args.num_processes, 1, device=device, dtype=torch.long",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        prev_actions = torch.zeros(\n            args.num_processes, 1, device=device, dtype=torch.long\n        )\n        not_done_masks = torch.zeros(\n            ppo_cfg.num_processes, 1, device=self.device\n        )\n",
+        "source_code_len": 218,
+        "target_code": "        prev_actions = torch.zeros(\n            self.config.NUM_PROCESSES, 1, device=self.device, dtype=torch.long\n        )\n        not_done_masks = torch.zeros(\n            self.config.NUM_PROCESSES, 1, device=self.device\n        )\n",
+        "target_code_len": 234,
+        "diff_format": "@@ -468,6 +397,6 @@\n         prev_actions = torch.zeros(\n-            args.num_processes, 1, device=device, dtype=torch.long\n+            self.config.NUM_PROCESSES, 1, device=self.device, dtype=torch.long\n         )\n         not_done_masks = torch.zeros(\n-            ppo_cfg.num_processes, 1, device=self.device\n+            self.config.NUM_PROCESSES, 1, device=self.device\n         )\n",
+        "source_code_with_indent": "        prev_actions = torch.zeros(\n            args.num_processes, 1, device=device, dtype=torch.long\n        )\n        not_done_masks = torch.zeros(\n            ppo_cfg.num_processes, 1, device=self.device\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        prev_actions = torch.zeros(\n            self.config.NUM_PROCESSES, 1, device=self.device, dtype=torch.long\n        )\n        not_done_masks = torch.zeros(\n            self.config.NUM_PROCESSES, 1, device=self.device\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "facebookresearch/habitat-lab",
+    "commit": "f9bf3ac229577934d1939211440d9959eb1fb252",
+    "filename": "habitat_baselines/rl/ppo/ppo_trainer.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/facebookresearch-habitat-lab/habitat_baselines/rl/ppo/ppo_trainer.py",
+    "file_hunks_size": 23,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "habitat_baselines/rl/ppo/ppo_trainer.py:469:42 Unbound name [10]: Name `device` is used but not defined in the current scope.",
+    "message": " Name `device` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 469,
+    "warning_line": "            args.num_processes, 1, device=device, dtype=torch.long",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        prev_actions = torch.zeros(\n            args.num_processes, 1, device=device, dtype=torch.long\n        )\n        not_done_masks = torch.zeros(\n            ppo_cfg.num_processes, 1, device=self.device\n        )\n",
+        "source_code_len": 218,
+        "target_code": "        prev_actions = torch.zeros(\n            self.config.NUM_PROCESSES, 1, device=self.device, dtype=torch.long\n        )\n        not_done_masks = torch.zeros(\n            self.config.NUM_PROCESSES, 1, device=self.device\n        )\n",
+        "target_code_len": 234,
+        "diff_format": "@@ -468,6 +397,6 @@\n         prev_actions = torch.zeros(\n-            args.num_processes, 1, device=device, dtype=torch.long\n+            self.config.NUM_PROCESSES, 1, device=self.device, dtype=torch.long\n         )\n         not_done_masks = torch.zeros(\n-            ppo_cfg.num_processes, 1, device=self.device\n+            self.config.NUM_PROCESSES, 1, device=self.device\n         )\n",
+        "source_code_with_indent": "        prev_actions = torch.zeros(\n            args.num_processes, 1, device=device, dtype=torch.long\n        )\n        not_done_masks = torch.zeros(\n            ppo_cfg.num_processes, 1, device=self.device\n        )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        prev_actions = torch.zeros(\n            self.config.NUM_PROCESSES, 1, device=self.device, dtype=torch.long\n        )\n        not_done_masks = torch.zeros(\n            self.config.NUM_PROCESSES, 1, device=self.device\n        )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

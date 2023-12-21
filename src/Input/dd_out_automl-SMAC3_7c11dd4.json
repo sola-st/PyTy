@@ -1,0 +1,104 @@
+[
+  {
+    "project": "automl/SMAC3",
+    "commit": "7c11dd4a45a1c323176be5710d60120643693a3f",
+    "filename": "smac/epm/base_epm.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/automl-SMAC3/smac/epm/base_epm.py",
+    "file_hunks_size": 10,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "smac/epm/base_epm.py:57:17 Incompatible variable type [9]: pca_components is declared to have type `float` but is used as type `None`.",
+    "message": " pca_components is declared to have type `float` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 57,
+    "warning_line": "                 pca_components: float = None,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                 configspace: ConfigurationSpace,\n                 types: np.ndarray,\n                 bounds: typing.List[typing.Tuple[float, float]],\n                 seed: int,\n                 instance_features: np.ndarray = None,\n                 pca_components: float = None,\n                 ):\n        \"\"\"Constructor\n",
+        "source_code_len": 325,
+        "target_code": "                 configspace: ConfigurationSpace,\n                 types: typing.List[int],\n                 bounds: typing.List[typing.Tuple[float, float]],\n                 seed: int,\n                 instance_features: typing.Optional[np.ndarray] = None,\n                 pca_components: typing.Optional[int] = 7,\n                 ) -> None:\n        \"\"\"Constructor\n",
+        "target_code_len": 368,
+        "diff_format": "@@ -52,8 +53,8 @@\n                  configspace: ConfigurationSpace,\n-                 types: np.ndarray,\n+                 types: typing.List[int],\n                  bounds: typing.List[typing.Tuple[float, float]],\n                  seed: int,\n-                 instance_features: np.ndarray = None,\n-                 pca_components: float = None,\n-                 ):\n+                 instance_features: typing.Optional[np.ndarray] = None,\n+                 pca_components: typing.Optional[int] = 7,\n+                 ) -> None:\n         \"\"\"Constructor\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "                 configspace: ConfigurationSpace,\n                 types: np.ndarray,\n                 bounds: typing.List[typing.Tuple[float, float]],\n                 seed: int,\n                 instance_features: np.ndarray = None,\n                 pca_components: float = None,\n                 ):\n        <IND>",
+        "target_code_with_indent": "                 configspace: ConfigurationSpace,\n                 types: typing.List[int],\n                 bounds: typing.List[typing.Tuple[float, float]],\n                 seed: int,\n                 instance_features: typing.Optional[np.ndarray] = None,\n                 pca_components: typing.Optional[int] = 7,\n                 ) -> None:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "automl/SMAC3",
+    "commit": "7c11dd4a45a1c323176be5710d60120643693a3f",
+    "filename": "smac/epm/gp_base_prior.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/automl-SMAC3/smac/epm/gp_base_prior.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "smac/epm/gp_base_prior.py:456:63 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `float`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 456,
+    "warning_line": "        if np.ndim(theta) == 0 or (np.ndim(theta) == 1 and len(theta) == 1):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        # too.\n        if np.ndim(theta) == 0 or (np.ndim(theta) == 1 and len(theta) == 1):\n            if theta < self._log_lower_bound:\n",
+        "source_code_len": 138,
+        "target_code": "        # too.\n        if np.ndim(theta) == 0:\n            if theta < self._log_lower_bound:\n",
+        "target_code_len": 93,
+        "diff_format": "@@ -455,3 +455,3 @@\n         # too.\n-        if np.ndim(theta) == 0 or (np.ndim(theta) == 1 and len(theta) == 1):\n+        if np.ndim(theta) == 0:\n             if theta < self._log_lower_bound:\n",
+        "source_code_with_indent": "        # too.\n        <IND>if np.ndim(theta) == 0 or (np.ndim(theta) == 1 and len(theta) == 1):\n            <IND>if theta < self._log_lower_bound:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        # too.\n        <IND>if np.ndim(theta) == 0:\n            <IND>if theta < self._log_lower_bound:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "automl/SMAC3",
+    "commit": "7c11dd4a45a1c323176be5710d60120643693a3f",
+    "filename": "smac/epm/gp_base_prior.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/automl-SMAC3/smac/epm/gp_base_prior.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "smac/epm/gp_base_prior.py:483:63 Incompatible parameter type [6]: Expected `typing.Sized` for 1st positional only parameter to call `len` but got `float`.",
+    "message": " Expected `typing.Sized` for 1st positional only parameter to call `len` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 483,
+    "warning_line": "        if np.ndim(theta) == 0 or (np.ndim(theta) == 1 and len(theta) == 1):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def gradient(self, theta: float) -> float:\n        if np.ndim(theta) == 0 or (np.ndim(theta) == 1 and len(theta) == 1):\n            if theta < self._log_lower_bound:\n",
+        "source_code_len": 170,
+        "target_code": "    def gradient(self, theta: float) -> float:\n        if np.ndim(theta) == 0:\n            if theta < self._log_lower_bound:\n",
+        "target_code_len": 125,
+        "diff_format": "@@ -482,3 +482,3 @@\n     def gradient(self, theta: float) -> float:\n-        if np.ndim(theta) == 0 or (np.ndim(theta) == 1 and len(theta) == 1):\n+        if np.ndim(theta) == 0:\n             if theta < self._log_lower_bound:\n",
+        "source_code_with_indent": "    <DED>def gradient(self, theta: float) -> float:\n        <IND>if np.ndim(theta) == 0 or (np.ndim(theta) == 1 and len(theta) == 1):\n            <IND>if theta < self._log_lower_bound:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>def gradient(self, theta: float) -> float:\n        <IND>if np.ndim(theta) == 0:\n            <IND>if theta < self._log_lower_bound:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

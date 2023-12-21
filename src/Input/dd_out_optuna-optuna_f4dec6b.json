@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "f4dec6b7755ecb48257cde7ad385a736831368bb",
+    "filename": "optuna/integration/chainermn.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/integration/chainermn.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/integration/chainermn.py:255:4 Inconsistent override [14]: `optuna.integration.chainermn._ChainerMNTrial.should_prune` overrides method defined in `Trial` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `Optional[int]`.",
+    "message": " `optuna.integration.chainermn._ChainerMNTrial.should_prune` overrides method defined in `Trial` inconsistently. Parameter of type `int` is not a supertype of the overridden parameter `Optional[int]`.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 255,
+    "warning_line": "    def should_prune(self, step):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def should_prune(self, step):\n        # type: (int) -> bool\n\n",
+        "source_code_len": 66,
+        "target_code": "\n    def should_prune(self, step=None):\n        # type: (Optional[int]) -> bool\n\n",
+        "target_code_len": 81,
+        "diff_format": "@@ -254,4 +254,4 @@\n \n-    def should_prune(self, step):\n-        # type: (int) -> bool\n+    def should_prune(self, step=None):\n+        # type: (Optional[int]) -> bool\n \n",
+        "source_code_with_indent": "\n    <DED><DED>def should_prune(self, step):\n        # type: (int) -> bool\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED><DED>def should_prune(self, step=None):\n        # type: (Optional[int]) -> bool\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

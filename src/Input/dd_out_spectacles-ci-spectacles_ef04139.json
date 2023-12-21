@@ -1,0 +1,70 @@
+[
+  {
+    "project": "spectacles-ci/spectacles",
+    "commit": "ef041392298cd9b6a496341c0910af1753d8d486",
+    "filename": "spectacles/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spectacles-ci-spectacles/spectacles/client.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "spectacles/client.py:109:8 Incompatible attribute type [8]: Attribute `headers` declared in class `requests.sessions.Session` has type `requests.structures.CaseInsensitiveDict[str]` but is used as type `Dict[str, str]`.",
+    "message": " Attribute `headers` declared in class `requests.sessions.Session` has type `requests.structures.CaseInsensitiveDict[str]` but is used as type `Dict[str, str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 109,
+    "warning_line": "        self.session.headers = {\"Authorization\": f\"token {self.access_token}\"}",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        self.access_token = AccessToken(**result)\n        self.session.headers = {\"Authorization\": f\"token {self.access_token}\"}\n\n",
+        "source_code_len": 130,
+        "target_code": "        self.access_token = AccessToken(**result)\n        self.session.headers = {  # type: ignore\n            \"Authorization\": f\"token {self.access_token}\"\n        }\n\n",
+        "target_code_len": 168,
+        "diff_format": "@@ -108,3 +108,5 @@\n         self.access_token = AccessToken(**result)\n-        self.session.headers = {\"Authorization\": f\"token {self.access_token}\"}\n+        self.session.headers = {  # type: ignore\n+            \"Authorization\": f\"token {self.access_token}\"\n+        }\n \n",
+        "source_code_with_indent": "        <DED>self.access_token = AccessToken(**result)\n        self.session.headers = {\"Authorization\": f\"token {self.access_token}\"}\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        <DED>self.access_token = AccessToken(**result)\n        self.session.headers = {  # type: ignore\n            \"Authorization\": f\"token {self.access_token}\"\n        }\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "spectacles-ci/spectacles",
+    "commit": "ef041392298cd9b6a496341c0910af1753d8d486",
+    "filename": "spectacles/runner.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/spectacles-ci-spectacles/spectacles/runner.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "spectacles/runner.py:33:8 Incompatible attribute type [8]: Attribute `name` declared in class `LookerBranchManager` has type `str` but is used as type `Optional[str]`.",
+    "message": " Attribute `name` declared in class `LookerBranchManager` has type `str` but is used as type `Optional[str]`.",
+    "rule_id": "Incompatible attribute type [8]",
+    "warning_line_no": 33,
+    "warning_line": "        self.name = name",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @name.setter\n    def name(self, name: str):\n        self._name = name\n",
+        "source_code_len": 74,
+        "target_code": "    @name.setter\n    def name(self, name: Optional[str]):\n        self._name = name\n",
+        "target_code_len": 84,
+        "diff_format": "@@ -75,3 +75,3 @@\n     @name.setter\n-    def name(self, name: str):\n+    def name(self, name: Optional[str]):\n         self._name = name\n",
+        "source_code_with_indent": "    <DED>@name.setter\n    def name(self, name: str):\n        <IND>self._name = name\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@name.setter\n    def name(self, name: Optional[str]):\n        <IND>self._name = name\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

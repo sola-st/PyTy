@@ -1,0 +1,51 @@
+[
+  {
+    "project": "TheAlgorithms/Python",
+    "commit": "ad5108d6a49155bc0a5aca498426265004b0265f",
+    "filename": "arithmetic_analysis/newton_raphson.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/TheAlgorithms-Python/arithmetic_analysis/newton_raphson.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "arithmetic_analysis/newton_raphson.py:36:80 Incompatible parameter type [6]: Expected `int` for 2nd positional only parameter to call `newton_raphson` but got `float`.",
+    "message": " Expected `int` for 2nd positional only parameter to call `newton_raphson` but got `float`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 36,
+    "warning_line": "    print(f\"The root of x**2 - 5*x + 2 = 0 is {newton_raphson('x**2 - 5*x + 2', 0.4)}\")",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from math import *  # noqa: F401, F403\n\n",
+        "source_code_len": 40,
+        "target_code": "from math import *  # noqa: F401, F403\nfrom typing import Union\n\n",
+        "target_code_len": 65,
+        "diff_format": "@@ -6,2 +6,3 @@\n from math import *  # noqa: F401, F403\n+from typing import Union\n \n",
+        "source_code_with_indent": "from math import *  # noqa: F401, F403\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from math import *  # noqa: F401, F403\nfrom typing import Union\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef newton_raphson(func: str, a: int, precision: int = 10 ** -10) -> float:\n    \"\"\"Finds root from the point 'a' onwards by Newton-Raphson method\n",
+        "source_code_len": 147,
+        "target_code": "\ndef newton_raphson(\n    func: str, a: Union[float, Decimal], precision: float = 10 ** -10\n) -> float:\n    \"\"\"Finds root from the point 'a' onwards by Newton-Raphson method\n",
+        "target_code_len": 173,
+        "diff_format": "@@ -10,3 +11,5 @@\n \n-def newton_raphson(func: str, a: int, precision: int = 10 ** -10) -> float:\n+def newton_raphson(\n+    func: str, a: Union[float, Decimal], precision: float = 10 ** -10\n+) -> float:\n     \"\"\"Finds root from the point 'a' onwards by Newton-Raphson method\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\ndef newton_raphson(func: str, a: int, precision: int = 10 ** -10) -> float:\n    <IND>",
+        "target_code_with_indent": "\ndef newton_raphson(\n    func: str, a: Union[float, Decimal], precision: float = 10 ** -10\n) -> float:\n    <IND>"
+      }
+    ]
+  }
+]

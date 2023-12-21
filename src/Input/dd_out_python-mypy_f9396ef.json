@@ -1,0 +1,36 @@
+[
+  {
+    "project": "python/mypy",
+    "commit": "f9396efef73a1063433ea07300512c3972d33c44",
+    "filename": "mypy/suggestions.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/python-mypy/mypy/suggestions.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "mypy/suggestions.py:423:38 Incompatible parameter type [6]: Expected `None` for 1st positional only parameter to call `get_proper_type` but got `Optional[FunctionLike]`.",
+    "message": " Expected `None` for 1st positional only parameter to call `get_proper_type` but got `Optional[FunctionLike]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 423,
+    "warning_line": "                typ = get_proper_type(dec.node.type)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    and isinstance(dec.node, FuncDef)):\n                typ = get_proper_type(dec.node.type)\n            elif (isinstance(dec, CallExpr)\n",
+        "source_code_len": 153,
+        "target_code": "                    and isinstance(dec.node, FuncDef)):\n                typ = dec.node.type\n            elif (isinstance(dec, CallExpr)\n",
+        "target_code_len": 136,
+        "diff_format": "@@ -422,3 +422,3 @@\n                     and isinstance(dec.node, FuncDef)):\n-                typ = get_proper_type(dec.node.type)\n+                typ = dec.node.type\n             elif (isinstance(dec, CallExpr)\n",
+        "source_code_with_indent": "                    and isinstance(dec.node, FuncDef)):\n                <IND>typ = get_proper_type(dec.node.type)\n            <DED>elif (isinstance(dec, CallExpr)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    and isinstance(dec.node, FuncDef)):\n                <IND>typ = dec.node.type\n            <DED>elif (isinstance(dec, CallExpr)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

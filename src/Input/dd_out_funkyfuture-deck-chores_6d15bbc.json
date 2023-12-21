@@ -1,0 +1,36 @@
+[
+  {
+    "project": "funkyfuture/deck-chores",
+    "commit": "6d15bbcac39febd6789432119da97bc2cfb34b62",
+    "filename": "deck_chores/parsers.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/funkyfuture-deck-chores/deck_chores/parsers.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deck_chores/parsers.py:93:12 Incompatible return type [7]: Expected `Union[int, str]` but got `Optional[int]`.",
+    "message": " Expected `Union[int, str]` but got `Optional[int]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 93,
+    "warning_line": "            return parse_time_from_string_with_units(value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def _normalize_coerce_timeunits(self, value: str) -> Union[int, str]:\n        if any(x.isalpha() for x in value):\n",
+        "source_code_len": 119,
+        "target_code": "\n    def _normalize_coerce_timeunits(self, value: str) -> Optional[int]:\n        if any(x.isalpha() for x in value):\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -90,3 +90,3 @@\n \n-    def _normalize_coerce_timeunits(self, value: str) -> Union[int, str]:\n+    def _normalize_coerce_timeunits(self, value: str) -> Optional[int]:\n         if any(x.isalpha() for x in value):\n",
+        "source_code_with_indent": "\n    <DED>def _normalize_coerce_timeunits(self, value: str) -> Union[int, str]:\n        <IND>if any(x.isalpha() for x in value):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def _normalize_coerce_timeunits(self, value: str) -> Optional[int]:\n        <IND>if any(x.isalpha() for x in value):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

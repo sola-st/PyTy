@@ -1,0 +1,36 @@
+[
+  {
+    "project": "sanic-org/sanic",
+    "commit": "48f8b37b749d8f373db8c25a2de91243b7b3e282",
+    "filename": "sanic/utils.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/sanic-org-sanic/sanic/utils.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "sanic/utils.py:108:38 Incompatible parameter type [6]: Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "message": " Expected `importlib.machinery.ModuleSpec` for 1st positional only parameter to call `module_from_spec` but got `typing.Optional[importlib.machinery.ModuleSpec]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 108,
+    "warning_line": "            module = module_from_spec(_mod_spec)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "            )\n            module = module_from_spec(_mod_spec)\n",
+        "source_code_len": 63,
+        "target_code": "            )\n            assert _mod_spec is not None  # type assertion for mypy\n            module = module_from_spec(_mod_spec)\n",
+        "target_code_len": 131,
+        "diff_format": "@@ -107,2 +107,3 @@\n             )\n+            assert _mod_spec is not None  # type assertion for mypy\n             module = module_from_spec(_mod_spec)\n",
+        "source_code_with_indent": "            )\n            module = module_from_spec(_mod_spec)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            )\n            assert _mod_spec is not None  # type assertion for mypy\n            module = module_from_spec(_mod_spec)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

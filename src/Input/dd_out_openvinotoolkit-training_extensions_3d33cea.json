@@ -1,0 +1,36 @@
+[
+  {
+    "project": "openvinotoolkit/training_extensions",
+    "commit": "3d33cea923c90fa38cb26571ac80808d2a070b60",
+    "filename": "ote_sdk/ote_sdk/algo_backends/test_helpers/training_tests_stage.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/openvinotoolkit-training_extensions/ote_sdk/ote_sdk/algo_backends/test_helpers/training_tests_stage.py",
+    "file_hunks_size": 32,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ote_sdk/ote_sdk/algo_backends/test_helpers/training_tests_stage.py:165:31 Unsupported operand [58]: `-` is not supported for operand types `Optional[float]` and `float`.",
+    "message": " `-` is not supported for operand types `Optional[float]` and `float`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 165,
+    "warning_line": "        acceptable_error = abs(threshold - target_value)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        if min_value is not None:\n            cmp_op = lambda x: x >= min_value\n            cmp_str_true = 'greater or equal'\n            cmp_op_str_true = '>='\n            cmp_op_str_false = '<'\n            threshold = min_value\n        else:\n            cmp_op = lambda x: x <= max_value\n            cmp_str_true = 'less or equal'\n            cmp_op_str_true = '<='\n            cmp_op_str_false = '>'\n            threshold = max_value\n",
+        "source_code_len": 437,
+        "target_code": "        if min_value is not None:\n            cmp_op = lambda x: x >= min_value  # noqa: E731\n            cmp_str_true = \"greater or equal\"\n            cmp_op_str_true = \">=\"\n            cmp_op_str_false = \"<\"\n            threshold = min_value\n        else:\n            assert max_value is not None\n            cmp_op = lambda x: x <= max_value  # noqa: E731\n            cmp_str_true = \"less or equal\"\n            cmp_op_str_true = \"<=\"\n            cmp_op_str_false = \">\"\n            threshold = max_value\n",
+        "target_code_len": 506,
+        "diff_format": "@@ -153,12 +206,13 @@\n         if min_value is not None:\n-            cmp_op = lambda x: x >= min_value\n-            cmp_str_true = 'greater or equal'\n-            cmp_op_str_true = '>='\n-            cmp_op_str_false = '<'\n+            cmp_op = lambda x: x >= min_value  # noqa: E731\n+            cmp_str_true = \"greater or equal\"\n+            cmp_op_str_true = \">=\"\n+            cmp_op_str_false = \"<\"\n             threshold = min_value\n         else:\n-            cmp_op = lambda x: x <= max_value\n-            cmp_str_true = 'less or equal'\n-            cmp_op_str_true = '<='\n-            cmp_op_str_false = '>'\n+            assert max_value is not None\n+            cmp_op = lambda x: x <= max_value  # noqa: E731\n+            cmp_str_true = \"less or equal\"\n+            cmp_op_str_true = \"<=\"\n+            cmp_op_str_false = \">\"\n             threshold = max_value\n",
+        "source_code_with_indent": "        if min_value is not None:\n            <IND>cmp_op = lambda x: x >= min_value\n            cmp_str_true = 'greater or equal'\n            cmp_op_str_true = '>='\n            cmp_op_str_false = '<'\n            threshold = min_value\n        <DED>else:\n            <IND>cmp_op = lambda x: x <= max_value\n            cmp_str_true = 'less or equal'\n            cmp_op_str_true = '<='\n            cmp_op_str_false = '>'\n            threshold = max_value\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        if min_value is not None:\n            <IND>cmp_op = lambda x: x >= min_value  # noqa: E731\n            cmp_str_true = \"greater or equal\"\n            cmp_op_str_true = \">=\"\n            cmp_op_str_false = \"<\"\n            threshold = min_value\n        <DED>else:\n            <IND>assert max_value is not None\n            cmp_op = lambda x: x <= max_value  # noqa: E731\n            cmp_str_true = \"less or equal\"\n            cmp_op_str_true = \"<=\"\n            cmp_op_str_false = \">\"\n            threshold = max_value\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

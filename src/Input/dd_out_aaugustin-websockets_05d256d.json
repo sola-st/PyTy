@@ -1,0 +1,100 @@
+[
+  {
+    "project": "aaugustin/websockets",
+    "commit": "05d256da094759200016f123d787d315d86fc5c2",
+    "filename": "src/websockets/protocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aaugustin-websockets/src/websockets/protocol.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/websockets/protocol.py:863:43 Incompatible parameter type [6]: Expected `int` for 1st parameter `max_size` to call `WebSocketCommonProtocol.read_data_frame` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st parameter `max_size` to call `WebSocketCommonProtocol.read_data_frame` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 863,
+    "warning_line": "        frame = await self.read_data_frame(max_size=self.max_size)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def read_data_frame(self, max_size: int) -> Optional[Frame]:\n        \"\"\"\n",
+        "source_code_len": 84,
+        "target_code": "\n    async def read_data_frame(self, max_size: Optional[int]) -> Optional[Frame]:\n        \"\"\"\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -926,3 +928,3 @@\n \n-    async def read_data_frame(self, max_size: int) -> Optional[Frame]:\n+    async def read_data_frame(self, max_size: Optional[int]) -> Optional[Frame]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>async def read_data_frame(self, max_size: int) -> Optional[Frame]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>async def read_data_frame(self, max_size: Optional[int]) -> Optional[Frame]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def read_frame(self, max_size: int) -> Frame:\n        \"\"\"\n",
+        "source_code_len": 69,
+        "target_code": "\n    async def read_frame(self, max_size: Optional[int]) -> Frame:\n        \"\"\"\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -1008,3 +1010,3 @@\n \n-    async def read_frame(self, max_size: int) -> Frame:\n+    async def read_frame(self, max_size: Optional[int]) -> Frame:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED><DED>async def read_frame(self, max_size: int) -> Frame:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED><DED>async def read_frame(self, max_size: Optional[int]) -> Frame:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "aaugustin/websockets",
+    "commit": "05d256da094759200016f123d787d315d86fc5c2",
+    "filename": "src/websockets/protocol.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aaugustin-websockets/src/websockets/protocol.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/websockets/protocol.py:917:47 Incompatible parameter type [6]: Expected `int` for 1st parameter `max_size` to call `WebSocketCommonProtocol.read_data_frame` but got `Optional[int]`.",
+    "message": " Expected `int` for 1st parameter `max_size` to call `WebSocketCommonProtocol.read_data_frame` but got `Optional[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 917,
+    "warning_line": "            frame = await self.read_data_frame(max_size=max_size)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def read_data_frame(self, max_size: int) -> Optional[Frame]:\n        \"\"\"\n",
+        "source_code_len": 84,
+        "target_code": "\n    async def read_data_frame(self, max_size: Optional[int]) -> Optional[Frame]:\n        \"\"\"\n",
+        "target_code_len": 94,
+        "diff_format": "@@ -926,3 +928,3 @@\n \n-    async def read_data_frame(self, max_size: int) -> Optional[Frame]:\n+    async def read_data_frame(self, max_size: Optional[int]) -> Optional[Frame]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>async def read_data_frame(self, max_size: int) -> Optional[Frame]:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>async def read_data_frame(self, max_size: Optional[int]) -> Optional[Frame]:\n        <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    async def read_frame(self, max_size: int) -> Frame:\n        \"\"\"\n",
+        "source_code_len": 69,
+        "target_code": "\n    async def read_frame(self, max_size: Optional[int]) -> Frame:\n        \"\"\"\n",
+        "target_code_len": 79,
+        "diff_format": "@@ -1008,3 +1010,3 @@\n \n-    async def read_frame(self, max_size: int) -> Frame:\n+    async def read_frame(self, max_size: Optional[int]) -> Frame:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED><DED><DED>async def read_frame(self, max_size: int) -> Frame:\n        <IND>",
+        "target_code_with_indent": "\n    <DED><DED><DED>async def read_frame(self, max_size: Optional[int]) -> Frame:\n        <IND>"
+      }
+    ]
+  }
+]

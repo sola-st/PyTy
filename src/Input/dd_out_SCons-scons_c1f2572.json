@@ -1,0 +1,66 @@
+[
+  {
+    "project": "SCons/scons",
+    "commit": "c1f2572ddb18d9b5512be1d2ccc807afc5ff6efb",
+    "filename": "SCons/Node/FS.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/SCons-scons/SCons/Node/FS.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "SCons/Node/FS.py:3234:8 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 3234,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\nimport fnmatch\nimport os\n",
+        "source_code_len": 26,
+        "target_code": "\nimport codecs\nimport fnmatch\nimport importlib.util\nimport os\n",
+        "target_code_len": 62,
+        "diff_format": "@@ -32,3 +32,5 @@\n \n+import codecs\n import fnmatch\n+import importlib.util\n import os\n",
+        "source_code_with_indent": "\nimport fnmatch\nimport os\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\nimport codecs\nimport fnmatch\nimport importlib.util\nimport os\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import time\nimport codecs\nfrom itertools import chain\nimport importlib.util\n\n",
+        "source_code_len": 77,
+        "target_code": "import time\nfrom itertools import chain\nfrom typing import Optional\n\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -39,5 +41,4 @@\n import time\n-import codecs\n from itertools import chain\n-import importlib.util\n+from typing import Optional\n \n",
+        "source_code_with_indent": "import time\nimport codecs\nfrom itertools import chain\nimport importlib.util\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import time\nfrom itertools import chain\nfrom typing import Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def get_max_drift_csig(self) -> str:\n        \"\"\"\n",
+        "source_code_len": 54,
+        "target_code": "\n    def get_max_drift_csig(self) -> Optional[str]:\n        \"\"\"\n",
+        "target_code_len": 64,
+        "diff_format": "@@ -3209,3 +3210,3 @@\n \n-    def get_max_drift_csig(self) -> str:\n+    def get_max_drift_csig(self) -> Optional[str]:\n         \"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n    <DED>def get_max_drift_csig(self) -> str:\n        <IND>",
+        "target_code_with_indent": "\n    <DED>def get_max_drift_csig(self) -> Optional[str]:\n        <IND>"
+      }
+    ]
+  }
+]

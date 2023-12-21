@@ -1,0 +1,143 @@
+[
+  {
+    "project": "photosynthesis-team/piq",
+    "commit": "34a3d4acd73ae9c2b957deec67bf027b3eede449",
+    "filename": "piq/fsim.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/photosynthesis-team-piq/piq/fsim.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "piq/fsim.py:359:34 Incompatible parameter type [6]: Expected `Tuple[int, int]` for 1st positional only parameter to call `piq.functional.base.get_meshgrid` but got `Union[Tuple[int, int], int]`.",
+    "message": " Expected `Tuple[int, int]` for 1st positional only parameter to call `piq.functional.base.get_meshgrid` but got `Union[Tuple[int, int], int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 359,
+    "warning_line": "    grid_x, grid_y = get_meshgrid(size)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\ndef _lowpassfilter(size: Union[int, Tuple[int, int]], cutoff: float, n: int) -> torch.Tensor:\n    r\"\"\"\n",
+        "source_code_len": 104,
+        "target_code": "\ndef _lowpassfilter(size: Tuple[int, int], cutoff: float, n: int) -> torch.Tensor:\n    r\"\"\"\n",
+        "target_code_len": 92,
+        "diff_format": "@@ -339,3 +339,3 @@\n \n-def _lowpassfilter(size: Union[int, Tuple[int, int]], cutoff: float, n: int) -> torch.Tensor:\n+def _lowpassfilter(size: Tuple[int, int], cutoff: float, n: int) -> torch.Tensor:\n     r\"\"\"\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n<DED>def _lowpassfilter(size: Union[int, Tuple[int, int]], cutoff: float, n: int) -> torch.Tensor:\n    <IND>",
+        "target_code_with_indent": "\n<DED>def _lowpassfilter(size: Tuple[int, int], cutoff: float, n: int) -> torch.Tensor:\n    <IND>"
+      }
+    ]
+  },
+  {
+    "project": "photosynthesis-team/piq",
+    "commit": "34a3d4acd73ae9c2b957deec67bf027b3eede449",
+    "filename": "piq/perceptual.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/photosynthesis-team-piq/piq/perceptual.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "piq/perceptual.py:301:34 Incompatible parameter type [6]: Expected `Tuple[str]` for 2nd parameter `layers` to call `ContentLoss.__init__` but got `List[str]`.",
+    "message": " Expected `Tuple[str]` for 2nd parameter `layers` to call `ContentLoss.__init__` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 301,
+    "warning_line": "        super().__init__(\"vgg16\", layers=lpips_layers, weights=lpips_weights,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\"\"\"\nfrom typing import List, Union, Callable, Tuple\n\n",
+        "source_code_len": 53,
+        "target_code": "\"\"\"\nfrom typing import List, Union, Iterable\n\n",
+        "target_code_len": 46,
+        "diff_format": "@@ -12,3 +12,3 @@\n \"\"\"\n-from typing import List, Union, Callable, Tuple\n+from typing import List, Union, Iterable\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nfrom typing import List, Union, Callable, Tuple\n\n",
+        "target_code_with_indent": "\nfrom typing import List, Union, Iterable\n\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, feature_extractor: Union[str, Callable] = \"vgg16\", layers: Tuple[str] = (\"relu3_3\", ),\n                 weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "source_code_len": 209,
+        "target_code": "\n    def __init__(self, feature_extractor: Union[str, torch.nn.Module] = \"vgg16\", layers: Iterable[str] = (\"relu3_3\", ),\n                 weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "target_code_len": 219,
+        "diff_format": "@@ -106,3 +106,3 @@\n \n-    def __init__(self, feature_extractor: Union[str, Callable] = \"vgg16\", layers: Tuple[str] = (\"relu3_3\", ),\n+    def __init__(self, feature_extractor: Union[str, torch.nn.Module] = \"vgg16\", layers: Iterable[str] = (\"relu3_3\", ),\n                  weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "source_code_with_indent": "\n    def __init__(self, feature_extractor: Union[str, Callable] = \"vgg16\", layers: Tuple[str] = (\"relu3_3\", ),\n                 weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, feature_extractor: Union[str, torch.nn.Module] = \"vgg16\", layers: Iterable[str] = (\"relu3_3\", ),\n                 weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "photosynthesis-team/piq",
+    "commit": "34a3d4acd73ae9c2b957deec67bf027b3eede449",
+    "filename": "piq/perceptual.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/photosynthesis-team-piq/piq/perceptual.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "piq/perceptual.py:336:34 Incompatible parameter type [6]: Expected `Tuple[str]` for 2nd parameter `layers` to call `ContentLoss.__init__` but got `List[str]`.",
+    "message": " Expected `Tuple[str]` for 2nd parameter `layers` to call `ContentLoss.__init__` but got `List[str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 336,
+    "warning_line": "        super().__init__(\"vgg16\", layers=dists_layers, weights=dists_weights,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\"\"\"\nfrom typing import List, Union, Callable, Tuple\n\n",
+        "source_code_len": 53,
+        "target_code": "\"\"\"\nfrom typing import List, Union, Iterable\n\n",
+        "target_code_len": 46,
+        "diff_format": "@@ -12,3 +12,3 @@\n \"\"\"\n-from typing import List, Union, Callable, Tuple\n+from typing import List, Union, Iterable\n \n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\nfrom typing import List, Union, Callable, Tuple\n\n",
+        "target_code_with_indent": "\nfrom typing import List, Union, Iterable\n\n"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def __init__(self, feature_extractor: Union[str, Callable] = \"vgg16\", layers: Tuple[str] = (\"relu3_3\", ),\n                 weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "source_code_len": 209,
+        "target_code": "\n    def __init__(self, feature_extractor: Union[str, torch.nn.Module] = \"vgg16\", layers: Iterable[str] = (\"relu3_3\", ),\n                 weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "target_code_len": 219,
+        "diff_format": "@@ -106,3 +106,3 @@\n \n-    def __init__(self, feature_extractor: Union[str, Callable] = \"vgg16\", layers: Tuple[str] = (\"relu3_3\", ),\n+    def __init__(self, feature_extractor: Union[str, torch.nn.Module] = \"vgg16\", layers: Iterable[str] = (\"relu3_3\", ),\n                  weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "source_code_with_indent": "\n    def __init__(self, feature_extractor: Union[str, Callable] = \"vgg16\", layers: Tuple[str] = (\"relu3_3\", ),\n                 weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    def __init__(self, feature_extractor: Union[str, torch.nn.Module] = \"vgg16\", layers: Iterable[str] = (\"relu3_3\", ),\n                 weights: List[Union[float, torch.Tensor]] = [1.], replace_pooling: bool = False,\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "photosynthesis-team/piq",
+    "commit": "34a3d4acd73ae9c2b957deec67bf027b3eede449",
+    "filename": "tests/test_perseptual.py",
+    "min_patch_found": false,
+    "full_warning_msg": "tests/test_perseptual.py:72:63 Incompatible parameter type [6]: Expected `Tuple[str]` for 2nd parameter `layers` to call `piq.perceptual.ContentLoss.__init__` but got `typing.List[str]`.",
+    "exception": "PatchSet should only have 1 Patch, but it has 0",
+    "dd_fail": true
+  }
+]

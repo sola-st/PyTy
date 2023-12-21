@@ -1,0 +1,53 @@
+[
+  {
+    "project": "aiidateam/aiida-core",
+    "commit": "e9d3153eaeb9dc022161a7e2064e1070cffe5afb",
+    "filename": "aiida/tools/groups/paths.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aiidateam-aiida-core/aiida/tools/groups/paths.py",
+    "file_hunks_size": 27,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiida/tools/groups/paths.py:128:8 Incompatible return type [7]: Expected `str` but got `None`.",
+    "message": " Expected `str` but got `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 128,
+    "warning_line": "        return None",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def key(self):\n        # type: () -> str\n        \"\"\"Return the final component of the the path.\"\"\"\n",
+        "source_code_len": 117,
+        "target_code": "    @property\n    def key(self) -> Optional[str]:\n        \"\"\"Return the final component of the the path.\"\"\"\n",
+        "target_code_len": 108,
+        "diff_format": "@@ -122,4 +116,3 @@\n     @property\n-    def key(self):\n-        # type: () -> str\n+    def key(self) -> Optional[str]:\n         \"\"\"Return the final component of the the path.\"\"\"\n",
+        "source_code_with_indent": "    <DED>@property\n    def key(self):\n        # type: () -> str\n        <IND>\"\"\"Return the final component of the the path.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@property\n    def key(self) -> Optional[str]:\n        <IND>\"\"\"Return the final component of the the path.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "aiidateam/aiida-core",
+    "commit": "e9d3153eaeb9dc022161a7e2064e1070cffe5afb",
+    "filename": "aiida/tools/groups/paths.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/aiidateam-aiida-core/aiida/tools/groups/paths.py",
+    "file_hunks_size": 27,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiida/tools/groups/paths.py:200:34 Invalid type [31]: Expression `\"(self.cls, bool)\"` is not a valid type.",
+    "message": " Expression `\"(self.cls, bool)\"` is not a valid type.",
+    "rule_id": "Invalid type [31]",
+    "warning_line_no": 200,
+    "warning_line": "    def get_or_create_group(self):"
+  }
+]

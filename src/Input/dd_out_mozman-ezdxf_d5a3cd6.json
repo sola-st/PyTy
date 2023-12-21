@@ -1,0 +1,100 @@
+[
+  {
+    "project": "mozman/ezdxf",
+    "commit": "d5a3cd68a6afccc364887f014e626922f9093d0c",
+    "filename": "src/ezdxf/render/mesh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/render/mesh.py",
+    "file_hunks_size": 45,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "src/ezdxf/render/mesh.py:75:30 Incompatible parameter type [6]: Expected `Tuple[int, int]` for 1st positional only parameter to call `list.append` but got `Sequence[int]`.",
+    "message": " Expected `Tuple[int, int]` for 1st positional only parameter to call `list.append` but got `Sequence[int]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 75,
+    "warning_line": "            self.edges.append(self.add_vertices(vertices))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        if len(vertices) == 2:\n            self.edges.append(self.add_vertices(vertices))\n        else:\n            raise DXFValueError(\n                'Invalid vertices count, expected two vertices.')\n\n    def add_vertices(self, vertices: Iterable['Vertex']) -> Sequence[int]:\n        \"\"\" Add new vertices to the mesh, each vertex is a ``(x, y, z)`` tuple\n        or a :class:`~ezdxf.math.Vec3` object, returns the indices of the\n",
+        "source_code_len": 432,
+        "target_code": "        if len(vertices) == 2:\n            self.edges.append(self.add_vertices(vertices))  # type: ignore\n        else:\n            raise DXFValueError(\n                \"Invalid vertices count, expected two vertices.\"\n            )\n\n    def add_vertices(self, vertices: Iterable[\"Vertex\"]) -> Sequence[int]:\n        \"\"\"Add new vertices to the mesh, each vertex is a ``(x, y, z)`` tuple\n        or a :class:`~ezdxf.math.Vec3` object, returns the indices of the\n",
+        "target_code_len": 460,
+        "diff_format": "@@ -74,9 +92,10 @@\n         if len(vertices) == 2:\n-            self.edges.append(self.add_vertices(vertices))\n+            self.edges.append(self.add_vertices(vertices))  # type: ignore\n         else:\n             raise DXFValueError(\n-                'Invalid vertices count, expected two vertices.')\n-\n-    def add_vertices(self, vertices: Iterable['Vertex']) -> Sequence[int]:\n-        \"\"\" Add new vertices to the mesh, each vertex is a ``(x, y, z)`` tuple\n+                \"Invalid vertices count, expected two vertices.\"\n+            )\n+\n+    def add_vertices(self, vertices: Iterable[\"Vertex\"]) -> Sequence[int]:\n+        \"\"\"Add new vertices to the mesh, each vertex is a ``(x, y, z)`` tuple\n         or a :class:`~ezdxf.math.Vec3` object, returns the indices of the\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        if len(vertices) == 2:\n            <IND>self.edges.append(self.add_vertices(vertices))\n        <DED>else:\n            <IND>raise DXFValueError(\n                'Invalid vertices count, expected two vertices.')\n\n    <DED><DED>def add_vertices(self, vertices: Iterable['Vertex']) -> Sequence[int]:\n        <IND>",
+        "target_code_with_indent": "        if len(vertices) == 2:\n            <IND>self.edges.append(self.add_vertices(vertices))  # type: ignore\n        <DED>else:\n            <IND>raise DXFValueError(\n                \"Invalid vertices count, expected two vertices.\"\n            )\n\n    <DED><DED>def add_vertices(self, vertices: Iterable[\"Vertex\"]) -> Sequence[int]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "mozman/ezdxf",
+    "commit": "d5a3cd68a6afccc364887f014e626922f9093d0c",
+    "filename": "src/ezdxf/render/mesh.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/mozman-ezdxf/src/ezdxf/render/mesh.py",
+    "file_hunks_size": 45,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/ezdxf/render/mesh.py:324:8 Incompatible return type [7]: Expected `MeshTransformer` but got `MeshBuilder`.",
+    "message": " Expected `MeshTransformer` but got `MeshBuilder`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 324,
+    "warning_line": "        return MeshTransformer.from_builder(mesh)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "# License: MIT License\nfrom typing import List, Sequence, Tuple, Iterable, TYPE_CHECKING, Union, Dict\nfrom ezdxf.lldxf.const import DXFValueError\nfrom ezdxf.math import (Matrix44, Vec3, NULLVEC,\n    is_planar_face, subdivide_face, normal_vector_3p, subdivide_ngons,\n)\n",
+        "source_code_len": 268,
+        "target_code": "# License: MIT License\nfrom typing import (\n    List,\n    Sequence,\n    Tuple,\n    Iterable,\n    TYPE_CHECKING,\n    Union,\n    Dict,\n    TypeVar,\n    Type,\n)\nfrom ezdxf.lldxf.const import DXFValueError\nfrom ezdxf.math import (\n    Matrix44,\n    Vec3,\n    NULLVEC,\n    is_planar_face,\n    subdivide_face,\n    normal_vector_3p,\n    subdivide_ngons,\n)\n",
+        "target_code_len": 349,
+        "diff_format": "@@ -2,6 +2,22 @@\n # License: MIT License\n-from typing import List, Sequence, Tuple, Iterable, TYPE_CHECKING, Union, Dict\n+from typing import (\n+    List,\n+    Sequence,\n+    Tuple,\n+    Iterable,\n+    TYPE_CHECKING,\n+    Union,\n+    Dict,\n+    TypeVar,\n+    Type,\n+)\n from ezdxf.lldxf.const import DXFValueError\n-from ezdxf.math import (Matrix44, Vec3, NULLVEC,\n-    is_planar_face, subdivide_face, normal_vector_3p, subdivide_ngons,\n+from ezdxf.math import (\n+    Matrix44,\n+    Vec3,\n+    NULLVEC,\n+    is_planar_face,\n+    subdivide_face,\n+    normal_vector_3p,\n+    subdivide_ngons,\n )\n",
+        "source_code_with_indent": "# License: MIT License\nfrom typing import List, Sequence, Tuple, Iterable, TYPE_CHECKING, Union, Dict\nfrom ezdxf.lldxf.const import DXFValueError\nfrom ezdxf.math import (Matrix44, Vec3, NULLVEC,\n    is_planar_face, subdivide_face, normal_vector_3p, subdivide_ngons,\n)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "# License: MIT License\nfrom typing import (\n    List,\n    Sequence,\n    Tuple,\n    Iterable,\n    TYPE_CHECKING,\n    Union,\n    Dict,\n    TypeVar,\n    Type,\n)\nfrom ezdxf.lldxf.const import DXFValueError\nfrom ezdxf.math import (\n    Matrix44,\n    Vec3,\n    NULLVEC,\n    is_planar_face,\n    subdivide_face,\n    normal_vector_3p,\n    subdivide_ngons,\n)\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n\nclass MeshBuilder:\n    \"\"\" A simple Mesh builder. Stores a list of vertices, a list of edges where\n    an edge is a list of indices into the vertices list, and a faces list where\n",
+        "source_code_len": 181,
+        "target_code": "\nT = TypeVar(\"T\")\n\n\nclass MeshBuilder:\n    \"\"\"A simple Mesh builder. Stores a list of vertices, a list of edges where\n    an edge is a list of indices into the vertices list, and a faces list where\n",
+        "target_code_len": 198,
+        "diff_format": "@@ -11,5 +27,7 @@\n \n+T = TypeVar(\"T\")\n+\n \n class MeshBuilder:\n-    \"\"\" A simple Mesh builder. Stores a list of vertices, a list of edges where\n+    \"\"\"A simple Mesh builder. Stores a list of vertices, a list of edges where\n     an edge is a list of indices into the vertices list, and a faces list where\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n\n<DED>class MeshBuilder:\n    <IND>",
+        "target_code_with_indent": "\n<DED>T = TypeVar(\"T\")\n\n\nclass MeshBuilder:\n    <IND>"
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def from_builder(cls, other: 'MeshBuilder') -> 'MeshBuilder':\n        \"\"\" Create new mesh from other mesh builder, faster than\n        :meth:`from_mesh` but supports only :class:`MeshBuilder` and inherited\n",
+        "source_code_len": 227,
+        "target_code": "    @classmethod\n    def from_builder(cls: Type[T], other: \"MeshBuilder\") -> T:\n        \"\"\"Create new mesh from other mesh builder, faster than\n        :meth:`from_mesh` but supports only :class:`MeshBuilder` and inherited\n",
+        "target_code_len": 223,
+        "diff_format": "@@ -291,4 +330,4 @@\n     @classmethod\n-    def from_builder(cls, other: 'MeshBuilder') -> 'MeshBuilder':\n-        \"\"\" Create new mesh from other mesh builder, faster than\n+    def from_builder(cls: Type[T], other: \"MeshBuilder\") -> T:\n+        \"\"\"Create new mesh from other mesh builder, faster than\n         :meth:`from_mesh` but supports only :class:`MeshBuilder` and inherited\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED><DED>@classmethod\n    def from_builder(cls, other: 'MeshBuilder') -> 'MeshBuilder':\n        <IND>",
+        "target_code_with_indent": "    <DED><DED>@classmethod\n    def from_builder(cls: Type[T], other: \"MeshBuilder\") -> T:\n        <IND>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "project": "DisnakeDev/disnake",
+    "commit": "750ba88f2c9d1d51ecf3accdd325bd83aa8ae95b",
+    "filename": "discord/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DisnakeDev-disnake/discord/client.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/client.py:656:8 Incompatible return type [7]: Expected `Optional[BaseActivity]` but got `Union[discord.activity.Activity, discord.activity.CustomActivity, discord.activity.Game, discord.activity.Spotify, discord.activity.Streaming]`.",
+    "message": " Expected `Optional[BaseActivity]` but got `Union[discord.activity.Activity, discord.activity.CustomActivity, discord.activity.Game, discord.activity.Spotify, discord.activity.Streaming]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 656,
+    "warning_line": "        return create_activity(self._connection._activity)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from .gateway import *\nfrom .activity import BaseActivity, create_activity\nfrom .voice_client import VoiceClient\n",
+        "source_code_len": 113,
+        "target_code": "from .gateway import *\nfrom .activity import ActivityTypes, BaseActivity, create_activity\nfrom .voice_client import VoiceClient\n",
+        "target_code_len": 128,
+        "diff_format": "@@ -48,3 +48,3 @@\n from .gateway import *\n-from .activity import BaseActivity, create_activity\n+from .activity import ActivityTypes, BaseActivity, create_activity\n from .voice_client import VoiceClient\n",
+        "source_code_with_indent": "from .gateway import *\nfrom .activity import BaseActivity, create_activity\nfrom .voice_client import VoiceClient\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from .gateway import *\nfrom .activity import ActivityTypes, BaseActivity, create_activity\nfrom .voice_client import VoiceClient\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @property\n    def activity(self) -> Optional[BaseActivity]:\n        \"\"\"Optional[:class:`.BaseActivity`]: The activity being used upon\n",
+        "source_code_len": 138,
+        "target_code": "    @property\n    def activity(self) -> Optional[ActivityTypes]:\n        \"\"\"Optional[:class:`.BaseActivity`]: The activity being used upon\n",
+        "target_code_len": 139,
+        "diff_format": "@@ -651,3 +652,3 @@\n     @property\n-    def activity(self) -> Optional[BaseActivity]:\n+    def activity(self) -> Optional[ActivityTypes]:\n         \"\"\"Optional[:class:`.BaseActivity`]: The activity being used upon\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "    <DED>@property\n    def activity(self) -> Optional[BaseActivity]:\n        <IND>",
+        "target_code_with_indent": "    <DED>@property\n    def activity(self) -> Optional[ActivityTypes]:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "DisnakeDev/disnake",
+    "commit": "750ba88f2c9d1d51ecf3accdd325bd83aa8ae95b",
+    "filename": "discord/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DisnakeDev-disnake/discord/client.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/client.py:1085:8 Incompatible return type [7]: Expected `List[Guild]` but got `GuildIterator`.",
+    "message": " Expected `List[Guild]` but got `GuildIterator`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 1085,
+    "warning_line": "        return GuildIterator(self, limit=limit, before=before, after=after)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        after: SnowflakeTime = None\n    ) -> List[Guild]:\n        \"\"\"Retrieves an :class:`.AsyncIterator` that enables receiving your guilds.\n",
+        "source_code_len": 142,
+        "target_code": "        after: SnowflakeTime = None\n    ) -> GuildIterator:\n        \"\"\"Retrieves an :class:`.AsyncIterator` that enables receiving your guilds.\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -1031,3 +1032,3 @@\n         after: SnowflakeTime = None\n-    ) -> List[Guild]:\n+    ) -> GuildIterator:\n         \"\"\"Retrieves an :class:`.AsyncIterator` that enables receiving your guilds.\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "        after: SnowflakeTime = None\n    ) -> List[Guild]:\n        <IND>",
+        "target_code_with_indent": "        after: SnowflakeTime = None\n    ) -> GuildIterator:\n        <IND>"
+      }
+    ]
+  },
+  {
+    "project": "DisnakeDev/disnake",
+    "commit": "750ba88f2c9d1d51ecf3accdd325bd83aa8ae95b",
+    "filename": "discord/client.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DisnakeDev-disnake/discord/client.py",
+    "file_hunks_size": 8,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "discord/client.py:1147:103 Incompatible variable type [9]: code is declared to have type `str` but is used as type `None`.",
+    "message": " code is declared to have type `str` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 1147,
+    "warning_line": "    async def create_guild(self, name: str, region: Optional[VoiceRegion] = None, icon: Any = None, *, code: str = None) -> Guild:"
+  }
+]

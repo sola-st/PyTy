@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "a6037bb7164ae3f2ff18658b6d70536c549196dc",
+    "filename": "UM/Settings/Models/SettingDefinitionsModel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/Models/SettingDefinitionsModel.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/Models/SettingDefinitionsModel.py:123:8 Incompatible return type [7]: Expected `str` but got `Optional[str]`.",
+    "message": " Expected `str` but got `Optional[str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 123,
+    "warning_line": "        return self._container_id",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @pyqtProperty(str, fset = setContainerId, notify = containerIdChanged)\n    def containerId(self) -> str:\n        \"\"\"The ID of the DefinitionContainer object this model exposes.\"\"\"\n",
+        "source_code_len": 184,
+        "target_code": "    @pyqtProperty(str, fset = setContainerId, notify = containerIdChanged)\n    def containerId(self) -> Optional[str]:\n        \"\"\"The ID of the DefinitionContainer object this model exposes.\"\"\"\n",
+        "target_code_len": 194,
+        "diff_format": "@@ -119,3 +119,3 @@\n     @pyqtProperty(str, fset = setContainerId, notify = containerIdChanged)\n-    def containerId(self) -> str:\n+    def containerId(self) -> Optional[str]:\n         \"\"\"The ID of the DefinitionContainer object this model exposes.\"\"\"\n",
+        "source_code_with_indent": "    @pyqtProperty(str, fset = setContainerId, notify = containerIdChanged)\n    def containerId(self) -> str:\n        <IND>\"\"\"The ID of the DefinitionContainer object this model exposes.\"\"\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    @pyqtProperty(str, fset = setContainerId, notify = containerIdChanged)\n    def containerId(self) -> Optional[str]:\n        <IND>\"\"\"The ID of the DefinitionContainer object this model exposes.\"\"\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

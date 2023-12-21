@@ -1,0 +1,66 @@
+[
+  {
+    "project": "b2wdigital/aiologger",
+    "commit": "0b69a604a1b2403617221706c2da8614277a9970",
+    "filename": "aiologger/formatters/json.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/b2wdigital-aiologger/aiologger/formatters/json.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "aiologger/formatters/json.py:77:50 Incompatible parameter type [6]: Expected `types.TracebackType` for 1st positional only parameter to call `Formatter.format_traceback` but got `typing.Optional[types.TracebackType]`.",
+    "message": " Expected `types.TracebackType` for 1st positional only parameter to call `Formatter.format_traceback` but got `typing.Optional[types.TracebackType]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 77,
+    "warning_line": "                \"traceback\": cls.format_traceback(exception.__traceback__),",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from inspect import istraceback\nfrom typing import Callable, Iterable, Union, Dict\nfrom datetime import timezone\n",
+        "source_code_len": 113,
+        "target_code": "from inspect import istraceback\nfrom typing import Callable, Iterable, Union, Dict, Optional, List\nfrom datetime import timezone\n",
+        "target_code_len": 129,
+        "diff_format": "@@ -4,3 +4,3 @@\n from inspect import istraceback\n-from typing import Callable, Iterable, Union, Dict\n+from typing import Callable, Iterable, Union, Dict, Optional, List\n from datetime import timezone\n",
+        "source_code_with_indent": "from inspect import istraceback\nfrom typing import Callable, Iterable, Union, Dict\nfrom datetime import timezone\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from inspect import istraceback\nfrom typing import Callable, Iterable, Union, Dict, Optional, List\nfrom datetime import timezone\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    def format_error_msg(cls, record: LogRecord, exception: Exception) -> Dict:\n        return {\n",
+        "source_code_len": 97,
+        "target_code": "    def format_error_msg(cls, record: LogRecord, exception: Exception) -> Dict:\n        traceback_info: Optional[List[str]]\n        if exception.__traceback__:\n            traceback_info = cls.format_traceback(exception.__traceback__)\n        else:\n            traceback_info = None\n        return {\n",
+        "target_code_len": 300,
+        "diff_format": "@@ -64,2 +64,7 @@\n     def format_error_msg(cls, record: LogRecord, exception: Exception) -> Dict:\n+        traceback_info: Optional[List[str]]\n+        if exception.__traceback__:\n+            traceback_info = cls.format_traceback(exception.__traceback__)\n+        else:\n+            traceback_info = None\n         return {\n",
+        "source_code_with_indent": "    def format_error_msg(cls, record: LogRecord, exception: Exception) -> Dict:\n        <IND>return {\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    def format_error_msg(cls, record: LogRecord, exception: Exception) -> Dict:\n        <IND>traceback_info: Optional[List[str]]\n        if exception.__traceback__:\n            <IND>traceback_info = cls.format_traceback(exception.__traceback__)\n        <DED>else:\n            <IND>traceback_info = None\n        <DED>return {\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                \"exc\": str(exception),\n                \"traceback\": cls.format_traceback(exception.__traceback__),\n            },\n",
+        "source_code_len": 130,
+        "target_code": "                \"exc\": str(exception),\n                \"traceback\": traceback_info,\n            },\n",
+        "target_code_len": 99,
+        "diff_format": "@@ -76,3 +81,3 @@\n                 \"exc\": str(exception),\n-                \"traceback\": cls.format_traceback(exception.__traceback__),\n+                \"traceback\": traceback_info,\n             },\n",
+        "source_code_with_indent": "                \"exc\": str(exception),\n                \"traceback\": cls.format_traceback(exception.__traceback__),\n            },\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                \"exc\": str(exception),\n                \"traceback\": traceback_info,\n            },\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

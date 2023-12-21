@@ -1,0 +1,36 @@
+[
+  {
+    "project": "edgedb/edgedb",
+    "commit": "66cd23fbddb5cc7d37e266d475d91be18113ca58",
+    "filename": "edb/edgeql/compiler/viewgen.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/edgedb-edgedb/edb/edgeql/compiler/viewgen.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "edb/edgeql/compiler/viewgen.py:539:4 Incompatible return type [7]: Expected `s_pointers.Pointer` but got `edb.schema.objects.Object`.",
+    "message": " Expected `s_pointers.Pointer` but got `edb.schema.objects.Object`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 539,
+    "warning_line": "    return view_rptr.derived_ptrcls",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n            view_rptr.ptrcls = schemactx.derive_view(\n                view_rptr.base_ptrcls, view_rptr.source, target_scls,\n                derived_name=derived_name,\n                is_insert=view_rptr.is_insert,\n                is_update=view_rptr.is_update,\n                attrs=attrs,\n                ctx=ctx\n            )\n\n",
+        "source_code_len": 330,
+        "target_code": "\n            existing_ptrcls = ctx.env.schema.get(derived_name, default=None)\n            if existing_ptrcls is not None:\n                # The derived pointer class may already exist if\n                # the shape element is implicit (i.e. a type id),\n                # and the target type is not a view.\n                view_rptr.ptrcls = existing_ptrcls\n            else:\n                view_rptr.ptrcls = schemactx.derive_view(\n                    view_rptr.base_ptrcls, view_rptr.source, target_scls,\n                    derived_name=derived_name,\n                    is_insert=view_rptr.is_insert,\n                    is_update=view_rptr.is_update,\n                    attrs=attrs,\n                    ctx=ctx\n                )\n\n",
+        "target_code_len": 736,
+        "diff_format": "@@ -511,10 +511,17 @@\n \n-            view_rptr.ptrcls = schemactx.derive_view(\n-                view_rptr.base_ptrcls, view_rptr.source, target_scls,\n-                derived_name=derived_name,\n-                is_insert=view_rptr.is_insert,\n-                is_update=view_rptr.is_update,\n-                attrs=attrs,\n-                ctx=ctx\n-            )\n+            existing_ptrcls = ctx.env.schema.get(derived_name, default=None)\n+            if existing_ptrcls is not None:\n+                # The derived pointer class may already exist if\n+                # the shape element is implicit (i.e. a type id),\n+                # and the target type is not a view.\n+                view_rptr.ptrcls = existing_ptrcls\n+            else:\n+                view_rptr.ptrcls = schemactx.derive_view(\n+                    view_rptr.base_ptrcls, view_rptr.source, target_scls,\n+                    derived_name=derived_name,\n+                    is_insert=view_rptr.is_insert,\n+                    is_update=view_rptr.is_update,\n+                    attrs=attrs,\n+                    ctx=ctx\n+                )\n \n",
+        "source_code_with_indent": "\n            <DED>view_rptr.ptrcls = schemactx.derive_view(\n                view_rptr.base_ptrcls, view_rptr.source, target_scls,\n                derived_name=derived_name,\n                is_insert=view_rptr.is_insert,\n                is_update=view_rptr.is_update,\n                attrs=attrs,\n                ctx=ctx\n            )\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n            <DED>existing_ptrcls = ctx.env.schema.get(derived_name, default=None)\n            if existing_ptrcls is not None:\n                # The derived pointer class may already exist if\n                # the shape element is implicit (i.e. a type id),\n                # and the target type is not a view.\n                <IND>view_rptr.ptrcls = existing_ptrcls\n            <DED>else:\n                <IND>view_rptr.ptrcls = schemactx.derive_view(\n                    view_rptr.base_ptrcls, view_rptr.source, target_scls,\n                    derived_name=derived_name,\n                    is_insert=view_rptr.is_insert,\n                    is_update=view_rptr.is_update,\n                    attrs=attrs,\n                    ctx=ctx\n                )\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

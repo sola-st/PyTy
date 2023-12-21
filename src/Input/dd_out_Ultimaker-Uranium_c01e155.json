@@ -1,0 +1,104 @@
+[
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "c01e1550ac4473a4d358def84ff213437c2c31df",
+    "filename": "UM/Settings/SettingDefinition.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/SettingDefinition.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/SettingDefinition.py:80:137 Incompatible variable type [9]: i18n_catalog is declared to have type `i18nCatalog` but is used as type `None`.",
+    "message": " i18n_catalog is declared to have type `i18nCatalog` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 80,
+    "warning_line": "    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: i18nCatalog = None) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: i18nCatalog = None) -> None:\n        super().__init__()\n",
+        "source_code_len": 321,
+        "target_code": "    #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: Optional[i18nCatalog] = None) -> None:\n        super().__init__()\n",
+        "target_code_len": 331,
+        "diff_format": "@@ -79,3 +79,3 @@\n     #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n-    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: i18nCatalog = None) -> None:\n+    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: Optional[i18nCatalog] = None) -> None:\n         super().__init__()\n",
+        "source_code_with_indent": "    #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n    <IND>def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: i18nCatalog = None) -> None:\n        <IND>super().__init__()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n    <IND>def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: Optional[i18nCatalog] = None) -> None:\n        <IND>super().__init__()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "c01e1550ac4473a4d358def84ff213437c2c31df",
+    "filename": "UM/Settings/SettingDefinition.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/SettingDefinition.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/SettingDefinition.py:535:80 Incompatible parameter type [6]: Expected `i18nCatalog` for 4th positional only parameter to call `SettingDefinition.__init__` but got `Optional[i18nCatalog]`.",
+    "message": " Expected `i18nCatalog` for 4th positional only parameter to call `SettingDefinition.__init__` but got `Optional[i18nCatalog]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 535,
+    "warning_line": "                    child = SettingDefinition(child_key, self._container, self, self._i18n_catalog)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: i18nCatalog = None) -> None:\n        super().__init__()\n",
+        "source_code_len": 321,
+        "target_code": "    #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: Optional[i18nCatalog] = None) -> None:\n        super().__init__()\n",
+        "target_code_len": 331,
+        "diff_format": "@@ -79,3 +79,3 @@\n     #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n-    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: i18nCatalog = None) -> None:\n+    def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: Optional[i18nCatalog] = None) -> None:\n         super().__init__()\n",
+        "source_code_with_indent": "    #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n    <IND>def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: i18nCatalog = None) -> None:\n        <IND>super().__init__()\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    #   \\param i18n_catalog \\type{i18nCatalog} The translation catalog to use for this setting. Defaults to None.\n    <IND>def __init__(self, key: str, container: Optional[DefinitionContainerInterface] = None, parent: Optional[\"SettingDefinition\"] = None, i18n_catalog: Optional[i18nCatalog] = None) -> None:\n        <IND>super().__init__()\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Uranium",
+    "commit": "c01e1550ac4473a4d358def84ff213437c2c31df",
+    "filename": "UM/Settings/SettingInstance.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Uranium/UM/Settings/SettingInstance.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "UM/Settings/SettingInstance.py:145:49 Incompatible variable type [9]: container is declared to have type `ContainerInterface` but is used as type `None`.",
+    "message": " container is declared to have type `ContainerInterface` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 145,
+    "warning_line": "    def setProperty(self, name: str, value: Any, container: ContainerInterface = None, emit_signals = True) -> None:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @call_if_enabled(_traceSetProperty, _isTraceEnabled())\n    def setProperty(self, name: str, value: Any, container: ContainerInterface = None, emit_signals = True) -> None:\n        if SettingDefinition.hasProperty(name):\n",
+        "source_code_len": 224,
+        "target_code": "    @call_if_enabled(_traceSetProperty, _isTraceEnabled())\n    def setProperty(self, name: str, value: Any, container: Optional[ContainerInterface] = None, emit_signals: bool = True) -> None:\n        if SettingDefinition.hasProperty(name):\n",
+        "target_code_len": 240,
+        "diff_format": "@@ -144,3 +144,3 @@\n     @call_if_enabled(_traceSetProperty, _isTraceEnabled())\n-    def setProperty(self, name: str, value: Any, container: ContainerInterface = None, emit_signals = True) -> None:\n+    def setProperty(self, name: str, value: Any, container: Optional[ContainerInterface] = None, emit_signals: bool = True) -> None:\n         if SettingDefinition.hasProperty(name):\n",
+        "source_code_with_indent": "    <DED>@call_if_enabled(_traceSetProperty, _isTraceEnabled())\n    def setProperty(self, name: str, value: Any, container: ContainerInterface = None, emit_signals = True) -> None:\n        <IND>if SettingDefinition.hasProperty(name):\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@call_if_enabled(_traceSetProperty, _isTraceEnabled())\n    def setProperty(self, name: str, value: Any, container: Optional[ContainerInterface] = None, emit_signals: bool = True) -> None:\n        <IND>if SettingDefinition.hasProperty(name):\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

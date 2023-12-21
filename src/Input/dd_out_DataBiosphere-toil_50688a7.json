@@ -1,0 +1,51 @@
+[
+  {
+    "project": "DataBiosphere/toil",
+    "commit": "50688a79d86a37981f8faca80e87105d6ad0a351",
+    "filename": "src/toil/lib/io.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DataBiosphere-toil/src/toil/lib/io.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/toil/lib/io.py:97:8 Incompatible return type [7]: Expected `None` but got `typing.Generator[str, None, None]`.",
+    "message": " Expected `None` but got `typing.Generator[str, None, None]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 97,
+    "warning_line": "        yield tmp_path",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from io import BytesIO\nfrom typing import Union, Optional\n\n",
+        "source_code_len": 59,
+        "target_code": "from io import BytesIO\nfrom typing import Iterator, Union, Optional\n\n",
+        "target_code_len": 69,
+        "diff_format": "@@ -8,3 +8,3 @@\n from io import BytesIO\n-from typing import Union, Optional\n+from typing import Iterator, Union, Optional\n \n",
+        "source_code_with_indent": "from io import BytesIO\nfrom typing import Union, Optional\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from io import BytesIO\nfrom typing import Iterator, Union, Optional\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@contextmanager\ndef AtomicFileCreate(final_path: str, keep: bool = False) -> None:\n    \"\"\"Context manager to create a temporary file.  Entering returns path to\n",
+        "source_code_len": 160,
+        "target_code": "@contextmanager\ndef AtomicFileCreate(final_path: str, keep: bool = False) -> Iterator[str]:\n    \"\"\"Context manager to create a temporary file.  Entering returns path to\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -88,3 +88,3 @@\n @contextmanager\n-def AtomicFileCreate(final_path: str, keep: bool = False) -> None:\n+def AtomicFileCreate(final_path: str, keep: bool = False) -> Iterator[str]:\n     \"\"\"Context manager to create a temporary file.  Entering returns path to\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "<DED><DED>@contextmanager\ndef AtomicFileCreate(final_path: str, keep: bool = False) -> None:\n    <IND>",
+        "target_code_with_indent": "<DED><DED>@contextmanager\ndef AtomicFileCreate(final_path: str, keep: bool = False) -> Iterator[str]:\n    <IND>"
+      }
+    ]
+  }
+]

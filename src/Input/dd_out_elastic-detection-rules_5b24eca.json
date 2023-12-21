@@ -1,0 +1,70 @@
+[
+  {
+    "project": "elastic/detection-rules",
+    "commit": "5b24eca0bc1da504ce96c073efa8a78f64ea3a00",
+    "filename": "detection_rules/devtools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/elastic-detection-rules/detection_rules/devtools.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "detection_rules/devtools.py:648:4 Incompatible variable type [9]: rule_file is declared to have type `str` but is used as type `Path`.",
+    "message": " rule_file is declared to have type `str` but is used as type `Path`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 648,
+    "warning_line": "    rule_file = Path(rule_file)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@dev_group.command('deprecate-rule')\n@click.argument('rule-file', type=click.Path(dir_okay=False))\n@click.pass_context\ndef deprecate_rule(ctx: click.Context, rule_file: str):\n    \"\"\"Deprecate a rule.\"\"\"\n    import pytoml\n\n    version_info = load_versions()\n    rule_file = Path(rule_file)\n    contents = pytoml.loads(rule_file.read_text())\n    rule = TOMLRule(path=rule_file, contents=contents)\n\n    if rule.id not in version_info:\n        click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "source_code_len": 526,
+        "target_code": "@dev_group.command('deprecate-rule')\n@click.argument('rule-file', type=Path)\n@click.pass_context\ndef deprecate_rule(ctx: click.Context, rule_file: Path):\n    \"\"\"Deprecate a rule.\"\"\"\n    version_info = load_versions()\n    rule_collection = RuleCollection()\n    contents = rule_collection.load_file(rule_file).contents\n    rule = TOMLRule(path=rule_file, contents=contents)\n\n    if rule.contents.id not in version_info:\n        click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "target_code_len": 512,
+        "diff_format": "@@ -640,14 +646,12 @@\n @dev_group.command('deprecate-rule')\n-@click.argument('rule-file', type=click.Path(dir_okay=False))\n+@click.argument('rule-file', type=Path)\n @click.pass_context\n-def deprecate_rule(ctx: click.Context, rule_file: str):\n+def deprecate_rule(ctx: click.Context, rule_file: Path):\n     \"\"\"Deprecate a rule.\"\"\"\n-    import pytoml\n-\n     version_info = load_versions()\n-    rule_file = Path(rule_file)\n-    contents = pytoml.loads(rule_file.read_text())\n+    rule_collection = RuleCollection()\n+    contents = rule_collection.load_file(rule_file).contents\n     rule = TOMLRule(path=rule_file, contents=contents)\n \n-    if rule.id not in version_info:\n+    if rule.contents.id not in version_info:\n         click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "source_code_with_indent": "<DED><DED>@dev_group.command('deprecate-rule')\n@click.argument('rule-file', type=click.Path(dir_okay=False))\n@click.pass_context\ndef deprecate_rule(ctx: click.Context, rule_file: str):\n    <IND>\"\"\"Deprecate a rule.\"\"\"\n    import pytoml\n\n    version_info = load_versions()\n    rule_file = Path(rule_file)\n    contents = pytoml.loads(rule_file.read_text())\n    rule = TOMLRule(path=rule_file, contents=contents)\n\n    if rule.id not in version_info:\n        <IND>click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>@dev_group.command('deprecate-rule')\n@click.argument('rule-file', type=Path)\n@click.pass_context\ndef deprecate_rule(ctx: click.Context, rule_file: Path):\n    <IND>\"\"\"Deprecate a rule.\"\"\"\n    version_info = load_versions()\n    rule_collection = RuleCollection()\n    contents = rule_collection.load_file(rule_file).contents\n    rule = TOMLRule(path=rule_file, contents=contents)\n\n    if rule.contents.id not in version_info:\n        <IND>click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "elastic/detection-rules",
+    "commit": "5b24eca0bc1da504ce96c073efa8a78f64ea3a00",
+    "filename": "detection_rules/devtools.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/elastic-detection-rules/detection_rules/devtools.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "detection_rules/devtools.py:650:20 Incompatible parameter type [6]: Expected `Optional[Path]` for 1st parameter `path` to call `TOMLRule.__init__` but got `str`.",
+    "message": " Expected `Optional[Path]` for 1st parameter `path` to call `TOMLRule.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 650,
+    "warning_line": "    rule = TOMLRule(path=rule_file, contents=contents)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "@dev_group.command('deprecate-rule')\n@click.argument('rule-file', type=click.Path(dir_okay=False))\n@click.pass_context\ndef deprecate_rule(ctx: click.Context, rule_file: str):\n    \"\"\"Deprecate a rule.\"\"\"\n    import pytoml\n\n    version_info = load_versions()\n    rule_file = Path(rule_file)\n    contents = pytoml.loads(rule_file.read_text())\n    rule = TOMLRule(path=rule_file, contents=contents)\n\n    if rule.id not in version_info:\n        click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "source_code_len": 526,
+        "target_code": "@dev_group.command('deprecate-rule')\n@click.argument('rule-file', type=Path)\n@click.pass_context\ndef deprecate_rule(ctx: click.Context, rule_file: Path):\n    \"\"\"Deprecate a rule.\"\"\"\n    version_info = load_versions()\n    rule_collection = RuleCollection()\n    contents = rule_collection.load_file(rule_file).contents\n    rule = TOMLRule(path=rule_file, contents=contents)\n\n    if rule.contents.id not in version_info:\n        click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "target_code_len": 512,
+        "diff_format": "@@ -640,14 +646,12 @@\n @dev_group.command('deprecate-rule')\n-@click.argument('rule-file', type=click.Path(dir_okay=False))\n+@click.argument('rule-file', type=Path)\n @click.pass_context\n-def deprecate_rule(ctx: click.Context, rule_file: str):\n+def deprecate_rule(ctx: click.Context, rule_file: Path):\n     \"\"\"Deprecate a rule.\"\"\"\n-    import pytoml\n-\n     version_info = load_versions()\n-    rule_file = Path(rule_file)\n-    contents = pytoml.loads(rule_file.read_text())\n+    rule_collection = RuleCollection()\n+    contents = rule_collection.load_file(rule_file).contents\n     rule = TOMLRule(path=rule_file, contents=contents)\n \n-    if rule.id not in version_info:\n+    if rule.contents.id not in version_info:\n         click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "source_code_with_indent": "<DED><DED>@dev_group.command('deprecate-rule')\n@click.argument('rule-file', type=click.Path(dir_okay=False))\n@click.pass_context\ndef deprecate_rule(ctx: click.Context, rule_file: str):\n    <IND>\"\"\"Deprecate a rule.\"\"\"\n    import pytoml\n\n    version_info = load_versions()\n    rule_file = Path(rule_file)\n    contents = pytoml.loads(rule_file.read_text())\n    rule = TOMLRule(path=rule_file, contents=contents)\n\n    if rule.id not in version_info:\n        <IND>click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED><DED>@dev_group.command('deprecate-rule')\n@click.argument('rule-file', type=Path)\n@click.pass_context\ndef deprecate_rule(ctx: click.Context, rule_file: Path):\n    <IND>\"\"\"Deprecate a rule.\"\"\"\n    version_info = load_versions()\n    rule_collection = RuleCollection()\n    contents = rule_collection.load_file(rule_file).contents\n    rule = TOMLRule(path=rule_file, contents=contents)\n\n    if rule.contents.id not in version_info:\n        <IND>click.echo('Rule has not been version locked and so does not need to be deprecated. '\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "project": "SectorLabs/django-postgres-extra",
+    "commit": "9a1ed82f7c65b5056795c21001fa69faf17d9813",
+    "filename": "psqlextra/sql.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/SectorLabs-django-postgres-extra/psqlextra/sql.py",
+    "file_hunks_size": 1,
+    "min_patch_found": false,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "psqlextra/sql.py:117:12 Incompatible return type [7]: Expected `bool` but got implicit return value of `None`.",
+    "message": " Expected `bool` but got implicit return value of `None`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 117,
+    "warning_line": "            self.set_select(self.select + tuple(select))"
+  },
+  {
+    "project": "SectorLabs/django-postgres-extra",
+    "commit": "9a1ed82f7c65b5056795c21001fa69faf17d9813",
+    "filename": "psqlextra/types.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/SectorLabs-django-postgres-extra/psqlextra/types.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "psqlextra/types.py:11:8 Incompatible return type [7]: Expected `List[PostgresPartitioningMethod]` but got `List[StrEnum]`.",
+    "message": " Expected `List[PostgresPartitioningMethod]` but got `List[StrEnum]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 11,
+    "warning_line": "        return [choice for choice in cls]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def all(cls) -> List[\"PostgresPartitioningMethod\"]:\n        return [choice for choice in cls]\n",
+        "source_code_len": 115,
+        "target_code": "    @classmethod\n    def all(cls) -> List[\"StrEnum\"]:\n        return [choice for choice in cls]\n",
+        "target_code_len": 96,
+        "diff_format": "@@ -9,3 +9,3 @@\n     @classmethod\n-    def all(cls) -> List[\"PostgresPartitioningMethod\"]:\n+    def all(cls) -> List[\"StrEnum\"]:\n         return [choice for choice in cls]\n",
+        "source_code_with_indent": "    <IND>@classmethod\n    def all(cls) -> List[\"PostgresPartitioningMethod\"]:\n        <IND>return [choice for choice in cls]\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>@classmethod\n    def all(cls) -> List[\"StrEnum\"]:\n        <IND>return [choice for choice in cls]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

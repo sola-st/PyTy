@@ -1,0 +1,119 @@
+[
+  {
+    "project": "pytorch/ignite",
+    "commit": "9b57459c61cdf12d6c3a0fbd52c437f009d9d530",
+    "filename": "ignite/metrics/running_average.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/metrics/running_average.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "ignite/metrics/running_average.py:84:45 Incompatible parameter type [6]: Expected `typing.Callable[..., typing.Any]` for 1st parameter `output_transform` to call `Metric.__init__` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "message": " Expected `typing.Callable[..., typing.Any]` for 1st parameter `output_transform` to call `Metric.__init__` but got `Optional[typing.Callable[..., typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 84,
+    "warning_line": "        super(RunningAverage, self).__init__(output_transform=output_transform, device=device)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "        self.epoch_bound = epoch_bound\n        super(RunningAverage, self).__init__(output_transform=output_transform, device=device)\n\n",
+        "source_code_len": 135,
+        "target_code": "        self.epoch_bound = epoch_bound\n        super(RunningAverage, self).__init__(output_transform=output_transform, device=device)  # type: ignore[arg-type]\n\n",
+        "target_code_len": 161,
+        "diff_format": "@@ -83,3 +83,3 @@\n         self.epoch_bound = epoch_bound\n-        super(RunningAverage, self).__init__(output_transform=output_transform, device=device)\n+        super(RunningAverage, self).__init__(output_transform=output_transform, device=device)  # type: ignore[arg-type]\n \n",
+        "source_code_with_indent": "        self.epoch_bound = epoch_bound\n        super(RunningAverage, self).__init__(output_transform=output_transform, device=device)\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "        self.epoch_bound = epoch_bound\n        super(RunningAverage, self).__init__(output_transform=output_transform, device=device)  # type: ignore[arg-type]\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pytorch/ignite",
+    "commit": "9b57459c61cdf12d6c3a0fbd52c437f009d9d530",
+    "filename": "ignite/metrics/running_average.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/metrics/running_average.py",
+    "file_hunks_size": 9,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "ignite/metrics/running_average.py:103:4 Inconsistent override [14]: `ignite.metrics.running_average.RunningAverage.attach` overrides method defined in `Metric` inconsistently. Could not find parameter `usage` in overriding signature.",
+    "message": " `ignite.metrics.running_average.RunningAverage.attach` overrides method defined in `Metric` inconsistently. Could not find parameter `usage` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 103,
+    "warning_line": "    def attach(self, engine: Engine, name: str):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "from ignite.engine import Engine, Events\nfrom ignite.metrics.metric import Metric, reinit__is_reduced, sync_all_reduce\n\n",
+        "source_code_len": 120,
+        "target_code": "from ignite.engine import Engine, Events\nfrom ignite.metrics.metric import EpochWise, Metric, MetricUsage, reinit__is_reduced, sync_all_reduce\n\n",
+        "target_code_len": 144,
+        "diff_format": "@@ -6,3 +6,3 @@\n from ignite.engine import Engine, Events\n-from ignite.metrics.metric import Metric, reinit__is_reduced, sync_all_reduce\n+from ignite.metrics.metric import EpochWise, Metric, MetricUsage, reinit__is_reduced, sync_all_reduce\n \n",
+        "source_code_with_indent": "from ignite.engine import Engine, Events\nfrom ignite.metrics.metric import Metric, reinit__is_reduced, sync_all_reduce\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "from ignite.engine import Engine, Events\nfrom ignite.metrics.metric import EpochWise, Metric, MetricUsage, reinit__is_reduced, sync_all_reduce\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    def attach(self, engine: Engine, name: str):\n        if self.epoch_bound:\n",
+        "source_code_len": 79,
+        "target_code": "\n    def attach(self, engine: Engine, name: str, _usage: Union[str, MetricUsage] = EpochWise()) -> None:\n        if self.epoch_bound:\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -102,3 +102,3 @@\n \n-    def attach(self, engine: Engine, name: str):\n+    def attach(self, engine: Engine, name: str, _usage: Union[str, MetricUsage] = EpochWise()) -> None:\n         if self.epoch_bound:\n",
+        "source_code_with_indent": "\n    <DED>def attach(self, engine: Engine, name: str):\n        <IND>if self.epoch_bound:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    <DED>def attach(self, engine: Engine, name: str, _usage: Union[str, MetricUsage] = EpochWise()) -> None:\n        <IND>if self.epoch_bound:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "pytorch/ignite",
+    "commit": "9b57459c61cdf12d6c3a0fbd52c437f009d9d530",
+    "filename": "ignite/metrics/ssim.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/pytorch-ignite/ignite/metrics/ssim.py",
+    "file_hunks_size": 8,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": true,
+    "full_warning_msg": "ignite/metrics/ssim.py:174:25 Unsupported operand [58]: `/` is not supported for operand types `typing.Callable[..., typing.Any]` and `typing.Callable[..., typing.Any]`.",
+    "message": " `/` is not supported for operand types `typing.Callable[..., typing.Any]` and `typing.Callable[..., typing.Any]`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 174,
+    "warning_line": "        return torch.sum(self._sum_of_batchwise_ssim / self._num_examples)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": true,
+        "source_code": "            raise NotComputableError(\"SSIM must have at least one example before it can be computed.\")\n        return torch.sum(self._sum_of_batchwise_ssim / self._num_examples)\n",
+        "source_code_len": 178,
+        "target_code": "            raise NotComputableError(\"SSIM must have at least one example before it can be computed.\")\n        return torch.sum(self._sum_of_batchwise_ssim / self._num_examples)  # type: ignore[arg-type]\n",
+        "target_code_len": 204,
+        "diff_format": "@@ -173,2 +174,2 @@\n             raise NotComputableError(\"SSIM must have at least one example before it can be computed.\")\n-        return torch.sum(self._sum_of_batchwise_ssim / self._num_examples)\n+        return torch.sum(self._sum_of_batchwise_ssim / self._num_examples)  # type: ignore[arg-type]\n",
+        "source_code_with_indent": "            <IND>raise NotComputableError(\"SSIM must have at least one example before it can be computed.\")\n        <DED>return torch.sum(self._sum_of_batchwise_ssim / self._num_examples)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "            <IND>raise NotComputableError(\"SSIM must have at least one example before it can be computed.\")\n        <DED>return torch.sum(self._sum_of_batchwise_ssim / self._num_examples)  # type: ignore[arg-type]\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

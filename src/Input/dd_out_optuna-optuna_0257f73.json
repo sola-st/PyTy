@@ -1,0 +1,36 @@
+[
+  {
+    "project": "optuna/optuna",
+    "commit": "0257f73e0d9183a8ec439bab8891b907f3b337dd",
+    "filename": "optuna/dashboard.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/optuna-optuna/optuna/dashboard.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "optuna/dashboard.py:258:17 Incompatible variable type [9]: bokeh_allow_websocket_origins is declared to have type `List[str]` but is used as type `None`.",
+    "message": " bokeh_allow_websocket_origins is declared to have type `List[str]` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 258,
+    "warning_line": "def serve(study, bokeh_allow_websocket_origins=None):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "def serve(study, bokeh_allow_websocket_origins=None):\n    # type: (optuna.study.Study, List[str]) -> None\n\n",
+        "source_code_len": 107,
+        "target_code": "def serve(study, bokeh_allow_websocket_origins=None):\n    # type: (optuna.study.Study, Optional[List[str]]) -> None\n\n",
+        "target_code_len": 117,
+        "diff_format": "@@ -258,3 +258,3 @@\n def serve(study, bokeh_allow_websocket_origins=None):\n-    # type: (optuna.study.Study, List[str]) -> None\n+    # type: (optuna.study.Study, Optional[List[str]]) -> None\n \n",
+        "source_code_with_indent": "<DED>def serve(study, bokeh_allow_websocket_origins=None):\n    # type: (optuna.study.Study, List[str]) -> None\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>def serve(study, bokeh_allow_websocket_origins=None):\n    # type: (optuna.study.Study, Optional[List[str]]) -> None\n\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

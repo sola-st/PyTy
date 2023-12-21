@@ -1,0 +1,36 @@
+[
+  {
+    "project": "lemon24/reader",
+    "commit": "08ec19dfd2f376cc4b8d49205f555b2813219d5a",
+    "filename": "src/reader/core/reader.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/lemon24-reader/src/reader/core/reader.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/reader/core/reader.py:311:68 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Union[_Missing, str]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.__getitem__` but got `Union[_Missing, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 311,
+    "warning_line": "                read = {'all': None, 'read': True, 'unread': False}[which]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n        if which is not _missing:\n            warnings.warn(\n",
+        "source_code_len": 62,
+        "target_code": "\n        if not isinstance(which, _Missing):\n            warnings.warn(\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -301,3 +301,3 @@\n \n-        if which is not _missing:\n+        if not isinstance(which, _Missing):\n             warnings.warn(\n",
+        "source_code_with_indent": "\n        <DED>if which is not _missing:\n            <IND>warnings.warn(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n        <DED>if not isinstance(which, _Missing):\n            <IND>warnings.warn(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

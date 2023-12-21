@@ -1,0 +1,36 @@
+[
+  {
+    "project": "asappresearch/flambe",
+    "commit": "ef49b24b50652c6c499feb4ab267e11a604376ee",
+    "filename": "flambe/compile/registrable.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/asappresearch-flambe/flambe/compile/registrable.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "flambe/compile/registrable.py:179:31 Incompatible parameter type [6]: Expected `Type[typing.Any]` for 1st positional only parameter to call `dict.__setitem__` but got `typing.Tuple[Variable[RT (bound to Type[Registrable])], str]`.",
+    "message": " Expected `Type[typing.Any]` for 1st positional only parameter to call `dict.__setitem__` but got `typing.Tuple[Variable[RT (bound to Type[Registrable])], str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 179,
+    "warning_line": "            class_._yaml_tags[(class_, factory_name)] = [factory_full_tag]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n    _yaml_tags: Dict[Type, List[str]] = defaultdict(list)\n    _yaml_tag_namespace: Dict[Type, str] = defaultdict(str)\n",
+        "source_code_len": 119,
+        "target_code": "\n    _yaml_tags: Dict[Any, List[str]] = defaultdict(list)\n    _yaml_tag_namespace: Dict[Type, str] = defaultdict(str)\n",
+        "target_code_len": 118,
+        "diff_format": "@@ -86,3 +86,3 @@\n \n-    _yaml_tags: Dict[Type, List[str]] = defaultdict(list)\n+    _yaml_tags: Dict[Any, List[str]] = defaultdict(list)\n     _yaml_tag_namespace: Dict[Type, str] = defaultdict(str)\n",
+        "source_code_with_indent": "\n    _yaml_tags: Dict[Type, List[str]] = defaultdict(list)\n    _yaml_tag_namespace: Dict[Type, str] = defaultdict(str)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n    _yaml_tags: Dict[Any, List[str]] = defaultdict(list)\n    _yaml_tag_namespace: Dict[Type, str] = defaultdict(str)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

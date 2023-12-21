@@ -1,0 +1,119 @@
+[
+  {
+    "project": "deepchem/deepchem",
+    "commit": "0571c1441964d9a8086f17468947c8f389098153",
+    "filename": "deepchem/feat/graph_features.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepchem-deepchem/deepchem/feat/graph_features.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deepchem/feat/graph_features.py:443:40 Unsupported operand [58]: `>` is not supported for operand types `Union[int, str]` and `int`.",
+    "message": " `>` is not supported for operand types `Union[int, str]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 443,
+    "warning_line": "  if max_pair_distance == \"infinity\" or max_pair_distance > N:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "  N = len(mol.GetAtoms())\n  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n    max_pair_distance = N\n  elif max_pair_distance <= 0:\n    raise ValueError(\n",
+        "source_code_len": 168,
+        "target_code": "  N = len(mol.GetAtoms())\n  if (isinstance(max_pair_distance, str) and\n      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n                                           and max_pair_distance >= N):\n    max_distance = N\n  elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n    raise ValueError(\n",
+        "target_code_len": 336,
+        "diff_format": "@@ -442,5 +442,7 @@\n   N = len(mol.GetAtoms())\n-  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n-    max_pair_distance = N\n-  elif max_pair_distance <= 0:\n+  if (isinstance(max_pair_distance, str) and\n+      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n+                                           and max_pair_distance >= N):\n+    max_distance = N\n+  elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n     raise ValueError(\n",
+        "source_code_with_indent": "  N = len(mol.GetAtoms())\n  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n    <IND>max_pair_distance = N\n  <DED>elif max_pair_distance <= 0:\n    <IND>raise ValueError(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "  N = len(mol.GetAtoms())\n  if (isinstance(max_pair_distance, str) and\n      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n                                           and max_pair_distance >= N):\n    <IND>max_distance = N\n  <DED>elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n    <IND>raise ValueError(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "deepchem/deepchem",
+    "commit": "0571c1441964d9a8086f17468947c8f389098153",
+    "filename": "deepchem/feat/graph_features.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepchem-deepchem/deepchem/feat/graph_features.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deepchem/feat/graph_features.py:445:7 Unsupported operand [58]: `<=` is not supported for operand types `Union[int, str]` and `int`.",
+    "message": " `<=` is not supported for operand types `Union[int, str]` and `int`.",
+    "rule_id": "Unsupported operand [58]",
+    "warning_line_no": 445,
+    "warning_line": "  elif max_pair_distance <= 0:",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "  N = len(mol.GetAtoms())\n  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n    max_pair_distance = N\n  elif max_pair_distance <= 0:\n    raise ValueError(\n",
+        "source_code_len": 168,
+        "target_code": "  N = len(mol.GetAtoms())\n  if (isinstance(max_pair_distance, str) and\n      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n                                           and max_pair_distance >= N):\n    max_distance = N\n  elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n    raise ValueError(\n",
+        "target_code_len": 336,
+        "diff_format": "@@ -442,5 +442,7 @@\n   N = len(mol.GetAtoms())\n-  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n-    max_pair_distance = N\n-  elif max_pair_distance <= 0:\n+  if (isinstance(max_pair_distance, str) and\n+      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n+                                           and max_pair_distance >= N):\n+    max_distance = N\n+  elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n     raise ValueError(\n",
+        "source_code_with_indent": "  N = len(mol.GetAtoms())\n  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n    <IND>max_pair_distance = N\n  <DED>elif max_pair_distance <= 0:\n    <IND>raise ValueError(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "  N = len(mol.GetAtoms())\n  if (isinstance(max_pair_distance, str) and\n      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n                                           and max_pair_distance >= N):\n    <IND>max_distance = N\n  <DED>elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n    <IND>raise ValueError(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "deepchem/deepchem",
+    "commit": "0571c1441964d9a8086f17468947c8f389098153",
+    "filename": "deepchem/feat/graph_features.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/deepchem-deepchem/deepchem/feat/graph_features.py",
+    "file_hunks_size": 5,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "deepchem/feat/graph_features.py:452:17 Incompatible parameter type [6]: Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `Union[int, str]`.",
+    "message": " Expected `typing_extensions.SupportsIndex` for 1st positional only parameter to call `range.__init__` but got `Union[int, str]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 452,
+    "warning_line": "  for i in range(max_pair_distance):",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "  N = len(mol.GetAtoms())\n  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n    max_pair_distance = N\n  elif max_pair_distance <= 0:\n    raise ValueError(\n",
+        "source_code_len": 168,
+        "target_code": "  N = len(mol.GetAtoms())\n  if (isinstance(max_pair_distance, str) and\n      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n                                           and max_pair_distance >= N):\n    max_distance = N\n  elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n    raise ValueError(\n",
+        "target_code_len": 336,
+        "diff_format": "@@ -442,5 +442,7 @@\n   N = len(mol.GetAtoms())\n-  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n-    max_pair_distance = N\n-  elif max_pair_distance <= 0:\n+  if (isinstance(max_pair_distance, str) and\n+      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n+                                           and max_pair_distance >= N):\n+    max_distance = N\n+  elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n     raise ValueError(\n",
+        "source_code_with_indent": "  N = len(mol.GetAtoms())\n  if max_pair_distance == \"infinity\" or max_pair_distance > N:\n    <IND>max_pair_distance = N\n  <DED>elif max_pair_distance <= 0:\n    <IND>raise ValueError(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "  N = len(mol.GetAtoms())\n  if (isinstance(max_pair_distance, str) and\n      max_pair_distance == \"infinity\") or (isinstance(max_pair_distance, int)\n                                           and max_pair_distance >= N):\n    <IND>max_distance = N\n  <DED>elif (isinstance(max_pair_distance, int) and max_pair_distance <= 0):\n    <IND>raise ValueError(\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "  sum_adj = np.eye(N)\n  for i in range(max_pair_distance):\n    # Increment by 1 since we don't want 0-indexing\n",
+        "source_code_len": 111,
+        "target_code": "  sum_adj = np.eye(N)\n  for i in range(max_distance):\n    # Increment by 1 since we don't want 0-indexing\n",
+        "target_code_len": 106,
+        "diff_format": "@@ -451,3 +453,3 @@\n   sum_adj = np.eye(N)\n-  for i in range(max_pair_distance):\n+  for i in range(max_distance):\n     # Increment by 1 since we don't want 0-indexing\n",
+        "source_code_with_indent": "  sum_adj = np.eye(N)\n  for i in range(max_pair_distance):\n    # Increment by 1 since we don't want 0-indexing\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "  sum_adj = np.eye(N)\n  for i in range(max_distance):\n    # Increment by 1 since we don't want 0-indexing\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

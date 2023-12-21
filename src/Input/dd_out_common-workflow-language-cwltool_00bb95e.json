@@ -1,0 +1,104 @@
+[
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "00bb95ef0e7991e386204147dc19e7985f5ff861",
+    "filename": "cwltool/validate_js.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/validate_js.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/validate_js.py:30:8 Incompatible variable type [9]: name is declared to have type `logging.Logger` but is used as type `str`.",
+    "message": " name is declared to have type `logging.Logger` but is used as type `str`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 30,
+    "warning_line": "        name = str(name)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class SuppressLog(logging.Filter):\n    def __init__(self, name):  # type: (Text, logging.Logger) -> None\n        name = str(name)\n",
+        "source_code_len": 130,
+        "target_code": "class SuppressLog(logging.Filter):\n    def __init__(self, name):  # type: (Text) -> None\n        name = str(name)\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -28,3 +28,3 @@\n class SuppressLog(logging.Filter):\n-    def __init__(self, name):  # type: (Text, logging.Logger) -> None\n+    def __init__(self, name):  # type: (Text) -> None\n         name = str(name)\n",
+        "source_code_with_indent": "<DED>class SuppressLog(logging.Filter):\n    <IND>def __init__(self, name):  # type: (Text, logging.Logger) -> None\n        <IND>name = str(name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class SuppressLog(logging.Filter):\n    <IND>def __init__(self, name):  # type: (Text) -> None\n        <IND>name = str(name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "00bb95ef0e7991e386204147dc19e7985f5ff861",
+    "filename": "cwltool/validate_js.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/validate_js.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/validate_js.py:31:42 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `logging.Filter.__init__` but got `logging.Logger`.",
+    "message": " Expected `str` for 1st positional only parameter to call `logging.Filter.__init__` but got `logging.Logger`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 31,
+    "warning_line": "        super(SuppressLog, self).__init__(name)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class SuppressLog(logging.Filter):\n    def __init__(self, name):  # type: (Text, logging.Logger) -> None\n        name = str(name)\n",
+        "source_code_len": 130,
+        "target_code": "class SuppressLog(logging.Filter):\n    def __init__(self, name):  # type: (Text) -> None\n        name = str(name)\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -28,3 +28,3 @@\n class SuppressLog(logging.Filter):\n-    def __init__(self, name):  # type: (Text, logging.Logger) -> None\n+    def __init__(self, name):  # type: (Text) -> None\n         name = str(name)\n",
+        "source_code_with_indent": "<DED>class SuppressLog(logging.Filter):\n    <IND>def __init__(self, name):  # type: (Text, logging.Logger) -> None\n        <IND>name = str(name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class SuppressLog(logging.Filter):\n    <IND>def __init__(self, name):  # type: (Text) -> None\n        <IND>name = str(name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "common-workflow-language/cwltool",
+    "commit": "00bb95ef0e7991e386204147dc19e7985f5ff861",
+    "filename": "cwltool/validate_js.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/common-workflow-language-cwltool/cwltool/validate_js.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cwltool/validate_js.py:37:50 Incompatible parameter type [6]: Expected `logging.Logger` for 1st positional only parameter to call `SuppressLog.__init__` but got `str`.",
+    "message": " Expected `logging.Logger` for 1st positional only parameter to call `SuppressLog.__init__` but got `str`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 37,
+    "warning_line": "_logger_validation_warnings.addFilter(SuppressLog(\"cwltool.validation_warnings\"))",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "class SuppressLog(logging.Filter):\n    def __init__(self, name):  # type: (Text, logging.Logger) -> None\n        name = str(name)\n",
+        "source_code_len": 130,
+        "target_code": "class SuppressLog(logging.Filter):\n    def __init__(self, name):  # type: (Text) -> None\n        name = str(name)\n",
+        "target_code_len": 114,
+        "diff_format": "@@ -28,3 +28,3 @@\n class SuppressLog(logging.Filter):\n-    def __init__(self, name):  # type: (Text, logging.Logger) -> None\n+    def __init__(self, name):  # type: (Text) -> None\n         name = str(name)\n",
+        "source_code_with_indent": "<DED>class SuppressLog(logging.Filter):\n    <IND>def __init__(self, name):  # type: (Text, logging.Logger) -> None\n        <IND>name = str(name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "<DED>class SuppressLog(logging.Filter):\n    <IND>def __init__(self, name):  # type: (Text) -> None\n        <IND>name = str(name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

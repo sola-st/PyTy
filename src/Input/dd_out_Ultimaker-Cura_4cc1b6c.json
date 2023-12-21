@@ -1,0 +1,70 @@
+[
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "4cc1b6ce02a5aa629d3083f97b6a2cc61a14f971",
+    "filename": "cura/PrinterOutput/ExtruderConfigurationModel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/PrinterOutput/ExtruderConfigurationModel.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/PrinterOutput/ExtruderConfigurationModel.py:34:8 Incompatible return type [7]: Expected `MaterialOutputModel` but got `Optional[MaterialOutputModel]`.",
+    "message": " Expected `MaterialOutputModel` but got `Optional[MaterialOutputModel]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 34,
+    "warning_line": "        return self._material",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @pyqtProperty(QObject, fset = setMaterial, notify = extruderConfigurationChanged)\n    def activeMaterial(self) -> MaterialOutputModel:\n        return self._material\n",
+        "source_code_len": 169,
+        "target_code": "    @pyqtProperty(QObject, fset = setMaterial, notify = extruderConfigurationChanged)\n    def activeMaterial(self) -> Optional[MaterialOutputModel]:\n        return self._material\n",
+        "target_code_len": 179,
+        "diff_format": "@@ -32,3 +32,3 @@\n     @pyqtProperty(QObject, fset = setMaterial, notify = extruderConfigurationChanged)\n-    def activeMaterial(self) -> MaterialOutputModel:\n+    def activeMaterial(self) -> Optional[MaterialOutputModel]:\n         return self._material\n",
+        "source_code_with_indent": "    <DED><DED>@pyqtProperty(QObject, fset = setMaterial, notify = extruderConfigurationChanged)\n    def activeMaterial(self) -> MaterialOutputModel:\n        <IND>return self._material\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED><DED>@pyqtProperty(QObject, fset = setMaterial, notify = extruderConfigurationChanged)\n    def activeMaterial(self) -> Optional[MaterialOutputModel]:\n        <IND>return self._material\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "Ultimaker/Cura",
+    "commit": "4cc1b6ce02a5aa629d3083f97b6a2cc61a14f971",
+    "filename": "cura/PrinterOutput/ExtruderConfigurationModel.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Ultimaker-Cura/cura/PrinterOutput/ExtruderConfigurationModel.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "cura/PrinterOutput/ExtruderConfigurationModel.py:38:8 Incompatible return type [7]: Expected `MaterialOutputModel` but got `Optional[MaterialOutputModel]`.",
+    "message": " Expected `MaterialOutputModel` but got `Optional[MaterialOutputModel]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 38,
+    "warning_line": "        return self._material",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @pyqtProperty(QObject, fset=setMaterial, notify=extruderConfigurationChanged)\n    def material(self) -> MaterialOutputModel:\n        return self._material\n",
+        "source_code_len": 159,
+        "target_code": "    @pyqtProperty(QObject, fset=setMaterial, notify=extruderConfigurationChanged)\n    def material(self) -> Optional[MaterialOutputModel]:\n        return self._material\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -36,3 +36,3 @@\n     @pyqtProperty(QObject, fset=setMaterial, notify=extruderConfigurationChanged)\n-    def material(self) -> MaterialOutputModel:\n+    def material(self) -> Optional[MaterialOutputModel]:\n         return self._material\n",
+        "source_code_with_indent": "    <DED>@pyqtProperty(QObject, fset=setMaterial, notify=extruderConfigurationChanged)\n    def material(self) -> MaterialOutputModel:\n        <IND>return self._material\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@pyqtProperty(QObject, fset=setMaterial, notify=extruderConfigurationChanged)\n    def material(self) -> Optional[MaterialOutputModel]:\n        <IND>return self._material\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

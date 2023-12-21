@@ -1,0 +1,36 @@
+[
+  {
+    "project": "RasaHQ/rasa",
+    "commit": "473c39b7c81258efdfe669c4f836a8036fd92f71",
+    "filename": "rasa/engine/validation.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/RasaHQ-rasa/rasa/engine/validation.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "rasa/engine/validation.py:72:44 Incompatible parameter type [6]: Expected `Union[Type[typing.Any], TypeVar, str]` for 4th positional only parameter to call `_validate_run_fn` but got `Optional[Type[typing.Any]]`.",
+    "message": " Expected `Union[Type[typing.Any], TypeVar, str]` for 4th positional only parameter to call `_validate_run_fn` but got `Optional[Type[typing.Any]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 72,
+    "warning_line": "            node_name, node, run_fn_params, run_fn_return_type, is_train_graph",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    node_name: Text, uses: Type[GraphComponent], method_name: Text\n) -> Tuple[Dict[Text, ParameterInfo], Optional[Type]]:\n    fn = _get_fn(node_name, uses, method_name)\n",
+        "source_code_len": 169,
+        "target_code": "    node_name: Text, uses: Type[GraphComponent], method_name: Text\n) -> Tuple[Dict[Text, ParameterInfo], TypeAnnotation]:\n    fn = _get_fn(node_name, uses, method_name)\n",
+        "target_code_len": 169,
+        "diff_format": "@@ -123,3 +123,3 @@\n     node_name: Text, uses: Type[GraphComponent], method_name: Text\n-) -> Tuple[Dict[Text, ParameterInfo], Optional[Type]]:\n+) -> Tuple[Dict[Text, ParameterInfo], TypeAnnotation]:\n     fn = _get_fn(node_name, uses, method_name)\n",
+        "source_code_with_indent": "    node_name: Text, uses: Type[GraphComponent], method_name: Text\n) -> Tuple[Dict[Text, ParameterInfo], Optional[Type]]:\n    <IND>fn = _get_fn(node_name, uses, method_name)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    node_name: Text, uses: Type[GraphComponent], method_name: Text\n) -> Tuple[Dict[Text, ParameterInfo], TypeAnnotation]:\n    <IND>fn = _get_fn(node_name, uses, method_name)\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

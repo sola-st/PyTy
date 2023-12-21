@@ -1,0 +1,36 @@
+[
+  {
+    "project": "Tishka17/dataclass_factory",
+    "commit": "d3171f546d617d757137ed4ae01bdec1b3e6372c",
+    "filename": "dataclass_factory/type_detection.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/Tishka17-dataclass_factory/dataclass_factory/type_detection.py",
+    "file_hunks_size": 4,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "dataclass_factory/type_detection.py:82:29 Incompatible parameter type [6]: Expected `Union[Type[typing.Any], typing.Tuple[Type[typing.Any], ...]]` for 2nd positional only parameter to call `isinstance` but got `Sequence[typing.Any]`.",
+    "message": " Expected `Union[Type[typing.Any], typing.Tuple[Type[typing.Any], ...]]` for 2nd positional only parameter to call `isinstance` but got `Sequence[typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 82,
+    "warning_line": "    return isinstance(type_, TYPED_DICT_METAS)",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "LITERAL_TYPES: List[Any] = []\nTYPED_DICT_METAS: Sequence[Any] = []\ntry:\n",
+        "source_code_len": 72,
+        "target_code": "LITERAL_TYPES: List[Any] = []\nTYPED_DICT_METAS_TMP: List[Any] = []\ntry:\n",
+        "target_code_len": 72,
+        "diff_format": "@@ -9,3 +9,3 @@\n LITERAL_TYPES: List[Any] = []\n-TYPED_DICT_METAS: Sequence[Any] = []\n+TYPED_DICT_METAS_TMP: List[Any] = []\n try:\n",
+        "source_code_with_indent": "LITERAL_TYPES: List[Any] = []\nTYPED_DICT_METAS: Sequence[Any] = []\ntry:\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "LITERAL_TYPES: List[Any] = []\nTYPED_DICT_METAS_TMP: List[Any] = []\ntry:\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

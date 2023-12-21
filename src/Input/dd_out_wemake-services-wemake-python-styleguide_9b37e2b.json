@@ -1,0 +1,51 @@
+[
+  {
+    "project": "wemake-services/wemake-python-styleguide",
+    "commit": "9b37e2b9c5a4e21dc25c92fd8dcb14fd2fd231bb",
+    "filename": "wemake_python_styleguide/constants.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/wemake-services-wemake-python-styleguide/wemake_python_styleguide/constants.py",
+    "file_hunks_size": 3,
+    "min_patch_found": true,
+    "single_hunk": false,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "wemake_python_styleguide/constants.py:74:4 Incompatible variable type [9]: _BAD_VARIABLE_NAMES is declared to have type `typing.Tuple[str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str]` but is used as type `typing.Tuple[typing.Union[str, str], ...]`.",
+    "message": " _BAD_VARIABLE_NAMES is declared to have type `typing.Tuple[str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str]` but is used as type `typing.Tuple[typing.Union[str, str], ...]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 74,
+    "warning_line": "    _BAD_VARIABLE_NAMES+= (",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "import sys\n\n",
+        "source_code_len": 12,
+        "target_code": "import sys\nfrom typing import Tuple\n\n",
+        "target_code_len": 37,
+        "diff_format": "@@ -10,2 +10,3 @@\n import sys\n+from typing import Tuple\n \n",
+        "source_code_with_indent": "import sys\n\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "import sys\nfrom typing import Tuple\n\n",
+        "target_code_with_indent_exact_match": true
+      },
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "\n_BAD_VARIABLE_NAMES = (\n    'data',\n",
+        "source_code_len": 37,
+        "target_code": "\n_BAD_VARIABLE_NAMES: Tuple[str, ...] = (\n    'data',\n",
+        "target_code_len": 54,
+        "diff_format": "@@ -51,3 +52,3 @@\n \n-_BAD_VARIABLE_NAMES = (\n+_BAD_VARIABLE_NAMES: Tuple[str, ...] = (\n     'data',\n",
+        "source_code_with_indent": "\n_BAD_VARIABLE_NAMES = (\n    'data',\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n_BAD_VARIABLE_NAMES: Tuple[str, ...] = (\n    'data',\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

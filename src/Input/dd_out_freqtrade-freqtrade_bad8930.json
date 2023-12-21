@@ -1,0 +1,70 @@
+[
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "bad89307dd752195100855a1c4f9cc942b9ef59d",
+    "filename": "freqtrade/data/history/hdf5datahandler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/data/history/hdf5datahandler.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/data/history/hdf5datahandler.py:195:8 Incompatible return type [7]: Expected `Path` but got `str`.",
+    "message": " Expected `Path` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 195,
+    "warning_line": "        return f\"{pair}/ohlcv/tf_{timeframe}\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def _pair_ohlcv_key(cls, pair: str, timeframe: str) -> Path:\n        return f\"{pair}/ohlcv/tf_{timeframe}\"\n",
+        "source_code_len": 128,
+        "target_code": "    @classmethod\n    def _pair_ohlcv_key(cls, pair: str, timeframe: str) -> str:\n        return f\"{pair}/ohlcv/tf_{timeframe}\"\n",
+        "target_code_len": 127,
+        "diff_format": "@@ -193,3 +193,3 @@\n     @classmethod\n-    def _pair_ohlcv_key(cls, pair: str, timeframe: str) -> Path:\n+    def _pair_ohlcv_key(cls, pair: str, timeframe: str) -> str:\n         return f\"{pair}/ohlcv/tf_{timeframe}\"\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def _pair_ohlcv_key(cls, pair: str, timeframe: str) -> Path:\n        <IND>return f\"{pair}/ohlcv/tf_{timeframe}\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def _pair_ohlcv_key(cls, pair: str, timeframe: str) -> str:\n        <IND>return f\"{pair}/ohlcv/tf_{timeframe}\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "freqtrade/freqtrade",
+    "commit": "bad89307dd752195100855a1c4f9cc942b9ef59d",
+    "filename": "freqtrade/data/history/hdf5datahandler.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/freqtrade-freqtrade/freqtrade/data/history/hdf5datahandler.py",
+    "file_hunks_size": 2,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "freqtrade/data/history/hdf5datahandler.py:199:8 Incompatible return type [7]: Expected `Path` but got `str`.",
+    "message": " Expected `Path` but got `str`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 199,
+    "warning_line": "        return f\"{pair}/trades\"",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    @classmethod\n    def _pair_trades_key(cls, pair: str) -> Path:\n        return f\"{pair}/trades\"\n",
+        "source_code_len": 99,
+        "target_code": "    @classmethod\n    def _pair_trades_key(cls, pair: str) -> str:\n        return f\"{pair}/trades\"\n",
+        "target_code_len": 98,
+        "diff_format": "@@ -197,3 +197,3 @@\n     @classmethod\n-    def _pair_trades_key(cls, pair: str) -> Path:\n+    def _pair_trades_key(cls, pair: str) -> str:\n         return f\"{pair}/trades\"\n",
+        "source_code_with_indent": "    <DED>@classmethod\n    def _pair_trades_key(cls, pair: str) -> Path:\n        <IND>return f\"{pair}/trades\"\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <DED>@classmethod\n    def _pair_trades_key(cls, pair: str) -> str:\n        <IND>return f\"{pair}/trades\"\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

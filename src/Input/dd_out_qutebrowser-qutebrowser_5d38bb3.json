@@ -1,0 +1,104 @@
+[
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "5d38bb3f9c7f3d323c326b958a21328ec91a80f9",
+    "filename": "scripts/mkvenv.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/scripts/mkvenv.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/mkvenv.py:316:35 Incompatible parameter type [6]: Expected `str` for 1st positional only parameter to call `dict.setdefault` but got `Tuple[typing.Any, typing.Any]`.",
+    "message": " Expected `str` for 1st positional only parameter to call `dict.setdefault` but got `Tuple[typing.Any, typing.Any]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 316,
+    "warning_line": "        libs = all_libs.setdefault(key, [])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[str, str] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "source_code_len": 116,
+        "target_code": "    \"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[Tuple[str, str], List[str]] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -297,3 +297,3 @@\n     \"\"\"Find all system-wide .so libraries.\"\"\"\n-    all_libs: Dict[str, str] = {}\n+    all_libs: Dict[Tuple[str, str], List[str]] = {}\n     ldconfig_proc = subprocess.run(\n",
+        "source_code_with_indent": "    <IND>\"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[str, str] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[Tuple[str, str], List[str]] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "5d38bb3f9c7f3d323c326b958a21328ec91a80f9",
+    "filename": "scripts/mkvenv.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/scripts/mkvenv.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/mkvenv.py:316:40 Incompatible parameter type [6]: Expected `str` for 2nd positional only parameter to call `dict.setdefault` but got `List[Variable[_T]]`.",
+    "message": " Expected `str` for 2nd positional only parameter to call `dict.setdefault` but got `List[Variable[_T]]`.",
+    "rule_id": "Incompatible parameter type [6]",
+    "warning_line_no": 316,
+    "warning_line": "        libs = all_libs.setdefault(key, [])",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[str, str] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "source_code_len": 116,
+        "target_code": "    \"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[Tuple[str, str], List[str]] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -297,3 +297,3 @@\n     \"\"\"Find all system-wide .so libraries.\"\"\"\n-    all_libs: Dict[str, str] = {}\n+    all_libs: Dict[Tuple[str, str], List[str]] = {}\n     ldconfig_proc = subprocess.run(\n",
+        "source_code_with_indent": "    <IND>\"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[str, str] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[Tuple[str, str], List[str]] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "qutebrowser/qutebrowser",
+    "commit": "5d38bb3f9c7f3d323c326b958a21328ec91a80f9",
+    "filename": "scripts/mkvenv.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/qutebrowser-qutebrowser/scripts/mkvenv.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "scripts/mkvenv.py:319:4 Incompatible return type [7]: Expected `Dict[Tuple[str, str], List[str]]` but got `Dict[str, str]`.",
+    "message": " Expected `Dict[Tuple[str, str], List[str]]` but got `Dict[str, str]`.",
+    "rule_id": "Incompatible return type [7]",
+    "warning_line_no": 319,
+    "warning_line": "    return all_libs",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "    \"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[str, str] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "source_code_len": 116,
+        "target_code": "    \"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[Tuple[str, str], List[str]] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "target_code_len": 134,
+        "diff_format": "@@ -297,3 +297,3 @@\n     \"\"\"Find all system-wide .so libraries.\"\"\"\n-    all_libs: Dict[str, str] = {}\n+    all_libs: Dict[Tuple[str, str], List[str]] = {}\n     ldconfig_proc = subprocess.run(\n",
+        "source_code_with_indent": "    <IND>\"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[str, str] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "    <IND>\"\"\"Find all system-wide .so libraries.\"\"\"\n    all_libs: Dict[Tuple[str, str], List[str]] = {}\n    ldconfig_proc = subprocess.run(\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

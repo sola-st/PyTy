@@ -1,0 +1,36 @@
+[
+  {
+    "project": "DataBiosphere/toil",
+    "commit": "312b6e1f221ee7f7f187dd6dbfce1aecffd00e09",
+    "filename": "src/toil/cwl/cwltoil.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/DataBiosphere-toil/src/toil/cwl/cwltoil.py",
+    "file_hunks_size": 1,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": true,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "src/toil/cwl/cwltoil.py:3243:24 Unbound name [10]: Name `file_uri` is used but not defined in the current scope.",
+    "message": " Name `file_uri` is used but not defined in the current scope.",
+    "rule_id": "Unbound name [10]",
+    "warning_line_no": 3243,
+    "warning_line": "                        file_uri(os.path.abspath(options.overrides)), tool_file_uri",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": true,
+        "inside_window": true,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "                    cwltool.load_tool.load_overrides(\n                        file_uri(os.path.abspath(options.overrides)), tool_file_uri\n                    )\n",
+        "source_code_len": 160,
+        "target_code": "                    cwltool.load_tool.load_overrides(\n                        schema_salad.ref_resolver.file_uri(os.path.abspath(options.overrides)),\n                        tool_file_uri\n                    )\n",
+        "target_code_len": 210,
+        "diff_format": "@@ -3242,3 +3242,4 @@\n                     cwltool.load_tool.load_overrides(\n-                        file_uri(os.path.abspath(options.overrides)), tool_file_uri\n+                        schema_salad.ref_resolver.file_uri(os.path.abspath(options.overrides)),\n+                        tool_file_uri\n                     )\n",
+        "source_code_with_indent": "                    cwltool.load_tool.load_overrides(\n                        file_uri(os.path.abspath(options.overrides)), tool_file_uri\n                    )\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "                    cwltool.load_tool.load_overrides(\n                        schema_salad.ref_resolver.file_uri(os.path.abspath(options.overrides)),\n                        tool_file_uri\n                    )\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  }
+]

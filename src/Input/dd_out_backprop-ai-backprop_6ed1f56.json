@@ -1,0 +1,264 @@
+[
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/efficientnet/model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/efficientnet/model.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": false,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backprop/models/efficientnet/model.py:80:12 Incompatible variable type [9]: image_base64 is declared to have type `Union[List[str], str]` but is used as type `List[Union[List[str], str]]`.",
+    "message": " image_base64 is declared to have type `Union[List[str], str]` but is used as type `List[Union[List[str], str]]`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 80,
+    "warning_line": "            image_base64 = [image_base64]",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": false,
+        "delete_only": false,
+        "has_suppression": false,
+        "source_code": "        \"\"\"\n        if task == \"image-classification\":\n            image_base64 = task_input.get(\"image\")\n\n            return self.image_classification(image_base64=image_base64)\n\n    @torch.no_grad()\n    def image_classification(self, image_base64: Union[str, List[str]], top_k=10):\n        # TODO: Proper batching\n",
+        "source_code_len": 316,
+        "target_code": "        \"\"\"\n\n        if task == \"image-classification\":\n            image = task_input.get(\"image\")\n            top_k = task_input.get(\"top_k\", 10000)\n\n            image = base64_to_img(image)\n\n            return self.image_classification(image=image, top_k=top_k)\n\n    def pre_finetuning(self, labels=None, num_classes=None):\n        self.labels = labels\n        \n        if self.num_classes != num_classes:\n            self.num_classes = num_classes\n            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n\n    def training_step(self, batch, task=\"image-classification\"):\n        return self.model(batch)\n\n    def image_classification(self, image, top_k=10000):\n        # TODO: Proper batching\n",
+        "target_code_len": 739,
+        "diff_format": "@@ -65,9 +82,22 @@\n         \"\"\"\n+\n         if task == \"image-classification\":\n-            image_base64 = task_input.get(\"image\")\n+            image = task_input.get(\"image\")\n+            top_k = task_input.get(\"top_k\", 10000)\n \n-            return self.image_classification(image_base64=image_base64)\n+            image = base64_to_img(image)\n \n-    @torch.no_grad()\n-    def image_classification(self, image_base64: Union[str, List[str]], top_k=10):\n+            return self.image_classification(image=image, top_k=top_k)\n+\n+    def pre_finetuning(self, labels=None, num_classes=None):\n+        self.labels = labels\n+        \n+        if self.num_classes != num_classes:\n+            self.num_classes = num_classes\n+            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n+\n+    def training_step(self, batch, task=\"image-classification\"):\n+        return self.model(batch)\n+\n+    def image_classification(self, image, top_k=10000):\n         # TODO: Proper batching\n",
+        "source_code_with_indent_exact_match": false,
+        "target_code_with_indent_exact_match": false,
+        "source_code_with_indent": "\n        if task == \"image-classification\":\n            <IND>image_base64 = task_input.get(\"image\")\n\n            return self.image_classification(image_base64=image_base64)\n\n    <DED><DED>@torch.no_grad()\n    def image_classification(self, image_base64: Union[str, List[str]], top_k=10):\n        # TODO: Proper batching\n",
+        "target_code_with_indent": "\n\n        if task == \"image-classification\":\n            <IND>image = task_input.get(\"image\")\n            top_k = task_input.get(\"top_k\", 10000)\n\n            image = base64_to_img(image)\n\n            return self.image_classification(image=image, top_k=top_k)\n\n    <DED><DED>def pre_finetuning(self, labels=None, num_classes=None):\n        <IND>self.labels = labels\n        \n        if self.num_classes != num_classes:\n            <IND>self.num_classes = num_classes\n            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n\n    <DED><DED>def training_step(self, batch, task=\"image-classification\"):\n        <IND>return self.model(batch)\n\n    <DED>def image_classification(self, image, top_k=10000):\n        # TODO: Proper batching\n"
+      }
+    ]
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/efficientnet/model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/efficientnet/model.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backprop/models/efficientnet/model.py:129:4 Inconsistent override [14]: `backprop.models.efficientnet.model.EfficientNet.finetune` overrides method defined in `backprop.models.generic_models.BaseModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "message": " `backprop.models.efficientnet.model.EfficientNet.finetune` overrides method defined in `backprop.models.generic_models.BaseModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 129,
+    "warning_line": "    def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def training_step(self, batch, batch_idx):\n        inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n        return loss\n    \n    def validation_step(self, batch, batch_idx):\n        inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n        return loss\n\n    def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n                batch_size: int = None, early_stopping: bool = True,\n                trainer: pl.Trainer = None):\n        \"\"\"\n        Finetunes EfficientNet for the image-classification task.\n        \n        Note:\n            ``image_dir`` has a strict structure that must be followed:\n\n            .. code-block:: text\n            \n                Images\n                \u251c\u2500\u2500 Cool_Dog\n                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n                \u2514\u2500\u2500 Amazing_Dog\n                    \u251c\u2500\u2500 dog1.jpg\n                    \u2514\u2500\u2500 dog2.jpg\n        \n            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n            Every class must have its own folder, every folder must have some images as examples.\n\n        Args:\n            image_dir: Path to your training data\n            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n            epochs: Integer that specifies how many iterations of training to do\n            batch_size: Leave as None to determine the batch size automatically\n            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n            trainer: Your custom pytorch_lightning trainer\n\n        Examples::\n\n            import backprop\n            \n            # Initialise model\n            model = backprop.models.EfficientNet()\n\n            # Finetune with path to your images\n            model.finetune(\"my_image_dir\")\n        \"\"\"\n        OPTIMAL_BATCH_SIZE = 128\n        \n        dataset = ImageFolder(image_dir, transform=self.tfms)\n        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n        num_classes = len(dataset.classes)\n\n        if self.num_classes != num_classes:\n            self.num_classes = num_classes\n            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n\n        Finetunable.finetune(self, dataset, validation_split=validation_split,\n            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_len": 2840,
+        "target_code": "\n",
+        "target_code_len": 1,
+        "diff_format": "@@ -114,68 +146,1 @@\n \n-    def training_step(self, batch, batch_idx):\n-        inputs, targets = batch\n-        outputs = self.model(inputs)\n-        loss = F.cross_entropy(outputs, targets)\n-        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n-        return loss\n-    \n-    def validation_step(self, batch, batch_idx):\n-        inputs, targets = batch\n-        outputs = self.model(inputs)\n-        loss = F.cross_entropy(outputs, targets)\n-        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n-        return loss\n-\n-    def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n-                batch_size: int = None, early_stopping: bool = True,\n-                trainer: pl.Trainer = None):\n-        \"\"\"\n-        Finetunes EfficientNet for the image-classification task.\n-        \n-        Note:\n-            ``image_dir`` has a strict structure that must be followed:\n-\n-            .. code-block:: text\n-            \n-                Images\n-                \u251c\u2500\u2500 Cool_Dog\n-                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n-                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n-                \u2514\u2500\u2500 Amazing_Dog\n-                    \u251c\u2500\u2500 dog1.jpg\n-                    \u2514\u2500\u2500 dog2.jpg\n-        \n-            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n-            Every class must have its own folder, every folder must have some images as examples.\n-\n-        Args:\n-            image_dir: Path to your training data\n-            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n-            epochs: Integer that specifies how many iterations of training to do\n-            batch_size: Leave as None to determine the batch size automatically\n-            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n-            trainer: Your custom pytorch_lightning trainer\n-\n-        Examples::\n-\n-            import backprop\n-            \n-            # Initialise model\n-            model = backprop.models.EfficientNet()\n-\n-            # Finetune with path to your images\n-            model.finetune(\"my_image_dir\")\n-        \"\"\"\n-        OPTIMAL_BATCH_SIZE = 128\n-        \n-        dataset = ImageFolder(image_dir, transform=self.tfms)\n-        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n-        num_classes = len(dataset.classes)\n-\n-        if self.num_classes != num_classes:\n-            self.num_classes = num_classes\n-            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n-\n-        Finetunable.finetune(self, dataset, validation_split=validation_split,\n-            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n-            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_with_indent": "\n    <DED>def training_step(self, batch, batch_idx):\n        <IND>inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n        return loss\n    \n    <DED>def validation_step(self, batch, batch_idx):\n        <IND>inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n        return loss\n\n    <DED>def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n                batch_size: int = None, early_stopping: bool = True,\n                trainer: pl.Trainer = None):\n        <IND>\"\"\"\n        Finetunes EfficientNet for the image-classification task.\n        \n        Note:\n            ``image_dir`` has a strict structure that must be followed:\n\n            .. code-block:: text\n            \n                Images\n                \u251c\u2500\u2500 Cool_Dog\n                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n                \u2514\u2500\u2500 Amazing_Dog\n                    \u251c\u2500\u2500 dog1.jpg\n                    \u2514\u2500\u2500 dog2.jpg\n        \n            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n            Every class must have its own folder, every folder must have some images as examples.\n\n        Args:\n            image_dir: Path to your training data\n            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n            epochs: Integer that specifies how many iterations of training to do\n            batch_size: Leave as None to determine the batch size automatically\n            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n            trainer: Your custom pytorch_lightning trainer\n\n        Examples::\n\n            import backprop\n            \n            # Initialise model\n            model = backprop.models.EfficientNet()\n\n            # Finetune with path to your images\n            model.finetune(\"my_image_dir\")\n        \"\"\"\n        OPTIMAL_BATCH_SIZE = 128\n        \n        dataset = ImageFolder(image_dir, transform=self.tfms)\n        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n        num_classes = len(dataset.classes)\n\n        if self.num_classes != num_classes:\n            <IND>self.num_classes = num_classes\n            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n\n        <DED>Finetunable.finetune(self, dataset, validation_split=validation_split,\n            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/efficientnet/model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/efficientnet/model.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backprop/models/efficientnet/model.py:129:4 Inconsistent override [14]: `backprop.models.efficientnet.model.EfficientNet.finetune` overrides method defined in `backprop.models.generic_models.BaseModel` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "message": " `backprop.models.efficientnet.model.EfficientNet.finetune` overrides method defined in `backprop.models.generic_models.BaseModel` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "rule_id": "Inconsistent override [14]",
+    "warning_line_no": 129,
+    "warning_line": "    def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def training_step(self, batch, batch_idx):\n        inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n        return loss\n    \n    def validation_step(self, batch, batch_idx):\n        inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n        return loss\n\n    def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n                batch_size: int = None, early_stopping: bool = True,\n                trainer: pl.Trainer = None):\n        \"\"\"\n        Finetunes EfficientNet for the image-classification task.\n        \n        Note:\n            ``image_dir`` has a strict structure that must be followed:\n\n            .. code-block:: text\n            \n                Images\n                \u251c\u2500\u2500 Cool_Dog\n                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n                \u2514\u2500\u2500 Amazing_Dog\n                    \u251c\u2500\u2500 dog1.jpg\n                    \u2514\u2500\u2500 dog2.jpg\n        \n            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n            Every class must have its own folder, every folder must have some images as examples.\n\n        Args:\n            image_dir: Path to your training data\n            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n            epochs: Integer that specifies how many iterations of training to do\n            batch_size: Leave as None to determine the batch size automatically\n            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n            trainer: Your custom pytorch_lightning trainer\n\n        Examples::\n\n            import backprop\n            \n            # Initialise model\n            model = backprop.models.EfficientNet()\n\n            # Finetune with path to your images\n            model.finetune(\"my_image_dir\")\n        \"\"\"\n        OPTIMAL_BATCH_SIZE = 128\n        \n        dataset = ImageFolder(image_dir, transform=self.tfms)\n        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n        num_classes = len(dataset.classes)\n\n        if self.num_classes != num_classes:\n            self.num_classes = num_classes\n            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n\n        Finetunable.finetune(self, dataset, validation_split=validation_split,\n            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_len": 2840,
+        "target_code": "\n",
+        "target_code_len": 1,
+        "diff_format": "@@ -114,68 +146,1 @@\n \n-    def training_step(self, batch, batch_idx):\n-        inputs, targets = batch\n-        outputs = self.model(inputs)\n-        loss = F.cross_entropy(outputs, targets)\n-        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n-        return loss\n-    \n-    def validation_step(self, batch, batch_idx):\n-        inputs, targets = batch\n-        outputs = self.model(inputs)\n-        loss = F.cross_entropy(outputs, targets)\n-        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n-        return loss\n-\n-    def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n-                batch_size: int = None, early_stopping: bool = True,\n-                trainer: pl.Trainer = None):\n-        \"\"\"\n-        Finetunes EfficientNet for the image-classification task.\n-        \n-        Note:\n-            ``image_dir`` has a strict structure that must be followed:\n-\n-            .. code-block:: text\n-            \n-                Images\n-                \u251c\u2500\u2500 Cool_Dog\n-                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n-                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n-                \u2514\u2500\u2500 Amazing_Dog\n-                    \u251c\u2500\u2500 dog1.jpg\n-                    \u2514\u2500\u2500 dog2.jpg\n-        \n-            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n-            Every class must have its own folder, every folder must have some images as examples.\n-\n-        Args:\n-            image_dir: Path to your training data\n-            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n-            epochs: Integer that specifies how many iterations of training to do\n-            batch_size: Leave as None to determine the batch size automatically\n-            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n-            trainer: Your custom pytorch_lightning trainer\n-\n-        Examples::\n-\n-            import backprop\n-            \n-            # Initialise model\n-            model = backprop.models.EfficientNet()\n-\n-            # Finetune with path to your images\n-            model.finetune(\"my_image_dir\")\n-        \"\"\"\n-        OPTIMAL_BATCH_SIZE = 128\n-        \n-        dataset = ImageFolder(image_dir, transform=self.tfms)\n-        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n-        num_classes = len(dataset.classes)\n-\n-        if self.num_classes != num_classes:\n-            self.num_classes = num_classes\n-            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n-\n-        Finetunable.finetune(self, dataset, validation_split=validation_split,\n-            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n-            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_with_indent": "\n    <DED>def training_step(self, batch, batch_idx):\n        <IND>inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n        return loss\n    \n    <DED>def validation_step(self, batch, batch_idx):\n        <IND>inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n        return loss\n\n    <DED>def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n                batch_size: int = None, early_stopping: bool = True,\n                trainer: pl.Trainer = None):\n        <IND>\"\"\"\n        Finetunes EfficientNet for the image-classification task.\n        \n        Note:\n            ``image_dir`` has a strict structure that must be followed:\n\n            .. code-block:: text\n            \n                Images\n                \u251c\u2500\u2500 Cool_Dog\n                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n                \u2514\u2500\u2500 Amazing_Dog\n                    \u251c\u2500\u2500 dog1.jpg\n                    \u2514\u2500\u2500 dog2.jpg\n        \n            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n            Every class must have its own folder, every folder must have some images as examples.\n\n        Args:\n            image_dir: Path to your training data\n            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n            epochs: Integer that specifies how many iterations of training to do\n            batch_size: Leave as None to determine the batch size automatically\n            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n            trainer: Your custom pytorch_lightning trainer\n\n        Examples::\n\n            import backprop\n            \n            # Initialise model\n            model = backprop.models.EfficientNet()\n\n            # Finetune with path to your images\n            model.finetune(\"my_image_dir\")\n        \"\"\"\n        OPTIMAL_BATCH_SIZE = 128\n        \n        dataset = ImageFolder(image_dir, transform=self.tfms)\n        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n        num_classes = len(dataset.classes)\n\n        if self.num_classes != num_classes:\n            <IND>self.num_classes = num_classes\n            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n\n        <DED>Finetunable.finetune(self, dataset, validation_split=validation_split,\n            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/efficientnet/model.py",
+    "filename_after_commit": "/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/efficientnet/model.py",
+    "file_hunks_size": 14,
+    "min_patch_found": true,
+    "single_hunk": true,
+    "fit_TFix": false,
+    "delete_only_patch": true,
+    "has_suppression_all_hunks": false,
+    "full_warning_msg": "backprop/models/efficientnet/model.py:130:16 Incompatible variable type [9]: batch_size is declared to have type `int` but is used as type `None`.",
+    "message": " batch_size is declared to have type `int` but is used as type `None`.",
+    "rule_id": "Incompatible variable type [9]",
+    "warning_line_no": 130,
+    "warning_line": "                batch_size: int = None, early_stopping: bool = True,",
+    "min_patch": [
+      {
+        "hunk_fit_TFix": false,
+        "inside_window": true,
+        "delete_only": true,
+        "has_suppression": false,
+        "source_code": "\n    def training_step(self, batch, batch_idx):\n        inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n        return loss\n    \n    def validation_step(self, batch, batch_idx):\n        inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n        return loss\n\n    def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n                batch_size: int = None, early_stopping: bool = True,\n                trainer: pl.Trainer = None):\n        \"\"\"\n        Finetunes EfficientNet for the image-classification task.\n        \n        Note:\n            ``image_dir`` has a strict structure that must be followed:\n\n            .. code-block:: text\n            \n                Images\n                \u251c\u2500\u2500 Cool_Dog\n                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n                \u2514\u2500\u2500 Amazing_Dog\n                    \u251c\u2500\u2500 dog1.jpg\n                    \u2514\u2500\u2500 dog2.jpg\n        \n            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n            Every class must have its own folder, every folder must have some images as examples.\n\n        Args:\n            image_dir: Path to your training data\n            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n            epochs: Integer that specifies how many iterations of training to do\n            batch_size: Leave as None to determine the batch size automatically\n            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n            trainer: Your custom pytorch_lightning trainer\n\n        Examples::\n\n            import backprop\n            \n            # Initialise model\n            model = backprop.models.EfficientNet()\n\n            # Finetune with path to your images\n            model.finetune(\"my_image_dir\")\n        \"\"\"\n        OPTIMAL_BATCH_SIZE = 128\n        \n        dataset = ImageFolder(image_dir, transform=self.tfms)\n        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n        num_classes = len(dataset.classes)\n\n        if self.num_classes != num_classes:\n            self.num_classes = num_classes\n            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n\n        Finetunable.finetune(self, dataset, validation_split=validation_split,\n            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_len": 2840,
+        "target_code": "\n",
+        "target_code_len": 1,
+        "diff_format": "@@ -114,68 +146,1 @@\n \n-    def training_step(self, batch, batch_idx):\n-        inputs, targets = batch\n-        outputs = self.model(inputs)\n-        loss = F.cross_entropy(outputs, targets)\n-        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n-        return loss\n-    \n-    def validation_step(self, batch, batch_idx):\n-        inputs, targets = batch\n-        outputs = self.model(inputs)\n-        loss = F.cross_entropy(outputs, targets)\n-        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n-        return loss\n-\n-    def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n-                batch_size: int = None, early_stopping: bool = True,\n-                trainer: pl.Trainer = None):\n-        \"\"\"\n-        Finetunes EfficientNet for the image-classification task.\n-        \n-        Note:\n-            ``image_dir`` has a strict structure that must be followed:\n-\n-            .. code-block:: text\n-            \n-                Images\n-                \u251c\u2500\u2500 Cool_Dog\n-                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n-                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n-                \u2514\u2500\u2500 Amazing_Dog\n-                    \u251c\u2500\u2500 dog1.jpg\n-                    \u2514\u2500\u2500 dog2.jpg\n-        \n-            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n-            Every class must have its own folder, every folder must have some images as examples.\n-\n-        Args:\n-            image_dir: Path to your training data\n-            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n-            epochs: Integer that specifies how many iterations of training to do\n-            batch_size: Leave as None to determine the batch size automatically\n-            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n-            trainer: Your custom pytorch_lightning trainer\n-\n-        Examples::\n-\n-            import backprop\n-            \n-            # Initialise model\n-            model = backprop.models.EfficientNet()\n-\n-            # Finetune with path to your images\n-            model.finetune(\"my_image_dir\")\n-        \"\"\"\n-        OPTIMAL_BATCH_SIZE = 128\n-        \n-        dataset = ImageFolder(image_dir, transform=self.tfms)\n-        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n-        num_classes = len(dataset.classes)\n-\n-        if self.num_classes != num_classes:\n-            self.num_classes = num_classes\n-            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n-\n-        Finetunable.finetune(self, dataset, validation_split=validation_split,\n-            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n-            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_with_indent": "\n    <DED>def training_step(self, batch, batch_idx):\n        <IND>inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"train_loss\", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)\n        return loss\n    \n    <DED>def validation_step(self, batch, batch_idx):\n        <IND>inputs, targets = batch\n        outputs = self.model(inputs)\n        loss = F.cross_entropy(outputs, targets)\n        self.log(\"val_loss\", loss, prog_bar=True, on_epoch=True, logger=True)\n        return loss\n\n    <DED>def finetune(self, image_dir: str, validation_split: float = 0.15, epochs: int = 20,\n                batch_size: int = None, early_stopping: bool = True,\n                trainer: pl.Trainer = None):\n        <IND>\"\"\"\n        Finetunes EfficientNet for the image-classification task.\n        \n        Note:\n            ``image_dir`` has a strict structure that must be followed:\n\n            .. code-block:: text\n            \n                Images\n                \u251c\u2500\u2500 Cool_Dog\n                \u2502\u00a0\u00a0 \u251c\u2500\u2500 dog1.jpg\n                \u2502\u00a0\u00a0 \u2514\u2500\u2500 dog2.jpg\n                \u2514\u2500\u2500 Amazing_Dog\n                    \u251c\u2500\u2500 dog1.jpg\n                    \u2514\u2500\u2500 dog2.jpg\n        \n            In the example above, our ``image_dir`` is called Images. It contains two classes, each of which have 2 training examples.\n            Every class must have its own folder, every folder must have some images as examples.\n\n        Args:\n            image_dir: Path to your training data\n            validation_split: Float between 0 and 1 that determines what percentage of the data to use for validation\n            epochs: Integer that specifies how many iterations of training to do\n            batch_size: Leave as None to determine the batch size automatically\n            early_stopping: Boolean that determines whether to automatically stop when validation loss stops improving\n            trainer: Your custom pytorch_lightning trainer\n\n        Examples::\n\n            import backprop\n            \n            # Initialise model\n            model = backprop.models.EfficientNet()\n\n            # Finetune with path to your images\n            model.finetune(\"my_image_dir\")\n        \"\"\"\n        OPTIMAL_BATCH_SIZE = 128\n        \n        dataset = ImageFolder(image_dir, transform=self.tfms)\n        self.labels = {str(v): k for k, v in dataset.class_to_idx.items()}\n        num_classes = len(dataset.classes)\n\n        if self.num_classes != num_classes:\n            <IND>self.num_classes = num_classes\n            self.model = EfficientNet_pt.from_pretrained(self.model_path, num_classes=num_classes)\n\n        <DED>Finetunable.finetune(self, dataset, validation_split=validation_split,\n            epochs=epochs, optimal_batch_size=OPTIMAL_BATCH_SIZE, batch_size=batch_size,\n            early_stopping=early_stopping, trainer=trainer)\n",
+        "source_code_with_indent_exact_match": true,
+        "target_code_with_indent": "\n",
+        "target_code_with_indent_exact_match": true
+      }
+    ]
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/generic_models.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/generic_models.py:51:82 Incompatible variable type [9]: batch_size is declared to have type `int` but is used as type `None`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/generic_models.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/generic_models.py:52:16 Incompatible variable type [9]: optimal_batch_size is declared to have type `int` but is used as type `None`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/generic_models.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/generic_models.py:271:4 Inconsistent override [14]: `backprop.models.generic_models.TextVectorisationModel.finetune` overrides method defined in `BaseModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/generic_models.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/generic_models.py:271:4 Inconsistent override [14]: `backprop.models.generic_models.TextVectorisationModel.finetune` overrides method defined in `BaseModel` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/generic_models.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/generic_models.py:274:16 Incompatible variable type [9]: batch_size is declared to have type `int` but is used as type `None`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/t5/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/t5/model.py:75:16 Incompatible variable type [9]: prev_qa is declared to have type `List[Tuple[str, str]]` but is used as type `List[List[Tuple[str, str]]]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/t5/model.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/t5/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/t5/model.py:171:4 Inconsistent override [14]: `backprop.models.t5.model.T5.finetune` overrides method defined in `backprop.models.generic_models.BaseModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/t5/model.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/t5/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/t5/model.py:171:4 Inconsistent override [14]: `backprop.models.t5.model.T5.finetune` overrides method defined in `backprop.models.generic_models.BaseModel` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/t5/model.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/t5/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/t5/model.py:173:17 Incompatible variable type [9]: batch_size is declared to have type `int` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/t5/model.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/t5_base_qa_summary_emotion/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/t5_base_qa_summary_emotion/model.py:66:16 Incompatible variable type [9]: prev_qa is declared to have type `List[Tuple[str, str]]` but is used as type `List[List[Tuple[str, str]]]`.",
+    "exception": "'bool' object has no attribute 'items'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/xlnet/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/xlnet/model.py:55:12 Incompatible variable type [9]: text is declared to have type `Union[List[str], str]` but is used as type `List[Union[List[str], str]]`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/xlnet/model.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/xlnet/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/xlnet/model.py:105:4 Inconsistent override [14]: `backprop.models.xlnet.model.XLNet.finetune` overrides method defined in `backprop.models.generic_models.BaseModel` inconsistently. Could not find parameter `Variable(unknown)` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/xlnet/model.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/xlnet/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/xlnet/model.py:105:4 Inconsistent override [14]: `backprop.models.xlnet.model.XLNet.finetune` overrides method defined in `backprop.models.generic_models.BaseModel` inconsistently. Could not find parameter `Keywords(unknown)` in overriding signature.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/xlnet/model.py'",
+    "dd_fail": true
+  },
+  {
+    "project": "backprop-ai/backprop",
+    "commit": "6ed1f5659aa8c4126613873488c66ed31586d3b5",
+    "filename": "backprop/models/xlnet/model.py",
+    "min_patch_found": false,
+    "full_warning_msg": "backprop/models/xlnet/model.py:107:32 Incompatible variable type [9]: batch_size is declared to have type `int` but is used as type `None`.",
+    "exception": "[Errno 2] No such file or directory: '/home/chowyi/TypeAnnotation_Study/GitHub/backprop-ai-backprop/backprop/models/xlnet/model.py'",
+    "dd_fail": true
+  }
+]
