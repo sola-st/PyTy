@@ -15,7 +15,7 @@ Submission for ICSE 2024 Artifact:
 We also include the dataset we collected, named PyTyDefects. The full dataset in JSON format is available in the folder: ./src/Input. Each JSON file represents a commit containing one or more type error fixed after applying our delta debugging technique to isolate the fixes. This dataset can be reused for other studies and approaches.
 
 ## Setup
-- Hardware: To run the script in "FAST MODE", a normal computer suffices. For "SLOW MODE", we used (and recommend) a server with 250 GB RAM, 48 Intel Xeon CPU cores with 2.2Ghz and an NVIDIA Telta V100 GPU.
+- Hardware: To run the script in "FAST MODE", a normal computer is enough. For "SLOW MODE", we used (and recommend) a server with 250 GB RAM, 48 Intel Xeon CPU cores with 2.2Ghz and an NVIDIA Telta V100 GPU.
 - Software: 
   - Ubuntu OS 
   - Docker ([installation instructions](https://docs.docker.com/engine/install/ubuntu/))
@@ -93,7 +93,9 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
       Now you can run all the instructions above in the section 'FAST MODE'.
 
   - PERSONAL MODE
-    - `./src/pyty_predict.py` is used to run PyTy on a type error and code snippet. The input is a JSON file with the following format:
+    - Unzip the model: `unzip ./src/t5base_final.zip` and run these following commands from the folder `./src/`.
+    - `docker run icse2024 python ./pyty_predict.py` is used to run PyTy on a type error and code snippet. If you have problem running SLOW MODE with Docker, you can try with the instructions contained in `./src/README.md` using `python virtualenv` (line 12, 21 and line 84).
+    - The input is a JSON file with the following format:
         ``` 
         {
           "rule_id": "Unbound name [10]",
@@ -104,4 +106,17 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
         ```
     - An example input file is provided in `predict_sample_input.json`. To run PyTy on the sample input, run the following command:
 
-      ```docker run icse2024 python ./src/python pyty_predict.py -mn t5base_final -lm t5base_final/checkpoint-1190 -f predict_sample_input.json```
+      ```docker run icse2024 python ./python pyty_predict.py -mn t5base_final -lm t5base_final/checkpoint-1190 -f predict_sample_input.json```
+
+    - You can check the top 50 predictions from the terminal output.
+
+    - If you have problem running SLOW MODE with Docker, you can try
+      - You can create a virtual environment and then install the requirements:
+        ```
+        virtualenv -p /usr/bin/python3 venv_pyty
+        source venv_pyty/bin/activate
+        pip install -r requirements.txt
+        ```
+      - To run PyTy on the sample input, run the following command:
+
+      ```python ./python pyty_predict.py -mn t5base_final -lm t5base_final/checkpoint-1190 -f predict_sample_input.json```

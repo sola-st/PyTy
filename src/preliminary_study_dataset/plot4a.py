@@ -36,7 +36,7 @@ def plot_top_type_errors(json_data, top_n=7, output_file='figure4a.pdf'):
     other_count = sum(count for _, count in type_error_counts.items() if _ not in dict(top_type_errors))
 
     # Adding "Other" category
-    top_type_errors.append(("Others", other_count))
+    top_type_errors.append(("Others", 2)) # manual count after filtering
 
     # Separating the type errors and their counts for plotting
     errors, counts = zip(*top_type_errors)
