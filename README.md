@@ -85,6 +85,10 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
       `docker run icse2024 python ./src/pyty_testing.py -mn t5small_final -lm t5small_final/checkpoint-3290 -md t5small_final_test`
   
       Running `docker run icse2024 ./src/python pyty_testing.py` outputs the exact match accuracy of top-1 predictions and outputs the predictions up to top-k (in `test_data.json`).
+
+      RQ4a: You need an OpenAI API key. You can add it to the script `src/eval_code/LLM/chatgpt.py` and run it for the three different models analyzed.
+
+      Preliminary Study: You can check all the links of the commits in the JSON files in the folder `src/preliminary_study_dataset` and check that the manual labeles are corrects.
   
       Now you can run all the instructions above in the section 'FAST MODE'.
 
