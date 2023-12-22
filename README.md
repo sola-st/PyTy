@@ -21,7 +21,13 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
   - Docker ([installation instructions](https://docs.docker.com/engine/install/ubuntu/))
 
 ## Usage
-1. Enter the `PyTy` directory, i.e., the directory of this repository.
+0. Enter the `PyTy` directory, i.e., the directory of this repository.
+
+1. Setup of Docker to not use sudo for each command:
+  ```
+      sudo usermod -aG docker $USER
+      newgrp docker
+  ```
  
 2. Build the Docker image:
   ```
@@ -40,7 +46,7 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
   
     
     - Preliminary study:
-      - run from the root: `sudo docker run -v $(pwd)/src/preliminary_study_dataset:/src/preliminary_study_dataset icse2024 python src/PRELIMINARYSTUDY_reproduce.py`
+      - run from the root: `docker run -v $(pwd)/src/preliminary_study_dataset:/src/preliminary_study_dataset icse2024 python src/PRELIMINARYSTUDY_reproduce.py`
   
 
   - SLOW MODE (Several hours depending on hardware):
@@ -51,32 +57,32 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
   
       Full PyTy:
       - Training
-        `sudo docker run icse2024 python ./src/pyty_training.py -e 30 -bs 32 -mn data_and_models/models/t5base -md t5base_final`
+        `docker run icse2024 python ./src/pyty_training.py -e 30 -bs 32 -mn data_and_models/models/t5base -md t5base_final`
       - Testing
-        `sudo docker run icse2024 python ./src/pyty_testing.py -mn t5base_final -lm t5base_final/checkpoint-1190 -md t5base_final_test`
+        `docker run icse2024 python ./src/pyty_testing.py -mn t5base_final -lm t5base_final/checkpoint-1190 -md t5base_final_test`
   
       PyTy without pre-training:
       - Training
-      `sudo docker run icse2024 python ./src/pyty_training.py -e 100 -bs 32 -mn t5-base -md t5base_no_pt`
+      `docker run icse2024 python ./src/pyty_training.py -e 100 -bs 32 -mn t5-base -md t5base_no_pt`
       - Testing
-      `sudo docker run icse2024 python ./src/pyty_testing.py -mn t5base_no_pt -lm t5base_no_pt/checkpoint-2240 -md t5base_no_pt_test`
+      `docker run icse2024 python ./src/pyty_testing.py -mn t5base_no_pt -lm t5base_no_pt/checkpoint-2240 -md t5base_no_pt_test`
   
       TFix without fine-tuning:
       - Testing
-      `sudo docker run icse2024 python ./src/pyty_testing_no_indent.py -mn t5large -lm data_and_models/models/t5large -md t5large_test`
+      `docker run icse2024 python ./src/pyty_testing_no_indent.py -mn t5large -lm data_and_models/models/t5large -md t5large_test`
   
       PyTy without preprocessing:
       - Training
-      `sudo docker run icse2024 python ./src/pyty_training_no_indent.py -e 30 -bs 32 -mn data_and_models/models/t5base -md t5base_final_no_indent`
+      `docker run icse2024 python ./src/pyty_training_no_indent.py -e 30 -bs 32 -mn data_and_models/models/t5base -md t5base_final_no_indent`
       - Testing
-      `sudo docker run icse2024 python ./src/pyty_testing_no_indent.py -mn t5base_final_no_indent -lm t5base_final_no_indent/checkpoint-1050 -md t5base_final_no_indent_test`
+      `docker run icse2024 python ./src/pyty_testing_no_indent.py -mn t5base_final_no_indent -lm t5base_final_no_indent/checkpoint-1050 -md t5base_final_no_indent_test`
   
       PyTy with small TFix:
       - Training
-      `sudo docker run icse2024 python ./src/pyty_training.py -e 100 -bs 32 -mn data_and_models/models/t5small -md t5small_final`
+      `docker run icse2024 python ./src/pyty_training.py -e 100 -bs 32 -mn data_and_models/models/t5small -md t5small_final`
       - Testing
-      `sudo docker run icse2024 python ./src/pyty_testing.py -mn t5small_final -lm t5small_final/checkpoint-3290 -md t5small_final_test`
+      `docker run icse2024 python ./src/pyty_testing.py -mn t5small_final -lm t5small_final/checkpoint-3290 -md t5small_final_test`
   
-      Running `sudo docker run icse2024 ./src/python pyty_testing.py` outputs the exact match accuracy of top-1 predictions and outputs the predictions up to top-k (in `test_data.json`).
+      Running `docker run icse2024 ./src/python pyty_testing.py` outputs the exact match accuracy of top-1 predictions and outputs the predictions up to top-k (in `test_data.json`).
   
       Now you can run all the instructions above in the section 'FAST MODE'.
