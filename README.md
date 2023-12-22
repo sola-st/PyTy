@@ -4,7 +4,7 @@ PyTy is an automated program repair approach specifically designed for Python ty
 ## Purpose
 Submission for ICSE 2024 Artifact:
 - Available Badge: We provide the artifact with a permanent DOI from Zenodo and also maintain a public GitHub repository for the project.
-- Reusable Badge: We describe how to reproduce the paper's results using Docker and use the tool to fix new bugs in other repositories. (TODO: the last part is still missing)
+- Reusable Badge: We describe how to reproduce the paper's results using Docker and use the tool to fix new bugs in other repositories.
 
 ## Provenance
 - The source code and data are publicly available on Zenodo and GitHub: DOI (TODO) and https://github.com/sola-st/PyTy.
@@ -12,7 +12,7 @@ Submission for ICSE 2024 Artifact:
 - As a timestamp, the last GitHub commit before submitting the artifact is: (TODO).
 
 ## Data
-We also include the dataset we collected, named PyTyDefects. The full dataset in JSON format is available in the folder: ./src/Input. Each JSON file represents (TODO: explain).
+We also include the dataset we collected, named PyTyDefects. The full dataset in JSON format is available in the folder: ./src/Input. Each JSON file represents a commit containing one or more type error fixed after applying our delta debugging technique to isolate the fixes. This dataset can be reused for other studies and approaches.
 
 ## Setup
 - Hardware: To run the script in "FAST MODE", a normal computer suffices. For "SLOW MODE", we used (and recommend) a server with 250 GB RAM, 48 Intel Xeon CPU cores with 2.2Ghz and an NVIDIA Telta V100 GPU.
@@ -33,11 +33,12 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
   ```
       docker build -t icse2024 .
   ```
-3. Choose between FAST MODE, which computes the final results from pre-computed intermediate results and should take less than 30 minutes, and SLOW MODE, which trains the neural models and may take several hours, depending on hardware.
+3. Choose between FAST MODE, which computes the final results from pre-computed intermediate results and should take less than 30 minutes, and SLOW MODE, which trains the neural models and may take several hours, depending on hardware. We also added PERSONAL MODE to use the tool to fix new bugs in other repositories.
+  
   - FAST MODE (less than 30 minutes):
 
     - Evaluation:
-      - RQ1: Inspect `./src/eval_code/CSV/RQ1.csv`, which contains the manual labels of the two annotators before their discussion (Section 6.1.2 of the paper). (TODO: explain what's shown in this file)
+      - RQ1: Inspect `./src/eval_code/CSV/RQ1.csv`, which contains the manual labels of the two annotators before their discussion (Section 6.1.2 of the paper). The column B and C contain the independent labels of the annotators and column C the final agreement after the discussion. Column J has the overall results.
       - RQ2: Run `docker run icse2024 python src/RQ2_reproduce_results.py`, which produces Table 1 of the paper. (TODO: explain what data is used to compute the table and where this data comes from)
       - RQ3: Run `docker run icse2024 python src/RQ3_reproduce_results.py`, which produces Table 2 (first and last block of the table) of the paper. (TODO: explain what data is used to compute the table and where this data comes from)
       - RQ4a: Run `docker run icse2024 python src/RQ4a_reproduce_results.py`, which produces Table 2 (second block of the table) of the paper. (TODO: explain what data is used to compute the table and where this data comes from)
@@ -86,3 +87,17 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
       Running `docker run icse2024 ./src/python pyty_testing.py` outputs the exact match accuracy of top-1 predictions and outputs the predictions up to top-k (in `test_data.json`).
   
       Now you can run all the instructions above in the section 'FAST MODE'.
+
+  - PERSONAL MODE
+    - `./src/pyty_predict.py` is used to run PyTy on a type error and code snippet. The input is a JSON file with the following format:
+        ``` 
+        {
+          "rule_id": "Unbound name [10]",
+          "message": " Name `y_test` is used but not defined in the current scope.",
+          "warning_line": "    results = mean_squared_error(y_test, model.predict(X_test))",
+          "source_code": "    # Run some test predictions\n    results = mean_squared_error(y_test, model.predict(X_test))\n"
+        }
+        ```
+    - An example input file is provided in `predict_sample_input.json`. To run PyTy on the sample input, run the following command:
+
+      ```docker run icse2024 python ./src/python pyty_predict.py -mn t5base_final -lm t5base_final/checkpoint-1190 -f predict_sample_input.json```
