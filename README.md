@@ -33,9 +33,9 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
     - Evaluation:
       - RQ1: Inspect `./src/eval_code/CSV/RQ1.csv`, which contains the manual labels of the two annotators before their discussion (Section 6.1.2 of the paper).
       - RQ2: Run `docker run icse2024 python src/RQ2_reproduce_results.py`, which produces Table 1 of the paper.
-      - RQ3: run from the root: `sudo docker run icse2024 python src/RQ3_reproduce_results.py` and compare it with Table 2 (first and last block of the table) in page 9 of ./paper.pdf
-      - RQ4a: run from the root: `sudo docker run icse2024 python src/RQ4a_reproduce_results.py` and compare it with Table 2 (second block of the table) in page 9 of ./paper.pdf
-      - RQ4b.1 and RQ4b.2: manually look at the file `./src/output/manual_commit_inspection.json`, with the label 'comment' for each fix
+      - RQ3: Run `docker run icse2024 python src/RQ3_reproduce_results.py`, which produces Table 2 (first and last block of the table) of the paper.
+      - RQ4a: Run `docker run icse2024 python src/RQ4a_reproduce_results.py`, which produces Table 2 (second block of the table) of the paper.
+      - RQ4b.1: See `./src/output/manual_commit_inspection.json`, which contains the 30 manually inspected fixes in our test set. The 'comment' field contains an explanation of our assessment.
       - RQ4b.3: manually look at the file `./src/eval_code/CSV/RQ4b3.csv`, there is the manual analysis of PyTer dataset
   
     
