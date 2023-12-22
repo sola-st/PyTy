@@ -52,39 +52,39 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
   
   - SLOW MODE (Several hours depending on hardware):
     - Python Type Fixes Dataset: `unzip ./src/Input.zip`.
-    - TFix models: Download `data_and_models` in `./src/` from [TFix](https://github.com/eth-sri/TFix).
+    - TFix models: Download and unzip `data_and_models.zip` in `./src/` from [TFix](https://drive.google.com/file/d/1CtfnYaVf-q6FZP5CUM4Wh7ofpp8b9ajW/view).
   
-      For top-50 predictions only. For top-1 and top-5, please use `-bm 5` and `-seq 5`.
+      For top-50 predictions only and run these following commands from the folder `./src/`. If you have problem running SLOW MODE with Docker, you can try with the instructions contained in `./src/README.md` using `python virtualenv` (line 12, 21 and line 84). For top-1 and top-5, please use `-bm 5` and `-seq 5`.
   
       Full PyTy:
       - Training
-        `docker run icse2024 python ./src/pyty_training.py -e 30 -bs 32 -mn data_and_models/models/t5base -md t5base_final`
+        `docker run icse2024 python ./pyty_training.py -e 30 -bs 32 -mn data_and_models/models/t5base -md t5base_final`
       - Testing
-        `docker run icse2024 python ./src/pyty_testing.py -mn t5base_final -lm t5base_final/checkpoint-1190 -md t5base_final_test`
+        `docker run icse2024 python ./pyty_testing.py -mn t5base_final -lm t5base_final/checkpoint-1190 -md t5base_final_test`
   
       PyTy without pre-training:
       - Training
-      `docker run icse2024 python ./src/pyty_training.py -e 100 -bs 32 -mn t5-base -md t5base_no_pt`
+      `docker run icse2024 python ./pyty_training.py -e 100 -bs 32 -mn t5-base -md t5base_no_pt`
       - Testing
-      `docker run icse2024 python ./src/pyty_testing.py -mn t5base_no_pt -lm t5base_no_pt/checkpoint-2240 -md t5base_no_pt_test`
+      `docker run icse2024 python ./pyty_testing.py -mn t5base_no_pt -lm t5base_no_pt/checkpoint-2240 -md t5base_no_pt_test`
   
       TFix without fine-tuning:
       - Testing
-      `docker run icse2024 python ./src/pyty_testing_no_indent.py -mn t5large -lm data_and_models/models/t5large -md t5large_test`
+      `docker run icse2024 python ./pyty_testing_no_indent.py -mn t5large -lm data_and_models/models/t5large -md t5large_test`
   
       PyTy without preprocessing:
       - Training
-      `docker run icse2024 python ./src/pyty_training_no_indent.py -e 30 -bs 32 -mn data_and_models/models/t5base -md t5base_final_no_indent`
+      `docker run icse2024 python ./pyty_training_no_indent.py -e 30 -bs 32 -mn data_and_models/models/t5base -md t5base_final_no_indent`
       - Testing
-      `docker run icse2024 python ./src/pyty_testing_no_indent.py -mn t5base_final_no_indent -lm t5base_final_no_indent/checkpoint-1050 -md t5base_final_no_indent_test`
+      `docker run icse2024 python ./pyty_testing_no_indent.py -mn t5base_final_no_indent -lm t5base_final_no_indent/checkpoint-1050 -md t5base_final_no_indent_test`
   
       PyTy with small TFix:
       - Training
-      `docker run icse2024 python ./src/pyty_training.py -e 100 -bs 32 -mn data_and_models/models/t5small -md t5small_final`
+      `docker run icse2024 python ./pyty_training.py -e 100 -bs 32 -mn data_and_models/models/t5small -md t5small_final`
       - Testing
-      `docker run icse2024 python ./src/pyty_testing.py -mn t5small_final -lm t5small_final/checkpoint-3290 -md t5small_final_test`
+      `docker run icse2024 python ./pyty_testing.py -mn t5small_final -lm t5small_final/checkpoint-3290 -md t5small_final_test`
   
-      Running `docker run icse2024 ./src/python pyty_testing.py` outputs the exact match accuracy of top-1 predictions and outputs the predictions up to top-k (in `test_data.json`).
+      Running `docker run icse2024 ./python pyty_testing.py` outputs the exact match accuracy of top-1 predictions and outputs the predictions up to top-k (in `test_data.json`).
 
       RQ4a: You need an OpenAI API key. You can add it to the script `src/eval_code/LLM/chatgpt.py` and run it for the three different models analyzed.
 

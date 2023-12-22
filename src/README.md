@@ -11,7 +11,7 @@ This implentation is based on [TFix: Learning to Fix Coding Errors with a Text-t
 
 Create a virtual environment then install the requirements.
 ```
-python3 -m venv venv_pyty
+virtualenv -p /usr/bin/python3 venv_pyty
 source venv_pyty/bin/activate
 pip install -r requirements.txt
 ```
@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ## Dataset and Models
 - Python Type Fixes Dataset: `unzip Input.zip`.
-- TFix models: Download `data_and_models` from [TFix](https://github.com/eth-sri/TFix)
+- TFix models: Download and unzip `data_and_models.zip` from [TFix](https://drive.google.com/file/d/1CtfnYaVf-q6FZP5CUM4Wh7ofpp8b9ajW/view)
 
 <br/>
 
