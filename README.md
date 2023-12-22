@@ -1,5 +1,5 @@
-# PyTy: Statically Repairing Type Errors in Python
-PyTy is an automated program repair approach specifically designed for Python type errors. PyTy utilizes a learning-based model trained on a dataset of Python type error fixes.
+# PyTy: Repairing Static Type Errors in Python
+PyTy is an automated program repair approach specifically designed for Python type errors. PyTy utilizes a learning-based model trained on a dataset of Python type error fixes called PyTyDefects.
 
 ## Purpose
 Submission for ICSE 2024 Artifact:
@@ -7,15 +7,15 @@ Submission for ICSE 2024 Artifact:
 - Reusable Badge: We describe how to reproduce the paper's results using Docker and use the tool to fix new bugs in other repositories.
 
 ## Provenance
-- The source code and data are publicly available on Zenodo and GitHub: DOI and https://github.com/sola-st/PyTy.
+- The source code and data are publicly available on Zenodo and GitHub: DOI (TODO) and https://github.com/sola-st/PyTy.
 
-- As a timestamp, the last GitHub commit before submitting the artifact is: .
+- As a timestamp, the last GitHub commit before submitting the artifact is: (TODO).
 
 ## Data
-We also include the dataset we collected, named PyTyDefects. The full dataset in JSON format is available in the folder: ./src/Input.
+We also include the dataset we collected, named PyTyDefects. The full dataset in JSON format is available in the folder: ./src/Input. Each JSON file represents (TODO: explain).
 
 ## Setup
-- Hardware: To run the script in "FAST MODE", a normal computer suffices. For "SLOW MODE", we used (and recommend) a server with 250 GB RAM, 48 Intel Xeon CPU cores with 2.2Ghz and 1 NVIDIA Telta V100 GPU.
+- Hardware: To run the script in "FAST MODE", a normal computer suffices. For "SLOW MODE", we used (and recommend) a server with 250 GB RAM, 48 Intel Xeon CPU cores with 2.2Ghz and an NVIDIA Telta V100 GPU.
 - Software: 
   - Ubuntu OS 
   - Docker
@@ -27,6 +27,8 @@ We also include the dataset we collected, named PyTyDefects. The full dataset in
     ```
 
 ## Usage
+Enter the `PyTy` directory, i.e., the directory of this repository.
+ 
 Setup of Docker from the root of the repository:
   ```
       docker build -t icse2024 .
