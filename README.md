@@ -9,7 +9,7 @@ Submission for ICSE 2024 Artifact:
 ## Provenance
 - The source code and data are publicly available on Zenodo and GitHub: DOI (https://zenodo.org/records/10441045) and https://github.com/sola-st/PyTy.
 
-- As a timestamp, the last GitHub commit before submitting the artifact is: (TODO).
+- As a timestamp, the last GitHub commit before submitting the artifact is: 5207f1419724fd5a690cfa9e039678fca0773141.
 
 ## Data
 We include the dataset we collected, named PyTyDefects. The full dataset in JSON format is available in the folder: ./src/Input. Each JSON file represents a commit containing one or more type error fixes. The fixes are isolates using a variant of delta debugging. This dataset can be reused for other studies and approaches.
