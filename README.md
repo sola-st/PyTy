@@ -7,7 +7,7 @@ Submission for ICSE 2024 Artifact:
 - Reusable Badge: We describe how to reproduce the paper's results using Docker and use the tool to fix new bugs in other repositories.
 
 ## Provenance
-- The source code and data are publicly available on Zenodo and GitHub: DOI (TODO) and https://github.com/sola-st/PyTy.
+- The source code and data are publicly available on Zenodo and GitHub: DOI (https://zenodo.org/records/10441045) and https://github.com/sola-st/PyTy.
 
 - As a timestamp, the last GitHub commit before submitting the artifact is: (TODO).
 
@@ -93,7 +93,7 @@ We include the dataset we collected, named PyTyDefects. The full dataset in JSON
       Now you can run all the instructions above in the section 'FAST MODE'.
 
   - PERSONAL MODE
-    - Download our trained model from `http://u.pc.cd/22w7` and unzip it: `unzip ./src/t5base_final.zip`. Then, run the following commands from the folder `./src/`.
+    - Download our trained model from Zenodo `https://zenodo.org/records/10441045` (./src/t5base_final.zip) and unzip it: `unzip ./src/t5base_final.zip` (or download it from `https://github.com/sola-st/PyTy/releases`). Then, run the following commands from the folder `./src/`.
     - `docker run icse2024 python ./pyty_predict.py` is used to run PyTy on a type error and code snippet. If you have problem running SLOW MODE with Docker, you can try with the instructions contained in `./src/README.md` using `python virtualenv` (line 12, 21 and line 84).
     - The input is a JSON file with the following format:
         ``` 
