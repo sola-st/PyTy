@@ -111,7 +111,7 @@ We include the dataset we collected, named PyTyDefects. The full dataset in JSON
     - You can check the top 50 predictions from the terminal output.
 
     - If you have a problem running SLOW MODE with Docker, you can try:
-      - Create a virtual environment and then install the requirements:
+      - Create a virtual environment using Python 3.6 and then install the requirements:
         ```
         virtualenv -p /usr/bin/python3 venv_pyty
         source venv_pyty/bin/activate
