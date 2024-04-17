@@ -1,6 +1,25 @@
 # PyTy: Repairing Static Type Errors in Python
 PyTy is an automated program repair approach specifically designed for Python type errors. PyTy utilizes a learning-based model trained on a dataset of Python type error fixes called PyTyDefects.
 
+## Citation
+  ```
+    @inproceedings{10.1145/3597503.3639184,
+        author = {Chow, Yiu Wai and Di Grazia, Luca and Pradel, Michael},
+        title = {PyTy: Repairing Static Type Errors in Python},
+        year = {2024},
+        isbn = {9798400702174},
+        publisher = {Association for Computing Machinery},
+        address = {New York, NY, USA},
+        url = {https://doi.org/10.1145/3597503.3639184},
+        doi = {10.1145/3597503.3639184},
+        booktitle = {Proceedings of the IEEE/ACM 46th International Conference on Software Engineering},
+        articleno = {87},
+        numpages = {13},
+        keywords = {automatic program repair, type annotation, transfer learning},
+        series = {ICSE '24}
+    }
+  ```
+
 ## Purpose
 Submission for ICSE 2024 Artifact:
 - Available Badge: We provide the artifact with a permanent DOI from Zenodo and also maintain a public GitHub repository for the project.
